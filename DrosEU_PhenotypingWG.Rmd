@@ -1,0 +1,254 @@
+---
+title: "**DrosEU Phenotyping Working Group Updates **"
+author: "by Esra Durmaz Mitchell"
+date: "Last updated: `r format(Sys.Date())`"
+output: 
+  html_document:
+    toc: true
+    toc_depth: 4
+    toc_float: true
+    theme: cosmo  
+---
+
+
+# Phenotyping effort
+
+General information  
+How many labs  
+How many people  
+
+
+## Groningen 2017
+
+- Fly husbandry @ IGC
+
+- Phenotypes
+
+- Decision to be made 
+
+## Samples
+
+- Locations
+
+- Sampling 
+
+
+```{r cars}
+
+#Add samples map here, with people's names 
+
+```
+
+
+- Shipment to IGC
+
+- Establishing lines @ IGC
+
+
+## Phenotyping Call
+
+- A few criteria for phenotyping 
+
+- re : email to Elio about immunity 
+
+- Responders
+
+- Distribution of traits 
+
+- Shipment of flies
+
+- Phenotyping starts 
+
+```{r}
+
+#Add contributors map here 
+
+```
+
+
+# Phenotyping experiments 
+
+## Overview 
+
+List of traits in groups (JVieira's classification)
+
+## Life-histroy traits 
+
+### Viability
+
+Sonja Grath (S), Marina Stamenkovic-Radak (S), Katja Hoedjes (NS), Patricia Gibert (NS)
+
+### Developmental time
+
+Sonja Grath (S), Marina Stamenkovic-Radak (S), Katja Hoedjes (NS), Patricia Gibert (NS)
+
+### Fecundity
+
+Eran Tauber (S), Claudia Fricke (S), Jean-Christophe Billeter (NS) 
+
+### Lifespan
+
+Thomas Flatt (S), Elena Pasyukova (S), Amanda Glaser-Schmitt (NS), Eliza Argyridou (NS)
+
+## Size realated traits
+
+### Dry weight 
+
+Hervé Colinet (S), Eran Tauber (S), Banu Sebnem Onder (NS), Katja Hoedjes (NS)
+
+### Wing area
+
+Nico Posnien (S), Nicola Cook (S), Jean-Christophe Billeter (NS), Banu Sebnem Onder (NS)
+
+### Thorax length
+
+Nicola Cook (S), Nico Posnien (S), Iryna Kozeretska (NS), Patrícia Beldade (NS) 
+
+
+## Temperature related traits
+
+### Chill-coma recovery time
+
+Jorge Vieira (S), Elvira Lafuente (NS), Patricia Gibert (NS)
+
+### Cold-shock mortality
+
+Jorge Vieira (S), Pepi Gonzalez (S), Elvira Lafuente (NS), Iryna Kozeretska (NS) 
+
+### Diapause
+
+Thomas Flatt (S), Alan Bergland (S), Élio (NS) Manolis Lirakis (NS)
+
+### Heat-shock mortality
+
+Jorge Vieira (S), Joyce Kao (S), Amanda Glaser-Schmitt (NS), Eliza Argyridou (NS)
+
+
+## Other traits 
+
+### Starvation resistance
+
+Elena Pasyukova (S), Pepi Gonzalez (S), Banu Sebnem Onder (NS)
+
+### Pigmentation
+
+Alan Bergland (S), Jessica Abbott (S), Patrícia Beldade (NS), Patricia Gibert (NS)
+
+### Locomotor activity
+
+Eran Tauber (S), Jessica Abbott (S)
+
+
+# Methods
+
+Contributors and their experimental methods
+
+### Viability
+##### Gibert, Grath, Hoedjes, Schmidt, Stamenkovic-Radak and Zwaan Labs
+Patricia Gibert, Katja Hoedjes, Paul Schmidt, Marina Stamenkovic-Radak, Bas Zwann, ....
+
+### Developmental time
+#### Egg-to-pupa developmental time
+##### Schmidt Lab
+Paul Schmidt, .... 
+
+
+#### Egg-to-adult developmental time
+##### Gibert, Grath, Hoedjes, Schmidt, Stamenkovic-Radak and Zwaan Labs
+Patricia Gibert, Katja Hoedjes, Paul Schmidt, Marina Stamenkovic-Radak, Bas Zwann, .... 
+
+### Dry weight
+##### Colinet, Hoedjes and Onder Labs
+Herve Colinet, Katja Hoedjes, Banu Onder, .... 
+
+### Thorax length
+##### Kozeretska, Posnien, Ritchie and Schmidt Labs
+
+### Wing area
+##### Onder, Posnien, Ritchie and Stamenkovic-Radak Labs
+
+### Fecundity
+##### Billeter and Fricke Labs
+
+### Lifespan
+##### Flatt, Parsch and Pasyukova Labs
+Esra Durmaz, Envel Kerdaffrec, TBO, Virginie, John Parsch, Amanda, Eliza, Lena Pasyukova, Alexander 
+
+### Cold-shock mortality
+##### Gonzalez, Kozeretska and Vieira Labs
+
+### Chill-coma recovery time
+##### Vieira and Mensh Labs
+
+### Heat-shock mortality
+##### Parsch and Vieira Labs
+
+### Diapause
+##### Bergland, Flatt and Schlotterer Labs
+
+### Circadian eclosion timing
+##### Wegener Lab
+
+### Locomotor activity
+##### Tauber Lab
+
+### Starvation resistance
+##### Gonzalez, Onder and Pasyukova Labs
+
+### Pigmentation
+##### Abbott, Gibert and Schmidt
+
+
+
+# Results
+
+### Viability
+##### Gibert, Grath, Hoedjes, Schmidt, Stamenkovic-Radak and Zwaan Labs
+
+### Developmental time
+#### Egg-to-pupa developmental time
+##### Schmidt Lab
+
+#### Egg-to-adult developmental time
+##### Gibert, Grath, Hoedjes, Schmidt, Stamenkovic-Radak and Zwaan Labs
+
+### Dry weight
+##### Colinet, Hoedjes and Onder Labs
+
+### Thorax length
+##### Kozeretska, Posnien, Ritchie and Schmidt Labs
+
+### Wing area
+##### Onder, Posnien, Ritchie and Stamenkovic-Radak Labs
+
+### Fecundity
+##### Billeter and Fricke Labs
+
+### Lifespan
+##### Flatt, Parsch and Pasyukova Labs
+
+### Cold-shock mortality
+##### Gonzalez, Kozeretska and Vieira Labs
+
+### Chill-coma recovery time
+##### Vieira and Mensh Labs
+
+### Heat-shock mortality
+##### Parsch and Vieira Labs
+
+### Diapause
+##### Bergland, Flatt and Schlotterer Labs
+
+### Circadian eclosion timing
+##### Wegener Lab
+
+### Locomotor activity
+##### Tauber Lab
+
+### Starvation resistance
+##### Gonzalez, Onder and Pasyukova Labs
+
+### Pigmentation
+##### Abbott, Gibert and Schmidt
+
+
