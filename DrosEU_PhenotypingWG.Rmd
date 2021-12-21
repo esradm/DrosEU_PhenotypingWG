@@ -11,7 +11,7 @@ output:
 ---
 
 
-# Phenotyping effort
+# Phenotyping effort 
 
 General information  
 How many labs  
@@ -145,9 +145,19 @@ Contributors and their experimental methods
 
 ### Viability
 ##### Gibert, Grath, Hoedjes, Schmidt, Stamenkovic-Radak and Zwaan Labs
-Patricia Gibert, Katja Hoedjes, Paul Schmidt, Marina Stamenkovic-Radak, Bas Zwann, ....
+
+_Contributors : Patricia Gibert, Sonja Grath, Paul Schmidt, Marina Stamenkovic-Radak, Bas Zwann, Joost van den Heuvel, Vieira Cristina, Mouton Laurence, Kremer Natacha, Martinez Sonia, Ingo Müller, Hristina Kostic, Amy Goldfischer, Paul Schmidt, Ozan Kiratli, Yonatan Babore, Liam Forsythe, Marija Savic Veselinovic, Marija Tanaskovic, Aleksandra Patenkovic, Mihailo Jelic, Katarina Eric, Pavle Eric, Slobodan Davidovic_
+
+
+3-5 day old adults (at least 25 pairs) are allowed to lay eggs en masse. Yeast is provided to stimulate egg laying (for at least 2 hours). Eggs are collected, and 40 are placed in each vial. Viability is calculated per vial, as the percentage of individuals that emerged from the 40 eggs.
+
+Please see below number of 
+
+_Add methods for Schmidt Lab_
+_Replicate vials_  
 
 ### Developmental time
+
 #### Egg-to-pupa developmental time
 ##### Schmidt Lab
 Paul Schmidt, .... 
@@ -156,35 +166,87 @@ Paul Schmidt, ....
 #### Egg-to-adult developmental time
 ##### Gibert, Grath, Hoedjes, Schmidt, Stamenkovic-Radak and Zwaan Labs
 Patricia Gibert, Katja Hoedjes, Paul Schmidt, Marina Stamenkovic-Radak, Bas Zwann, .... 
+Developmental time is scored as both the egg-to-pupa and egg-to-adult development time. Both were scored twice a day, when the chamber lights are turned on and two hours before they are turned off. In order to measure the egg-to-pupa developmental time, the spot where a pupa is found is marked with a permanent marker to keep track of which pupae have emerged in each day. The egg-to-adult developmental time is estimated by counting all emerged adults from the vial, and by sexing them.
+
 
 ### Dry weight
 ##### Colinet, Hoedjes and Onder Labs
 Herve Colinet, Katja Hoedjes, Banu Onder, .... 
 
+
+At day 7 after emergence, flies are killed by snap freezing them in liquid nitrogen, by putting them at -20ºC or by putting them into an ethyl acetate solution and stored at -20ºC. Then they are sexed and placed into 96 wells plates, and placed in an oven set at 60-70 °C, for at least 3 days. At this point flies can be stored at room temperature using a protective cover. If this is the case, the day before measurements are made dry flies are again placed for 24h in the oven (60-70 °C) to ensure material is well dehydrated. Flies are then placed on a small piece of aluminium foil for direct weight measurement on microbalance (accuracy 1µg).
+
+
 ### Thorax length
 ##### Kozeretska, Posnien, Ritchie and Schmidt Labs
+
+Five to seven days old flies are placed onto a double-sided sticky tape attached to a microscope slide and a picture of the thorax taken using a digital camera connected to a dissecting microscope. The same magnification and resolution is always used to increase reproducibility, and a scale bar inserted on each photo to allow transforming pixels into µm units. Thorax length is defined as the distance from the anterior margin of the thorax to the posterior tip of the scutellum and it is measured using the “Straight Line” in ImageJ/Fiji.
+
 
 ### Wing area
 ##### Onder, Posnien, Ritchie and Stamenkovic-Radak Labs
 
+Both the left and right wings of five to seven days old flies (10 flies per sex per replicate) are removed and placed into a drop of Entellan®Merck, Hoyer’s Medium, sticked to a double-side sticky tape, or taped directly to the slide. Pictures of the wing preparations are taken using a digital camera connected to a dissecting microscope. The same magnification and resolution is always used to increase reproducibility. A scale bar is placed on each photo to allow transforming pixels into µm units. Manual measurements of wing length and wing area are performed using the “Straight Line” and “Polygon Selection” tools, respectively of ImageJ/Fiji (10.1371/journal.pone.0000007).
+
+
 ### Fecundity
 ##### Billeter and Fricke Labs
+
+For each isofemale line, 10 males and 10 females are placed together in single-sex groups and allowed to mature for five days. Then, they are placed together (5-7 pairs), and mating interactions observed to ensure successful mating (at least 10 min copulation duration) to ensure that we have five successfully mated females. After a successful mating, males are discarded and females allowed to oviposit alone for 48 hours, moved to another vial, and allowed to oviposit for four days, and again moved to another vial and allowed to oviposit for two days to check that of egg-laying stopped. Vials are incubated until all offspring is born. Individuals are then frozen and the offspring counted.
+
 
 ### Lifespan
 ##### Flatt, Parsch and Pasyukova Labs
 Esra Durmaz, Envel Kerdaffrec, TBO, Virginie, John Parsch, Amanda, Eliza, Lena Pasyukova, Alexander 
 
+Line level lifespan: Ten flies per sex/line are placed in each vial. The age at death will be scored when changing the food, at least three times a week. Five replicates are used.
+
+Population level lifespan: Flies are kept in 1L demography cages (5 flies per line/sex for each population). The age at death will be scored when changing the food, at least three times a week. Ten replicates were performed.
+
+
 ### Cold-shock mortality
 ##### Gonzalez, Kozeretska and Vieira Labs
+
+Batches of 15-20 seven days old flies are placed for 18 hours in an empty vial immersed in an ice-water slurry box placed at a 4°C room for 18 hours. Then the vials are removed to a bench in a 25°C room and mortality scored 24 hours later.
+
 
 ### Chill-coma recovery time
 ##### Vieira and Mensh Labs
 
+Sexed flies are placed in an empty vial immersed in an ice-water slurry box placed at a 4°C room in the morning. Six hours later, flies are removed from the tube to individual wells of 24 well plates while being kept on ice. A timer is started once the plate is moved from the ice to a bench in a 25°C room. Each fly is checked by eye for recovery for a maximum of 60 minutes. Flies that are able to stand on their legs are considered recovered and the CCRT (in seconds) recorded.
+
+
 ### Heat-shock mortality
 ##### Parsch and Vieira Labs
 
+Batches of 15-20 seven days old flies are placed in empty vials inside a 37ºC incubator and mortality checked for 7 hours every 30 minutes.
+
+
 ### Diapause
 ##### Bergland, Flatt and Schlotterer Labs
+
+In order to induce diapause, two hour old 'phenotypic virgins' (pharate or melanized with meconium visible) female flies are exposed to 12°C and 10:14 light/dark hours for 3 weeks, using an incubator that allows temperature tracking. Vials are changed once per week. After three weeks under diapause conditions, flies are frozen at -80C until dissection. Both ovaries will be examined and classified according to the following simplified 'classification': 1) < stage 10: diapause; 2) stage 10-13: intermediate; 3) stage 14: non-diapause.
+
+
+- Standard diapause conditions: 12°C at 10:14 hrs L:D (under these conditions we might expect around 50% dipause frequency)
+- duration of exposure: 3 weeks
+- assays will be done in incubators (Percival or Memmert); temperature conditions will be tracked using data loggers / iButtons
+- Try to have haphazard standardization; similar conditions coupled with consistent tracking of temperature (multiple iButtons, for example)
+- We will use egg lays in bottles to be able to collect more flies for the assay (approx. 1-2 bottles per line)
+- Larval density will be controlled (approximately) prior to assays: we will do this by letting a fixed number of (approx. 10-20) females (housed together with 5-10 males) oviposit over night (fixed time window) - how many females and the duration of egg laying might need to be adjusted a bit depending on the fertility of the lines (to be determined when lines are being amplified prior to assays)
+- The Bergland and Flatt labs will standardize their fly food according to the Gulbenkian recipe (in terms of amounts / proportions); Manolis from the Schlötterer lab will not standardize the food and use their local diet; importantly, flies for the assays will not be exposed to any (additional) live yeast (i.e., the diet will contain liophilized yeast but no live yeast sprinkled on top).
+- From the bottles we will collect upon eclosion 'phenotypic virgins' (=pharate adults or melanized with meconium visible), approx. within 2 hours after eclosion
+- Flies will be kept in vials for assay (15-20 flies in the same vial to account for mortality); we aim to measure a minimum of 10 females per line (from approx. 10-15 lines x 10 populations, yielding about 1000-1500 flies for dissections in total)
+- The food in the assays will be changed once per week
+- To keep the workload and effort manageable the assays will be performed in 2-3 blocks (optimally only 2) over time: e.g., from each population we will measure a subset of all lines (e.g., 5-7 lines, i.e. 1/2 or 1/3 of all lines) in each of the 2-3 blocks. 
+- After 3 weeks under diapause conditions, flies will either be dissected or kept frozen until dissection (dry, at -80C; can be stored for a few months) 
+- We will adopt a simplified diapause 'classification':
+- Stage 10 will be defined as the checkpoint
+- < Stage 10: diapause
+- Stage 10-13: intermediate
+- Stage 14: non-diapause
+- We will examine both ovaries.
+
 
 ### Circadian eclosion timing
 ##### Wegener Lab
@@ -192,18 +254,61 @@ Esra Durmaz, Envel Kerdaffrec, TBO, Virginie, John Parsch, Amanda, Eliza, Lena P
 ### Locomotor activity
 ##### Tauber Lab
 
+The locomotor activity of the flies (males only) was measured using the DAM2 Drosophila monitors (Trikinetics Inc., Waltham, MA). Flies were 1-3 days old. Single flies were placed in glass tubes (10 cm × 0.5 cm) that were filled with 2 cm sugar/agar medium. The monitors were placed in light chambers driven by LED,  in an incubator at 24°C, ~30% humidity. The flies were entrained to a light-dark cycle (LD 12:12) for 5d and then allowed to free-run for 10 d in constant darkness (DD). The activity data were processed into 30 min bins, and four different variables were analysed. These included the circadian period, and the phase, which were analyzed using the FFT NLLS algorithm available at the BioDare2 server (https://biodare2.ed.ac.uk/). The other two variables, level of activity and the nocturnal/diurnal ratio were analyzed by a custom-made R script.
+ 
+
 ### Starvation resistance
 ##### Gonzalez, Onder and Pasyukova Labs
+
+Batches of 10 sexed flies are transferred to glass vials filled with 5 mL of 2% agar for starvation 3-7 days after eclosion. The age at death will be scored every 8 hours.
 
 ### Pigmentation
 ##### Abbott, Gibert and Schmidt
 
+For each line, 10 females, 13-15 days old, either alive or stored in 95% ethanol, are air dried and placed on their left side, and pictures taken using a dissecting microscope. Images are then analysed in ImageJ 1.46r, using the Area Fraction measurement in the Analyze menu. Area Fraction measures the percentage of pixels in a selected area that have been highlighted in red using the Threshold tool. This gives an estimate of the percentage of dark pigmentation on the three terminal tergites of the abdomen (4, 5 and 6). 
 
+# Data reformatting 
+
+MasterSheets 
+
+_Insert a MasterSheet example_
 
 # Results
 
+## Data check
+
+For each trait, sex and lab, we run counts for population, line and replicate vial (if applicable).
+
+```{r, echo=FALSE}
+localgit <- "/Users/durmazm/Documents/GitHub/DrosEU_PhenotypingWG/"
+
+```
+
+```{r}
+setwd(localgit)
+```
+
+## Data reformatting
+_Insert lists_
+
 ### Viability
 ##### Gibert, Grath, Hoedjes, Schmidt, Stamenkovic-Radak and Zwaan Labs
+
+```{r}
+d_Via <- read.csv("MasterSheets_Oct21_git/VIA_MasterSheet_Oct21.csv")
+str(d_Via)
+```
+
+
+```{r}
+d_Via$Supervisor.PI <- as.factor(d_Via$Supervisor.PI)
+d_Via$Diet <- as.factor(d_Via$Diet)
+d_Via$Batch <- as.factor(d_Via$Batch)
+d_Via$Population <- factor(d_Via$Population)
+d_Via$Line <- as.factor(d_Via$Line)
+d_Via$ReplicateVial <- as.factor(d_Via$ReplicateVial)
+d_Via$ProportionEggtoAdultSurvival <- as.numeric(d_Via$ProportionEggtoAdultSurvival)
+```
 
 ### Developmental time
 #### Egg-to-pupa developmental time
@@ -250,5 +355,4 @@ Esra Durmaz, Envel Kerdaffrec, TBO, Virginie, John Parsch, Amanda, Eliza, Lena P
 
 ### Pigmentation
 ##### Abbott, Gibert and Schmidt
-
 
