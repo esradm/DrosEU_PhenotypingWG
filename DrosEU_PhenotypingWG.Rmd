@@ -280,7 +280,7 @@ _Insert a MasterSheet example_
 For each trait, sex and lab, we run counts for population, line and replicate vial (if applicable).
 
 
-# Results
+# Results I : Linear Models 
 
 
 ```{r, echo=FALSE}
@@ -702,3 +702,20 @@ invisible(dev.off())
 
 ### Lab correlations
 
+
+# Results II : Meta-Analyses
+
+## with Diet 
+## with Wolbachia
+
+# Results III : Trait Correlations
+
+## Stress related traits
+## Temperature related traits
+## Size related traits
+
+# Results III : Qst - Fst 
+
+# Results IV : Environmental Variables 
+
+# Results V : Heritability
