@@ -7,7 +7,7 @@ output:
     toc: true
     toc_depth: 4
     toc_float: true
-    theme: cosmo  
+    theme: yeti  
 ---
 
 
@@ -141,6 +141,7 @@ Eran Tauber (S), Jessica Abbott (S)
 
 # Methods
 
+## Phenotyping 
 Contributors and their experimental methods
 
 ### Viability
@@ -267,17 +268,20 @@ Batches of 10 sexed flies are transferred to glass vials filled with 5 mL of 2% 
 
 For each line, 10 females, 13-15 days old, either alive or stored in 95% ethanol, are air dried and placed on their left side, and pictures taken using a dissecting microscope. Images are then analysed in ImageJ 1.46r, using the Area Fraction measurement in the Analyze menu. Area Fraction measures the percentage of pixels in a selected area that have been highlighted in red using the Threshold tool. This gives an estimate of the percentage of dark pigmentation on the three terminal tergites of the abdomen (4, 5 and 6). 
 
-# Data reformatting 
+## Data reformatting 
 
 MasterSheets 
 
 _Insert a MasterSheet example_
 
-# Results
 
-## Data check
+### Data check
 
 For each trait, sex and lab, we run counts for population, line and replicate vial (if applicable).
+
+
+# Results
+
 
 ```{r, echo=FALSE}
 localgit <- "/Users/durmazm/Documents/GitHub/DrosEU_PhenotypingWG/"
@@ -288,71 +292,413 @@ localgit <- "/Users/durmazm/Documents/GitHub/DrosEU_PhenotypingWG/"
 setwd(localgit)
 ```
 
-## Data reformatting
+```{r echo=TRUE, message=FALSE}
+
+library(ggplot2)
+library(dplyr)
+library(plyr)
+library(tibble)
+library(ggpubr)
+library(multcompView)
+library(hrbrthemes)
+library(tidyverse)
+library(rworldmap)
+library(maps)
+#library(rnaturalearth)
+library(maptools)
+library(rgeos)
+library(qwraps2)
+library(afex)
+library(Hmisc)
+library(lme4)
+library(nlme)
+library(multcomp)
+library(emmeans)
+library(coxme)
+library(ggpubr)
+library(knitr)
+```
+
+
+## Viability
+
+Contributors: Gibert, Grath, Hoedjes, Schmidt, Stamenkovic-Radak and Zwaan Labs
+
+### Data reformatting
 _Insert lists_
 
-### Viability
-##### Gibert, Grath, Hoedjes, Schmidt, Stamenkovic-Radak and Zwaan Labs
-
+**Read data in R**
 ```{r}
 d_Via <- read.csv("MasterSheets_Oct21_git/VIA_MasterSheet_Oct21.csv")
 str(d_Via)
 ```
 
+Factors need reformatting (i.e. Supervisor.PI should be coded as a factor, not character).
 
 ```{r}
+str(d_Via)
 d_Via$Supervisor.PI <- as.factor(d_Via$Supervisor.PI)
 d_Via$Diet <- as.factor(d_Via$Diet)
 d_Via$Batch <- as.factor(d_Via$Batch)
-d_Via$Population <- factor(d_Via$Population)
+d_Via$Population_Lat <- factor(d_Via$Population, levels= c("YE","RE","GI","MU","MA","UM","KA","VA","AK"))
+d_Via$Population_Lon <- factor(d_Via$Population, levels= c("RE","GI","KA","MU","MA","AK","UM","YE","VA"))
+d_Via$Population_Alt <- factor(d_Via$Population, levels= c("KA","AK","GI","RE","UM","VA","MU","MA","YE"))
 d_Via$Line <- as.factor(d_Via$Line)
 d_Via$ReplicateVial <- as.factor(d_Via$ReplicateVial)
 d_Via$ProportionEggtoAdultSurvival <- as.numeric(d_Via$ProportionEggtoAdultSurvival)
+d_Via$Country <- as.factor(d_Via$Country)
+d_Via$Latitude <- as.numeric(d_Via$Latitude)
+d_Via$Longitude <- as.numeric(d_Via$Longitude)
+d_Via$Altitude <- as.numeric(d_Via$Altitude)
 ```
 
-### Developmental time
-#### Egg-to-pupa developmental time
+Now they should be in the correct format, see below. 
+```{r}
+str(d_Via)
+```
+
+
+### Descriptive Statistics
+
+Define standard error and coefficient of variation : 
+
+```{r, echo=TRUE}
+std_err <- function(x) sd(x)/sqrt(length(x))
+coef_var <- function(x) sd(x)/mean(x)
+estimate_mode <- function(v) {
+   uniqv <- unique(v)
+   uniqv[which.max(tabulate(match(v, uniqv)))]
+}
+```
+
+Tables for descriptive statistics at population and line level : 
+```{r}
+table_Via_Line <- write.csv(d_Via %>% group_by(Supervisor.PI, Batch, Population, Line) %>% summarise_at(vars(ProportionEggtoAdultSurvival), list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, SE = std_err, CV = coef_var, Mode = estimate_mode)), file = "table_Via_Line.csv", row.names = T)
+```
+
+```{r}
+table_Via_Line
+```
+
+
+```{r}
+table_Via_Pop <- write.csv(d_Via %>% group_by(Supervisor.PI, Batch, Population) %>% summarise_at(vars(ProportionEggtoAdultSurvival), list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, SE = std_err, CV = coef_var, Mode = estimate_mode)), file = "table_Via_Pop.csv", row.names = T)
+```
+
+
+```{r}
+table_Via_Pop
+```
+
+
+### Plots and Linear Models by Lab
+
+**ggplot theme:**  
+```{r}
+droseu_theme <- theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), panel.background = element_blank(), axis.line = element_line(colour = "black",),  axis.title.x = element_text(size = 16), axis.text.x = element_text(size = 16),axis.text.y = element_text(size = 16),axis.title.y = element_text(size = 16))
+
+```
+
+Data range is calculated with min and max functions :
+
+```{r, echo=TRUE}
+min_Via <- min(d_Via$ProportionEggtoAdultSurvival)
+max_Via <- max(d_Via$ProportionEggtoAdultSurvival)
+```
+
+
+y-axis is scaled by the minimum (`r min_Via`) and maximum (`r max_Via`) values in the full data set. 
+
+Here is an example code for viability, Schmidt Lab. The same code is used to generate plots for other contributing labs by filtering the data at supervisor level (for females and males, if applicable). 
+
+#### Schmidt Lab
+```{r, echo=TRUE}
+pdf(file="p_Via_Schmidt.pdf",width=8, height=5)
+p_Via_Schmidt <- ggplot(data = (subset(d_Via,Supervisor.PI=='Schmidt')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Batch)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_Via_Schmidt", x="Population", y = "ProportionEggtoAdultSurvival")
+```
+
+
+```{r, echo=FALSE, message= FALSE, warning=FALSE}
+p_Via_Schmidt + coord_cartesian(ylim = c(min_Via, max_Via))+ droseu_theme
+invisible(dev.off())
+```
+
+#### Stamenkovic-Radak Lab
+
+```{r, echo=FALSE, message= FALSE, warning=FALSE}
+pdf(file="p_Via_StamenkovicRadak.pdf",width=8, height=5)
+p_Via_StamenkovicRadak <- ggplot(data = (subset(d_Via,Supervisor.PI=='StamenkovicRadak')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Batch)) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
+        labs(title="p_Via_StamenkovicRadak", x="Population", y = "ProportionEggtoAdultSurvival")
+```
+
+
+```{r, echo=FALSE, message= FALSE, warning=FALSE}
+p_Via_StamenkovicRadak + coord_cartesian(ylim = c(0, 1))+ droseu_theme
+invisible(dev.off())
+```
+
+
+#### Zwaan Lab
+
+```{r, echo=FALSE, message= FALSE, warning=FALSE}
+pdf(file="p_Via_Zwaan.pdf",width=8, height=5)
+p_Via_Zwaan <- ggplot(data = (subset(d_Via,Supervisor.PI=='Zwaan')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Batch)) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
+        labs(title="p_Via_Zwaan", x="Population", y = "ProportionEggtoAdultSurvival")
+```
+
+
+```{r, echo=FALSE, message= FALSE, warning=FALSE}
+p_Via_Zwaan + coord_cartesian(ylim = c(0, 1))+ droseu_theme
+invisible(dev.off())
+```
+
+
+#### Hoedjes Lab
+
+```{r, echo=FALSE, message= FALSE, warning=FALSE}
+pdf(file="p_Via_Hoedjes.pdf",width=8, height=5)
+p_Via_Hoedjes <- ggplot(data = (subset(d_Via,Supervisor.PI=='Hoedjes')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Batch)) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
+        labs(title="p_Via_Hoedjes", x="Population", y = "ProportionEggtoAdultSurvival")
+```
+
+
+```{r, echo=FALSE, message= FALSE, warning=FALSE}
+p_Via_Hoedjes + coord_cartesian(ylim = c(0, 1))+ droseu_theme
+invisible(dev.off())
+```
+
+
+#### Grath Lab
+
+```{r, echo=FALSE, message= FALSE, warning=FALSE}
+pdf(file="p_Via_Grath.pdf",width=8, height=5)
+p_Via_Grath <- ggplot(data = (subset(d_Via,Supervisor.PI=='Grath')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Batch)) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
+        labs(title="p_Via_Grath", x="Population", y = "ProportionEggtoAdultSurvival")
+```
+
+
+```{r, echo=FALSE, message= FALSE, warning=FALSE}
+p_Via_Grath + coord_cartesian(ylim = c(0, 1))+ droseu_theme
+invisible(dev.off())
+```
+
+#### Gibert Lab
+
+```{r, echo=FALSE, message= FALSE, warning=FALSE}
+pdf(file="p_Via_Gibert.pdf",width=8, height=5)
+p_Via_Gibert <- ggplot(data = (subset(d_Via,Supervisor.PI=='Gibert')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Batch)) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
+        labs(title="p_Via_Gibert", x="Population", y = "ProportionEggtoAdultSurvival")
+```
+
+```{r, echo=FALSE, message= FALSE, warning=FALSE}
+p_Via_Gibert + coord_cartesian(ylim = c(0, 1))+ droseu_theme
+invisible(dev.off())
+```
+
+
+```{r}
+```
+### Lab correlations
+
+## Developmental time
+
+### Egg-to-pupa developmental time
+
+#### Data Reformatting
+#### Descriptive Statistics
+#### Plots and Linear Models by Lab
+
 ##### Schmidt Lab
 
-#### Egg-to-adult developmental time
-##### Gibert, Grath, Hoedjes, Schmidt, Stamenkovic-Radak and Zwaan Labs
+### Egg-to-adult developmental time
 
-### Dry weight
-##### Colinet, Hoedjes and Onder Labs
+#### Data Reformatting
+#### Descriptive Statistics
+#### Plots and Linear Models by Lab
 
-### Thorax length
-##### Kozeretska, Posnien, Ritchie and Schmidt Labs
+##### Gibert Lab
+##### Grath Lab
+##### Hoedjes Lab
+##### Schmidt Lab
+##### Stamenkovic-Radak Lab
+##### Zwaan Lab
 
-### Wing area
-##### Onder, Posnien, Ritchie and Stamenkovic-Radak Labs
+#### Lab correlations
 
-### Fecundity
-##### Billeter and Fricke Labs
+## Dry weight
 
-### Lifespan
-##### Flatt, Parsch and Pasyukova Labs
+### Data Reformatting
+### Descriptive Statistics
+### Plots and Linear Models by Lab
 
-### Cold-shock mortality
-##### Gonzalez, Kozeretska and Vieira Labs
+#### Colinet Lab
+#### Hoedjes Lab 
+#### Onder Lab
 
-### Chill-coma recovery time
-##### Vieira and Mensh Labs
+### Lab correlations
 
-### Heat-shock mortality
-##### Parsch and Vieira Labs
+## Thorax length
 
-### Diapause
-##### Bergland, Flatt and Schlotterer Labs
+### Data Reformatting
+### Descriptive Statistics
+### Plots and Linear Models by Lab
 
-### Circadian eclosion timing
-##### Wegener Lab
+#### Kozeretska Lab
+#### Posnien Lab 
+#### Ritchie Lab
+#### Schmidt Lab
 
-### Locomotor activity
-##### Tauber Lab
+### Lab correlations
 
-### Starvation resistance
-##### Gonzalez, Onder and Pasyukova Labs
+## Wing area - Right
 
-### Pigmentation
-##### Abbott, Gibert and Schmidt
+### Data Reformatting
+### Descriptive Statistics
+### Plots and Linear Models by Lab
+
+#### Onder Lab
+#### Posnien Lab 
+#### Ritchie Lab
+#### Stamenkovic-Radak Lab
+
+### Lab correlations
+
+## Wing area - Left
+
+### Data Reformatting
+### Descriptive Statistics
+### Plots and Linear Models by Lab
+
+#### Onder Lab
+#### Posnien Lab 
+#### Ritchie Lab
+#### Stamenkovic-Radak Lab
+
+### Lab correlations
+
+## Fecundity
+
+### Data Reformatting
+### Descriptive Statistics
+### Plots and Linear Models by Lab
+
+#### Billeter Lab
+#### Fricke Lab 
+
+### Lab correlations
+
+## Lifespan
+
+### Data Reformatting
+### Descriptive Statistics
+### Plots and Linear Models by Lab
+
+#### Flatt Lab
+#### Parsch Lab 
+#### Pasyukova Lab
+
+### Survival Analyses
+
+#### Flatt Lab
+#### Parsch Lab 
+#### Pasyukova Lab
+
+### Lab correlations
+
+## Cold-shock mortality
+
+### Data Reformatting
+### Descriptive Statistics
+### Plots and Linear Models by Lab
+
+#### Gonzalez Lab
+#### Kozeretska Lab 
+#### Vieira Lab
+
+### Lab correlations
+
+## Chill-coma recovery time
+
+### Data Reformatting
+### Descriptive Statistics
+### Plots and Linear Models by Lab
+
+#### Vieira Lab
+#### Mensh Lab 
+
+### Lab correlations
+
+## Heat-shock mortality
+
+### Data Reformatting
+### Descriptive Statistics
+### Plots and Linear Models by Lab
+
+#### Parsch Lab
+#### Vieira Lab 
+
+### Lab correlations
+
+## Diapause
+
+### Data Reformatting
+### Descriptive Statistics
+### Plots and Linear Models by Lab
+
+#### Bergland Lab
+#### Flatt Lab 
+#### Schlotterer Lab
+
+### Lab correlations
+
+## Circadian eclosion timing
+
+### Data Reformatting
+### Descriptive Statistics
+### Plots and Linear Models by Lab
+
+#### Wegener Lab
+
+## Locomotor activity
+
+### Data Reformatting
+### Descriptive Statistics
+### Plots and Linear Models by Lab
+
+#### Tauber Lab
+
+## Starvation resistance
+
+### Data Reformatting
+### Descriptive Statistics
+### Plots and Linear Models by Lab
+
+#### Gonzalez Lab
+#### Onder Lab 
+#### Pasyukova Lab
+
+### Survival Analyses
+
+#### Gonzalez Lab
+#### Onder Lab 
+#### Pasyukova Lab
+
+### Lab correlations
+
+## Pigmentation
+
+### Data Reformatting
+### Descriptive Statistics
+### Plots and Linear Models by Lab
+
+#### Abbott Lab
+#### Gibert Lab 
+#### Schmidt Lab
+
+### Lab correlations
 
