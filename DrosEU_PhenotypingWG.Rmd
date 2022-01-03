@@ -409,27 +409,50 @@ max_Via <- max(d_Via$ProportionEggtoAdultSurvival)
 
 y-axis is scaled by the minimum (`r min_Via`) and maximum (`r max_Via`) values in the full data set. 
 
-Here is an example code for viability, Schmidt Lab. The same code is used to generate plots for other contributing labs by filtering the data at supervisor level (for females and males, if applicable). 
+Here is an example code for egg-to-adult viability, Schmidt Lab. The same code is used to generate plots for other contributing labs by filtering the data at supervisor level (for females and males, if applicable). 
 
 #### Schmidt Lab
-```{r, echo=TRUE}
+```{r, echo=FALSE, message= FALSE, warning=FALSE}
 pdf(file="p_Via_Schmidt.pdf",width=8, height=5)
 p_Via_Schmidt <- ggplot(data = (subset(d_Via,Supervisor.PI=='Schmidt')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Batch)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_Via_Schmidt", x="Population", y = "ProportionEggtoAdultSurvival")
 ```
-
 
 ```{r, echo=FALSE, message= FALSE, warning=FALSE}
 p_Via_Schmidt + coord_cartesian(ylim = c(min_Via, max_Via))+ droseu_theme
 invisible(dev.off())
 ```
 
+```{r, echo=FALSE, message= FALSE, warning=FALSE}
+pdf(file="p_Via_pop_Schmidt.pdf",width=8, height=5)
+p_Via_pop_Schmidt <- ggplot(data = (subset(d_Via,Supervisor.PI=='Schmidt')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Population)) +geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_Via_pop_Schmidt", x="Population", y = "ProportionEggtoAdultSurvival") 
+dev.off()
+```
+
+```{r, echo=FALSE, message= FALSE, warning=FALSE}
+p_Via_pop_Schmidt + coord_cartesian(ylim = c(min_Via, max_Via))+ droseu_theme
+invisible(dev.off())
+```
+
+```{r, echo=FALSE, message= FALSE, warning=FALSE}
+Via_lmer_Schmidt <- lm(ProportionEggtoAdultSurvival ~ Population, data = d_Via[d_Via$Supervisor.PI == "Schmidt",])
+capture.output(summary(Via_lmer_Schmidt),file = "Via_lmer_Schmidt_sum.txt")
+capture.output(anova(Via_lmer_Schmidt),file = "Via_lmer_Schmidt.txt")
+capture.output(emmeans(Via_lmer_Schmidt, list(pairwise ~ Population), adjust = "tukey"),file = "Via_lmer_Schmidt_tk.txt")
+```
+
+```{r}
+anova(Via_lmer_Schmidt)
+```
+
+```{r}
+summary(Via_lmer_Schmidt)
+```
+
 #### Stamenkovic-Radak Lab
 
 ```{r, echo=FALSE, message= FALSE, warning=FALSE}
 pdf(file="p_Via_StamenkovicRadak.pdf",width=8, height=5)
-p_Via_StamenkovicRadak <- ggplot(data = (subset(d_Via,Supervisor.PI=='StamenkovicRadak')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Batch)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-        labs(title="p_Via_StamenkovicRadak", x="Population", y = "ProportionEggtoAdultSurvival")
+p_Via_StamenkovicRadak <- ggplot(data = (subset(d_Via,Supervisor.PI=='StamenkovicRadak')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Batch)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_Via_StamenkovicRadak", x="Population", y = "ProportionEggtoAdultSurvival")
 ```
 
 
@@ -438,14 +461,38 @@ p_Via_StamenkovicRadak + coord_cartesian(ylim = c(0, 1))+ droseu_theme
 invisible(dev.off())
 ```
 
+```{r, echo=FALSE, message= FALSE, warning=FALSE}
+pdf(file="p_Via_pop_StamenkovicRadak.pdf",width=8, height=5)
+p_Via_pop_StamenkovicRadak <- ggplot(data = (subset(d_Via,Supervisor.PI=='StamenkovicRadak')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Population)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_Via_pop_StamenkovicRadak", x="Population", y = "ProportionEggtoAdultSurvival") 
+```
+
+
+```{r, echo=FALSE, message= FALSE, warning=FALSE}
+p_Via_pop_StamenkovicRadak + coord_cartesian(ylim = c(0, 1))+ droseu_theme
+invisible(dev.off())
+```
+
+```{r, echo=FALSE, message= FALSE, warning=FALSE}
+Via_lmer_StamenkovicRadak <- lmer(ProportionEggtoAdultSurvival ~ Population + (1|Line:Population)+ (1|Batch), data = d_Via[d_Via$Supervisor.PI == "StamenkovicRadak",])
+capture.output(summary(Via_lmer_StamenkovicRadak),file = "Via_lmer_StamenkovicRadak_sum.txt")
+capture.output(anova(Via_lmer_StamenkovicRadak),file = "Via_lmer_StamenkovicRadak.txt")
+capture.output(emmeans(Via_lmer_StamenkovicRadak, list(pairwise ~ Population), adjust = "tukey"),file = "Via_lmer_StamenkovicRadak_tk.txt")
+```
+
+```{r}
+anova(Via_lmer_StamenkovicRadak)
+```
+
+```{r}
+summary(Via_lmer_StamenkovicRadak)
+```
+
 
 #### Zwaan Lab
 
 ```{r, echo=FALSE, message= FALSE, warning=FALSE}
 pdf(file="p_Via_Zwaan.pdf",width=8, height=5)
-p_Via_Zwaan <- ggplot(data = (subset(d_Via,Supervisor.PI=='Zwaan')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Batch)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-        labs(title="p_Via_Zwaan", x="Population", y = "ProportionEggtoAdultSurvival")
+p_Via_Zwaan <- ggplot(data = (subset(d_Via,Supervisor.PI=='Zwaan')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Batch)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_Via_Zwaan", x="Population", y = "ProportionEggtoAdultSurvival")
 ```
 
 
@@ -455,13 +502,39 @@ invisible(dev.off())
 ```
 
 
+```{r, echo=FALSE, message= FALSE, warning=FALSE}
+pdf(file="p_Via_pop_Zwaan.pdf",width=8, height=5)
+p_Via_pop_Zwaan <- ggplot(data = (subset(d_Via,Supervisor.PI=='Zwaan')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Population)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_Via_pop_Zwaan", x="Population", y = "ProportionEggtoAdultSurvival") 
+```
+
+
+```{r, echo=FALSE, message= FALSE, warning=FALSE}
+p_Via_pop_Zwaan + coord_cartesian(ylim = c(0, 1))+ droseu_theme
+invisible(dev.off())
+```
+
+
+```{r, echo=FALSE, message= FALSE, warning=FALSE}
+
+Via_lmer_Zwaan <- lmer(ProportionEggtoAdultSurvival ~ Population + (1|Line:Population) + (1|Batch), data = d_Via[d_Via$Supervisor.PI == "Zwaan",])
+capture.output(summary(Via_lmer_Zwaan),file = "Via_lmer_Zwaan_sum.txt")
+capture.output(anova(Via_lmer_Zwaan),file = "Via_lmer_Zwaan.txt")
+capture.output(emmeans(Via_lmer_Zwaan, list(pairwise ~ Population), adjust = "tukey"),file = "Via_lmer_Zwaan_tk.txt")
+```
+
+```{r}
+anova(Via_lmer_Zwaan)
+```
+
+```{r}
+summary(Via_lmer_Zwaan)
+```
+
 #### Hoedjes Lab
 
 ```{r, echo=FALSE, message= FALSE, warning=FALSE}
 pdf(file="p_Via_Hoedjes.pdf",width=8, height=5)
-p_Via_Hoedjes <- ggplot(data = (subset(d_Via,Supervisor.PI=='Hoedjes')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Batch)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-        labs(title="p_Via_Hoedjes", x="Population", y = "ProportionEggtoAdultSurvival")
+p_Via_Hoedjes <- ggplot(data = (subset(d_Via,Supervisor.PI=='Hoedjes')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Batch)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_Via_Hoedjes", x="Population", y = "ProportionEggtoAdultSurvival")
 ```
 
 
@@ -470,14 +543,37 @@ p_Via_Hoedjes + coord_cartesian(ylim = c(0, 1))+ droseu_theme
 invisible(dev.off())
 ```
 
+```{r, echo=FALSE, message= FALSE, warning=FALSE}
+pdf(file="p_Via_pop_Hoedjes.pdf",width=8, height=5)
+p_Via_pop_Hoedjes <- ggplot(data = (subset(d_Via,Supervisor.PI=='Hoedjes')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Population)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_Via_pop_Hoedjes", x="Population", y = "ProportionEggtoAdultSurvival") 
+```
+
+```{r, echo=FALSE, message= FALSE, warning=FALSE}
+p_Via_pop_Hoedjes + coord_cartesian(ylim = c(0, 1))+ droseu_theme
+invisible(dev.off())
+```
+
+```{r, echo=FALSE, message= FALSE, warning=FALSE}
+Via_lmer_Hoedjes <- lmer(ProportionEggtoAdultSurvival ~ Population + (1|Line:Population) + (1|Batch), data = d_Via[d_Via$Supervisor.PI == "Hoedjes",])
+capture.output(summary(Via_lmer_Hoedjes),file = "Via_lmer_Hoedjes_sum.txt")
+capture.output(anova(Via_lmer_Hoedjes),file = "Via_lmer_Hoedjes.txt")
+capture.output(emmeans(Via_lmer_Hoedjes, list(pairwise ~ Population), adjust = "tukey"),file = "Via_lmer_Hoedjes_tk.txt")
+```
+
+```{r}
+anova(Via_lmer_Hoedjes)
+```
+
+```{r}
+summary(Via_lmer_Hoedjes)
+```
+
 
 #### Grath Lab
 
 ```{r, echo=FALSE, message= FALSE, warning=FALSE}
 pdf(file="p_Via_Grath.pdf",width=8, height=5)
-p_Via_Grath <- ggplot(data = (subset(d_Via,Supervisor.PI=='Grath')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Batch)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-        labs(title="p_Via_Grath", x="Population", y = "ProportionEggtoAdultSurvival")
+p_Via_Grath <- ggplot(data = (subset(d_Via,Supervisor.PI=='Grath')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Batch)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_Via_Grath", x="Population", y = "ProportionEggtoAdultSurvival")
 ```
 
 
@@ -486,13 +582,39 @@ p_Via_Grath + coord_cartesian(ylim = c(0, 1))+ droseu_theme
 invisible(dev.off())
 ```
 
+
+```{r, echo=FALSE, message= FALSE, warning=FALSE}
+pdf(file="p_Via_pop_Grath.pdf",width=8, height=5)
+p_Via_pop_Grath <- ggplot(data = (subset(d_Via,Supervisor.PI=='Grath')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Population)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_Via_pop_Grath", x="Population", y = "ProportionEggtoAdultSurvival") 
+```
+
+
+```{r, echo=FALSE, message= FALSE, warning=FALSE}
+p_Via_pop_Grath + coord_cartesian(ylim = c(0, 1))+ droseu_theme
+invisible(dev.off())
+```
+
+```{r, echo=FALSE, message= FALSE, warning=FALSE}
+Via_lmer_Grath <- lmer(ProportionEggtoAdultSurvival ~ Population + (1|Line:Population) , data = d_Via[d_Via$Supervisor.PI == "Grath",])
+capture.output(summary(Via_lmer_Grath),file = "Via_lmer_Grath_sum.txt")
+capture.output(anova(Via_lmer_Grath),file = "Via_lmer_Grath.txt")
+capture.output(emmeans(Via_lmer_Grath, list(pairwise ~ Population), adjust = "tukey"),file = "Via_lmer_Grath_tk.txt")
+```
+
+```{r}
+anova(Via_lmer_Grath)
+```
+
+
+```{r}
+summary(Via_lmer_Grath)
+```
+
 #### Gibert Lab
 
 ```{r, echo=FALSE, message= FALSE, warning=FALSE}
 pdf(file="p_Via_Gibert.pdf",width=8, height=5)
-p_Via_Gibert <- ggplot(data = (subset(d_Via,Supervisor.PI=='Gibert')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Batch)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-        labs(title="p_Via_Gibert", x="Population", y = "ProportionEggtoAdultSurvival")
+p_Via_Gibert <- ggplot(data = (subset(d_Via,Supervisor.PI=='Gibert')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Batch)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_Via_Gibert", x="Population", y = "ProportionEggtoAdultSurvival")
 ```
 
 ```{r, echo=FALSE, message= FALSE, warning=FALSE}
@@ -500,9 +622,34 @@ p_Via_Gibert + coord_cartesian(ylim = c(0, 1))+ droseu_theme
 invisible(dev.off())
 ```
 
+```{r, echo=FALSE, message= FALSE, warning=FALSE}
+pdf(file="p_Via_pop_Gibert.pdf",width=8, height=5)
+p_Via_pop_Gibert <- ggplot(data = (subset(d_Via,Supervisor.PI=='Gibert')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Population)) +geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_Via_pop_Gibert", x="Population", y = "ProportionEggtoAdultSurvival") 
+```
+
+```{r, echo=FALSE, message= FALSE, warning=FALSE}
+p_Via_pop_Gibert + coord_cartesian(ylim = c(0, 1))+ droseu_theme
+invisible(dev.off())
+```
+
+
+```{r, echo=FALSE, message= FALSE, warning=FALSE}
+Via_lmer_Gibert <- lmer(ProportionEggtoAdultSurvival ~ Population + (1|Line:Population) + (1|Batch) , data = d_Via[d_Via$Supervisor.PI == "Gibert",])
+capture.output(summary(Via_lmer_Gibert),file = "Via_lmer_Gibert_sum.txt")
+capture.output(anova(Via_lmer_Gibert),file = "Via_lmer_Gibert.txt")
+capture.output(emmeans(Via_lmer_Gibert, list(pairwise ~ Population), adjust = "tukey"),file = "Via_lmer_Gibert_tk.txt")
+```
 
 ```{r}
+anova(Via_lmer_Gibert)
 ```
+
+```{r}
+summary(Via_lmer_Gibert)
+```
+
+
+
 ### Lab correlations
 
 ## Developmental time
@@ -664,6 +811,20 @@ invisible(dev.off())
 
 #### Wegener Lab
 
+_Meeting w Eran and Chris_ 
+
+- Eran to make circular figures for both CET and LA
+- no sexual dimorphism for period. YAY! 
+- auto detection of _phase_ is not reliable in the software - Eran wants to drop that trait in his data. 
+- Watson Ftest
+- Circular data ANOVA : there are R packages 
+- more cold adapted was expected to eclose later (to wait for the warmer period of the day) but it is not the case
+- LD : log2 transformation
+- Activity : any transformation
+- Period : ?transformation
+- Eran's L:D -> D:D (circ)
+- Chris sent littoralis paper - can use our diapause results to compare! 
+
 ## Locomotor activity
 
 ### Data Reformatting
@@ -671,6 +832,8 @@ invisible(dev.off())
 ### Plots and Linear Models by Lab
 
 #### Tauber Lab
+
+Eran to make circular figures for both CET and LA
 
 ## Starvation resistance
 
@@ -697,6 +860,9 @@ invisible(dev.off())
 ### Plots and Linear Models by Lab
 
 #### Abbott Lab
+
+Data will be available by mid-January.
+
 #### Gibert Lab 
 #### Schmidt Lab
 

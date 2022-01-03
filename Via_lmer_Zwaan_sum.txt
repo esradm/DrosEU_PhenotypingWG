@@ -1,0 +1,46 @@
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: ProportionEggtoAdultSurvival ~ Population + (1 | Line:Population) +  
+    (1 | Batch)
+   Data: d_Via[d_Via$Supervisor.PI == "Zwaan", ]
+
+REML criterion at convergence: -328.3
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.8665 -0.4405  0.1045  0.5674  2.7223 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 0.01052  0.1025  
+ Batch           (Intercept) 0.00000  0.0000  
+ Residual                    0.02180  0.1477  
+Number of obs: 524, groups:  Line:Population, 169; Batch, 2
+
+Fixed effects:
+               Estimate Std. Error         df t value Pr(>|t|)    
+(Intercept)    0.753292   0.029612 148.129254  25.439  < 2e-16 ***
+PopulationGI  -0.109677   0.045264 147.538931  -2.423   0.0166 *  
+PopulationKA   0.006964   0.042022 149.533027   0.166   0.8686    
+PopulationMA  -0.039616   0.042055 150.208886  -0.942   0.3477    
+PopulationMU  -0.045938   0.042393 153.358912  -1.084   0.2802    
+PopulationRE  -0.107348   0.044247 145.966515  -2.426   0.0165 *  
+PopulationUM   0.025615   0.043113 148.966551   0.594   0.5533    
+PopulationVA  -0.020760   0.042344 153.060112  -0.490   0.6247    
+PopulationYE  -0.226033   0.042298 153.374414  -5.344 3.24e-07 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Correlation of Fixed Effects:
+            (Intr) PpltGI PpltKA PpltMA PpltMU PpltRE PpltUM PpltVA
+PopulatinGI -0.654                                                 
+PopulatinKA -0.705  0.461                                          
+PopulatinMA -0.704  0.461  0.496                                   
+PopulatinMU -0.698  0.457  0.492  0.492                            
+PopulatinRE -0.669  0.438  0.472  0.471  0.467                     
+PopulatinUM -0.687  0.449  0.484  0.484  0.480  0.460              
+PopulatinVA -0.699  0.457  0.493  0.492  0.488  0.468  0.480       
+PopulatinYE -0.700  0.458  0.493  0.493  0.489  0.469  0.481  0.490
+optimizer (nloptwrap) convergence code: 0 (OK)
+boundary (singular) fit: see ?isSingular
+
