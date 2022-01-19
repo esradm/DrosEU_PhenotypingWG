@@ -11,53 +11,107 @@ output:
 ---
 
 
-# Phenotyping effort 
+# Phenotyping effort
 
-General information  
-How many labs  
-How many people  
+**Collaborative phenotyping effort of European _Drosophila melanogaster_ populations**  
 
+Genomic analyses (Kapun et al. 2020) showed that there is longitudinal population structure, continent-wide sweeps, candidate genes for local climate adaptation by using 48 pooled population samples from 32 locations
 
-## Groningen 2017
+The consortium has decided to make a collaborative phenotyping effort of European Drosophila melanogaster populations at Groningen meeting, 2017. 
 
-- Fly husbandry @ IGC
-
-- Phenotypes
-
-- Decision to be made 
+The call was made and participating labs have indicated which traits they are willing to phenotype, with approximate numbers of populations, lines, etc. and under predefined criteria (finish within a year, reps, blocks, etc)
 
 ## Samples
 
-- Locations
 
-- Sampling 
+```{r echo=FALSE, message=FALSE}
+
+setwd("/Users/durmazm/Documents/GitHub/DrosEU_PhenotypingWG/")
+library(ggplot2)
+library(dplyr)
+library(plyr)
+library(tibble)
+library(ggpubr)
+library(multcompView)
+library(hrbrthemes)
+library(tidyverse)
+library(rworldmap)
+library(maps)
+library(rnaturalearth)
+library(maptools)
+library(rgeos)
+library(qwraps2)
+library(afex)
+library(Hmisc)
+library(lme4)
+library(nlme)
+library(multcomp)
+library(emmeans)
+library(coxme)
+library(ggpubr)
+library(knitr)
+library(sf)
+library(rnaturalearthdata)
+library(cowplot)
+library(googleway)
+library(ggrepel)
+library(ggspatial)
+library(DT)
+```
+
+9 Locations
+173 isofemale lines
 
 
-```{r cars}
-
-#Add samples map here, with people's names 
-
+```{r}
+#knitr::include_graphics("/Volumes/GoogleDrive/My Drive/DrosEU_MSs/20210329/plots/labs_map_edited.pdf")
 ```
 
 
-- Shipment to IGC
+```{r echo=FALSE, message=FALSE}
+droseu_coord <- read.csv("/Users/durmazm/Documents/GitHub/DrosEU_PhenotypingWG/DrosEU_Coordinates.csv")
 
-- Establishing lines @ IGC
+droseu_coord <- droseu_coord %>%
+  add_column(Collectors = c("Jorge Vieira", "Josefa Gonzales", "Mads Schou", "Amanda Glaser-Schmitt","Andrea Betancourt","Maaria Kankare","Iryna Kozeretska","Banu Onder","Elena Pasyukova"))
+```
+
+```{r}
+droseu_coord
+```
 
 
-## Phenotyping Call
+```{r echo=FALSE, message=FALSE}
+world <- ne_countries(scale = "medium", returnclass = "sf")
+samples_map <- ggplot(data = world) + geom_sf() + xlab("Latitude") + ylab("Longitude") + ggplot2::coord_sf(xlim = c(-12, 38), ylim = c(30, 65), expand = FALSE) + annotation_scale(location = "bl", width_hint = 0.5) + geom_polygon(aes(fill = droseu_coord$Country))
+```
 
-- A few criteria for phenotyping 
 
-- re : email to Elio about immunity 
+```{r echo=FALSE, message=FALSE}
+panmix_theme <- theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), panel.background = element_blank(), axis.line = element_line(colour = "black",), axis.title.x = element_text(size = 16), axis.text.x = element_text(size = 16, colour = "black"),axis.text.y = element_text(size = 16, colour = "black"),axis.title.y = element_text(size = 16))
+```
 
-- Responders
 
-- Distribution of traits 
+```{r echo=FALSE, message=FALSE}
+#samples_map + panmix_theme + annotate(geom = "text", x = -8.410, y = 41.150, label ="PT",fontface = "bold", color = "black", size =5, angle=15) + annotate(geom = "text", x = 0.620, y = 41.618, label ="ES",fontface = "bold", color = "black", size =5, angle=15) + annotate(geom = "text", x = 10.213, y = 55.945, label ="DK",fontface = "bold", color = "black", size =5, angle=15) + annotate(geom = "text", x = 32.260, y = 40.231, label ="TR",fontface = "bold", color = "black", size =5, angle=15) + annotate(geom = "text", x = 11.610, y = 48.180, label ="DE",fontface = "bold", color = "black", size =5, angle=15) + annotate(geom = "text", x = 15.560, y = 48.375, label ="AT",fontface = "bold", color = "black", size =5, angle=15) + annotate(geom = "text", x = 33.244, y = 57.979, label ="RU",fontface = "bold", color = "black", size =5, angle=15) + annotate(geom = "text", x = 30.206, y = 48.753, label ="UA",fontface = "bold", color = "black", size =5, angle=15) + annotate(geom = "text", x = 23.520, y = 61.100, label ="FI",fontface = "bold", color = "black", size =5, angle=15)
+```
 
-- Shipment of flies
 
-- Phenotyping starts 
+```{r echo=FALSE, message=FALSE}
+droseu_labs <- read.csv("DrosEU_Labs.csv")
+
+```
+
+Contributed labs are `r unique(droseu_labs$PI)` and detailed list below :
+
+
+```{r}
+droseu_labs
+```
+
+- Fly husbandry @ IGC
+
+Centrally maintained by Élio Sucena  at Instituto Gulbenkian de Ciência (IGC), Lisbon, Portugal
+
 
 ```{r}
 
@@ -292,34 +346,6 @@ localgit <- "/Users/durmazm/Documents/GitHub/DrosEU_PhenotypingWG/"
 setwd(localgit)
 ```
 
-```{r echo=TRUE, message=FALSE}
-
-library(ggplot2)
-library(dplyr)
-library(plyr)
-library(tibble)
-library(ggpubr)
-library(multcompView)
-library(hrbrthemes)
-library(tidyverse)
-library(rworldmap)
-library(maps)
-#library(rnaturalearth)
-library(maptools)
-library(rgeos)
-library(qwraps2)
-library(afex)
-library(Hmisc)
-library(lme4)
-library(nlme)
-library(multcomp)
-library(emmeans)
-library(coxme)
-library(ggpubr)
-library(knitr)
-```
-
-
 ## Viability
 
 Contributors: Gibert, Grath, Hoedjes, Schmidt, Stamenkovic-Radak and Zwaan Labs
@@ -360,47 +386,70 @@ str(d_Via)
 
 ### Descriptive Statistics
 
-Define standard error and coefficient of variation : 
+Tables for descriptive statistics at population and line level can be found in the main directory, under the file name **__table_TraitAbbreviation_Level_BatchInfo.csv__** (i.e. table_Via_Line_wobatch.csv)
 
-```{r, echo=TRUE}
+```{r, echo=FALSE}
+## Define standard error and coefficient of variation
 std_err <- function(x) sd(x)/sqrt(length(x))
 coef_var <- function(x) sd(x)/mean(x)
 estimate_mode <- function(v) {
    uniqv <- unique(v)
    uniqv[which.max(tabulate(match(v, uniqv)))]
 }
+
 ```
 
-Tables for descriptive statistics at population and line level : 
-```{r}
-table_Via_Line <- write.csv(d_Via %>% group_by(Supervisor.PI, Batch, Population, Line) %>% summarise_at(vars(ProportionEggtoAdultSurvival), list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, SE = std_err, CV = coef_var, Mode = estimate_mode)), file = "table_Via_Line.csv", row.names = T)
+Descriptive statistics for viability at the line level, with batch information : 
+```{r, echo=FALSE}
+table_Via_Line_wbatch <- write.csv(d_Via %>% group_by(Supervisor.PI, Batch, Population, Line) %>% summarise_at(vars(ProportionEggtoAdultSurvival), list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, SE = std_err, CV = coef_var, Mode = estimate_mode)), file = "table_Via_Line_wbatch.csv", row.names = T)
+table_Via_Line_wbatch <- read.csv("table_Via_Line_wbatch.csv")
 ```
 
-```{r}
-table_Via_Line
+```{r, echo=FALSE}
+DT::datatable(table_Via_Line_wbatch, options = list(pageLength = 10))
 ```
 
-
-```{r}
-table_Via_Pop <- write.csv(d_Via %>% group_by(Supervisor.PI, Batch, Population) %>% summarise_at(vars(ProportionEggtoAdultSurvival), list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, SE = std_err, CV = coef_var, Mode = estimate_mode)), file = "table_Via_Pop.csv", row.names = T)
+Descriptive statistics for viability at the line level, without batch information : 
+```{r, echo=FALSE}
+table_Via_Line_wobatch <- write.csv(d_Via %>% group_by(Supervisor.PI, Batch, Population, Line) %>% summarise_at(vars(ProportionEggtoAdultSurvival), list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, SE = std_err, CV = coef_var, Mode = estimate_mode)), file = "table_Via_Line_wobatch.csv", row.names = T)
+table_Via_Line_wobatch <- read.csv("table_Via_Line_wobatch.csv")
 ```
 
+```{r, echo=FALSE}
+DT::datatable(table_Via_Line_wobatch, options = list(pageLength = 10))
+```
 
-```{r}
-table_Via_Pop
+Descriptive statistics for viability at the population level, with batch information : 
+```{r, echo=FALSE}
+table_Via_Pop_wbatch <- write.csv(d_Via %>% group_by(Supervisor.PI, Batch, Population) %>% summarise_at(vars(ProportionEggtoAdultSurvival), list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, SE = std_err, CV = coef_var, Mode = estimate_mode)), file = "table_Via_Pop_wbatch.csv", row.names = T)
+table_Via_Pop_wbatch <- read.csv("table_Via_Pop_wbatch.csv")
+```
+
+```{r, echo=FALSE}
+DT::datatable(table_Via_Pop_wbatch, options = list(pageLength = 10))
+```
+
+Descriptive statistics for viability at the population level, without batch information : 
+```{r, echo=FALSE}
+table_Via_Pop_wobatch <- write.csv(d_Via %>% group_by(Supervisor.PI, Population) %>% summarise_at(vars(ProportionEggtoAdultSurvival), list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, SE = std_err, CV = coef_var, Mode = estimate_mode)), file = "table_Via_Pop_wobatch.csv", row.names = T)
+table_Via_Pop_wobatch <- read.csv("table_Via_Pop_wobatch.csv")
+```
+
+```{r, echo=FALSE}
+DT::datatable(table_Via_Pop_wobatch, options = list(pageLength = 10))
 ```
 
 
 ### Plots and Linear Models by Lab
 
-**ggplot theme:**  
+The very same theme has been used all across the document, being **__ggplot theme__**
 ```{r}
 droseu_theme <- theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), panel.background = element_blank(), axis.line = element_line(colour = "black",),  axis.title.x = element_text(size = 16), axis.text.x = element_text(size = 16),axis.text.y = element_text(size = 16),axis.title.y = element_text(size = 16))
 
 ```
 
-Data range is calculated with min and max functions :
-
+Data range is calculated with min and max functions by using `r #min()` and `r #max()` functions 
+  
 ```{r, echo=TRUE}
 min_Via <- min(d_Via$ProportionEggtoAdultSurvival)
 max_Via <- max(d_Via$ProportionEggtoAdultSurvival)

@@ -1,0 +1,48 @@
+﻿Country,Lab,PI,Trait
+Sweden,Lund,Abbott,Pigmentation
+USA,Charlottesville,Bergland,Diapause
+The Netherlands,Groningen,Billeter,Fecundity
+France,Rennes,Colinet,Dry weight
+Switzerland,Fribourg,Flatt,Diapause
+Switzerland,Fribourg,Flatt,Lifespan
+Germany,Muenster,Fricke,Fecundity
+France,Lyon,Gibert,Development time
+France,Lyon,Gibert,Pigmentation
+France,Lyon,Gibert,Viability
+Spain,Barcelona,Gonzalez,Cold-shock mortality
+Spain,Barcelona,Gonzalez,Starvation resistance
+Germany,Munich,Grath,Development time
+Germany,Munich,Grath,Viability
+The Netherlands,Lausanne,Hoedjes,Development time
+The Netherlands,Lausanne,Hoedjes,Dry weight
+The Netherlands,Lausanne,Hoedjes,Viability
+Ukraine,Kyiv,Kozeretska,Cold-shock mortality
+Ukraine,Kyiv,Kozeretska,Thorax length
+Turkey,Ankara,Onder,Dry weight
+Turkey,Ankara,Onder,Starvation resistance
+Turkey,Ankara,Onder,Wing area
+Germany,Munich,Parsch,Heat-shock mortality
+Germany,Munich,Parsch,Lifespan
+Russia,Moscow,Pasyukova,Lifespan
+Russia,Moscow,Pasyukova,Starvation resistance
+Germany,Göttingen,Posnien,Thorax length
+Germany,Göttingen,Posnien,Wing area
+UK,St Andrews,Ritchie,Thorax length
+UK,St Andrews,Ritchie,Wing area
+UK,St Andrews,Ritchie,Wing patterning 
+Austria,Vienna,Schlötterer,Diapause
+USA,Philadelphia,Schmidt,Development time
+USA,Philadelphia,Schmidt,Pigmentation
+USA,Philadelphia,Schmidt,Thorax length
+USA,Philadelphia,Schmidt,Time to pupation
+USA,Philadelphia,Schmidt,Viability
+Serbia,Belgrade,Stamenkovic-Radak,Development time
+Serbia,Belgrade,Stamenkovic-Radak,Viability
+Serbia,Belgrade,Stamenkovic-Radak,Wing area
+Israel,Haifa,Tauber,Locomotor activity
+Portugal,Porto,Vieira,Chill-coma recovery time
+Portugal,Porto,Vieira,Cold-shock mortality
+Portugal,Porto,Vieira,Heat-shock mortality
+Germany,Würzburg,Wegener,Circadian eclosion timing
+The Netherlands,Wageningen,Zwaan,Development time
+The Netherlands,Wageningen,Zwaan,Viability
