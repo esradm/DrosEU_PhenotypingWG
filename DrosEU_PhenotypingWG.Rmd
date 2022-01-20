@@ -15,11 +15,11 @@ output:
 
 **Collaborative phenotyping effort of European _Drosophila melanogaster_ populations**  
 
-Genomic analyses (Kapun et al. 2020) showed that there is longitudinal population structure, continent-wide sweeps, candidate genes for local climate adaptation by using 48 pooled population samples from 32 locations
+Genomic analyses (Kapun et al. 2020) showed that there is longitudinal population structure, continent-wide sweeps, candidate genes for local climate adaptation by using 48 pooled population samples from 32 locations.
 
-The consortium has decided to make a collaborative phenotyping effort of European Drosophila melanogaster populations at Groningen meeting, 2017. 
+In 2017, DrosEU consortium has decided to make a collaborative phenotyping effort of European _Drosophila melanogaster_ populations at the Groningen meeting. 
 
-The call was made and participating labs have indicated which traits they are willing to phenotype, with approximate numbers of populations, lines, etc. and under predefined criteria (finish within a year, reps, blocks, etc)
+The call was made with approximate numbers of populations, lines, etc. and under predefined criteria (finish within a year, reps, blocks, etc) and participating labs have indicated which traits they are willing to phenotype. 
 
 ## Samples
 
@@ -59,13 +59,7 @@ library(ggspatial)
 library(DT)
 ```
 
-9 Locations
-173 isofemale lines
-
-
-```{r}
-#knitr::include_graphics("/Volumes/GoogleDrive/My Drive/DrosEU_MSs/20210329/plots/labs_map_edited.pdf")
-```
+Nine sampling locations were chosen based on genomic data and cover a wide range of latitude (~20°) and longitude (~40°) across the continent  (see table below). From each location, 15 to 20 isofemale lines were established in corresponding labs at the sampling location and the isofemale lines were centrally maintained by Élio Sucena  at Instituto Gulbenkian de Ciência (IGC), Lisbon, Portugal. A total of 173 isofemale lines were used in this study. 
 
 
 ```{r echo=FALSE, message=FALSE}
@@ -75,24 +69,46 @@ droseu_coord <- droseu_coord %>%
   add_column(Collectors = c("Jorge Vieira", "Josefa Gonzales", "Mads Schou", "Amanda Glaser-Schmitt","Andrea Betancourt","Maaria Kankare","Iryna Kozeretska","Banu Onder","Elena Pasyukova"))
 ```
 
-```{r}
+```{r echo=FALSE, message=FALSE}
 droseu_coord
 ```
 
 
-```{r echo=FALSE, message=FALSE}
+```{r echo=FALSE, message=TRUE}
 world <- ne_countries(scale = "medium", returnclass = "sf")
-samples_map <- ggplot(data = world) + geom_sf() + xlab("Latitude") + ylab("Longitude") + ggplot2::coord_sf(xlim = c(-12, 38), ylim = c(30, 65), expand = FALSE) + annotation_scale(location = "bl", width_hint = 0.5) + geom_polygon(aes(fill = droseu_coord$Country))
+samples_map <- ggplot(data = world) + geom_sf() + xlab("Latitude") + ylab("Longitude") + ggplot2::coord_sf(xlim = c(-12, 38), ylim = c(30, 65), expand = FALSE) + annotation_scale(location = "bl", width_hint = 0.5) 
 ```
 
 
 ```{r echo=FALSE, message=FALSE}
-panmix_theme <- theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), panel.background = element_blank(), axis.line = element_line(colour = "black",), axis.title.x = element_text(size = 16), axis.text.x = element_text(size = 16, colour = "black"),axis.text.y = element_text(size = 16, colour = "black"),axis.title.y = element_text(size = 16))
+map_theme <- theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), panel.background = element_blank(), axis.line = element_line(colour = "black",), axis.title.x = element_text(size = 16), axis.text.x = element_text(size = 14, colour = "black"),axis.text.y = element_text(size = 14, colour = "black"),axis.title.y = element_text(size = 16))
 ```
 
-
 ```{r echo=FALSE, message=FALSE}
-#samples_map + panmix_theme + annotate(geom = "text", x = -8.410, y = 41.150, label ="PT",fontface = "bold", color = "black", size =5, angle=15) + annotate(geom = "text", x = 0.620, y = 41.618, label ="ES",fontface = "bold", color = "black", size =5, angle=15) + annotate(geom = "text", x = 10.213, y = 55.945, label ="DK",fontface = "bold", color = "black", size =5, angle=15) + annotate(geom = "text", x = 32.260, y = 40.231, label ="TR",fontface = "bold", color = "black", size =5, angle=15) + annotate(geom = "text", x = 11.610, y = 48.180, label ="DE",fontface = "bold", color = "black", size =5, angle=15) + annotate(geom = "text", x = 15.560, y = 48.375, label ="AT",fontface = "bold", color = "black", size =5, angle=15) + annotate(geom = "text", x = 33.244, y = 57.979, label ="RU",fontface = "bold", color = "black", size =5, angle=15) + annotate(geom = "text", x = 30.206, y = 48.753, label ="UA",fontface = "bold", color = "black", size =5, angle=15) + annotate(geom = "text", x = 23.520, y = 61.100, label ="FI",fontface = "bold", color = "black", size =5, angle=15)
+panmix_theme <- theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),panel.background = element_blank(), axis.line = element_line(colour = "black",), axis.title.x = element_text(size = 16), axis.text.x = element_text(size = 16, colour = "black"), axis.text.y = element_text(size = 16, colour = "black"),axis.title.y = element_text(size = 16))
+```
+
+```{r echo=FALSE, message=TRUE}
+samples_map + map_theme + 
+  annotate(geom = "point", x = -8.410, y = 41.150, colour = "orange", size = 3) + 
+  annotate(geom = "point", x = 0.620, y = 41.618,colour = "orange", size = 3) + 
+  annotate(geom = "point", x = 10.213, y = 55.945, colour = "orange", size = 3) + 
+  annotate(geom = "point", x = 32.260, y = 40.231, colour = "orange", size = 3) + 
+  annotate(geom = "point", x = 11.610, y = 48.180, colour = "orange", size = 3) + 
+  annotate(geom = "point", x = 15.560, y = 48.375, colour = "orange", size = 3) + 
+  annotate(geom = "point", x = 33.244, y = 57.979, colour = "orange", size = 3) + 
+  annotate(geom = "point", x = 30.206, y = 48.753, colour = "orange", size = 3) + 
+  annotate(geom = "point", x = 23.520, y = 61.100, colour = "orange", size = 3) +
+  annotate(geom = "text", x = -8.410, y = 41.150, label ="PT",fontface = "bold", color = "black", size =5, angle=15) +
+  annotate(geom = "text", x = 0.620, y = 41.618, label ="ES",fontface = "bold", color = "black", size =5, angle=15) + 
+  annotate(geom = "text", x = 10.213, y = 55.945, label ="DK",fontface = "bold", color = "black", size =5, angle=15) + 
+  annotate(geom = "text", x = 32.260, y = 40.231, label ="TR",fontface = "bold", color = "black", size =5, angle=15) + 
+  annotate(geom = "text", x = 11.610, y = 48.180, label ="DE",fontface = "bold", color = "black", size =5, angle=15) + 
+  annotate(geom = "text", x = 15.560, y = 48.375, label ="AT",fontface = "bold", color = "black", size =5, angle=15) + 
+  annotate(geom = "text", x = 33.244, y = 57.979, label ="RU",fontface = "bold", color = "black", size =5, angle=15) + 
+  annotate(geom = "text", x = 30.206, y = 48.753, label ="UA",fontface = "bold", color = "black", size =5, angle=15) + 
+  annotate(geom = "text", x = 23.520, y = 61.100, label ="FI",fontface = "bold", color = "black", size =5, angle=15) 
+
 ```
 
 
@@ -108,14 +124,20 @@ Contributed labs are `r unique(droseu_labs$PI)` and detailed list below :
 droseu_labs
 ```
 
-- Fly husbandry @ IGC
+```{r echo=FALSE, message=FALSE}
+cities <- read.csv("DrosEU_cities.csv")
+```
 
-Centrally maintained by Élio Sucena  at Instituto Gulbenkian de Ciência (IGC), Lisbon, Portugal
+> FIX CITIES COORDINATES!!!! ST ANDREWS IS IN THE SEA!!!! 
 
+```{r echo=FALSE, message=TRUE}
 
-```{r}
-
-#Add contributors map here 
+globe_labs <- ggplot(data = world) + geom_sf() + xlab("Latitude") + ylab("Longitude") +
+  coord_sf(xlim = c(-90.15, 45.12), ylim = c(-45, 60), expand = TRUE) +
+  ggtitle("Contributed labs", subtitle = paste0("(", length(unique(droseu_labs$Country)), " countries", ", ", length(unique(droseu_labs$PI)), " research groups", ")")) +
+  annotate(geom = "point", x = cities$Y, y = cities$X, colour = "red", size = 2) 
+  
+globe_labs + map_theme 
 
 ```
 
@@ -123,75 +145,6 @@ Centrally maintained by Élio Sucena  at Instituto Gulbenkian de Ciência (IGC),
 # Phenotyping experiments 
 
 ## Overview 
-
-List of traits in groups (JVieira's classification)
-
-## Life-histroy traits 
-
-### Viability
-
-Sonja Grath (S), Marina Stamenkovic-Radak (S), Katja Hoedjes (NS), Patricia Gibert (NS)
-
-### Developmental time
-
-Sonja Grath (S), Marina Stamenkovic-Radak (S), Katja Hoedjes (NS), Patricia Gibert (NS)
-
-### Fecundity
-
-Eran Tauber (S), Claudia Fricke (S), Jean-Christophe Billeter (NS) 
-
-### Lifespan
-
-Thomas Flatt (S), Elena Pasyukova (S), Amanda Glaser-Schmitt (NS), Eliza Argyridou (NS)
-
-## Size realated traits
-
-### Dry weight 
-
-Hervé Colinet (S), Eran Tauber (S), Banu Sebnem Onder (NS), Katja Hoedjes (NS)
-
-### Wing area
-
-Nico Posnien (S), Nicola Cook (S), Jean-Christophe Billeter (NS), Banu Sebnem Onder (NS)
-
-### Thorax length
-
-Nicola Cook (S), Nico Posnien (S), Iryna Kozeretska (NS), Patrícia Beldade (NS) 
-
-
-## Temperature related traits
-
-### Chill-coma recovery time
-
-Jorge Vieira (S), Elvira Lafuente (NS), Patricia Gibert (NS)
-
-### Cold-shock mortality
-
-Jorge Vieira (S), Pepi Gonzalez (S), Elvira Lafuente (NS), Iryna Kozeretska (NS) 
-
-### Diapause
-
-Thomas Flatt (S), Alan Bergland (S), Élio (NS) Manolis Lirakis (NS)
-
-### Heat-shock mortality
-
-Jorge Vieira (S), Joyce Kao (S), Amanda Glaser-Schmitt (NS), Eliza Argyridou (NS)
-
-
-## Other traits 
-
-### Starvation resistance
-
-Elena Pasyukova (S), Pepi Gonzalez (S), Banu Sebnem Onder (NS)
-
-### Pigmentation
-
-Alan Bergland (S), Jessica Abbott (S), Patrícia Beldade (NS), Patricia Gibert (NS)
-
-### Locomotor activity
-
-Eran Tauber (S), Jessica Abbott (S)
-
 
 # Methods
 
@@ -326,7 +279,7 @@ For each line, 10 females, 13-15 days old, either alive or stored in 95% ethanol
 
 MasterSheets 
 
-_Insert a MasterSheet example_
+> Insert a MasterSheet example
 
 
 ### Data check
@@ -351,7 +304,7 @@ setwd(localgit)
 Contributors: Gibert, Grath, Hoedjes, Schmidt, Stamenkovic-Radak and Zwaan Labs
 
 ### Data reformatting
-_Insert lists_
+
 
 **Read data in R**
 ```{r}
@@ -386,7 +339,7 @@ str(d_Via)
 
 ### Descriptive Statistics
 
-Tables for descriptive statistics at population and line level can be found in the main directory, under the file name **__table_TraitAbbreviation_Level_BatchInfo.csv__** (i.e. table_Via_Line_wobatch.csv)
+Tables for descriptive statistics at population and line level can be found in the main directory, under the file name **__table_TraitAbbreviation_Level_BatchInfo.csv__** (_i.e. table_Via_Line_wobatch.csv_)
 
 ```{r, echo=FALSE}
 ## Define standard error and coefficient of variation
@@ -406,17 +359,18 @@ table_Via_Line_wbatch <- read.csv("table_Via_Line_wbatch.csv")
 ```
 
 ```{r, echo=FALSE}
-DT::datatable(table_Via_Line_wbatch, options = list(pageLength = 10))
+DT::datatable(table_Via_Line_wbatch, options = list(pageLength = 10)) %>% formatRound(6:13, 3)
 ```
 
 Descriptive statistics for viability at the line level, without batch information : 
+
 ```{r, echo=FALSE}
-table_Via_Line_wobatch <- write.csv(d_Via %>% group_by(Supervisor.PI, Batch, Population, Line) %>% summarise_at(vars(ProportionEggtoAdultSurvival), list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, SE = std_err, CV = coef_var, Mode = estimate_mode)), file = "table_Via_Line_wobatch.csv", row.names = T)
+table_Via_Line_wobatch <- write.csv(d_Via %>% group_by(Supervisor.PI, Population, Line) %>% summarise_at(vars(ProportionEggtoAdultSurvival), list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, SE = std_err, CV = coef_var, Mode = estimate_mode)), file = "table_Via_Line_wobatch.csv", row.names = T)
 table_Via_Line_wobatch <- read.csv("table_Via_Line_wobatch.csv")
 ```
 
 ```{r, echo=FALSE}
-DT::datatable(table_Via_Line_wobatch, options = list(pageLength = 10))
+DT::datatable(table_Via_Line_wobatch, options = list(pageLength = 10)) %>% formatRound(5:12, 3)
 ```
 
 Descriptive statistics for viability at the population level, with batch information : 
@@ -426,7 +380,7 @@ table_Via_Pop_wbatch <- read.csv("table_Via_Pop_wbatch.csv")
 ```
 
 ```{r, echo=FALSE}
-DT::datatable(table_Via_Pop_wbatch, options = list(pageLength = 10))
+DT::datatable(table_Via_Pop_wbatch, options = list(pageLength = 10))  %>% formatRound(5:12, 3)
 ```
 
 Descriptive statistics for viability at the population level, without batch information : 
@@ -436,9 +390,8 @@ table_Via_Pop_wobatch <- read.csv("table_Via_Pop_wobatch.csv")
 ```
 
 ```{r, echo=FALSE}
-DT::datatable(table_Via_Pop_wobatch, options = list(pageLength = 10))
+DT::datatable(table_Via_Pop_wobatch, options = list(pageLength = 10)) %>% formatRound(4:11, 3)
 ```
-
 
 ### Plots and Linear Models by Lab
 
@@ -448,53 +401,53 @@ droseu_theme <- theme(panel.grid.major = element_blank(), panel.grid.minor = ele
 
 ```
 
-Data range is calculated with min and max functions by using `r #min()` and `r #max()` functions 
+Data range is calculated with `#r min()` and `#r max()` functions for each trait
   
 ```{r, echo=TRUE}
 min_Via <- min(d_Via$ProportionEggtoAdultSurvival)
 max_Via <- max(d_Via$ProportionEggtoAdultSurvival)
 ```
 
-
 y-axis is scaled by the minimum (`r min_Via`) and maximum (`r max_Via`) values in the full data set. 
 
 Here is an example code for egg-to-adult viability, Schmidt Lab. The same code is used to generate plots for other contributing labs by filtering the data at supervisor level (for females and males, if applicable). 
 
 #### Schmidt Lab
-```{r, echo=FALSE, message= FALSE, warning=FALSE}
+```{r, echo=TRUE, message= FALSE, warning=FALSE}
 pdf(file="p_Via_Schmidt.pdf",width=8, height=5)
 p_Via_Schmidt <- ggplot(data = (subset(d_Via,Supervisor.PI=='Schmidt')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Batch)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_Via_Schmidt", x="Population", y = "ProportionEggtoAdultSurvival")
 ```
 
-```{r, echo=FALSE, message= FALSE, warning=FALSE}
+```{r, echo=TRUE, message= FALSE, warning=FALSE}
 p_Via_Schmidt + coord_cartesian(ylim = c(min_Via, max_Via))+ droseu_theme
 invisible(dev.off())
 ```
 
-```{r, echo=FALSE, message= FALSE, warning=FALSE}
+```{r, echo=TRUE, message= FALSE, warning=FALSE}
 pdf(file="p_Via_pop_Schmidt.pdf",width=8, height=5)
 p_Via_pop_Schmidt <- ggplot(data = (subset(d_Via,Supervisor.PI=='Schmidt')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Population)) +geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_Via_pop_Schmidt", x="Population", y = "ProportionEggtoAdultSurvival") 
 dev.off()
 ```
 
-```{r, echo=FALSE, message= FALSE, warning=FALSE}
+```{r, echo=TRUE, message= FALSE, warning=FALSE}
 p_Via_pop_Schmidt + coord_cartesian(ylim = c(min_Via, max_Via))+ droseu_theme
 invisible(dev.off())
 ```
 
-```{r, echo=FALSE, message= FALSE, warning=FALSE}
-Via_lmer_Schmidt <- lm(ProportionEggtoAdultSurvival ~ Population, data = d_Via[d_Via$Supervisor.PI == "Schmidt",])
-capture.output(summary(Via_lmer_Schmidt),file = "Via_lmer_Schmidt_sum.txt")
-capture.output(anova(Via_lmer_Schmidt),file = "Via_lmer_Schmidt.txt")
-capture.output(emmeans(Via_lmer_Schmidt, list(pairwise ~ Population), adjust = "tukey"),file = "Via_lmer_Schmidt_tk.txt")
+```{r, echo=TRUE, message= FALSE, warning=FALSE}
+Via_lm_Schmidt <- lm(ProportionEggtoAdultSurvival ~ Population, data = d_Via[d_Via$Supervisor.PI == "Schmidt",])
+capture.output(summary(Via_lm_Schmidt),file = "Via_lm_Schmidt_sum.txt")
+capture.output(anova(Via_lm_Schmidt),file = "Via_lm_Schmidt.txt")
+capture.output(emmeans(Via_lm_Schmidt, list(pairwise ~ Population), adjust = "tukey"),file = "Via_lm_Schmidt_tk.txt")
+```
+
+
+```{r}
+anova(Via_lm_Schmidt) #lm()` is used only for Schmidt Lab's viability data, as only one vial per line was phenotyped 
 ```
 
 ```{r}
-anova(Via_lmer_Schmidt)
-```
-
-```{r}
-summary(Via_lmer_Schmidt)
+summary(Via_lm_Schmidt)
 ```
 
 #### Stamenkovic-Radak Lab
