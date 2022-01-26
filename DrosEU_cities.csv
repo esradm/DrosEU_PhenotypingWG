@@ -1,4 +1,4 @@
-﻿Country,Lab,PI,Trait,X,Y
+﻿Country,Lab,PI,Trait,Lat,Long
 Sweden,Lund,Abbott,Pigmentation,55.7,13.191
 USA,Charlottesville,Bergland,Diapause,38,-78.5
 The Netherlands,Groningen,Billeter,Fecundity,53.2,6.5
@@ -13,7 +13,7 @@ Ukraine,Kyiv,Kozeretska,Cold-shock mortality,50.5,30.5
 Turkey,Ankara,Onder,Wing area,39.9,32.9
 Germany,Munich,Parsch,Lifespan,47.1,11.6
 Germany,Göttingen,Posnien,Thorax length,51.5,9.9
-UK,St Andrews,Ritchie,Wing patterning ,56.3,2.8
+UK,St Andrews,Ritchie,Wing patterning ,56.3398,-2.7967
 Austria,Vienna,Schlötterer,Diapause,48.2,16.4
 USA,Philadelphia,Schmidt,Viability,39.9,-75.2
 Serbia,Belgrade,Stamenkovic-Radak,Wing area,44.8,20.5

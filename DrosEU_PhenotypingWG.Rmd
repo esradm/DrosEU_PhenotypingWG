@@ -21,8 +21,7 @@ In 2017, DrosEU consortium has decided to make a collaborative phenotyping effor
 
 The call was made with approximate numbers of populations, lines, etc. and under predefined criteria (finish within a year, reps, blocks, etc) and participating labs have indicated which traits they are willing to phenotype. 
 
-## Samples
-
+## Sampling Locations
 
 ```{r echo=FALSE, message=FALSE}
 
@@ -65,23 +64,30 @@ Nine sampling locations were chosen based on genomic data and cover a wide range
 ```{r echo=FALSE, message=FALSE}
 droseu_coord <- read.csv("/Users/durmazm/Documents/GitHub/DrosEU_PhenotypingWG/DrosEU_Coordinates.csv")
 
-droseu_coord <- droseu_coord %>%
-  add_column(Collectors = c("Jorge Vieira", "Josefa Gonzales", "Mads Schou", "Amanda Glaser-Schmitt","Andrea Betancourt","Maaria Kankare","Iryna Kozeretska","Banu Onder","Elena Pasyukova"))
+droseu_coord <- data.frame(droseu_coord %>%
+  add_column(Collector = c("Jorge Vieira", "Josefa Gonzalez", "Mads Schou", "Amanda Glaser-Schmitt","Andrea Betancourt","Maaria Kankare","Iryna Kozeretska","Banu Onder","Elena Pasyukova")))
 ```
 
 ```{r echo=FALSE, message=FALSE}
-droseu_coord
+knitr::kable(droseu_coord, align = "llcccl", caption = 'Table X. Sampling locations, coordinates and collectors, sorted by increasing latitude')
 ```
 
+```{css, echo = FALSE}
+caption {
+      color: black;
+      font-weight: bold;
+      font-size: 1.0em;
+    }
+```
 
 ```{r echo=FALSE, message=TRUE}
 world <- ne_countries(scale = "medium", returnclass = "sf")
-samples_map <- ggplot(data = world) + geom_sf() + xlab("Latitude") + ylab("Longitude") + ggplot2::coord_sf(xlim = c(-12, 38), ylim = c(30, 65), expand = FALSE) + annotation_scale(location = "bl", width_hint = 0.5) 
+samples_map <- ggplot(data = world) + geom_sf() + xlab("Latitude") + ylab("Longitude") + ggplot2::coord_sf(xlim = c(-12, 38), ylim = c(30, 65), expand = FALSE) + annotation_scale(location = "bl", width_hint = 0.5) + ggtitle("Sampling locations")
 ```
 
 
 ```{r echo=FALSE, message=FALSE}
-map_theme <- theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), panel.background = element_blank(), axis.line = element_line(colour = "black",), axis.title.x = element_text(size = 16), axis.text.x = element_text(size = 14, colour = "black"),axis.text.y = element_text(size = 14, colour = "black"),axis.title.y = element_text(size = 16))
+map_theme <- theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), panel.background = element_blank(), axis.line = element_line(colour = "black",), axis.title.x = element_text(size = 16), axis.text.x = element_text(size = 14, colour = "black"),axis.text.y = element_text(size = 14, colour = "black"),axis.title.y = element_text(size = 16), plot.title = element_text(color="black", size=14, face="bold"))
 ```
 
 ```{r echo=FALSE, message=FALSE}
@@ -113,42 +119,52 @@ samples_map + map_theme +
 
 
 ```{r echo=FALSE, message=FALSE}
-droseu_labs <- read.csv("DrosEU_Labs.csv")
+droseu_labs <- data.frame(read.csv("DrosEU_Labs.csv"))
 
 ```
+
+## Contributers (phenotyping)
 
 Contributed labs are `r unique(droseu_labs$PI)` and detailed list below :
 
 
-```{r}
-droseu_labs
+
+```{r echo=FALSE}
+knitr::kable(droseu_labs, allign = "llll", caption = "Table X. Contributed labs and traits, sorted by PI") 
 ```
 
 ```{r echo=FALSE, message=FALSE}
 cities <- read.csv("DrosEU_cities.csv")
 ```
 
-> FIX CITIES COORDINATES!!!! ST ANDREWS IS IN THE SEA!!!! 
+
 
 ```{r echo=FALSE, message=TRUE}
 
 globe_labs <- ggplot(data = world) + geom_sf() + xlab("Latitude") + ylab("Longitude") +
-  coord_sf(xlim = c(-90.15, 45.12), ylim = c(-45, 60), expand = TRUE) +
+  coord_sf(xlim = c(-80.15, 40.12), ylim = c(-45, 60), expand = TRUE) +
   ggtitle("Contributed labs", subtitle = paste0("(", length(unique(droseu_labs$Country)), " countries", ", ", length(unique(droseu_labs$PI)), " research groups", ")")) +
-  annotate(geom = "point", x = cities$Y, y = cities$X, colour = "red", size = 2) 
+  annotate(geom = "point", x = cities$Long, y = cities$Lat, colour = "red", size = 2) 
   
 globe_labs + map_theme 
 
 ```
 
+## Contributers (analyses)
 
-# Phenotyping experiments 
+Envel Kerdaffrec (data check, data clean-up, data reformatting, LS, Dia, and others), Katja Hoedjes (DW, Via, DT), Banu Onder (SR, WA), Chris Wegener (CET), Eran Tauber (LA), Rudolf Rohr (UniFr), coordination-team
+
+# Phenotyping 
 
 ## Overview 
 
 # Methods
 
-## Phenotyping 
+## Wolbachia
+
+## Diets
+
+## Traits 
 Contributors and their experimental methods
 
 ### Viability
@@ -157,18 +173,17 @@ Contributors and their experimental methods
 _Contributors : Patricia Gibert, Sonja Grath, Paul Schmidt, Marina Stamenkovic-Radak, Bas Zwann, Joost van den Heuvel, Vieira Cristina, Mouton Laurence, Kremer Natacha, Martinez Sonia, Ingo Müller, Hristina Kostic, Amy Goldfischer, Paul Schmidt, Ozan Kiratli, Yonatan Babore, Liam Forsythe, Marija Savic Veselinovic, Marija Tanaskovic, Aleksandra Patenkovic, Mihailo Jelic, Katarina Eric, Pavle Eric, Slobodan Davidovic_
 
 
-3-5 day old adults (at least 25 pairs) are allowed to lay eggs en masse. Yeast is provided to stimulate egg laying (for at least 2 hours). Eggs are collected, and 40 are placed in each vial. Viability is calculated per vial, as the percentage of individuals that emerged from the 40 eggs.
+3-5 day old adults (at least 25 pairs) are allowed to lay eggs en masse. Yeast is provided to stimulate egg laying (for at least 2 hours). Eggs are collected, and 40 are placed in each vial(^*^). Viability is calculated per vial, as the percentage of individuals that emerged from the 40 eggs.
 
 Please see below number of 
 
-_Add methods for Schmidt Lab_
-_Replicate vials_  
+^*^ @ Schmidt lab, females were allowed to lay eggs for Xh, and viability is calculated as the percentage of individuals that emerged from total number of eggs, per vial.
 
 ### Developmental time
 
 #### Egg-to-pupa developmental time
 ##### Schmidt Lab
-Paul Schmidt, .... 
+Amy Goldfischer, Paul Schmidt
 
 
 #### Egg-to-adult developmental time
@@ -289,10 +304,10 @@ For each trait, sex and lab, we run counts for population, line and replicate vi
 
 # Results I : Linear Models 
 
+**__"Plots and Linear Models by Lab" are presented in alphabetical order.__** 
 
 ```{r, echo=FALSE}
 localgit <- "/Users/durmazm/Documents/GitHub/DrosEU_PhenotypingWG/"
-
 ```
 
 ```{r}
@@ -306,7 +321,7 @@ Contributors: Gibert, Grath, Hoedjes, Schmidt, Stamenkovic-Radak and Zwaan Labs
 ### Data reformatting
 
 
-**Read data in R**
+**Reading data in R**
 ```{r}
 d_Via <- read.csv("MasterSheets_Oct21_git/VIA_MasterSheet_Oct21.csv")
 str(d_Via)
@@ -329,11 +344,16 @@ d_Via$Country <- as.factor(d_Via$Country)
 d_Via$Latitude <- as.numeric(d_Via$Latitude)
 d_Via$Longitude <- as.numeric(d_Via$Longitude)
 d_Via$Altitude <- as.numeric(d_Via$Altitude)
+
+# Now they should be in the correct format, see below. 
 ```
 
-Now they should be in the correct format, see below. 
+
+
 ```{r}
 str(d_Via)
+
+# Voila! 
 ```
 
 
@@ -395,13 +415,13 @@ DT::datatable(table_Via_Pop_wobatch, options = list(pageLength = 10)) %>% format
 
 ### Plots and Linear Models by Lab
 
-The very same theme has been used all across the document, being **__ggplot theme__**
+The very same theme has been used all across the document, being a **_ggplot theme_** called _droseu_theme_
 ```{r}
 droseu_theme <- theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), panel.background = element_blank(), axis.line = element_line(colour = "black",),  axis.title.x = element_text(size = 16), axis.text.x = element_text(size = 16),axis.text.y = element_text(size = 16),axis.title.y = element_text(size = 16))
 
 ```
 
-Data range is calculated with `#r min()` and `#r max()` functions for each trait
+Data range is calculated with `#r min()` and `#r max()` functions for each trait.
   
 ```{r, echo=TRUE}
 min_Via <- min(d_Via$ProportionEggtoAdultSurvival)
@@ -410,126 +430,81 @@ max_Via <- max(d_Via$ProportionEggtoAdultSurvival)
 
 y-axis is scaled by the minimum (`r min_Via`) and maximum (`r max_Via`) values in the full data set. 
 
-Here is an example code for egg-to-adult viability, Schmidt Lab. The same code is used to generate plots for other contributing labs by filtering the data at supervisor level (for females and males, if applicable). 
+Here is an example code for egg-to-adult viability, Gibert Lab. The same code is used to generate plots for other contributing labs by filtering the data at supervisor level (for females and males, if applicable). 
 
-#### Schmidt Lab
+#### Gibert Lab
+
 ```{r, echo=TRUE, message= FALSE, warning=FALSE}
-pdf(file="p_Via_Schmidt.pdf",width=8, height=5)
-p_Via_Schmidt <- ggplot(data = (subset(d_Via,Supervisor.PI=='Schmidt')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Batch)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_Via_Schmidt", x="Population", y = "ProportionEggtoAdultSurvival")
+pdf(file="p_Via_Gibert.pdf",width=8, height=5)
+p_Via_Gibert <- ggplot(data = (subset(d_Via,Supervisor.PI=='Gibert')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Batch)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_Via_Gibert", x="Population", y = "ProportionEggtoAdultSurvival")
 ```
 
 ```{r, echo=TRUE, message= FALSE, warning=FALSE}
-p_Via_Schmidt + coord_cartesian(ylim = c(min_Via, max_Via))+ droseu_theme
-invisible(dev.off())
-```
-
-```{r, echo=TRUE, message= FALSE, warning=FALSE}
-pdf(file="p_Via_pop_Schmidt.pdf",width=8, height=5)
-p_Via_pop_Schmidt <- ggplot(data = (subset(d_Via,Supervisor.PI=='Schmidt')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Population)) +geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_Via_pop_Schmidt", x="Population", y = "ProportionEggtoAdultSurvival") 
-dev.off()
-```
-
-```{r, echo=TRUE, message= FALSE, warning=FALSE}
-p_Via_pop_Schmidt + coord_cartesian(ylim = c(min_Via, max_Via))+ droseu_theme
+p_Via_Gibert + coord_cartesian(ylim = c(0, 1))+ droseu_theme
 invisible(dev.off())
 ```
 
 ```{r, echo=TRUE, message= FALSE, warning=FALSE}
-Via_lm_Schmidt <- lm(ProportionEggtoAdultSurvival ~ Population, data = d_Via[d_Via$Supervisor.PI == "Schmidt",])
-capture.output(summary(Via_lm_Schmidt),file = "Via_lm_Schmidt_sum.txt")
-capture.output(anova(Via_lm_Schmidt),file = "Via_lm_Schmidt.txt")
-capture.output(emmeans(Via_lm_Schmidt, list(pairwise ~ Population), adjust = "tukey"),file = "Via_lm_Schmidt_tk.txt")
+pdf(file="p_Via_pop_Gibert.pdf",width=8, height=5)
+p_Via_pop_Gibert <- ggplot(data = (subset(d_Via,Supervisor.PI=='Gibert')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Population)) +geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_Via_pop_Gibert", x="Population", y = "ProportionEggtoAdultSurvival") 
 ```
 
+```{r, echo=TRUE, message= FALSE, warning=FALSE}
+p_Via_pop_Gibert + coord_cartesian(ylim = c(0, 1))+ droseu_theme
+invisible(dev.off())
+```
+
+```{r, echo=TRUE, message= FALSE, warning=FALSE}
+Via_lmer_Gibert <- lmer(ProportionEggtoAdultSurvival ~ Population + (1|Line:Population) + (1|Batch) , data = d_Via[d_Via$Supervisor.PI == "Gibert",])
+capture.output(summary(Via_lmer_Gibert),file = "Via_lmer_Gibert_sum.txt")
+capture.output(anova(Via_lmer_Gibert),file = "Via_lmer_Gibert.txt")
+capture.output(emmeans(Via_lmer_Gibert, list(pairwise ~ Population), adjust = "tukey"),file = "Via_lmer_Gibert_tk.txt")
+```
 
 ```{r}
-anova(Via_lm_Schmidt) #lm()` is used only for Schmidt Lab's viability data, as only one vial per line was phenotyped 
+anova(Via_lmer_Gibert)
 ```
 
 ```{r}
-summary(Via_lm_Schmidt)
-```
-
-#### Stamenkovic-Radak Lab
-
-```{r, echo=FALSE, message= FALSE, warning=FALSE}
-pdf(file="p_Via_StamenkovicRadak.pdf",width=8, height=5)
-p_Via_StamenkovicRadak <- ggplot(data = (subset(d_Via,Supervisor.PI=='StamenkovicRadak')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Batch)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_Via_StamenkovicRadak", x="Population", y = "ProportionEggtoAdultSurvival")
+summary(Via_lmer_Gibert)
 ```
 
 
+#### Grath Lab
+
 ```{r, echo=FALSE, message= FALSE, warning=FALSE}
-p_Via_StamenkovicRadak + coord_cartesian(ylim = c(0, 1))+ droseu_theme
+pdf(file="p_Via_Grath.pdf",width=8, height=5)
+p_Via_Grath <- ggplot(data = (subset(d_Via,Supervisor.PI=='Grath')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Batch)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_Via_Grath", x="Population", y = "ProportionEggtoAdultSurvival")
+```
+
+```{r, echo=FALSE, message= FALSE, warning=FALSE}
+p_Via_Grath + coord_cartesian(ylim = c(0, 1))+ droseu_theme
 invisible(dev.off())
 ```
 
 ```{r, echo=FALSE, message= FALSE, warning=FALSE}
-pdf(file="p_Via_pop_StamenkovicRadak.pdf",width=8, height=5)
-p_Via_pop_StamenkovicRadak <- ggplot(data = (subset(d_Via,Supervisor.PI=='StamenkovicRadak')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Population)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_Via_pop_StamenkovicRadak", x="Population", y = "ProportionEggtoAdultSurvival") 
+pdf(file="p_Via_pop_Grath.pdf",width=8, height=5)
+p_Via_pop_Grath <- ggplot(data = (subset(d_Via,Supervisor.PI=='Grath')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Population)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_Via_pop_Grath", x="Population", y = "ProportionEggtoAdultSurvival") 
 ```
 
-
 ```{r, echo=FALSE, message= FALSE, warning=FALSE}
-p_Via_pop_StamenkovicRadak + coord_cartesian(ylim = c(0, 1))+ droseu_theme
+p_Via_pop_Grath + coord_cartesian(ylim = c(0, 1))+ droseu_theme
 invisible(dev.off())
 ```
 
 ```{r, echo=FALSE, message= FALSE, warning=FALSE}
-Via_lmer_StamenkovicRadak <- lmer(ProportionEggtoAdultSurvival ~ Population + (1|Line:Population)+ (1|Batch), data = d_Via[d_Via$Supervisor.PI == "StamenkovicRadak",])
-capture.output(summary(Via_lmer_StamenkovicRadak),file = "Via_lmer_StamenkovicRadak_sum.txt")
-capture.output(anova(Via_lmer_StamenkovicRadak),file = "Via_lmer_StamenkovicRadak.txt")
-capture.output(emmeans(Via_lmer_StamenkovicRadak, list(pairwise ~ Population), adjust = "tukey"),file = "Via_lmer_StamenkovicRadak_tk.txt")
+Via_lmer_Grath <- lmer(ProportionEggtoAdultSurvival ~ Population + (1|Line:Population) , data = d_Via[d_Via$Supervisor.PI == "Grath",])
+capture.output(summary(Via_lmer_Grath),file = "Via_lmer_Grath_sum.txt")
+capture.output(anova(Via_lmer_Grath),file = "Via_lmer_Grath.txt")
+capture.output(emmeans(Via_lmer_Grath, list(pairwise ~ Population), adjust = "tukey"),file = "Via_lmer_Grath_tk.txt")
 ```
 
 ```{r}
-anova(Via_lmer_StamenkovicRadak)
+anova(Via_lmer_Grath)
 ```
 
 ```{r}
-summary(Via_lmer_StamenkovicRadak)
-```
-
-
-#### Zwaan Lab
-
-```{r, echo=FALSE, message= FALSE, warning=FALSE}
-pdf(file="p_Via_Zwaan.pdf",width=8, height=5)
-p_Via_Zwaan <- ggplot(data = (subset(d_Via,Supervisor.PI=='Zwaan')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Batch)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_Via_Zwaan", x="Population", y = "ProportionEggtoAdultSurvival")
-```
-
-
-```{r, echo=FALSE, message= FALSE, warning=FALSE}
-p_Via_Zwaan + coord_cartesian(ylim = c(0, 1))+ droseu_theme
-invisible(dev.off())
-```
-
-
-```{r, echo=FALSE, message= FALSE, warning=FALSE}
-pdf(file="p_Via_pop_Zwaan.pdf",width=8, height=5)
-p_Via_pop_Zwaan <- ggplot(data = (subset(d_Via,Supervisor.PI=='Zwaan')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Population)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_Via_pop_Zwaan", x="Population", y = "ProportionEggtoAdultSurvival") 
-```
-
-
-```{r, echo=FALSE, message= FALSE, warning=FALSE}
-p_Via_pop_Zwaan + coord_cartesian(ylim = c(0, 1))+ droseu_theme
-invisible(dev.off())
-```
-
-
-```{r, echo=FALSE, message= FALSE, warning=FALSE}
-
-Via_lmer_Zwaan <- lmer(ProportionEggtoAdultSurvival ~ Population + (1|Line:Population) + (1|Batch), data = d_Via[d_Via$Supervisor.PI == "Zwaan",])
-capture.output(summary(Via_lmer_Zwaan),file = "Via_lmer_Zwaan_sum.txt")
-capture.output(anova(Via_lmer_Zwaan),file = "Via_lmer_Zwaan.txt")
-capture.output(emmeans(Via_lmer_Zwaan, list(pairwise ~ Population), adjust = "tukey"),file = "Via_lmer_Zwaan_tk.txt")
-```
-
-```{r}
-anova(Via_lmer_Zwaan)
-```
-
-```{r}
-summary(Via_lmer_Zwaan)
+summary(Via_lmer_Grath)
 ```
 
 #### Hoedjes Lab
@@ -538,7 +513,6 @@ summary(Via_lmer_Zwaan)
 pdf(file="p_Via_Hoedjes.pdf",width=8, height=5)
 p_Via_Hoedjes <- ggplot(data = (subset(d_Via,Supervisor.PI=='Hoedjes')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Batch)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_Via_Hoedjes", x="Population", y = "ProportionEggtoAdultSurvival")
 ```
-
 
 ```{r, echo=FALSE, message= FALSE, warning=FALSE}
 p_Via_Hoedjes + coord_cartesian(ylim = c(0, 1))+ droseu_theme
@@ -570,86 +544,119 @@ anova(Via_lmer_Hoedjes)
 summary(Via_lmer_Hoedjes)
 ```
 
-
-#### Grath Lab
+#### Schmidt Lab
+```{r, echo=FALSE, message= FALSE, warning=FALSE}
+pdf(file="p_Via_Schmidt.pdf",width=8, height=5)
+p_Via_Schmidt <- ggplot(data = (subset(d_Via,Supervisor.PI=='Schmidt')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Batch)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_Via_Schmidt", x="Population", y = "ProportionEggtoAdultSurvival")
+```
 
 ```{r, echo=FALSE, message= FALSE, warning=FALSE}
-pdf(file="p_Via_Grath.pdf",width=8, height=5)
-p_Via_Grath <- ggplot(data = (subset(d_Via,Supervisor.PI=='Grath')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Batch)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_Via_Grath", x="Population", y = "ProportionEggtoAdultSurvival")
+p_Via_Schmidt + coord_cartesian(ylim = c(min_Via, max_Via))+ droseu_theme
+invisible(dev.off())
+```
+
+```{r, echo=FALSE, message= FALSE, warning=FALSE}
+pdf(file="p_Via_pop_Schmidt.pdf",width=8, height=5)
+p_Via_pop_Schmidt <- ggplot(data = (subset(d_Via,Supervisor.PI=='Schmidt')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Population)) +geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_Via_pop_Schmidt", x="Population", y = "ProportionEggtoAdultSurvival") 
+dev.off()
+```
+
+```{r, echo=FALSE, message= FALSE, warning=FALSE}
+p_Via_pop_Schmidt + coord_cartesian(ylim = c(min_Via, max_Via))+ droseu_theme
+invisible(dev.off())
+```
+
+```{r, echo=FALSE, message= FALSE, warning=FALSE}
+Via_lm_Schmidt <- lm(ProportionEggtoAdultSurvival ~ Population, data = d_Via[d_Via$Supervisor.PI == "Schmidt",])
+capture.output(summary(Via_lm_Schmidt),file = "Via_lm_Schmidt_sum.txt")
+capture.output(anova(Via_lm_Schmidt),file = "Via_lm_Schmidt.txt")
+capture.output(emmeans(Via_lm_Schmidt, list(pairwise ~ Population), adjust = "tukey"),file = "Via_lm_Schmidt_tk.txt")
+```
+
+```{r}
+anova(Via_lm_Schmidt) #lm()` is used only for Schmidt Lab's viability data, as only one vial per line was phenotyped 
+```
+
+```{r}
+summary(Via_lm_Schmidt)
+```
+
+#### Stamenkovic-Radak Lab
+
+```{r, echo=FALSE, message= FALSE, warning=FALSE}
+pdf(file="p_Via_StamenkovicRadak.pdf",width=8, height=5)
+p_Via_StamenkovicRadak <- ggplot(data = (subset(d_Via,Supervisor.PI=='StamenkovicRadak')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Batch)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_Via_StamenkovicRadak", x="Population", y = "ProportionEggtoAdultSurvival")
+```
+
+```{r, echo=FALSE, message= FALSE, warning=FALSE}
+p_Via_StamenkovicRadak + coord_cartesian(ylim = c(0, 1))+ droseu_theme
+invisible(dev.off())
+```
+
+```{r, echo=FALSE, message= FALSE, warning=FALSE}
+pdf(file="p_Via_pop_StamenkovicRadak.pdf",width=8, height=5)
+p_Via_pop_StamenkovicRadak <- ggplot(data = (subset(d_Via,Supervisor.PI=='StamenkovicRadak')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Population)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_Via_pop_StamenkovicRadak", x="Population", y = "ProportionEggtoAdultSurvival") 
+```
+
+```{r, echo=FALSE, message= FALSE, warning=FALSE}
+p_Via_pop_StamenkovicRadak + coord_cartesian(ylim = c(0, 1))+ droseu_theme
+invisible(dev.off())
+```
+
+```{r, echo=FALSE, message= FALSE, warning=FALSE}
+Via_lmer_StamenkovicRadak <- lmer(ProportionEggtoAdultSurvival ~ Population + (1|Line:Population)+ (1|Batch), data = d_Via[d_Via$Supervisor.PI == "StamenkovicRadak",])
+capture.output(summary(Via_lmer_StamenkovicRadak),file = "Via_lmer_StamenkovicRadak_sum.txt")
+capture.output(anova(Via_lmer_StamenkovicRadak),file = "Via_lmer_StamenkovicRadak.txt")
+capture.output(emmeans(Via_lmer_StamenkovicRadak, list(pairwise ~ Population), adjust = "tukey"),file = "Via_lmer_StamenkovicRadak_tk.txt")
+```
+
+```{r}
+anova(Via_lmer_StamenkovicRadak)
+```
+
+```{r}
+summary(Via_lmer_StamenkovicRadak)
 ```
 
 
+#### Zwaan Lab
+
 ```{r, echo=FALSE, message= FALSE, warning=FALSE}
-p_Via_Grath + coord_cartesian(ylim = c(0, 1))+ droseu_theme
+pdf(file="p_Via_Zwaan.pdf",width=8, height=5)
+p_Via_Zwaan <- ggplot(data = (subset(d_Via,Supervisor.PI=='Zwaan')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Batch)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_Via_Zwaan", x="Population", y = "ProportionEggtoAdultSurvival")
+```
+
+```{r, echo=FALSE, message= FALSE, warning=FALSE}
+p_Via_Zwaan + coord_cartesian(ylim = c(0, 1))+ droseu_theme
+invisible(dev.off())
+```
+
+```{r, echo=FALSE, message= FALSE, warning=FALSE}
+pdf(file="p_Via_pop_Zwaan.pdf",width=8, height=5)
+p_Via_pop_Zwaan <- ggplot(data = (subset(d_Via,Supervisor.PI=='Zwaan')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Population)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_Via_pop_Zwaan", x="Population", y = "ProportionEggtoAdultSurvival") 
+```
+
+```{r, echo=FALSE, message= FALSE, warning=FALSE}
+p_Via_pop_Zwaan + coord_cartesian(ylim = c(0, 1))+ droseu_theme
 invisible(dev.off())
 ```
 
 
 ```{r, echo=FALSE, message= FALSE, warning=FALSE}
-pdf(file="p_Via_pop_Grath.pdf",width=8, height=5)
-p_Via_pop_Grath <- ggplot(data = (subset(d_Via,Supervisor.PI=='Grath')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Population)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_Via_pop_Grath", x="Population", y = "ProportionEggtoAdultSurvival") 
-```
 
-
-```{r, echo=FALSE, message= FALSE, warning=FALSE}
-p_Via_pop_Grath + coord_cartesian(ylim = c(0, 1))+ droseu_theme
-invisible(dev.off())
-```
-
-```{r, echo=FALSE, message= FALSE, warning=FALSE}
-Via_lmer_Grath <- lmer(ProportionEggtoAdultSurvival ~ Population + (1|Line:Population) , data = d_Via[d_Via$Supervisor.PI == "Grath",])
-capture.output(summary(Via_lmer_Grath),file = "Via_lmer_Grath_sum.txt")
-capture.output(anova(Via_lmer_Grath),file = "Via_lmer_Grath.txt")
-capture.output(emmeans(Via_lmer_Grath, list(pairwise ~ Population), adjust = "tukey"),file = "Via_lmer_Grath_tk.txt")
+Via_lmer_Zwaan <- lmer(ProportionEggtoAdultSurvival ~ Population + (1|Line:Population) + (1|Batch), data = d_Via[d_Via$Supervisor.PI == "Zwaan",])
+capture.output(summary(Via_lmer_Zwaan),file = "Via_lmer_Zwaan_sum.txt")
+capture.output(anova(Via_lmer_Zwaan),file = "Via_lmer_Zwaan.txt")
+capture.output(emmeans(Via_lmer_Zwaan, list(pairwise ~ Population), adjust = "tukey"),file = "Via_lmer_Zwaan_tk.txt")
 ```
 
 ```{r}
-anova(Via_lmer_Grath)
-```
-
-
-```{r}
-summary(Via_lmer_Grath)
-```
-
-#### Gibert Lab
-
-```{r, echo=FALSE, message= FALSE, warning=FALSE}
-pdf(file="p_Via_Gibert.pdf",width=8, height=5)
-p_Via_Gibert <- ggplot(data = (subset(d_Via,Supervisor.PI=='Gibert')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Batch)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_Via_Gibert", x="Population", y = "ProportionEggtoAdultSurvival")
-```
-
-```{r, echo=FALSE, message= FALSE, warning=FALSE}
-p_Via_Gibert + coord_cartesian(ylim = c(0, 1))+ droseu_theme
-invisible(dev.off())
-```
-
-```{r, echo=FALSE, message= FALSE, warning=FALSE}
-pdf(file="p_Via_pop_Gibert.pdf",width=8, height=5)
-p_Via_pop_Gibert <- ggplot(data = (subset(d_Via,Supervisor.PI=='Gibert')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Population)) +geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_Via_pop_Gibert", x="Population", y = "ProportionEggtoAdultSurvival") 
-```
-
-```{r, echo=FALSE, message= FALSE, warning=FALSE}
-p_Via_pop_Gibert + coord_cartesian(ylim = c(0, 1))+ droseu_theme
-invisible(dev.off())
-```
-
-
-```{r, echo=FALSE, message= FALSE, warning=FALSE}
-Via_lmer_Gibert <- lmer(ProportionEggtoAdultSurvival ~ Population + (1|Line:Population) + (1|Batch) , data = d_Via[d_Via$Supervisor.PI == "Gibert",])
-capture.output(summary(Via_lmer_Gibert),file = "Via_lmer_Gibert_sum.txt")
-capture.output(anova(Via_lmer_Gibert),file = "Via_lmer_Gibert.txt")
-capture.output(emmeans(Via_lmer_Gibert, list(pairwise ~ Population), adjust = "tukey"),file = "Via_lmer_Gibert_tk.txt")
+anova(Via_lmer_Zwaan)
 ```
 
 ```{r}
-anova(Via_lmer_Gibert)
+summary(Via_lmer_Zwaan)
 ```
-
-```{r}
-summary(Via_lmer_Gibert)
-```
-
 
 
 ### Lab correlations
@@ -862,9 +869,6 @@ Eran to make circular figures for both CET and LA
 ### Plots and Linear Models by Lab
 
 #### Abbott Lab
-
-Data will be available by mid-January.
-
 #### Gibert Lab 
 #### Schmidt Lab
 
