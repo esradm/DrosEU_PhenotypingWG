@@ -733,6 +733,16 @@ Onder Lab : Seda Coskun, Senel Selin Senkal, Dogus Can, Banu Sebnem Onder
 
 ## Thorax length
 
+**Contributors: **
+
+Kozeretska Lab : Svitlana Serga, Alexandra Protsenko, Oleksandr Maistrenko, Iryna Kozeretska
+
+Posnien Lab : Micael Reis, Lennart Hüper
+
+Ritchie Lab : Megan Mcgunnigle, Nicola  Cook, Teresa Abaurrea, Michael Ritchie
+
+Schmidt Lab : Amy Goldfischer, Paul Schmidt
+
 ### Data Reformatting
 ### Descriptive Statistics
 ### Plots and Linear Models by Lab
@@ -744,8 +754,19 @@ Onder Lab : Seda Coskun, Senel Selin Senkal, Dogus Can, Banu Sebnem Onder
 
 ### Lab correlations
 
-## Wing area - Right
+## Wing area
 
+**Contributors: **
+
+Onder Lab : Cansu Aksoy, Ekin Demir, Ezgi Cobanoglu, Banu Sebnem Onder
+
+Posnien Lab : Micael Reis, Lennart Hüper, Nico Posnien
+
+Ritchie Lab : Megan Mcgunnigle, Nicola  Cook, Teresa Abaurrea, Marija Tanaskovic, Michael Ritchie
+
+Stamenkovic-Radak Lab : Marija Savic Veselinovic, Marija Tanaskovic, Aleksandra Patenkovic, Filip Filopovski, Mihailo Jelic, Katarina Eric, Pavle Eric, Slobodan Davidovic, Marina Stamenkovic-Radak
+
+### _Right_
 ### Data Reformatting
 ### Descriptive Statistics
 ### Plots and Linear Models by Lab
@@ -757,7 +778,7 @@ Onder Lab : Seda Coskun, Senel Selin Senkal, Dogus Can, Banu Sebnem Onder
 
 ### Lab correlations
 
-## Wing area - Left
+### _Left_
 
 ### Data Reformatting
 ### Descriptive Statistics
@@ -774,7 +795,8 @@ Onder Lab : Seda Coskun, Senel Selin Senkal, Dogus Can, Banu Sebnem Onder
 
 **Contributors:**
 
-Billeter Lab : Xiaocui Wang, Tiphaine Bailly, Mario Mira, Jean-Christophe Billeter  
+Billeter Lab : Xiaocui Wang, Tiphaine Bailly, Mario Mira, Jean-Christophe Billeter
+
 Fricke Lab : Claudia Fricke
 
 ### Data Reformatting
@@ -972,6 +994,15 @@ summary(Fec_lmer_Fricke)
 
 ## Lifespan
 
+**Contributors:**
+
+Flatt Lab : Esra Durmaz, Envel Kerdaffrec, Thibault Schowing, Virginie Thieu, Marisa Rodrigues, Thomas Flatt
+
+Parsch Lab : Amanda Glaser-Schmitt, Eliza Argyridou, John Parsch
+
+Pasyukova Lab : Natalia Roshina, Alexander Symonenko, Mikhail Trostnikov, Evgenia Tsybul'ko, Ekaterina Veselkina, Olga Rybina, Elena Pasyukova
+
+
 ### Data Reformatting
 ### Descriptive Statistics
 ### Plots and Linear Models by Lab
@@ -990,6 +1021,15 @@ summary(Fec_lmer_Fricke)
 
 ## Cold-shock mortality
 
+**Contributors:**
+
+Gonzalez Lab : Llewellyn Green, Josefa Gonzalez, Miriam Merenciano
+
+Kozeretska Lab : Svitlana Serga, Alexandra Protsenko, Oleksandr Maistrenko, Iryna Kozeretska
+
+Vieira Lab : Jorge Vieira, Cristina P. Vieira, Pedro Duque, Tânia Dias
+
+
 ### Data Reformatting
 ### Descriptive Statistics
 ### Plots and Linear Models by Lab
@@ -1002,6 +1042,13 @@ summary(Fec_lmer_Fricke)
 
 ## Chill-coma recovery time
 
+**Contributors:**
+
+Mensh Lab : Julian Mensh
+
+Vieira Lab : Jorge Vieira, Cristina P. Vieira, Pedro Duque, Tânia Dias
+
+
 ### Data Reformatting
 ### Descriptive Statistics
 ### Plots and Linear Models by Lab
@@ -1012,6 +1059,12 @@ summary(Fec_lmer_Fricke)
 ### Lab correlations
 
 ## Heat-shock mortality
+
+**Contributors:**
+
+Parsch Lab : Eliza Argyridou, Amanda Glaser-Schmitt, John Parsch
+
+Vieira Lab : Jorge Vieira, Cristina P. Vieira, Pedro Duque, Tânia Dias
 
 ### Data Reformatting
 ### Descriptive Statistics
@@ -1024,6 +1077,14 @@ summary(Fec_lmer_Fricke)
 
 ## Diapause
 
+**Contributors:**
+
+Bergland Lab : Liam Miller, Alan Bergland, Priscilla Erickson
+
+Flatt Lab : Esra Durmaz, Envel Kerdaffrec, Thibault Schowing, Virginie Thieu, Marisa Rodrigues, Thomas Flatt
+
+Schlotterer Lab : Manolis Lyrakis, Christian Schlötterer
+
 ### Data Reformatting
 ### Descriptive Statistics
 ### Plots and Linear Models by Lab
@@ -1035,6 +1096,10 @@ summary(Fec_lmer_Fricke)
 ### Lab correlations
 
 ## Circadian eclosion timing
+
+**Contributors:**
+
+Wegener Lab : Christian Wegener
 
 ### Data Reformatting
 ### Descriptive Statistics
@@ -1058,6 +1123,10 @@ _Meeting w Eran and Chris_
 
 ## Locomotor activity
 
+**Contributors:**
+
+Tauber Lab : Bettina Fishman, Eran Tauber
+
 ### Data Reformatting
 ### Descriptive Statistics
 ### Plots and Linear Models by Lab
@@ -1067,6 +1136,15 @@ _Meeting w Eran and Chris_
 Eran to make circular figures for both CET and LA
 
 ## Starvation resistance
+
+**Contributors:**
+
+Gonzalez Lab : Llewellyn Green, Josefa Gonzalez, Miriam Merenciano
+
+Onder Lab : Seda Coskun, Ekin Demir, Senel Selin Senkal, Cansu Aksoy
+
+Pasyukova Lab : Alexander Symonenko, Natalia Roshina, Mikhail Trostnokov, Ekaterina Veselkina, Evgenia Tsybul'ko, Olga Rybina, Elena Pasyukova
+
 
 ### Data Reformatting
 ### Descriptive Statistics
@@ -1085,6 +1163,14 @@ Eran to make circular figures for both CET and LA
 ### Lab correlations
 
 ## Pigmentation
+
+**Contributors:**
+
+Abbott Lab : Jessica Abbott, Qinyang Li, Shahzad Khan
+
+Gibert Lab :Cristina Vieira, Laurence Mouton, Natacha Kremer, Sonia Martinez, Camille Mermet, Patricia Gibert
+
+Schmidt Lab : Amy Goldfischer, Paul Schmidt 
 
 ### Data Reformatting
 ### Descriptive Statistics
