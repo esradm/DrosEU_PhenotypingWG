@@ -23,7 +23,7 @@ The call was made with approximate numbers of populations, lines, etc. and under
 
 ## Sampling Locations
 
-```{r echo=FALSE, message=FALSE}
+```{r packages, echo=FALSE, message=FALSE}
 
 setwd("/Users/durmazm/Documents/GitHub/DrosEU_PhenotypingWG/")
 library(ggplot2)
@@ -61,7 +61,7 @@ library(DT)
 Nine sampling locations were chosen based on genomic data and cover a wide range of latitude (~20°) and longitude (~40°) across the continent  (see table below). From each location, 15 to 20 isofemale lines were established in corresponding labs at the sampling location and the isofemale lines were centrally maintained by Élio Sucena  at Instituto Gulbenkian de Ciência (IGC), Lisbon, Portugal. A total of 173 isofemale lines were used in this study. 
 
 
-```{r echo=FALSE, message=FALSE}
+```{r coordinates, echo=FALSE, message=FALSE}
 droseu_coord <- read.csv("/Users/durmazm/Documents/GitHub/DrosEU_PhenotypingWG/DrosEU_Coordinates.csv")
 
 droseu_coord <- data.frame(droseu_coord %>%
@@ -80,7 +80,7 @@ caption {
     }
 ```
 
-```{r echo=FALSE, message=TRUE}
+```{r sampling maps, echo=FALSE, message=TRUE}
 world <- ne_countries(scale = "medium", returnclass = "sf")
 samples_map <- ggplot(data = world) + geom_sf() + xlab("Latitude") + ylab("Longitude") + ggplot2::coord_sf(xlim = c(-12, 38), ylim = c(30, 65), expand = FALSE) + annotation_scale(location = "bl", width_hint = 0.5) + ggtitle("Sampling locations")
 ```
@@ -118,7 +118,7 @@ samples_map + map_theme +
 ```
 
 
-```{r echo=FALSE, message=FALSE}
+```{r labs, echo=FALSE, message=FALSE}
 droseu_labs <- data.frame(read.csv("DrosEU_Labs.csv"))
 
 ```
@@ -139,7 +139,7 @@ cities <- read.csv("DrosEU_cities.csv")
 
 
 
-```{r echo=FALSE, message=TRUE}
+```{r research groups, echo=FALSE, message=TRUE}
 
 globe_labs <- ggplot(data = world) + geom_sf() + xlab("Latitude") + ylab("Longitude") +
   coord_sf(xlim = c(-80.15, 40.12), ylim = c(-45, 60), expand = TRUE) +
@@ -152,7 +152,7 @@ globe_labs + map_theme
 
 ## Contributers (analyses)
 
-Envel Kerdaffrec (data check, data clean-up, data reformatting, LS, Dia, and others), Katja Hoedjes (DW, Via, DT), Banu Onder (SR, WA), Chris Wegener (CET), Eran Tauber (LA), Rudolf Rohr (UniFr), coordination-team
+Esra Durmaz (all), Envel Kerdaffrec (data check, data clean-up, data reformatting, LS, Dia, and others), Katja Hoedjes (DW, Via, DT), Banu Onder (SR, WA), Chris Wegener (CET), Eran Tauber (LA), Rudolf Rohr (UniFr), coordination-team
 
 # Phenotyping 
 
@@ -170,8 +170,6 @@ Contributors and their experimental methods
 ### Viability
 ##### Gibert, Grath, Hoedjes, Schmidt, Stamenkovic-Radak and Zwaan Labs
 
-_Contributors : Patricia Gibert, Sonja Grath, Paul Schmidt, Marina Stamenkovic-Radak, Bas Zwann, Joost van den Heuvel, Vieira Cristina, Mouton Laurence, Kremer Natacha, Martinez Sonia, Ingo Müller, Hristina Kostic, Amy Goldfischer, Paul Schmidt, Ozan Kiratli, Yonatan Babore, Liam Forsythe, Marija Savic Veselinovic, Marija Tanaskovic, Aleksandra Patenkovic, Mihailo Jelic, Katarina Eric, Pavle Eric, Slobodan Davidovic_
-
 
 3-5 day old adults (at least 25 pairs) are allowed to lay eggs en masse. Yeast is provided to stimulate egg laying (for at least 2 hours). Eggs are collected, and 40 are placed in each vial(^*^). Viability is calculated per vial, as the percentage of individuals that emerged from the 40 eggs.
 
@@ -183,19 +181,18 @@ Please see below number of
 
 #### Egg-to-pupa developmental time
 ##### Schmidt Lab
-Amy Goldfischer, Paul Schmidt
+
 
 
 #### Egg-to-adult developmental time
 ##### Gibert, Grath, Hoedjes, Schmidt, Stamenkovic-Radak and Zwaan Labs
-Patricia Gibert, Katja Hoedjes, Paul Schmidt, Marina Stamenkovic-Radak, Bas Zwann, .... 
+
+
 Developmental time is scored as both the egg-to-pupa and egg-to-adult development time. Both were scored twice a day, when the chamber lights are turned on and two hours before they are turned off. In order to measure the egg-to-pupa developmental time, the spot where a pupa is found is marked with a permanent marker to keep track of which pupae have emerged in each day. The egg-to-adult developmental time is estimated by counting all emerged adults from the vial, and by sexing them.
 
 
 ### Dry weight
 ##### Colinet, Hoedjes and Onder Labs
-Herve Colinet, Katja Hoedjes, Banu Onder, .... 
-
 
 At day 7 after emergence, flies are killed by snap freezing them in liquid nitrogen, by putting them at -20ºC or by putting them into an ethyl acetate solution and stored at -20ºC. Then they are sexed and placed into 96 wells plates, and placed in an oven set at 60-70 °C, for at least 3 days. At this point flies can be stored at room temperature using a protective cover. If this is the case, the day before measurements are made dry flies are again placed for 24h in the oven (60-70 °C) to ensure material is well dehydrated. Flies are then placed on a small piece of aluminium foil for direct weight measurement on microbalance (accuracy 1µg).
 
@@ -220,7 +217,6 @@ For each isofemale line, 10 males and 10 females are placed together in single-s
 
 ### Lifespan
 ##### Flatt, Parsch and Pasyukova Labs
-Esra Durmaz, Envel Kerdaffrec, TBO, Virginie, John Parsch, Amanda, Eliza, Lena Pasyukova, Alexander 
 
 Line level lifespan: Ten flies per sex/line are placed in each vial. The age at death will be scored when changing the food, at least three times a week. Five replicates are used.
 
@@ -316,13 +312,24 @@ setwd(localgit)
 
 ## Viability
 
-Contributors: Gibert, Grath, Hoedjes, Schmidt, Stamenkovic-Radak and Zwaan Labs
+**Contributors: **
+
+Gibert Lab :Cristina Vieira, Laurence Mouton, Natacha Kremer, Sonia Martinez, Patricia Gibert
+
+Grath Lab : Ingo Müller, Sonja Grath
+
+Hoedjes Lab : Hristina Kostic, Katja Hoedjes
+
+Schmidt Lab : Ozan Kiratli, Yonatan Babore, Liam Forsythe, Paul Schmidt
+
+Stamenkovic-Radak Lab : Marija Savic Veselinovic, Marija Tanaskovic, Aleksandra Patenkovic, Mihailo Jelic, Katarina Eric, Pavle Eric, Slobodan Davidovic, Marina Stamenkovic-Radak
+
+Zwaan Lab : Joost van den Heuvel, Bas Zwaan
 
 ### Data reformatting
 
-
 **Reading data in R**
-```{r}
+```{r viability}
 d_Via <- read.csv("MasterSheets_Oct21_git/VIA_MasterSheet_Oct21.csv")
 str(d_Via)
 ```
@@ -359,7 +366,7 @@ str(d_Via)
 
 ### Descriptive Statistics
 
-Tables for descriptive statistics at population and line level can be found in the main directory, under the file name **__table_TraitAbbreviation_Level_BatchInfo.csv__** (_i.e. table_Via_Line_wobatch.csv_)
+Tables for descriptive statistics at population and line level can be found in the main trait directory, under the file name **__table_TraitAbbreviation_Level_BatchInfo.csv__** (_i.e. table_Via_Line_wobatch.csv_)
 
 ```{r, echo=FALSE}
 ## Define standard error and coefficient of variation
@@ -373,9 +380,9 @@ estimate_mode <- function(v) {
 ```
 
 Descriptive statistics for viability at the line level, with batch information : 
-```{r, echo=FALSE}
-table_Via_Line_wbatch <- write.csv(d_Via %>% group_by(Supervisor.PI, Batch, Population, Line) %>% summarise_at(vars(ProportionEggtoAdultSurvival), list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, SE = std_err, CV = coef_var, Mode = estimate_mode)), file = "table_Via_Line_wbatch.csv", row.names = T)
-table_Via_Line_wbatch <- read.csv("table_Via_Line_wbatch.csv")
+```{r viability-tables, echo=FALSE}
+table_Via_Line_wbatch <- write.csv(d_Via %>% group_by(Supervisor.PI, Batch, Population, Line) %>% summarise_at(vars(ProportionEggtoAdultSurvival), list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, SE = std_err, CV = coef_var, Mode = estimate_mode)), file = "Viability//table_Via_Line_wbatch.csv", row.names = T)
+table_Via_Line_wbatch <- read.csv("Viability/table_Via_Line_wbatch.csv")
 ```
 
 ```{r, echo=FALSE}
@@ -385,8 +392,8 @@ DT::datatable(table_Via_Line_wbatch, options = list(pageLength = 10)) %>% format
 Descriptive statistics for viability at the line level, without batch information : 
 
 ```{r, echo=FALSE}
-table_Via_Line_wobatch <- write.csv(d_Via %>% group_by(Supervisor.PI, Population, Line) %>% summarise_at(vars(ProportionEggtoAdultSurvival), list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, SE = std_err, CV = coef_var, Mode = estimate_mode)), file = "table_Via_Line_wobatch.csv", row.names = T)
-table_Via_Line_wobatch <- read.csv("table_Via_Line_wobatch.csv")
+table_Via_Line_wobatch <- write.csv(d_Via %>% group_by(Supervisor.PI, Population, Line) %>% summarise_at(vars(ProportionEggtoAdultSurvival), list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, SE = std_err, CV = coef_var, Mode = estimate_mode)), file = "Viability/table_Via_Line_wobatch.csv", row.names = T)
+table_Via_Line_wobatch <- read.csv("Viability/table_Via_Line_wobatch.csv")
 ```
 
 ```{r, echo=FALSE}
@@ -395,8 +402,8 @@ DT::datatable(table_Via_Line_wobatch, options = list(pageLength = 10)) %>% forma
 
 Descriptive statistics for viability at the population level, with batch information : 
 ```{r, echo=FALSE}
-table_Via_Pop_wbatch <- write.csv(d_Via %>% group_by(Supervisor.PI, Batch, Population) %>% summarise_at(vars(ProportionEggtoAdultSurvival), list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, SE = std_err, CV = coef_var, Mode = estimate_mode)), file = "table_Via_Pop_wbatch.csv", row.names = T)
-table_Via_Pop_wbatch <- read.csv("table_Via_Pop_wbatch.csv")
+table_Via_Pop_wbatch <- write.csv(d_Via %>% group_by(Supervisor.PI, Batch, Population) %>% summarise_at(vars(ProportionEggtoAdultSurvival), list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, SE = std_err, CV = coef_var, Mode = estimate_mode)), file = "Viability/table_Via_Pop_wbatch.csv", row.names = T)
+table_Via_Pop_wbatch <- read.csv("Viability/table_Via_Pop_wbatch.csv")
 ```
 
 ```{r, echo=FALSE}
@@ -405,8 +412,8 @@ DT::datatable(table_Via_Pop_wbatch, options = list(pageLength = 10))  %>% format
 
 Descriptive statistics for viability at the population level, without batch information : 
 ```{r, echo=FALSE}
-table_Via_Pop_wobatch <- write.csv(d_Via %>% group_by(Supervisor.PI, Population) %>% summarise_at(vars(ProportionEggtoAdultSurvival), list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, SE = std_err, CV = coef_var, Mode = estimate_mode)), file = "table_Via_Pop_wobatch.csv", row.names = T)
-table_Via_Pop_wobatch <- read.csv("table_Via_Pop_wobatch.csv")
+table_Via_Pop_wobatch <- write.csv(d_Via %>% group_by(Supervisor.PI, Population) %>% summarise_at(vars(ProportionEggtoAdultSurvival), list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, SE = std_err, CV = coef_var, Mode = estimate_mode)), file = "Viability/table_Via_Pop_wobatch.csv", row.names = T)
+table_Via_Pop_wobatch <- read.csv("Viability/table_Via_Pop_wobatch.csv")
 ```
 
 ```{r, echo=FALSE}
@@ -434,8 +441,8 @@ Here is an example code for egg-to-adult viability, Gibert Lab. The same code is
 
 #### Gibert Lab
 
-```{r, echo=TRUE, message= FALSE, warning=FALSE}
-pdf(file="p_Via_Gibert.pdf",width=8, height=5)
+```{r viability-gibert, echo=TRUE, message= FALSE, warning=FALSE}
+pdf(file="Viability/p_Via_Gibert.pdf",width=8, height=5)
 p_Via_Gibert <- ggplot(data = (subset(d_Via,Supervisor.PI=='Gibert')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Batch)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_Via_Gibert", x="Population", y = "ProportionEggtoAdultSurvival")
 ```
 
@@ -445,7 +452,7 @@ invisible(dev.off())
 ```
 
 ```{r, echo=TRUE, message= FALSE, warning=FALSE}
-pdf(file="p_Via_pop_Gibert.pdf",width=8, height=5)
+pdf(file="Viability/p_Via_pop_Gibert.pdf",width=8, height=5)
 p_Via_pop_Gibert <- ggplot(data = (subset(d_Via,Supervisor.PI=='Gibert')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Population)) +geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_Via_pop_Gibert", x="Population", y = "ProportionEggtoAdultSurvival") 
 ```
 
@@ -456,9 +463,9 @@ invisible(dev.off())
 
 ```{r, echo=TRUE, message= FALSE, warning=FALSE}
 Via_lmer_Gibert <- lmer(ProportionEggtoAdultSurvival ~ Population + (1|Line:Population) + (1|Batch) , data = d_Via[d_Via$Supervisor.PI == "Gibert",])
-capture.output(summary(Via_lmer_Gibert),file = "Via_lmer_Gibert_sum.txt")
-capture.output(anova(Via_lmer_Gibert),file = "Via_lmer_Gibert.txt")
-capture.output(emmeans(Via_lmer_Gibert, list(pairwise ~ Population), adjust = "tukey"),file = "Via_lmer_Gibert_tk.txt")
+capture.output(summary(Via_lmer_Gibert),file = "Viability/Via_lmer_Gibert_sum.txt")
+capture.output(anova(Via_lmer_Gibert),file = "Viability/Via_lmer_Gibert.txt")
+capture.output(emmeans(Via_lmer_Gibert, list(pairwise ~ Population), adjust = "tukey"),file = "Viability/Via_lmer_Gibert_tk.txt")
 ```
 
 ```{r}
@@ -472,8 +479,8 @@ summary(Via_lmer_Gibert)
 
 #### Grath Lab
 
-```{r, echo=FALSE, message= FALSE, warning=FALSE}
-pdf(file="p_Via_Grath.pdf",width=8, height=5)
+```{r viability-grath, echo=FALSE, message= FALSE, warning=FALSE}
+pdf(file="Viability/p_Via_Grath.pdf",width=8, height=5)
 p_Via_Grath <- ggplot(data = (subset(d_Via,Supervisor.PI=='Grath')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Batch)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_Via_Grath", x="Population", y = "ProportionEggtoAdultSurvival")
 ```
 
@@ -483,7 +490,7 @@ invisible(dev.off())
 ```
 
 ```{r, echo=FALSE, message= FALSE, warning=FALSE}
-pdf(file="p_Via_pop_Grath.pdf",width=8, height=5)
+pdf(file="Viability/p_Via_pop_Grath.pdf",width=8, height=5)
 p_Via_pop_Grath <- ggplot(data = (subset(d_Via,Supervisor.PI=='Grath')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Population)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_Via_pop_Grath", x="Population", y = "ProportionEggtoAdultSurvival") 
 ```
 
@@ -494,9 +501,9 @@ invisible(dev.off())
 
 ```{r, echo=FALSE, message= FALSE, warning=FALSE}
 Via_lmer_Grath <- lmer(ProportionEggtoAdultSurvival ~ Population + (1|Line:Population) , data = d_Via[d_Via$Supervisor.PI == "Grath",])
-capture.output(summary(Via_lmer_Grath),file = "Via_lmer_Grath_sum.txt")
-capture.output(anova(Via_lmer_Grath),file = "Via_lmer_Grath.txt")
-capture.output(emmeans(Via_lmer_Grath, list(pairwise ~ Population), adjust = "tukey"),file = "Via_lmer_Grath_tk.txt")
+capture.output(summary(Via_lmer_Grath),file = "Viability/Via_lmer_Grath_sum.txt")
+capture.output(anova(Via_lmer_Grath),file = "Viability/Via_lmer_Grath.txt")
+capture.output(emmeans(Via_lmer_Grath, list(pairwise ~ Population), adjust = "tukey"),file = "Viability/Via_lmer_Grath_tk.txt")
 ```
 
 ```{r}
@@ -509,8 +516,8 @@ summary(Via_lmer_Grath)
 
 #### Hoedjes Lab
 
-```{r, echo=FALSE, message= FALSE, warning=FALSE}
-pdf(file="p_Via_Hoedjes.pdf",width=8, height=5)
+```{r viability-hoedjes, echo=FALSE, message= FALSE, warning=FALSE}
+pdf(file="Viability/p_Via_Hoedjes.pdf",width=8, height=5)
 p_Via_Hoedjes <- ggplot(data = (subset(d_Via,Supervisor.PI=='Hoedjes')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Batch)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_Via_Hoedjes", x="Population", y = "ProportionEggtoAdultSurvival")
 ```
 
@@ -520,7 +527,7 @@ invisible(dev.off())
 ```
 
 ```{r, echo=FALSE, message= FALSE, warning=FALSE}
-pdf(file="p_Via_pop_Hoedjes.pdf",width=8, height=5)
+pdf(file="Viability/p_Via_pop_Hoedjes.pdf",width=8, height=5)
 p_Via_pop_Hoedjes <- ggplot(data = (subset(d_Via,Supervisor.PI=='Hoedjes')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Population)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_Via_pop_Hoedjes", x="Population", y = "ProportionEggtoAdultSurvival") 
 ```
 
@@ -531,9 +538,9 @@ invisible(dev.off())
 
 ```{r, echo=FALSE, message= FALSE, warning=FALSE}
 Via_lmer_Hoedjes <- lmer(ProportionEggtoAdultSurvival ~ Population + (1|Line:Population) + (1|Batch), data = d_Via[d_Via$Supervisor.PI == "Hoedjes",])
-capture.output(summary(Via_lmer_Hoedjes),file = "Via_lmer_Hoedjes_sum.txt")
-capture.output(anova(Via_lmer_Hoedjes),file = "Via_lmer_Hoedjes.txt")
-capture.output(emmeans(Via_lmer_Hoedjes, list(pairwise ~ Population), adjust = "tukey"),file = "Via_lmer_Hoedjes_tk.txt")
+capture.output(summary(Via_lmer_Hoedjes),file = "Viability/Via_lmer_Hoedjes_sum.txt")
+capture.output(anova(Via_lmer_Hoedjes),file = "Viability/Via_lmer_Hoedjes.txt")
+capture.output(emmeans(Via_lmer_Hoedjes, list(pairwise ~ Population), adjust = "tukey"),file = "Viability/Via_lmer_Hoedjes_tk.txt")
 ```
 
 ```{r}
@@ -545,8 +552,8 @@ summary(Via_lmer_Hoedjes)
 ```
 
 #### Schmidt Lab
-```{r, echo=FALSE, message= FALSE, warning=FALSE}
-pdf(file="p_Via_Schmidt.pdf",width=8, height=5)
+```{r viability-schmidt, echo=FALSE, message= FALSE, warning=FALSE}
+pdf(file="Viability/p_Via_Schmidt.pdf",width=8, height=5)
 p_Via_Schmidt <- ggplot(data = (subset(d_Via,Supervisor.PI=='Schmidt')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Batch)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_Via_Schmidt", x="Population", y = "ProportionEggtoAdultSurvival")
 ```
 
@@ -556,7 +563,7 @@ invisible(dev.off())
 ```
 
 ```{r, echo=FALSE, message= FALSE, warning=FALSE}
-pdf(file="p_Via_pop_Schmidt.pdf",width=8, height=5)
+pdf(file="Viability/p_Via_pop_Schmidt.pdf",width=8, height=5)
 p_Via_pop_Schmidt <- ggplot(data = (subset(d_Via,Supervisor.PI=='Schmidt')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Population)) +geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_Via_pop_Schmidt", x="Population", y = "ProportionEggtoAdultSurvival") 
 dev.off()
 ```
@@ -568,9 +575,9 @@ invisible(dev.off())
 
 ```{r, echo=FALSE, message= FALSE, warning=FALSE}
 Via_lm_Schmidt <- lm(ProportionEggtoAdultSurvival ~ Population, data = d_Via[d_Via$Supervisor.PI == "Schmidt",])
-capture.output(summary(Via_lm_Schmidt),file = "Via_lm_Schmidt_sum.txt")
-capture.output(anova(Via_lm_Schmidt),file = "Via_lm_Schmidt.txt")
-capture.output(emmeans(Via_lm_Schmidt, list(pairwise ~ Population), adjust = "tukey"),file = "Via_lm_Schmidt_tk.txt")
+capture.output(summary(Via_lm_Schmidt),file = "Viability/Via_lm_Schmidt_sum.txt")
+capture.output(anova(Via_lm_Schmidt),file = "Viability/Via_lm_Schmidt.txt")
+capture.output(emmeans(Via_lm_Schmidt, list(pairwise ~ Population), adjust = "tukey"),file = "Viability/Via_lm_Schmidt_tk.txt")
 ```
 
 ```{r}
@@ -583,8 +590,8 @@ summary(Via_lm_Schmidt)
 
 #### Stamenkovic-Radak Lab
 
-```{r, echo=FALSE, message= FALSE, warning=FALSE}
-pdf(file="p_Via_StamenkovicRadak.pdf",width=8, height=5)
+```{r viability-stamenkovic-radak, echo=FALSE, message= FALSE, warning=FALSE}
+pdf(file="Viability/p_Via_StamenkovicRadak.pdf",width=8, height=5)
 p_Via_StamenkovicRadak <- ggplot(data = (subset(d_Via,Supervisor.PI=='StamenkovicRadak')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Batch)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_Via_StamenkovicRadak", x="Population", y = "ProportionEggtoAdultSurvival")
 ```
 
@@ -594,7 +601,7 @@ invisible(dev.off())
 ```
 
 ```{r, echo=FALSE, message= FALSE, warning=FALSE}
-pdf(file="p_Via_pop_StamenkovicRadak.pdf",width=8, height=5)
+pdf(file="Viability/p_Via_pop_StamenkovicRadak.pdf",width=8, height=5)
 p_Via_pop_StamenkovicRadak <- ggplot(data = (subset(d_Via,Supervisor.PI=='StamenkovicRadak')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Population)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_Via_pop_StamenkovicRadak", x="Population", y = "ProportionEggtoAdultSurvival") 
 ```
 
@@ -605,9 +612,9 @@ invisible(dev.off())
 
 ```{r, echo=FALSE, message= FALSE, warning=FALSE}
 Via_lmer_StamenkovicRadak <- lmer(ProportionEggtoAdultSurvival ~ Population + (1|Line:Population)+ (1|Batch), data = d_Via[d_Via$Supervisor.PI == "StamenkovicRadak",])
-capture.output(summary(Via_lmer_StamenkovicRadak),file = "Via_lmer_StamenkovicRadak_sum.txt")
-capture.output(anova(Via_lmer_StamenkovicRadak),file = "Via_lmer_StamenkovicRadak.txt")
-capture.output(emmeans(Via_lmer_StamenkovicRadak, list(pairwise ~ Population), adjust = "tukey"),file = "Via_lmer_StamenkovicRadak_tk.txt")
+capture.output(summary(Via_lmer_StamenkovicRadak),file = "Viability/Via_lmer_StamenkovicRadak_sum.txt")
+capture.output(anova(Via_lmer_StamenkovicRadak),file = "Viability/Via_lmer_StamenkovicRadak.txt")
+capture.output(emmeans(Via_lmer_StamenkovicRadak, list(pairwise ~ Population), adjust = "tukey"),file = "Viability/Via_lmer_StamenkovicRadak_tk.txt")
 ```
 
 ```{r}
@@ -621,8 +628,8 @@ summary(Via_lmer_StamenkovicRadak)
 
 #### Zwaan Lab
 
-```{r, echo=FALSE, message= FALSE, warning=FALSE}
-pdf(file="p_Via_Zwaan.pdf",width=8, height=5)
+```{r viability-zwaan, echo=FALSE, message= FALSE, warning=FALSE}
+pdf(file="Viability/p_Via_Zwaan.pdf",width=8, height=5)
 p_Via_Zwaan <- ggplot(data = (subset(d_Via,Supervisor.PI=='Zwaan')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Batch)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_Via_Zwaan", x="Population", y = "ProportionEggtoAdultSurvival")
 ```
 
@@ -632,7 +639,7 @@ invisible(dev.off())
 ```
 
 ```{r, echo=FALSE, message= FALSE, warning=FALSE}
-pdf(file="p_Via_pop_Zwaan.pdf",width=8, height=5)
+pdf(file="Viability/p_Via_pop_Zwaan.pdf",width=8, height=5)
 p_Via_pop_Zwaan <- ggplot(data = (subset(d_Via,Supervisor.PI=='Zwaan')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Population)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_Via_pop_Zwaan", x="Population", y = "ProportionEggtoAdultSurvival") 
 ```
 
@@ -645,9 +652,9 @@ invisible(dev.off())
 ```{r, echo=FALSE, message= FALSE, warning=FALSE}
 
 Via_lmer_Zwaan <- lmer(ProportionEggtoAdultSurvival ~ Population + (1|Line:Population) + (1|Batch), data = d_Via[d_Via$Supervisor.PI == "Zwaan",])
-capture.output(summary(Via_lmer_Zwaan),file = "Via_lmer_Zwaan_sum.txt")
-capture.output(anova(Via_lmer_Zwaan),file = "Via_lmer_Zwaan.txt")
-capture.output(emmeans(Via_lmer_Zwaan, list(pairwise ~ Population), adjust = "tukey"),file = "Via_lmer_Zwaan_tk.txt")
+capture.output(summary(Via_lmer_Zwaan),file = "Viability/Via_lmer_Zwaan_sum.txt")
+capture.output(anova(Via_lmer_Zwaan),file = "Viability/Via_lmer_Zwaan.txt")
+capture.output(emmeans(Via_lmer_Zwaan, list(pairwise ~ Population), adjust = "tukey"),file = "Viability/Via_lmer_Zwaan_tk.txt")
 ```
 
 ```{r}
@@ -665,6 +672,10 @@ summary(Via_lmer_Zwaan)
 
 ### Egg-to-pupa developmental time
 
+**Contributors: **
+
+Schmidt Lab : Paul Schmidt
+
 #### Data Reformatting
 #### Descriptive Statistics
 #### Plots and Linear Models by Lab
@@ -672,6 +683,20 @@ summary(Via_lmer_Zwaan)
 ##### Schmidt Lab
 
 ### Egg-to-adult developmental time
+
+**Contributors: **
+
+Gibert Lab : Cristina Vieira, Laurence Mouton, Natacha Kremer, Sonia Martinez, Patricia Gibert
+
+Grath Lab : Ingo Müller, Sonja Grath
+
+Hoedjes Lab : Hristina Kostic, Katja Hoedjes
+
+Schmidt Lab : Ozan Kiratli, Yonatan Babore, Liam Forsythe, Paul Schmidt
+
+Stamenkovic-Radak Lab : Marija Savic Veselinovic, Marija Tanaskovic, Aleksandra Patenkovic, Mihailo Jelic, Katarina Eric, Pavle Eric, Slobodan Davidovic, Marina Stamenkovic-Radak
+
+Zwaan Lab : Joost van den Heuvel, Bas Zwaan
 
 #### Data Reformatting
 #### Descriptive Statistics
@@ -687,6 +712,14 @@ summary(Via_lmer_Zwaan)
 #### Lab correlations
 
 ## Dry weight
+
+**Contributors: **
+
+Colinet Lab : Sapho-Lou Marti , Hervé Colinet
+
+Hoedjes Lab : Hristina Kostic, Katja Hoedjes
+
+Onder Lab : Seda Coskun, Senel Selin Senkal, Dogus Can, Banu Sebnem Onder
 
 ### Data Reformatting
 ### Descriptive Statistics
@@ -739,12 +772,201 @@ summary(Via_lmer_Zwaan)
 
 ## Fecundity
 
+**Contributors:**
+
+Billeter Lab : Xiaocui Wang, Tiphaine Bailly, Mario Mira, Jean-Christophe Billeter  
+Fricke Lab : Claudia Fricke
+
 ### Data Reformatting
+
+
+**Reading data in R**
+
+```{r fecundity}
+d_Fec <- read.csv("MasterSheets_Oct21_git/FEC_MasterSheet_Oct21.csv")
+str(d_Fec)
+```
+
+Factors need reformatting (i.e. Supervisor.PI should be coded as a factor, not character).
+
+```{r}
+str(d_Fec)
+d_Fec$Supervisor.PI <- as.factor(d_Fec$Supervisor.PI)
+d_Fec$Diet <- as.factor(d_Fec$Diet)
+d_Fec$Batch <- as.factor(d_Fec$Batch)
+d_Fec$Population <- as.factor(d_Fec$Population)
+d_Fec$Population_Lat <- factor(d_Fec$Population, levels= c("YE","RE","GI","MU","MA","UM","KA","VA","AK"))
+d_Fec$Population_Lon <- factor(d_Fec$Population, levels= c("RE","GI","KA","MU","MA","AK","UM","YE","VA"))
+d_Fec$Population_Alt <- factor(d_Fec$Population, levels= c("KA","AK","GI","RE","UM","VA","MU","MA","YE"))
+d_Fec$Line <- as.factor(d_Fec$Line)
+d_Fec$NumberOfAdultsEclosed <- as.numeric(d_Fec$NumberOfAdultsEclosed)
+d_Fec$Censor <- as.factor(d_Fec$Censor)
+str(d_Fec)
+
+d_Fec <- subset(d_Fec, Censor == "0")
+```
+
+Now they should be in the correct format, see below. 
+
+```{r}
+str(d_Fec)
+```
+
 ### Descriptive Statistics
+
+Tables for descriptive statistics at population and line level can be found in the main trait directory, under the file name **__table_TraitAbbreviation_Level_BatchInfo.csv__** (_i.e. table_Via_Line_wobatch.csv_)
+
+```{r fecundity-tables, echo=FALSE}
+## Define standard error and coefficient of variation
+std_err <- function(x) sd(x)/sqrt(length(x))
+coef_var <- function(x) sd(x)/mean(x)
+estimate_mode <- function(v) {
+  uniqv <- unique(v)
+  uniqv[which.max(tabulate(match(v, uniqv)))]
+}
+```
+
+
+Descriptive statistics for viability at the line level, with batch information : 
+```{r, echo=FALSE}
+table_Fec_Line_wbatch <- write.csv(d_Fec %>% group_by(Supervisor.PI, Batch, Population, Line) %>% summarise_at(vars(NumberOfAdultsEclosed), list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, SE = std_err, CV = coef_var, Mode = estimate_mode)), file = "Fecundity/table_Fec_Line_wbatch.csv", row.names = T)
+table_Fec_Line_wbatch <- read.csv("Fecundity/table_Fec_Line_wbatch.csv")
+```
+
+```{r, echo=FALSE}
+DT::datatable(table_Fec_Line_wbatch, options = list(pageLength = 10)) %>% formatRound(6:13, 3)
+```
+
+Descriptive statistics for fecundity at the line level, without batch information : 
+  
+```{r, echo=FALSE}
+table_Fec_Line_wobatch <- write.csv(d_Fec %>% group_by(Supervisor.PI, Population, Line) %>% summarise_at(vars(NumberOfAdultsEclosed), list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, SE = std_err, CV = coef_var, Mode = estimate_mode)), file = "Fecundity/table_Fec_Line_wobatch.csv", row.names = T)
+table_Fec_Line_wobatch <- read.csv("Fecundity/table_Fec_Line_wobatch.csv")
+```
+
+```{r, echo=FALSE}
+DT::datatable(table_Fec_Line_wobatch, options = list(pageLength = 10)) %>% formatRound(5:12, 3)
+```
+
+Descriptive statistics for viability at the population level, with batch information : 
+```{r, echo=FALSE}
+table_Fec_Pop_wbatch <- write.csv(d_Fec %>% group_by(Supervisor.PI, Batch, Population) %>% summarise_at(vars(NumberOfAdultsEclosed), list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, SE = std_err, CV = coef_var, Mode = estimate_mode)), file = "Fecundity/table_Fec_Pop_wbatch.csv", row.names = T)
+table_Fec_Pop_wbatch <- read.csv("Fecundity/table_Fec_Pop_wbatch.csv")
+```
+
+```{r, echo=FALSE}
+DT::datatable(table_Fec_Pop_wbatch, options = list(pageLength = 10))  %>% formatRound(5:12, 3)
+```
+
+Descriptive statistics for viability at the population level, without batch information : 
+```{r, echo=FALSE}
+table_Fec_Pop_wobatch <- write.csv(d_Fec %>% group_by(Supervisor.PI, Population) %>% summarise_at(vars(NumberOfAdultsEclosed), list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, SE = std_err, CV = coef_var, Mode = estimate_mode)), file = "Fecundity/table_Fec_Pop_wobatch.csv", row.names = T)
+table_Fec_Pop_wobatch <- read.csv("Fecundity/table_Fec_Pop_wobatch.csv")
+```
+
+```{r, echo=FALSE}
+DT::datatable(table_Fec_Pop_wobatch, options = list(pageLength = 10)) %>% formatRound(4:11, 3)
+```
+
+
 ### Plots and Linear Models by Lab
 
+The very same theme has been used all across the document, being a **_ggplot theme_** called _droseu_theme_
+```{r}
+droseu_theme <- theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), panel.background = element_blank(), axis.line = element_line(colour = "black",),  axis.title.x = element_text(size = 16), axis.text.x = element_text(size = 16),axis.text.y = element_text(size = 16),axis.title.y = element_text(size = 16))
+```
+
+Data range is calculated with `#r min()` and `#r max()` functions for each trait.
+
+```{r, echo=TRUE}
+min_Fec <- min(d_Fec$NumberOfAdultsEclosed)
+max_Fec <- max(d_Fec$NumberOfAdultsEclosed)
+```
+
+y-axis is scaled by the minimum (`r min_Fec`) and maximum (`r max_Fec`) values in the full data set. 
+
+Here is an example code for fecundity, Billeter Lab. The same code is used to generate plots for other contributing labs by filtering the data at supervisor level (for females and males, if applicable). 
+
 #### Billeter Lab
+```{r fecundity-billeter, echo=TRUE, message=TRUE, warning=TRUE}
+pdf(file="Fecundity/p_Fec_Billeter.pdf",width=8, height=5)
+p_Fec_Billeter <- ggplot(data = (subset(d_Fec,Supervisor.PI=='Billeter')), aes(x=Population_Lat, y=NumberOfAdultsEclosed, fill=Batch)) +  geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_Fec_Billeter", x="Population", y = "NumberOfAdultsEclosed")
+```
+
+
+```{r echo=TRUE, message=TRUE, warning=TRUE}
+p_Fec_Billeter + coord_cartesian(ylim = c(min_Fec, max_Fec))+ droseu_theme
+dev.off()
+```
+
+```{r echo=TRUE, message=TRUE, warning=TRUE}
+pdf(file="Fecundity/p_Fec_pop_Billeter.pdf",width=8, height=5)
+p_Fec_pop_Billeter <- ggplot(data = (subset(d_Fec,Supervisor.PI=='Billeter')), aes(x=Population_Lat, y=NumberOfAdultsEclosed, fill=Population_Lat)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_Fec_pop_Billeter", x="Population", y = "NumberOfAdultsEclosed")
+```
+
+```{r echo=TRUE, message=TRUE, warning=TRUE}
+p_Fec_pop_Billeter + coord_cartesian(ylim = c(min_Fec, max_Fec))+ droseu_theme
+dev.off()
+```
+
+```{r echo=TRUE, message=TRUE, warning=TRUE}
+Fec_lmer_Billeter <- lmer(NumberOfAdultsEclosed ~ Population + (1|Population:Line), data = d_Fec[d_Fec$Supervisor.PI == "Billeter",]) 
+capture.output(anova(Fec_lmer_Billeter),file = "Fecundity/Fec_lmer_Billeter.txt")
+capture.output(summary(Fec_lmer_Billeter),file = "Fecundity/Fec_lmer_Billeter_sum.txt")
+capture.output(emmeans(Fec_lmer_Billeter, list(pairwise ~ Population), adjust = "tukey"),file = "Fecundity/Fec_lmer_Billeter_tukey.txt")
+
+```
+
+```{r}
+anova(Fec_lmer_Billeter)
+```
+
+```{r}
+summary(Fec_lmer_Billeter)
+```
+
+
 #### Fricke Lab 
+
+
+```{r fecundity-fricke, echo=FALSE, message=FALSE, warning=FALSE}
+pdf(file="Fecundity/p_Fec_Fricke.pdf",width=8, height=5)
+p_Fec_Fricke <- ggplot(data = (subset(d_Fec,Supervisor.PI=='Fricke')), aes(x=Population_Lat, y=NumberOfAdultsEclosed, fill=Batch)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_Fec_Fricke", x="Population", y = "NumberOfAdultsEclosed")
+```
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+p_Fec_Fricke + coord_cartesian(ylim = c(0, 310))+ droseu_theme
+dev.off()
+```
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+pdf(file="Fecundity/p_Fec_pop_Fricke.pdf",width=8, height=5)
+p_Fec_pop_Fricke <- ggplot(data = (subset(d_Fec,Supervisor.PI=='Fricke')), aes(x=Population_Lat, y=NumberOfAdultsEclosed, fill=Population_Lat)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_Fec_pop_Fricke", x="Population", y = "NumberOfAdultsEclosed")
+```
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+p_Fec_pop_Fricke + coord_cartesian(ylim = c(0, 310))+ droseu_theme
+dev.off()
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+Fec_lmer_Fricke <- lmer(NumberOfAdultsEclosed ~ Population + (1|Population:Line) +
+                         (1|Batch), data = d_Fec[d_Fec$Supervisor.PI == "Fricke",])
+capture.output(anova(Fec_lmer_Fricke),file = "Fecundity/Fec_lmer_Fricke.txt")
+capture.output(summary(Fec_lmer_Fricke),file = "Fecundity/Fec_lmer_Fricke_sum.txt")
+capture.output(emmeans(Fec_lmer_Fricke, list(pairwise ~ Population), adjust = "tukey"),file = "Fecundity/Fec_lmer_Fricke_tukey.txt")
+```
+
+```{r}
+anova(Fec_lmer_Fricke)
+```
+
+```{r}
+summary(Fec_lmer_Fricke)
+```
 
 ### Lab correlations
 

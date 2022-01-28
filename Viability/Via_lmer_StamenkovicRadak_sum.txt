@@ -1,0 +1,43 @@
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: ProportionEggtoAdultSurvival ~ Population + (1 | Line:Population) +  
+    (1 | Batch)
+   Data: d_Via[d_Via$Supervisor.PI == "StamenkovicRadak", ]
+
+REML criterion at convergence: -589.4
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.6754 -0.5185  0.0052  0.5759  2.2517 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 0.013176 0.11479 
+ Batch           (Intercept) 0.001207 0.03475 
+ Residual                    0.009652 0.09825 
+Number of obs: 501, groups:  Line:Population, 167; Batch, 4
+
+Fixed effects:
+              Estimate Std. Error        df t value Pr(>|t|)    
+(Intercept)    0.67693    0.03355  21.98005  20.176 1.13e-15 ***
+PopulationGI  -0.07436    0.04570 155.38082  -1.627  0.10573    
+PopulationKA  -0.02793    0.04054 155.23842  -0.689  0.49191    
+PopulationMA  -0.12034    0.04051 155.10198  -2.971  0.00344 ** 
+PopulationMU   0.02403    0.04051 155.08224   0.593  0.55386    
+PopulationRE  -0.05090    0.04302 155.34042  -1.183  0.23859    
+PopulationUM  -0.08775    0.04168 155.34524  -2.106  0.03685 *  
+PopulationVA  -0.11615    0.04051 155.10172  -2.867  0.00472 ** 
+PopulationYE  -0.18226    0.04054 155.23842  -4.496 1.35e-05 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Correlation of Fixed Effects:
+            (Intr) PpltGI PpltKA PpltMA PpltMU PpltRE PpltUM PpltVA
+PopulatinGI -0.535                                                 
+PopulatinKA -0.606  0.443                                          
+PopulatinMA -0.603  0.441  0.499                                   
+PopulatinMU -0.605  0.442  0.500  0.500                            
+PopulatinRE -0.571  0.415  0.472  0.471  0.472                     
+PopulatinUM -0.590  0.429  0.488  0.486  0.487  0.460              
+PopulatinVA -0.604  0.445  0.500  0.499  0.500  0.470  0.485       
+PopulatinYE -0.606  0.443  0.501  0.499  0.500  0.472  0.488  0.500
