@@ -1099,7 +1099,7 @@ Schlotterer Lab : Manolis Lyrakis, Christian Schlötterer
 
 **Contributors:**
 
-Wegener Lab : Christian Wegener
+Wegener Lab : Susanne Klühspies, Christian Wegener
 
 ### Data Reformatting
 ### Descriptive Statistics
