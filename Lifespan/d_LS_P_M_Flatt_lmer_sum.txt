@@ -1,0 +1,41 @@
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: LSP_AgeAtDeath_days ~ Population + (1 | Population:ReplicateCage)
+   Data: filter(d_LS_P_M, (Censor == "0") | (Supervisor.PI == "Flatt"))
+
+REML criterion at convergence: 42878.5
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.6182 -0.6293 -0.0147  0.6613  3.0856 
+
+Random effects:
+ Groups                   Name        Variance Std.Dev.
+ Population:ReplicateCage (Intercept)   2.966   1.722  
+ Residual                             194.125  13.933  
+Number of obs: 5285, groups:  Population:ReplicateCage, 90
+
+Fixed effects:
+             Estimate Std. Error      df t value Pr(>|t|)    
+(Intercept)   49.9923     0.7911 80.0012  63.196  < 2e-16 ***
+PopulationGI  -0.9213     1.1212 80.6444  -0.822  0.41366    
+PopulationKA   4.7140     1.1219 80.8729   4.202 6.77e-05 ***
+PopulationMA   1.5880     1.1196 80.2139   1.418  0.15994    
+PopulationMU   3.7648     1.1151 78.9621   3.376  0.00114 ** 
+PopulationRE  -0.7962     1.1179 79.7147  -0.712  0.47839    
+PopulationUM   1.4330     1.1198 80.1975   1.280  0.20433    
+PopulationVA  -0.1026     1.1234 81.2365  -0.091  0.92746    
+PopulationYE   0.6306     1.1188 79.9994   0.564  0.57455    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Correlation of Fixed Effects:
+            (Intr) PpltGI PpltKA PpltMA PpltMU PpltRE PpltUM PpltVA
+PopulatinGI -0.706                                                 
+PopulatinKA -0.705  0.498                                          
+PopulatinMA -0.707  0.499  0.498                                   
+PopulatinMU -0.709  0.501  0.500  0.501                            
+PopulatinRE -0.708  0.499  0.499  0.500  0.502                     
+PopulatinUM -0.706  0.498  0.498  0.499  0.501  0.500              
+PopulatinVA -0.704  0.497  0.497  0.498  0.500  0.498  0.497       
+PopulatinYE -0.707  0.499  0.499  0.500  0.502  0.500  0.500  0.498

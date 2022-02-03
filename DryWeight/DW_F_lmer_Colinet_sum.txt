@@ -1,0 +1,42 @@
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: DW_micrograms ~ Population + (1 | Population:Line) + (1 | Batch)
+   Data: d_DW_F[d_DW_F$Supervisor.PI == "Colinet", ]
+
+REML criterion at convergence: -11771.4
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-4.2178 -0.6128  0.0273  0.6249  4.1344 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Population:Line (Intercept) 0.001328 0.03645 
+ Batch           (Intercept) 0.000219 0.01480 
+ Residual                    0.002695 0.05191 
+Number of obs: 3982, groups:  Population:Line, 166; Batch, 3
+
+Fixed effects:
+              Estimate Std. Error        df t value Pr(>|t|)    
+(Intercept)    0.46881    0.01205   5.84387  38.893 2.79e-08 ***
+PopulationGI   0.01068    0.01336 157.01990   0.799 0.425384    
+PopulationKA   0.02967    0.01248 156.90419   2.378 0.018592 *  
+PopulationMA   0.03116    0.01216 155.02754   2.562 0.011353 *  
+PopulationMU   0.01577    0.01200 154.99934   1.314 0.190908    
+PopulationRE   0.04597    0.01336 156.97998   3.441 0.000742 ***
+PopulationUM   0.03221    0.01295 156.97058   2.488 0.013890 *  
+PopulationVA   0.02804    0.01248 156.90419   2.247 0.026005 *  
+PopulationYE   0.01217    0.01200 155.02544   1.014 0.312021    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Correlation of Fixed Effects:
+            (Intr) PpltGI PpltKA PpltMA PpltMU PpltRE PpltUM PpltVA
+PopulatinGI -0.458                                                 
+PopulatinKA -0.490  0.497                                          
+PopulatinMA -0.492  0.448  0.480                                   
+PopulatinMU -0.498  0.449  0.481  0.493                            
+PopulatinRE -0.458  0.462  0.497  0.448  0.449                     
+PopulatinUM -0.472  0.477  0.515  0.462  0.464  0.478              
+PopulatinVA -0.490  0.497  0.537  0.480  0.481  0.497  0.515       
+PopulatinYE -0.498  0.449  0.481  0.493  0.500  0.449  0.464  0.481

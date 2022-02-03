@@ -1,4 +1,4 @@
-﻿Supervisor/PI,Diet,total # of flies,Batch,Population,Line,Sex,ReplicateVial,Individual,condition,CET(hours) MESA,CET(hours)LSPR,period (MESA),period (LSPR),rhythmicity (LSPR amplitude),rhythmicity (JTK p BH corrected)
+﻿Supervisor.PI,Diet,total # of flies,Batch,Population,Line,Sex,ReplicateVial,Individual,Condition,CET_hours_MESA,CET_hours_LSPR,Period_MESA,Period_LSPR,Rhythmicity_LSPR_amplitude,Rhythmicity_JTK_p_BH_corrected
 Wegener,NS,1897,2,AK,mixed population,mixed sex,,,18_LD_DD,13.16,12.51,24.22,24.44,11.66,5.26E-24
 Wegener,NS,793,2,GI,mixed population,mixed sex,,,18_LD_DD,10.49,10.49,24.82,24.82,6.55,6.27E-22
 Wegener,NS,1938,2,KA,mixed population,mixed sex,,,18_LD_DD,14.01,11.67,24.06,24.76,9.75,6.76E-14
@@ -30,7 +30,7 @@ Wegener,NS,1186,2,AK,mixed population,mixed sex,,,29_LD_LD,10.06,11.67,23.36,22.
 Wegener,NS,263,1,GI,mixed population,mixed sex,,,29_LD_LD,11.53,11.15,22.5,22.7,3.1,4.08E-08
 Wegener,NS,2239,2,KA,mixed population,mixed sex,,,29_LD_LD,10.79,11.81,23.44,22.96,17.93,4.35E-06
 Wegener,NS,1256,2,MA,mixed population,mixed sex,,,29_LD_LD,10.05,10.56,23.06,22.8,13,1.03E-11
-Wegener,NS,1279,1,MU,mixed population,mixed sex,,,29_LD_LD,24.02,8.33,23.88,8.65,12.10,5.15E-11
+Wegener,NS,1279,1,MU,mixed population,mixed sex,,,29_LD_LD,24.02,8.33,23.88,8.65,12.1,5.15E-11
 Wegener,NS,1370,2,RE,mixed population,mixed sex,,,29_LD_LD,8.84,10.67,23.96,23.3,12.9,1.79E-10
 Wegener,NS,1216,2,UM,mixed population,mixed sex,,,29_LD_LD,11.03,10.89,23.14,23.2,12.92,2.07E-18
 Wegener,NS,2227,2,VA,mixed population,mixed sex,,,29_LD_LD,9.6,9.16,23.64,24.04,20.85,4.03E-13

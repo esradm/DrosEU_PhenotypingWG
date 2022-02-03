@@ -1,0 +1,33 @@
+$`emmeans of Population`
+ Population emmean   SE   df lower.CL upper.CL
+ AK           7170 2454 22.0     2080    12261
+ GI            961 2105 20.3    -3427     5349
+ KA            944 2070 19.5    -3382     5270
+ MA            980 2041 18.7    -3298     5257
+ MU            976 3470 17.5    -6329     8282
+ YE           1001 2169 20.2    -3520     5521
+
+Degrees-of-freedom method: kenward-roger 
+Confidence level used: 0.95 
+
+$`pairwise differences of Population`
+ 1       estimate   SE   df t.ratio p.value
+ AK - GI  6209.23 3184 12.6   1.950  0.4185
+ AK - KA  6226.30 3211 20.8   1.939  0.4078
+ AK - MA  6190.52 3192 20.5   1.939  0.4082
+ AK - MU  6193.95 4294 18.9   1.443  0.7022
+ AK - YE  6169.27 3295 17.8   1.873  0.4487
+ GI - KA    17.07 2953 19.9   0.006  1.0000
+ GI - MA   -18.71 2933 19.5  -0.006  1.0000
+ GI - MU   -15.28 4113 18.2  -0.004  1.0000
+ GI - YE   -39.96 3020 15.2  -0.013  1.0000
+ KA - MA   -35.78 2878 10.3  -0.012  1.0000
+ KA - MU   -32.35 4044 16.9  -0.008  1.0000
+ KA - YE   -57.03 3023 19.9  -0.019  1.0000
+ MA - MU     3.43 4023 16.6   0.001  1.0000
+ MA - YE   -21.25 3005 19.5  -0.007  1.0000
+ MU - YE   -24.68 4090 17.1  -0.006  1.0000
+
+Degrees-of-freedom method: kenward-roger 
+P value adjustment: tukey method for comparing a family of 6 estimates 
+

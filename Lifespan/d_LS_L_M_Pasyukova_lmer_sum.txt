@@ -1,0 +1,49 @@
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: 
+LSL_AgeAtDeath_days ~ Population + (1 | Batch) + (1 | Population:Line) +  
+    (1 | Line:ReplicateVial)
+   Data: filter(d_LS_L_M, (Censor == "0") | (Supervisor.PI == "Pasyukova"))
+
+REML criterion at convergence: 158894.8
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.8591 -0.5617  0.0592  0.6521  3.0622 
+
+Random effects:
+ Groups             Name        Variance Std.Dev.
+ Line:ReplicateVial (Intercept)  61.75    7.858  
+ Population:Line    (Intercept)  22.23    4.715  
+ Batch              (Intercept)   3.58    1.892  
+ Residual                       298.55   17.279  
+Number of obs: 18341, groups:  
+Line:ReplicateVial, 2031; Population:Line, 171; Batch, 2
+
+Fixed effects:
+             Estimate Std. Error       df t value Pr(>|t|)    
+(Intercept)   53.2082     1.7870   2.6230  29.776 0.000216 ***
+PopulationGI  -4.0298     1.8616 161.3262  -2.165 0.031879 *  
+PopulationKA   1.0823     1.7114 160.9847   0.632 0.528007    
+PopulationMA  -4.6832     1.7117 161.0935  -2.736 0.006918 ** 
+PopulationMU  -0.3987     1.7109 160.7800  -0.233 0.816028    
+PopulationRE  -4.6312     1.8071 156.8274  -2.563 0.011326 *  
+PopulationUM  -5.5839     1.7557 159.3747  -3.180 0.001768 ** 
+PopulationVA  -0.9718     1.7110 160.8212  -0.568 0.570864    
+PopulationYE  -6.4442     1.7115 161.0280  -3.765 0.000233 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Correlation of Fixed Effects:
+            (Intr) PpltGI PpltKA PpltMA PpltMU PpltRE PpltUM PpltVA
+PopulatinGI -0.421                                                 
+PopulatinKA -0.458  0.440                                          
+PopulatinMA -0.458  0.440  0.478                                   
+PopulatinMU -0.458  0.440  0.479  0.478                            
+PopulatinRE -0.434  0.416  0.453  0.453  0.453                     
+PopulatinUM -0.447  0.429  0.466  0.466  0.466  0.442              
+PopulatinVA -0.458  0.440  0.478  0.478  0.479  0.453  0.466       
+PopulatinYE -0.458  0.440  0.478  0.478  0.478  0.453  0.466  0.478
+optimizer (nloptwrap) convergence code: 0 (OK)
+Model failed to converge with max|grad| = 0.0919725 (tol = 0.002, component 1)
+
