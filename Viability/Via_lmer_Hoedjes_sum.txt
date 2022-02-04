@@ -1,6 +1,7 @@
 Linear mixed model fit by REML. t-tests use Satterthwaite's method [
 lmerModLmerTest]
-Formula: ProportionEggtoAdultSurvival ~ Population + (1 | Line:Population) +  
+Formula: 
+ProportionEggtoAdultSurvival ~ -1 + Population + (1 | Line:Population) +  
     (1 | Batch)
    Data: d_Via[d_Via$Supervisor.PI == "Hoedjes", ]
 
@@ -19,28 +20,28 @@ Number of obs: 501, groups:  Line:Population, 167; Batch, 4
 
 Fixed effects:
               Estimate Std. Error        df t value Pr(>|t|)    
-(Intercept)    0.77450    0.02699 157.99983  28.694  < 2e-16 ***
-PopulationGI  -0.17183    0.04123 157.99984  -4.168 5.06e-05 ***
-PopulationKA  -0.05633    0.03817 157.99984  -1.476 0.141995    
-PopulationMA  -0.06600    0.03817 157.99984  -1.729 0.085761 .  
-PopulationMU  -0.03500    0.03817 157.99984  -0.917 0.360593    
-PopulationRE  -0.15117    0.04123 157.99985  -3.666 0.000336 ***
-PopulationUM  -0.08960    0.03982 157.99985  -2.250 0.025827 *  
-PopulationVA  -0.09367    0.03817 157.99984  -2.454 0.015222 *  
-PopulationYE  -0.21483    0.03817 157.99984  -5.628 8.11e-08 ***
+PopulationAK   0.77450    0.02699 157.99983   28.69   <2e-16 ***
+PopulationGI   0.60267    0.03117 157.99983   19.34   <2e-16 ***
+PopulationKA   0.71817    0.02699 157.99983   26.61   <2e-16 ***
+PopulationMA   0.70850    0.02699 157.99983   26.25   <2e-16 ***
+PopulationMU   0.73950    0.02699 157.99983   27.40   <2e-16 ***
+PopulationRE   0.62333    0.03117 157.99983   20.00   <2e-16 ***
+PopulationUM   0.68490    0.02928 157.99983   23.39   <2e-16 ***
+PopulationVA   0.68083    0.02699 157.99983   25.22   <2e-16 ***
+PopulationYE   0.55967    0.02699 157.99983   20.73   <2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Correlation of Fixed Effects:
-            (Intr) PpltGI PpltKA PpltMA PpltMU PpltRE PpltUM PpltVA
-PopulatinGI -0.655                                                 
-PopulatinKA -0.707  0.463                                          
-PopulatinMA -0.707  0.463  0.500                                   
-PopulatinMU -0.707  0.463  0.500  0.500                            
-PopulatinRE -0.655  0.429  0.463  0.463  0.463                     
-PopulatinUM -0.678  0.444  0.479  0.479  0.479  0.444              
-PopulatinVA -0.707  0.463  0.500  0.500  0.500  0.463  0.479       
-PopulatinYE -0.707  0.463  0.500  0.500  0.500  0.463  0.479  0.500
+            PpltAK PpltGI PpltKA PpltMA PpltMU PpltRE PpltUM PpltVA
+PopulatinGI 0.000                                                  
+PopulatinKA 0.000  0.000                                           
+PopulatinMA 0.000  0.000  0.000                                    
+PopulatinMU 0.000  0.000  0.000  0.000                             
+PopulatinRE 0.000  0.000  0.000  0.000  0.000                      
+PopulatinUM 0.000  0.000  0.000  0.000  0.000  0.000               
+PopulatinVA 0.000  0.000  0.000  0.000  0.000  0.000  0.000        
+PopulatinYE 0.000  0.000  0.000  0.000  0.000  0.000  0.000  0.000 
 optimizer (nloptwrap) convergence code: 0 (OK)
 boundary (singular) fit: see ?isSingular
 

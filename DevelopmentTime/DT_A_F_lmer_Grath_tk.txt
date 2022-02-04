@@ -10,7 +10,7 @@ Confidence level used: 0.95
 $`pairwise differences of Population`
  1       estimate   SE   df t.ratio p.value
  AK - MU     2.82 3.23 19.0   0.875  0.6624
- AK - RE    -5.40 5.33 21.6  -1.014  0.5764
+ AK - RE    -5.40 5.33 21.6  -1.014  0.5763
  MU - RE    -8.22 5.30 21.3  -1.551  0.2879
 
 Degrees-of-freedom method: kenward-roger 

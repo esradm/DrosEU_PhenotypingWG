@@ -7,7 +7,7 @@ $`emmeans of Population`
  MU           2479 13.3 Inf      2453      2505
  RE           2545 14.6 Inf      2517      2574
  UM           2513 14.2 Inf      2485      2541
- VA           2489 13.4 Inf      2462      2515
+ VA           2489 13.5 Inf      2462      2515
  YE           2440 13.6 Inf      2413      2467
 
 Degrees-of-freedom method: asymptotic 
@@ -16,7 +16,7 @@ Confidence level used: 0.95
 $`pairwise differences of Population`
  1       estimate   SE  df z.ratio p.value
  AK - GI   -32.10 17.3 Inf  -1.861  0.6409
- AK - KA   -34.15 16.2 Inf  -2.105  0.4700
+ AK - KA   -34.15 16.2 Inf  -2.105  0.4699
  AK - MA   -65.10 15.8 Inf  -4.116  0.0013
  AK - MU   -35.04 15.9 Inf  -2.207  0.4007
  AK - RE  -101.19 17.0 Inf  -5.960  <.0001

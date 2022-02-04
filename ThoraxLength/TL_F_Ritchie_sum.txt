@@ -1,6 +1,7 @@
 Linear mixed model fit by REML. t-tests use Satterthwaite's method [
 lmerModLmerTest]
-Formula: TL_micrometers ~ Population + (1 | Line:Population) + (1 | Batch)
+Formula: TL_micrometers ~ -1 + Population + (1 | Line:Population) + (1 |  
+    Batch)
    Data: (subset(d_TL_F, Supervisor.PI == "Ritchie"))
 
 REML criterion at convergence: 25240.4
@@ -17,23 +18,23 @@ Random effects:
 Number of obs: 1082, groups:  Line:Population, 26; Batch, 12
 
 Fixed effects:
-             Estimate Std. Error       df t value Pr(>|t|)   
-(Intercept)   7170.21    2357.54    40.58   3.041  0.00411 **
-PopulationGI -6209.23    3130.55   914.56  -1.983  0.04762 * 
-PopulationKA -6226.30    3124.15    38.46  -1.993  0.05340 . 
-PopulationMA -6190.52    3105.36    37.81  -1.993  0.05346 . 
-PopulationMU -6193.95    3927.81    35.24  -1.577  0.12374   
-PopulationYE -6169.27    3135.46   131.94  -1.968  0.05121 . 
+             Estimate Std. Error      df t value Pr(>|t|)   
+PopulationAK  7170.21    2357.54   40.58   3.041  0.00411 **
+PopulationGI   960.98    2064.78   37.39   0.465  0.64434   
+PopulationKA   943.91    2049.96   35.90   0.460  0.64797   
+PopulationMA   979.69    2021.21   34.47   0.485  0.63095   
+PopulationMU   976.26    3141.61   32.62   0.311  0.75797   
+PopulationYE  1000.94    2069.81   37.47   0.484  0.63149   
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Correlation of Fixed Effects:
-            (Intr) PpltGI PpltKA PpltMA PpltMU
-PopulatinGI -0.752                            
-PopulatinKA -0.755  0.567                     
-PopulatinMA -0.759  0.571  0.574              
-PopulatinMU -0.600  0.451  0.453  0.456       
-PopulatinYE -0.751  0.565  0.567  0.570  0.451
+            PpltAK PpltGI PpltKA PpltMA PpltMU
+PopulatinGI 0.002                             
+PopulatinKA 0.000  0.000                      
+PopulatinMA 0.000  0.000  0.002               
+PopulatinMU 0.000  0.000  0.001  0.001        
+PopulatinYE 0.001  0.002  0.000  0.000  0.001 
 optimizer (nloptwrap) convergence code: 0 (OK)
 boundary (singular) fit: see ?isSingular
 

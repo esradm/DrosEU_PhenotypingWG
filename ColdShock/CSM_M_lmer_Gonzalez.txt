@@ -1,5 +1,5 @@
 Type III Analysis of Variance Table with Satterthwaite's method
-            Sum Sq  Mean Sq NumDF  DenDF F value  Pr(>F)  
-Population 0.45071 0.056339     8 147.45  1.8358 0.07473 .
+           Sum Sq Mean Sq NumDF  DenDF F value    Pr(>F)    
+Population 4.0718 0.45242     9 46.507  14.742 6.315e-11 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1

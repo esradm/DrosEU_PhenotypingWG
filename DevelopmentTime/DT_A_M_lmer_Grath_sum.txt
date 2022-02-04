@@ -1,7 +1,7 @@
 Linear mixed model fit by REML. t-tests use Satterthwaite's method [
 lmerModLmerTest]
-Formula: 
-DT_EggAdult ~ Population + (1 | Line:Population) + (1 | ReplicateVial:Line)
+Formula: DT_EggAdult ~ -1 + Population + (1 | Line:Population) + (1 |  
+    ReplicateVial:Line)
    Data: d_DT_A_M[d_DT_A_M$Supervisor.PI == "Grath", ]
 
 REML criterion at convergence: 7245.1
@@ -19,16 +19,16 @@ Number of obs: 881, groups:  ReplicateVial:Line, 86; Line:Population, 23
 
 Fixed effects:
              Estimate Std. Error      df t value Pr(>|t|)    
-(Intercept)   317.589      2.258  79.668 140.654   <2e-16 ***
-PopulationMU   -4.292      3.152  81.107  -1.362    0.177    
-PopulationRE   -1.414      5.107  79.678  -0.277    0.783    
+PopulationAK  317.589      2.258  79.668  140.65   <2e-16 ***
+PopulationMU  313.297      2.199  82.667  142.50   <2e-16 ***
+PopulationRE  316.175      4.581  79.681   69.02   <2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Correlation of Fixed Effects:
-            (Intr) PpltMU
-PopulatinMU -0.716       
-PopulatinRE -0.442  0.317
+            PpltAK PpltMU
+PopulatinMU 0.000        
+PopulatinRE 0.000  0.000 
 optimizer (nloptwrap) convergence code: 0 (OK)
 boundary (singular) fit: see ?isSingular
 
