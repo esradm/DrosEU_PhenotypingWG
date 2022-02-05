@@ -3323,8 +3323,7 @@ dev.off()
 #### Onder Lab
 
 ```{r WA_F_L_Onder_lmer}
-WA_F_L_Onder_lmer <- lmer(CentroidSizeLeft_micrometers ~ -1 + Population + (1|Line:Population) +
-                            (1|Batch) + (1|ReplicateVial : Line : Population), data = (subset(d_WA_F,Supervisor.PI=='Onder')))
+WA_F_L_Onder_lmer <- lmer(CentroidSizeLeft_micrometers ~ -1 + Population + (1|Line:Population) + (1|Batch) + (1|ReplicateVial:Line:Population), data = d_WA_F %>% filter(Supervisor.PI=='Onder'))
 capture.output(summary(WA_F_L_Onder_lmer),file = "WingArea/WA_F_L_Onder_sum.txt")
 capture.output(anova(WA_F_L_Onder_lmer),file = "WingArea/WA_F_L_Onder_lmer.txt")
 capture.output(emmeans(WA_F_L_Onder_lmer, list(pairwise ~ Population), adjust = "tukey"),file = "WingArea/WA_F_L_Onder_lmer_tk.txt")
@@ -4416,6 +4415,67 @@ write(intersect_Pop_WA_M, file ="WingArea/intersect_Pop_WA_M.txt", sep = "\t")
 ```
 
 There are `r length(intersect_Pop_WA_F) ` populations and `r length(intersect_Line_WA_F) ` isofemale lines for females and `r length(intersect_Pop_WA_M) ` populations and `r length(intersect_Line_WA_M) ` isofemale lines for males have been phenotyped across the labs. Please refer to tables named intersect_Trait_level (i.e. intersect_Via_pop) for details. 
+
+
+
+
+### _Left_
+
+```{r}
+WA_L_fitted <- combineFitted(labs = rep(c("Onder", "Posnien", "Ritchie", "StamenkovicRadak"), 2), sex = rep(c("F", "M"), each = 4), models = list(WA_F_L_Onder_lmer, WA_F_L_Posnien_lmer, WA_F_L_Ritchie_lmer, WA_F_L_StamenkovicRadak_lmer, WA_M_L_Onder_lmer, WA_M_L_Posnien_lmer, WA_M_L_Ritchie_lmer, WA_M_L_StamenkovicRadak_lmer))
+
+p_WA_L_F_lab_cor <- function() scatterPlotMatrix(WA_L_fitted, sex = "F")
+p_WA_L_M_lab_cor <- function() scatterPlotMatrix(WA_L_fitted, sex = "M")
+```
+
+```{r fig.height=8, fig.width=8}
+p_WA_L_F_lab_cor()
+```
+```{r}
+pdf(file="WingArea/p_WA_L_F_lab_cor.pdf",width=8, height=8)
+p_WA_L_F_lab_cor()
+invisible(dev.off())
+```
+
+```{r fig.height=8, fig.width=8}
+p_WA_L_M_lab_cor()
+```
+```{r}
+pdf(file="WingArea/p_WA_L_M_lab_cor.pdf",width=8, height=8)
+p_WA_L_M_lab_cor()
+invisible(dev.off())
+```
+### _Right_
+
+```{r}
+WA_R_fitted <- combineFitted(labs = rep(c("Onder", "Posnien", "Ritchie", "StamenkovicRadak"), 2), sex = rep(c("F", "M"), each = 4), models = list(WA_F_R_Onder_lmer, WA_F_R_Posnien_lmer, WA_F_R_Ritchie_lmer, WA_F_R_StamenkovicRadak_lmer, WA_M_R_Onder_lmer, WA_M_R_Posnien_lmer, WA_M_R_Ritchie_lmer, WA_M_R_StamenkovicRadak_lmer))
+
+p_WA_R_F_lab_cor <- function() scatterPlotMatrix(WA_R_fitted, sex = "F")
+p_WA_R_M_lab_cor <- function() scatterPlotMatrix(WA_R_fitted, sex = "M")
+```
+
+```{r fig.height=8, fig.width=8}
+p_WA_R_F_lab_cor()
+```
+
+```{r}
+pdf(file="WingArea/p_WA_R_F_lab_cor.pdf",width=8, height=8)
+p_WA_R_F_lab_cor()
+invisible(dev.off())
+```
+
+```{r fig.height=8, fig.width=8}
+p_WA_R_M_lab_cor()
+```
+```{r}
+pdf(file="WingArea/p_WA_R_M_lab_cor.pdf",width=8, height=8)
+p_WA_R_M_lab_cor()
+invisible(dev.off())
+```
+
+
+
+
 
 
 ```{r echo=FALSE}

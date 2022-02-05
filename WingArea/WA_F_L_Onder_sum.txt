@@ -3,7 +3,7 @@ lmerModLmerTest]
 Formula: 
 CentroidSizeLeft_micrometers ~ -1 + Population + (1 | Line:Population) +  
     (1 | Batch) + (1 | ReplicateVial:Line:Population)
-   Data: (subset(d_WA_F, Supervisor.PI == "Onder"))
+   Data: d_WA_F %>% filter(Supervisor.PI == "Onder")
 
 REML criterion at convergence: 61105.4
 
@@ -32,7 +32,7 @@ PopulationUM  2901.10      19.80   17.13   146.5   <2e-16 ***
 PopulationVA  2843.50      19.07   14.84   149.1   <2e-16 ***
 PopulationYE  2815.30      19.23   15.38   146.4   <2e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 Correlation of Fixed Effects:
             PpltAK PpltGI PpltKA PpltMA PpltMU PpltRE PpltUM PpltVA
