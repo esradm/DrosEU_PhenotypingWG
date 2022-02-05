@@ -2487,6 +2487,35 @@ write(intersect_Pop_DW, file ="DryWeight/intersect_Pop_DW.txt", sep = "\t")
 There are `r length(intersect_Line_DW) ` populations and `r length(intersect_Pop_DW) ` isofemale lines that have been phenotyped across the labs. Please refer to tables named intersect_Trait_level (i.e. intersect_Via_pop) for details. 
 
 
+
+
+```{r}
+DW_fitted <- combineFitted(labs = rep(c("Colinet", "Onder", "Hoedjes"), 2), sex = rep(c("F", "M"), each = 3), models = list(DW_F_lmer_Colinet, DW_F_lmer_Hoedjes, DW_F_lmer_Onder, DW_M_lmer_Colinet, DW_M_lmer_Hoedjes, DW_M_lmer_Onder))
+
+p_DW_F_lab_cor <- function() scatterPlotMatrix(DW_fitted, sex = "F")
+p_DW_M_lab_cor <- function() scatterPlotMatrix(DW_fitted, sex = "M")
+```
+
+```{r fig.height=8, fig.width=8}
+p_DW_F_lab_cor()
+```
+```{r}
+pdf(file="DevelopmentTime/p_DW_F_lab_cor.pdf",width=8, height=8)
+p_DW_F_lab_cor()
+invisible(dev.off())
+```
+
+```{r fig.height=8, fig.width=8}
+p_DW_M_lab_cor()
+```
+```{r}
+pdf(file="DevelopmentTime/p_DW_M_lab_cor.pdf",width=8, height=8)
+p_DW_M_lab_cor()
+invisible(dev.off())
+```
+
+
+
 ```{r echo=FALSE}
 for (i in dev.list()[1]:dev.list()[length(dev.list())]) {
    dev.off()
