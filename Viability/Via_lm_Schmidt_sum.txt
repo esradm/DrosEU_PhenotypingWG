@@ -1,27 +1,27 @@
 
 Call:
-lm(formula = ProportionEggtoAdultSurvival ~ Population, data = d_Via[d_Via$Supervisor.PI == 
-    "Schmidt", ])
+lm(formula = ProportionEggtoAdultSurvival ~ -1 + Population, 
+    data = d_Via[d_Via$Supervisor.PI == "Schmidt", ])
 
 Residuals:
      Min       1Q   Median       3Q      Max 
 -0.48129 -0.19237  0.02616  0.16173  0.51871 
 
 Coefficients:
-              Estimate Std. Error t value Pr(>|t|)    
-(Intercept)   0.625157   0.049695  12.580   <2e-16 ***
-PopulationGI -0.143866   0.075911  -1.895   0.0600 .  
-PopulationKA  0.135186   0.070280   1.924   0.0563 .  
-PopulationMA  0.007477   0.072206   0.104   0.9177    
-PopulationMU -0.052544   0.070280  -0.748   0.4558    
-PopulationRE  0.004666   0.075911   0.061   0.9511    
-PopulationUM  0.085505   0.077444   1.104   0.2713    
-PopulationVA -0.041436   0.070280  -0.590   0.5563    
-PopulationYE -0.087422   0.070280  -1.244   0.2154    
+             Estimate Std. Error t value Pr(>|t|)    
+PopulationAK  0.62516    0.04970  12.580  < 2e-16 ***
+PopulationGI  0.48129    0.05738   8.387 3.06e-14 ***
+PopulationKA  0.76034    0.04970  15.300  < 2e-16 ***
+PopulationMA  0.63263    0.05238  12.077  < 2e-16 ***
+PopulationMU  0.57261    0.04970  11.522  < 2e-16 ***
+PopulationRE  0.62982    0.05738  10.976  < 2e-16 ***
+PopulationUM  0.71066    0.05940  11.965  < 2e-16 ***
+PopulationVA  0.58372    0.04970  11.746  < 2e-16 ***
+PopulationYE  0.53773    0.04970  10.821  < 2e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 Residual standard error: 0.2222 on 153 degrees of freedom
-Multiple R-squared:  0.1173,	Adjusted R-squared:  0.07119 
-F-statistic: 2.542 on 8 and 153 DF,  p-value: 0.01256
+Multiple R-squared:  0.8917,	Adjusted R-squared:  0.8853 
+F-statistic:   140 on 9 and 153 DF,  p-value: < 2.2e-16
 

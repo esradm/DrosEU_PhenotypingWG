@@ -800,7 +800,7 @@ invisible(dev.off())
 #### Schmidt Lab
 
 ```{r Via_lm_Schmidt, echo=FALSE, message= FALSE, warning=FALSE}
-Via_lm_Schmidt <- lm(ProportionEggtoAdultSurvival ~ Population, data = d_Via[d_Via$Supervisor.PI == "Schmidt",])
+Via_lm_Schmidt <- lm(ProportionEggtoAdultSurvival ~ -1 + Population, data = d_Via[d_Via$Supervisor.PI == "Schmidt",])
 capture.output(summary(Via_lm_Schmidt),file = "Viability/Via_lm_Schmidt_sum.txt")
 capture.output(anova(Via_lm_Schmidt),file = "Viability/Via_lm_Schmidt.txt")
 capture.output(emmeans(Via_lm_Schmidt, list(pairwise ~ Population), adjust = "tukey"),file = "Viability/Via_lm_Schmidt_tk.txt")
@@ -891,7 +891,6 @@ invisible(dev.off())
 #### Zwaan Lab
 
 ```{r Via_lmer_Zwaan, echo=FALSE, message= FALSE, warning=FALSE}
-
 Via_lmer_Zwaan <- lmer(ProportionEggtoAdultSurvival ~ -1 + Population + (1|Line:Population) + (1|Batch), data = d_Via[d_Via$Supervisor.PI == "Zwaan",])
 capture.output(summary(Via_lmer_Zwaan),file = "Viability/Via_lmer_Zwaan_sum.txt")
 capture.output(anova(Via_lmer_Zwaan),file = "Viability/Via_lmer_Zwaan.txt")
@@ -964,6 +963,26 @@ write(intersect_Via_pop, file ="Viability/Via_int_pop.txt", sep = "\t")
 ```
 
 There are `r length(intersect_Via_pop) ` populations and `r length(intersect_Via_line) ` isofemale lines that have been phenotyped across the labs. Please refer to tables named intersect_Trait_level (i.e. intersect_Via_pop) for details. 
+
+
+```{r}
+Via_fitted <- combineFitted(labs = c("Gibert", "Grath", "Hoedjes", "Schmidt", "StamenkovicRadak", "Zwaan"), sex = rep("NA", 6), models = list(Via_lmer_Gibert, Via_lmer_Grath, Via_lmer_Hoedjes, Via_lm_Schmidt, Via_lmer_StamenkovicRadak, Via_lmer_Zwaan))
+
+p_Via_lab_cor <- function() scatterPlotMatrix(Via_fitted, sex = "NA")
+```
+
+```{r fig.height=8, fig.width=8}
+p_Via_lab_cor()
+```
+
+```{r}
+pdf(file="Viability/p_Via_lab_cor.pdf",width=8, height=8)
+p_Via_lab_cor()
+invisible(dev.off())
+```
+
+
+
 
 
 ## Developmental time
