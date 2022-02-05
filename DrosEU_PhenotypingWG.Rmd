@@ -1944,6 +1944,37 @@ write(intersect_Pop_DT_A, file ="DevelopmentTime/intersect_Pop_DT_A.txt", sep = 
 
 There are `r length(intersect_Pop_DT_A) ` populations and `r length(intersect_Line_DT_A) ` isofemale lines that have been phenotyped across the labs. Please refer to tables named intersect_Trait_level (i.e. intersect_Via_pop) for details. 
 
+
+
+
+```{r}
+DT_A_fitted <- combineFitted(labs = rep(c("Gibert", "Grath", "Hoedjes", "Schmidt", "StamenkovicRadak", "Zwaan"), 2), sex = rep(c("F", "M"), each = 6), models = list(DT_A_F_lmer_Gibert, DT_A_F_lmer_Grath, DT_A_F_lmer_Hoedjes, DT_A_F_lmer_Schmidt, DT_A_F_lmer_StamenkovicRadak, DT_A_F_lmer_Zwaan, DT_A_M_lmer_Gibert, DT_A_M_lmer_Grath, DT_A_M_lmer_Hoedjes, DT_A_M_lmer_Schmidt, DT_A_M_lmer_StamenkovicRadak, DT_A_M_lmer_Zwaan))
+
+p_DT_A_F_lab_cor <- function() scatterPlotMatrix(DT_A_fitted, sex = "F")
+p_DT_A_M_lab_cor <- function() scatterPlotMatrix(DT_A_fitted, sex = "M")
+```
+
+```{r fig.height=8, fig.width=8}
+p_DT_A_F_lab_cor()
+```
+```{r}
+pdf(file="DevelopmentTime/p_DT_A_F_lab_cor.pdf",width=8, height=8)
+p_DT_A_F_lab_cor()
+invisible(dev.off())
+```
+
+```{r fig.height=8, fig.width=8}
+p_DT_A_M_lab_cor()
+```
+```{r}
+pdf(file="DevelopmentTime/p_DT_A_M_lab_cor.pdf",width=8, height=8)
+p_DT_A_M_lab_cor()
+invisible(dev.off())
+```
+
+
+
+
 ## Dry weight
 
 
