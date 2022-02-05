@@ -58,6 +58,7 @@ library(ggrepel)
 library(ggspatial)
 library(DT)
 library(data.table)
+library(meta)
 ```
 
 Nine sampling locations were chosen based on genomic data and cover a wide range of latitude (~20°) and longitude (~40°) across the continent  (see table below). From each location, 15 to 20 isofemale lines were established in corresponding labs at the sampling location and the isofemale lines were centrally maintained by Élio Sucena  at Instituto Gulbenkian de Ciência (IGC), Lisbon, Portugal. A total of 173 isofemale lines were used in this study. 
@@ -395,7 +396,6 @@ table_Via_Line_wbatch <- write.csv(d_Via %>% group_by(Supervisor.PI, Batch, Popu
 table_Via_Line_wbatch <- read.csv("Viability/table_Via_Line_wbatch.csv") #file name is here 
 ```
 
-
 Tables for descriptive statistics at population and line levels can be found in the trait directory, under the file name **__table_TraitAbbreviation_Level_BatchInfo.csv__**  (_i.e. Viability/table_Via_Line_wobatch.csv_)
 
 
@@ -494,6 +494,14 @@ Stamenkovic-Radak Lab : Marija Savic Veselinovic, Marija Tanaskovic, Aleksandra 
 Zwaan Lab : Joost van den Heuvel, Bas Zwaan
 
 ### Data reformatting
+
+```{r}
+dir.create(file.path("Viability"), showWarnings = FALSE)
+```
+
+```{r eval=FALSE}
+ifelse(!dir.exists(file.path("Viability")), dir.create(file.path("Viability")), FALSE)
+```
 
 **Reading data in R**
 ```{r viability}
@@ -2520,40 +2528,40 @@ y-axis is scaled by the minimum (`r min_TL`) and maximum (`r max_TL`) values in 
 
 
 ```{r p_TL_F, echo=FALSE}
-pdf(file="ThoraxLength/p_TL_F.pdf",width=8, height=5)
 p_TL_F <- ggplot(data = d_TL_F, aes(x=Population_Lat, y=TL_micrometers, fill=Supervisor.PI)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_TL_F", x="Population", y = "TL_micrometers")
+  labs(title="p_TL_F", x="Population", y = "TL_micrometers")+ coord_cartesian(ylim = c(min_TL, max_TL))+ droseu_theme
+```
 
-p_TL_F + coord_cartesian(ylim = c(min_TL, max_TL))+ droseu_theme
+
+```{r , echo=FALSE}
+p_TL_F
+```
+
+```{r echo=FALSE}
+pdf(file="ThoraxLength/p_TL_F.pdf",width=8, height=5)
+p_TL_F 
 dev.off()
-```
-
-```{r echo=FALSE}
-
-```
-
-```{r echo=FALSE}
-
 ```
 
 ```{r p_TL_M}
-pdf(file="ThoraxLength/p_TL_M.pdf",width=8, height=5)
+
 p_TL_M <- ggplot(data = d_TL_M, aes(x=Population_Lat, y=TL_micrometers, fill=Supervisor.PI)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_TL_M", x="Population", y = "TL_micrometers")
+  labs(title="p_TL_M", x="Population", y = "TL_micrometers") + coord_cartesian(ylim = c(min_TL, max_TL))+ droseu_theme
 
-p_TL_M + coord_cartesian(ylim = c(min_TL, max_TL))+ droseu_theme
+
+```
+
+
+```{r echo=FALSE}
+p_TL_M
+```
+
+```{r echo=FALSE}
+pdf(file="ThoraxLength/p_TL_M.pdf",width=8, height=5)
+p_TL_M
 dev.off()
-```
-
-
-```{r echo=FALSE}
-
-```
-
-```{r echo=FALSE}
-
 ```
 
 
@@ -2593,78 +2601,76 @@ summary(TL_M_lmer_Kozeretska)
 
 
 ```{r p_TL_F_Kozeretska}
-pdf(file="ThoraxLength/p_TL_F_Kozeretska.pdf",width=8, height=5)
+
 p_TL_F_Kozeretska <- ggplot(data = (subset(d_TL_F,Supervisor.PI=='Kozeretska')), aes(x=Population_Lat, y=TL_micrometers, fill=Batch)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_TL_F_Kozeretska", x="Population", y = "TL_micrometers")
+  labs(title="p_TL_F_Kozeretska", x="Population", y = "TL_micrometers") + coord_cartesian(ylim = c(min_TL, max_TL))+ droseu_theme
 
-p_TL_F_Kozeretska + coord_cartesian(ylim = c(min_TL, max_TL))+ droseu_theme
+```
+
+
+```{r echo=FALSE}
+p_TL_F_Kozeretska
+```
+
+```{r echo=FALSE}
+pdf(file="ThoraxLength/p_TL_F_Kozeretska.pdf",width=8, height=5)
 dev.off()
-```
-
-
-```{r echo=FALSE}
-
-```
-
-```{r echo=FALSE}
-
 ```
 
 ```{r p_TL_F_pop_Kozeretska}
-pdf(file="ThoraxLength/p_TL_F_pop_Kozeretska.pdf",width=8, height=5)
+
 p_TL_F_pop_Kozeretska <- ggplot(data = (subset(d_TL_F,Supervisor.PI=='Kozeretska')), aes(x=Population_Lat, y=TL_micrometers, fill=Population)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_TL_F_pop_Kozeretska", x="Population", y = "TL_micrometers")
+  labs(title="p_TL_F_pop_Kozeretska", x="Population", y = "TL_micrometers") + coord_cartesian(ylim = c(min_TL, max_TL))+ droseu_theme
 
-p_TL_F_pop_Kozeretska + coord_cartesian(ylim = c(min_TL, max_TL))+ droseu_theme
+```
+
+```{r echo=FALSE}
+p_TL_F_pop_Kozeretska
+```
+
+```{r echo=FALSE}
+pdf(file="ThoraxLength/p_TL_F_pop_Kozeretska.pdf",width=8, height=5)
+p_TL_F_pop_Kozeretska
 dev.off()
-```
-
-
-```{r echo=FALSE}
-
-```
-
-```{r echo=FALSE}
-
 ```
 
 ```{r p_TL_M_Kozeretska}
-pdf(file="ThoraxLength/p_TL_M_Kozeretska.pdf",width=8, height=5)
+
 p_TL_M_Kozeretska <- ggplot(data = (subset(d_TL_M,Supervisor.PI=='Kozeretska')), aes(x=Population_Lat, y=TL_micrometers, fill=Batch)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_TL_M_Kozeretska", x="Population", y = "TL_micrometers")
+  labs(title="p_TL_M_Kozeretska", x="Population", y = "TL_micrometers") + coord_cartesian(ylim = c(min_TL, max_TL))+ droseu_theme
 
-p_TL_M_Kozeretska + coord_cartesian(ylim = c(min_TL, max_TL))+ droseu_theme
+```
+
+
+```{r echo=FALSE}
+p_TL_M_Kozeretska
+```
+
+```{r echo=FALSE}
+pdf(file="ThoraxLength/p_TL_M_Kozeretska.pdf",width=8, height=5)
+p_TL_M_Kozeretska
 dev.off()
-```
-
-
-```{r echo=FALSE}
-
-```
-
-```{r echo=FALSE}
-
 ```
 
 ```{r p_TL_M_pop_Kozeretska}
-pdf(file="ThoraxLength/p_TL_M_pop_Kozeretska.pdf",width=8, height=5)
+
 p_TL_M_pop_Kozeretska <- ggplot(data = (subset(d_TL_M,Supervisor.PI=='Kozeretska')), aes(x=Population_Lat, y=TL_micrometers, fill=Population)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_TL_M_pop_Kozeretska", x="Population", y = "TL_micrometers")
+  labs(title="p_TL_M_pop_Kozeretska", x="Population", y = "TL_micrometers") + coord_cartesian(ylim = c(min_TL, max_TL))+ droseu_theme
 
-p_TL_M_pop_Kozeretska + coord_cartesian(ylim = c(min_TL, max_TL))+ droseu_theme
+```
+
+```{r echo=FALSE}
+p_TL_M_pop_Kozeretska
+```
+
+```{r echo=FALSE}
+pdf(file="ThoraxLength/p_TL_M_pop_Kozeretska.pdf",width=8, height=5)
+p_TL_M_pop_Kozeretska
 dev.off()
-```
-
-```{r echo=FALSE}
-
-```
-
-```{r echo=FALSE}
-
 ```
 
 
@@ -2704,77 +2710,77 @@ summary(TL_M_lmer_Posnien)
 
 
 ```{r p_TL_F_Posnien}
-pdf(file="ThoraxLength/p_TL_F_Posnien.pdf",width=8, height=5)
+
 p_TL_F_Posnien <- ggplot(data = (subset(d_TL_F,Supervisor.PI=='Posnien')), aes(x=Population_Lat, y=TL_micrometers, fill=Batch)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_TL_F_Posnien", x="Population", y = "TL_micrometers")
+  labs(title="p_TL_F_Posnien", x="Population", y = "TL_micrometers") + coord_cartesian(ylim = c(min_TL, max_TL))+ droseu_theme
 
-p_TL_F_Posnien + coord_cartesian(ylim = c(min_TL, max_TL))+ droseu_theme
+```
+
+```{r echo=FALSE}
+p_TL_F_Posnien
+```
+
+```{r echo=FALSE}
+pdf(file="ThoraxLength/p_TL_F_Posnien.pdf",width=8, height=5)
+p_TL_F_Posnien
 dev.off()
-```
-
-```{r echo=FALSE}
-
-```
-
-```{r echo=FALSE}
-
 ```
 
 
 ```{r p_TL_F_pop_Posnien}
-pdf(file="ThoraxLength/p_TL_F_pop_Posnien.pdf",width=8, height=5)
+
 p_TL_F_pop_Posnien <- ggplot(data = (subset(d_TL_F,Supervisor.PI=='Posnien')), aes(x=Population_Lat, y=TL_micrometers, fill=Population)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_TL_F_pop_Posnien", x="Population", y = "TL_micrometers")
+  labs(title="p_TL_F_pop_Posnien", x="Population", y = "TL_micrometers")+ coord_cartesian(ylim = c(min_TL, max_TL))+ droseu_theme
 
-p_TL_F_pop_Posnien + coord_cartesian(ylim = c(min_TL, max_TL))+ droseu_theme
+```
+
+```{r echo=FALSE}
+p_TL_F_pop_Posnien
+```
+
+```{r echo=FALSE}
+pdf(file="ThoraxLength/p_TL_F_pop_Posnien.pdf",width=8, height=5)
+p_TL_F_pop_Posnien
 dev.off()
-```
-
-```{r echo=FALSE}
-
-```
-
-```{r echo=FALSE}
-
 ```
 
 ```{r p_TL_M_Posnien}
-pdf(file="ThoraxLength/p_TL_M_Posnien.pdf",width=8, height=5)
+
 p_TL_M_Posnien <- ggplot(data = (subset(d_TL_M,Supervisor.PI=='Posnien')), aes(x=Population_Lat, y=TL_micrometers, fill=Batch)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_TL_M_Posnien", x="Population", y = "TL_micrometers")
+  labs(title="p_TL_M_Posnien", x="Population", y = "TL_micrometers")+ coord_cartesian(ylim = c(min_TL, max_TL))+ droseu_theme
 
-p_TL_M_Posnien + coord_cartesian(ylim = c(min_TL, max_TL))+ droseu_theme
+```
+
+
+```{r echo=FALSE}
+p_TL_M_Posnien
+```
+
+```{r echo=FALSE}
+pdf(file="ThoraxLength/p_TL_M_Posnien.pdf",width=8, height=5)
+p_TL_M_Posnien
 dev.off()
-```
-
-
-```{r echo=FALSE}
-
-```
-
-```{r echo=FALSE}
-
 ```
 
 ```{r p_TL_M_pop_Posnien}
-pdf(file="ThoraxLength/p_TL_M_pop_Posnien.pdf",width=8, height=5)
+
 p_TL_M_pop_Posnien <- ggplot(data = (subset(d_TL_M,Supervisor.PI=='Posnien')), aes(x=Population_Lat, y=TL_micrometers, fill=Population)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_TL_M_pop_Posnien", x="Population", y = "TL_micrometers")
+  labs(title="p_TL_M_pop_Posnien", x="Population", y = "TL_micrometers") + coord_cartesian(ylim = c(min_TL, max_TL))+ droseu_theme
 
-p_TL_M_pop_Posnien + coord_cartesian(ylim = c(min_TL, max_TL))+ droseu_theme
+```
+
+```{r echo=FALSE}
+p_TL_M_pop_Posnien
+```
+
+```{r echo=FALSE}
+pdf(file="ThoraxLength/p_TL_M_pop_Posnien.pdf",width=8, height=5)
+p_TL_M_pop_Posnien
 dev.off()
-```
-
-```{r echo=FALSE}
-
-```
-
-```{r echo=FALSE}
-
 ```
 
 
@@ -2815,79 +2821,81 @@ summary(TL_M_lmer_Ritchie)
 ```
 
 ```{r p_TL_F_Ritchie}
-pdf(file="ThoraxLength/p_TL_F_Ritchie.pdf",width=8, height=5)
+
 p_TL_F_Ritchie <- ggplot(data = (subset(d_TL_F,Supervisor.PI=='Ritchie')), aes(x=Population_Lat, y=TL_micrometers, fill=Batch)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_TL_F_Ritchie", x="Population", y = "TL_micrometers")
+  labs(title="p_TL_F_Ritchie", x="Population", y = "TL_micrometers") + coord_cartesian(ylim =  c(min_TL, max_TL))+ droseu_theme
 
-p_TL_F_Ritchie + coord_cartesian(ylim = c(500, 1400))+ droseu_theme
+```
+
+
+```{r echo=FALSE}
+p_TL_F_Ritchie
+```
+
+```{r echo=FALSE}
+pdf(file="ThoraxLength/p_TL_F_Ritchie.pdf",width=8, height=5)
+p_TL_F_Ritchie
 dev.off()
-```
-
-
-```{r echo=FALSE}
-
-```
-
-```{r echo=FALSE}
-
 ```
 
 ```{r p_TL_F_pop_Ritchie}
-pdf(file="ThoraxLength/p_TL_F_pop_Ritchie.pdf",width=8, height=5)
+
 p_TL_F_pop_Ritchie <- ggplot(data = (subset(d_TL_F,Supervisor.PI=='Ritchie')), aes(x=Population_Lat, y=TL_micrometers, fill=Population)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_TL_F_pop_Ritchie", x="Population", y = "TL_micrometers")
-
-p_TL_F_pop_Ritchie + coord_cartesian(ylim = c(500, 1400))+ droseu_theme
+  labs(title="p_TL_F_pop_Ritchie", x="Population", y = "TL_micrometers")+ coord_cartesian(ylim =c(min_TL, max_TL))+ droseu_theme
 dev.off()
 ```
 
 ```{r echo=FALSE}
 
+
+p_TL_F_pop_Ritchie 
 ```
 
 ```{r echo=FALSE}
-
+pdf(file="ThoraxLength/p_TL_F_pop_Ritchie.pdf",width=8, height=5)
+p_TL_F_pop_Ritchie
+dev.off()
 ```
 
 
 ```{r p_TL_M_Ritchie}
-pdf(file="ThoraxLength/p_TL_M_Ritchie.pdf",width=8, height=5)
+
 p_TL_M_Ritchie <- ggplot(data = (subset(d_TL_M,Supervisor.PI=='Ritchie')), aes(x=Population_Lat, y=TL_micrometers, fill=Batch)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_TL_M_Ritchie", x="Population", y = "TL_micrometers")
+  labs(title="p_TL_M_Ritchie", x="Population", y = "TL_micrometers")+ coord_cartesian(ylim = c(min_TL, max_TL))+ droseu_theme
 
-p_TL_M_Ritchie + coord_cartesian(ylim = c(min_TL, max_TL))+ droseu_theme
+```
+
+
+```{r echo=FALSE}
+p_TL_M_Ritchie
+```
+
+```{r echo=FALSE}
+pdf(file="ThoraxLength/p_TL_M_Ritchie.pdf",width=8, height=5)
+p_TL_M_Ritchie
 dev.off()
-```
-
-
-```{r echo=FALSE}
-
-```
-
-```{r echo=FALSE}
-
 ```
 
 
 ```{r p_TL_M_pop_Ritchie}
-pdf(file="ThoraxLength/p_TL_M_Ritchie.pdf",width=8, height=5)
+
 p_TL_M_pop_Ritchie <- ggplot(data = (subset(d_TL_M,Supervisor.PI=='Ritchie')), aes(x=Population_Lat, y=TL_micrometers, fill=Population)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_TL_M_pop_Ritchie", x="Population", y = "TL_micrometers")
+  labs(title="p_TL_M_pop_Ritchie", x="Population", y = "TL_micrometers")+ coord_cartesian(ylim = c(min_TL, max_TL))+ droseu_theme
 
-p_TL_M_pop_Ritchie + coord_cartesian(ylim = c(min_TL, max_TL))+ droseu_theme
+```
+
+```{r echo=FALSE}
+p_TL_M_pop_Ritchie
+```
+
+```{r echo=FALSE}
+pdf(file="ThoraxLength/p_TL_M_Ritchie.pdf",width=8, height=5)
+p_TL_M_pop_Ritchie
 dev.off()
-```
-
-```{r echo=FALSE}
-
-```
-
-```{r echo=FALSE}
-
 ```
 
 #### Schmidt Lab
@@ -2909,40 +2917,40 @@ summary(TL_F_lmer_Schmidt)
 
 
 ```{r p_TL_F_Schmidt}
-pdf(file="ThoraxLength/p_TL_F_Schmidt.pdf",width=8, height=5)
+
 p_TL_F_Schmidt <- ggplot(data = (subset(d_TL_F,Supervisor.PI=='Schmidt')), aes(x=Population_Lat, y=TL_micrometers, fill=Batch)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_TL_F_Schmidt", x="Population", y = "TL_micrometers")
+  labs(title="p_TL_F_Schmidt", x="Population", y = "TL_micrometers") + coord_cartesian(ylim = c(min_TL, max_TL))+ droseu_theme
 
-p_TL_F_Schmidt + coord_cartesian(ylim = c(min_TL, max_TL))+ droseu_theme
+```
+
+```{r echo=FALSE}
+p_TL_F_Schmidt
+```
+
+```{r echo=FALSE}
+pdf(file="ThoraxLength/p_TL_F_Schmidt.pdf",width=8, height=5)
+p_TL_F_Schmidt
 dev.off()
-```
-
-```{r echo=FALSE}
-
-```
-
-```{r echo=FALSE}
-
 ```
 
 
 ```{r p_TL_F_pop_Schmidt}
-pdf(file="ThoraxLength/p_TL_F_pop_Schmidt.pdf",width=8, height=5)
+
 p_TL_F_pop_Schmidt <- ggplot(data = (subset(d_TL_F,Supervisor.PI=='Schmidt')), aes(x=Population_Lat, y=TL_micrometers, fill=Population)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_TL_F_pop_Schmidt", x="Population", y = "TL_micrometers")
+  labs(title="p_TL_F_pop_Schmidt", x="Population", y = "TL_micrometers") + coord_cartesian(ylim = c(min_TL, max_TL))+ droseu_theme
 
-p_TL_F_pop_Schmidt + coord_cartesian(ylim = c(min_TL, max_TL))+ droseu_theme
+```
+
+```{r echo=FALSE}
+p_TL_F_pop_Schmidt
+```
+
+```{r echo=FALSE}
+pdf(file="ThoraxLength/p_TL_F_pop_Schmidt.pdf",width=8, height=5)
+p_TL_F_pop_Schmidt
 dev.off()
-```
-
-```{r echo=FALSE}
-
-```
-
-```{r echo=FALSE}
-
 ```
 
 
@@ -3103,40 +3111,40 @@ y-axis is scaled by the minimum (`r min_WAL`) and maximum (`r max_WAL`) values i
 
 
 ```{r p_WA_F_L}
-pdf(file="WingArea/p_WA_F_L.pdf",width=8, height=5)
+
 p_WA_F_L <- ggplot(data = d_WA_F, aes(x=Population_Lat, y=CentroidSizeLeft_micrometers, fill=Supervisor.PI)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_WA_F_L", x="Population", y = "CentroidSizeLeft_micrometers")
+  labs(title="p_WA_F_L", x="Population", y = "CentroidSizeLeft_micrometers") + coord_cartesian(ylim = c(min_WAL, max_WAL))+ droseu_theme
 
-p_WA_F_L + coord_cartesian(ylim = c(min_WAL, max_WAL))+ droseu_theme
+```
+
+
+```{r echo=FALSE}
+p_WA_F_L
+```
+
+```{r echo=FALSE}
+pdf(file="WingArea/p_WA_F_L.pdf",width=8, height=5)
+p_WA_F_L
 dev.off()
-```
-
-
-```{r echo=FALSE}
-
-```
-
-```{r echo=FALSE}
-
 ```
 
 ```{r p_WA_M_L}
-pdf(file="WingArea/p_WA_M_L.pdf",width=8, height=5)
+
 p_WA_M_L <- ggplot(data = d_WA_M, aes(x=Population_Lat, y=CentroidSizeLeft_micrometers, fill=Supervisor.PI)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_WA_M_L", x="Population", y = "CentroidSizeLeft_micrometers")
+  labs(title="p_WA_M_L", x="Population", y = "CentroidSizeLeft_micrometers")+ coord_cartesian(ylim = c(min_WAL, max_WAL))+ droseu_theme
 
-p_WA_M_L + coord_cartesian(ylim = c(min_WAL, max_WAL))+ droseu_theme
+```
+
+```{r echo=FALSE}
+p_WA_M_L 
+```
+
+```{r echo=FALSE}
+pdf(file="WingArea/p_WA_M_L.pdf",width=8, height=5)
+p_WA_M_L
 dev.off()
-```
-
-```{r echo=FALSE}
-
-```
-
-```{r echo=FALSE}
-
 ```
 
 
@@ -3179,79 +3187,79 @@ summary(WA_M_L_Onder_lmer)
 
 
 ```{r p_WA_F_L_Onder}
-pdf(file="WingArea/p_WA_F_Onder_L.pdf",width=8, height=5)
+
 p_WA_F_L_Onder <- ggplot(data = (subset(d_WA_F,Supervisor.PI=='Onder')), aes(x=Population_Lat, y=CentroidSizeLeft_micrometers, fill=Batch)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_WA_F_Onder_L", x="Population", y = "CentroidSizeLeft_micrometers")
+  labs(title="p_WA_F_Onder_L", x="Population", y = "CentroidSizeLeft_micrometers") + coord_cartesian(ylim = c(min_WAL, max_WAL))+ droseu_theme
 
-p_WA_F_L_Onder + coord_cartesian(ylim = c(min_WAL, max_WAL))+ droseu_theme
+```
+
+```{r echo=FALSE}
+p_WA_F_L_Onder
+```
+
+```{r echo=FALSE}
+pdf(file="WingArea/p_WA_F_Onder_L.pdf",width=8, height=5)
+p_WA_F_L_Onder
 dev.off()
-```
-
-```{r echo=FALSE}
-
-```
-
-```{r echo=FALSE}
-
 ```
 
 
 ```{r p_WA_M_L_Onder}
 
-pdf(file="WingArea/p_WA_M_Onder_L.pdf",width=8, height=5)
+
 p_WA_M_L_Onder <- ggplot(data = (subset(d_WA_M,Supervisor.PI=='Onder')), aes(x=Population_Lat, y=CentroidSizeLeft_micrometers, fill=Batch)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_WA_M_Onder_L", x="Population", y = "CentroidSizeLeft_micrometers")
+  labs(title="p_WA_M_Onder_L", x="Population", y = "CentroidSizeLeft_micrometers")+ coord_cartesian(ylim = c(min_WAL, max_WAL))+ droseu_theme
 
-p_WA_M_L_Onder + coord_cartesian(ylim = c(min_WAL, max_WAL))+ droseu_theme
+```
+
+
+```{r echo=FALSE}
+p_WA_M_L_Onder
+```
+
+```{r echo=FALSE}
+pdf(file="WingArea/p_WA_M_Onder_L.pdf",width=8, height=5)
+p_WA_M_L_Onder
 dev.off()
-```
-
-
-```{r echo=FALSE}
-
-```
-
-```{r echo=FALSE}
-
 ```
 
 ```{r p_WA_F_L_pop_Onder}
-pdf(file="WingArea/p_WA_F_L_pop_Onder.pdf",width=8, height=5)
+
 p_WA_F_L_pop_Onder <- ggplot(data = (subset(d_WA_F,Supervisor.PI=='Onder')), aes(x=Population_Lat, y=CentroidSizeLeft_micrometers, fill=Population)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_WA_F_L_pop_Onder", x="Population", y = "CentroidSizeLeft_micrometers")
+  labs(title="p_WA_F_L_pop_Onder", x="Population", y = "CentroidSizeLeft_micrometers") + coord_cartesian(ylim = c(min_WAL, max_WAL))+ droseu_theme
 
-p_WA_F_L_pop_Onder + coord_cartesian(ylim = c(min_WAL, max_WAL))+ droseu_theme
+```
+
+```{r echo=FALSE}
+p_WA_F_L_pop_Onder
+```
+
+```{r echo=FALSE}
+pdf(file="WingArea/p_WA_F_L_pop_Onder.pdf",width=8, height=5)
+p_WA_F_L_pop_Onder
 dev.off()
-```
-
-```{r echo=FALSE}
-
-```
-
-```{r echo=FALSE}
-
 ```
 
 
 ```{r p_WA_M_L_pop_Onder}
-pdf(file="WingArea/p_WA_M_L_pop_Onder.pdf",width=8, height=5)
+
 p_WA_M_L_pop_Onder <- ggplot(data = (subset(d_WA_M,Supervisor.PI=='Onder')), aes(x=Population_Lat, y=CentroidSizeLeft_micrometers, fill=Population)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_WA_M_L_pop_Onder", x="Population", y = "CentroidSizeLeft_micrometers")
+  labs(title="p_WA_M_L_pop_Onder", x="Population", y = "CentroidSizeLeft_micrometers") + coord_cartesian(ylim = c(min_WAL, max_WAL))+ droseu_theme
 
-p_WA_M_L_pop_Onder + coord_cartesian(ylim = c(min_WAL, max_WAL))+ droseu_theme
+```
+
+```{r echo=FALSE}
+p_WA_M_L_pop_Onder
+```
+
+```{r echo=FALSE}
+pdf(file="WingArea/p_WA_M_L_pop_Onder.pdf",width=8, height=5)
+p_WA_M_L_pop_Onder
 dev.off()
-```
-
-```{r echo=FALSE}
-
-```
-
-```{r echo=FALSE}
-
 ```
 
 
@@ -3295,80 +3303,80 @@ summary(WA_M_L_Posnien_lmer)
 
 
 ```{r p_WA_F_L_Posnien}
-pdf(file="WingArea/p_WA_F_L_Posnien.pdf",width=8, height=5)
+
 p_WA_F_L_Posnien <- ggplot(data = (subset(d_WA_F,Supervisor.PI=='Posnien')), aes(x=Population_Lat, y=CentroidSizeLeft_micrometers, fill=Batch)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_WA_F_L_Posnien", x="Population", y = "CentroidSizeLeft_micrometers")
+  labs(title="p_WA_F_L_Posnien", x="Population", y = "CentroidSizeLeft_micrometers") + coord_cartesian(ylim = c(min_WAL, max_WAL))+ droseu_theme
 
-p_WA_F_L_Posnien + coord_cartesian(ylim = c(min_WAL, max_WAL))+ droseu_theme
+```
+
+
+```{r echo=FALSE}
+p_WA_F_L_Posnien
+```
+
+```{r echo=FALSE}
+pdf(file="WingArea/p_WA_F_L_Posnien.pdf",width=8, height=5)
+p_WA_F_L_Posnien
 dev.off()
-```
-
-
-```{r echo=FALSE}
-
-```
-
-```{r echo=FALSE}
-
 ```
 
 ```{r p_WA_M_L_Posnien}
-pdf(file="WingArea/p_WA_M_L_Posnien.pdf",width=8, height=5)
+
 p_WA_M_L_Posnien <- ggplot(data = (subset(d_WA_M,Supervisor.PI=='Posnien')), aes(x=Population_Lat, y=CentroidSizeLeft_micrometers, fill=Batch)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_WA_M_L_Posnien", x="Population", y = "CentroidSizeLeft_micrometers")
+  labs(title="p_WA_M_L_Posnien", x="Population", y = "CentroidSizeLeft_micrometers")+ coord_cartesian(ylim = c(min_WAL, max_WAL))+ droseu_theme
 
-p_WA_M_L_Posnien + coord_cartesian(ylim = c(min_WAL, max_WAL))+ droseu_theme
+```
+
+```{r echo=FALSE}
+p_WA_M_L_Posnien
+```
+
+```{r echo=FALSE}
+pdf(file="WingArea/p_WA_M_L_Posnien.pdf",width=8, height=5)
+p_WA_M_L_Posnien
 dev.off()
-```
-
-```{r echo=FALSE}
-
-```
-
-```{r echo=FALSE}
-
 ```
 
 
 ```{r p_WA_F_L_pop_Posnien}
-pdf(file="WingArea/p_WA_F_L_pop_Posnien.pdf",width=8, height=5)
+
 p_WA_F_L_pop_Posnien <- ggplot(data = (subset(d_WA_F,Supervisor.PI=='Posnien')), aes(x=Population_Lat, y=CentroidSizeLeft_micrometers, fill=Population)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_WA_F_L_pop_Posnien", x="Population", y = "CentroidSizeLeft_micrometers")
+  labs(title="p_WA_F_L_pop_Posnien", x="Population", y = "CentroidSizeLeft_micrometers")+ coord_cartesian(ylim = c(min_WAL, max_WAL))+ droseu_theme
 
-p_WA_F_L_pop_Posnien + coord_cartesian(ylim = c(min_WAL, max_WAL))+ droseu_theme
+```
+
+
+```{r echo=FALSE}
+p_WA_F_L_pop_Posnien
+```
+
+```{r echo=FALSE}
+pdf(file="WingArea/p_WA_F_L_pop_Posnien.pdf",width=8, height=5)
+p_WA_F_L_pop_Posnien
 dev.off()
-```
-
-
-```{r echo=FALSE}
-
-```
-
-```{r echo=FALSE}
-
 ```
 
 ```{r p_WA_M_L_pop_Posnien}
 
-pdf(file="WingArea/p_WA_M_L_pop_Posnien.pdf",width=8, height=5)
+
 p_WA_M_L_pop_Posnien <- ggplot(data = (subset(d_WA_M,Supervisor.PI=='Posnien')), aes(x=Population_Lat, y=CentroidSizeLeft_micrometers, fill=Population)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_WA_M_L_pop_Posnien", x="Population", y = "CentroidSizeLeft_micrometers")
+  labs(title="p_WA_M_L_pop_Posnien", x="Population", y = "CentroidSizeLeft_micrometers")+ coord_cartesian(ylim = c(min_WAL, max_WAL))+ droseu_theme
 
-p_WA_M_L_pop_Posnien + coord_cartesian(ylim = c(min_WAL, max_WAL))+ droseu_theme
+```
+
+
+```{r echo=FALSE}
+p_WA_M_L_pop_Posnien
+```
+
+```{r echo=FALSE}
+pdf(file="WingArea/p_WA_M_L_pop_Posnien.pdf",width=8, height=5)
+p_WA_M_L_pop_Posnien
 dev.off()
-```
-
-
-```{r echo=FALSE}
-
-```
-
-```{r echo=FALSE}
-
 ```
 
 
@@ -3412,79 +3420,79 @@ summary(WA_M_L_Ritchie_lmer)
 
 
 ```{r p_WA_F_L_Ritchie}
-pdf(file="WingArea/p_WA_F_L_Ritchie.pdf",width=8, height=5)
+
 p_WA_F_L_Ritchie <- ggplot(data = (subset(d_WA_F,Supervisor.PI=='Ritchie')), aes(x=Population_Lat, y=CentroidSizeLeft_micrometers, fill=Batch)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_WA_F_L_Ritchie", x="Population", y = "CentroidSizeLeft_micrometers")
+  labs(title="p_WA_F_L_Ritchie", x="Population", y = "CentroidSizeLeft_micrometers")+ coord_cartesian(ylim = c(min_WAL, max_WAL))+ droseu_theme
 
-p_WA_F_L_Ritchie + coord_cartesian(ylim = c(min_WAL, max_WAL))+ droseu_theme
+```
+
+```{r echo=FALSE}
+p_WA_F_L_Ritchie
+```
+
+```{r echo=FALSE}
+pdf(file="WingArea/p_WA_F_L_Ritchie.pdf",width=8, height=5)
+p_WA_F_L_Ritchie
 dev.off()
-```
-
-```{r echo=FALSE}
-
-```
-
-```{r echo=FALSE}
-
 ```
 
 
 ```{r p_WA_M_L_Ritchie}
-pdf(file="WingArea/p_WA_M_L_Ritchie.pdf",width=8, height=5)
+
 p_WA_M_L_Ritchie <- ggplot(data = (subset(d_WA_M,Supervisor.PI=='Ritchie')), aes(x=Population_Lat, y=CentroidSizeLeft_micrometers, fill=Batch)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_WA_M_L_Ritchie", x="Population", y = "CentroidSizeLeft_micrometers")
+  labs(title="p_WA_M_L_Ritchie", x="Population", y = "CentroidSizeLeft_micrometers") + coord_cartesian(ylim = c(min_WAL, max_WAL))+ droseu_theme
 
-p_WA_M_L_Ritchie + coord_cartesian(ylim = c(min_WAL, max_WAL))+ droseu_theme
+```
+
+```{r echo=FALSE}
+p_WA_M_L_Ritchie
+```
+
+```{r echo=FALSE}
+pdf(file="WingArea/p_WA_M_L_Ritchie.pdf",width=8, height=5)
+p_WA_M_L_Ritchie
 dev.off()
-```
-
-```{r echo=FALSE}
-
-```
-
-```{r echo=FALSE}
-
 ```
 
 
 ```{r p_WA_F_L_pop_Ritchie}
-pdf(file="WingArea/p_WA_F_L_pop_Ritchie.pdf",width=8, height=5)
+
 p_WA_F_L_pop_Ritchie <- ggplot(data = (subset(d_WA_F,Supervisor.PI=='Ritchie')), aes(x=Population_Lat, y=CentroidSizeLeft_micrometers, fill=Population)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_WA_F_L_pop_Ritchie", x="Population", y = "CentroidSizeLeft_micrometers")
+  labs(title="p_WA_F_L_pop_Ritchie", x="Population", y = "CentroidSizeLeft_micrometers")+ coord_cartesian(ylim = c(min_WAL, max_WAL))+ droseu_theme
 
-p_WA_F_L_pop_Ritchie + coord_cartesian(ylim = c(min_WAL, max_WAL))+ droseu_theme
+```
+
+```{r echo=FALSE}
+p_WA_F_L_pop_Ritchie
+```
+
+```{r echo=FALSE}
+pdf(file="WingArea/p_WA_F_L_pop_Ritchie.pdf",width=8, height=5)
+p_WA_F_L_pop_Ritchie
 dev.off()
-```
-
-```{r echo=FALSE}
-
-```
-
-```{r echo=FALSE}
-
 ```
 
 
 ```{r p_WA_M_L_pop_Ritchie}
 
-pdf(file="WingArea/p_WA_M_L_pop_Ritchie.pdf",width=8, height=5)
+
 p_WA_M_L_pop_Ritchie <- ggplot(data = (subset(d_WA_M,Supervisor.PI=='Ritchie')), aes(x=Population_Lat, y=CentroidSizeLeft_micrometers, fill=Population)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_WA_M_L_pop_Ritchie", x="Population", y = "CentroidSizeLeft_micrometers")
+  labs(title="p_WA_M_L_pop_Ritchie", x="Population", y = "CentroidSizeLeft_micrometers") + coord_cartesian(ylim = c(min_WAL, max_WAL))+ droseu_theme
 
-p_WA_M_L_pop_Ritchie + coord_cartesian(ylim = c(min_WAL, max_WAL))+ droseu_theme
+```
+
+```{r echo=FALSE}
+p_WA_M_L_pop_Ritchie
+```
+
+```{r echo=FALSE}
+pdf(file="WingArea/p_WA_M_L_pop_Ritchie.pdf",width=8, height=5)
+p_WA_M_L_pop_Ritchie
 dev.off()
-```
-
-```{r echo=FALSE}
-
-```
-
-```{r echo=FALSE}
-
 ```
 
 #### Stamenkovic-Radak Lab
@@ -3529,79 +3537,79 @@ summary(WA_M_L_StamenkovicRadak_lmer)
 
 
 ```{r p_WA_F_L_StamenkovicRadak}
-pdf(file="WingArea/p_WA_F_L_StamenkovicRadak.pdf",width=8, height=5)
+
 p_WA_F_L_StamenkovicRadak <- ggplot(data = (subset(d_WA_F,Supervisor.PI=='StamenkovicRadak')), aes(x=Population_Lat, y=CentroidSizeLeft_micrometers, fill=Batch)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_WA_F_L_StamenkovicRadak", x="Population", y = "CentroidSizeLeft_micrometers")
+  labs(title="p_WA_F_L_StamenkovicRadak", x="Population", y = "CentroidSizeLeft_micrometers")+ coord_cartesian(ylim = c(min_WAL, max_WAL))+ droseu_theme
 
-p_WA_F_L_StamenkovicRadak + coord_cartesian(ylim = c(min_WAL, max_WAL))+ droseu_theme
+```
+
+
+```{r echo=FALSE}
+p_WA_F_L_StamenkovicRadak
+```
+
+```{r echo=FALSE}
+pdf(file="WingArea/p_WA_F_L_StamenkovicRadak.pdf",width=8, height=5)
+p_WA_F_L_StamenkovicRadak
 dev.off()
-```
-
-
-```{r echo=FALSE}
-
-```
-
-```{r echo=FALSE}
-
 ```
 
 ```{r p_WA_M_L_StamenkovicRadak}
-pdf(file="WingArea/p_WA_M_L_StamenkovicRadak.pdf",width=8, height=5)
+
 p_WA_M_L_StamenkovicRadak <- ggplot(data = (subset(d_WA_M,Supervisor.PI=='StamenkovicRadak')), aes(x=Population_Lat, y=CentroidSizeLeft_micrometers, fill=Batch)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_WA_M_L_StamenkovicRadak", x="Population", y = "CentroidSizeLeft_micrometers")
+  labs(title="p_WA_M_L_StamenkovicRadak", x="Population", y = "CentroidSizeLeft_micrometers") + coord_cartesian(ylim = c(min_WAL, max_WAL))+ droseu_theme
 
-p_WA_M_L_StamenkovicRadak + coord_cartesian(ylim = c(min_WAL, max_WAL))+ droseu_theme
+```
+
+```{r echo=FALSE}
+p_WA_M_L_StamenkovicRadak
+```
+
+```{r echo=FALSE}
+pdf(file="WingArea/p_WA_M_L_StamenkovicRadak.pdf",width=8, height=5)
+p_WA_M_L_StamenkovicRadak
 dev.off()
-```
-
-```{r echo=FALSE}
-
-```
-
-```{r echo=FALSE}
-
 ```
 
 
 ```{r p_WA_F_L_pop_StamenkovicRadak}
-pdf(file="WingArea/p_WA_F_L_pop_StamenkovicRadak.pdf",width=8, height=5)
+
 p_WA_F_L_pop_StamenkovicRadak <- ggplot(data = (subset(d_WA_F,Supervisor.PI=='StamenkovicRadak')), aes(x=Population_Lat, y=CentroidSizeLeft_micrometers, fill=Population)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_WA_F_L_pop_StamenkovicRadak", x="Population", y = "CentroidSizeLeft_micrometers")
+  labs(title="p_WA_F_L_pop_StamenkovicRadak", x="Population", y = "CentroidSizeLeft_micrometers")+ coord_cartesian(ylim = c(min_WAL, max_WAL))+ droseu_theme
 
-p_WA_F_L_pop_StamenkovicRadak + coord_cartesian(ylim = c(min_WAL, max_WAL))+ droseu_theme
+```
+
+
+```{r echo=FALSE}
+p_WA_F_L_pop_StamenkovicRadak
+```
+
+```{r echo=FALSE}
+pdf(file="WingArea/p_WA_F_L_pop_StamenkovicRadak.pdf",width=8, height=5)
+p_WA_F_L_pop_StamenkovicRadak
 dev.off()
-```
-
-
-```{r echo=FALSE}
-
-```
-
-```{r echo=FALSE}
-
 ```
 
 ```{r p_WA_M_L_pop_StamenkovicRadak}
-pdf(file="WingArea/p_WA_M_L_pop_StamenkovicRadak.pdf",width=8, height=5)
+
 p_WA_M_L_pop_StamenkovicRadak <- ggplot(data = (subset(d_WA_M,Supervisor.PI=='StamenkovicRadak')), aes(x=Population_Lat, y=CentroidSizeLeft_micrometers, fill=Population)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_WA_M_L_pop_StamenkovicRadak", x="Population", y = "CentroidSizeLeft_micrometers")
+  labs(title="p_WA_M_L_pop_StamenkovicRadak", x="Population", y = "CentroidSizeLeft_micrometers") + coord_cartesian(ylim = c(min_WAL, max_WAL))+ droseu_theme
 
-p_WA_M_L_pop_StamenkovicRadak + coord_cartesian(ylim = c(min_WAL, max_WAL))+ droseu_theme
+```
+
+
+```{r echo=FALSE}
+p_WA_M_L_pop_StamenkovicRadak
+```
+
+```{r echo=FALSE}
+pdf(file="WingArea/p_WA_M_L_pop_StamenkovicRadak.pdf",width=8, height=5)
+p_WA_M_L_pop_StamenkovicRadak
 dev.off()
-```
-
-
-```{r echo=FALSE}
-
-```
-
-```{r echo=FALSE}
-
 ```
 
 ### _Right_
@@ -3686,41 +3694,41 @@ max_WAR <- max(d_WA$CentroidSizeRight_micrometers)
 
 
 ```{r p_WA_F_R}
-pdf(file="WingArea/p_WA_F_R.pdf",width=8, height=5)
+
 p_WA_F_R <- ggplot(data = d_WA_F, aes(x=Population_Lat, y=CentroidSizeRight_micrometers, fill=Supervisor.PI)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_WA_F_R", x="Population", y = "CentroidSizeRight_micrometers")
+  labs(title="p_WA_F_R", x="Population", y = "CentroidSizeRight_micrometers") + coord_cartesian(ylim = c(min_WAL, max_WAL))+ droseu_theme
 
-p_WA_F_R + coord_cartesian(ylim = c(min_WAL, max_WAL))+ droseu_theme
+```
+
+```{r echo=FALSE}
+p_WA_F_R
+```
+
+```{r echo=FALSE}
+pdf(file="WingArea/p_WA_F_R.pdf",width=8, height=5)
+p_WA_F_R
 dev.off()
-```
-
-```{r echo=FALSE}
-
-```
-
-```{r echo=FALSE}
-
 ```
 
 
 ```{r p_WA_M_R}
-pdf(file="WingArea/p_WA_M_R.pdf",width=8, height=5)
+
 p_WA_M_R <- ggplot(data = d_WA_M, aes(x=Population_Lat, y=CentroidSizeRight_micrometers, fill=Supervisor.PI)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_WA_M_R", x="Population", y = "CentroidSizeRight_micrometers")
+  labs(title="p_WA_M_R", x="Population", y = "CentroidSizeRight_micrometers")+ coord_cartesian(ylim = c(min_WAL, max_WAL))+ droseu_theme
 
-p_WA_M_R + coord_cartesian(ylim = c(min_WAL, max_WAL))+ droseu_theme
+```
+
+
+```{r echo=FALSE}
+p_WA_M_R
+```
+
+```{r echo=FALSE}
+pdf(file="WingArea/p_WA_M_R.pdf",width=8, height=5)
+p_WA_M_R
 dev.off()
-```
-
-
-```{r echo=FALSE}
-
-```
-
-```{r echo=FALSE}
-
 ```
 
 #### Onder Lab
@@ -3771,79 +3779,79 @@ summary(WA_M_R_Onder_lmer)
 
 
 ```{r p_WA_F_R_Onder}
-pdf(file="WingArea/p_WA_F_R_Onder.pdf",width=8, height=5)
+
 p_WA_F_R_Onder <- ggplot(data = (subset(d_WA_F,Supervisor.PI=='Onder')), aes(x=Population_Lat, y=CentroidSizeRight_micrometers, fill=Batch)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_WA_F_Onder_R", x="Population", y = "CentroidSizeRight_micrometers")
+  labs(title="p_WA_F_Onder_R", x="Population", y = "CentroidSizeRight_micrometers")+ coord_cartesian(ylim = c(min_WAR, max_WAR))+ droseu_theme
 
-p_WA_F_R_Onder + coord_cartesian(ylim = c(min_WAR, max_WAR))+ droseu_theme
+```
+
+
+```{r echo=FALSE}
+p_WA_F_R_Onder
+```
+
+```{r echo=FALSE}
+pdf(file="WingArea/p_WA_F_R_Onder.pdf",width=8, height=5)
+p_WA_F_R_Onder
 dev.off()
-```
-
-
-```{r echo=FALSE}
-
-```
-
-```{r echo=FALSE}
-
 ```
 
 ```{r p_WA_F_R_pop_Onder}
-pdf(file="WingArea/p_WA_F_R_pop_Onder.pdf",width=8, height=5)
+
 p_WA_F_R_pop_Onder <- ggplot(data = (subset(d_WA_F,Supervisor.PI=='Onder')), aes(x=Population_Lat, y=CentroidSizeRight_micrometers, fill=Population)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_WA_F_R_pop_Onder", x="Population", y = "CentroidSizeRight_micrometers")
+  labs(title="p_WA_F_R_pop_Onder", x="Population", y = "CentroidSizeRight_micrometers") + coord_cartesian(ylim = c(min_WAR, max_WAR))+ droseu_theme
 
-p_WA_F_R_pop_Onder + coord_cartesian(ylim = c(min_WAR, max_WAR))+ droseu_theme
+```
+
+
+```{r echo=FALSE}
+p_WA_F_R_pop_Onder
+```
+
+```{r echo=FALSE}
+pdf(file="WingArea/p_WA_F_R_pop_Onder.pdf",width=8, height=5)
+p_WA_F_R_pop_Onder
 dev.off()
-```
-
-
-```{r echo=FALSE}
-
-```
-
-```{r echo=FALSE}
-
 ```
 
 
 ```{r p_WA_M_R_Onder}
-pdf(file="WingArea/p_WA_M_R_Onder.pdf",width=8, height=5)
+
 p_WA_M_R_Onder <- ggplot(data = (subset(d_WA_M,Supervisor.PI=='Onder')), aes(x=Population_Lat, y=CentroidSizeRight_micrometers, fill=Batch)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_WA_M_R_Onder", x="Population", y = "CentroidSizeRight_micrometers")
+  labs(title="p_WA_M_R_Onder", x="Population", y = "CentroidSizeRight_micrometers") + coord_cartesian(ylim = c(min_WAR, max_WAR))+ droseu_theme
 
-p_WA_M_R_Onder + coord_cartesian(ylim = c(min_WAR, max_WAR))+ droseu_theme
+```
+
+
+```{r echo=FALSE}
+p_WA_M_R_Onder
+```
+
+```{r echo=FALSE}
+pdf(file="WingArea/p_WA_M_R_Onder.pdf",width=8, height=5)
+p_WA_M_R_Onder
 dev.off()
-```
-
-
-```{r echo=FALSE}
-
-```
-
-```{r echo=FALSE}
-
 ```
 
 ```{r p_WA_M_R_pop_Onder}
-pdf(file="WingArea/p_WA_M_R_pop_Onder.pdf",width=8, height=5)
+
 p_WA_M_R_pop_Onder <- ggplot(data = (subset(d_WA_M,Supervisor.PI=='Onder')), aes(x=Population_Lat, y=CentroidSizeRight_micrometers, fill=Population)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_WA_M_R_pop_Onder", x="Population", y = "CentroidSizeRight_micrometers")
+  labs(title="p_WA_M_R_pop_Onder", x="Population", y = "CentroidSizeRight_micrometers") + coord_cartesian(ylim = c(min_WAR, max_WAR))+ droseu_theme
 
-p_WA_M_R_pop_Onder + coord_cartesian(ylim = c(min_WAR, max_WAR))+ droseu_theme
+```
+
+```{r echo=FALSE}
+p_WA_M_R_pop_Onder
+```
+
+```{r echo=FALSE}
+pdf(file="WingArea/p_WA_M_R_pop_Onder.pdf",width=8, height=5)
+p_WA_M_R_pop_Onder
 dev.off()
-```
-
-```{r echo=FALSE}
-
-```
-
-```{r echo=FALSE}
-
 ```
 
 
@@ -3887,80 +3895,80 @@ summary(WA_M_R_Posnien_lmer)
 ```
 
 ```{r p_WA_F_R_Posnien}
-pdf(file="WingArea/p_WA_F_R_Posnien.pdf",width=8, height=5)
+
 p_WA_F_R_Posnien <- ggplot(data = (subset(d_WA_F,Supervisor.PI=='Posnien')), aes(x=Population_Lat, y=CentroidSizeRight_micrometers, fill=Batch)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_WA_F_R_Posnien", x="Population", y = "CentroidSizeRight_micrometers")
+  labs(title="p_WA_F_R_Posnien", x="Population", y = "CentroidSizeRight_micrometers") + coord_cartesian(ylim = c(min_WAR, max_WAR))+ droseu_theme
 
-p_WA_F_R_Posnien + coord_cartesian(ylim = c(min_WAR, max_WAR))+ droseu_theme
+```
+
+
+```{r echo=FALSE}
+p_WA_F_R_Posnien
+```
+
+```{r echo=FALSE}
+pdf(file="WingArea/p_WA_F_R_Posnien.pdf",width=8, height=5)
+p_WA_F_R_Posnien
 dev.off()
-```
-
-
-```{r echo=FALSE}
-
-```
-
-```{r echo=FALSE}
-
 ```
 
 
 ```{r p_WA_F_R_pop_Posnien}
-pdf(file="WingArea/p_WA_F_R_pop_Posnien.pdf",width=8, height=5)
+
 p_WA_F_R_pop_Posnien <- ggplot(data = (subset(d_WA_F,Supervisor.PI=='Posnien')), aes(x=Population_Lat, y=CentroidSizeRight_micrometers, fill=Population)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_WA_F_R_pop_Posnien", x="Population", y = "CentroidSizeRight_micrometers")
+  labs(title="p_WA_F_R_pop_Posnien", x="Population", y = "CentroidSizeRight_micrometers")+ coord_cartesian(ylim = c(min_WAR, max_WAR))+ droseu_theme
 
-p_WA_F_R_pop_Posnien + coord_cartesian(ylim = c(min_WAR, max_WAR))+ droseu_theme
+```
+
+```{r echo=FALSE}
+p_WA_F_R_pop_Posnien
+```
+
+```{r echo=FALSE}
+pdf(file="WingArea/p_WA_F_R_pop_Posnien.pdf",width=8, height=5)
+p_WA_F_R_pop_Posnien
 dev.off()
-```
-
-```{r echo=FALSE}
-
-```
-
-```{r echo=FALSE}
-
 ```
 
 ```{r p_WA_M_R_Posnien}
-pdf(file="WingArea/p_WA_M_R_Posnien.pdf",width=8, height=5)
+
 p_WA_M_R_Posnien <- ggplot(data = (subset(d_WA_M,Supervisor.PI=='Posnien')), aes(x=Population_Lat, y=CentroidSizeRight_micrometers, fill=Batch)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_WA_M_R_Posnien", x="Population", y = "CentroidSizeRight_micrometers")
+  labs(title="p_WA_M_R_Posnien", x="Population", y = "CentroidSizeRight_micrometers") + coord_cartesian(ylim = c(min_WAR, max_WAR))+ droseu_theme
 
-p_WA_M_R_Posnien + coord_cartesian(ylim = c(min_WAR, max_WAR))+ droseu_theme
+```
+
+```{r echo=FALSE}
+p_WA_M_R_Posnien
+```
+
+```{r echo=FALSE}
+pdf(file="WingArea/p_WA_M_R_Posnien.pdf",width=8, height=5)
+p_WA_M_R_Posnien
 dev.off()
-```
-
-```{r echo=FALSE}
-
-```
-
-```{r echo=FALSE}
-
 ```
 
 
 ```{r p_WA_M_R_pop_Posnien}
 
-pdf(file="WingArea/p_WA_M_R_pop_Posnien.pdf",width=8, height=5)
 p_WA_M_R_pop_Posnien <- ggplot(data = (subset(d_WA_M,Supervisor.PI=='Posnien')), aes(x=Population_Lat, y=CentroidSizeRight_micrometers, fill=Population)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_WA_M_R_pop_Posnien", x="Population", y = "CentroidSizeRight_micrometers")
+  labs(title="p_WA_M_R_pop_Posnien", x="Population", y = "CentroidSizeRight_micrometers") + coord_cartesian(ylim = c(min_WAR, max_WAR))+ droseu_theme
 
-p_WA_M_R_pop_Posnien + coord_cartesian(ylim = c(min_WAR, max_WAR))+ droseu_theme
+```
+
+
+```{r echo=FALSE}
+p_WA_M_R_pop_Posnien
+```
+
+```{r echo=FALSE}
+
+pdf(file="WingArea/p_WA_M_R_pop_Posnien.pdf",width=8, height=5)
+p_WA_M_R_pop_Posnien
 dev.off()
-```
-
-
-```{r echo=FALSE}
-
-```
-
-```{r echo=FALSE}
-
 ```
 
 
@@ -4003,79 +4011,79 @@ summary(WA_M_R_Ritchie_lmer)
 ```
 
 ```{r p_WA_F_R_Ritchie}
-pdf(file="WingArea/p_WA_F_R_Ritchie.pdf",width=8, height=5)
+
 p_WA_F_R_Ritchie <- ggplot(data = (subset(d_WA_F,Supervisor.PI=='Ritchie')), aes(x=Population_Lat, y=CentroidSizeRight_micrometers, fill=Batch)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_WA_F_Ritchie_R", x="Population", y = "CentroidSizeRight_micrometers")
+  labs(title="p_WA_F_Ritchie_R", x="Population", y = "CentroidSizeRight_micrometers") + coord_cartesian(ylim = c(min_WAR, max_WAR))+ droseu_theme
 
-p_WA_F_R_Ritchie + coord_cartesian(ylim = c(min_WAR, max_WAR))+ droseu_theme
+```
+
+```{r echo=FALSE}
+p_WA_F_R_Ritchie
+```
+
+```{r echo=FALSE}
+pdf(file="WingArea/p_WA_F_R_Ritchie.pdf",width=8, height=5)
+p_WA_F_R_Ritchie
 dev.off()
-```
-
-```{r echo=FALSE}
-
-```
-
-```{r echo=FALSE}
-
 ```
 
 
 ```{r p_WA_F_R_pop_Ritchie}
-pdf(file="WingArea/p_WA_F_R_pop_Ritchie.pdf",width=8, height=5)
+
 p_WA_F_R_pop_Ritchie <- ggplot(data = (subset(d_WA_F,Supervisor.PI=='Ritchie')), aes(x=Population_Lat, y=CentroidSizeRight_micrometers, fill=Population)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_WA_F_R_pop_Ritchie", x="Population", y = "CentroidSizeRight_micrometers")
+  labs(title="p_WA_F_R_pop_Ritchie", x="Population", y = "CentroidSizeRight_micrometers") + coord_cartesian(ylim = c(min_WAR, max_WAR))+ droseu_theme
 
-p_WA_F_R_pop_Ritchie + coord_cartesian(ylim = c(min_WAR, max_WAR))+ droseu_theme
+```
+
+```{r echo=FALSE}
+p_WA_F_R_pop_Ritchie
+```
+
+```{r echo=FALSE}
+pdf(file="WingArea/p_WA_F_R_pop_Ritchie.pdf",width=8, height=5)
+p_WA_F_R_pop_Ritchie
 dev.off()
-```
-
-```{r echo=FALSE}
-
-```
-
-```{r echo=FALSE}
-
 ```
 
 ```{r p_WA_M_R_Ritchie}
 
-pdf(file="WingArea/p_WA_M_R_Ritchie.pdf",width=8, height=5)
+
 p_WA_M_R_Ritchie <- ggplot(data = (subset(d_WA_M,Supervisor.PI=='Ritchie')), aes(x=Population_Lat, y=CentroidSizeRight_micrometers, fill=Batch)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_WA_M_R_Ritchie", x="Population", y = "CentroidSizeRight_micrometers")
+  labs(title="p_WA_M_R_Ritchie", x="Population", y = "CentroidSizeRight_micrometers") + coord_cartesian(ylim = c(min_WAR, max_WAR))+ droseu_theme
 
-p_WA_M_R_Ritchie + coord_cartesian(ylim = c(min_WAR, max_WAR))+ droseu_theme
+```
+
+
+```{r echo=FALSE}
+p_WA_M_R_Ritchie
+```
+
+```{r echo=FALSE}
+pdf(file="WingArea/p_WA_M_R_Ritchie.pdf",width=8, height=5)
+p_WA_M_R_Ritchie
 dev.off()
-```
-
-
-```{r echo=FALSE}
-
-```
-
-```{r echo=FALSE}
-
 ```
 
 
 ```{r p_WA_M_R_pop_Ritchie}
-pdf(file="WingArea/p_WA_M_R_pop_Ritchie.pdf",width=8, height=5)
+
 p_WA_M_R_pop_Ritchie <- ggplot(data = (subset(d_WA_M,Supervisor.PI=='Ritchie')), aes(x=Population_Lat, y=CentroidSizeRight_micrometers, fill=Population)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_WA_M_R_pop_Ritchie", x="Population", y = "CentroidSizeRight_micrometers")
+  labs(title="p_WA_M_R_pop_Ritchie", x="Population", y = "CentroidSizeRight_micrometers")+ coord_cartesian(ylim = c(min_WAR, max_WAR))+ droseu_theme
 
-p_WA_M_R_pop_Ritchie + coord_cartesian(ylim = c(min_WAR, max_WAR))+ droseu_theme
+```
+
+```{r echo=FALSE}
+p_WA_M_R_pop_Ritchie
+```
+
+```{r echo=FALSE}
+pdf(file="WingArea/p_WA_M_R_pop_Ritchie.pdf",width=8, height=5)
+p_WA_M_R_pop_Ritchie
 dev.off()
-```
-
-```{r echo=FALSE}
-
-```
-
-```{r echo=FALSE}
-
 ```
 
 
@@ -4120,81 +4128,81 @@ summary(WA_M_R_StamenkovicRadak_lmer)
 
 
 ```{r p_WA_F_R_StamenkovicRadak}
-pdf(file="WingArea/p_WA_F_R_StamenkovicRadak.pdf",width=8, height=5)
+
 p_WA_F_R_StamenkovicRadak <- ggplot(data = (subset(d_WA_F,Supervisor.PI=='StamenkovicRadak')), aes(x=Population_Lat, y=CentroidSizeRight_micrometers, fill=Batch)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_WA_F_R_StamenkovicRadak", x="Population", y = "CentroidSizeRight_micrometers")
+  labs(title="p_WA_F_R_StamenkovicRadak", x="Population", y = "CentroidSizeRight_micrometers")+ coord_cartesian(ylim = c(min_WAR, max_WAR))+ droseu_theme
 
-p_WA_F_R_StamenkovicRadak + coord_cartesian(ylim = c(min_WAR, max_WAR))+ droseu_theme
+```
+
+
+```{r echo=FALSE}
+p_WA_F_R_StamenkovicRadak
+```
+
+```{r echo=FALSE}
+pdf(file="WingArea/p_WA_F_R_StamenkovicRadak.pdf",width=8, height=5)
+p_WA_F_R_StamenkovicRadak
 dev.off()
-```
-
-
-```{r echo=FALSE}
-
-```
-
-```{r echo=FALSE}
-
 ```
 
 
 ```{r p_WA_F_R_pop_StamenkovicRadak}
-pdf(file="WingArea/p_WA_F_R_pop_StamenkovicRadak.pdf",width=8, height=5)
+
 p_WA_F_R_pop_StamenkovicRadak <- ggplot(data = (subset(d_WA_F,Supervisor.PI=='StamenkovicRadak')), aes(x=Population_Lat, y=CentroidSizeRight_micrometers, fill=Population)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_WA_F_R_pop_StamenkovicRadak", x="Population", y = "CentroidSizeRight_micrometers")
+  labs(title="p_WA_F_R_pop_StamenkovicRadak", x="Population", y = "CentroidSizeRight_micrometers") + coord_cartesian(ylim = c(min_WAR, max_WAR))+ droseu_theme
 
-p_WA_F_R_pop_StamenkovicRadak + coord_cartesian(ylim = c(min_WAR, max_WAR))+ droseu_theme
+```
+
+
+```{r echo=FALSE}
+p_WA_F_R_pop_StamenkovicRadak
+```
+
+```{r echo=FALSE}
+pdf(file="WingArea/p_WA_F_R_pop_StamenkovicRadak.pdf",width=8, height=5)
+p_WA_F_R_pop_StamenkovicRadak
 dev.off()
-```
-
-
-```{r echo=FALSE}
-
-```
-
-```{r echo=FALSE}
-
 ```
 
 ```{r p_WA_M_R_StamenkovicRadak}
 
-pdf(file="WingArea/p_WA_M_R_StamenkovicRadak.pdf",width=8, height=5)
+
 p_WA_M_R_StamenkovicRadak <- ggplot(data = (subset(d_WA_M,Supervisor.PI=='StamenkovicRadak')), aes(x=Population_Lat, y=CentroidSizeRight_micrometers, fill=Batch)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_WA_M_R_StamenkovicRadak", x="Population", y = "CentroidSizeRight_micrometers")
+  labs(title="p_WA_M_R_StamenkovicRadak", x="Population", y = "CentroidSizeRight_micrometers")+ coord_cartesian(ylim = c(min_WAR, max_WAR))+ droseu_theme
 
-p_WA_M_R_StamenkovicRadak + coord_cartesian(ylim = c(min_WAR, max_WAR))+ droseu_theme
+```
+
+
+```{r echo=FALSE}
+p_WA_M_R_StamenkovicRadak
+```
+
+```{r echo=FALSE}
+pdf(file="WingArea/p_WA_M_R_StamenkovicRadak.pdf",width=8, height=5)
+p_WA_M_R_StamenkovicRadak
 dev.off()
-```
-
-
-```{r echo=FALSE}
-
-```
-
-```{r echo=FALSE}
-
 ```
 
 ```{r p_WA_M_R_pop_StamenkovicRadak}
 
-pdf(file="WingArea/p_WA_M_R_pop_StamenkovicRadak.pdf",width=8, height=5)
+
 p_WA_M_R_pop_StamenkovicRadak <- ggplot(data = (subset(d_WA_M,Supervisor.PI=='StamenkovicRadak')), aes(x=Population_Lat, y=CentroidSizeRight_micrometers, fill=Population)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_WA_M_R_pop_StamenkovicRadak", x="Population", y = "CentroidSizeRight_micrometers")
+  labs(title="p_WA_M_R_pop_StamenkovicRadak", x="Population", y = "CentroidSizeRight_micrometers") + coord_cartesian(ylim = c(min_WAR, max_WAR))+ droseu_theme
 
-p_WA_M_R_pop_StamenkovicRadak + coord_cartesian(ylim = c(min_WAR, max_WAR))+ droseu_theme
+```
+
+```{r echo=FALSE}
+p_WA_M_R_pop_StamenkovicRadak
+```
+
+```{r echo=FALSE}
+pdf(file="WingArea/p_WA_M_R_pop_StamenkovicRadak.pdf",width=8, height=5)
+p_WA_M_R_pop_StamenkovicRadak
 dev.off()
-```
-
-```{r echo=FALSE}
-
-```
-
-```{r echo=FALSE}
-
 ```
 
 
@@ -5081,7 +5089,9 @@ DT::datatable(table_CSM_Pop_wobatch, options = list(pageLength = 10)) %>% format
 ```
 
 
-### Plots and Linear Models by Lab  #### Overview 
+### Plots and Linear Models by Lab  
+
+#### Overview 
 
 #### Gonzalez Lab
 
@@ -6410,7 +6420,9 @@ DT::datatable(table_LA_CircPhase_Pop_wobatch, options = list(pageLength = 10)) %
 ```
 
 
-### Plots and Linear Models by Lab  #### Overview 
+### Plots and Linear Models by Lab  
+
+#### Overview 
 
 #### Tauber Lab
 
@@ -6701,7 +6713,6 @@ p_SR_F_Gonzalez <- ggplot(data = (subset(d_SR_F,Supervisor.PI=='Gonzalez')), aes
         labs(title="p_SR_F_Gonzalez", x="Population", y = "AgeAtDeath_hours") + coord_cartesian(ylim = c(0, 210))+ droseu_theme
 
 ```
-
 
 ```{r echo=FALSE}
 p_SR_F_Gonzalez
@@ -7082,7 +7093,9 @@ str(d_Pgm2)
 
 
 
-### Plots and Linear Models by Lab  #### Overview 
+### Plots and Linear Models by Lab  
+
+#### Overview 
 
 #### Abbott Lab
 #### Gibert Lab 
