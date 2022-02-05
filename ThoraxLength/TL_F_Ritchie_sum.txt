@@ -4,37 +4,34 @@ Formula: TL_micrometers ~ -1 + Population + (1 | Line:Population) + (1 |
     Batch)
    Data: (subset(d_TL_F, Supervisor.PI == "Ritchie"))
 
-REML criterion at convergence: 25240.4
+REML criterion at convergence: 11997.4
 
 Scaled residuals: 
-   Min     1Q Median     3Q    Max 
--0.219 -0.002  0.000  0.001 32.696 
+    Min      1Q  Median      3Q     Max 
+-4.2638 -0.4797  0.0273  0.5634  4.5966 
 
 Random effects:
- Groups          Name        Variance  Std.Dev. 
- Line:Population (Intercept) 6.120e-01 7.823e-01
- Batch           (Intercept) 5.156e+04 2.271e+02
- Residual                    8.761e+08 2.960e+04
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept)  885.5   29.76   
+ Batch           (Intercept) 1892.2   43.50   
+ Residual                    3731.7   61.09   
 Number of obs: 1082, groups:  Line:Population, 26; Batch, 12
 
 Fixed effects:
-             Estimate Std. Error      df t value Pr(>|t|)   
-PopulationAK  7170.21    2357.54   40.58   3.041  0.00411 **
-PopulationGI   960.98    2064.78   37.39   0.465  0.64434   
-PopulationKA   943.91    2049.96   35.90   0.460  0.64797   
-PopulationMA   979.69    2021.21   34.47   0.485  0.63095   
-PopulationMU   976.26    3141.61   32.62   0.311  0.75797   
-PopulationYE  1000.94    2069.81   37.47   0.484  0.63149   
+             Estimate Std. Error     df t value Pr(>|t|)    
+PopulationAK   956.92      24.06  19.18   39.77   <2e-16 ***
+PopulationGI   964.46      22.38  17.75   43.09   <2e-16 ***
+PopulationKA   937.86      23.08  16.47   40.64   <2e-16 ***
+PopulationMA   973.80      23.06  16.43   42.23   <2e-16 ***
+PopulationMU   965.32      29.49  17.85   32.73   <2e-16 ***
+PopulationYE   986.59      21.59  18.71   45.70   <2e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 Correlation of Fixed Effects:
             PpltAK PpltGI PpltKA PpltMA PpltMU
-PopulatinGI 0.002                             
-PopulatinKA 0.000  0.000                      
-PopulatinMA 0.000  0.000  0.002               
-PopulatinMU 0.000  0.000  0.001  0.001        
-PopulatinYE 0.001  0.002  0.000  0.000  0.001 
-optimizer (nloptwrap) convergence code: 0 (OK)
-boundary (singular) fit: see ?isSingular
-
+PopulatinGI 0.574                             
+PopulatinKA 0.030  0.034                      
+PopulatinMA 0.030  0.034  0.634               
+PopulatinMU 0.104  0.118  0.292  0.292        
+PopulatinYE 0.425  0.481  0.071  0.071  0.245 

@@ -2500,7 +2500,7 @@ p_DW_M_lab_cor <- function() scatterPlotMatrix(DW_fitted, sex = "M")
 p_DW_F_lab_cor()
 ```
 ```{r}
-pdf(file="DevelopmentTime/p_DW_F_lab_cor.pdf",width=8, height=8)
+pdf(file="DryWeight/p_DW_F_lab_cor.pdf",width=8, height=8)
 p_DW_F_lab_cor()
 invisible(dev.off())
 ```
@@ -2509,7 +2509,7 @@ invisible(dev.off())
 p_DW_M_lab_cor()
 ```
 ```{r}
-pdf(file="DevelopmentTime/p_DW_M_lab_cor.pdf",width=8, height=8)
+pdf(file="DryWeight/p_DW_M_lab_cor.pdf",width=8, height=8)
 p_DW_M_lab_cor()
 invisible(dev.off())
 ```
@@ -2576,6 +2576,8 @@ str(d_TL)
 ```
 
 ```{r}
+d_TL$TL_micrometers[d_TL$ReplicateVial == "Ritchie_12_AK4_2" & d_TL$Individual == 2 & d_TL$Sex == "F"] <- 975 # quick fix - not corrected in this MasterSheet but corrected on Drive. One would need to replace the .csv file with the latest one.
+d_TL$TL_micrometers[d_TL$ReplicateVial == "Ritchie_2_AK1_1" & d_TL$Individual == 9 & d_TL$Sex == "F"] <- 978 # quick fix - not corrected in this MasterSheet but corrected on Drive. One would need to replace the .csv file with the latest one.
 d_TL_F <-subset(d_TL,Sex=='F')
 d_TL_M <-subset(d_TL,Sex=='M')
 ####
@@ -2953,12 +2955,15 @@ summary(TL_M_lmer_Ritchie)
 
 ```{r p_TL_F_Ritchie}
 
-p_TL_F_Ritchie <- ggplot(data = (subset(d_TL_F,Supervisor.PI=='Ritchie')), aes(x=Population_Lat, y=TL_micrometers, fill=Batch)) + 
-  geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_TL_F_Ritchie", x="Population", y = "TL_micrometers") + coord_cartesian(ylim =  c(min_TL, max_TL))+ droseu_theme
+p_TL_F_Ritchie <- filter(d_TL_F, Supervisor.PI == "Ritchie") %>% 
+  ggplot(aes(x=Population_Lat, y=TL_micrometers, fill=Batch)) + 
+  geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+  geom_jitter(width=0.2,alpha=0.05) + 
+  labs(title="p_TL_F_Ritchie", x="Population", y = "TL_micrometers") +
+  coord_cartesian(ylim = c(min_TL, max_TL)) + 
+  droseu_theme
 
 ```
-
 
 ```{r echo=FALSE}
 p_TL_F_Ritchie
@@ -3104,6 +3109,36 @@ write(intersect_Pop_TL, file ="ThoraxLength/intersect_Pop_TL.txt", sep = "\t")
 ```
 
 There are `r length(intersect_Line_TL) ` populations and `r length(intersect_Pop_TL) ` isofemale lines that have been phenotyped across the labs. Please refer to tables named intersect_Trait_level (i.e. intersect_Via_pop) for details. 
+
+
+
+```{r}
+TL_fitted <- combineFitted(labs = rep(c("Kozeretska", "Posnien", "Ritchie"), 2), sex = rep(c("F", "M"), each = 3), models = list(TL_F_lmer_Kozeretska, TL_F_lmer_Posnien, TL_F_lmer_Ritchie, TL_M_lmer_Kozeretska, TL_M_lmer_Posnien, TL_M_lmer_Ritchie)) %>%
+  bind_rows(combineFitted(labs = "Schmidt", sex = "F", models = list(TL_F_lmer_Schmidt)))
+
+p_TL_F_lab_cor <- function() scatterPlotMatrix(TL_fitted, sex = "F")
+p_TL_M_lab_cor <- function() scatterPlotMatrix(TL_fitted, sex = "M")
+```
+
+```{r fig.height=8, fig.width=8}
+p_TL_F_lab_cor()
+```
+```{r}
+pdf(file="ThoraxLength/p_TL_F_lab_cor.pdf",width=8, height=8)
+p_TL_F_lab_cor()
+invisible(dev.off())
+```
+
+```{r fig.height=8, fig.width=8}
+p_TL_M_lab_cor()
+```
+```{r}
+pdf(file="ThoraxLength/p_TL_M_lab_cor.pdf",width=8, height=8)
+p_TL_M_lab_cor()
+invisible(dev.off())
+```
+
+
 
 ## Wing area
 
