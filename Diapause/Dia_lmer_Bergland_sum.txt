@@ -1,0 +1,43 @@
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: Max_Stage9_Prop ~ -1 + Population + (1 | Population:Line) + (1 |  
+    Batch)
+   Data: d_Dia_Line_wbatch %>% filter(Supervisor.PI == "Bergland")
+
+REML criterion at convergence: 24.5
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-2.4505 -0.5772  0.1493  0.6746  1.7627 
+
+Random effects:
+ Groups          Name        Variance  Std.Dev.
+ Population:Line (Intercept) 0.0184907 0.13598 
+ Batch           (Intercept) 0.0001498 0.01224 
+ Residual                    0.0406552 0.20163 
+Number of obs: 189, groups:  Population:Line, 158; Batch, 3
+
+Fixed effects:
+             Estimate Std. Error       df t value Pr(>|t|)    
+PopulationAK  0.53878    0.05778 90.74804   9.325 6.75e-15 ***
+PopulationGI  0.57033    0.06151 93.21935   9.272 6.97e-15 ***
+PopulationKA  0.61273    0.05173 58.05202  11.844  < 2e-16 ***
+PopulationMA  0.67961    0.05505 79.58087  12.346  < 2e-16 ***
+PopulationMU  0.69834    0.05419 57.36626  12.886  < 2e-16 ***
+PopulationRE  0.57395    0.06353 96.88585   9.035 1.64e-14 ***
+PopulationUM  0.77787    0.05851 68.15675  13.295  < 2e-16 ***
+PopulationVA  0.74990    0.05438 70.06283  13.790  < 2e-16 ***
+PopulationYE  0.70532    0.05271 65.07474  13.380  < 2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Correlation of Fixed Effects:
+            PpltAK PpltGI PpltKA PpltMA PpltMU PpltRE PpltUM PpltVA
+PopulatinGI 0.015                                                  
+PopulatinKA 0.016  0.015                                           
+PopulatinMA 0.016  0.015  0.018                                    
+PopulatinMU 0.015  0.015  0.017  0.017                             
+PopulatinRE 0.014  0.013  0.015  0.014  0.015                      
+PopulatinUM 0.015  0.014  0.016  0.016  0.015  0.013               
+PopulatinVA 0.015  0.014  0.019  0.017  0.017  0.014  0.015        
+PopulatinYE 0.016  0.015  0.019  0.017  0.017  0.014  0.016  0.018 

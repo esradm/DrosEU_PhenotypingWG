@@ -2,34 +2,34 @@ Linear mixed model fit by REML. t-tests use Satterthwaite's method [
 lmerModLmerTest]
 Formula: CCRT_seconds ~ -1 + Population + (1 | Population:Line) + (1 |  
     Batch) + (1 | ReplicateVial:Line)
-   Data: filter(d_CCRT_M, (Censor == "0") | (Supervisor.PI == "Vieira"))
+   Data: filter(d_CCRT_M, (Censor == "0") & (Supervisor.PI == "Vieira"))
 
-REML criterion at convergence: 15275.3
+REML criterion at convergence: 14768.2
 
 Scaled residuals: 
     Min      1Q  Median      3Q     Max 
--1.9769 -0.5353 -0.1625  0.2902  4.5807 
+-2.3458 -0.5562 -0.1358  0.3737  4.4516 
 
 Random effects:
- Groups             Name        Variance  Std.Dev.
- ReplicateVial:Line (Intercept)  48520.65 220.27  
- Population:Line    (Intercept)     61.94   7.87  
- Batch              (Intercept)      0.00   0.00  
- Residual                       213951.15 462.55  
-Number of obs: 1008, groups:  
+ Groups             Name        Variance  Std.Dev. 
+ ReplicateVial:Line (Intercept) 1.539e+03 3.923e+01
+ Population:Line    (Intercept) 4.448e+04 2.109e+02
+ Batch              (Intercept) 8.019e-05 8.955e-03
+ Residual                       1.572e+05 3.965e+02
+Number of obs: 993, groups:  
 ReplicateVial:Line, 168; Population:Line, 168; Batch, 27
 
 Fixed effects:
              Estimate Std. Error      df t value Pr(>|t|)    
-PopulationAK  1563.51      64.90  159.00   24.09   <2e-16 ***
-PopulationGI  1844.86      80.50  159.00   22.92   <2e-16 ***
-PopulationKA  1515.07      64.90  159.00   23.34   <2e-16 ***
-PopulationMA  1349.32      64.90  159.00   20.79   <2e-16 ***
-PopulationMU  1694.41      64.90  159.00   26.11   <2e-16 ***
-PopulationRE  1584.40      72.56  159.00   21.84   <2e-16 ***
-PopulationUM  1612.61      66.59  159.00   24.22   <2e-16 ***
-PopulationVA  1538.79      64.90  159.00   23.71   <2e-16 ***
-PopulationYE  1733.33      64.90  159.00   26.71   <2e-16 ***
+PopulationAK  1563.51      60.09  157.52   26.02   <2e-16 ***
+PopulationGI  1844.86      74.54  157.52   24.75   <2e-16 ***
+PopulationKA  1445.65      60.50  161.63   23.89   <2e-16 ***
+PopulationMA  1329.62      60.19  158.53   22.09   <2e-16 ***
+PopulationMU  1694.41      60.09  157.52   28.20   <2e-16 ***
+PopulationRE  1563.65      67.33  158.78   23.22   <2e-16 ***
+PopulationUM  1578.36      61.87  159.65   25.51   <2e-16 ***
+PopulationVA  1505.40      60.30  159.54   24.97   <2e-16 ***
+PopulationYE  1653.14      60.61  162.70   27.28   <2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 

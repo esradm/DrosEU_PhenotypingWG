@@ -59,6 +59,9 @@ library(ggspatial)
 library(DT)
 library(data.table)
 library(meta)
+library(metafor)
+library(survival)
+library(survminer)
 ```
 
 Nine sampling locations were chosen based on genomic data and cover a wide range of latitude (~20°) and longitude (~40°) across the continent  (see table below). From each location, 15 to 20 isofemale lines were established in corresponding labs at the sampling location and the isofemale lines were centrally maintained by Élio Sucena  at Instituto Gulbenkian de Ciência (IGC), Lisbon, Portugal. A total of 173 isofemale lines were used in this study. 
@@ -204,6 +207,16 @@ wolbachia_pop_freqs # Wolbachia frequency by country and population abbreviation
 
 ## Diets
 
+
+```{r droseu_diets, echo=FALSE, message=FALSE}
+droseu_diets <- data.frame(read.csv("DrosEU_Diets_Feb22.csv"))
+```
+
+```{r, echo=FALSE}
+DT::datatable(droseu_diets, options = list(pageLength = 10))
+```
+
+
 ## Inversion Frequencies
 
 ## Traits 
@@ -313,6 +326,18 @@ In order to induce diapause, two hour old 'phenotypic virgins' (pharate or melan
 ### Circadian eclosion timing
 ##### Wegener Lab
 
+The eclosion rhythmicity has been measured in outcrossed Munich, Akaa, Gimenells, Uman, Mauternbach, Karensminde, Valday, Yesiloz and Recarei strains at:
+
+1) LD14:10 @ 29°C, flies raised at 29°C
+
+2) DD 29°C after LD14:10 entrainment, flies raised at 29°C
+
+3) LD14:10 @ 18°C, flies raised at 18°C
+
+4) DD 18°C after LD14:10 entrainment, flies raised at 18°C
+
+
+
 ### Locomotor activity
 ##### Tauber Lab
 
@@ -391,7 +416,7 @@ estimate_mode <- function(v) {
 
 # Then compute descriptive statistics (mean, median, minimum, maximum, standard error, coefficient of variation and mode) at the defined levels (line with batch information example below) : 
 
-table_Via_Line_wbatch <- write.csv(d_Via %>% group_by(Supervisor.PI, Batch, Population, Line) %>% summarise_at(vars(ProportionEggtoAdultSurvival), list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, SE = std_err, CV = coef_var, Mode = estimate_mode)), file = "Viability//table_Via_Line_wbatch.csv", row.names = T)
+table_Via_Line_wbatch <- write.csv(d_Via %>% group_by(Supervisor.PI, Batch, Population, Line) %>% summarise_at(vars(ProportionEggtoAdultSurvival), list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, SE = std_err, CV = coef_var, Mode = estimate_mode)), file = "Viability/table_Via_Line_wbatch.csv", row.names = T)
 
 table_Via_Line_wbatch <- read.csv("Viability/table_Via_Line_wbatch.csv") #file name is here 
 ```
@@ -468,6 +493,13 @@ summary(DT_A_M_lmer_Gibert) #print model output summary
 Analyses outputs can be found in the trait directory, under the file name **__TraitAbbreviation_Sex_Function_LabIdentifier.txt__**  (_i.e. DevelopmentTime/DT_A_M_lmer_Gibert.txt_)
 
 
+```{r source_correlation_meta_Rs, include=FALSE}
+source("lab_correlations_functions.R")
+source("meta_analysis_functions.R")
+```
+
+
+
 **_Please note that "Plots and Linear Models by Lab" are presented in alphabetical order._** 
 
 ```{r, echo=FALSE}
@@ -476,6 +508,14 @@ local_directory <- "DrosEU_PhenotypingWG/" #if you want to run the code, you nee
 
 
 ## Viability
+
+
+```{r}
+dir.create(file.path("Viability"), showWarnings = FALSE)
+```
+
+
+
 
 _For a detailed description of tables, plots, linear models and outputs, please refer [here](#anchor) _
 
@@ -494,10 +534,6 @@ Stamenkovic-Radak Lab : Marija Savic Veselinovic, Marija Tanaskovic, Aleksandra 
 Zwaan Lab : Joost van den Heuvel, Bas Zwaan
 
 ### Data reformatting
-
-```{r}
-dir.create(file.path("Viability"), showWarnings = FALSE)
-```
 
 ```{r eval=FALSE}
 ifelse(!dir.exists(file.path("Viability")), dir.create(file.path("Viability")), FALSE)
@@ -936,6 +972,12 @@ There are `r length(intersect_Via_pop) ` populations and `r length(intersect_Via
 
 
 ## Developmental time
+
+
+```{r}
+dir.create(file.path("DevelopmentTime"), showWarnings = FALSE)
+```
+
 
 ### Egg-to-pupa developmental time
 
@@ -1890,6 +1932,13 @@ There are `r length(intersect_Pop_DT_A) ` populations and `r length(intersect_Li
 
 ## Dry weight
 
+
+```{r}
+dir.create(file.path("DryWeight"), showWarnings = FALSE)
+```
+
+
+
 _For a detailed description of tables, plots, linear models and outputs, please refer [here](#anchor) _
 
 ### Contributors  
@@ -2131,7 +2180,7 @@ dev.off()
 
 ```{r p_DW_M_pop_Colinet}
 
-p_DW_M_pop_Colinet <- ggplot(data = (subset(d_DW_M,Supervisor.PI=='Colinet')), aes(x=Population_Lat, y=DW_micrograms, fill=Batch)) + 
+p_DW_M_pop_Colinet <- ggplot(data = (subset(d_DW_M,Supervisor.PI=='Colinet')), aes(x=Population_Lat, y=DW_micrograms, fill=Population)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
         labs(title="p_DW_M_pop_Colinet", x="Population", y = "DW_micrograms") + coord_cartesian(ylim = c(min_DW, max_DW))+ droseu_theme
 
@@ -2402,6 +2451,13 @@ for (i in dev.list()[1]:dev.list()[length(dev.list())]) {
 
 
 ## Thorax length
+
+
+```{r}
+dir.create(file.path("ThoraxLength"), showWarnings = FALSE)
+```
+
+
 
 _For a detailed description of tables, plots, linear models and outputs, please refer [here](#anchor) _
 
@@ -2820,6 +2876,7 @@ anova(TL_M_lmer_Ritchie)
 summary(TL_M_lmer_Ritchie)
 ```
 
+
 ```{r p_TL_F_Ritchie}
 
 p_TL_F_Ritchie <- ggplot(data = (subset(d_TL_F,Supervisor.PI=='Ritchie')), aes(x=Population_Lat, y=TL_micrometers, fill=Batch)) + 
@@ -2975,6 +3032,12 @@ write(intersect_Pop_TL, file ="ThoraxLength/intersect_Pop_TL.txt", sep = "\t")
 There are `r length(intersect_Line_TL) ` populations and `r length(intersect_Pop_TL) ` isofemale lines that have been phenotyped across the labs. Please refer to tables named intersect_Trait_level (i.e. intersect_Via_pop) for details. 
 
 ## Wing area
+
+
+```{r}
+dir.create(file.path("WingArea"), showWarnings = FALSE)
+```
+
 
 _For a detailed description of tables, plots, linear models and outputs, please refer [here](#anchor) _
 
@@ -3204,6 +3267,25 @@ p_WA_F_L_Onder
 dev.off()
 ```
 
+```{r p_WA_F_L_pop_Onder}
+
+p_WA_F_L_pop_Onder <- ggplot(data = (subset(d_WA_F,Supervisor.PI=='Onder')), aes(x=Population_Lat, y=CentroidSizeLeft_micrometers, fill=Population)) + 
+  geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
+  labs(title="p_WA_F_L_pop_Onder", x="Population", y = "CentroidSizeLeft_micrometers") + coord_cartesian(ylim = c(min_WAL, max_WAL))+ droseu_theme
+
+```
+
+```{r echo=FALSE}
+p_WA_F_L_pop_Onder
+```
+
+```{r echo=FALSE}
+pdf(file="WingArea/p_WA_F_L_pop_Onder.pdf",width=8, height=5)
+p_WA_F_L_pop_Onder
+dev.off()
+```
+
+
 
 ```{r p_WA_M_L_Onder}
 
@@ -3224,25 +3306,6 @@ pdf(file="WingArea/p_WA_M_Onder_L.pdf",width=8, height=5)
 p_WA_M_L_Onder
 dev.off()
 ```
-
-```{r p_WA_F_L_pop_Onder}
-
-p_WA_F_L_pop_Onder <- ggplot(data = (subset(d_WA_F,Supervisor.PI=='Onder')), aes(x=Population_Lat, y=CentroidSizeLeft_micrometers, fill=Population)) + 
-  geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_WA_F_L_pop_Onder", x="Population", y = "CentroidSizeLeft_micrometers") + coord_cartesian(ylim = c(min_WAL, max_WAL))+ droseu_theme
-
-```
-
-```{r echo=FALSE}
-p_WA_F_L_pop_Onder
-```
-
-```{r echo=FALSE}
-pdf(file="WingArea/p_WA_F_L_pop_Onder.pdf",width=8, height=5)
-p_WA_F_L_pop_Onder
-dev.off()
-```
-
 
 ```{r p_WA_M_L_pop_Onder}
 
@@ -3321,24 +3384,6 @@ p_WA_F_L_Posnien
 dev.off()
 ```
 
-```{r p_WA_M_L_Posnien}
-
-p_WA_M_L_Posnien <- ggplot(data = (subset(d_WA_M,Supervisor.PI=='Posnien')), aes(x=Population_Lat, y=CentroidSizeLeft_micrometers, fill=Batch)) + 
-  geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_WA_M_L_Posnien", x="Population", y = "CentroidSizeLeft_micrometers")+ coord_cartesian(ylim = c(min_WAL, max_WAL))+ droseu_theme
-
-```
-
-```{r echo=FALSE}
-p_WA_M_L_Posnien
-```
-
-```{r echo=FALSE}
-pdf(file="WingArea/p_WA_M_L_Posnien.pdf",width=8, height=5)
-p_WA_M_L_Posnien
-dev.off()
-```
-
 
 ```{r p_WA_F_L_pop_Posnien}
 
@@ -3358,6 +3403,25 @@ pdf(file="WingArea/p_WA_F_L_pop_Posnien.pdf",width=8, height=5)
 p_WA_F_L_pop_Posnien
 dev.off()
 ```
+
+```{r p_WA_M_L_Posnien}
+
+p_WA_M_L_Posnien <- ggplot(data = (subset(d_WA_M,Supervisor.PI=='Posnien')), aes(x=Population_Lat, y=CentroidSizeLeft_micrometers, fill=Batch)) + 
+  geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
+  labs(title="p_WA_M_L_Posnien", x="Population", y = "CentroidSizeLeft_micrometers")+ coord_cartesian(ylim = c(min_WAL, max_WAL))+ droseu_theme
+
+```
+
+```{r echo=FALSE}
+p_WA_M_L_Posnien
+```
+
+```{r echo=FALSE}
+pdf(file="WingArea/p_WA_M_L_Posnien.pdf",width=8, height=5)
+p_WA_M_L_Posnien
+dev.off()
+```
+
 
 ```{r p_WA_M_L_pop_Posnien}
 
@@ -3438,24 +3502,6 @@ dev.off()
 ```
 
 
-```{r p_WA_M_L_Ritchie}
-
-p_WA_M_L_Ritchie <- ggplot(data = (subset(d_WA_M,Supervisor.PI=='Ritchie')), aes(x=Population_Lat, y=CentroidSizeLeft_micrometers, fill=Batch)) + 
-  geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_WA_M_L_Ritchie", x="Population", y = "CentroidSizeLeft_micrometers") + coord_cartesian(ylim = c(min_WAL, max_WAL))+ droseu_theme
-
-```
-
-```{r echo=FALSE}
-p_WA_M_L_Ritchie
-```
-
-```{r echo=FALSE}
-pdf(file="WingArea/p_WA_M_L_Ritchie.pdf",width=8, height=5)
-p_WA_M_L_Ritchie
-dev.off()
-```
-
 
 ```{r p_WA_F_L_pop_Ritchie}
 
@@ -3475,6 +3521,25 @@ p_WA_F_L_pop_Ritchie
 dev.off()
 ```
 
+
+
+```{r p_WA_M_L_Ritchie}
+
+p_WA_M_L_Ritchie <- ggplot(data = (subset(d_WA_M,Supervisor.PI=='Ritchie')), aes(x=Population_Lat, y=CentroidSizeLeft_micrometers, fill=Batch)) + 
+  geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
+  labs(title="p_WA_M_L_Ritchie", x="Population", y = "CentroidSizeLeft_micrometers") + coord_cartesian(ylim = c(min_WAL, max_WAL))+ droseu_theme
+
+```
+
+```{r echo=FALSE}
+p_WA_M_L_Ritchie
+```
+
+```{r echo=FALSE}
+pdf(file="WingArea/p_WA_M_L_Ritchie.pdf",width=8, height=5)
+p_WA_M_L_Ritchie
+dev.off()
+```
 
 ```{r p_WA_M_L_pop_Ritchie}
 
@@ -3555,24 +3620,6 @@ p_WA_F_L_StamenkovicRadak
 dev.off()
 ```
 
-```{r p_WA_M_L_StamenkovicRadak}
-
-p_WA_M_L_StamenkovicRadak <- ggplot(data = (subset(d_WA_M,Supervisor.PI=='StamenkovicRadak')), aes(x=Population_Lat, y=CentroidSizeLeft_micrometers, fill=Batch)) + 
-  geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_WA_M_L_StamenkovicRadak", x="Population", y = "CentroidSizeLeft_micrometers") + coord_cartesian(ylim = c(min_WAL, max_WAL))+ droseu_theme
-
-```
-
-```{r echo=FALSE}
-p_WA_M_L_StamenkovicRadak
-```
-
-```{r echo=FALSE}
-pdf(file="WingArea/p_WA_M_L_StamenkovicRadak.pdf",width=8, height=5)
-p_WA_M_L_StamenkovicRadak
-dev.off()
-```
-
 
 ```{r p_WA_F_L_pop_StamenkovicRadak}
 
@@ -3590,6 +3637,24 @@ p_WA_F_L_pop_StamenkovicRadak
 ```{r echo=FALSE}
 pdf(file="WingArea/p_WA_F_L_pop_StamenkovicRadak.pdf",width=8, height=5)
 p_WA_F_L_pop_StamenkovicRadak
+dev.off()
+```
+
+```{r p_WA_M_L_StamenkovicRadak}
+
+p_WA_M_L_StamenkovicRadak <- ggplot(data = (subset(d_WA_M,Supervisor.PI=='StamenkovicRadak')), aes(x=Population_Lat, y=CentroidSizeLeft_micrometers, fill=Batch)) + 
+  geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
+  labs(title="p_WA_M_L_StamenkovicRadak", x="Population", y = "CentroidSizeLeft_micrometers") + coord_cartesian(ylim = c(min_WAL, max_WAL))+ droseu_theme
+
+```
+
+```{r echo=FALSE}
+p_WA_M_L_StamenkovicRadak
+```
+
+```{r echo=FALSE}
+pdf(file="WingArea/p_WA_M_L_StamenkovicRadak.pdf",width=8, height=5)
+p_WA_M_L_StamenkovicRadak
 dev.off()
 ```
 
@@ -4014,7 +4079,7 @@ summary(WA_M_R_Ritchie_lmer)
 
 p_WA_F_R_Ritchie <- ggplot(data = (subset(d_WA_F,Supervisor.PI=='Ritchie')), aes(x=Population_Lat, y=CentroidSizeRight_micrometers, fill=Batch)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_WA_F_Ritchie_R", x="Population", y = "CentroidSizeRight_micrometers") + coord_cartesian(ylim = c(min_WAR, max_WAR))+ droseu_theme
+  labs(title="p_WA_F_R_Ritchie", x="Population", y = "CentroidSizeRight_micrometers") + coord_cartesian(ylim = c(min_WAR, max_WAR))+ droseu_theme
 
 ```
 
@@ -4253,6 +4318,14 @@ for (i in dev.list()[1]:dev.list()[length(dev.list())]) {
 
 
 ## Fecundity
+
+
+```{r}
+dir.create(file.path("Fecundity"), showWarnings = FALSE)
+```
+
+
+
 
 _For a detailed description of tables, plots, linear models and outputs, please refer [here](#anchor) _
 
@@ -4500,6 +4573,14 @@ There are `r length(intersect_Pop_Fec) ` populations and `r length(intersect_Lin
 
 ## Lifespan
 
+
+```{r}
+dir.create(file.path("Lifespan"), showWarnings = FALSE)
+```
+
+
+
+
 _For a detailed description of tables, plots, linear models and outputs, please refer [here](#anchor) _
 
 
@@ -4702,9 +4783,12 @@ DT::datatable(table_LS_M_Pop_wobatch, options = list(pageLength = 10)) %>% forma
 
 
 ```{r}
-min_LS <- min(d_LS_M$AgeAtDeath_hours)
-max_LS <- max(d_LS_M$AgeAtDeath_hours)
+min_LS <- min(d_LS_M$LSM_AgeAtDeath_days)
+max_LS <- max(d_LS_M$LSM_AgeAtDeath_days)
 ```
+
+y-axis is scaled by the minimum (`r min_LS`) and maximum (`r max_LS`) values in the full data set.
+
 
 ```{r p_LS_F, echo=FALSE, message=FALSE, warning=FALSE}
 
@@ -4777,7 +4861,7 @@ summary(LS_P_M_Flatt_lmer)
 
 ```{r p_LS_F_Flatt, echo=FALSE, message=FALSE, warning=FALSE}
 
-p_LS_F_Flatt <- ggplot(data = (subset(d_LS_M_F, Supervisor.PI == "Flatt")), aes(x=Population_Lat, y=LSM_AgeAtDeath_days, fill=Population)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_LS_F_Flatt", x="Population", y = "LSM_AgeAtDeath_days") + coord_cartesian(ylim = c(min_LS, max_LS))+ droseu_theme
+p_LS_F_Flatt <- ggplot(data = filter(d_LS_M_M, (Censor == "0") & (Supervisor.PI == "Flatt")), aes(x=Population_Lat, y=LSM_AgeAtDeath_days, fill=Population)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_LS_F_Flatt", x="Population", y = "LSM_AgeAtDeath_days") + coord_cartesian(ylim = c(min_LS, max_LS))+ droseu_theme
 
 ```
 
@@ -4794,7 +4878,7 @@ dev.off()
 
 ```{r p_LS_M_Flatt, echo=FALSE, message=FALSE, warning=FALSE}
 
-p_LS_M_Flatt <- ggplot(data = (subset(d_LS_M_M, Supervisor.PI == "Flatt")), aes(x=Population_Lat, y=LSM_AgeAtDeath_days, fill=Population)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_LS_M_Flatt", x="Population", y = "LSM_AgeAtDeath_days") + coord_cartesian(ylim = c(min_LS, max_LS))+ droseu_theme
+p_LS_M_Flatt <- ggplot(data = filter(d_LS_M_M, (Censor == "0") & (Supervisor.PI == "Flatt")), aes(x=Population_Lat, y=LSM_AgeAtDeath_days, fill=Population)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_LS_M_Flatt", x="Population", y = "LSM_AgeAtDeath_days") + coord_cartesian(ylim = c(min_LS, max_LS))+ droseu_theme
 
 ```
 
@@ -4847,7 +4931,7 @@ summary(LS_L_M_Parsch_lmer)
 
 ```{r p_LS_F_Parsch, echo=FALSE, message=FALSE, warning=FALSE}
 
-p_LS_F_Parsch <- ggplot(data = (subset(d_LS_M_F, Supervisor.PI == "Parsch")), aes(x=Population_Lat, y=LSM_AgeAtDeath_days, fill=Population)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_LS_F_Parsch", x="Population", y = "LSM_AgeAtDeath_days") + coord_cartesian(ylim = c(min_LS, max_LS))+ droseu_theme
+p_LS_F_Parsch <- ggplot(data = filter(d_LS_M_F, (Censor == "0") & (Supervisor.PI == "Parsch")), aes(x=Population_Lat, y=LSM_AgeAtDeath_days, fill=Batch)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_LS_F_Parsch", x="Population", y = "LSM_AgeAtDeath_days") + coord_cartesian(ylim = c(min_LS, max_LS))+ droseu_theme
 
 ```
 
@@ -4861,10 +4945,27 @@ p_LS_F_Parsch
 dev.off()
 ```
 
+```{r p_LS_F_pop_Parsch, echo=FALSE, message=FALSE, warning=FALSE}
+
+p_LS_F_pop_Parsch <- ggplot(data = filter(d_LS_M_F, (Censor == "0") & (Supervisor.PI == "Parsch")), aes(x=Population_Lat, y=LSM_AgeAtDeath_days, fill=Population)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_LS_F_pop_Parsch", x="Population", y = "LSM_AgeAtDeath_days") + coord_cartesian(ylim = c(min_LS, max_LS))+ droseu_theme
+
+```
+
+```{r echo=FALSE}
+p_LS_F_pop_Parsch
+```
+
+```{r echo=FALSE}
+pdf(file="Lifespan/p_LS_F_pop_Parsch.pdf",width=8, height=5)
+p_LS_F_pop_Parsch
+dev.off()
+```
+
+
 
 ```{r p_LS_M_Parsch, echo=FALSE, message=FALSE, warning=FALSE}
 
-p_LS_M_Parsch <- ggplot(data = (subset(d_LS_M_M, Supervisor.PI == "Parsch")), aes(x=Population_Lat, y=LSM_AgeAtDeath_days, fill=Population)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_LS_M_Parsch", x="Population", y = "LSM_AgeAtDeath_days") + coord_cartesian(ylim = c(min_LS, max_LS))+ droseu_theme
+p_LS_M_Parsch <- ggplot(data = filter(d_LS_M_M, (Censor == "0") & (Supervisor.PI == "Parsch")), aes(x=Population_Lat, y=LSM_AgeAtDeath_days, fill=Batch)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_LS_M_Parsch", x="Population", y = "LSM_AgeAtDeath_days") + coord_cartesian(ylim = c(min_LS, max_LS))+ droseu_theme
 
 ```
 
@@ -4875,6 +4976,22 @@ p_LS_M_Parsch
 ```{r echo=FALSE}
 pdf(file="Lifespan/p_LS_M_Parsch.pdf",width=8, height=5)
 p_LS_M_Parsch
+dev.off()
+```
+
+```{r p_LS_M_pop_Parsch, echo=FALSE, message=FALSE, warning=FALSE}
+
+p_LS_M_pop_Parsch <- ggplot(data = filter(d_LS_M_M, (Censor == "0") & (Supervisor.PI == "Parsch")), aes(x=Population_Lat, y=LSM_AgeAtDeath_days, fill=Population)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_LS_M_pop_Parsch", x="Population", y = "LSM_AgeAtDeath_days") + coord_cartesian(ylim = c(min_LS, max_LS))+ droseu_theme
+
+```
+
+```{r echo=FALSE}
+p_LS_M_pop_Parsch
+```
+
+```{r echo=FALSE}
+pdf(file="Lifespan/p_LS_M_pop_Parsch",width=8, height=5)
+p_LS_M_pop_Parsch
 dev.off()
 ```
 
@@ -4914,10 +5031,9 @@ summary(LS_L_M_Pasyukova_lmer)
 ```
 
 
-
 ```{r p_LS_F_Pasyukova, echo=FALSE, message=FALSE, warning=FALSE}
 
-p_LS_F_Pasyukova <- ggplot(data = (subset(d_LS_M_F, Supervisor.PI == "Pasyukova")), aes(x=Population_Lat, y=LSM_AgeAtDeath_days, fill=Population)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_LS_F_Pasyukova", x="Population", y = "LSM_AgeAtDeath_days") + coord_cartesian(ylim = c(min_LS, max_LS))+ droseu_theme
+p_LS_F_Pasyukova <- ggplot(data = filter(d_LS_M_F, (Censor == "0") & (Supervisor.PI == "Pasyukova")), aes(x=Population_Lat, y=LSM_AgeAtDeath_days, fill=Batch)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_LS_F_Pasyukova", x="Population", y = "LSM_AgeAtDeath_days") + coord_cartesian(ylim = c(min_LS, max_LS))+ droseu_theme
 
 ```
 
@@ -4931,10 +5047,27 @@ p_LS_F_Pasyukova
 dev.off()
 ```
 
+```{r p_LS_F_pop_Pasyukova, echo=FALSE, message=FALSE, warning=FALSE}
+
+p_LS_F_pop_Pasyukova <- ggplot(data = filter(d_LS_M_F, (Censor == "0") & (Supervisor.PI == "Pasyukova")), aes(x=Population_Lat, y=LSM_AgeAtDeath_days, fill=Population)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_LS_F_pop_Pasyukova", x="Population", y = "LSM_AgeAtDeath_days") + coord_cartesian(ylim = c(min_LS, max_LS))+ droseu_theme
+
+```
+
+```{r echo=FALSE}
+p_LS_F_pop_Pasyukova
+```
+
+```{r echo=FALSE}
+pdf(file="Lifespan/p_LS_F_pop_Pasyukova.pdf",width=8, height=5)
+p_LS_F_pop_Pasyukova
+dev.off()
+```
+
+
 
 ```{r p_LS_M_Pasyukova, echo=FALSE, message=FALSE, warning=FALSE}
 
-p_LS_M_Pasyukova <- ggplot(data = (subset(d_LS_M_M, Supervisor.PI == "Pasyukova")), aes(x=Population_Lat, y=LSM_AgeAtDeath_days, fill=Population)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_LS_M_Pasyukova", x="Population", y = "LSM_AgeAtDeath_days") + coord_cartesian(ylim = c(min_LS, max_LS))+ droseu_theme
+p_LS_M_Pasyukova <- ggplot(data = filter(d_LS_M_M, (Censor == "0") & (Supervisor.PI == "Pasyukova")), aes(x=Population_Lat, y=LSM_AgeAtDeath_days, fill=Batch)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_LS_M_Pasyukova", x="Population", y = "LSM_AgeAtDeath_days") + coord_cartesian(ylim = c(min_LS, max_LS))+ droseu_theme
 
 ```
 
@@ -4947,6 +5080,23 @@ pdf(file="Lifespan/p_LS_M_Pasyukova.pdf",width=8, height=5)
 p_LS_M_Pasyukova
 dev.off()
 ```
+
+```{r p_LS_M_pop_Pasyukova, echo=FALSE, message=FALSE, warning=FALSE}
+
+p_LS_M_pop_Pasyukova <- ggplot(data = filter(d_LS_M_M, (Censor == "0") & (Supervisor.PI == "Pasyukova")), aes(x=Population_Lat, y=LSM_AgeAtDeath_days, fill=Population)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_LS_M_pop_Pasyukova", x="Population", y = "LSM_AgeAtDeath_days") + coord_cartesian(ylim = c(min_LS, max_LS))+ droseu_theme
+
+```
+
+```{r echo=FALSE}
+p_LS_M_pop_Pasyukova
+```
+
+```{r echo=FALSE}
+pdf(file="Lifespan/p_LS_M_pop_Pasyukova",width=8, height=5)
+p_LS_M_pop_Pasyukova
+dev.off()
+```
+
 
 ### Survival Analyses
 
@@ -4977,6 +5127,13 @@ There are `r length(intersect_Pop_LS) ` populations and `r length(intersect_Line
 
 
 ## Cold-shock mortality
+
+
+```{r}
+dir.create(file.path("ColdShock"), showWarnings = FALSE)
+```
+
+
 
 _For a detailed description of tables, plots, linear models and outputs, please refer [here](#anchor) _
 
@@ -5093,6 +5250,50 @@ DT::datatable(table_CSM_Pop_wobatch, options = list(pageLength = 10)) %>% format
 
 #### Overview 
 
+
+
+```{r min_max_CSM, echo=TRUE}
+min_CSM <- min(d_CSM$CSM_PropDead_ED)
+max_CSM <- max(d_CSM$CSM_PropDead_ED)
+```
+
+y-axis is scaled by the minimum (`r min_CSM`) and maximum (`r max_CSM`) values in the full data set.
+
+
+```{r p_CSM_F}
+p_CSM_F <- ggplot(data = d_CSM_F, aes(x=Population_Lat, y=CSM_PropDead_ED, fill=Supervisor.PI)) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
+        labs(title="p_CSM_F", x="Population", y = "Prop_dead") + coord_cartesian(ylim = c(min_CSM, max_CSM))+ droseu_theme
+```
+
+```{r}
+p_CSM_F
+```
+
+```{r}
+pdf(file="ColdShock/p_CSM_F.pdf",width=8, height=5)
+p_CSM_F
+dev.off()
+```
+
+
+```{r p_CSM_M}
+p_CSM_M <- ggplot(data = d_CSM_M, aes(x=Population_Lat, y=CSM_PropDead_ED, fill=Supervisor.PI)) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
+        labs(title="p_CSM_M", x="Population", y = "Prop_dead") +  coord_cartesian(ylim = c(min_CSM, max_CSM))+ droseu_theme
+```
+
+```{r}
+p_CSM_M
+```
+
+```{r}
+pdf(file="ColdShock/p_CSM_M.pdf",width=8, height=5)
+p_CSM_M
+dev.off()
+```
+
+
 #### Gonzalez Lab
 
 ```{r CSM_F_lmer_Gonzalez}
@@ -5127,6 +5328,79 @@ anova(CSM_M_lmer_Gonzalez)
 ```{r}
 summary(CSM_M_lmer_Gonzalez)
 ```
+
+```{r p_CSM_F_Gonzalez}
+p_CSM_F_Gonzalez <- ggplot(data = (subset(d_CSM_F, Supervisor.PI == "Gonzalez")), aes(x=Population_Lat, y=CSM_PropDead_ED, fill=Batch)) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
+        labs(title="p_CSM_F_Gonzalez", x="Population", y = "CSM (PropSur)") + coord_cartesian(ylim = c(min_CSM, max_CSM))+ droseu_theme
+```
+
+```{r}
+p_CSM_F_Gonzalez
+```
+
+```{r}
+pdf(file="ColdShock/p_CSM_F_Gonzalez.pdf",width=8, height=5)
+p_CSM_F_Gonzalez
+dev.off()
+```
+
+
+```{r p_CSM_F_pop_Gonzalez}
+p_CSM_F_pop_Gonzalez <- ggplot(data = (subset(d_CSM_F, Supervisor.PI == "Gonzalez")), aes(x=Population_Lat, y=CSM_PropDead_ED, fill=Population)) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
+        labs(title="p_CSM_F_pop_Gonzalez", x="Population", y = "CSM (PropSur)") +  coord_cartesian(ylim = c(min_CSM, max_CSM))+ droseu_theme
+```
+
+```{r}
+p_CSM_F_pop_Gonzalez
+```
+
+```{r}
+pdf(file="ColdShock/p_CSM_F_pop_Gonzalez.pdf",width=8, height=5)
+p_CSM_F_pop_Gonzalez
+dev.off()
+```
+
+
+
+```{r p_CSM_M_Gonzalez}
+p_CSM_M_Gonzalez <- ggplot(data = (subset(d_CSM_M, Supervisor.PI == "Gonzalez")), aes(x=Population_Lat, y=CSM_PropDead_ED, fill=Batch)) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
+        labs(title="p_CSM_M_Gonzalez", x="Population", y = "CSM (PropSur)") + coord_cartesian(ylim = c(min_CSM, max_CSM))+ droseu_theme
+```
+
+```{r}
+p_CSM_M_Gonzalez
+```
+
+```{r}
+pdf(file="ColdShock/p_CSM_M_Gonzalez.pdf",width=8, height=5)
+p_CSM_M_Gonzalez
+dev.off()
+```
+
+
+
+```{r p_CSM_M_pop_Gonzalez}
+p_CSM_M_pop_Gonzalez <- ggplot(data = (subset(d_CSM_M, Supervisor.PI == "Gonzalez")), aes(x=Population_Lat, y=CSM_PropDead_ED, fill=Population)) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
+        labs(title="p_CSM_M_pop_Gonzalez", x="Population", y = "CSM (PropSur)") + coord_cartesian(ylim = c(min_CSM, max_CSM))+ droseu_theme
+
+```
+
+```{r}
+p_CSM_M_pop_Gonzalez
+```
+
+```{r}
+pdf(file="ColdShock/p_CSM_M_pop_Gonzalez.pdf",width=8, height=5)
+p_CSM_M_pop_Gonzalez
+dev.off()
+```
+
+
+
 
 
 
@@ -5164,6 +5438,82 @@ anova(CSM_M_lmer_Kozeretska)
 
 ```{r}
 summary(CSM_M_lmer_Kozeretska)
+```
+
+
+
+```{r p_CSM_F_Kozeretska}
+
+p_CSM_F_Kozeretska <- ggplot(data = (subset(d_CSM_F, Supervisor.PI == "Kozeretska")), aes(x=Population_Lat, y=CSM_PropDead_ED, fill=Batch)) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
+        labs(title="p_CSM_F_Kozeretska", x="Population", y = "CSM (PropSur)") + coord_cartesian(ylim = c(min_CSM, max_CSM))+ droseu_theme
+
+```
+
+```{r}
+p_CSM_F_Kozeretska
+```
+
+```{r}
+pdf(file="ColdShock/p_CSM_F_Kozeretska.pdf",width=8, height=5)
+p_CSM_F_Kozeretska
+dev.off()
+```
+
+
+```{r p_CSM_F_pop_Kozeretska}
+
+p_CSM_F_pop_Kozeretska <- ggplot(data = (subset(d_CSM_F, Supervisor.PI == "Kozeretska")), aes(x=Population_Lat, y=CSM_PropDead_ED, fill=Population)) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
+        labs(title="p_CSM_F_pop_Kozeretska", x="Population", y = "CSM (PropSur)") +  coord_cartesian(ylim = c(min_CSM, max_CSM))+ droseu_theme
+
+```
+
+```{r}
+p_CSM_F_pop_Kozeretska
+```
+
+```{r}
+pdf(file="ColdShock/p_CSM_F_pop_Kozeretska.pdf",width=8, height=5)
+p_CSM_F_pop_Kozeretska
+dev.off()
+```
+
+
+
+```{r p_CSM_M_Kozeretska}
+p_CSM_M_Kozeretska <- ggplot(data = (subset(d_CSM_M, Supervisor.PI == "Kozeretska")), aes(x=Population_Lat, y=CSM_PropDead_ED, fill=Batch)) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
+        labs(title="p_CSM_M_Kozeretska", x="Population", y = "CSM (PropSur)")  +  coord_cartesian(ylim = c(min_CSM, max_CSM))+ droseu_theme
+
+```
+
+```{r}
+p_CSM_M_Kozeretska
+```
+
+```{r}
+pdf(file="ColdShock/p_CSM_M_Kozeretska.pdf",width=8, height=5)
+p_CSM_M_Kozeretska
+dev.off()
+```
+
+
+```{r p_CSM_M_pop_Kozeretska}
+p_CSM_M_pop_Kozeretska <- ggplot(data = (subset(d_CSM_M, Supervisor.PI == "Kozeretska")), aes(x=Population_Lat, y=CSM_PropDead_ED, fill=Population)) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
+        labs(title="p_CSM_M_pop_Kozeretska", x="Population", y = "CSM (PropSur)")  +  coord_cartesian(ylim = c(min_CSM, max_CSM))+ droseu_theme
+
+```
+
+```{r}
+p_CSM_M_pop_Kozeretska
+```
+
+```{r}
+pdf(file="ColdShock/p_CSM_M_pop_Kozeretska.pdf",width=8, height=5)
+p_CSM_M_pop_Kozeretska
+dev.off()
 ```
 
 
@@ -5205,6 +5555,88 @@ anova(CSM_M_lmer_Vieira)
 summary(CSM_M_lmer_Vieira)
 ```
 
+```{r p_CSM_F_Vieira}
+
+
+p_CSM_F_Vieira <- ggplot(data = (subset(d_CSM_F, Supervisor.PI == "Vieira")), aes(x=Population_Lat, y=CSM_PropDead_ED, fill=Batch)) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
+        labs(title="p_CSM_F_Vieira", x="Population", y = "CSM (PropSur)") +  coord_cartesian(ylim = c(min_CSM, max_CSM))+ droseu_theme
+
+```
+
+```{r}
+p_CSM_F_Vieira
+```
+
+```{r}
+pdf(file="ColdShock/p_CSM_F_Vieira.pdf",width=8, height=5)
+p_CSM_F_Vieira
+dev.off()
+```
+
+
+```{r p_CSM_F_pop_Vieira}
+
+
+p_CSM_F_pop_Vieira <- ggplot(data = (subset(d_CSM_F, Supervisor.PI == "Vieira")), aes(x=Population_Lat, y=CSM_PropDead_ED, fill=Population)) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
+        labs(title="p_CSM_F_pop_Vieira", x="Population", y = "CSM (PropSur)") +  coord_cartesian(ylim = c(min_CSM, max_CSM))+ droseu_theme
+
+```
+
+```{r}
+p_CSM_F_pop_Vieira
+```
+
+```{r}
+pdf(file="ColdShock/p_CSM_F_pop_Vieira.pdf",width=8, height=5)
+p_CSM_F_pop_Vieira
+dev.off()
+```
+
+
+
+```{r p_CSM_M_Vieira}
+
+
+p_CSM_M_Vieira <- ggplot(data = (subset(d_CSM_M, Supervisor.PI == "Vieira")), aes(x=Population_Lat, y=CSM_PropDead_ED, fill=Batch)) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
+        labs(title="p_CSM_M_Vieira", x="Population", y = "CSM (PropSur)") +  coord_cartesian(ylim = c(min_CSM, max_CSM))+ droseu_theme
+
+```
+
+```{r}
+p_CSM_M_Vieira
+```
+
+```{r}
+pdf(file="ColdShock/p_CSM_M_Vieira.pdf",width=8, height=5)
+p_CSM_M_Vieira
+dev.off()
+```
+
+
+```{r p_CSM_M_pop_Vieira}
+
+
+p_CSM_M_pop_Vieira <- ggplot(data = (subset(d_CSM_M, Supervisor.PI == "Vieira")), aes(x=Population_Lat, y=CSM_PropDead_ED, fill=Population)) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
+        labs(title="p_CSM_M_pop_Vieira", x="Population", y = "CSM (PropSur)") +  coord_cartesian(ylim = c(min_CSM, max_CSM))+ droseu_theme
+
+```
+
+```{r}
+p_CSM_M_pop_Vieira
+```
+
+```{r}
+pdf(file="ColdShock/p_CSM_M_pop_Vieira.pdf",width=8, height=5)
+p_CSM_M_pop_Vieira
+dev.off()
+```
+
+
+
 
 ### Lab correlations
 
@@ -5233,6 +5665,13 @@ for (i in dev.list()[1]:dev.list()[length(dev.list())]) {
 
 
 ## Chill-coma recovery time
+
+
+```{r}
+dir.create(file.path("ChillComa"), showWarnings = FALSE)
+```
+
+
 
 _For a detailed description of tables, plots, linear models and outputs, please refer [here](#anchor) _
 
@@ -5360,14 +5799,21 @@ DT::datatable(table_CCRT_pop_wobatch, options = list(pageLength = 10)) %>% forma
 
 #### Overview 
 
+
+```{r min_max_CCRT, echo=TRUE}
+min_CCRT <- min(d_CCRT$CCRT_seconds)
+max_CCRT <- max(d_CCRT$CCRT_seconds)
+```
+
+y-axis is scaled by the minimum (`r min_CSM`) and maximum (`r max_CSM`) values in the full data set.
+
 #### Vieira Lab
 
- data = filter(d_CCRT_F, (Censor == "0") | (Supervisor.PI == "Vieira")))
- 
+
 ```{r CCRT_F_lmer_Vieira}
 CCRT_F_lmer_Vieira <- lmer(CCRT_seconds ~ -1 + Population + (1|Population:Line) + (1|Batch) +
                             (1|ReplicateVial:Line), 
-                            data = filter(d_CCRT_F, (Censor == "0") | (Supervisor.PI == "Vieira")))
+                            data = filter(d_CCRT_F, (Censor == "0") & (Supervisor.PI == "Vieira")))
 capture.output(summary(CCRT_F_lmer_Vieira),file = "ChillComa/CCRT_F_lmer_Vieira_sum.txt")
 capture.output(anova(CCRT_F_lmer_Vieira),file = "ChillComa/CCRT_F_lmer_Vieira.txt")
 #capture.output(emmeans(CCRT_F_lmer_Vieira, list(pairwise ~ Population), adjust = "tukey"),file = "ChillComa/CCRT_F_lmer_Vieira_tk.txt")
@@ -5386,7 +5832,7 @@ summary(CCRT_F_lmer_Vieira)
 
 ```{r CCRT_M_lmer_Vieira}
 CCRT_M_lmer_Vieira <- lmer(CCRT_seconds ~ -1 + Population + (1|Population:Line) + (1|Batch) +
-                            (1|ReplicateVial:Line),  data = filter(d_CCRT_M, (Censor == "0") | (Supervisor.PI == "Vieira")))
+                            (1|ReplicateVial:Line),  data = filter(d_CCRT_M, (Censor == "0") & (Supervisor.PI == "Vieira")))
 capture.output(summary(CCRT_M_lmer_Vieira),file = "ChillComa/CCRT_M_lmer_Vieira_sum.txt")
 capture.output(anova(CCRT_M_lmer_Vieira),file = "ChillComa/CCRT_M_lmer_Vieira.txt")
 #capture.output(emmeans(CCRT_M_lmer_Vieira, list(pairwise ~ Population), adjust = "tukey"),file = "ChillComa/CCRT_M_lmer_Vieira_tk.txt")
@@ -5403,43 +5849,80 @@ summary(CCRT_M_lmer_Vieira)
 ```
 
 
+```{r p_CCRT_F_Vieira}
+
+p_CCRT_F_Vieira <- ggplot(data = filter(d_CCRT_F, (Censor == "0") & (Supervisor.PI == "Vieira")), aes(x=Population_Lat, y=CCRT_seconds, fill=Batch)) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
+        labs(title="p_CCRT_F_Vieira", x="Population", y = "CCRT_seconds") + coord_cartesian(ylim = c(625, 3625))+ droseu_theme
+
+```
+
+```{r}
+p_CCRT_F_Vieira
+```
+
+```{r}
+pdf(file="ChillComa/p_CCRT_F_Vieira.pdf",width=8, height=5)
+p_CCRT_F_Vieira
+dev.off()
+```
+
+
+
+```{r p_CCRT_F_pop_Vieira}
+
+p_CCRT_F_pop_Vieira <- ggplot(data = filter(d_CCRT_F, (Censor == "0") & (Supervisor.PI == "Vieira")), aes(x=Population_Lat, y=CCRT_seconds, fill=Population)) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
+        labs(title="p_CCRT_F_pop_Vieira", x="Population", y = "CCRT_seconds") + coord_cartesian(ylim = c(625, 3625))+ droseu_theme
+
+```
+
+```{r}
+p_CCRT_F_pop_Vieira
+```
+
+```{r}
+pdf(file="ChillComa/p_CCRT_F_pop_Vieira.pdf",width=8, height=5)
+p_CCRT_F_pop_Vieira
+dev.off()
+```
+
+
+
+```{r}
+p_CCRT_M_Vieira <- ggplot(data = filter(d_CCRT_M, (Censor == "0") & (Supervisor.PI == "Vieira")), aes(x=Population_Lat, y=CCRT_seconds, fill=Batch)) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
+        labs(title="p_CCRT_M", x="Population", y = "CCRT_seconds") + coord_cartesian(ylim = c(625, 3625))+ droseu_theme
+```
+
+```{r}
+p_CCRT_M_Vieira
+```
+
+```{r}
+pdf(file="ChillComa/p_CCRT_M_Vieira.pdf",width=8, height=5)
+p_CCRT_M_Vieira
+dev.off()
+```
+
+
+```{r p_CCRT_M_pop_Vieira}
+p_CCRT_M_pop_Vieira <- ggplot(data = filter(d_CCRT_M, (Censor == "0") & (Supervisor.PI == "Vieira")), aes(x=Population_Lat, y=CCRT_seconds, fill=Population)) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
+        labs(title="p_CCRT_M_pop_Vieira", x="Population", y = "CCRT_seconds") + coord_cartesian(ylim = c(625, 3625))+ droseu_theme
+```
+
+```{r}
+p_CCRT_M_pop_Vieira
+```
+
+```{r}
+pdf(file="ChillComa/p_CCRT_M_pop_Vieira.pdf",width=8, height=5)
+p_CCRT_M_pop_Vieira
+dev.off()
+```
+
 #### Mensh Lab 
- 
-```{r CCRT_F_lmer_Mensh, eval=FALSE, echo=FALSE}
-CCRT_F_lmer_Mensh <- lmer(CCRT_seconds ~ -1 + Population + (1|Population:Line) + (1|Batch) +
-                            (1|ReplicateVial:Line), 
-                            data = filter(d_CCRT_F, (Censor == "0") | (Supervisor.PI == "Mensh")))
-capture.output(summary(CCRT_F_lmer_Mensh),file = "ChillComa/CCRT_F_lmer_Mensh_sum.txt")
-capture.output(anova(CCRT_F_lmer_Mensh),file = "ChillComa/CCRT_F_lmer_Mensh.txt")
-#capture.output(emmeans(CCRT_F_lmer_Mensh, list(pairwise ~ Population), adjust = "tukey"),file = "ChillComa/CCRT_F_lmer_Mensh_tk.txt")
-
-```
-
-```{r eval=FALSE, echo=FALSE}
-anova(CCRT_F_lmer_Mensh)
-```
-
-```{r eval=FALSE, echo=FALSE}
-summary(CCRT_F_lmer_Mensh)
-```
-
-```{r CCRT_M_lmer_Mensh, eval=FALSE, echo=FALSE}
-CCRT_M_lmer_Mensh <- lmer(CCRT_seconds ~ -1 + Population + (1|Population:Line) + (1|Batch) +
-                            (1|ReplicateVial:Line), 
-                            data = filter(d_CCRT_M, (Censor == "0") | (Supervisor.PI == "Mensh")))
-capture.output(summary(CCRT_M_lmer_Mensh),file = "ChillComa/CCRT_M_lmer_Mensh_sum.txt")
-capture.output(anova(CCRT_M_lmer_Mensh),file = "ChillComa/CCRT_M_lmer_Mensh.txt")
-#capture.output(emmeans(CCRT_M_lmer_Mensh, list(pairwise ~ Population), adjust = "tukey"),file = "ChillComa/CCRT_M_lmer_Mensh_tk.txt")
-
-```
-
-```{r eval=FALSE, echo=FALSE}
-anova(CCRT_M_lmer_Mensh)
-```
-
-```{r eval=FALSE, echo=FALSE}
-summary(CCRT_M_lmer_Mensh)
-```
 
 
 ### Lab correlations
@@ -5447,6 +5930,14 @@ summary(CCRT_M_lmer_Mensh)
 NA
 
 ## Heat-shock mortality
+
+
+```{r}
+dir.create(file.path("HeatShock"), showWarnings = FALSE)
+```
+
+
+
 
 _For a detailed description of tables, plots, linear models and outputs, please refer [here](#anchor) _
 
@@ -5555,11 +6046,54 @@ DT::datatable(table_HSM_Pop_wobatch, options = list(pageLength = 10)) %>% format
 
 #### Overview 
 
+```{r}
+min_HSM <- min(d_HSM$TimeDeath_min)
+max_HSM <- max(d_HSM$TimeDeath_min)
+```
+
+
+y-axis is scaled by the minimum (`r min_HSM`) and maximum (`r max_HSM`) values in the full data set.
+
+```{r p_HSM_F}
+
+p_HSM_F <- ggplot(data = filter(d_HSM_F, (Censor == "0")), aes(x=Population_Lat, y=TimeDeath_min, fill=Supervisor.PI)) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
+        labs(title="p_HSM_F", x="Population", y = "TimeDeath(min)")  + coord_cartesian(ylim = c(min_HSM, max_HSM))+ droseu_theme
+```
+
+```{r}
+p_HSM_F
+```
+
+```{r}
+pdf(file="HeatShock/p_HSM_F.pdf",width=8, height=5)
+p_HSM_F
+dev.off()
+```
+
+
+```{r p_HSM_M}
+
+p_HSM_M <- ggplot(data = filter(d_HSM_M, (Censor == "0")), aes(x=Population_Lat, y=TimeDeath_min, fill=Supervisor.PI)) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
+        labs(title="p_HSM_M", x="Population", y = "TimeDeath(min)")  + coord_cartesian(ylim = c(min_HSM, max_HSM))+ droseu_theme
+```
+
+```{r}
+p_HSM_M
+```
+
+```{r}
+pdf(file="HeatShock/p_HSM_M.pdf",width=8, height=5)
+p_HSM_M
+dev.off()
+```
+
 #### Parsch Lab
 
 ```{r HSM_F_lmer_Parsch}
 HSM_F_lmer_Parsch <- lmer(TimeDeath_min ~ -1 + Population  + (1| Line : Population) +
-                                  (1|Batch), data = d_HSM_F[d_HSM_F$Supervisor.PI == "Parsch",])
+                                  (1|Batch), data = filter(d_HSM_F, (Censor == "0") & (Supervisor.PI == "Parsch")))
 capture.output(summary(HSM_F_lmer_Parsch),file = "HeatShock/HSM_F_lmer_sum_Parsch.txt")
 capture.output(anova(HSM_F_lmer_Parsch),file = "HeatShock/HSM_F_lmer_Parsch.txt")
 #capture.output(emmeans(HSM_F_lmer_Parsch, list(pairwise ~ Population), adjust = "tukey"),file = "HeatShock/HSM_F_lmer_Parsch_tk.txt")
@@ -5575,7 +6109,7 @@ summary(HSM_F_lmer_Parsch)
 
 ```{r HSM_M_lmer_Parsch}
 HSM_M_lmer_Parsch <- lmer(TimeDeath_min ~ -1 + Population  + (1| Line : Population) +
-                                  (1|Batch), data = d_HSM_M[d_HSM_M$Supervisor.PI == "Parsch",])
+                                  (1|Batch), data = filter(d_HSM_M, (Censor == "0") & (Supervisor.PI == "Parsch")))
 capture.output(summary(HSM_M_lmer_Parsch),file = "HeatShock/HSM_M_lmer_sum_Parsch.txt")
 capture.output(anova(HSM_M_lmer_Parsch),file = "HeatShock/HSM_M_lmer_Parsch.txt")
 #capture.output(emmeans(HSM_M_lmer_Parsch, list(pairwise ~ Population), adjust = "tukey"),file = "HeatShock/HSM_M_lmer_Parsch_tk.txt")
@@ -5590,12 +6124,82 @@ summary(HSM_M_lmer_Parsch)
 ```
 
 
+
+```{r p_HSM_F_Parsch}
+p_HSM_F_Parsch <- ggplot(data = filter(d_HSM_F, (Censor == "0") & (Supervisor.PI == "Parsch")), aes(x=Population_Lat, y=TimeDeath_min, fill=Batch)) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
+        labs(title="p_HSM_F_Parsch", x="Population", y = "TimeDeath_min") + coord_cartesian(ylim = c(min_HSM, max_HSM))+ droseu_theme
+```
+
+```{r}
+p_HSM_F_Parsch
+```
+
+```{r}
+pdf(file="HeatShock/p_HSM_F_Parsch.pdf",width=8, height=5)
+p_HSM_F_Parsch
+dev.off()
+```
+
+
+```{r p_HSM_F_pop_Parsch}
+p_HSM_F_pop_Parsch <- ggplot(data = filter(d_HSM_F, (Censor == "0") & (Supervisor.PI == "Parsch")), aes(x=Population_Lat, y=TimeDeath_min, fill=Population)) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
+        labs(title="p_HSM_F_pop_Parsch", x="Population", y = "TimeDeath_min") + coord_cartesian(ylim = c(min_HSM, max_HSM))+ droseu_theme
+```
+
+```{r}
+p_HSM_F_pop_Parsch
+```
+
+```{r}
+pdf(file="HeatShock/p_HSM_F_pop_Parsch.pdf",width=8, height=5)
+p_HSM_F_pop_Parsch
+dev.off()
+```
+
+
+```{r p_HSM_M_Parsch}
+p_HSM_M_Parsch <- ggplot(data = filter(d_HSM_M, (Censor == "0") & (Supervisor.PI == "Parsch")), aes(x=Population_Lat, y=TimeDeath_min, fill=Batch)) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
+        labs(title="p_HSM_M_Parsch", x="Population", y = "TimeDeath_min") + coord_cartesian(ylim = c(min_HSM, max_HSM))+ droseu_theme
+```
+
+```{r}
+p_HSM_M_Parsch
+```
+
+```{r}
+pdf(file="HeatShock/p_HSM_M_Parsch.pdf",width=8, height=5)
+p_HSM_M_Parsch
+dev.off()
+```
+
+
+```{r p_HSM_M_pop_Parsch}
+p_HSM_M_pop_Parsch <- ggplot(data = filter(d_HSM_M, (Censor == "0") & (Supervisor.PI == "Parsch")), aes(x=Population_Lat, y=TimeDeath_min, fill=Population)) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
+        labs(title="p_HSM_M_pop_Parsch", x="Population", y = "TimeDeath_min") + coord_cartesian(ylim = c(min_HSM, max_HSM))+ droseu_theme
+```
+
+```{r}
+p_HSM_M_pop_Parsch
+```
+
+```{r}
+pdf(file="HeatShock/p_HSM_M_pop_Parsch.pdf",width=8, height=5)
+p_HSM_M_pop_Parsch
+dev.off()
+```
+
+
+
 #### Vieira Lab 
 
 
 ```{r HSM_F_lmer_Vieira}
 HSM_F_lmer_Vieira <- lmer(TimeDeath_min ~ -1 + Population  + (1| Line : Population) +
-                                  (1|Batch), data = d_HSM_F[d_HSM_F$Supervisor.PI == "Vieira",])
+                                  (1|Batch), data = filter(d_HSM_F, (Censor == "0") & (Supervisor.PI == "Vieira")))
 capture.output(summary(HSM_F_lmer_Vieira),file = "HeatShock/HSM_F_lmer_sum_Vieira.txt")
 capture.output(anova(HSM_F_lmer_Vieira),file = "HeatShock/HSM_F_lmer_Vieira.txt")
 #capture.output(emmeans(HSM_F_lmer_Vieira, list(pairwise ~ Population), adjust = "tukey"),file = "HeatShock/HSM_F_lmer_Vieira_tk.txt")
@@ -5611,7 +6215,7 @@ summary(HSM_F_lmer_Vieira)
 
 ```{r HSM_M_lmer_Vieira}
 HSM_M_lmer_Vieira <- lmer(TimeDeath_min ~ -1 + Population  + (1| Line : Population) +
-                                  (1|Batch), data = d_HSM_M[d_HSM_M$Supervisor.PI == "Vieira",])
+                                  (1|Batch), data = filter(d_HSM_M, (Censor == "0") & (Supervisor.PI == "Vieira")))
 capture.output(summary(HSM_M_lmer_Vieira),file = "HeatShock/HSM_M_lmer_sum_Vieira.txt")
 capture.output(anova(HSM_M_lmer_Vieira),file = "HeatShock/HSM_M_lmer_Vieira.txt")
 #capture.output(emmeans(HSM_M_lmer_Vieira, list(pairwise ~ Population), adjust = "tukey"),file = "HeatShock/HSM_M_lmer_Vieira_tk.txt")
@@ -5625,6 +6229,73 @@ anova(HSM_M_lmer_Vieira)
 summary(HSM_M_lmer_Vieira)
 ```
 
+
+```{r p_HSM_F_Vieira}
+p_HSM_F_Vieira <- ggplot(data = filter(d_HSM_F, (Censor == "0") & (Supervisor.PI == "Vieira")), aes(x=Population_Lat, y=TimeDeath_min, fill=Batch)) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
+        labs(title="p_HSM_F_Vieira", x="Population", y = "TimeDeath_min") + coord_cartesian(ylim = c(min_HSM, max_HSM))+ droseu_theme
+```
+
+```{r}
+p_HSM_F_Vieira
+```
+
+```{r}
+pdf(file="HeatShock/p_HSM_F_Vieira.pdf",width=8, height=5)
+p_HSM_F_Vieira
+dev.off()
+```
+
+
+```{r p_HSM_F_pop_Vieira}
+p_HSM_F_pop_Vieira <- ggplot(data = filter(d_HSM_F, (Censor == "0") & (Supervisor.PI == "Vieira")), aes(x=Population_Lat, y=TimeDeath_min, fill=Population)) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
+        labs(title="p_HSM_F_pop_Vieira", x="Population", y = "TimeDeath_min") + coord_cartesian(ylim = c(min_HSM, max_HSM))+ droseu_theme
+```
+
+```{r}
+p_HSM_F_pop_Vieira
+```
+
+```{r}
+pdf(file="HeatShock/p_HSM_F_pop_Vieira.pdf",width=8, height=5)
+p_HSM_F_pop_Vieira
+dev.off()
+```
+
+
+```{r p_HSM_M_Vieira}
+p_HSM_M_Vieira <- ggplot(data = filter(d_HSM_M, (Censor == "0") & (Supervisor.PI == "Vieira")), aes(x=Population_Lat, y=TimeDeath_min, fill=Batch)) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
+        labs(title="p_HSM_M_Vieira", x="Population", y = "TimeDeath_min") + coord_cartesian(ylim = c(min_HSM, max_HSM))+ droseu_theme
+```
+
+```{r}
+p_HSM_M_Vieira
+```
+
+```{r}
+pdf(file="HeatShock/p_HSM_M_Vieira.pdf",width=8, height=5)
+p_HSM_M_Vieira
+dev.off()
+```
+
+
+```{r p_HSM_M_pop_Vieira}
+p_HSM_M_pop_Vieira <- ggplot(data = filter(d_HSM_M, (Censor == "0") & (Supervisor.PI == "Vieira")), aes(x=Population_Lat, y=TimeDeath_min, fill=Population)) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
+        labs(title="p_HSM_M_pop_Vieira", x="Population", y = "TimeDeath_min") + coord_cartesian(ylim = c(min_HSM, max_HSM))+ droseu_theme
+```
+
+```{r}
+p_HSM_M_pop_Vieira
+```
+
+```{r}
+pdf(file="HeatShock/p_HSM_M_pop_Vieira.pdf",width=8, height=5)
+p_HSM_M_pop_Vieira
+dev.off()
+```
 
 
 ### Lab correlations
@@ -5646,8 +6317,13 @@ There are `r length(intersect_Pop_HSM) ` populations and `r length(intersect_Lin
 
 ## Diapause
 
-_For a detailed description of tables, plots, linear models and outputs, please refer [here](#anchor) _
 
+```{r}
+dir.create(file.path("Diapause"), showWarnings = FALSE)
+```
+
+
+_For a detailed description of tables, plots, linear models and outputs, please refer [here](#anchor) _
 
 ### Contributors  
 
@@ -5668,16 +6344,23 @@ str(d_Dia)
 ```
 
 
+
 ```{r}
-d_Dia$Supervisor.PI <- as.factor(d_Dia$Supervisor.PI)
-d_Dia$Diet <- as.factor(d_Dia$Diet)
-d_Dia$Batch <- as.factor(d_Dia$Batch)
-d_Dia$Population_Lat <- factor(d_Dia$Population, levels= c("YE","RE","GI","MU","MA","UM","KA","VA","AK"))
-d_Dia$Population_Lon <- factor(d_Dia$Population, levels= c("RE","GI","KA","MU","MA","AK","UM","YE","VA"))
-d_Dia$Population_Alt <- factor(d_Dia$Population, levels= c("KA","AK","GI","RE","UM","VA","MU","MA","YE"))
-d_Dia$Line <- as.factor(d_Dia$Line)
-d_Dia$MostAdvancedStage <- as.numeric(d_Dia$MostAdvancedStage)
-d_Dia$NumberOfEggs <- as.numeric(d_Dia$NumberOfEggs)
+d_Dia <- d_Dia %>%
+  mutate(Supervisor.PI = as.factor(Supervisor.PI),
+         Diet = as.factor(Diet),
+         Batch = as.factor(Batch),
+         Population = as.factor(Population),
+         Line = as.factor(Line),
+         MostAdvancedStage = as.numeric(MostAdvancedStage),
+         NumberOfEggs = as.numeric(NumberOfEggs),
+         Max_Stage7 = ifelse(MostAdvancedStage <= 7 & NumberOfEggs == 0, 1, 0),
+         Max_Stage8 = ifelse(MostAdvancedStage <= 8 & NumberOfEggs == 0, 1, 0),
+         Max_Stage9 = ifelse(MostAdvancedStage <= 9 & NumberOfEggs == 0, 1, 0),
+         Population_Lat = factor(Population, levels= c("YE","RE","GI","MU","MA","UM","KA","VA","AK")),
+         Population_Lon = factor(Population, levels= c("RE","GI","KA","MU","MA","AK","UM","YE","VA")),
+         Population_Alt = factor(Population, levels= c("KA","AK","GI","RE","UM","VA","MU","MA","YE")))
+ 
 ```
 
 
@@ -5688,46 +6371,236 @@ str(d_Dia)
 
 ### Descriptive Statistics
 
-Descriptive statistics at the line level, with batch information :
 ```{r}
+##### calculate diapause proportions per line, with and without batch
+d_Dia_Line_wbatch <- d_Dia %>%
+  group_by(Supervisor.PI, Batch, Population, Population_Lat, Population_Lon, Population_Alt, Line) %>%
+  dplyr::summarise(n_ind = as.numeric(n()),
+            Max_Stage7_Prop = mean(Max_Stage7, na.rm = T),
+            Max_Stage8_Prop = mean(Max_Stage8, na.rm = T),
+            Max_Stage9_Prop = mean(Max_Stage9, na.rm = T),
+            Max_Stage7_Prop_Asin = asin(sqrt(mean(Max_Stage7, na.rm = T))),
+            Max_Stage8_Prop_Asin = asin(sqrt(mean(Max_Stage8, na.rm = T))),
+            Max_Stage9_Prop_Asin = asin(sqrt(mean(Max_Stage9, na.rm = T))),
+            .groups = "drop")
+ 
+d_Dia_Line_wobatch <- d_Dia %>%
+  group_by(Supervisor.PI, Population, Population_Lat, Population_Lon, Population_Alt, Line) %>%
+  dplyr::summarise(n_ind = as.numeric(n()),
+            Max_Stage7_Prop = mean(Max_Stage7, na.rm = T),
+            Max_Stage8_Prop = mean(Max_Stage8, na.rm = T),
+            Max_Stage9_Prop = mean(Max_Stage9, na.rm = T),
+            Max_Stage7_Prop_Asin = asin(sqrt(mean(Max_Stage7, na.rm = T))),
+            Max_Stage8_Prop_Asin = asin(sqrt(mean(Max_Stage8, na.rm = T))),
+            Max_Stage9_Prop_Asin = asin(sqrt(mean(Max_Stage9, na.rm = T))),
+            .groups = "drop")
+```
+
+Descriptive statistics at the line level for Max Stage 9, with batch information :
+```{r}
+table_Dia_Line_wbatch <- d_Dia_Line_wbatch %>% group_by(Supervisor.PI, Batch, Population, Line) %>% summarise_at(vars(Max_Stage9_Prop), list(Mean = mean, SD = sd, Median = median, Min = min, Max = max, SE = std_err, CV = coef_var, Mode = estimate_mode))
+
+write.csv(table_Dia_Line_wbatch, "Diapause/table_Dia_Line_wbatch.csv", row.names = T)
 ```
 
 ```{r eval=FALSE, echo=FALSE}
-DT::datatable(a, options = list(pageLength = 10)) %>% formatRound(6:13, 3)
+DT::datatable(table_Dia_Line_wbatch, options = list(pageLength = 10)) %>% formatRound(6:13, 3)
 ```
 
-Descriptive statistics at the line level, without batch information :
+Descriptive statistics at the line level for Max Stage 9, without batch information :
 ```{r}
+table_Dia_Line_wobatch <- d_Dia_Line_wobatch %>% group_by(Supervisor.PI, Population, Line) %>% summarise_at(vars(Max_Stage9_Prop), list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, SE = std_err, CV = coef_var, Mode = estimate_mode))
+
+write.csv(table_Dia_Line_wobatch, "Diapause/table_Dia_Line_wobatch.csv", row.names = T)
 ```
 
 ```{r eval=FALSE, echo=FALSE}
-DT::datatable(a, options = list(pageLength = 10)) %>% formatRound(6:13, 3)
+DT::datatable(table_Dia_Line_wobatch, options = list(pageLength = 10)) %>% formatRound(6:13, 3)
 ```
 
 Descriptive statistics at the population level, with batch information :
 ```{r}
+table_Dia_Pop_wbatch <- d_Dia_Line_wbatch %>% group_by(Supervisor.PI, Batch, Population) %>% summarise_at(vars(Max_Stage9_Prop), list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, SE = std_err, CV = coef_var, Mode = estimate_mode))
+
+write.csv(table_Dia_Pop_wbatch, "Diapause/table_Dia_Pop_wbatch.csv", row.names = T)
 ```
 
 ```{r eval=FALSE, echo=FALSE}
-DT::datatable(a, options = list(pageLength = 10)) %>% formatRound(6:13, 3)
+DT::datatable(table_Dia_Pop_wbatch, options = list(pageLength = 10)) %>% formatRound(6:13, 3)
 ```
 
 Descriptive statistics at the population level, without batch information :
 ```{r}
+table_Dia_Pop_wobatch <- d_Dia_Line_wobatch %>% group_by(Supervisor.PI, Population) %>% summarise_at(vars(Max_Stage9_Prop), list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, SE = std_err, CV = coef_var, Mode = estimate_mode))
+
+write.csv(table_Dia_Pop_wobatch, "Diapause/table_Dia_Line_wobatch.csv", row.names = T)
 ```
 
 ```{r eval=FALSE, echo=FALSE}
-DT::datatable(a, options = list(pageLength = 10)) %>% formatRound(6:13, 3)
+DT::datatable(table_Dia_Pop_wobatch, options = list(pageLength = 10)) %>% formatRound(6:13, 3)
 ```
 
 
-### Plots and Linear Models by Lab  
-
-#### Overview 
-
+### Plots and Linear Models by Lab
 #### Bergland Lab
+```{r}
+Dia_lmer_Bergland <- lmer(Max_Stage9_Prop ~ -1 + Population + (1|Population:Line) + (1|Batch) , data = d_Dia_Line_wbatch %>% filter(Supervisor.PI == "Bergland"))
+capture.output(summary(Dia_lmer_Bergland),file = "Diapause/Dia_lmer_Bergland_sum.txt")
+capture.output(anova(Dia_lmer_Bergland),file = "Diapause/Dia_lmer_Bergland.txt")
+#capture.output(emmeans(Dia_lmer_Bergland, list(pairwise ~ Population), adjust = "tukey"),file = "Diapause/Dia_lmer_Bergland_tk.txt")
+```
+
+```{r}
+model_means_Bergland <- emmeans(object = Dia_lmer_Bergland, specs = ~ Population)
+model_means_Bergland_cld <- cld(object = model_means_Bergland, adjust = "Tukey", Letters = letters, alpha = 0.05) %>% as.data.frame %>% mutate(Population = factor(Population, levels = c("YE","RE","GI","MU","MA","UM","KA","VA","AK"))) %>% arrange(Population) %>% dplyr::rename(cld = .group)
+```
+
+
+```{r}
+min_Dia <- min(d_Dia_Line_wbatch$Max_Stage9_Prop)
+max_Dia <- max(d_Dia_Line_wbatch$Max_Stage9_Prop)
+```
+
+
+```{r}
+p_Dia_Pop_Bergland_wbatch <- d_Dia_Line_wbatch %>% 
+  filter(Supervisor.PI == 'Bergland') %>%
+  ggplot(aes(x = Population_Lat, y = Max_Stage9_Prop, fill = Batch)) + 
+  geom_boxplot(outlier.shape = NA, notch = FALSE) +  
+  geom_jitter(width = 0.2, alpha = 0.05) + 
+  labs(title = "p_Dia_Bergland", x = "Population", y = "Max_Stage9_Prop") +
+  droseu_theme +
+  coord_cartesian(ylim = c(min_Dia, max_Dia))
+p_Dia_Pop_Bergland_wbatch
+```
+```{r}
+pdf(file="Diapause/p_Dia_Pop_Bergland_wbatch.pdf",width=8, height=5)
+p_Dia_Pop_Bergland_wbatch
+dev.off()
+```
+```{r}
+p_Dia_Pop_Bergland_wobatch <- d_Dia_Line_wobatch %>% 
+  filter(Supervisor.PI == 'Bergland') %>%
+  inner_join(model_means_Bergland_cld) %>%
+  ggplot(aes(x = Population_Lat, y = Max_Stage9_Prop, fill = Population)) + 
+  geom_boxplot(outlier.shape = NA, notch = FALSE) +  
+  geom_jitter(width = 0.2, alpha = 0.05) + 
+  geom_text(data = model_means_Bergland_cld, aes(x = Population, label = cld), y = 1, vjust = -1) +
+  labs(title = "p_Dia_Bergland", x = "Population", y = "Max_Stage9_Prop") +
+  droseu_theme +
+  coord_cartesian(ylim = c(min_Dia, max_Dia))
+p_Dia_Pop_Bergland_wobatch
+```
+```{r}
+pdf(file="Diapause/p_Dia_Pop_Bergland_wobatch.pdf",width=8, height=5)
+p_Dia_Pop_Bergland_wobatch
+dev.off()
+```
+
 #### Flatt Lab 
+```{r}
+Dia_lm_Flatt <- lm(Max_Stage9_Prop ~ -1 + Population, data = d_Dia_Line_wbatch %>% filter(Supervisor.PI == "Flatt"))
+capture.output(summary(Dia_lm_Flatt),file = "Diapause/Dia_lm_Flatt_sum.txt")
+capture.output(anova(Dia_lm_Flatt),file = "Diapause/Dia_lm_Flatt")
+#capture.output(emmeans(Dia_lm_Flatt, list(pairwise ~ Population), adjust = "tukey"),file = "Diapause/Dia_lm_Flatt_tk.txt")
+```
+
+```{r}
+model_means_Flatt <- emmeans(object = Dia_lm_Flatt, specs = ~ Population)
+model_means_Flatt_cld <- cld(object = model_means_Flatt, adjust = "Tukey", Letters = letters, alpha = 0.05) %>% as.data.frame %>% mutate(Population = factor(Population, levels = c("YE","RE","GI","MU","MA","UM","KA","VA","AK"))) %>% arrange(Population) %>% dplyr::rename(cld = .group)
+```
+
+```{r}
+p_Dia_Pop_Flatt_wbatch <- d_Dia_Line_wbatch %>% 
+  filter(Supervisor.PI == 'Flatt') %>%
+  ggplot(aes(x = Population_Lat, y = Max_Stage9_Prop, fill = Batch)) + 
+  geom_boxplot(outlier.shape = NA, notch = FALSE) +  
+  geom_jitter(width = 0.2, alpha = 0.05) + 
+  labs(title = "p_Dia_Flatt", x = "Population", y = "Max_Stage9_Prop") +
+  droseu_theme +
+  coord_cartesian(ylim = c(min_Dia, max_Dia))
+p_Dia_Pop_Flatt_wbatch
+```
+
+```{r message=FALSE, warning=FALSE}
+pdf(file="Diapause/p_Dia_Pop_Flatt_wbatch.pdf", width=8, height=5)
+p_Dia_Pop_Flatt_wbatch
+dev.off()
+```
+
+```{r}
+p_Dia_Pop_Flatt_wobatch <- d_Dia_Line_wobatch %>% 
+  filter(Supervisor.PI == 'Flatt') %>%
+  ggplot(aes(x = Population_Lat, y = Max_Stage9_Prop, fill = Population)) + 
+  geom_boxplot(outlier.shape = NA, notch = FALSE) +  
+  geom_jitter(width = 0.2, alpha = 0.05) + 
+  geom_text(data = model_means_Flatt_cld, aes(x = Population, label = cld), y = 1, vjust = -1) +
+  labs(title = "p_Dia_Flatt", x = "Population", y = "Max_Stage9_Prop") +
+  droseu_theme +
+  coord_cartesian(ylim = c(min_Dia, max_Dia))
+p_Dia_Pop_Flatt_wobatch
+```
+
+```{r message=FALSE, warning=FALSE}
+pdf(file="Diapause/p_Dia_Pop_Flatt_wobatch.pdf", width=8, height=5)
+p_Dia_Pop_Flatt_wobatch
+dev.off()
+```
+
+
+
+
 #### Schlotterer Lab
+```{r}
+Dia_lmer_Schlotterer <- lmer(Max_Stage9_Prop ~ -1 + Population + (1|Population:Line) + (1|Batch) , data = d_Dia_Line_wbatch %>% filter(Supervisor.PI == "Schlotterer"))
+capture.output(summary(Dia_lmer_Schlotterer),file = "Diapause/Dia_lmer_Schlotterer_sum.txt")
+capture.output(anova(Dia_lmer_Schlotterer),file = "Diapause/Dia_lmer_Schlotterer.txt")
+#capture.output(emmeans(Dia_lmer_Schlotterer, list(pairwise ~ Population), adjust = "tukey"),file = "Diapause/Dia_lmer_Schlotterer_tk.txt")
+```
+
+
+
+```{r}
+model_means_Schlotterer <- emmeans(object = Dia_lmer_Schlotterer, specs = ~ Population)
+model_means_Schlotterer_cld <- cld(object = model_means_Schlotterer, adjust = "Tukey", Letters = letters, alpha = 0.05) %>% as.data.frame %>% mutate(Population = factor(Population, levels = c("YE","RE","GI","MU","MA","UM","KA","VA","AK"))) %>% arrange(Population) %>% dplyr::rename(cld = .group)
+```
+```{r}
+p_Dia_Pop_Schlotterer_wbatch <- d_Dia_Line_wbatch %>% 
+  filter(Supervisor.PI == 'Schlotterer') %>%
+  ggplot(aes(x = Population_Lat, y = Max_Stage9_Prop, fill = Batch)) + 
+  geom_boxplot(outlier.shape = NA, notch = FALSE) +  
+  geom_jitter(width = 0.2, alpha = 0.05) + 
+  labs(title = "p_Dia_Schlotterer", x = "Population", y = "Max_Stage9_Prop") +
+  droseu_theme +
+  coord_cartesian(ylim = c(min_Dia, max_Dia))
+p_Dia_Pop_Schlotterer_wbatch
+```
+```{r message=FALSE, warning=FALSE}
+pdf(file="Diapause/p_Dia_Pop_Schlotterer_wbatch.pdf", width=8, height=5)
+p_Dia_Pop_Schlotterer_wbatch
+dev.off()
+```
+```{r}
+p_Dia_Pop_Schlotterer_wobatch <- d_Dia_Line_wobatch %>% 
+  filter(Supervisor.PI == 'Schlotterer') %>%
+  ggplot(aes(x = Population_Lat, y = Max_Stage9_Prop, fill = Population)) + 
+  geom_boxplot(outlier.shape = NA, notch = FALSE) +  
+  geom_jitter(width = 0.2, alpha = 0.05) + 
+  geom_text(data = model_means_Schlotterer_cld, aes(x = Population, label = cld), y = 1, vjust = -0.7) +
+  labs(title = "p_Dia_Schlotterer", x = "Population", y = "Max_Stage9_Prop") +
+  droseu_theme +
+  coord_cartesian(ylim = c(min_Dia, max_Dia))
+p_Dia_Pop_Schlotterer_wobatch
+```
+
+```{r message=FALSE, warning=FALSE}
+pdf(file="Diapause/p_Dia_Pop_Schlotterer_wobatch.pdf", width=8, height=5)
+p_Dia_Pop_Schlotterer_wobatch
+dev.off()
+```
+
+
+
 
 ### Lab correlations
 
@@ -5750,8 +6623,22 @@ write(intersect_Pop_Dia, file ="Diapause/intersect_Pop_Dia.txt", sep = "\t")
 There are `r length(intersect_Pop_Dia) ` populations and `r length(intersect_Line_Dia) ` isofemale lines that have been phenotyped across the labs. Please refer to tables named intersect_Trait_level (i.e. intersect_Via_pop) for details. 
 
 
+```{r lab_correlations_Dia}
+Dia_fitted <- combineFitted(labs = c("Bergland", "Flatt", "Schlotterer"), sex = rep("F", 3), models = list(Dia_lmer_Bergland, Dia_lm_Flatt, Dia_lmer_Schlotterer))
+```
+
+```{r fig.height = 8, fig.width = 8}
+scatterPlotMatrix(Dia_fitted, sex = "F")
+```
 
 ## Circadian eclosion timing
+
+
+```{r}
+dir.create(file.path("CircadianEclosion"), showWarnings = FALSE)
+```
+
+
 
 _For a detailed description of tables, plots, linear models and outputs, please refer [here](#anchor) _
 
@@ -6191,6 +7078,14 @@ knitr::include_graphics("CircadianEclosion/FromEran/eclosion_data_Christian_Page
 
 ## Locomotor activity
 
+
+
+```{r}
+dir.create(file.path("Locomotor"), showWarnings = FALSE)
+```
+
+
+
 _For a detailed description of tables, plots, linear models and outputs, please refer [here](#anchor) _
 
 ```{r}
@@ -6513,6 +7408,14 @@ knitr::include_graphics("Locomotor/FromEran/pheno2022_Page_5.png")
 
 
 ## Starvation resistance
+
+
+```{r}
+dir.create(file.path("Starvation"), showWarnings = FALSE)
+```
+
+
+
 
 _For a detailed description of tables, plots, linear models and outputs, please refer [here](#anchor) _
 
@@ -6993,9 +7896,153 @@ dev.off()
 
 ### Survival Analyses
 
+```{r}
+d_SR_surv <- d_SR %>% mutate(Censor = 1)
+```
+
+
 #### Gonzalez Lab
-#### Onder Lab 
+##### Females
+
+```{r}
+SR_F_Gonzalez_survfit <- survfit(Surv(AgeAtDeath_hours) ~ Population, data = filter(d_SR_surv, Supervisor.PI == "Gonzalez", Sex == "F"))
+```
+```{r}
+p_SR_F_Gonzalez_survfit <- ggsurvplot(SR_F_Gonzalez_survfit, censor.shape="|", censor.size = 0, pval = FALSE, risk.table = FALSE, conf.int = FALSE, legend.title = "Population", legend.labs = sort(c("YE","RE","GI","MU","MA","UM","KA","VA","AK")), legend = c(0.9, 0.7), title = "p_SR_F_Gonzalez")
+```
+```{r}
+p_SR_F_Gonzalez_survfit
+```
+```{r}
+pdf(file="Starvation/p_SR_F_Gonzalez_survfit.pdf", width=8, height=5)
+p_SR_F_Gonzalez_survfit
+dev.off()
+```
+##### Males
+```{r}
+SR_M_Gonzalez_survfit <- survfit(Surv(AgeAtDeath_hours) ~ Population, data = filter(d_SR_surv, Supervisor.PI == "Gonzalez", Sex == "M"))
+```
+```{r}
+p_SR_M_Gonzalez_survfit <- ggsurvplot(SR_M_Gonzalez_survfit, censor.shape="|", censor.size = 0, pval = FALSE, risk.table = FALSE, conf.int = FALSE, legend.title = "Population", legend.labs = sort(c("YE","RE","GI","MU","MA","UM","KA","VA","AK")), legend = c(0.9, 0.7), title = "p_SR_M_Gonzalez")
+```
+```{r}
+p_SR_M_Gonzalez_survfit
+```
+```{r}
+pdf(file="Starvation/p_SR_M_Gonzalez_survfit.pdf", width=8, height=5)
+p_SR_M_Gonzalez_survfit
+dev.off()
+```
+
+
+#### Onder Lab
+##### Females
+```{r}
+SR_F_Onder_survfit <- survfit(Surv(AgeAtDeath_hours) ~ Population, data = filter(d_SR_surv, Supervisor.PI == "Onder", Sex == "F"))
+```
+```{r}
+p_SR_F_Onder_survfit <- ggsurvplot(SR_F_Onder_survfit, censor.shape="|", censor.size = 0, pval = FALSE, risk.table = FALSE, conf.int = FALSE, legend.title = "Population", legend.labs = sort(c("YE","RE","GI","MU","MA","UM","KA","VA","AK")), legend = c(0.9, 0.7), title = "p_SR_F_Onder")
+```
+```{r}
+p_SR_F_Onder_survfit
+```
+```{r}
+pdf(file="Starvation/p_SR_F_Onder_survfit.pdf", width=8, height=5)
+p_SR_F_Onder_survfit
+dev.off()
+```
+##### Males
+```{r}
+SR_M_Onder_survfit <- survfit(Surv(AgeAtDeath_hours) ~ Population, data = filter(d_SR_surv, Supervisor.PI == "Onder", Sex == "M"))
+```
+```{r}
+p_SR_M_Onder_survfit <- ggsurvplot(SR_M_Onder_survfit, censor.shape="|", censor.size = 0, pval = FALSE, risk.table = FALSE, conf.int = FALSE, legend.title = "Population", legend.labs = sort(c("YE","RE","GI","MU","MA","UM","KA","VA","AK")), legend = c(0.9, 0.7), title = "p_SR_M_Onder")
+```
+```{r}
+p_SR_M_Onder_survfit
+```
+```{r}
+pdf(file="Starvation/p_SR_M_Onder_survfit.pdf", width=8, height=5)
+p_SR_M_Onder_survfit
+dev.off()
+```
+
+
+
 #### Pasyukova Lab
+##### Females
+```{r}
+SR_F_Pasyukova_survfit <- survfit(Surv(AgeAtDeath_hours) ~ Population, data = filter(d_SR_surv, Supervisor.PI == "Pasyukova", Sex == "F"))
+```
+```{r}
+p_SR_F_Pasyukova_survfit <- ggsurvplot(SR_F_Pasyukova_survfit, censor.shape="|", censor.size = 0, pval = FALSE, risk.table = FALSE, conf.int = FALSE, legend.title = "Population", legend.labs = sort(c("YE","RE","GI","MU","MA","UM","KA","VA","AK")), legend = c(0.9, 0.7), title = "p_SR_F_Pasyukova")
+```
+```{r}
+p_SR_F_Pasyukova_survfit
+```
+```{r}
+pdf(file="Starvation/p_SR_F_Pasyukova_survfit.pdf", width=8, height=5)
+p_SR_F_Pasyukova_survfit
+dev.off()
+```
+##### Males
+```{r}
+SR_M_Pasyukova_survfit <- survfit(Surv(AgeAtDeath_hours) ~ Population, data = filter(d_SR_surv, Supervisor.PI == "Pasyukova", Sex == "M"))
+```
+```{r}
+p_SR_M_Pasyukova_survfit <- ggsurvplot(SR_M_Pasyukova_survfit, censor.shape="|", censor.size = 0, pval = FALSE, risk.table = FALSE, conf.int = FALSE, legend.title = "Population", legend.labs = sort(c("YE","RE","GI","MU","MA","UM","KA","VA","AK")), legend = c(0.9, 0.7), title = "p_SR_M_Pasyukova")
+```
+```{r}
+p_SR_M_Pasyukova_survfit
+```
+```{r}
+pdf(file="Starvation/p_SR_M_Pasyukova_survfit.pdf", width=8, height=5)
+p_SR_M_Pasyukova_survfit
+dev.off()
+```
+
+
+### coxme
+
+```{r eval = FALSE}
+SR_F_coxme_Gonzalez <- coxme(Surv(AgeAtDeath_hours, Censor) ~ Population + (1|Batch) + (1|Population/Line) + (1|Population/Line/ReplicateVial), data = filter(d_SR_surv, Supervisor.PI == "Gonzalez", Sex == "F"))
+capture.output(summary(SR_F_coxme_Gonzalez), file = "Starvation/SR_F_coxme_Gonzaleza_sum.txt")
+capture.output(anova(SR_F_coxme_Gonzalez), file = "Starvation/SR_F_coxme_Gonzalez.txt")
+```           
+
+
+```{r eval = FALSE}
+SR_M_coxme_Gonzalez <- coxme(Surv(AgeAtDeath_hours, Censor) ~ Population + (1|Batch) + (1|Population/Line) + (1|Population/Line/ReplicateVial), data = filter(d_SR_surv, Supervisor.PI == "Gonzalez", Sex == "M"))
+capture.output(summary(SR_M_coxme_Gonzalez), file = "Starvation/SR_M_coxme_Gonzaleza_sum.txt")
+capture.output(anova(SR_M_coxme_Gonzalez), file = "Starvation/SR_M_coxme_Gonzalez.txt")
+``` 
+
+```{r eval = FALSE}
+SR_F_coxme_Onder <- coxme(Surv(AgeAtDeath_hours, Censor) ~ Population + (1|Batch) + (1|Population/Line) + (1|Population/Line/ReplicateVial), data = filter(d_SR_surv, Supervisor.PI == "Onder", Sex == "F"))
+capture.output(summary(SR_F_coxme_Onder), file = "Starvation/SR_F_coxme_Onder_sum.txt")
+capture.output(anova(SR_F_coxme_Onder), file = "Starvation/SR_F_coxme_Onder.txt")
+```  
+         
+
+```{r eval = FALSE}
+SR_M_coxme_Onder <- coxme(Surv(AgeAtDeath_hours, Censor) ~ Population + (1|Batch) + (1|Population/Line) + (1|Population/Line/ReplicateVial), data = filter(d_SR_surv, Supervisor.PI == "Onder", Sex == "M"))
+capture.output(summary(SR_M_coxme_Onder), file = "Starvation/SR_M_coxme_Onder_sum.txt")
+capture.output(anova(SR_M_coxme_Onder), file = "Starvation/SR_M_coxme_Onder.txt")
+```  
+
+
+```{r eval = FALSE}
+SR_F_coxme_Pasyukova <- coxme(Surv(AgeAtDeath_hours, Censor) ~ Population + (1|Batch) + (1|Population/Line) + (1|Population/Line/ReplicateVial), data = filter(d_SR_surv, Supervisor.PI == "Pasyukova", Sex == "F"))
+capture.output(summary(SR_F_coxme_Pasyukova), file = "Starvation/SR_F_coxme_Pasyukova_sum.txt")
+capture.output(anova(SR_F_coxme_Pasyukova), file = "Starvation/SR_F_coxme_Pasyukova.txt")
+```  
+
+```{r eval = FALSE}
+SR_M_coxme_Pasyukova <- coxme(Surv(AgeAtDeath_hours, Censor) ~ Population + (1|Batch) + (1|Population/Line) + (1|Population/Line/ReplicateVial), data = filter(d_SR_surv, Supervisor.PI == "Pasyukova", Sex == "M"))
+capture.output(summary(SR_M_coxme_Pasyukova), file = "Starvation/SR_M_coxme_Pasyukova_sum.txt")
+capture.output(anova(SR_M_coxme_Pasyukova), file = "Starvation/SR_M_coxme_Pasyukova.txt")
+```  
+
 
 ### Lab correlations
 
@@ -7016,7 +8063,27 @@ write(intersect_Pop_SR, file ="Starvation/intersect_Pop_SR.txt", sep = "\t")
 There are `r length(intersect_Pop_SR) ` populations and `r length(intersect_Line_SR) ` isofemale lines that have been phenotyped across the labs. Please refer to tables named intersect_Trait_level (i.e. intersect_Via_pop) for details. 
 
 
+```{r}
+SR_fitted <- combineFitted(labs = rep(c("Gonzalez", "Onder", "Pasyukova"), 2), sex = rep(c("F", "M"), each = 3), models = list(SR_F_lmer_Gonzalez, SR_F_lmer_Onder, SR_F_lmer_Pasyukova, SR_M_lmer_Gonzalez, SR_M_lmer_Onder, SR_M_lmer_Pasyukova))
+```
+
+```{r fig.height = 8, fig.width = 8}
+scatterPlotMatrix(SR_fitted, sex = "F")
+```
+
+```{r fig.height = 8, fig.width = 8}
+scatterPlotMatrix(SR_fitted, sex = "M")
+```
+
+
 ## Pigmentation
+
+
+```{r}
+dir.create(file.path("Pigmentation"), showWarnings = FALSE)
+```
+
+
 
 _For a detailed description of tables, plots, linear models and outputs, please refer [here](#anchor) _
 
@@ -7090,16 +8157,12 @@ str(d_Pgm2)
 
 ### Descriptive Statistics
 
-
-
+_will add this one later, drove me nuts with a stupid error_
 
 ### Plots and Linear Models by Lab  
 
 #### Overview 
 
-#### Abbott Lab
-#### Gibert Lab 
-#### Schmidt Lab
 
 ### Lab correlations
 
@@ -7107,14 +8170,14 @@ str(d_Pgm2)
 ```{r intersect_Pgm}
 
 intersect_Line_Pgm  <- Reduce(intersect, list(d_Pgm$Line[d_Pgm$Supervisor.PI == "Abbott"],
-                                         d_Pgm2$Line[d_Pgm$Supervisor.PI == "Schmidt"],
+                                         d_Pgm2$Line[d_Pgm2$Supervisor.PI == "Schmidt"],
                                          d_Pgm$Line[d_Pgm$Supervisor.PI == "Gibert"]))
 
 write(intersect_Line_Pgm, file ="Pigmentation/intersect_Line_Pgm.txt", sep = "\t")
 
 
 intersect_Pop_Pgm  <- Reduce(intersect, list(d_Pgm$Population[d_Pgm$Supervisor.PI == "Abbott"],
-                                         d_Pgm2$Population[d_Pgm$Supervisor.PI == "Schmidt"],
+                                         d_Pgm2$Population[d_Pgm2$Supervisor.PI == "Schmidt"],
                                          d_Pgm$Population[d_Pgm$Supervisor.PI == "Gibert"]))
 
 write(intersect_Pop_Pgm, file ="Pigmentation/intersect_Pop_Pgm", sep = "\t")
@@ -7129,6 +8192,84 @@ There are `r length(intersect_Pop_Pgm) ` populations and `r length(intersect_Lin
 
 ## with Diet 
 ## with Wolbachia
+
+### Diapause
+
+
+```{r}
+# get the effects in the right shape
+Dia_effects <- Dia_fitted %>%
+  dplyr::select(-Value) %>%
+  mutate(Population = factor(Population, levels = c("YE","RE","GI","MU","MA","UM","KA","VA","AK")),
+         Lab = as.factor(Lab),
+         V = SE^2,
+         Study = paste(Population, Lab, sep = "_")) %>%
+  relocate(Population, Sex, Lab, Study) %>%
+  arrange(Population) %>% 
+  dplyr::rename(Y = Estimate)
+```
+
+## Females
+```{r}
+# run the analysis
+Dia_F_meta <- metaAnalysisRandomModel(Dia_effects %>% filter(Sex == "F"))
+```
+
+
+
+```{r}
+
+p_Dia_F_meta_SE <- Dia_F_meta$summary_effects_random %>% 
+  dplyr::select(Population, Mstar, SEMstar) %>% 
+  distinct() %>%
+  ggplot(aes(x = Mstar, y = 1:length(Population), color = Population)) +
+  theme_bw() +
+  geom_point(size = 4, shape = 15) +
+  #scale_color_manual(values = pops$by_lat$Color, guide = "none") +
+  geom_errorbarh(aes(xmax = Mstar + SEMstar, xmin = Mstar - SEMstar), height = 0) +
+  scale_y_continuous(name = "Population", breaks = 1:9, 
+                     labels = c("YE","RE","GI","MU","MA","UM","KA","VA","AK")) +
+  labs(x = "Proportion diapause", title = "Pop. summary effect with SE") +
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank()) +
+  annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.4g", Dia_F_meta$Qtest_het$Q), 
+           hjust=-0.2, vjust=3.5, parse = T) +
+  annotate("text", x = -Inf, y = Inf, label = sprintf("italic(p) == %.4g", Dia_F_meta$Qtest_het$p), 
+           hjust=-0.2, vjust=5, parse = T) +
+  theme(legend.position = "none")
+
+
+p_Dia_F_meta_CI <- Dia_F_meta$summary_effects_random %>% 
+  dplyr::select(Population, Mstar, ULMstar, LLMstar) %>% 
+  distinct() %>%
+  ggplot(aes(x = Mstar, y = 1:length(Population), color = Population)) +
+  theme_bw() +
+  geom_point(size = 4, shape = 15) +
+  #scale_color_manual(values = pops$by_lat$Color, guide = "none") +
+  geom_errorbarh(aes(xmax = ULMstar, xmin = LLMstar), height = 0) +
+  scale_y_continuous(name = "Population", breaks = 1:9, 
+                     labels = c("YE","RE","GI","MU","MA","UM","KA","VA","AK")) +
+  labs(x = "Proportion diapause", title = "Pop. summary effect with 95% CI") +
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank()) +
+  annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.4g", Dia_F_meta$Qtest_het$Q), 
+           hjust=-0.2, vjust=3.5, parse = T) +
+  annotate("text", x = -Inf, y = Inf, label = sprintf("italic(p) == %.4g", Dia_F_meta$Qtest_het$p), 
+           hjust=-0.2, vjust=5, parse = T) +
+  theme(legend.position = "none")
+
+
+```
+
+
+```{r, fig.width=8, fig.height=5}
+ggarrange(p_Dia_F_meta_SE, p_Dia_F_meta_CI)
+```
+
+
+
+
+### Starvation resistance 
 
 # Results III : Trait Correlations _tbd_
 

@@ -1,0 +1,27 @@
+
+Call:
+lm(formula = Max_Stage9_Prop ~ -1 + Population, data = d_Dia_Line_wbatch %>% 
+    filter(Supervisor.PI == "Flatt"))
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.47696 -0.02185  0.02854  0.04994  0.06849 
+
+Coefficients:
+             Estimate Std. Error t value Pr(>|t|)    
+PopulationAK  0.95006    0.01908   49.80   <2e-16 ***
+PopulationGI  0.94226    0.02280   41.33   <2e-16 ***
+PopulationKA  0.97146    0.01908   50.92   <2e-16 ***
+PopulationMA  0.94110    0.01957   48.08   <2e-16 ***
+PopulationMU  0.98424    0.01908   51.59   <2e-16 ***
+PopulationRE  0.95991    0.02280   42.10   <2e-16 ***
+PopulationUM  0.98726    0.02133   46.29   <2e-16 ***
+PopulationVA  0.93151    0.01908   48.83   <2e-16 ***
+PopulationYE  0.95633    0.01908   50.13   <2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.08531 on 154 degrees of freedom
+Multiple R-squared:  0.9926,	Adjusted R-squared:  0.9921 
+F-statistic:  2285 on 9 and 154 DF,  p-value: < 2.2e-16
+

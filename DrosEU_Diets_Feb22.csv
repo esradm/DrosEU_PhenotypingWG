@@ -1,0 +1,49 @@
+PI/Lab head,Phenotype,Diet,P:C
+Mensch,Chill-coma recovery time,NS,1
+Vieira,Chill-coma recovery time,S,1
+Wegener,Circadian eclosion timing,NS,1
+Gonzalez,Cold-shock mortality,S,1
+Kozeretska,Cold-shock mortality,NS,1
+Vieira,Cold-shock mortality,S,1
+Gibert,Egg-to-adult development time,NS,1
+Grath,Development time,NS,1
+Hoedjes,Development time,NS,1
+Schmidt,Development time,NS,1
+Stamenkovic-Radak,Development time,NS,1
+Zwaan,Development time,NS,1
+Bergland,Diapause,S,1
+Flatt,Diapause,S,1
+Schlötterer,Diapause,NS,1
+Colinet,Dry weight,NS,1
+Hoedjes,Dry weight,NS,1
+Onder,Dry weight,NS,1
+Billeter,Fecundity,NS,1
+Fricke,Fecundity,S,1
+Parsch,Heat-shock mortality,NS,1
+Vieira,Heat-shock mortality,S,1
+Sucena,Immunity,S,1
+Flatt,Lifespan,S,1
+Parsch,Lifespan,NS,1
+Pasyukova,Lifespan,S,1
+Tauber,Locomotor activity,NS,1
+Abbott,Pigmentation,S,1
+Gibert,Pigmentation,NS,1
+Schmidt,Pigmentation,NS,1
+Gonzalez,Starvation resistance,S,1
+Onder,Starvation resistance,NS,1
+Pasyukova,Starvation resistance,S,1
+Kozeretska,Thorax length,NS,1
+Posnien,Thorax length,S,1
+Ritchie,Thorax length,S,1
+Schmidt,Thorax length,NS,1
+Schmidt,Egg-to-pupa development time,NS,1
+Gibert,Viability,NS,1
+Grath,Viability,NS,1
+Hoedjes,Viability,NS,1
+Schmidt,Viability,NS,1
+Stamenkovic-Radak,Viability,NS,1
+Zwaan,Viability,NS,1
+Onder,Wing area,NS,1
+Posnien,Wing area,S,1
+Ritchie,Wing area,S,1
+Stamenkovic-Radak,Wing area,NS,1
