@@ -4740,6 +4740,27 @@ write(intersect_Pop_Fec, file ="Fecundity/intersect_Pop_Fec.txt", sep = "\t")
 
 There are `r length(intersect_Pop_Fec) ` populations and `r length(intersect_Line_Fec) ` isofemale lines that have been phenotyped across the labs. Please refer to tables named intersect_Trait_level (i.e. intersect_Via_pop) for details. 
 
+
+
+```{r}
+Fec_fitted <- combineFitted(labs = c("Billeter", "Fricke"), sex = rep("NA", 2), models = list(Fec_lmer_Billeter, Fec_lmer_Fricke))
+
+p_Fec_lab_cor <- function() scatterPlotMatrix(Fec_fitted, sex = "NA")
+```
+
+
+```{r fig.height=8, fig.width=8}
+p_Fec_lab_cor()
+```
+```{r}
+pdf(file="Fecundity/p_Fec_lab_cor.pdf",width=8, height=8)
+p_Fec_lab_cor()
+invisible(dev.off())
+```
+
+
+
+
 ## Lifespan
 
 
