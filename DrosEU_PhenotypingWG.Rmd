@@ -8327,12 +8327,12 @@ SR_F_Gonzalez_survfit <- survfit(Surv(AgeAtDeath_hours) ~ Population, data = fil
 p_SR_F_Gonzalez_survfit <- ggsurvplot(SR_F_Gonzalez_survfit, censor.shape="|", censor.size = 0, pval = FALSE, risk.table = FALSE, conf.int = FALSE, legend.title = "Population", legend.labs = sort(c("YE","RE","GI","MU","MA","UM","KA","VA","AK")), legend = c(0.9, 0.7), title = "p_SR_F_Gonzalez")
 ```
 ```{r}
-p_SR_F_Gonzalez_survfit
+p_SR_F_Gonzalez_survfit$plot
 ```
 ```{r}
 pdf(file="Starvation/p_SR_F_Gonzalez_survfit.pdf", width=8, height=5)
-p_SR_F_Gonzalez_survfit
-dev.off()
+p_SR_F_Gonzalez_survfit$plot
+invisible(dev.off())
 ```
 ##### Males
 ```{r}
@@ -8342,12 +8342,12 @@ SR_M_Gonzalez_survfit <- survfit(Surv(AgeAtDeath_hours) ~ Population, data = fil
 p_SR_M_Gonzalez_survfit <- ggsurvplot(SR_M_Gonzalez_survfit, censor.shape="|", censor.size = 0, pval = FALSE, risk.table = FALSE, conf.int = FALSE, legend.title = "Population", legend.labs = sort(c("YE","RE","GI","MU","MA","UM","KA","VA","AK")), legend = c(0.9, 0.7), title = "p_SR_M_Gonzalez")
 ```
 ```{r}
-p_SR_M_Gonzalez_survfit
+p_SR_M_Gonzalez_survfit$plot
 ```
 ```{r}
 pdf(file="Starvation/p_SR_M_Gonzalez_survfit.pdf", width=8, height=5)
-p_SR_M_Gonzalez_survfit
-dev.off()
+p_SR_M_Gonzalez_survfit$plot
+invisible(dev.off())
 ```
 
 
@@ -8360,12 +8360,12 @@ SR_F_Onder_survfit <- survfit(Surv(AgeAtDeath_hours) ~ Population, data = filter
 p_SR_F_Onder_survfit <- ggsurvplot(SR_F_Onder_survfit, censor.shape="|", censor.size = 0, pval = FALSE, risk.table = FALSE, conf.int = FALSE, legend.title = "Population", legend.labs = sort(c("YE","RE","GI","MU","MA","UM","KA","VA","AK")), legend = c(0.9, 0.7), title = "p_SR_F_Onder")
 ```
 ```{r}
-p_SR_F_Onder_survfit
+p_SR_F_Onder_survfit$plot
 ```
 ```{r}
 pdf(file="Starvation/p_SR_F_Onder_survfit.pdf", width=8, height=5)
-p_SR_F_Onder_survfit
-dev.off()
+p_SR_F_Onder_survfit$plot
+invisible(dev.off())
 ```
 ##### Males
 ```{r}
@@ -8375,12 +8375,12 @@ SR_M_Onder_survfit <- survfit(Surv(AgeAtDeath_hours) ~ Population, data = filter
 p_SR_M_Onder_survfit <- ggsurvplot(SR_M_Onder_survfit, censor.shape="|", censor.size = 0, pval = FALSE, risk.table = FALSE, conf.int = FALSE, legend.title = "Population", legend.labs = sort(c("YE","RE","GI","MU","MA","UM","KA","VA","AK")), legend = c(0.9, 0.7), title = "p_SR_M_Onder")
 ```
 ```{r}
-p_SR_M_Onder_survfit
+p_SR_M_Onder_survfit$plot
 ```
 ```{r}
 pdf(file="Starvation/p_SR_M_Onder_survfit.pdf", width=8, height=5)
-p_SR_M_Onder_survfit
-dev.off()
+p_SR_M_Onder_survfit$plot
+invisible(dev.off())
 ```
 
 
@@ -8394,12 +8394,12 @@ SR_F_Pasyukova_survfit <- survfit(Surv(AgeAtDeath_hours) ~ Population, data = fi
 p_SR_F_Pasyukova_survfit <- ggsurvplot(SR_F_Pasyukova_survfit, censor.shape="|", censor.size = 0, pval = FALSE, risk.table = FALSE, conf.int = FALSE, legend.title = "Population", legend.labs = sort(c("YE","RE","GI","MU","MA","UM","KA","VA","AK")), legend = c(0.9, 0.7), title = "p_SR_F_Pasyukova")
 ```
 ```{r}
-p_SR_F_Pasyukova_survfit
+p_SR_F_Pasyukova_survfit$plot
 ```
 ```{r}
 pdf(file="Starvation/p_SR_F_Pasyukova_survfit.pdf", width=8, height=5)
-p_SR_F_Pasyukova_survfit
-dev.off()
+p_SR_F_Pasyukova_survfit$plot
+invisible(dev.off())
 ```
 ##### Males
 ```{r}
@@ -8409,12 +8409,12 @@ SR_M_Pasyukova_survfit <- survfit(Surv(AgeAtDeath_hours) ~ Population, data = fi
 p_SR_M_Pasyukova_survfit <- ggsurvplot(SR_M_Pasyukova_survfit, censor.shape="|", censor.size = 0, pval = FALSE, risk.table = FALSE, conf.int = FALSE, legend.title = "Population", legend.labs = sort(c("YE","RE","GI","MU","MA","UM","KA","VA","AK")), legend = c(0.9, 0.7), title = "p_SR_M_Pasyukova")
 ```
 ```{r}
-p_SR_M_Pasyukova_survfit
+p_SR_M_Pasyukova_survfit$plot
 ```
 ```{r}
 pdf(file="Starvation/p_SR_M_Pasyukova_survfit.pdf", width=8, height=5)
-p_SR_M_Pasyukova_survfit
-dev.off()
+p_SR_M_Pasyukova_survfit$plot
+invisible(dev.off())
 ```
 
 
@@ -8422,14 +8422,14 @@ dev.off()
 
 ```{r eval = FALSE}
 SR_F_coxme_Gonzalez <- coxme(Surv(AgeAtDeath_hours, Censor) ~ Population + (1|Batch) + (1|Population/Line) + (1|Population/Line/ReplicateVial), data = filter(d_SR_surv, Supervisor.PI == "Gonzalez", Sex == "F"))
-capture.output(summary(SR_F_coxme_Gonzalez), file = "Starvation/SR_F_coxme_Gonzaleza_sum.txt")
+capture.output(summary(SR_F_coxme_Gonzalez), file = "Starvation/SR_F_coxme_Gonzalez_sum.txt")
 capture.output(anova(SR_F_coxme_Gonzalez), file = "Starvation/SR_F_coxme_Gonzalez.txt")
 ```           
 
 
 ```{r eval = FALSE}
 SR_M_coxme_Gonzalez <- coxme(Surv(AgeAtDeath_hours, Censor) ~ Population + (1|Batch) + (1|Population/Line) + (1|Population/Line/ReplicateVial), data = filter(d_SR_surv, Supervisor.PI == "Gonzalez", Sex == "M"))
-capture.output(summary(SR_M_coxme_Gonzalez), file = "Starvation/SR_M_coxme_Gonzaleza_sum.txt")
+capture.output(summary(SR_M_coxme_Gonzalez), file = "Starvation/SR_M_coxme_Gonzalez_sum.txt")
 capture.output(anova(SR_M_coxme_Gonzalez), file = "Starvation/SR_M_coxme_Gonzalez.txt")
 ``` 
 
