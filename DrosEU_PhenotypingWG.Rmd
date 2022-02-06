@@ -6026,9 +6026,7 @@ y-axis is scaled by the minimum (`r min_CSM`) and maximum (`r max_CSM`) values i
 
 
 ```{r CCRT_F_lmer_Vieira}
-CCRT_F_lmer_Vieira <- lmer(CCRT_seconds ~ -1 + Population + (1|Population:Line) + (1|Batch) +
-                            (1|ReplicateVial:Line), 
-                            data = filter(d_CCRT_F, (Censor == "0") & (Supervisor.PI == "Vieira")))
+CCRT_F_lmer_Vieira <- lmer(CCRT_seconds ~ -1 + Population + (1|Population:Line) + (1|Batch) + (1|ReplicateVial:Line), data = filter(d_CCRT_F, Censor == "0" & Supervisor.PI == "Vieira"))
 capture.output(summary(CCRT_F_lmer_Vieira),file = "ChillComa/CCRT_F_lmer_Vieira_sum.txt")
 capture.output(anova(CCRT_F_lmer_Vieira),file = "ChillComa/CCRT_F_lmer_Vieira.txt")
 #capture.output(emmeans(CCRT_F_lmer_Vieira, list(pairwise ~ Population), adjust = "tukey"),file = "ChillComa/CCRT_F_lmer_Vieira_tk.txt")
@@ -6046,8 +6044,7 @@ summary(CCRT_F_lmer_Vieira)
 
 
 ```{r CCRT_M_lmer_Vieira}
-CCRT_M_lmer_Vieira <- lmer(CCRT_seconds ~ -1 + Population + (1|Population:Line) + (1|Batch) +
-                            (1|ReplicateVial:Line),  data = filter(d_CCRT_M, (Censor == "0") & (Supervisor.PI == "Vieira")))
+CCRT_M_lmer_Vieira <- lmer(CCRT_seconds ~ -1 + Population + (1|Population:Line) + (1|Batch) + (1|ReplicateVial:Line), data = filter(d_CCRT_M, Censor == "0" & Supervisor.PI == "Vieira"))
 capture.output(summary(CCRT_M_lmer_Vieira),file = "ChillComa/CCRT_M_lmer_Vieira_sum.txt")
 capture.output(anova(CCRT_M_lmer_Vieira),file = "ChillComa/CCRT_M_lmer_Vieira.txt")
 #capture.output(emmeans(CCRT_M_lmer_Vieira, list(pairwise ~ Population), adjust = "tukey"),file = "ChillComa/CCRT_M_lmer_Vieira_tk.txt")
@@ -6065,7 +6062,6 @@ summary(CCRT_M_lmer_Vieira)
 
 
 ```{r p_CCRT_F_Vieira}
-
 p_CCRT_F_Vieira <- ggplot(data = filter(d_CCRT_F, (Censor == "0") & (Supervisor.PI == "Vieira")), aes(x=Population_Lat, y=CCRT_seconds, fill=Batch)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
         labs(title="p_CCRT_F_Vieira", x="Population", y = "CCRT_seconds") + coord_cartesian(ylim = c(625, 3625))+ droseu_theme
@@ -6143,6 +6139,38 @@ dev.off()
 ### Lab correlations
 
 NA
+
+```{r eval=FALSE, include=FALSE}
+CCRT_fitted <- combineFitted(labs = rep(c("Vieira", "Mensh"), 2), sex = rep(c("F", "M"), each = 2), models = list(CCRT_F_lmer_Vieira, CCRT_F_lmer_Mensh, CCRT_M_lmer_Vieira, CCRT_M_lmer_Mensh)
+
+p_CCRT_F_lab_cor <- function() scatterPlotMatrix(CCRT_fitted, sex = "F")
+p_CCRT_M_lab_cor <- function() scatterPlotMatrix(CCRT_fitted, sex = "M")
+```
+
+```{r fig.height=8, fig.width=8 eval=FALSE, include=FALSE}
+p_CCRT_F_lab_cor()
+```
+
+```{r eval=FALSE, include=FALSE}
+pdf(file="ChillComa/p_CCRT_F_lab_cor.pdf",width=8, height=8)
+p_CCRT_F_lab_cor()
+invisible(dev.off())
+```
+
+
+```{r fig.height=8, fig.width=8 eval=FALSE, include=FALSE}
+p_CCRT_M_lab_cor()
+```
+
+```{r eval=FALSE, include=FALSE}
+pdf(file="ChillComa/p_CCRT_M_lab_cor.pdf",width=8, height=8)
+p_CCRT_M_lab_cor()
+invisible(dev.off())
+```
+
+
+
+
 
 ## Heat-shock mortality
 
