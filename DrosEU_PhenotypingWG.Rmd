@@ -6335,8 +6335,7 @@ dev.off()
 #### Parsch Lab
 
 ```{r HSM_F_lmer_Parsch}
-HSM_F_lmer_Parsch <- lmer(TimeDeath_min ~ -1 + Population  + (1| Line : Population) +
-                                  (1|Batch), data = filter(d_HSM_F, (Censor == "0") & (Supervisor.PI == "Parsch")))
+HSM_F_lmer_Parsch <- lmer(TimeDeath_min ~ -1 + Population  + (1| Line : Population) + (1|Batch), data = filter(d_HSM_F, Censor == "0" & Supervisor.PI == "Parsch"))
 capture.output(summary(HSM_F_lmer_Parsch),file = "HeatShock/HSM_F_lmer_sum_Parsch.txt")
 capture.output(anova(HSM_F_lmer_Parsch),file = "HeatShock/HSM_F_lmer_Parsch.txt")
 #capture.output(emmeans(HSM_F_lmer_Parsch, list(pairwise ~ Population), adjust = "tukey"),file = "HeatShock/HSM_F_lmer_Parsch_tk.txt")
@@ -6351,8 +6350,7 @@ summary(HSM_F_lmer_Parsch)
 ```
 
 ```{r HSM_M_lmer_Parsch}
-HSM_M_lmer_Parsch <- lmer(TimeDeath_min ~ -1 + Population  + (1| Line : Population) +
-                                  (1|Batch), data = filter(d_HSM_M, (Censor == "0") & (Supervisor.PI == "Parsch")))
+HSM_M_lmer_Parsch <- lmer(TimeDeath_min ~ -1 + Population  + (1| Line : Population) + (1|Batch), data = filter(d_HSM_M, Censor == "0" & Supervisor.PI == "Parsch"))
 capture.output(summary(HSM_M_lmer_Parsch),file = "HeatShock/HSM_M_lmer_sum_Parsch.txt")
 capture.output(anova(HSM_M_lmer_Parsch),file = "HeatShock/HSM_M_lmer_Parsch.txt")
 #capture.output(emmeans(HSM_M_lmer_Parsch, list(pairwise ~ Population), adjust = "tukey"),file = "HeatShock/HSM_M_lmer_Parsch_tk.txt")
@@ -6441,10 +6439,9 @@ dev.off()
 
 
 ```{r HSM_F_lmer_Vieira}
-HSM_F_lmer_Vieira <- lmer(TimeDeath_min ~ -1 + Population  + (1| Line : Population) +
-                                  (1|Batch), data = filter(d_HSM_F, (Censor == "0") & (Supervisor.PI == "Vieira")))
-capture.output(summary(HSM_F_lmer_Vieira),file = "HeatShock/HSM_F_lmer_sum_Vieira.txt")
-capture.output(anova(HSM_F_lmer_Vieira),file = "HeatShock/HSM_F_lmer_Vieira.txt")
+HSM_F_lmer_Vieira <- lmer(TimeDeath_min ~ -1 + Population  + (1|Line:Population) + (1|Batch), data = filter(d_HSM_F, Censor == "0" & Supervisor.PI == "Vieira"))
+capture.output(summary(HSM_F_lmer_Vieira), file = "HeatShock/HSM_F_lmer_sum_Vieira.txt")
+capture.output(anova(HSM_F_lmer_Vieira), file = "HeatShock/HSM_F_lmer_Vieira.txt")
 #capture.output(emmeans(HSM_F_lmer_Vieira, list(pairwise ~ Population), adjust = "tukey"),file = "HeatShock/HSM_F_lmer_Vieira_tk.txt")
 ```
 
@@ -6457,10 +6454,9 @@ summary(HSM_F_lmer_Vieira)
 ```
 
 ```{r HSM_M_lmer_Vieira}
-HSM_M_lmer_Vieira <- lmer(TimeDeath_min ~ -1 + Population  + (1| Line : Population) +
-                                  (1|Batch), data = filter(d_HSM_M, (Censor == "0") & (Supervisor.PI == "Vieira")))
-capture.output(summary(HSM_M_lmer_Vieira),file = "HeatShock/HSM_M_lmer_sum_Vieira.txt")
-capture.output(anova(HSM_M_lmer_Vieira),file = "HeatShock/HSM_M_lmer_Vieira.txt")
+HSM_M_lmer_Vieira <- lmer(TimeDeath_min ~ -1 + Population  + (1|Line:Population) + (1|Batch), data = filter(d_HSM_M, Censor == "0" & Supervisor.PI == "Vieira"))
+capture.output(summary(HSM_M_lmer_Vieira), file = "HeatShock/HSM_M_lmer_sum_Vieira.txt")
+capture.output(anova(HSM_M_lmer_Vieira), file = "HeatShock/HSM_M_lmer_Vieira.txt")
 #capture.output(emmeans(HSM_M_lmer_Vieira, list(pairwise ~ Population), adjust = "tukey"),file = "HeatShock/HSM_M_lmer_Vieira_tk.txt")
 ```
 
@@ -6556,6 +6552,40 @@ write(intersect_Pop_HSM, file ="HeatShock/intersect_Pop_HSM.txt", sep = "\t")
 ```
 
 There are `r length(intersect_Pop_HSM) ` populations and `r length(intersect_Line_HSM) ` isofemale lines that have been phenotyped across the labs. Please refer to tables named intersect_Trait_level (i.e. intersect_Via_pop) for details. 
+
+
+
+
+```{r}
+HSM_fitted <- combineFitted(labs = rep(c("Parsch", "Vieira"), 2), sex = rep(c("F", "M"), each = 2), models = list(HSM_F_lmer_Parsch, HSM_F_lmer_Vieira, HSM_M_lmer_Parsch, HSM_M_lmer_Vieira))
+
+p_HSM_F_lab_cor <- function() scatterPlotMatrix(HSM_fitted, sex = "F")
+p_HSM_M_lab_cor <- function() scatterPlotMatrix(HSM_fitted, sex = "M")
+```
+
+```{r fig.height=8, fig.width=8}
+p_HSM_F_lab_cor()
+```
+
+```{r}
+pdf(file="HeatShock/p_HSM_F_lab_cor.pdf",width=8, height=8)
+p_HSM_F_lab_cor()
+invisible(dev.off())
+```
+
+
+```{r fig.height=8, fig.width=8}
+p_HSM_M_lab_cor()
+```
+
+```{r}
+pdf(file="HeatShock/p_HSM_M_lab_cor.pdf",width=8, height=8)
+p_HSM_M_lab_cor()
+invisible(dev.off())
+```
+
+
+
 
 
 ## Diapause
