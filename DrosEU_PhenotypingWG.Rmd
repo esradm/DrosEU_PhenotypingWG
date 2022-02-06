@@ -5018,7 +5018,7 @@ dev.off()
 
 ```{r LS_P_F_Flatt_lmer}
 
-LS_P_F_Flatt_lmer <- lmer(LSP_AgeAtDeath_days ~ -1 + Population + (1|Population:ReplicateCage), data = filter(d_LS_P_F, (Censor == "0") & (Supervisor.PI == "Flatt")))
+LS_P_F_Flatt_lmer <- lmer(LSP_AgeAtDeath_days ~ -1 + Population + (1|Population:ReplicateCage), data = filter(d_LS_P_F, Censor == "0" & Supervisor.PI == "Flatt"))
 capture.output(summary(LS_P_F_Flatt_lmer),file = "Lifespan/LS_P_F_Flatt_lmer.txt")
 capture.output(anova(LS_P_F_Flatt_lmer),file = "Lifespan/LS_P_F_Flatt_lmer.txt")
 #capture.output(emmeans(LS_P_F_Flatt_lmer, list(pairwise ~ Population), adjust = "tukey"),file = "LS_P_F_Flatt_lmer_tk.txt")
@@ -5033,7 +5033,7 @@ summary(LS_P_F_Flatt_lmer)
 ```
 
 ```{r LS_P_M_Flatt_lmer}
-LS_P_M_Flatt_lmer <- lmer(LSP_AgeAtDeath_days ~ -1 + Population + (1|Population:ReplicateCage), data = filter(d_LS_P_M, (Censor == "0") & (Supervisor.PI == "Flatt")))
+LS_P_M_Flatt_lmer <- lmer(LSP_AgeAtDeath_days ~ -1 + Population + (1|Population:ReplicateCage), data = filter(d_LS_P_M, Censor == "0" & Supervisor.PI == "Flatt"))
 capture.output(summary(LS_P_M_Flatt_lmer),file = "Lifespan/LS_P_M_Flatt_lmer_sum.txt")
 capture.output(anova(LS_P_M_Flatt_lmer),file = "Lifespan/LS_P_M_Flatt_lmer.txt")
 #capture.output(emmeans(LS_P_F_Flatt_lmer, list(pairwise ~ Population), adjust = "tukey"),file = "LS_P_M_Flatt_lmer_tk.txt")
@@ -5086,8 +5086,7 @@ dev.off()
 
 
 ```{r LS_L_F_Parsch_lmer}
-LS_L_F_Parsch_lmer <- lmer(LSL_AgeAtDeath_days ~ -1 + Population + (1|Batch) + (1|Population:Line) + 
-                                     (1|Line:ReplicateVial), data = filter(d_LS_L_F, (Censor == "0") & (Supervisor.PI == "Parsch")))
+LS_L_F_Parsch_lmer <- lmer(LSL_AgeAtDeath_days ~ -1 + Population + (1|Batch) + (1|Population:Line) + (1|Line:ReplicateVial), data = filter(d_LS_L_F, Censor == "0" & Supervisor.PI == "Parsch"))
 capture.output(summary(LS_L_F_Parsch_lmer),file = "Lifespan/LS_L_F_Parsch_lmer_sum.txt")
 capture.output(anova(LS_L_F_Parsch_lmer),file = "Lifespan/LS_L_F_Parsch_lmer.txt")
 #capture.output(emmeans(LS_L_F_Parsch_lmer, list(pairwise ~ Population), adjust = "tukey"),file = "d_LS_L_F_Parsch_lmer_tk.txt")
@@ -5103,8 +5102,7 @@ summary(LS_L_F_Parsch_lmer)
 ```
 
 ```{r LS_L_M_Parsch_lmer}
-LS_L_M_Parsch_lmer <- lmer(LSL_AgeAtDeath_days ~ -1 + Population + (1|Batch) + (1|Population:Line) + 
-                                     (1|Line:ReplicateVial), data = filter(d_LS_L_M, (Censor == "0") & (Supervisor.PI == "Parsch")))
+LS_L_M_Parsch_lmer <- lmer(LSL_AgeAtDeath_days ~ -1 + Population + (1|Batch) + (1|Population:Line) + (1|Line:ReplicateVial), data = filter(d_LS_L_M, Censor == "0" & Supervisor.PI == "Parsch"))
 capture.output(summary(LS_L_M_Parsch_lmer),file = "Lifespan/LS_L_M_Parsch_lmer_sum.txt")
 capture.output(anova(LS_L_M_Parsch_lmer),file = "Lifespan/LS_L_M_Parsch_lmer.txt")
 #capture.output(emmeans(LS_L_F_Parsch_lmer, list(pairwise ~ Population), adjust = "tukey"),file = "LS_L_M_Parsch_lmer_tk.txt")
@@ -5188,8 +5186,7 @@ dev.off()
 #### Pasyukova Lab
 
 ```{r LS_L_F_Pasyukova_lmer}
-LS_L_F_Pasyukova_lmer <- lmer(LSL_AgeAtDeath_days ~ -1 + Population + (1|Batch) + (1|Population:Line) + 
-                                        (1|Line:ReplicateVial), data = filter(d_LS_L_F, (Censor == "0") & (Supervisor.PI == "Pasyukova")))
+LS_L_F_Pasyukova_lmer <- lmer(LSL_AgeAtDeath_days ~ -1 + Population + (1|Batch) + (1|Population:Line) + (1|Line:ReplicateVial), data = filter(d_LS_L_F, Censor == "0" & Supervisor.PI == "Pasyukova"))
 capture.output(summary(LS_L_F_Pasyukova_lmer),file = "Lifespan/LS_L_F_Pasyukova_lmer_sum.txt")
 capture.output(anova(LS_L_F_Pasyukova_lmer),file = "Lifespan/LS_L_F_Pasyukova_lmer.txt")
 #capture.output(emmeans(LS_L_F_Pasyukova_lmer, list(pairwise ~ Population), adjust = "tukey"),file = "LS_L_F_Pasyukova_lmer_tk.txt")
@@ -5205,8 +5202,7 @@ summary(LS_L_F_Pasyukova_lmer)
 
 
 ```{r LS_L_M_Pasyukova_lmer}
-LS_L_M_Pasyukova_lmer <- lmer(LSL_AgeAtDeath_days ~ -1 + Population + (1|Batch) + (1|Population:Line) + 
-                                        (1|Line:ReplicateVial), data = filter(d_LS_L_M, (Censor == "0") & (Supervisor.PI == "Pasyukova")))
+LS_L_M_Pasyukova_lmer <- lmer(LSL_AgeAtDeath_days ~ -1 + Population + (1|Batch) + (1|Population:Line) + (1|Line:ReplicateVial), data = filter(d_LS_L_M, Censor == "0" & Supervisor.PI == "Pasyukova"))
 capture.output(summary(LS_L_M_Pasyukova_lmer),file = "Lifespan/LS_L_M_Pasyukova_lmer_sum.txt")
 capture.output(anova(LS_L_M_Pasyukova_lmer),file = "Lifespan/LS_L_M_Pasyukova_lmer.txt")
 #capture.output(emmeans(d_LS_L_F_Pasyukova_lmer, list(pairwise ~ Population), adjust = "tukey"),file = "LS_L_M_Pasyukova_lmer_tk.txt")
@@ -5314,6 +5310,35 @@ write(intersect_Pop_LS, file ="Lifespan/intersect_Pop_LS", sep = "\t")
 ```
 
 There are `r length(intersect_Pop_LS) ` populations and `r length(intersect_Line_LS) ` isofemale lines that have been phenotyped across the labs. Please refer to tables named intersect_Trait_level (i.e. intersect_Via_pop) for details. 
+
+
+```{r}
+LS_fitted <- combineFitted(labs = rep(c("Flatt", "Parsch", "Pasyukova"), 2), sex = rep(c("F", "M"), each = 3), models = list(LS_P_F_Flatt_lmer, LS_L_F_Parsch_lmer, LS_L_F_Pasyukova_lmer, LS_P_M_Flatt_lmer, LS_L_M_Parsch_lmer, LS_L_M_Pasyukova_lmer))
+
+p_LS_F_lab_cor <- function() scatterPlotMatrix(LS_fitted, sex = "F")
+p_LS_M_lab_cor <- function() scatterPlotMatrix(LS_fitted, sex = "M")
+```
+
+```{r fig.height=8, fig.width=8}
+p_LS_F_lab_cor()
+```
+
+```{r}
+pdf(file="Lifespan/p_LS_F_lab_cor.pdf",width=8, height=8)
+p_LS_F_lab_cor()
+invisible(dev.off())
+```
+
+```{r fig.height=8, fig.width=8}
+p_LS_M_lab_cor()
+```
+
+```{r}
+pdf(file="Lifespan/p_LS_M_lab_cor.pdf",width=8, height=8)
+p_LS_M_lab_cor()
+invisible(dev.off())
+```
+
 
 
 ## Cold-shock mortality
