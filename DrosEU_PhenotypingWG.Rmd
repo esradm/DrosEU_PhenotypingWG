@@ -5284,13 +5284,156 @@ dev.off()
 ```
 
 
-### Survival Analyses
+### Survival 
+
+```{r}
+d_LS_P_surv <- d_LS_P %>% mutate(Censor = ifelse(Censor == 0, 1, 0))
+d_LS_L_surv <- d_LS_L %>% mutate(Censor = ifelse(Censor == 0, 1, 0))
+```
+
 
 #### Flatt Lab
+##### Females
+```{r}
+LS_F_Flatt_survfit <- survfit(Surv(LSP_AgeAtDeath_days) ~ Population, data = filter(d_LS_P_surv, Supervisor.PI == "Flatt", Sex == "F"))
+```
+```{r}
+p_LS_F_Flatt_survfit <- ggsurvplot(LS_F_Flatt_survfit, censor.shape="|", censor.size = 0, pval = FALSE, risk.table = FALSE, conf.int = FALSE, legend.title = "Population", legend.labs = sort(c("YE","RE","GI","MU","MA","UM","KA","VA","AK")), legend = c(0.9, 0.7), title = "LS_F_Flatt_survfit")
+```
+```{r}
+p_LS_F_Flatt_survfit$plot
+```
+```{r}
+pdf(file="Lifespan/p_LS_F_Flatt_survfit.pdf", width=8, height=5)
+p_LS_F_Flatt_survfit$plot
+invisible(dev.off())
+```
 
-#### Parsch Lab 
+##### Males
+```{r}
+LS_M_Flatt_survfit <- survfit(Surv(LSP_AgeAtDeath_days) ~ Population, data = filter(d_LS_P_surv, Supervisor.PI == "Flatt", Sex == "M"))
+```
+```{r}
+p_LS_M_Flatt_survfit <- ggsurvplot(LS_M_Flatt_survfit, censor.shape="|", censor.size = 0, pval = FALSE, risk.table = FALSE, conf.int = FALSE, legend.title = "Population", legend.labs = sort(c("YE","RE","GI","MU","MA","UM","KA","VA","AK")), legend = c(0.9, 0.7), title = "LS_M_Flatt_survfit")
+```
+```{r}
+p_LS_M_Flatt_survfit$plot
+```
+```{r}
+pdf(file="Lifespan/p_LS_M_Flatt_survfit.pdf", width=8, height=5)
+p_LS_M_Flatt_survfit$plot
+invisible(dev.off())
+```
+
+
+
+#### Parsch Lab
+##### Females
+```{r}
+LS_F_Parsch_survfit <- survfit(Surv(LSL_AgeAtDeath_days) ~ Population, data = filter(d_LS_L_surv, Supervisor.PI == "Parsch", Sex == "F"))
+```
+```{r}
+p_LS_F_Parsch_survfit <- ggsurvplot(LS_F_Parsch_survfit, censor.shape="|", censor.size = 0, pval = FALSE, risk.table = FALSE, conf.int = FALSE, legend.title = "Population", legend.labs = sort(c("YE","RE","GI","MU","MA","UM","KA","VA","AK")), legend = c(0.9, 0.7), title = "LS_F_Parsch_survfit")
+```
+```{r}
+p_LS_F_Parsch_survfit$plot
+```
+```{r}
+pdf(file="Lifespan/p_LS_F_Parsch_survfit.pdf", width=8, height=5)
+p_LS_F_Parsch_survfit$plot
+invisible(dev.off())
+```
+
+##### Males
+```{r}
+LS_M_Parsch_survfit <- survfit(Surv(LSL_AgeAtDeath_days) ~ Population, data = filter(d_LS_L_surv, Supervisor.PI == "Parsch", Sex == "M"))
+```
+```{r}
+p_LS_M_Parsch_survfit <- ggsurvplot(LS_M_Parsch_survfit, censor.shape="|", censor.size = 0, pval = FALSE, risk.table = FALSE, conf.int = FALSE, legend.title = "Population", legend.labs = sort(c("YE","RE","GI","MU","MA","UM","KA","VA","AK")), legend = c(0.9, 0.7), title = "LS_M_Parsch_survfit")
+```
+```{r}
+p_LS_M_Parsch_survfit$plot
+```
+```{r}
+pdf(file="Lifespan/p_LS_M_Parsch_survfit.pdf", width=8, height=5)
+p_LS_M_Parsch_survfit$plot
+invisible(dev.off())
+```
+
 
 #### Pasyukova Lab
+##### Females
+```{r}
+LS_F_Pasyukova_survfit <- survfit(Surv(LSL_AgeAtDeath_days) ~ Population, data = filter(d_LS_L_surv, Supervisor.PI == "Pasyukova", Sex == "F"))
+```
+```{r}
+p_LS_F_Pasyukova_survfit <- ggsurvplot(LS_F_Pasyukova_survfit, censor.shape="|", censor.size = 0, pval = FALSE, risk.table = FALSE, conf.int = FALSE, legend.title = "Population", legend.labs = sort(c("YE","RE","GI","MU","MA","UM","KA","VA","AK")), legend = c(0.9, 0.7), title = "LS_F_Pasyukova_survfit")
+```
+```{r}
+p_LS_F_Pasyukova_survfit$plot
+```
+```{r}
+pdf(file="Lifespan/p_LS_F_Pasyukova_survfit.pdf", width=8, height=5)
+p_LS_F_Pasyukova_survfit$plot
+invisible(dev.off())
+```
+
+##### Males
+```{r}
+LS_M_Pasyukova_survfit <- survfit(Surv(LSL_AgeAtDeath_days) ~ Population, data = filter(d_LS_L_surv, Supervisor.PI == "Pasyukova", Sex == "M"))
+```
+```{r}
+p_LS_M_Pasyukova_survfit <- ggsurvplot(LS_M_Pasyukova_survfit, censor.shape="|", censor.size = 0, pval = FALSE, risk.table = FALSE, conf.int = FALSE, legend.title = "Population", legend.labs = sort(c("YE","RE","GI","MU","MA","UM","KA","VA","AK")), legend = c(0.9, 0.7), title = "LS_M_Pasyukova_survfit")
+```
+```{r}
+p_LS_M_Pasyukova_survfit$plot
+```
+```{r}
+pdf(file="Lifespan/p_LS_M_Pasyukova_survfit.pdf", width=8, height=5)
+p_LS_M_Pasyukova_survfit$plot
+invisible(dev.off())
+```
+
+
+### coxme
+
+```{r eval = FALSE}
+LS_P_F_coxme_Flatt <- coxme(Surv(LSP_AgeAtDeath_days, Censor) ~ Population + (1|Population/ReplicateCage), data = filter(d_LS_P_surv, Supervisor.PI == "Flatt", Sex == "F"))
+capture.output(summary(LS_P_F_coxme_Flatt), file = "Starvation/LS_P_F_coxme_Flatt_sum.txt")
+capture.output(anova(LS_P_F_coxme_Flatt), file = "Starvation/LS_P_F_coxme_Flatt.txt")
+```           
+```{r eval = FALSE}
+LS_P_M_coxme_Flatt <- coxme(Surv(LSP_AgeAtDeath_days, Censor) ~ Population + (1|Population/ReplicateCage), data = filter(d_LS_P_surv, Supervisor.PI == "Flatt", Sex == "M"))
+capture.output(summary(LS_P_M_coxme_Flatt), file = "Starvation/LS_P_M_coxme_Flatt_sum.txt")
+capture.output(anova(LS_P_M_coxme_Flatt), file = "Starvation/LS_P_M_coxme_Flatt")
+```           
+
+
+```{r eval = FALSE}
+LS_L_F_coxme_Parsch <- coxme(Surv(AgeAtDeath_hours, Censor) ~ Population + (1|Batch) + (1|Population/Line) + (1|Population/Line/ReplicateVial), data = filter(d_LS_L_surv, Supervisor.PI == "Parsch", Sex == "F"))
+capture.output(summary(LS_L_F_coxme_Parsch), file = "Starvation/LS_L_F_coxme_Parsch_sum.txt")
+capture.output(anova(LS_L_F_coxme_Parsch), file = "Starvation/LS_L_F_coxme_Parsch.txt")
+```  
+
+```{r eval = FALSE}
+LS_L_M_coxme_Parsch <- coxme(Surv(AgeAtDeath_hours, Censor) ~ Population + (1|Batch) + (1|Population/Line) + (1|Population/Line/ReplicateVial), data = filter(d_LS_L_surv, Supervisor.PI == "Parsch", Sex == "M"))
+capture.output(summary(LS_L_M_coxme_Parsch), file = "Starvation/LS_L_M_coxme_Parsch_sum.txt")
+capture.output(anova(LS_L_M_coxme_Parsch), file = "Starvation/LS_L_M_coxme_Parsch.txt")
+```  
+
+
+```{r eval = FALSE}
+LS_L_F_coxme_Pasyukova <- coxme(Surv(AgeAtDeath_hours, Censor) ~ Population + (1|Batch) + (1|Population/Line) + (1|Population/Line/ReplicateVial), data = filter(d_LS_L_surv, Supervisor.PI == "Pasyukova", Sex == "F"))
+capture.output(summary(LS_L_F_coxme_Pasyukova), file = "Starvation/LS_L_F_coxme_Pasyukova_sum.txt")
+capture.output(anova(LS_L_F_coxme_Pasyukova), file = "Starvation/LS_L_F_coxme_Pasyukova.txt")
+```  
+
+```{r eval = FALSE}
+LS_L_M_coxme_Pasyukova <- coxme(Surv(AgeAtDeath_hours, Censor) ~ Population + (1|Batch) + (1|Population/Line) + (1|Population/Line/ReplicateVial), data = filter(d_LS_L_surv, Supervisor.PI == "Pasyukova", Sex == "M"))
+capture.output(summary(LS_L_M_coxme_Pasyukova), file = "Starvation/LS_L_M_coxme_Pasyukova_sum.txt")
+capture.output(anova(LS_L_M_coxme_Pasyukova), file = "Starvation/LS_L_M_coxme_Pasyukova.txt")
+```  
+
 
 ### Lab correlations
 
