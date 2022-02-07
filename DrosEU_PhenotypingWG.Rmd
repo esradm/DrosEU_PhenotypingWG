@@ -448,7 +448,6 @@ Here is an example code for figures (egg-to-adult viabiliy, Gibert Lab). The ver
 p_Via_Gibert <- ggplot(data = (subset(d_Via,Supervisor.PI=='Gibert')), #subsets for supervisor
                        aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Batch)) + #define x- and y-axis
                        geom_boxplot(outlier.shape = NA, notch=FALSE) +  #boxplot
-                       geom_jitter(width=0.2,alpha=0.05) + #jitters
                        labs(title="p_Via_Gibert", x="Population", y = "ProportionEggtoAdultSurvival") + 
                       ylim(c(min_Via, max_Via)) + 
                       droseu_theme #y-axis limits, axis labels and droseu_theme
@@ -1092,7 +1091,7 @@ summary(DT_P_lmer)
 ```{r p_DT_P_Schmidt, echo=TRUE, message= FALSE, warning=FALSE}
 
 p_DT_P_Schmidt <- ggplot(data = (subset(d_DT_P,Supervisor.PI=='Schmidt')), aes(x=Population_Lat, y=DT_EggPupa, fill=Population)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.01) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
         labs(title="p_DT_P_Schmidt", x="Population", y = "DT_EggPupa") + ylim(c(min_DT_P, max_DT_P))+ droseu_theme
 
 ```
@@ -1307,7 +1306,7 @@ summary(DT_A_M_lmer_Gibert)
 ```{r p_DT_A_F_Gibert}
 
 p_DT_A_F_Gibert <- ggplot(data = (subset(d_DT_A_F,Supervisor.PI=='Gibert')), aes(x=Population_Lat, y=DT_EggAdult, fill=Batch)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.01) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
         labs(title="p_DT_A_F_Gibert", x="Population", y = "DT_EggAdult") + ylim(c(min_DT_A, max_DT_A))+ droseu_theme
 
 ```
@@ -1325,7 +1324,7 @@ dev.off()
 
 ```{r p_DT_A_F_pop_Gibert, echo=FALSE}
 p_DT_A_F_pop_Gibert <- ggplot(data = (subset(d_DT_A_F,Supervisor.PI=='Gibert')), aes(x=Population_Lat, y=DT_EggAdult, fill=Population)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.01) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
         labs(title="p_DT_A_F_pop_Gibert", x="Population", y = "DT_EggAdult")+ ylim(c(min_DT_A, max_DT_A))+ droseu_theme
 
 ```
@@ -1344,7 +1343,7 @@ dev.off()
 ```{r p_DT_A_M_Gibert, echo=FALSE}
 
 p_DT_A_M_Gibert <- ggplot(data = (subset(d_DT_A_M,Supervisor.PI=='Gibert')), aes(x=Population_Lat, y=DT_EggAdult, fill=Batch)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.01) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
         labs(title="p_DT_A_M_Gibert", x="Population", y = "DT_EggAdult") + ylim(c(min_DT_A, max_DT_A))+ droseu_theme
 
 ```
@@ -1364,7 +1363,7 @@ dev.off()
 ```{r p_DT_A_M_pop_Gibert}
 
 p_DT_A_M_pop_Gibert <- ggplot(data = (subset(d_DT_A_M,Supervisor.PI=='Gibert')), aes(x=Population_Lat, y=DT_EggAdult, fill=Population)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.01) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
         labs(title="p_DT_A_M_pop_Gibert", x="Population", y = "DT_EggAdult")+ ylim(c(min_DT_A, max_DT_A))+ droseu_theme
 
 ```
@@ -1414,7 +1413,7 @@ summary(DT_A_M_lmer_Grath)
 ```{r p_DT_A_F_Grath}
 pdf(file="DevelopmentTime/p_DT_A_F_Grath.pdf",width=8, height=5)
 p_DT_A_F_Grath <- ggplot(data = (subset(d_DT_A_F,Supervisor.PI=='Grath')), aes(x=Population_Lat, y=DT_EggAdult, fill=Batch)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.01) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
         labs(title="p_DT_A_F_Grath", x="Population", y = "DT_EggAdult")
 
 p_DT_A_F_Grath + ylim(c(min_DT_A, max_DT_A))+ droseu_theme
@@ -1433,7 +1432,7 @@ dev.off()
 ```{r p_DT_A_F_pop_Grath}
 
 p_DT_A_F_pop_Grath <- ggplot(data = (subset(d_DT_A_F,Supervisor.PI=='Grath')), aes(x=Population_Lat, y=DT_EggAdult, fill=Population)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.01) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
         labs(title="p_DT_A_F_pop_Grath", x="Population", y = "DT_EggAdult") + ylim(c(min_DT_A, max_DT_A))+ droseu_theme
 
 ```
@@ -1453,7 +1452,7 @@ dev.off()
 ```{r p_DT_A_M_Grath}
 
 p_DT_A_M_Grath <- ggplot(data = (subset(d_DT_A_M,Supervisor.PI=='Grath')), aes(x=Population_Lat, y=DT_EggAdult, fill=Batch)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.01) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
         labs(title="p_DT_A_M_Grath", x="Population", y = "DT_EggAdult") + ylim(c(min_DT_A, max_DT_A))+ droseu_theme
 
 ```
@@ -1473,7 +1472,7 @@ dev.off()
 ```{r p_DT_A_M_pop_Grath}
 
 p_DT_A_M_pop_Grath <- ggplot(data = (subset(d_DT_A_M,Supervisor.PI=='Grath')), aes(x=Population_Lat, y=DT_EggAdult, fill=Population)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.01) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
         labs(title="p_DT_A_M_pop_Grath", x="Population", y = "DT_EggAdult") + ylim(c(min_DT_A, max_DT_A))+ droseu_theme
 
 ```
@@ -1528,7 +1527,7 @@ summary(DT_A_M_lmer_Hoedjes)
 ```{r p_DT_A_F_Hoedjes}
 
 p_DT_A_F_Hoedjes <- ggplot(data = (subset(d_DT_A_F,Supervisor.PI=='Hoedjes')), aes(x=Population_Lat, y=DT_EggAdult, fill=Batch)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.01) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
         labs(title="p_DT_A_F_Hoedjes", x="Population", y = "DT_EggAdult")+ ylim(c(min_DT_A, max_DT_A))+ droseu_theme
 
 ```
@@ -1547,7 +1546,7 @@ dev.off()
 ```{r p_DT_A_F_pop_Hoedjes}
 
 p_DT_A_F_pop_Hoedjes <- ggplot(data = (subset(d_DT_A_F,Supervisor.PI=='Hoedjes')), aes(x=Population_Lat, y=DT_EggAdult, fill=Population)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.01) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
         labs(title="p_DT_A_F_pop_Hoedjes", x="Population", y = "DT_EggAdult") + ylim(c(min_DT_A, max_DT_A))+ droseu_theme
 
 ```
@@ -1566,7 +1565,7 @@ dev.off()
 ```{r p_DT_A_M_Hoedjes}
 
 p_DT_A_M_Hoedjes <- ggplot(data = (subset(d_DT_A_M,Supervisor.PI=='Hoedjes')), aes(x=Population_Lat, y=DT_EggAdult, fill=Batch)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.01) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
         labs(title="p_DT_A_M_Hoedjes", x="Population", y = "DT_EggAdult")+ ylim(c(min_DT_A, max_DT_A))+ droseu_theme
 ```
 
@@ -1584,7 +1583,7 @@ dev.off()
 ```{r p_DT_A_M_pop_Hoedjes}
 
 p_DT_A_M_pop_Hoedjes <- ggplot(data = (subset(d_DT_A_M,Supervisor.PI=='Hoedjes')), aes(x=Population_Lat, y=DT_EggAdult, fill=Population)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.01) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
         labs(title="p_DT_A_M_pop_Hoedjes", x="Population", y = "DT_EggAdult") + ylim(c(min_DT_A, max_DT_A))+ droseu_theme
 
 ```
@@ -1637,7 +1636,7 @@ summary(DT_A_M_lmer_Schmidt)
 ```{r p_DT_A_F_Schmidt}
 
 p_DT_A_F_Schmidt <- ggplot(data = (subset(d_DT_A_F,Supervisor.PI=='Schmidt')), aes(x=Population_Lat, y=DT_EggAdult, fill=Batch)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.01) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
         labs(title="p_DT_A_F_Schmidt", x="Population", y = "DT_EggAdult") + ylim(c(min_DT_A, max_DT_A))+ droseu_theme
 
 ```
@@ -1655,7 +1654,7 @@ dev.off()
 ```{r p_DT_A_F_pop_Schmidt}
 
 p_DT_A_F_pop_Schmidt <- ggplot(data = (subset(d_DT_A_F,Supervisor.PI=='Schmidt')), aes(x=Population_Lat, y=DT_EggAdult, fill=Population)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.01) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
         labs(title="p_DT_A_F_pop_Schmidt", x="Population", y = "DT_EggAdult") + ylim(c(min_DT_A, max_DT_A))+ droseu_theme
 
 ```
@@ -1673,7 +1672,7 @@ dev.off()
 ```{r p_DT_A_M_Schmidt}
 
 p_DT_A_M_Schmidt <- ggplot(data = (subset(d_DT_A_M,Supervisor.PI=='Schmidt')), aes(x=Population_Lat, y=DT_EggAdult, fill=Batch)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.01) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
         labs(title="p_DT_A_M_Schmidt", x="Population", y = "DT_EggAdult") + ylim(c(min_DT_A, max_DT_A))+ droseu_theme
 
 ```
@@ -1692,7 +1691,7 @@ dev.off()
 ```{r p_DT_A_M_pop_Schmidt}
 
 p_DT_A_M_pop_Schmidt <- ggplot(data = (subset(d_DT_A_M,Supervisor.PI=='Schmidt')), aes(x=Population_Lat, y=DT_EggAdult, fill=Population)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.01) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
         labs(title="p_DT_A_M_pop_Schmidt", x="Population", y = "DT_EggAdult") + ylim(c(min_DT_A, max_DT_A))+ droseu_theme
 
 ```
@@ -1744,7 +1743,7 @@ summary(DT_A_M_lmer_StamenkovicRadak)
 ```{r p_DT_A_F_StamenkovicRadak}
 
 p_DT_A_F_StamenkovicRadak <- ggplot(data = (subset(d_DT_A_F,Supervisor.PI=='StamenkovicRadak')), aes(x=Population_Lat, y=DT_EggAdult, fill=Batch)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.01) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
         labs(title="p_DT_A_F_StamenkovicRadak", x="Population", y = "DT_EggAdult") + ylim(c(min_DT_A, max_DT_A))+ droseu_theme
 
 ```
@@ -1762,7 +1761,7 @@ dev.off()
 
 ```{r p_DT_A_F_pop_StamenkovicRadak}
 p_DT_A_F_pop_StamenkovicRadak <- ggplot(data = (subset(d_DT_A_F,Supervisor.PI=='StamenkovicRadak')), aes(x=Population_Lat, y=DT_EggAdult, fill=Population)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.01) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
         labs(title="p_DT_A_F_pop_StamenkovicRadak", x="Population", y = "DT_EggAdult") + ylim(c(min_DT_A, max_DT_A))+ droseu_theme
 
 ```
@@ -1780,7 +1779,7 @@ dev.off()
 ```{r p_DT_A_M_StamenkovicRadak}
 
 p_DT_A_M_StamenkovicRadak <- ggplot(data = (subset(d_DT_A_M,Supervisor.PI=='StamenkovicRadak')), aes(x=Population_Lat, y=DT_EggAdult, fill=Batch)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.01) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
         labs(title="p_DT_A_M_StamenkovicRadak", x="Population", y = "DT_EggAdult") + ylim(c(min_DT_A, max_DT_A))+ droseu_theme
 
 ```
@@ -1799,7 +1798,7 @@ dev.off()
 ```{r p_DT_A_M_pop_StamenkovicRadak}
 
 p_DT_A_M_pop_StamenkovicRadak <- ggplot(data = (subset(d_DT_A_M,Supervisor.PI=='StamenkovicRadak')), aes(x=Population_Lat, y=DT_EggAdult, fill=Population)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.01) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
         labs(title="p_DT_A_M_pop_StamenkovicRadak", x="Population", y = "DT_EggAdult")+ ylim(c(min_DT_A, max_DT_A))+ droseu_theme
 
 ```
@@ -1852,7 +1851,7 @@ summary(DT_A_M_lmer_Zwaan)
 ```{r p_DT_A_F_Zwaan}
 
 p_DT_A_F_Zwaan <- ggplot(data = (subset(d_DT_A_F,Supervisor.PI=='Zwaan')), aes(x=Population_Lat, y=DT_EggAdult, fill=Batch)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.01) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
         labs(title="p_DT_A_F_Zwaan", x="Population", y = "DT_EggAdult")+ ylim(c(min_DT_A, max_DT_A))+ droseu_theme
 
 ```
@@ -1870,7 +1869,7 @@ dev.off()
 ```{r p_DT_A_F_pop_Zwaan}
 
 p_DT_A_F_pop_Zwaan <- ggplot(data = (subset(d_DT_A_F,Supervisor.PI=='Zwaan')), aes(x=Population_Lat, y=DT_EggAdult, fill=Population)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.01) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
         labs(title="p_DT_A_F_pop_Zwaan", x="Population", y = "DT_EggAdult")+ ylim(c(min_DT_A, max_DT_A))+ droseu_theme
 
 ```
@@ -1889,7 +1888,7 @@ dev.off()
 ```{r p_DT_A_M_Zwaan}
 
 p_DT_A_M_Zwaan <- ggplot(data = (subset(d_DT_A_M,Supervisor.PI=='Zwaan')), aes(x=Population_Lat, y=DT_EggAdult, fill=Batch)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.01) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
         labs(title="p_DT_A_M_Zwaan", x="Population", y = "DT_EggAdult")+ ylim(c(min_DT_A, max_DT_A))+ droseu_theme
 
 ```
@@ -1907,7 +1906,7 @@ dev.off()
 ```{r p_DT_A_M_pop_Zwaan}
 
 p_DT_A_M_pop_Zwaan <- ggplot(data = (subset(d_DT_A_M,Supervisor.PI=='Zwaan')), aes(x=Population_Lat, y=DT_EggAdult, fill=Population)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.01) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
         labs(title="p_DT_A_M_pop_Zwaan", x="Population", y = "DT_EggAdult") + ylim(c(min_DT_A, max_DT_A))+ droseu_theme
 ```
 
@@ -2957,7 +2956,6 @@ summary(TL_M_lmer_Ritchie)
 p_TL_F_Ritchie <- filter(d_TL_F, Supervisor.PI == "Ritchie") %>% 
   ggplot(aes(x=Population_Lat, y=TL_micrometers, fill=Batch)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-  geom_jitter(width=0.2,alpha=0.05) + 
   labs(title="p_TL_F_Ritchie", x="Population", y = "TL_micrometers") +
   ylim(c(min_TL, max_TL)) + 
   droseu_theme
@@ -6885,7 +6883,6 @@ p_Dia_Pop_Bergland_wbatch <- d_Dia_Line_wbatch %>%
   filter(Supervisor.PI == 'Bergland') %>%
   ggplot(aes(x = Population_Lat, y = Max_Stage9_Prop, fill = Batch)) + 
   geom_boxplot(outlier.shape = NA, notch = FALSE) +  
-  geom_jitter(width = 0.2, alpha = 0.05) + 
   labs(title = "p_Dia_Bergland", x = "Population", y = "Max_Stage9_Prop") +
   droseu_theme +
   ylim(c(min_Dia, max_Dia))
@@ -6902,7 +6899,6 @@ p_Dia_Pop_Bergland_wobatch <- d_Dia_Line_wobatch %>%
   inner_join(model_means_Bergland_cld) %>%
   ggplot(aes(x = Population_Lat, y = Max_Stage9_Prop, fill = Population)) + 
   geom_boxplot(outlier.shape = NA, notch = FALSE) +  
-  geom_jitter(width = 0.2, alpha = 0.05) + 
   geom_text(data = model_means_Bergland_cld, aes(x = Population, label = cld), y = 1, vjust = -1) +
   labs(title = "p_Dia_Bergland", x = "Population", y = "Max_Stage9_Prop") +
   droseu_theme +
@@ -6933,7 +6929,6 @@ p_Dia_Pop_Flatt_wbatch <- d_Dia_Line_wbatch %>%
   filter(Supervisor.PI == 'Flatt') %>%
   ggplot(aes(x = Population_Lat, y = Max_Stage9_Prop, fill = Batch)) + 
   geom_boxplot(outlier.shape = NA, notch = FALSE) +  
-  geom_jitter(width = 0.2, alpha = 0.05) + 
   labs(title = "p_Dia_Flatt", x = "Population", y = "Max_Stage9_Prop") +
   droseu_theme +
   ylim(c(min_Dia, max_Dia))
@@ -6951,7 +6946,6 @@ p_Dia_Pop_Flatt_wobatch <- d_Dia_Line_wobatch %>%
   filter(Supervisor.PI == 'Flatt') %>%
   ggplot(aes(x = Population_Lat, y = Max_Stage9_Prop, fill = Population)) + 
   geom_boxplot(outlier.shape = NA, notch = FALSE) +  
-  geom_jitter(width = 0.2, alpha = 0.05) + 
   geom_text(data = model_means_Flatt_cld, aes(x = Population, label = cld), y = 1, vjust = -1) +
   labs(title = "p_Dia_Flatt", x = "Population", y = "Max_Stage9_Prop") +
   droseu_theme +
@@ -6987,7 +6981,6 @@ p_Dia_Pop_Schlotterer_wbatch <- d_Dia_Line_wbatch %>%
   filter(Supervisor.PI == 'Schlotterer') %>%
   ggplot(aes(x = Population_Lat, y = Max_Stage9_Prop, fill = Batch)) + 
   geom_boxplot(outlier.shape = NA, notch = FALSE) +  
-  geom_jitter(width = 0.2, alpha = 0.05) + 
   labs(title = "p_Dia_Schlotterer", x = "Population", y = "Max_Stage9_Prop") +
   droseu_theme +
   ylim(c(min_Dia, max_Dia))
@@ -7003,7 +6996,6 @@ p_Dia_Pop_Schlotterer_wobatch <- d_Dia_Line_wobatch %>%
   filter(Supervisor.PI == 'Schlotterer') %>%
   ggplot(aes(x = Population_Lat, y = Max_Stage9_Prop, fill = Population)) + 
   geom_boxplot(outlier.shape = NA, notch = FALSE) +  
-  geom_jitter(width = 0.2, alpha = 0.05) + 
   geom_text(data = model_means_Schlotterer_cld, aes(x = Population, label = cld), y = 1, vjust = -0.7) +
   labs(title = "p_Dia_Schlotterer", x = "Population", y = "Max_Stage9_Prop") +
   droseu_theme +
@@ -7752,10 +7744,10 @@ DT::datatable(table_LA_CircPhase_Pop_wobatch, options = list(pageLength = 10)) %
 _ND_
 
 
-```{r LA_lmer_ND_Tauber}
+```{r LA_lmer_ND_Tauber} 
 LA_lmer_ND_Tauber <- lmer(ND ~ -1 + Population  + (1|Line:Population) +
                           (1|Batch), data = (d_LA))
-capture.output(summary(LA_lmer_ND_Tauber),file = "Locomotor/LA_lmer_ND_Tauber.txt")
+capture.output(summary(LA_lmer_ND_Tauber),file = "Locomotor/LA_lmer_ND_Tauber_sum.txt")
 capture.output(anova(LA_lmer_ND_Tauber),file = "Locomotor/LA_lmer_ND_Tauber.txt")
 #capture.output(emmeans(LA_lmer_ND_Tauber, list(pairwise ~ Population), adjust = "tukey"),file = "Locomotor/LA_lmer_ND_Tauber_tk.txt")
 ```
@@ -7774,7 +7766,7 @@ _CircPhase_
 ```{r LA_lmer_CircPhase_Tauber}
 LA_lmer_CircPhase_Tauber <- lmer(CircPhase ~ -1 + Population  + (1|Line:Population) +
                           (1|Batch) , data = (d_LA))
-capture.output(summary(LA_lmer_CircPhase_Tauber),file = "Locomotor/LA_lmer_CircPhase_Tauber.txt")
+capture.output(summary(LA_lmer_CircPhase_Tauber),file = "Locomotor/LA_lmer_CircPhase_Tauber_sum.txt")
 capture.output(anova(LA_lmer_CircPhase_Tauber),file = "Locomotor/LA_lmer_CircPhase_Tauber.txt")
 #capture.output(emmeans(LA_lmer_CircPhase_Tauber, list(pairwise ~ Population), adjust = "tukey"),file = "Locomotor/LA_lmer_CircPhase_Tauber_tk.txt")
 ```
@@ -7793,7 +7785,7 @@ _Activity_
 ```{r LA_lmer_Activity_Tauber}
 LA_lmer_Activity_Tauber <- lmer(Activity ~ -1 + Population  + (1|Line:Population) +
                           (1|Batch), data = (d_LA))
-capture.output(summary(LA_lmer_Activity_Tauber),file = "Locomotor/LA_lmer_Activity_Tauber.txt")
+capture.output(summary(LA_lmer_Activity_Tauber),file = "Locomotor/LA_lmer_Activity_Tauber_sum.txt")
 capture.output(anova(LA_lmer_Activity_Tauber),file = "Locomotor/LA_lmer_Activity_Tauber.txt")
 #capture.output(emmeans(LA_lmer_Activity_Tauber, list(pairwise ~ Population), adjust = "tukey"),file = "Locomotor/LA_lmer_Activity_Tauber_tk.txt")
 ```
@@ -7962,8 +7954,7 @@ max_SR <- max(d_SR$AgeAtDeath_hours)
 ```{r p_SR_F}
 
 p_SR_F <- ggplot(data = d_SR_F, aes(x=Population_Lat, y=AgeAtDeath_hours, fill=Supervisor.PI)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  #geom_jitter(width=0.2,alpha=0.05) + 
-        labs(title="p_SR_F", x="Population", y = "AgeAtDeath_hours") + ylim(c(min_SR, max_SR))+ droseu_theme
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_SR_F", x="Population", y = "AgeAtDeath_hours") + ylim(c(min_SR, max_SR))+ droseu_theme
 
 ```
 
@@ -7981,8 +7972,7 @@ dev.off()
 ```{r p_SR_M}
 
 p_SR_M <- ggplot(data = d_SR_M, aes(x=Population_Lat, y=AgeAtDeath_hours, fill=Supervisor.PI)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  #geom_jitter(width=0.2,alpha=0.05) + 
-        labs(title="p_SR_M", x="Population", y = "AgeAtDeath_hours") + ylim(c(min_SR, max_SR))+ droseu_theme
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_SR_M", x="Population", y = "AgeAtDeath_hours") + ylim(c(min_SR, max_SR))+ droseu_theme
 
 ```
 
@@ -8565,6 +8555,7 @@ d_Pgm$AreaT4 <- as.numeric(d_Pgm$AreaT4)
 d_Pgm$AreaT5 <- as.numeric(d_Pgm$AreaT5)
 d_Pgm$AreaT6 <- as.numeric(d_Pgm$AreaT6)
 d_Pgm$PercT4 <- as.numeric(d_Pgm$PercT4)
+d_Pgm$PercT5 <- as.numeric(d_Pgm$PercT5)
 d_Pgm$PercT6 <- as.numeric(d_Pgm$PercT6)
 d_Pgm$TotalArea <- as.numeric(d_Pgm$TotalArea)
 d_Pgm$TotalBlack <- as.numeric(d_Pgm$TotalBlack)
@@ -8608,191 +8599,184 @@ str(d_Pgm2)
 
 
 Descriptive statistics at the line level, with batch information :
-```{r table_Pgm_Line_T4_wbatch}
-table_Pgm_Line_T4_wbatch <- write.csv(d_Pgm %>% group_by(Supervisor.PI, Batch, Population, Line) %>% summarise_at(vars(PercT4), list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, SE = std_err, CV = coef_var, Mode = estimate_mode)), file = "Pigmentation/table_Pgm_PercT4_Line_wbatch.csv", row.names = T)
+```{r table_Pgm_Line_PercT4_wbatch}
+table_Pgm_Line_PercT4_wbatch <- write.csv(d_Pgm %>% group_by(Supervisor.PI, Batch, Population, Line) %>% summarise_at(vars(PercT4), list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, SE = std_err, CV = coef_var, Mode = estimate_mode)), file = "Pigmentation/table_Pgm_Line_PercT4_wbatch.csv", row.names = T)
+
+table_Pgm_Line_PercT4_wbatch <- read.csv("Pigmentation/table_Pgm_Line_PercT4_wbatch.csv")
 ```
 
 ```{r}
-DT::datatable(table_Pgm_Line_T4_wbatch, options = list(pageLength = 10)) 
+DT::datatable(table_Pgm_Line_PercT4_wbatch, options = list(pageLength = 10)) %>% formatRound(6:13, 3)
 ```
 
 Descriptive statistics at the line level, without batch information :
 ```{r}
-table_Pgm_Line_T4_wobatch <- write.csv(d_Pgm %>% group_by(Supervisor.PI, Population, Line) %>% summarise_at(vars(PercT4), list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, SE = std_err, CV = coef_var, Mode = estimate_mode)), file = "Pigmentation/table_Pgm_PercT4_Line_wobatch.csv", row.names = T)
+table_Pgm_Line_PercT4_wobatch <- write.csv(d_Pgm %>% group_by(Supervisor.PI, Population, Line) %>% summarise_at(vars(PercT4), list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, SE = std_err, CV = coef_var, Mode = estimate_mode)), file = "Pigmentation/table_Pgm_Line_PercT4_wobatch.csv", row.names = T)
+table_Pgm_Line_PercT4_wobatch <- read.csv("Pigmentation/table_Pgm_Line_PercT4_wobatch.csv")
 ```
 
-```{r table_Pgm_Line_T4_wobatch}
-DT::datatable(table_Pgm_Line_T4_wobatch, options = list(pageLength = 10)) 
+```{r table_Pgm_Line_PercT4_wobatch}
+DT::datatable(table_Pgm_Line_PercT4_wobatch, options = list(pageLength = 10)) %>% formatRound(5:12, 3)
 ```
 
 Descriptive statistics at the population level, with batch information :
 ```{r}
-table_Pgm_Pop_T4_wbatch <- write.csv(d_Pgm %>% group_by(Supervisor.PI, Batch, Population) %>% 
+table_Pgm_Pop_PercT4_wbatch <- write.csv(d_Pgm %>% group_by(Supervisor.PI, Batch, Population) %>% 
                                    summarise_at(vars(PercT4), 
                                                 list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
                                                      SE = std_err, CV = coef_var, Mode = estimate_mode)), 
-                           file = "Pigmentation/table_Pgm_Pop_T4_wbatch.csv", row.names = T)
+                           file = "Pigmentation/table_Pgm_Pop_PercT4_wbatch.csv", row.names = T)
 
+table_Pgm_Pop_PercT4_wbatch <- read.csv("Pigmentation/table_Pgm_Pop_PercT4_wbatch.csv")
 ```
 
-```{r table_Pgm_Pop_T4_wbatch}
-DT::datatable(table_Pgm_Pop_T4_wbatch, options = list(pageLength = 10)) 
+```{r table_Pgm_Pop_PercT4_wbatch}
+DT::datatable(table_Pgm_Pop_PercT4_wbatch, options = list(pageLength = 10)) %>% formatRound(5:12, 3)
 ```
 
 Descriptive statistics at the population level, without batch information :
 ```{r}
-table_Pgm_Pop_T4_wobatch <- write.csv(d_Pgm %>% group_by(Supervisor.PI, Population) %>% 
+table_Pgm_Pop_PercT4_wobatch <- write.csv(d_Pgm %>% group_by(Supervisor.PI, Population) %>% 
                                    summarise_at(vars(PercT4), 
                                                 list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
                                                      SE = std_err, CV = coef_var, Mode = estimate_mode)), 
-                           file = "Pigmentation/table_Pgm_Pop_T4_wobatch.csv", row.names = T)
+                           file = "Pigmentation/table_Pgm_Pop_PercT4_wobatch.csv", row.names = T)
 
+table_Pgm_Pop_PercT4_wobatch <- read.csv("Pigmentation/table_Pgm_Pop_PercT4_wobatch.csv")
 ```
 
-```{r table_Pgm_Pop_T4_wobatch}
-DT::datatable(table_Pgm_Pop_T4_wobatch, options = list(pageLength = 10))
+```{r table_Pgm_Pop_PercT4_wobatch}
+DT::datatable(table_Pgm_Pop_PercT4_wobatch, options = list(pageLength = 10))%>% formatRound(4:11, 3)
 ```
 
 
 ### _T5_
 
 Descriptive statistics at the line level, with batch information :
-```{r table_Pgm_Line_T5_wbatch}
-table_Pgm_Line_T5_wbatch <- write.csv(d_Pgm %>% group_by(Supervisor.PI, Batch, Population, Line) %>% 
-                                    summarise_at(vars(PercT5), 
-                                                 list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
-                                                      SE = std_err, CV = coef_var, Mode = estimate_mode)), 
-                            file = "Pigmentation/table_Pgm_PercT5_Line_wbatch.csv", row.names = T)
+```{r table_Pgm_Line_PercT5_wbatch}
+table_Pgm_Line_PercT5_wbatch <- write.csv(d_Pgm %>% group_by(Supervisor.PI, Batch, Population, Line) %>% summarise_at(vars(PercT5), list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, SE = std_err, CV = coef_var, Mode = estimate_mode)), file = "Pigmentation/table_Pgm_Line_PercT5_wbatch.csv", row.names = T)
+
+table_Pgm_Line_PercT5_wbatch <- read.csv("Pigmentation/table_Pgm_Line_PercT5_wbatch.csv")
 ```
 
 ```{r}
-DT::datatable(table_Pgm_Line_T5_wbatch, options = list(pageLength = 10)) 
+DT::datatable(table_Pgm_Line_PercT5_wbatch, options = list(pageLength = 10)) %>% formatRound(6:13, 3)
 ```
 
 Descriptive statistics at the line level, without batch information :
 ```{r}
-table_Pgm_Line_T5_wobatch <- write.csv(d_Pgm %>% group_by(Supervisor.PI, Population, Line) %>% 
-                                    summarise_at(vars(PercT5), 
-                                                 list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
-                                                      SE = std_err, CV = coef_var, Mode = estimate_mode)), 
-                            file = "Pigmentation/table_Pgm_PercT5_Line_wobatch.csv", row.names = T)
+table_Pgm_Line_PercT5_wobatch <- write.csv(d_Pgm %>% group_by(Supervisor.PI, Population, Line) %>% summarise_at(vars(PercT5), list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, SE = std_err, CV = coef_var, Mode = estimate_mode)), file = "Pigmentation/table_Pgm_Line_PercT5_wobatch.csv", row.names = T)
+table_Pgm_Line_PercT5_wobatch <- read.csv("Pigmentation/table_Pgm_Line_PercT5_wobatch.csv")
 ```
 
-```{r table_Pgm_Line_T5_wobatch}
-DT::datatable(table_Pgm_Line_T5_wobatch, options = list(pageLength = 10))
+```{r table_Pgm_Line_PercT5_wobatch}
+DT::datatable(table_Pgm_Line_PercT5_wobatch, options = list(pageLength = 10)) %>% formatRound(5:12, 3)
 ```
 
 Descriptive statistics at the population level, with batch information :
 ```{r}
-table_Pgm_Pop_T5_wbatch <- write.csv(d_Pgm %>% group_by(Supervisor.PI, Batch, Population) %>% 
+table_Pgm_Pop_PercT5_wbatch <- write.csv(d_Pgm %>% group_by(Supervisor.PI, Batch, Population) %>% 
                                    summarise_at(vars(PercT5), 
                                                 list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
                                                      SE = std_err, CV = coef_var, Mode = estimate_mode)), 
-                           file = "Pigmentation/table_Pgm_Pop_T5_wbatch.csv", row.names = T)
+                           file = "Pigmentation/table_Pgm_Pop_PercT5_wbatch.csv", row.names = T)
 
+table_Pgm_Pop_PercT5_wbatch <- read.csv("Pigmentation/table_Pgm_Pop_PercT5_wbatch.csv")
 ```
 
-```{r table_Pgm_Pop_T5_wbatch}
-DT::datatable(table_Pgm_Pop_T5_wbatch, options = list(pageLength = 10))
+```{r table_Pgm_Pop_PercT5_wbatch}
+DT::datatable(table_Pgm_Pop_PercT5_wbatch, options = list(pageLength = 10)) %>% formatRound(5:12, 3)
 ```
 
 Descriptive statistics at the population level, without batch information :
 ```{r}
-table_Pgm_Pop_T5_wobatch <- write.csv(d_Pgm %>% group_by(Supervisor.PI, Population) %>% 
+table_Pgm_Pop_PercT5_wobatch <- write.csv(d_Pgm %>% group_by(Supervisor.PI, Population) %>% 
                                    summarise_at(vars(PercT5), 
                                                 list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
                                                      SE = std_err, CV = coef_var, Mode = estimate_mode)), 
-                           file = "Pigmentation/table_Pgm_Pop_T5_wobatch.csv", row.names = T)
+                           file = "Pigmentation/table_Pgm_Pop_PercT5_wobatch.csv", row.names = T)
 
+table_Pgm_Pop_PercT5_wobatch <- read.csv("Pigmentation/table_Pgm_Pop_PercT5_wobatch.csv")
 ```
 
-```{r table_Pgm_Pop_T5_wobatch}
-DT::datatable(table_Pgm_Pop_T5_wobatch, options = list(pageLength = 10))
+```{r table_Pgm_Pop_PercT5_wobatch}
+DT::datatable(table_Pgm_Pop_PercT5_wobatch, options = list(pageLength = 10))%>% formatRound(4:11, 3)
 ```
-
 
 ### _T6_
 
 Descriptive statistics at the line level, with batch information :
-```{r table_Pgm_Line_T6_wbatch}
-table_Pgm_Line_T6_wbatch <- write.csv(d_Pgm %>% group_by(Supervisor.PI, Batch, Population, Line) %>% 
-                                    summarise_at(vars(PercT6), 
-                                                 list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
-                                                      SE = std_err, CV = coef_var, Mode = estimate_mode)), 
-                            file = "Pigmentation/table_Pgm_PercT6_Line_wbatch.csv", row.names = T)
+```{r table_Pgm_Line_PercT6_wbatch}
+table_Pgm_Line_PercT6_wbatch <- write.csv(d_Pgm %>% group_by(Supervisor.PI, Batch, Population, Line) %>% summarise_at(vars(PercT6), list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, SE = std_err, CV = coef_var, Mode = estimate_mode)), file = "Pigmentation/table_Pgm_Line_PercT6_wbatch.csv", row.names = T)
+
+table_Pgm_Line_PercT6_wbatch <- read.csv("Pigmentation/table_Pgm_Line_PercT6_wbatch.csv")
 ```
 
 ```{r}
-DT::datatable(table_Pgm_Line_T6_wbatch, options = list(pageLength = 10))
+DT::datatable(table_Pgm_Line_PercT6_wbatch, options = list(pageLength = 10)) %>% formatRound(6:13, 3)
 ```
 
 Descriptive statistics at the line level, without batch information :
 ```{r}
-table_Pgm_Line_T6_wobatch <- write.csv(d_Pgm %>% group_by(Supervisor.PI, Population, Line) %>% 
-                                    summarise_at(vars(PercT6), 
-                                                 list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
-                                                      SE = std_err, CV = coef_var, Mode = estimate_mode)), 
-                            file = "Pigmentation/table_Pgm_PercT6_Line_wobatch.csv", row.names = T)
+table_Pgm_Line_PercT6_wobatch <- write.csv(d_Pgm %>% group_by(Supervisor.PI, Population, Line) %>% summarise_at(vars(PercT6), list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, SE = std_err, CV = coef_var, Mode = estimate_mode)), file = "Pigmentation/table_Pgm_Line_PercT6_wobatch.csv", row.names = T)
+table_Pgm_Line_PercT6_wobatch <- read.csv("Pigmentation/table_Pgm_Line_PercT6_wobatch.csv")
 ```
 
-```{r table_Pgm_Line_T6_wobatch}
-DT::datatable(table_Pgm_Line_T6_wobatch, options = list(pageLength = 10))
+```{r table_Pgm_Line_PercT6_wobatch}
+DT::datatable(table_Pgm_Line_PercT6_wobatch, options = list(pageLength = 10)) %>% formatRound(5:12, 3)
 ```
 
 Descriptive statistics at the population level, with batch information :
 ```{r}
-table_Pgm_Pop_T6_wbatch <- write.csv(d_Pgm %>% group_by(Supervisor.PI, Batch, Population) %>% 
+table_Pgm_Pop_PercT6_wbatch <- write.csv(d_Pgm %>% group_by(Supervisor.PI, Batch, Population) %>% 
                                    summarise_at(vars(PercT6), 
                                                 list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
                                                      SE = std_err, CV = coef_var, Mode = estimate_mode)), 
-                           file = "Pigmentation/table_Pgm_Pop_T6_wbatch.csv", row.names = T)
+                           file = "Pigmentation/table_Pgm_Pop_PercT6_wbatch.csv", row.names = T)
 
+table_Pgm_Pop_PercT6_wbatch <- read.csv("Pigmentation/table_Pgm_Pop_PercT6_wbatch.csv")
 ```
 
-```{r table_Pgm_Pop_T6_wbatch}
-DT::datatable(table_Pgm_Pop_T6_wbatch, options = list(pageLength = 10))
+```{r table_Pgm_Pop_PercT6_wbatch}
+DT::datatable(table_Pgm_Pop_PercT6_wbatch, options = list(pageLength = 10)) %>% formatRound(5:12, 3)
 ```
 
 Descriptive statistics at the population level, without batch information :
 ```{r}
-table_Pgm_Pop_T6_wobatch <- write.csv(d_Pgm %>% group_by(Supervisor.PI, Population) %>% 
+table_Pgm_Pop_PercT6_wobatch <- write.csv(d_Pgm %>% group_by(Supervisor.PI, Population) %>% 
                                    summarise_at(vars(PercT6), 
                                                 list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
                                                      SE = std_err, CV = coef_var, Mode = estimate_mode)), 
-                           file = "Pigmentation/table_Pgm_Pop_T6_wobatch.csv", row.names = T)
+                           file = "Pigmentation/table_Pgm_Pop_PercT6_wobatch.csv", row.names = T)
 
+table_Pgm_Pop_PercT6_wobatch <- read.csv("Pigmentation/table_Pgm_Pop_PercT6_wobatch.csv")
 ```
 
-```{r table_Pgm_Pop_T6_wobatch}
-DT::datatable(table_Pgm_Pop_T6_wobatch, options = list(pageLength = 10))
+```{r table_Pgm_Pop_PercT6_wobatch}
+DT::datatable(table_Pgm_Pop_PercT6_wobatch, options = list(pageLength = 10))%>% formatRound(4:11, 3)
 ```
 
 ### _Total_
 
 Descriptive statistics at the line level, with batch information :
 ```{r table_Pgm_Line_TotalPerc_wbatch}
-table_Pgm_Line_TotalPerc_wbatch <- write.csv(d_Pgm %>% group_by(Supervisor.PI, Batch, Population, Line) %>% 
-                                    summarise_at(vars(TotalPerc), 
-                                                 list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
-                                                      SE = std_err, CV = coef_var, Mode = estimate_mode)), 
-                            file = "Pigmentation/table_Pgm_TotalPerc_Line_wbatch.csv", row.names = T)
+table_Pgm_Line_TotalPerc_wbatch <- write.csv(d_Pgm %>% group_by(Supervisor.PI, Batch, Population, Line) %>% summarise_at(vars(TotalPerc), list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, SE = std_err, CV = coef_var, Mode = estimate_mode)), file = "Pigmentation/table_Pgm_Line_TotalPerc_wbatch.csv", row.names = T)
+
+table_Pgm_Line_TotalPerc_wbatch <- read.csv("Pigmentation/table_Pgm_Line_TotalPerc_wbatch.csv")
 ```
 
 ```{r}
-DT::datatable(table_Pgm_Line_TotalPerc_wbatch, options = list(pageLength = 10))
+DT::datatable(table_Pgm_Line_TotalPerc_wbatch, options = list(pageLength = 10)) %>% formatRound(6:13, 3)
 ```
 
 Descriptive statistics at the line level, without batch information :
 ```{r}
-table_Pgm_Line_TotalPerc_wobatch <- write.csv(d_Pgm %>% group_by(Supervisor.PI, Population, Line) %>% 
-                                    summarise_at(vars(TotalPerc), 
-                                                 list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
-                                                      SE = std_err, CV = coef_var, Mode = estimate_mode)), 
-                            file = "Pigmentation/table_Pgm_TotalPerc_Line_wobatch.csv", row.names = T)
+table_Pgm_Line_TotalPerc_wobatch <- write.csv(d_Pgm %>% group_by(Supervisor.PI, Population, Line) %>% summarise_at(vars(TotalPerc), list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, SE = std_err, CV = coef_var, Mode = estimate_mode)), file = "Pigmentation/table_Pgm_Line_TotalPerc_wobatch.csv", row.names = T)
+table_Pgm_Line_TotalPerc_wobatch <- read.csv("Pigmentation/table_Pgm_Line_TotalPerc_wobatch.csv")
 ```
 
 ```{r table_Pgm_Line_TotalPerc_wobatch}
-DT::datatable(table_Pgm_Line_TotalPerc_wobatch, options = list(pageLength = 10))
+DT::datatable(table_Pgm_Line_TotalPerc_wobatch, options = list(pageLength = 10)) %>% formatRound(5:12, 3)
 ```
 
 Descriptive statistics at the population level, with batch information :
@@ -8803,10 +8787,11 @@ table_Pgm_Pop_TotalPerc_wbatch <- write.csv(d_Pgm %>% group_by(Supervisor.PI, Ba
                                                      SE = std_err, CV = coef_var, Mode = estimate_mode)), 
                            file = "Pigmentation/table_Pgm_Pop_TotalPerc_wbatch.csv", row.names = T)
 
+table_Pgm_Pop_TotalPerc_wbatch <- read.csv("Pigmentation/table_Pgm_Pop_TotalPerc_wbatch.csv")
 ```
 
 ```{r table_Pgm_Pop_TotalPerc_wbatch}
-DT::datatable(table_Pgm_Pop_TotalPerc_wbatch, options = list(pageLength = 10))
+DT::datatable(table_Pgm_Pop_TotalPerc_wbatch, options = list(pageLength = 10)) %>% formatRound(5:12, 3)
 ```
 
 Descriptive statistics at the population level, without batch information :
@@ -8817,238 +8802,226 @@ table_Pgm_Pop_TotalPerc_wobatch <- write.csv(d_Pgm %>% group_by(Supervisor.PI, P
                                                      SE = std_err, CV = coef_var, Mode = estimate_mode)), 
                            file = "Pigmentation/table_Pgm_Pop_TotalPerc_wobatch.csv", row.names = T)
 
+table_Pgm_Pop_TotalPerc_wobatch <- read.csv("Pigmentation/table_Pgm_Pop_TotalPerc_wobatch.csv")
 ```
 
 ```{r table_Pgm_Pop_TotalPerc_wobatch}
-DT::datatable(table_Pgm_Pop_TotalPerc_wobatch, options = list(pageLength = 10))
+DT::datatable(table_Pgm_Pop_TotalPerc_wobatch, options = list(pageLength = 10))%>% formatRound(4:11, 3)
 ```
 
 ### _T8_
 
 Descriptive statistics at the line level, with batch information :
-```{r table_Pgm2_Line_Tergite8_wbatch}
-table_Pgm2_Line_Tergite8_wbatch <- write.csv(d_Pgm2 %>% group_by(Supervisor.PI, Batch, Population, Line) %>% 
-                                    summarise_at(vars(Tergite8), 
-                                                 list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
-                                                      SE = std_err, CV = coef_var, Mode = estimate_mode)), 
-                            file = "Pigmentation/table_Pgm2_Tergite8_Line_wbatch.csv", row.names = T)
+```{r table_Pgm_Line_Tergite8_wbatch}
+table_Pgm_Line_Tergite8_wbatch <- write.csv(d_Pgm2 %>% group_by(Supervisor.PI, Batch, Population, Line) %>% summarise_at(vars(Tergite8), list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, SE = std_err, CV = coef_var, Mode = estimate_mode)), file = "Pigmentation/table_Pgm_Line_Tergite8_wbatch.csv", row.names = T)
+
+table_Pgm_Line_Tergite8_wbatch <- read.csv("Pigmentation/table_Pgm_Line_Tergite8_wbatch.csv")
 ```
 
 ```{r}
-DT::datatable(table_Pgm2_Line_Tergite8_wbatch, options = list(pageLength = 10))
+DT::datatable(table_Pgm_Line_Tergite8_wbatch, options = list(pageLength = 10)) %>% formatRound(6:13, 3)
 ```
 
 Descriptive statistics at the line level, without batch information :
 ```{r}
-table_Pgm2_Line_Tergite8_wobatch <- write.csv(d_Pgm2 %>% group_by(Supervisor.PI, Population, Line) %>% 
-                                    summarise_at(vars(Tergite8), 
-                                                 list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
-                                                      SE = std_err, CV = coef_var, Mode = estimate_mode)), 
-                            file = "Pigmentation/table_Pgm2_Tergite8_Line_wobatch.csv", row.names = T)
+table_Pgm_Line_Tergite8_wobatch <- write.csv(d_Pgm2 %>% group_by(Supervisor.PI, Population, Line) %>% summarise_at(vars(Tergite8), list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, SE = std_err, CV = coef_var, Mode = estimate_mode)), file = "Pigmentation/table_Pgm_Line_Tergite8_wobatch.csv", row.names = T)
+table_Pgm_Line_Tergite8_wobatch <- read.csv("Pigmentation/table_Pgm_Line_Tergite8_wobatch.csv")
 ```
 
-```{r table_Pgm2_Line_Tergite8_wobatch}
-DT::datatable(table_Pgm2_Line_Tergite8_wobatch, options = list(pageLength = 10))
+```{r table_Pgm_Line_Tergite8_wobatch}
+DT::datatable(table_Pgm_Line_Tergite8_wobatch, options = list(pageLength = 10)) %>% formatRound(5:12, 3)
 ```
 
 Descriptive statistics at the population level, with batch information :
 ```{r}
-table_Pgm2_Pop_Tergite8_wbatch <- write.csv(d_Pgm2 %>% group_by(Supervisor.PI, Batch, Population) %>% 
+table_Pgm_Pop_Tergite8_wbatch <- write.csv(d_Pgm2 %>% group_by(Supervisor.PI, Batch, Population) %>% 
                                    summarise_at(vars(Tergite8), 
                                                 list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
                                                      SE = std_err, CV = coef_var, Mode = estimate_mode)), 
-                           file = "Pigmentation/table_Pgm2_Pop_Tergite8_wbatch.csv", row.names = T)
+                           file = "Pigmentation/table_Pgm_Pop_Tergite8_wbatch.csv", row.names = T)
 
+table_Pgm_Pop_Tergite8_wbatch <- read.csv("Pigmentation/table_Pgm_Pop_Tergite8_wbatch.csv")
 ```
 
-```{r table_Pgm2_Pop_Tergite8_wbatch}
-DT::datatable(table_Pgm2_Pop_Tergite8_wbatch, options = list(pageLength = 10))
+```{r table_Pgm_Pop_Tergite8_wbatch}
+DT::datatable(table_Pgm_Pop_Tergite8_wbatch, options = list(pageLength = 10)) %>% formatRound(5:12, 3)
 ```
 
 Descriptive statistics at the population level, without batch information :
 ```{r}
-table_Pgm2_Pop_Tergite8_wobatch <- write.csv(d_Pgm2 %>% group_by(Supervisor.PI, Population) %>% 
+table_Pgm_Pop_Tergite8_wobatch <- write.csv(d_Pgm2 %>% group_by(Supervisor.PI, Population) %>% 
                                    summarise_at(vars(Tergite8), 
                                                 list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
                                                      SE = std_err, CV = coef_var, Mode = estimate_mode)), 
-                           file = "Pigmentation/table_Pgm2_Pop_Tergite8_wobatch.csv", row.names = T)
+                           file = "Pigmentation/table_Pgm_Pop_Tergite8_wobatch.csv", row.names = T)
 
+table_Pgm_Pop_Tergite8_wobatch <- read.csv("Pigmentation/table_Pgm_Pop_Tergite8_wobatch.csv")
 ```
 
-```{r table_Pgm2_Pop_Tergite8_wobatch}
-DT::datatable(table_Pgm2_Pop_Tergite8_wobatch, options = list(pageLength = 10))
+```{r table_Pgm_Pop_Tergite8_wobatch}
+DT::datatable(table_Pgm_Pop_Tergite8_wobatch, options = list(pageLength = 10))%>% formatRound(4:11, 3)
 ```
 
 ### _T9_
 
 Descriptive statistics at the line level, with batch information :
-```{r table_Pgm2_Line_Tergite9_wbatch}
-table_Pgm2_Line_Tergite9_wbatch <- write.csv(d_Pgm2 %>% group_by(Supervisor.PI, Batch, Population, Line) %>% 
-                                    summarise_at(vars(Tergite9), 
-                                                 list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
-                                                      SE = std_err, CV = coef_var, Mode = estimate_mode)), 
-                            file = "Pigmentation/table_Pgm2_Tergite9_Line_wbatch.csv", row.names = T)
+```{r table_Pgm_Line_Tergite9_wbatch}
+table_Pgm_Line_Tergite9_wbatch <- write.csv(d_Pgm2 %>% group_by(Supervisor.PI, Batch, Population, Line) %>% summarise_at(vars(Tergite9), list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, SE = std_err, CV = coef_var, Mode = estimate_mode)), file = "Pigmentation/table_Pgm_Line_Tergite9_wbatch.csv", row.names = T)
+
+table_Pgm_Line_Tergite9_wbatch <- read.csv("Pigmentation/table_Pgm_Line_Tergite9_wbatch.csv")
 ```
 
 ```{r}
-DT::datatable(table_Pgm2_Line_Tergite9_wbatch, options = list(pageLength = 10))
+DT::datatable(table_Pgm_Line_Tergite9_wbatch, options = list(pageLength = 10)) %>% formatRound(6:13, 3)
 ```
 
 Descriptive statistics at the line level, without batch information :
 ```{r}
-table_Pgm2_Line_Tergite9_wobatch <- write.csv(d_Pgm2 %>% group_by(Supervisor.PI, Population, Line) %>% 
-                                    summarise_at(vars(Tergite9), 
-                                                 list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
-                                                      SE = std_err, CV = coef_var, Mode = estimate_mode)), 
-                            file = "Pigmentation/table_Pgm2_Tergite9_Line_wobatch.csv", row.names = T)
+table_Pgm_Line_Tergite9_wobatch <- write.csv(d_Pgm2 %>% group_by(Supervisor.PI, Population, Line) %>% summarise_at(vars(Tergite9), list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, SE = std_err, CV = coef_var, Mode = estimate_mode)), file = "Pigmentation/table_Pgm_Line_Tergite9_wobatch.csv", row.names = T)
+table_Pgm_Line_Tergite9_wobatch <- read.csv("Pigmentation/table_Pgm_Line_Tergite9_wobatch.csv")
 ```
 
-```{r table_Pgm2_Line_Tergite9_wobatch}
-DT::datatable(table_Pgm2_Line_Tergite9_wobatch, options = list(pageLength = 10))
+```{r table_Pgm_Line_Tergite9_wobatch}
+DT::datatable(table_Pgm_Line_Tergite9_wobatch, options = list(pageLength = 10)) %>% formatRound(5:12, 3)
 ```
 
 Descriptive statistics at the population level, with batch information :
 ```{r}
-table_Pgm2_Pop_Tergite9_wbatch <- write.csv(d_Pgm2 %>% group_by(Supervisor.PI, Batch, Population) %>% 
+table_Pgm_Pop_Tergite9_wbatch <- write.csv(d_Pgm2 %>% group_by(Supervisor.PI, Batch, Population) %>% 
                                    summarise_at(vars(Tergite9), 
                                                 list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
                                                      SE = std_err, CV = coef_var, Mode = estimate_mode)), 
-                           file = "Pigmentation/table_Pgm2_Pop_Tergite9_wbatch.csv", row.names = T)
+                           file = "Pigmentation/table_Pgm_Pop_Tergite9_wbatch.csv", row.names = T)
 
+table_Pgm_Pop_Tergite9_wbatch <- read.csv("Pigmentation/table_Pgm_Pop_Tergite9_wbatch.csv")
 ```
 
-```{r table_Pgm2_Pop_Tergite9_wbatch}
-DT::datatable(table_Pgm2_Pop_Tergite9_wbatch, options = list(pageLength = 10))
+```{r table_Pgm_Pop_Tergite9_wbatch}
+DT::datatable(table_Pgm_Pop_Tergite9_wbatch, options = list(pageLength = 10)) %>% formatRound(5:12, 3)
 ```
 
 Descriptive statistics at the population level, without batch information :
 ```{r}
-table_Pgm2_Pop_Tergite9_wobatch <- write.csv(d_Pgm2 %>% group_by(Supervisor.PI, Population) %>% 
+table_Pgm_Pop_Tergite9_wobatch <- write.csv(d_Pgm2 %>% group_by(Supervisor.PI, Population) %>% 
                                    summarise_at(vars(Tergite9), 
                                                 list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
                                                      SE = std_err, CV = coef_var, Mode = estimate_mode)), 
-                           file = "Pigmentation/table_Pgm2_Pop_Tergite9_wobatch.csv", row.names = T)
+                           file = "Pigmentation/table_Pgm_Pop_Tergite9_wobatch.csv", row.names = T)
 
+table_Pgm_Pop_Tergite9_wobatch <- read.csv("Pigmentation/table_Pgm_Pop_Tergite9_wobatch.csv")
 ```
 
-```{r table_Pgm2_Pop_Tergite9_wobatch}
-DT::datatable(table_Pgm2_Pop_Tergite9_wobatch, options = list(pageLength = 10))
+```{r table_Pgm_Pop_Tergite9_wobatch}
+DT::datatable(table_Pgm_Pop_Tergite9_wobatch, options = list(pageLength = 10))%>% formatRound(4:11, 3)
 ```
 
 ### _T10_
 
 
 Descriptive statistics at the line level, with batch information :
-```{r table_Pgm2_Line_Tergite10_wbatch}
-table_Pgm2_Line_Tergite10_wbatch <- write.csv(d_Pgm2 %>% group_by(Supervisor.PI, Batch, Population, Line) %>% 
-                                    summarise_at(vars(Tergite10), 
-                                                 list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
-                                                      SE = std_err, CV = coef_var, Mode = estimate_mode)), 
-                            file = "Pigmentation/table_Pgm2_Tergite10_Line_wbatch.csv", row.names = T)
+```{r table_Pgm_Line_Tergite10_wbatch}
+table_Pgm_Line_Tergite10_wbatch <- write.csv(d_Pgm2 %>% group_by(Supervisor.PI, Batch, Population, Line) %>% summarise_at(vars(Tergite10), list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, SE = std_err, CV = coef_var, Mode = estimate_mode)), file = "Pigmentation/table_Pgm_Line_Tergite10_wbatch.csv", row.names = T)
+
+table_Pgm_Line_Tergite10_wbatch <- read.csv("Pigmentation/table_Pgm_Line_Tergite10_wbatch.csv")
 ```
 
 ```{r}
-DT::datatable(table_Pgm2_Line_Tergite10_wbatch, options = list(pageLength = 10))
+DT::datatable(table_Pgm_Line_Tergite10_wbatch, options = list(pageLength = 10)) %>% formatRound(6:13, 3)
 ```
 
 Descriptive statistics at the line level, without batch information :
 ```{r}
-table_Pgm2_Line_Tergite10_wobatch <- write.csv(d_Pgm2 %>% group_by(Supervisor.PI, Population, Line) %>% 
-                                    summarise_at(vars(Tergite10), 
-                                                 list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
-                                                      SE = std_err, CV = coef_var, Mode = estimate_mode)), 
-                            file = "Pigmentation/table_Pgm2_Tergite10_Line_wobatch.csv", row.names = T)
+table_Pgm_Line_Tergite10_wobatch <- write.csv(d_Pgm2 %>% group_by(Supervisor.PI, Population, Line) %>% summarise_at(vars(Tergite10), list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, SE = std_err, CV = coef_var, Mode = estimate_mode)), file = "Pigmentation/table_Pgm_Line_Tergite10_wobatch.csv", row.names = T)
+table_Pgm_Line_Tergite10_wobatch <- read.csv("Pigmentation/table_Pgm_Line_Tergite10_wobatch.csv")
 ```
 
-```{r table_Pgm2_Line_Tergite10_wobatch}
-DT::datatable(table_Pgm2_Line_Tergite10_wobatch, options = list(pageLength = 10))
+```{r table_Pgm_Line_Tergite10_wobatch}
+DT::datatable(table_Pgm_Line_Tergite10_wobatch, options = list(pageLength = 10)) %>% formatRound(5:12, 3)
 ```
 
 Descriptive statistics at the population level, with batch information :
 ```{r}
-table_Pgm2_Pop_Tergite10_wbatch <- write.csv(d_Pgm2 %>% group_by(Supervisor.PI, Batch, Population) %>% 
+table_Pgm_Pop_Tergite10_wbatch <- write.csv(d_Pgm2 %>% group_by(Supervisor.PI, Batch, Population) %>% 
                                    summarise_at(vars(Tergite10), 
                                                 list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
                                                      SE = std_err, CV = coef_var, Mode = estimate_mode)), 
-                           file = "Pigmentation/table_Pgm2_Pop_Tergite10_wbatch.csv", row.names = T)
+                           file = "Pigmentation/table_Pgm_Pop_Tergite10_wbatch.csv", row.names = T)
 
+table_Pgm_Pop_Tergite10_wbatch <- read.csv("Pigmentation/table_Pgm_Pop_Tergite10_wbatch.csv")
 ```
 
-```{r table_Pgm2_Pop_Tergite10_wbatch}
-DT::datatable(table_Pgm2_Pop_Tergite10_wbatch, options = list(pageLength = 10))
+```{r table_Pgm_Pop_Tergite10_wbatch}
+DT::datatable(table_Pgm_Pop_Tergite10_wbatch, options = list(pageLength = 10)) %>% formatRound(5:12, 3)
 ```
 
 Descriptive statistics at the population level, without batch information :
 ```{r}
-table_Pgm2_Pop_Tergite10_wobatch <- write.csv(d_Pgm2 %>% group_by(Supervisor.PI, Population) %>% 
+table_Pgm_Pop_Tergite10_wobatch <- write.csv(d_Pgm2 %>% group_by(Supervisor.PI, Population) %>% 
                                    summarise_at(vars(Tergite10), 
                                                 list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
                                                      SE = std_err, CV = coef_var, Mode = estimate_mode)), 
-                           file = "Pigmentation/table_Pgm2_Pop_Tergite10_wobatch.csv", row.names = T)
+                           file = "Pigmentation/table_Pgm_Pop_Tergite10_wobatch.csv", row.names = T)
 
+table_Pgm_Pop_Tergite10_wobatch <- read.csv("Pigmentation/table_Pgm_Pop_Tergite10_wobatch.csv")
 ```
 
-```{r table_Pgm2_Pop_Tergite10_wobatch}
-DT::datatable(table_Pgm2_Pop_Tergite10_wobatch, options = list(pageLength = 10))
+```{r table_Pgm_Pop_Tergite10_wobatch}
+DT::datatable(table_Pgm_Pop_Tergite10_wobatch, options = list(pageLength = 10))%>% formatRound(4:11, 3)
 ```
 
 ### _Total2_
 
 
 Descriptive statistics at the line level, with batch information :
-```{r table_Pgm2_Line_Total_wbatch}
-table_Pgm2_Line_Total_wbatch <- write.csv(d_Pgm2 %>% group_by(Supervisor.PI, Batch, Population, Line) %>% 
-                                    summarise_at(vars(Total), 
-                                                 list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
-                                                      SE = std_err, CV = coef_var, Mode = estimate_mode)), 
-                            file = "Pigmentation/table_Pgm2_Total_Line_wbatch.csv", row.names = T)
+```{r table_Pgm_Line_Total_wbatch}
+table_Pgm_Line_Total_wbatch <- write.csv(d_Pgm2 %>% group_by(Supervisor.PI, Batch, Population, Line) %>% summarise_at(vars(Total), list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, SE = std_err, CV = coef_var, Mode = estimate_mode)), file = "Pigmentation/table_Pgm_Line_Total_wbatch.csv", row.names = T)
+
+table_Pgm_Line_Total_wbatch <- read.csv("Pigmentation/table_Pgm_Line_Total_wbatch.csv")
 ```
 
 ```{r}
-DT::datatable(table_Pgm2_Line_Total_wbatch, options = list(pageLength = 10))
+DT::datatable(table_Pgm_Line_Total_wbatch, options = list(pageLength = 10)) %>% formatRound(6:13, 3)
 ```
 
 Descriptive statistics at the line level, without batch information :
 ```{r}
-table_Pgm2_Line_Total_wobatch <- write.csv(d_Pgm2 %>% group_by(Supervisor.PI, Population, Line) %>% 
-                                    summarise_at(vars(Total), 
-                                                 list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
-                                                      SE = std_err, CV = coef_var, Mode = estimate_mode)), 
-                            file = "Pigmentation/table_Pgm2_Total_Line_wobatch.csv", row.names = T)
+table_Pgm_Line_Total_wobatch <- write.csv(d_Pgm2 %>% group_by(Supervisor.PI, Population, Line) %>% summarise_at(vars(Total), list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, SE = std_err, CV = coef_var, Mode = estimate_mode)), file = "Pigmentation/table_Pgm_Line_Total_wobatch.csv", row.names = T)
+table_Pgm_Line_Total_wobatch <- read.csv("Pigmentation/table_Pgm_Line_Total_wobatch.csv")
 ```
 
-```{r table_Pgm2_Line_Total_wobatch}
-DT::datatable(table_Pgm2_Line_Total_wobatch, options = list(pageLength = 10))
+```{r table_Pgm_Line_Total_wobatch}
+DT::datatable(table_Pgm_Line_Total_wobatch, options = list(pageLength = 10)) %>% formatRound(5:12, 3)
 ```
 
 Descriptive statistics at the population level, with batch information :
 ```{r}
-table_Pgm2_Pop_Total_wbatch <- write.csv(d_Pgm2 %>% group_by(Supervisor.PI, Batch, Population) %>% 
+table_Pgm_Pop_Total_wbatch <- write.csv(d_Pgm2 %>% group_by(Supervisor.PI, Batch, Population) %>% 
                                    summarise_at(vars(Total), 
                                                 list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
                                                      SE = std_err, CV = coef_var, Mode = estimate_mode)), 
-                           file = "Pigmentation/table_Pgm2_Pop_Total_wbatch.csv", row.names = T)
+                           file = "Pigmentation/table_Pgm_Pop_Total_wbatch.csv", row.names = T)
 
+table_Pgm_Pop_Total_wbatch <- read.csv("Pigmentation/table_Pgm_Pop_Total_wbatch.csv")
 ```
 
-```{r table_Pgm2_Pop_Total_wbatch}
-DT::datatable(table_Pgm2_Pop_Total_wbatch, options = list(pageLength = 10))
+```{r table_Pgm_Pop_Total_wbatch}
+DT::datatable(table_Pgm_Pop_Total_wbatch, options = list(pageLength = 10)) %>% formatRound(5:12, 3)
 ```
 
 Descriptive statistics at the population level, without batch information :
 ```{r}
-table_Pgm2_Pop_Total_wobatch <- write.csv(d_Pgm2 %>% group_by(Supervisor.PI, Population) %>% 
+table_Pgm_Pop_Total_wobatch <- write.csv(d_Pgm2 %>% group_by(Supervisor.PI, Population) %>% 
                                    summarise_at(vars(Total), 
                                                 list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
                                                      SE = std_err, CV = coef_var, Mode = estimate_mode)), 
-                           file = "Pigmentation/table_Pgm2_Pop_Total_wobatch.csv", row.names = T)
+                           file = "Pigmentation/table_Pgm_Pop_Total_wobatch.csv", row.names = T)
 
+table_Pgm_Pop_Total_wobatch <- read.csv("Pigmentation/table_Pgm_Pop_Total_wobatch.csv")
 ```
 
-```{r table_Pgm2_Pop_Total_wobatch}
-DT::datatable(table_Pgm2_Pop_Total_wobatch, options = list(pageLength = 10))
+```{r table_Pgm_Pop_Total_wobatch}
+DT::datatable(table_Pgm_Pop_Total_wobatch, options = list(pageLength = 10))%>% formatRound(4:11, 3)
 ```
-
 
 #### Overview 
 
