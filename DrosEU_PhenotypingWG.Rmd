@@ -4625,8 +4625,7 @@ dev.off()
 Fec_lmer_Billeter <- lmer(NumberOfAdultsEclosed ~ -1 + Population + (1|Population:Line), data = d_Fec[d_Fec$Supervisor.PI == "Billeter",]) 
 capture.output(anova(Fec_lmer_Billeter),file = "Fecundity/Fec_lmer_Billeter.txt")
 capture.output(summary(Fec_lmer_Billeter),file = "Fecundity/Fec_lmer_Billeter_sum.txt")
-capture.output(emmeans(Fec_lmer_Billeter, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "Fecundity/Fec_lmer_Billeter_tukey.txt")
-
+capture.output(emmeans(Fec_lmer_Billeter, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"), file = "Fecundity/Fec_lmer_Billeter_tk.txt")
 ```
 
 ```{r}
@@ -4640,7 +4639,6 @@ summary(Fec_lmer_Billeter)
 ```{r p_Fec_Billeter, echo=TRUE, message=TRUE, warning=TRUE}
 
 p_Fec_Billeter <- ggplot(data = (subset(d_Fec,Supervisor.PI=='Billeter')), aes(x=Population_Lat, y=NumberOfAdultsEclosed, fill=Batch)) +  geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_Fec_Billeter", x="Population", y = "NumberOfAdultsEclosed") + ylim(c(min_Fec, max_Fec))+ droseu_theme
-
 ```
 
 ```{r echo=FALSE}
@@ -4675,7 +4673,7 @@ Fec_lmer_Fricke <- lmer(NumberOfAdultsEclosed ~ -1 + Population + (1|Population:
                          (1|Batch), data = d_Fec[d_Fec$Supervisor.PI == "Fricke",])
 capture.output(anova(Fec_lmer_Fricke),file = "Fecundity/Fec_lmer_Fricke.txt")
 capture.output(summary(Fec_lmer_Fricke),file = "Fecundity/Fec_lmer_Fricke_sum.txt")
-capture.output(emmeans(Fec_lmer_Fricke, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "Fecundity/Fec_lmer_Fricke_tukey.txt")
+capture.output(emmeans(Fec_lmer_Fricke, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "Fecundity/Fec_lmer_Fricke_tk.txt")
 ```
 
 ```{r}
@@ -4689,7 +4687,6 @@ summary(Fec_lmer_Fricke)
 ```{r p_Fec_Fricke, echo=FALSE, message=FALSE, warning=FALSE}
 
 p_Fec_Fricke <- ggplot(data = (subset(d_Fec,Supervisor.PI=='Fricke')), aes(x=Population_Lat, y=NumberOfAdultsEclosed, fill=Batch)) + geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_Fec_Fricke", x="Population", y = "NumberOfAdultsEclosed") + ylim(c(min_Fec, max_Fec))+ droseu_theme
-
 ```
 
 ```{r echo=FALSE}
@@ -4706,7 +4703,6 @@ dev.off()
 ```{r p_Fec_pop_Fricke, echo=FALSE, message=FALSE, warning=FALSE}
 
 p_Fec_pop_Fricke <- ggplot(data = (subset(d_Fec,Supervisor.PI=='Fricke')), aes(x=Population_Lat, y=NumberOfAdultsEclosed, fill=Population)) + geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_Fec_pop_Fricke", x="Population", y = "NumberOfAdultsEclosed") + ylim(c(min_Fec, max_Fec))+ droseu_theme
-
 ```
 
 ```{r echo=FALSE}
@@ -5086,7 +5082,7 @@ dev.off()
 LS_L_F_Parsch_lmer <- lmer(LSL_AgeAtDeath_days ~ -1 + Population + (1|Batch) + (1|Population:Line) + (1|Line:ReplicateVial), data = filter(d_LS_L_F, Censor == "0" & Supervisor.PI == "Parsch"))
 capture.output(summary(LS_L_F_Parsch_lmer),file = "Lifespan/LS_L_F_Parsch_lmer_sum.txt")
 capture.output(anova(LS_L_F_Parsch_lmer),file = "Lifespan/LS_L_F_Parsch_lmer.txt")
-capture.output(emmeans(LS_L_F_Parsch_lmer, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "Lifespan/d_LS_L_F_Parsch_lmer_tk.txt")
+capture.output(emmeans(LS_L_F_Parsch_lmer, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "Lifespan/LS_L_F_Parsch_lmer_tk.txt")
 ```
 
 
@@ -5783,7 +5779,7 @@ CSM_M_lmer_Kozeretska <- lmer(CSM_PropDead_ED ~ -1 + Population  + (1| Line : Po
                                       (1|Batch), data = d_CSM_M[d_CSM_M$Supervisor.PI == "Kozeretska",])
 capture.output(summary(CSM_M_lmer_Kozeretska),file = "ColdShock/CSM_M_lmer_sum_Kozeretska.txt")
 capture.output(anova(CSM_M_lmer_Kozeretska),file = "ColdShock/CSM_M_lmer_Kozeretska.txt")
-capture.output(emmeans(CSM_M_lmer_Kozeretska, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "CSM_M_tk_Kozeretska_tk.txt")
+capture.output(emmeans(CSM_M_lmer_Kozeretska, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "ColdShock/CSM_M_tk_Kozeretska_tk.txt")
 ```
 
 
@@ -6759,8 +6755,6 @@ d_Dia <- read.csv("MasterSheets_Oct21_git/DIA_MasterSheet_Oct21.csv")
 str(d_Dia)
 ```
 
-
-
 ```{r}
 d_Dia <- d_Dia %>%
   mutate(Supervisor.PI = as.factor(Supervisor.PI),
@@ -6871,12 +6865,10 @@ model_means_Bergland <- emmeans(object = Dia_lmer_Bergland, specs = ~ Population
 model_means_Bergland_cld <- cld(object = model_means_Bergland, adjust = "Tukey", Letters = letters, alpha = 0.05) %>% as.data.frame %>% mutate(Population = factor(Population, levels = c("YE","RE","GI","MU","MA","UM","KA","VA","AK"))) %>% arrange(Population) %>% dplyr::rename(cld = .group)
 ```
 
-
 ```{r}
 min_Dia <- min(d_Dia_Line_wbatch$Max_Stage9_Prop)
 max_Dia <- max(d_Dia_Line_wbatch$Max_Stage9_Prop)
 ```
-
 
 ```{r}
 p_Dia_Pop_Bergland_wbatch <- d_Dia_Line_wbatch %>% 
@@ -7996,7 +7988,7 @@ SR_F_lmer_Gonzalez <- lmer(AgeAtDeath_hours ~ -1 + Population  + (1|Line:Populat
                           (1|Batch) + (1|ReplicateVial : Line : Population), data = (subset(d_SR_F,Supervisor.PI=='Gonzalez')))
 capture.output(summary(SR_F_lmer_Gonzalez),file = "Starvation/SR_F_lmer_Gonzalez_sum.txt")
 capture.output(anova(SR_F_lmer_Gonzalez),file = "Starvation/SR_F_lmer_Gonzalez.txt")
-capture.output(emmeans(SR_F_lmer_Gonzalez, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "SR_F_lmer_Gonzalez_tk.txt")
+capture.output(emmeans(SR_F_lmer_Gonzalez, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "Starvation/SR_F_lmer_Gonzalez_tk.txt")
 ```
 
 ```{r}
@@ -8014,7 +8006,7 @@ SR_M_lmer_Gonzalez <- lmer(AgeAtDeath_hours ~ -1 + Population  + (1|Line:Populat
                                    (1|Batch) + (1|ReplicateVial : Line : Population), data = (subset(d_SR_M,Supervisor.PI=='Gonzalez')))
 capture.output(summary(SR_M_lmer_Gonzalez),file = "Starvation/SR_M_lmer_Gonzalez_sum.txt")
 capture.output(anova(SR_M_lmer_Gonzalez),file = "Starvation/SR_M_lmer_Gonzalez.txt")
-capture.output(emmeans(SR_M_lmer_Gonzalez, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "SR_M_lmer_Gonzalez_tk.txt")
+capture.output(emmeans(SR_M_lmer_Gonzalez, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "Starvation/SR_M_lmer_Gonzalez_tk.txt")
 ```
 
 
@@ -8109,7 +8101,7 @@ SR_F_lmer_Onder <- lmer(AgeAtDeath_hours ~ -1 + Population  + (1|Line:Population
                                 (1|Batch) + (1|ReplicateVial : Line : Population), data = (subset(d_SR_F,Supervisor.PI=='Onder')))
 capture.output(summary(SR_F_lmer_Onder),file = "Starvation/SR_F_lmer_Onder_sum.txt")
 capture.output(anova(SR_F_lmer_Onder),file = "Starvation/SR_F_lmer_Onder.txt")
-capture.output(emmeans(SR_F_lmer_Onder, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "SR_F_lmer_Onder_tk.txt")
+capture.output(emmeans(SR_F_lmer_Onder, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "Starvation/SR_F_lmer_Onder_tk.txt")
 ```
 
 ```{r}
@@ -8126,7 +8118,7 @@ SR_M_lmer_Onder <- lmer(AgeAtDeath_hours ~ -1 + Population  + (1|Line:Population
                                 (1|Batch) + (1|ReplicateVial : Line : Population), data = (subset(d_SR_M,Supervisor.PI=='Onder')))
 capture.output(summary(SR_M_lmer_Onder),file = "Starvation/SR_M_lmer_Onder_sum.txt")
 capture.output(anova(SR_M_lmer_Onder),file = "Starvation/SR_M_lmer_Onder.txt")
-capture.output(emmeans(SR_M_lmer_Onder, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "SR_M_lmer_Onder_tk.txt")
+capture.output(emmeans(SR_M_lmer_Onder, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "Starvation/SR_M_lmer_Onder_tk.txt")
 ```
 
 ```{r}
@@ -8218,7 +8210,7 @@ SR_F_lmer_Pasyukova <- lmer(AgeAtDeath_hours ~ -1 + Population  + (1|Line:Popula
                                     (1|Batch) + (1|ReplicateVial : Line : Population), data = (subset(d_SR_F,Supervisor.PI=='Pasyukova')))
 capture.output(summary(SR_F_lmer_Pasyukova),file = "Starvation/SR_F_lmer_Pasyukova_sum.txt")
 capture.output(anova(SR_F_lmer_Pasyukova),file = "Starvation/SR_F_lmer_Pasyukova.txt")
-capture.output(emmeans(SR_F_lmer_Pasyukova, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "SR_F_lmer_Pasyukova_tk.txt")
+capture.output(emmeans(SR_F_lmer_Pasyukova, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "Starvation/SR_F_lmer_Pasyukova_tk.txt")
 ```
 
 ```{r}
@@ -8234,7 +8226,7 @@ SR_M_lmer_Pasyukova <- lmer(AgeAtDeath_hours ~ -1 + Population  + (1|Line:Popula
                                     (1|Batch) + (1|ReplicateVial : Line : Population), data = (subset(d_SR_M,Supervisor.PI=='Pasyukova')))
 capture.output(summary(SR_M_lmer_Pasyukova),file = "Starvation/SR_M_lmer_Pasyukova_sum.txt")
 capture.output(anova(SR_M_lmer_Pasyukova),file = "Starvation/SR_M_lmer_Pasyukova.txt")
-capture.output(emmeans(SR_M_lmer_Pasyukova, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "SR_M_lmer_Pasyukova_tk.txt")
+capture.output(emmeans(SR_M_lmer_Pasyukova, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "Starvation/SR_M_lmer_Pasyukova_tk.txt")
 ```
 
 

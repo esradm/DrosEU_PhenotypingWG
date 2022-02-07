@@ -4,34 +4,34 @@ Formula: TL_micrometers ~ -1 + Population + (1 | Line:Population) + (1 |
     Batch)
    Data: (subset(d_TL_M, Supervisor.PI == "Ritchie"))
 
-REML criterion at convergence: 11549.6
+REML criterion at convergence: 11309.7
 
 Scaled residuals: 
     Min      1Q  Median      3Q     Max 
--7.8586 -0.4799  0.0341  0.4817 14.1830 
+-8.8016 -0.5065  0.0525  0.5479  3.8390 
 
 Random effects:
  Groups          Name        Variance Std.Dev.
- Line:Population (Intercept)  800     28.28   
- Batch           (Intercept) 1444     38.00   
- Residual                    4500     67.08   
-Number of obs: 1025, groups:  Line:Population, 26; Batch, 12
+ Line:Population (Intercept)  824.6   28.72   
+ Batch           (Intercept) 1396.0   37.36   
+ Residual                    3579.3   59.83   
+Number of obs: 1024, groups:  Line:Population, 26; Batch, 12
 
 Fixed effects:
              Estimate Std. Error     df t value Pr(>|t|)    
-PopulationAK   826.81      22.17  19.32   37.29   <2e-16 ***
-PopulationGI   827.66      20.53  18.10   40.30   <2e-16 ***
-PopulationKA   814.90      21.09  16.83   38.65   <2e-16 ***
-PopulationMA   840.37      21.10  16.86   39.84   <2e-16 ***
-PopulationMU   844.25      27.84  17.98   30.32   <2e-16 ***
-PopulationYE   845.61      19.90  19.12   42.49   <2e-16 ***
+PopulationAK   826.89      22.01  19.34   37.56   <2e-16 ***
+PopulationGI   823.04      20.37  18.13   40.40   <2e-16 ***
+PopulationKA   815.06      20.90  16.85   38.99   <2e-16 ***
+PopulationMA   840.52      20.91  16.88   40.20   <2e-16 ***
+PopulationMU   844.55      27.74  17.96   30.44   <2e-16 ***
+PopulationYE   846.22      19.75  19.14   42.84   <2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Correlation of Fixed Effects:
             PpltAK PpltGI PpltKA PpltMA PpltMU
-PopulatinGI 0.531                             
-PopulatinKA 0.021  0.025                      
-PopulatinMA 0.021  0.025  0.589               
-PopulatinMU 0.083  0.096  0.257  0.257        
-PopulatinYE 0.380  0.435  0.056  0.056  0.219 
+PopulatinGI 0.523                             
+PopulatinKA 0.020  0.023                      
+PopulatinMA 0.020  0.023  0.581               
+PopulatinMU 0.080  0.092  0.252  0.252        
+PopulatinYE 0.372  0.427  0.054  0.054  0.215 
