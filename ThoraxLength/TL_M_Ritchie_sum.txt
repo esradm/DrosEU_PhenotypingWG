@@ -26,7 +26,7 @@ PopulationMA   841.51      22.32  16.93   37.70   <2e-16 ***
 PopulationMU   844.17      29.65  18.03   28.47   <2e-16 ***
 PopulationYE   843.92      21.10  19.22   39.99   <2e-16 ***
 ---
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Correlation of Fixed Effects:
             PpltAK PpltGI PpltKA PpltMA PpltMU

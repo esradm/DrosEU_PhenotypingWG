@@ -29,7 +29,7 @@ PopulationUM  0.265389   0.006631 17.145310   40.02   <2e-16 ***
 PopulationVA  0.272305   0.006320 14.402207   43.09   <2e-16 ***
 PopulationYE  0.264695   0.006334 14.494587   41.79   <2e-16 ***
 ---
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Correlation of Fixed Effects:
             PpltAK PpltGI PpltKA PpltMA PpltMU PpltRE PpltUM PpltVA

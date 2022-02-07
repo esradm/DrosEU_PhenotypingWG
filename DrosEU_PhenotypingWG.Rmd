@@ -6290,7 +6290,7 @@ p_CCRT_F_lab_cor <- function() scatterPlotMatrix(CCRT_fitted, sex = "F")
 p_CCRT_M_lab_cor <- function() scatterPlotMatrix(CCRT_fitted, sex = "M")
 ```
 
-```{r p_CCRT_F_lab_cor, fig.height=8, fig.width=8 eval=FALSE, include=FALSE}
+```{r p_CCRT_F_lab_cor, fig.height=8, fig.width=8, eval=FALSE, include=FALSE}
 p_CCRT_F_lab_cor()
 ```
 
@@ -6301,7 +6301,7 @@ invisible(dev.off())
 ```
 
 
-```{r p_CCRT_M_lab_cor, fig.height=8, fig.width=8 eval=FALSE, include=FALSE}
+```{r p_CCRT_M_lab_cor, fig.height=8, fig.width=8, eval=FALSE, include=FALSE}
 p_CCRT_M_lab_cor()
 ```
 
@@ -7042,10 +7042,10 @@ There are `r length(intersect_Pop_Dia) ` populations and `r length(intersect_Lin
 ```{r lab_correlations_Dia}
 Dia_fitted <- combineFitted(labs = c("Bergland", "Flatt", "Schlotterer"), sex = rep("F", 3), models = list(Dia_lmer_Bergland, Dia_lm_Flatt, Dia_lmer_Schlotterer))
 
-p_Dia_F_ <- function() scatterPlotMatrix(Dia_fitted, sex = "F")
+p_Dia_F_fitted <- function() scatterPlotMatrix(Dia_fitted, sex = "F")
 ```
 
-```{r lab_correlations_Dia fig.height = 8, fig.width = 8}
+```{r lab_correlations_Dia2, fig.height = 8, fig.width = 8}
 p_Dia_F_fitted()
 ```
 

@@ -23,7 +23,7 @@ PopulationAK  308.889      2.309  79.483  133.76   <2e-16 ***
 PopulationMU  306.066      2.252  83.222  135.93   <2e-16 ***
 PopulationRE  314.289      4.760  85.069   66.03   <2e-16 ***
 ---
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Correlation of Fixed Effects:
             PpltAK PpltMU

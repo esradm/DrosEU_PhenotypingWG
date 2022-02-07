@@ -2,7 +2,7 @@ Linear mixed model fit by REML. t-tests use Satterthwaite's method [
 lmerModLmerTest]
 Formula: TimeDeath_min ~ -1 + Population + (1 | Line:Population) + (1 |  
     Batch)
-   Data: filter(d_HSM_F, (Censor == "0") & (Supervisor.PI == "Vieira"))
+   Data: filter(d_HSM_F, Censor == "0" & Supervisor.PI == "Vieira")
 
 REML criterion at convergence: 57881.5
 
@@ -29,7 +29,7 @@ PopulationUM  364.563      5.828  65.949   62.55   <2e-16 ***
 PopulationVA  357.419      5.517  29.304   64.78   <2e-16 ***
 PopulationYE  362.175      5.687  34.993   63.68   <2e-16 ***
 ---
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Correlation of Fixed Effects:
             PpltAK PpltGI PpltKA PpltMA PpltMU PpltRE PpltUM PpltVA
