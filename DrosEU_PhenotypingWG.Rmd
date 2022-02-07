@@ -971,12 +971,12 @@ Via_fitted <- combineFitted(labs = c("Gibert", "Grath", "Hoedjes", "Schmidt", "S
 p_Via_lab_cor <- function() scatterPlotMatrix(Via_fitted, sex = "NA")
 ```
 
-```{r fig.height=8, fig.width=8}
+```{r p_Via_lab_cor, fig.height=8, fig.width=8}
 p_Via_lab_cor()
 ```
 
 ```{r}
-pdf(file="Viability/p_Via_lab_cor.pdf",width=8, height=8)
+pdf(file="Viability/p_Via_lab_cor.pdf", width=8, height=8)
 p_Via_lab_cor()
 invisible(dev.off())
 ```
@@ -1954,7 +1954,7 @@ p_DT_A_F_lab_cor <- function() scatterPlotMatrix(DT_A_fitted, sex = "F")
 p_DT_A_M_lab_cor <- function() scatterPlotMatrix(DT_A_fitted, sex = "M")
 ```
 
-```{r fig.height=8, fig.width=8}
+```{r p_DT_A_F_lab_cor, fig.height=8, fig.width=8}
 p_DT_A_F_lab_cor()
 ```
 ```{r}
@@ -1963,7 +1963,7 @@ p_DT_A_F_lab_cor()
 invisible(dev.off())
 ```
 
-```{r fig.height=8, fig.width=8}
+```{r p_DT_A_M_lab_cor, fig.height=8, fig.width=8}
 p_DT_A_M_lab_cor()
 ```
 ```{r}
@@ -2496,7 +2496,7 @@ p_DW_F_lab_cor <- function() scatterPlotMatrix(DW_fitted, sex = "F")
 p_DW_M_lab_cor <- function() scatterPlotMatrix(DW_fitted, sex = "M")
 ```
 
-```{r fig.height=8, fig.width=8}
+```{r p_DW_F_lab_cor, fig.height=8, fig.width=8}
 p_DW_F_lab_cor()
 ```
 ```{r}
@@ -2505,7 +2505,7 @@ p_DW_F_lab_cor()
 invisible(dev.off())
 ```
 
-```{r fig.height=8, fig.width=8}
+```{r p_DW_M_lab_cor, fig.height=8, fig.width=8}
 p_DW_M_lab_cor()
 ```
 ```{r}
@@ -3120,7 +3120,7 @@ p_TL_F_lab_cor <- function() scatterPlotMatrix(TL_fitted, sex = "F")
 p_TL_M_lab_cor <- function() scatterPlotMatrix(TL_fitted, sex = "M")
 ```
 
-```{r fig.height=8, fig.width=8}
+```{r p_TL_F_lab_cor, fig.height=8, fig.width=8}
 p_TL_F_lab_cor()
 ```
 ```{r}
@@ -3129,7 +3129,7 @@ p_TL_F_lab_cor()
 invisible(dev.off())
 ```
 
-```{r fig.height=8, fig.width=8}
+```{r p_TL_M_lab_cor, fig.height=8, fig.width=8}
 p_TL_M_lab_cor()
 ```
 ```{r}
@@ -4428,7 +4428,7 @@ p_WA_L_F_lab_cor <- function() scatterPlotMatrix(WA_L_fitted, sex = "F")
 p_WA_L_M_lab_cor <- function() scatterPlotMatrix(WA_L_fitted, sex = "M")
 ```
 
-```{r fig.height=8, fig.width=8}
+```{r p_WA_L_F_lab_cor, fig.height=8, fig.width=8}
 p_WA_L_F_lab_cor()
 ```
 ```{r}
@@ -4437,7 +4437,7 @@ p_WA_L_F_lab_cor()
 invisible(dev.off())
 ```
 
-```{r fig.height=8, fig.width=8}
+```{r p_WA_L_M_lab_cor, fig.height=8, fig.width=8}
 p_WA_L_M_lab_cor()
 ```
 ```{r}
@@ -4454,7 +4454,7 @@ p_WA_R_F_lab_cor <- function() scatterPlotMatrix(WA_R_fitted, sex = "F")
 p_WA_R_M_lab_cor <- function() scatterPlotMatrix(WA_R_fitted, sex = "M")
 ```
 
-```{r fig.height=8, fig.width=8}
+```{r p_WA_R_F_lab_cor, fig.height=8, fig.width=8}
 p_WA_R_F_lab_cor()
 ```
 
@@ -4464,7 +4464,7 @@ p_WA_R_F_lab_cor()
 invisible(dev.off())
 ```
 
-```{r fig.height=8, fig.width=8}
+```{r p_WA_R_M_lab_cor, fig.height=8, fig.width=8}
 p_WA_R_M_lab_cor()
 ```
 ```{r}
@@ -4749,7 +4749,7 @@ p_Fec_lab_cor <- function() scatterPlotMatrix(Fec_fitted, sex = "NA")
 ```
 
 
-```{r fig.height=8, fig.width=8}
+```{r p_Fec_lab_cor, fig.height=8, fig.width=8}
 p_Fec_lab_cor()
 ```
 ```{r}
@@ -5462,7 +5462,7 @@ p_LS_F_lab_cor <- function() scatterPlotMatrix(LS_fitted, sex = "F")
 p_LS_M_lab_cor <- function() scatterPlotMatrix(LS_fitted, sex = "M")
 ```
 
-```{r fig.height=8, fig.width=8}
+```{r p_LS_F_lab_cor, fig.height=8, fig.width=8}
 p_LS_F_lab_cor()
 ```
 
@@ -5472,7 +5472,7 @@ p_LS_F_lab_cor()
 invisible(dev.off())
 ```
 
-```{r fig.height=8, fig.width=8}
+```{r p_LS_M_lab_cor, fig.height=8, fig.width=8}
 p_LS_M_lab_cor()
 ```
 
@@ -6290,7 +6290,7 @@ p_CCRT_F_lab_cor <- function() scatterPlotMatrix(CCRT_fitted, sex = "F")
 p_CCRT_M_lab_cor <- function() scatterPlotMatrix(CCRT_fitted, sex = "M")
 ```
 
-```{r fig.height=8, fig.width=8 eval=FALSE, include=FALSE}
+```{r p_CCRT_F_lab_cor, fig.height=8, fig.width=8 eval=FALSE, include=FALSE}
 p_CCRT_F_lab_cor()
 ```
 
@@ -6301,7 +6301,7 @@ invisible(dev.off())
 ```
 
 
-```{r fig.height=8, fig.width=8 eval=FALSE, include=FALSE}
+```{r p_CCRT_M_lab_cor, fig.height=8, fig.width=8 eval=FALSE, include=FALSE}
 p_CCRT_M_lab_cor()
 ```
 
@@ -6706,7 +6706,7 @@ p_HSM_F_lab_cor <- function() scatterPlotMatrix(HSM_fitted, sex = "F")
 p_HSM_M_lab_cor <- function() scatterPlotMatrix(HSM_fitted, sex = "M")
 ```
 
-```{r fig.height=8, fig.width=8}
+```{r p_HSM_F_lab_cor, fig.height=8, fig.width=8}
 p_HSM_F_lab_cor()
 ```
 
@@ -6717,7 +6717,7 @@ invisible(dev.off())
 ```
 
 
-```{r fig.height=8, fig.width=8}
+```{r p_HSM_M_lab_cor, fig.height=8, fig.width=8}
 p_HSM_M_lab_cor()
 ```
 
@@ -7041,11 +7041,21 @@ There are `r length(intersect_Pop_Dia) ` populations and `r length(intersect_Lin
 
 ```{r lab_correlations_Dia}
 Dia_fitted <- combineFitted(labs = c("Bergland", "Flatt", "Schlotterer"), sex = rep("F", 3), models = list(Dia_lmer_Bergland, Dia_lm_Flatt, Dia_lmer_Schlotterer))
+
+p_Dia_F_ <- function() scatterPlotMatrix(Dia_fitted, sex = "F")
 ```
 
-```{r fig.height = 8, fig.width = 8}
-scatterPlotMatrix(Dia_fitted, sex = "F")
+```{r lab_correlations_Dia fig.height = 8, fig.width = 8}
+p_Dia_F_fitted()
 ```
+
+```{r}
+pdf(file="Diapause/p_Dia_F_fitted.pdf",width=8, height=8)
+p_Dia_F_fitted()
+invisible(dev.off())
+```
+
+
 
 ## Circadian eclosion timing
 
@@ -8481,15 +8491,33 @@ There are `r length(intersect_Pop_SR) ` populations and `r length(intersect_Line
 
 ```{r}
 SR_fitted <- combineFitted(labs = rep(c("Gonzalez", "Onder", "Pasyukova"), 2), sex = rep(c("F", "M"), each = 3), models = list(SR_F_lmer_Gonzalez, SR_F_lmer_Onder, SR_F_lmer_Pasyukova, SR_M_lmer_Gonzalez, SR_M_lmer_Onder, SR_M_lmer_Pasyukova))
+
+p_SR_F_lab_cor <- function() scatterPlotMatrix(SR_fitted, sex = "F")
+p_SR_M_lab_cor <- function() scatterPlotMatrix(SR_fitted, sex = "M")
 ```
 
-```{r fig.height = 8, fig.width = 8}
-scatterPlotMatrix(SR_fitted, sex = "F")
+```{r p_SR_F_lab_cor, fig.height = 8, fig.width = 8}
+p_SR_F_lab_cor()
 ```
 
-```{r fig.height = 8, fig.width = 8}
-scatterPlotMatrix(SR_fitted, sex = "M")
+```{r p_SR_M_lab_cor, fig.height = 8, fig.width = 8}
+p_SR_M_lab_cor()
 ```
+
+```{r}
+pdf(file="Starvation/p_SR_F_lab_cor.pdf", width=8, height=8)
+p_SR_F_lab_cor()
+invisible(dev.off())
+```
+
+```{r}
+pdf(file="Starvation/p_SR_M_lab_cor.pdf", width=8, height=8)
+p_SR_M_lab_cor()
+invisible(dev.off())
+```
+
+
+
 
 
 ## Pigmentation
