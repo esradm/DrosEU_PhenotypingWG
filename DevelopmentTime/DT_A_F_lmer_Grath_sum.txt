@@ -1,27 +1,25 @@
 Linear mixed model fit by REML. t-tests use Satterthwaite's method [
 lmerModLmerTest]
-Formula: DT_EggAdult ~ -1 + Population + (1 | Line:Population) + (1 |  
-    ReplicateVial:Line)
+Formula: DT_EggAdult ~ -1 + Population + (1 | Line:Population)
    Data: d_DT_A_F[d_DT_A_F$Supervisor.PI == "Grath", ]
 
-REML criterion at convergence: 7270.3
+REML criterion at convergence: 7659.8
 
 Scaled residuals: 
     Min      1Q  Median      3Q     Max 
--2.3008 -0.6157 -0.0902  0.5802  4.6430 
+-2.0678 -0.7463  0.0894  0.5972  4.2158 
 
 Random effects:
- Groups             Name        Variance Std.Dev.
- ReplicateVial:Line (Intercept) 178.3    13.35   
- Line:Population    (Intercept)   0.0     0.00   
- Residual                       167.2    12.93   
-Number of obs: 890, groups:  ReplicateVial:Line, 86; Line:Population, 23
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept)  22.4     4.732  
+ Residual                    314.1    17.724  
+Number of obs: 890, groups:  Line:Population, 23
 
 Fixed effects:
              Estimate Std. Error      df t value Pr(>|t|)    
-PopulationAK  308.889      2.309  79.483  133.76   <2e-16 ***
-PopulationMU  306.066      2.252  83.222  135.93   <2e-16 ***
-PopulationRE  314.289      4.760  85.069   66.03   <2e-16 ***
+PopulationAK  309.626      1.722  13.465  179.80   <2e-16 ***
+PopulationMU  305.631      1.756  14.520  174.06   <2e-16 ***
+PopulationRE  321.616      3.599  19.544   89.37   <2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
@@ -29,6 +27,3 @@ Correlation of Fixed Effects:
             PpltAK PpltMU
 PopulatinMU 0.000        
 PopulatinRE 0.000  0.000 
-optimizer (nloptwrap) convergence code: 0 (OK)
-boundary (singular) fit: see ?isSingular
-

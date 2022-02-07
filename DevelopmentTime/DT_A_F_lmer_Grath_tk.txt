@@ -1,17 +1,17 @@
 $`emmeans of Population`
  Population emmean   SE  df asymp.LCL asymp.UCL
- AK            309 2.31 Inf       304       313
- MU            306 2.25 Inf       302       310
- RE            314 4.76 Inf       305       324
+ AK            310 1.72 Inf       306       313
+ MU            306 1.76 Inf       302       309
+ RE            322 3.60 Inf       315       329
 
 Degrees-of-freedom method: asymptotic 
 Confidence level used: 0.95 
 
 $`pairwise differences of Population`
  1       estimate   SE  df z.ratio p.value
- AK - MU     2.82 3.23 Inf   0.875  0.6558
- AK - RE    -5.40 5.29 Inf  -1.021  0.5638
- MU - RE    -8.22 5.27 Inf  -1.562  0.2624
+ AK - MU        4 2.46 Inf   1.624  0.2353
+ AK - RE      -12 3.99 Inf  -3.006  0.0075
+ MU - RE      -16 4.00 Inf  -3.992  0.0002
 
 Degrees-of-freedom method: asymptotic 
 P value adjustment: tukey method for comparing a family of 3 estimates 

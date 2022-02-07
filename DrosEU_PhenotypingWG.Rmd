@@ -657,6 +657,12 @@ capture.output(anova(Via_lmer_Gibert),file = "Viability/Via_lmer_Gibert.txt")
 capture.output(emmeans(Via_lmer_Gibert, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "Viability/Via_lmer_Gibert_tk.txt")
 ```
 
+
+```{r}
+model_means_Via_Gibert <- emmeans(object = Via_lmer_Gibert, specs = ~ Population)
+model_means_Via_Gibert_cld <- cld(object = model_means_Via_Gibert, adjust = "Tukey", Letters = letters, alpha = 0.05) %>% as.data.frame %>% mutate(Population = factor(Population, levels = c("YE","RE","GI","MU","MA","UM","KA","VA","AK"))) %>% arrange(Population) %>% dplyr::rename(cld = .group)
+```
+
 ```{r}
 anova(Via_lmer_Gibert)
 ```
@@ -667,7 +673,7 @@ summary(Via_lmer_Gibert)
 
 
 ```{r p_Via_Gibert, echo=FALSE}
-p_Via_Gibert <- ggplot(data = (subset(d_Via,Supervisor.PI=='Gibert')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Batch)) + geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_Via_Gibert", x="Population", y = "ProportionEggtoAdultSurvival") + ylim(c(min_Via, max_Via))+ droseu_theme
+p_Via_Gibert <- ggplot(data = (subset(d_Via,Supervisor.PI=='Gibert')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Batch)) + geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_Via_Gibert", x="Population", y = "ProportionEggtoAdultSurvival") + ylim(c(min_Via, max_Via)) +droseu_theme
 ```
 
 ```{r echo=FALSE}
@@ -682,7 +688,7 @@ invisible(dev.off())
 
 
 ```{r p_Via_pop_Gibert, echo=FALSE, message=FALSE, warning=FALSE}
-p_Via_pop_Gibert <- ggplot(data = (subset(d_Via,Supervisor.PI=='Gibert')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Population)) +geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_Via_pop_Gibert", x="Population", y = "ProportionEggtoAdultSurvival") + ylim(c(min_Via, max_Via))+ droseu_theme
+p_Via_pop_Gibert <- ggplot(data = (subset(d_Via,Supervisor.PI=='Gibert')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Population)) +geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_Via_pop_Gibert", x="Population", y = "ProportionEggtoAdultSurvival") + ylim(c(min_Via, max_Via))+ geom_text(data = model_means_Via_Gibert_cld, aes(x = Population, label = cld), y = max_Via, vjust = 1) + droseu_theme
 ```
 
 ```{r echo=FALSE}
@@ -702,6 +708,11 @@ Via_lmer_Grath <- lmer(ProportionEggtoAdultSurvival ~ -1 + Population + (1|Line:
 capture.output(summary(Via_lmer_Grath),file = "Viability/Via_lmer_Grath_sum.txt")
 capture.output(anova(Via_lmer_Grath),file = "Viability/Via_lmer_Grath.txt")
 capture.output(emmeans(Via_lmer_Grath, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "Viability/Via_lmer_Grath_tk.txt")
+```
+
+```{r}
+model_means_Via_Grath <- emmeans(object = Via_lmer_Grath, specs = ~ Population)
+model_means_Via_Grath_cld <- cld(object = model_means_Via_Grath, adjust = "Tukey", Letters = letters, alpha = 0.05) %>% as.data.frame %>% mutate(Population = factor(Population, levels = c("YE","RE","GI","MU","MA","UM","KA","VA","AK"))) %>% arrange(Population) %>% dplyr::rename(cld = .group)
 ```
 
 ```{r}
@@ -729,7 +740,7 @@ invisible(dev.off())
 
 
 ```{r, echo=FALSE, message= FALSE, warning=FALSE}
-p_Via_pop_Grath <- ggplot(data = (subset(d_Via,Supervisor.PI=='Grath')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Population)) + geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_Via_pop_Grath", x="Population", y = "ProportionEggtoAdultSurvival") + ylim(c(min_Via, max_Via))+ droseu_theme
+p_Via_pop_Grath <- ggplot(data = (subset(d_Via,Supervisor.PI=='Grath')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Population)) + geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_Via_pop_Grath", x="Population", y = "ProportionEggtoAdultSurvival") + ylim(c(min_Via, max_Via))+ geom_text(data = model_means_Via_Grath_cld, aes(x = Population, label = cld), y = 1, vjust = 1) + droseu_theme
 
 ```
 
@@ -752,6 +763,12 @@ capture.output(summary(Via_lmer_Hoedjes),file = "Viability/Via_lmer_Hoedjes_sum.
 capture.output(anova(Via_lmer_Hoedjes),file = "Viability/Via_lmer_Hoedjes.txt")
 capture.output(emmeans(Via_lmer_Hoedjes, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "Viability/Via_lmer_Hoedjes_tk.txt")
 ```
+
+```{r}
+model_means_Via_Hoedjes <- emmeans(object = Via_lmer_Hoedjes, specs = ~ Population)
+model_means_Via_Hoedjes_cld <- cld(object = model_means_Via_Hoedjes, adjust = "Tukey", Letters = letters, alpha = 0.05) %>% as.data.frame %>% mutate(Population = factor(Population, levels = c("YE","RE","GI","MU","MA","UM","KA","VA","AK"))) %>% arrange(Population) %>% dplyr::rename(cld = .group)
+```
+
 
 ```{r}
 anova(Via_lmer_Hoedjes)
@@ -780,7 +797,7 @@ invisible(dev.off())
 
 ```{r p_Via_pop_Hoedjes, echo=FALSE, message= FALSE, warning=FALSE}
 
-p_Via_pop_Hoedjes <- ggplot(data = (subset(d_Via,Supervisor.PI=='Hoedjes')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Population)) + geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_Via_pop_Hoedjes", x="Population", y = "ProportionEggtoAdultSurvival") + ylim(c(min_Via, max_Via))+ droseu_theme
+p_Via_pop_Hoedjes <- ggplot(data = (subset(d_Via,Supervisor.PI=='Hoedjes')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Population)) + geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_Via_pop_Hoedjes", x="Population", y = "ProportionEggtoAdultSurvival") + ylim(c(min_Via, max_Via))+  geom_text(data = model_means_Via_Hoedjes_cld, aes(x = Population, label = cld), y = 1, vjust = 1) + droseu_theme
 
 ```
 
@@ -804,6 +821,13 @@ capture.output(summary(Via_lm_Schmidt),file = "Viability/Via_lm_Schmidt_sum.txt"
 capture.output(anova(Via_lm_Schmidt),file = "Viability/Via_lm_Schmidt.txt")
 capture.output(emmeans(Via_lm_Schmidt, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "Viability/Via_lm_Schmidt_tk.txt")
 ```
+
+
+```{r}
+model_means_Via_Schmidt <- emmeans(object = Via_lm_Schmidt, specs = ~ Population)
+model_means_Via_Schmidt_cld <- cld(object = model_means_Via_Schmidt, adjust = "Tukey", Letters = letters, alpha = 0.05) %>% as.data.frame %>% mutate(Population = factor(Population, levels = c("YE","RE","GI","MU","MA","UM","KA","VA","AK"))) %>% arrange(Population) %>% dplyr::rename(cld = .group)
+```
+
 
 ```{r}
 anova(Via_lm_Schmidt) #lm()` is used only for Schmidt Lab's viability data, as only one vial per line was phenotyped 
@@ -830,13 +854,17 @@ p_Via_Schmidt
 invisible(dev.off())
 ```
 
+```{r}
+p_Via_pop_Schmidt <- ggplot(data = (subset(d_Via,Supervisor.PI=='Schmidt')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Population)) +geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_Via_pop_Schmidt", x="Population", y = "ProportionEggtoAdultSurvival") + ylim(c(min_Via, max_Via))+   geom_text(data = model_means_Via_Schmidt_cld, aes(x = Population, label = cld), y = 1, vjust = 1) + droseu_theme
+```
+
+```{r}
+p_Via_pop_Schmidt
+```
 
 ```{r p_Via_pop_Schmidt, echo=FALSE, message= FALSE, warning=FALSE}
 pdf(file="Viability/p_Via_pop_Schmidt.pdf",width=8, height=5)
-p_Via_pop_Schmidt <- ggplot(data = (subset(d_Via,Supervisor.PI=='Schmidt')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Population)) +geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_Via_pop_Schmidt", x="Population", y = "ProportionEggtoAdultSurvival") 
-dev.off()
-
-p_Via_pop_Schmidt + ylim(c(min_Via, max_Via))+ droseu_theme
+p_Via_pop_Schmidt
 invisible(dev.off())
 ```
 
@@ -848,6 +876,13 @@ capture.output(summary(Via_lmer_StamenkovicRadak),file = "Viability/Via_lmer_Sta
 capture.output(anova(Via_lmer_StamenkovicRadak),file = "Viability/Via_lmer_StamenkovicRadak.txt")
 capture.output(emmeans(Via_lmer_StamenkovicRadak, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "Viability/Via_lmer_StamenkovicRadak_tk.txt")
 ```
+
+
+```{r}
+model_means_Via_StamenkovicRadak <- emmeans(object = Via_lmer_StamenkovicRadak, specs = ~ Population)
+model_means_Via_StamenkovicRadak_cld <- cld(object = model_means_Via_StamenkovicRadak, adjust = "Tukey", Letters = letters, alpha = 0.05) %>% as.data.frame %>% mutate(Population = factor(Population, levels = c("YE","RE","GI","MU","MA","UM","KA","VA","AK"))) %>% arrange(Population) %>% dplyr::rename(cld = .group)
+```
+
 
 ```{r}
 anova(Via_lmer_StamenkovicRadak)
@@ -873,7 +908,7 @@ invisible(dev.off())
 ```
 
 ```{r p_Via_pop_StamenkovicRadak, echo=FALSE, message= FALSE, warning=FALSE}
-p_Via_pop_StamenkovicRadak <- ggplot(data = (subset(d_Via,Supervisor.PI=='StamenkovicRadak')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Population)) + geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_Via_pop_StamenkovicRadak", x="Population", y = "ProportionEggtoAdultSurvival")  + ylim(c(min_Via, max_Via))+ droseu_theme
+p_Via_pop_StamenkovicRadak <- ggplot(data = (subset(d_Via,Supervisor.PI=='StamenkovicRadak')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Population)) + geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_Via_pop_StamenkovicRadak", x="Population", y = "ProportionEggtoAdultSurvival")  + ylim(c(min_Via, max_Via))+ geom_text(data = model_means_Via_StamenkovicRadak_cld, aes(x = Population, label = cld), y = 1, vjust = 1) + droseu_theme
 ```
 
 ```{r echo=FALSE}
@@ -895,6 +930,12 @@ capture.output(summary(Via_lmer_Zwaan),file = "Viability/Via_lmer_Zwaan_sum.txt"
 capture.output(anova(Via_lmer_Zwaan),file = "Viability/Via_lmer_Zwaan.txt")
 capture.output(emmeans(Via_lmer_Zwaan, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "Viability/Via_lmer_Zwaan_tk.txt")
 ```
+
+```{r}
+model_means_Via_Zwaan <- emmeans(object = Via_lmer_Zwaan, specs = ~ Population)
+model_means_Via_Zwaan_cld <- cld(object = model_means_Via_Zwaan, adjust = "Tukey", Letters = letters, alpha = 0.05) %>% as.data.frame %>% mutate(Population = factor(Population, levels = c("YE","RE","GI","MU","MA","UM","KA","VA","AK"))) %>% arrange(Population) %>% dplyr::rename(cld = .group)
+```
+
 
 ```{r}
 anova(Via_lmer_Zwaan)
@@ -923,7 +964,7 @@ invisible(dev.off())
 
 ```{r p_Via_pop_Zwaan, echo=FALSE, message= FALSE, warning=FALSE}
 
-p_Via_pop_Zwaan <- ggplot(data = (subset(d_Via,Supervisor.PI=='Zwaan')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Population)) + geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_Via_pop_Zwaan", x="Population", y = "ProportionEggtoAdultSurvival") + ylim(c(min_Via, max_Via))+ droseu_theme
+p_Via_pop_Zwaan <- ggplot(data = (subset(d_Via,Supervisor.PI=='Zwaan')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Population)) + geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_Via_pop_Zwaan", x="Population", y = "ProportionEggtoAdultSurvival") + ylim(c(min_Via, max_Via))+  geom_text(data = model_means_Via_Zwaan_cld, aes(x = Population, label = cld), y = 1, vjust = 1) + droseu_theme
 
 ```
 
@@ -1081,6 +1122,12 @@ capture.output(emmeans(DT_P_lmer, list(pairwise ~ Population), adjust = "tukey",
 ```
 
 ```{r}
+model_means_DT_P_Schmidt <- emmeans(object = DT_P_lmer, specs = ~ Population)
+model_means_DT_P_Schmidt_cld <- cld(object = model_means_DT_P_Schmidt, adjust = "Tukey", Letters = letters, alpha = 0.05) %>% as.data.frame %>% mutate(Population = factor(Population, levels = c("YE","RE","GI","MU","MA","UM","KA","VA","AK"))) %>% arrange(Population) %>% dplyr::rename(cld = .group)
+```
+
+
+```{r}
 anova(DT_P_lmer)
 ```
 
@@ -1092,7 +1139,7 @@ summary(DT_P_lmer)
 
 p_DT_P_Schmidt <- ggplot(data = (subset(d_DT_P,Supervisor.PI=='Schmidt')), aes(x=Population_Lat, y=DT_EggPupa, fill=Population)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-        labs(title="p_DT_P_Schmidt", x="Population", y = "DT_EggPupa") + ylim(c(min_DT_P, max_DT_P))+ droseu_theme
+        labs(title="p_DT_P_Schmidt", x="Population", y = "DT_EggPupa") + ylim(c(min_DT_P, max_DT_P))+   geom_text(data = model_means_DT_P_Schmidt_cld, aes(x = Population, label = cld), y = 1, vjust = 1) + droseu_theme
 
 ```
 
@@ -1279,6 +1326,12 @@ capture.output(anova(DT_A_F_lmer_Gibert),file = "DevelopmentTime/DT_A_F_lmer_Gib
 capture.output(emmeans(DT_A_F_lmer_Gibert, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"), file = "DevelopmentTime/DT_A_F_lmer_Gibert_tk.txt")
 ```
 
+
+```{r}
+model_means_DT_A_F_Gibert <- emmeans(object = DT_A_F_lmer_Gibert, specs = ~ Population)
+model_means_DT_A_F_Gibert_cld <- cld(object = model_means_DT_A_F_Gibert, adjust = "Tukey", Letters = letters, alpha = 0.05) %>% as.data.frame %>% mutate(Population = factor(Population, levels = c("YE","RE","GI","MU","MA","UM","KA","VA","AK"))) %>% arrange(Population) %>% dplyr::rename(cld = .group)
+```
+
 ```{r}
 anova(DT_A_F_lmer_Gibert)
 ```
@@ -1292,6 +1345,13 @@ DT_A_M_lmer_Gibert <- lmer(DT_EggAdult ~ -1 + Population + (1|Line:Population) +
 capture.output(summary(DT_A_M_lmer_Gibert),file = "DevelopmentTime/DT_A_M_lmer_Gibert_sum.txt")
 capture.output(anova(DT_A_M_lmer_Gibert),file = "DevelopmentTime/DT_A_M_lmer_Gibert.txt")
 capture.output(emmeans(DT_A_M_lmer_Gibert, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "DevelopmentTime/DT_A_M_lmer_Gibert_tk.txt")
+```
+
+
+
+```{r}
+model_means_DT_A_M_Gibert <- emmeans(object = DT_A_M_lmer_Gibert, specs = ~ Population)
+model_means_DT_A_M_Gibert_cld <- cld(object = model_means_DT_A_M_Gibert, adjust = "Tukey", Letters = letters, alpha = 0.05) %>% as.data.frame %>% mutate(Population = factor(Population, levels = c("YE","RE","GI","MU","MA","UM","KA","VA","AK"))) %>% arrange(Population) %>% dplyr::rename(cld = .group)
 ```
 
 ```{r}
@@ -1325,7 +1385,7 @@ dev.off()
 ```{r p_DT_A_F_pop_Gibert, echo=FALSE}
 p_DT_A_F_pop_Gibert <- ggplot(data = (subset(d_DT_A_F,Supervisor.PI=='Gibert')), aes(x=Population_Lat, y=DT_EggAdult, fill=Population)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-        labs(title="p_DT_A_F_pop_Gibert", x="Population", y = "DT_EggAdult")+ ylim(c(min_DT_A, max_DT_A))+ droseu_theme
+        labs(title="p_DT_A_F_pop_Gibert", x="Population", y = "DT_EggAdult")+ ylim(c(min_DT_A, max_DT_A))+   geom_text(data = model_means_DT_A_F_Gibert_cld, aes(x = Population, label = cld), y = 1, vjust = 1) + droseu_theme
 
 ```
 
@@ -1364,7 +1424,7 @@ dev.off()
 
 p_DT_A_M_pop_Gibert <- ggplot(data = (subset(d_DT_A_M,Supervisor.PI=='Gibert')), aes(x=Population_Lat, y=DT_EggAdult, fill=Population)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-        labs(title="p_DT_A_M_pop_Gibert", x="Population", y = "DT_EggAdult")+ ylim(c(min_DT_A, max_DT_A))+ droseu_theme
+        labs(title="p_DT_A_M_pop_Gibert", x="Population", y = "DT_EggAdult")+ ylim(c(min_DT_A, max_DT_A))+  geom_text(data = model_means_DT_A_M_Gibert_cld, aes(x = Population, label = cld), y = 1, vjust = 1) + droseu_theme
 
 ```
 
@@ -1381,10 +1441,15 @@ dev.off()
 ##### Grath Lab
 
 ```{r DT_A_F_lmer_Grath}
-DT_A_F_lmer_Grath <- lmer(DT_EggAdult ~ -1 + Population + (1|Line:Population) + (1|ReplicateVial : Line), data = d_DT_A_F[d_DT_A_F$Supervisor.PI == "Grath",])
+DT_A_F_lmer_Grath <- lmer(DT_EggAdult ~ -1 + Population + (1|Line:Population), data = d_DT_A_F[d_DT_A_F$Supervisor.PI == "Grath",])
 capture.output(summary(DT_A_F_lmer_Grath),file = "DevelopmentTime/DT_A_F_lmer_Grath_sum.txt")
 capture.output(anova(DT_A_F_lmer_Grath),file = "DevelopmentTime/DT_A_F_lmer_Grath.txt")
 capture.output(emmeans(DT_A_F_lmer_Grath, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "DevelopmentTime/DT_A_F_lmer_Grath_tk.txt")
+```
+
+```{r}
+model_means_DT_A_F_Grath <- emmeans(object = DT_A_F_lmer_Grath, specs = ~ Population)
+model_means_DT_A_F_Grath_cld <- cld(object = model_means_DT_A_F_Grath, adjust = "Tukey", Letters = letters, alpha = 0.05) %>% as.data.frame %>% mutate(Population = factor(Population, levels = c("YE","RE","GI","MU","MA","UM","KA","VA","AK"))) %>% arrange(Population) %>% dplyr::rename(cld = .group)
 ```
 
 ```{r}
@@ -1396,10 +1461,16 @@ summary(DT_A_F_lmer_Grath)
 ```
 
 ```{r DT_A_M_lmer_Grath}
-DT_A_M_lmer_Grath <- lmer(DT_EggAdult ~ -1 + Population + (1|Line:Population) + (1|ReplicateVial : Line), data = d_DT_A_M[d_DT_A_M$Supervisor.PI == "Grath",])
+DT_A_M_lmer_Grath <- lmer(DT_EggAdult ~ -1 + Population + (1|Line:Population), data = d_DT_A_M[d_DT_A_M$Supervisor.PI == "Grath",])
 capture.output(summary(DT_A_M_lmer_Grath),file = "DevelopmentTime/DT_A_M_lmer_Grath_sum.txt")
 capture.output(anova(DT_A_M_lmer_Grath),file = "DevelopmentTime/DT_A_M_lmer_Grath.txt")
 capture.output(emmeans(DT_A_M_lmer_Grath, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "DevelopmentTime/DT_A_M_lmer_Grath_tk.txt")
+```
+
+
+```{r}
+model_means_DT_A_M_Grath <- emmeans(object = DT_A_M_lmer_Grath, specs = ~ Population)
+model_means_DT_A_M_Grath_cld <- cld(object = model_means_DT_A_M_Grath, adjust = "Tukey", Letters = letters, alpha = 0.05) %>% as.data.frame %>% mutate(Population = factor(Population, levels = c("YE","RE","GI","MU","MA","UM","KA","VA","AK"))) %>% arrange(Population) %>% dplyr::rename(cld = .group)
 ```
 
 ```{r}
@@ -1420,20 +1491,11 @@ p_DT_A_F_Grath + ylim(c(min_DT_A, max_DT_A))+ droseu_theme
 dev.off()
 ```
 
-```{r}
-
-```
-
-
-```{r}
-
-```
-
 ```{r p_DT_A_F_pop_Grath}
 
 p_DT_A_F_pop_Grath <- ggplot(data = (subset(d_DT_A_F,Supervisor.PI=='Grath')), aes(x=Population_Lat, y=DT_EggAdult, fill=Population)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-        labs(title="p_DT_A_F_pop_Grath", x="Population", y = "DT_EggAdult") + ylim(c(min_DT_A, max_DT_A))+ droseu_theme
+        labs(title="p_DT_A_F_pop_Grath", x="Population", y = "DT_EggAdult") + ylim(c(min_DT_A, max_DT_A))+ geom_text(data = model_means_DT_A_F_Grath_cld, aes(x = Population, label = cld), y = 1, vjust = 1) + droseu_theme
 
 ```
 
@@ -1473,7 +1535,7 @@ dev.off()
 
 p_DT_A_M_pop_Grath <- ggplot(data = (subset(d_DT_A_M,Supervisor.PI=='Grath')), aes(x=Population_Lat, y=DT_EggAdult, fill=Population)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-        labs(title="p_DT_A_M_pop_Grath", x="Population", y = "DT_EggAdult") + ylim(c(min_DT_A, max_DT_A))+ droseu_theme
+        labs(title="p_DT_A_M_pop_Grath", x="Population", y = "DT_EggAdult") + ylim(c(min_DT_A, max_DT_A))+ geom_text(data = model_means_DT_A_M_Grath_cld, aes(x = Population, label = cld), y = 1, vjust = 1) + droseu_theme
 
 ```
 
@@ -1500,6 +1562,11 @@ capture.output(emmeans(DT_A_F_lmer_Hoedjes, list(pairwise ~ Population), adjust 
 ```
 
 ```{r}
+model_means_DT_A_F_Hoedjes <- emmeans(object = DT_A_F_lmer_Hoedjes, specs = ~ Population)
+model_means_DT_A_F_Hoedjes_cld <- cld(object = model_means_DT_A_F_Hoedjes, adjust = "Tukey", Letters = letters, alpha = 0.05) %>% as.data.frame %>% mutate(Population = factor(Population, levels = c("YE","RE","GI","MU","MA","UM","KA","VA","AK"))) %>% arrange(Population) %>% dplyr::rename(cld = .group)
+```
+
+```{r}
 anova(DT_A_F_lmer_Hoedjes)
 ```
 
@@ -1513,6 +1580,12 @@ capture.output(summary(DT_A_M_lmer_Hoedjes),file = "DevelopmentTime/DT_A_M_lmer_
 capture.output(anova(DT_A_M_lmer_Hoedjes),file = "DevelopmentTime/DT_A_M_lmer_Hoedjes.txt")
 capture.output(emmeans(DT_A_M_lmer_Hoedjes, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "DevelopmentTime/DT_A_M_lmer_Hoedjes_tk.txt")
 
+```
+
+
+```{r}
+model_means_DT_A_M_Hoedjes <- emmeans(object = DT_A_M_lmer_Hoedjes, specs = ~ Population)
+model_means_DT_A_M_Hoedjes_cld <- cld(object = model_means_DT_A_M_Hoedjes, adjust = "Tukey", Letters = letters, alpha = 0.05) %>% as.data.frame %>% mutate(Population = factor(Population, levels = c("YE","RE","GI","MU","MA","UM","KA","VA","AK"))) %>% arrange(Population) %>% dplyr::rename(cld = .group)
 ```
 
 ```{r}
@@ -1547,7 +1620,7 @@ dev.off()
 
 p_DT_A_F_pop_Hoedjes <- ggplot(data = (subset(d_DT_A_F,Supervisor.PI=='Hoedjes')), aes(x=Population_Lat, y=DT_EggAdult, fill=Population)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-        labs(title="p_DT_A_F_pop_Hoedjes", x="Population", y = "DT_EggAdult") + ylim(c(min_DT_A, max_DT_A))+ droseu_theme
+        labs(title="p_DT_A_F_pop_Hoedjes", x="Population", y = "DT_EggAdult") + ylim(c(min_DT_A, max_DT_A))+ geom_text(data = model_means_DT_A_F_Hoedjes_cld, aes(x = Population, label = cld), y = 1, vjust = 1) + droseu_theme
 
 ```
 
@@ -1584,7 +1657,7 @@ dev.off()
 
 p_DT_A_M_pop_Hoedjes <- ggplot(data = (subset(d_DT_A_M,Supervisor.PI=='Hoedjes')), aes(x=Population_Lat, y=DT_EggAdult, fill=Population)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-        labs(title="p_DT_A_M_pop_Hoedjes", x="Population", y = "DT_EggAdult") + ylim(c(min_DT_A, max_DT_A))+ droseu_theme
+        labs(title="p_DT_A_M_pop_Hoedjes", x="Population", y = "DT_EggAdult") + ylim(c(min_DT_A, max_DT_A))+ geom_text(data = model_means_DT_A_M_Hoedjes_cld, aes(x = Population, label = cld), y = 1, vjust = 1) + droseu_theme
 
 ```
 
@@ -1609,6 +1682,12 @@ capture.output(anova(DT_A_F_lmer_Schmidt),file = "DevelopmentTime/DT_A_F_lmer_Sc
 capture.output(emmeans(DT_A_F_lmer_Schmidt, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "DevelopmentTime/DT_A_F_lmer_Schmidt_tk.txt")
 ```
 
+
+```{r}
+model_means_DT_A_F_Schmidt <- emmeans(object = DT_A_F_lmer_Schmidt, specs = ~ Population)
+model_means_DT_A_F_Schmidt_cld <- cld(object = model_means_DT_A_F_Schmidt, adjust = "Tukey", Letters = letters, alpha = 0.05) %>% as.data.frame %>% mutate(Population = factor(Population, levels = c("YE","RE","GI","MU","MA","UM","KA","VA","AK"))) %>% arrange(Population) %>% dplyr::rename(cld = .group)
+```
+
 ```{r}
 anova(DT_A_F_lmer_Schmidt)
 ```
@@ -1622,6 +1701,12 @@ DT_A_M_lmer_Schmidt <- lmer(DT_EggAdult ~ -1 + Population + (1|Line:Population),
 capture.output(summary(DT_A_M_lmer_Schmidt),file = "DevelopmentTime/DT_A_M_lmer_Schmidt_sum.txt")
 capture.output(anova(DT_A_M_lmer_Schmidt),file = "DevelopmentTime/DT_A_M_lmer_Schmidt.txt")
 capture.output(emmeans(DT_A_M_lmer_Schmidt, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "DevelopmentTime/DT_A_M_lmer_Schmidt_tk.txt")
+```
+
+
+```{r}
+model_means_DT_A_M_Schmidt <- emmeans(object = DT_A_M_lmer_Schmidt, specs = ~ Population)
+model_means_DT_A_M_Schmidt_cld <- cld(object = model_means_DT_A_M_Schmidt, adjust = "Tukey", Letters = letters, alpha = 0.05) %>% as.data.frame %>% mutate(Population = factor(Population, levels = c("YE","RE","GI","MU","MA","UM","KA","VA","AK"))) %>% arrange(Population) %>% dplyr::rename(cld = .group)
 ```
 
 ```{r}
@@ -1655,7 +1740,7 @@ dev.off()
 
 p_DT_A_F_pop_Schmidt <- ggplot(data = (subset(d_DT_A_F,Supervisor.PI=='Schmidt')), aes(x=Population_Lat, y=DT_EggAdult, fill=Population)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-        labs(title="p_DT_A_F_pop_Schmidt", x="Population", y = "DT_EggAdult") + ylim(c(min_DT_A, max_DT_A))+ droseu_theme
+        labs(title="p_DT_A_F_pop_Schmidt", x="Population", y = "DT_EggAdult") + ylim(c(min_DT_A, max_DT_A))+geom_text(data = model_means_DT_A_F_Schmidt_cld, aes(x = Population, label = cld), y = 1, vjust = 1) + droseu_theme
 
 ```
 
@@ -1692,7 +1777,7 @@ dev.off()
 
 p_DT_A_M_pop_Schmidt <- ggplot(data = (subset(d_DT_A_M,Supervisor.PI=='Schmidt')), aes(x=Population_Lat, y=DT_EggAdult, fill=Population)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-        labs(title="p_DT_A_M_pop_Schmidt", x="Population", y = "DT_EggAdult") + ylim(c(min_DT_A, max_DT_A))+ droseu_theme
+        labs(title="p_DT_A_M_pop_Schmidt", x="Population", y = "DT_EggAdult") + ylim(c(min_DT_A, max_DT_A))+geom_text(data = model_means_DT_A_M_Schmidt_cld, aes(x = Population, label = cld), y = 1, vjust = 1) +  droseu_theme
 
 ```
 
@@ -1716,6 +1801,13 @@ capture.output(anova(DT_A_F_lmer_StamenkovicRadak),file = "DevelopmentTime/DT_A_
 capture.output(emmeans(DT_A_F_lmer_StamenkovicRadak, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "DevelopmentTime/DT_A_F_lmer_StamenkovicRadak_tk.txt")
 ```
 
+
+```{r}
+model_means_DT_A_F_StamenkovicRadak <- emmeans(object = DT_A_F_lmer_StamenkovicRadak, specs = ~ Population)
+model_means_DT_A_F_StamenkovicRadak_cld <- cld(object = model_means_DT_A_F_StamenkovicRadak, adjust = "Tukey", Letters = letters, alpha = 0.05) %>% as.data.frame %>% mutate(Population = factor(Population, levels = c("YE","RE","GI","MU","MA","UM","KA","VA","AK"))) %>% arrange(Population) %>% dplyr::rename(cld = .group)
+```
+
+
 ```{r}
 anova(DT_A_F_lmer_StamenkovicRadak)
 ```
@@ -1729,6 +1821,11 @@ DT_A_M_lmer_StamenkovicRadak <- lmer(DT_EggAdult ~ -1 + Population + (1|Line:Pop
 capture.output(summary(DT_A_M_lmer_StamenkovicRadak),file = "DevelopmentTime/DT_A_M_lmer_StamenkovicRadak_sum.txt")
 capture.output(anova(DT_A_M_lmer_StamenkovicRadak),file = "DevelopmentTime/DT_A_M_lmer_StamenkovicRadak.txt")
 capture.output(emmeans(DT_A_M_lmer_StamenkovicRadak, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "DevelopmentTime/DT_A_M_lmer_StamenkovicRadak_tk.txt")
+```
+
+```{r}
+model_means_DT_A_M_StamenkovicRadak <- emmeans(object = DT_A_M_lmer_StamenkovicRadak, specs = ~ Population)
+model_means_DT_A_M_StamenkovicRadak_cld <- cld(object = model_means_DT_A_M_StamenkovicRadak, adjust = "Tukey", Letters = letters, alpha = 0.05) %>% as.data.frame %>% mutate(Population = factor(Population, levels = c("YE","RE","GI","MU","MA","UM","KA","VA","AK"))) %>% arrange(Population) %>% dplyr::rename(cld = .group)
 ```
 
 ```{r}
@@ -1762,7 +1859,7 @@ dev.off()
 ```{r p_DT_A_F_pop_StamenkovicRadak}
 p_DT_A_F_pop_StamenkovicRadak <- ggplot(data = (subset(d_DT_A_F,Supervisor.PI=='StamenkovicRadak')), aes(x=Population_Lat, y=DT_EggAdult, fill=Population)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-        labs(title="p_DT_A_F_pop_StamenkovicRadak", x="Population", y = "DT_EggAdult") + ylim(c(min_DT_A, max_DT_A))+ droseu_theme
+        labs(title="p_DT_A_F_pop_StamenkovicRadak", x="Population", y = "DT_EggAdult") + ylim(c(min_DT_A, max_DT_A))+ geom_text(data = model_means_DT_A_F_StamenkovicRadak_cld, aes(x = Population, label = cld), y = 1, vjust = 1) + droseu_theme
 
 ```
 
@@ -1799,7 +1896,7 @@ dev.off()
 
 p_DT_A_M_pop_StamenkovicRadak <- ggplot(data = (subset(d_DT_A_M,Supervisor.PI=='StamenkovicRadak')), aes(x=Population_Lat, y=DT_EggAdult, fill=Population)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-        labs(title="p_DT_A_M_pop_StamenkovicRadak", x="Population", y = "DT_EggAdult")+ ylim(c(min_DT_A, max_DT_A))+ droseu_theme
+        labs(title="p_DT_A_M_pop_StamenkovicRadak", x="Population", y = "DT_EggAdult")+ ylim(c(min_DT_A, max_DT_A))+ geom_text(data = model_means_DT_A_M_StamenkovicRadak_cld, aes(x = Population, label = cld), y = 1, vjust = 1) + droseu_theme
 
 ```
 
@@ -1825,6 +1922,11 @@ capture.output(emmeans(DT_A_F_lmer_Zwaan, list(pairwise ~ Population), adjust = 
 ```
 
 ```{r}
+model_means_DT_A_F_Zwaan <- emmeans(object = DT_A_F_lmer_Zwaan, specs = ~ Population)
+model_means_DT_A_F_Zwaan_cld <- cld(object = model_means_DT_A_F_Zwaan, adjust = "Tukey", Letters = letters, alpha = 0.05) %>% as.data.frame %>% mutate(Population = factor(Population, levels = c("YE","RE","GI","MU","MA","UM","KA","VA","AK"))) %>% arrange(Population) %>% dplyr::rename(cld = .group)
+```
+
+```{r}
 anova(DT_A_F_lmer_Zwaan)
 ```
 
@@ -1837,6 +1939,12 @@ DT_A_M_lmer_Zwaan <- lmer(DT_EggAdult ~ -1 + Population + (1|Line:Population) + 
 capture.output(summary(DT_A_M_lmer_Zwaan),file = "DevelopmentTime/DT_A_M_lmer_Zwaan_sum.txt")
 capture.output(anova(DT_A_M_lmer_Zwaan),file = "DevelopmentTime/DT_A_M_lmer_Zwaan.txt")
 capture.output(emmeans(DT_A_M_lmer_Zwaan, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "DevelopmentTime/DT_A_M_lmer_Zwaan_tk.txt")
+```
+
+
+```{r}
+model_means_DT_A_M_Zwaan <- emmeans(object = DT_A_M_lmer_Zwaan, specs = ~ Population)
+model_means_DT_A_M_Zwaan_cld <- cld(object = model_means_DT_A_M_Zwaan, adjust = "Tukey", Letters = letters, alpha = 0.05) %>% as.data.frame %>% mutate(Population = factor(Population, levels = c("YE","RE","GI","MU","MA","UM","KA","VA","AK"))) %>% arrange(Population) %>% dplyr::rename(cld = .group)
 ```
 
 
@@ -1870,7 +1978,7 @@ dev.off()
 
 p_DT_A_F_pop_Zwaan <- ggplot(data = (subset(d_DT_A_F,Supervisor.PI=='Zwaan')), aes(x=Population_Lat, y=DT_EggAdult, fill=Population)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-        labs(title="p_DT_A_F_pop_Zwaan", x="Population", y = "DT_EggAdult")+ ylim(c(min_DT_A, max_DT_A))+ droseu_theme
+        labs(title="p_DT_A_F_pop_Zwaan", x="Population", y = "DT_EggAdult")+ ylim(c(min_DT_A, max_DT_A))+geom_text(data = model_means_DT_A_F_Zwaan_cld, aes(x = Population, label = cld), y = 1, vjust = 1) +  droseu_theme
 
 ```
 
@@ -1907,7 +2015,7 @@ dev.off()
 
 p_DT_A_M_pop_Zwaan <- ggplot(data = (subset(d_DT_A_M,Supervisor.PI=='Zwaan')), aes(x=Population_Lat, y=DT_EggAdult, fill=Population)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-        labs(title="p_DT_A_M_pop_Zwaan", x="Population", y = "DT_EggAdult") + ylim(c(min_DT_A, max_DT_A))+ droseu_theme
+        labs(title="p_DT_A_M_pop_Zwaan", x="Population", y = "DT_EggAdult") + ylim(c(min_DT_A, max_DT_A))+geom_text(data = model_means_DT_A_M_Zwaan_cld, aes(x = Population, label = cld), y = 1, vjust = 1) +  droseu_theme
 ```
 
 ```{r}
@@ -2136,6 +2244,12 @@ capture.output(anova(DW_F_lmer_Colinet),file = "DryWeight/DW_F_lmer_Colinet.txt"
 capture.output(emmeans(DW_F_lmer_Colinet, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "DryWeight/DW_F_lmer_Colinet_tk.txt")
 ```
 
+
+```{r}
+model_means_DW_F_Colinet <- emmeans(object = DW_F_lmer_Colinet, specs = ~ Population)
+model_means_DW_F_Colinet_cld <- cld(object = model_means_DW_F_Colinet, adjust = "Tukey", Letters = letters, alpha = 0.05) %>% as.data.frame %>% mutate(Population = factor(Population, levels = c("YE","RE","GI","MU","MA","UM","KA","VA","AK"))) %>% arrange(Population) %>% dplyr::rename(cld = .group)
+```
+
 ```{r}
 anova(DW_F_lmer_Colinet)
 ```
@@ -2150,6 +2264,11 @@ DW_M_lmer_Colinet <- lmer(DW_micrograms ~ -1 + Population + (1|Population:Line) 
 capture.output(summary(DW_M_lmer_Colinet),file = "DryWeight/DW_M_lmer_Colinet_sum.txt")
 capture.output(anova(DW_M_lmer_Colinet),file = "DryWeight/DW_M_lmer_Colinet.txt")
 capture.output(emmeans(DW_M_lmer_Colinet, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "DryWeight/DW_M_lmer_Colinet_tk.txt")
+```
+
+```{r}
+model_means_DW_M_Colinet <- emmeans(object = DW_M_lmer_Colinet, specs = ~ Population)
+model_means_DW_M_Colinet_cld <- cld(object = model_means_DW_M_Colinet, adjust = "Tukey", Letters = letters, alpha = 0.05) %>% as.data.frame %>% mutate(Population = factor(Population, levels = c("YE","RE","GI","MU","MA","UM","KA","VA","AK"))) %>% arrange(Population) %>% dplyr::rename(cld = .group)
 ```
 
 
@@ -2185,7 +2304,7 @@ dev.off()
 
 p_DW_F_pop_Colinet <- ggplot(data = (subset(d_DW_F,Supervisor.PI=='Colinet')), aes(x=Population_Lat, y=DW_micrograms, fill=Population)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-        labs(title="p_DW_F_pop_Colinet", x="Population", y = "DW_micrograms") + ylim(c(min_DW, max_DW))+ droseu_theme
+        labs(title="p_DW_F_pop_Colinet", x="Population", y = "DW_micrograms") + ylim(c(min_DW, max_DW))+geom_text(data = model_means_DW_F_Colinet_cld, aes(x = Population, label = cld), y = 1, vjust = 1) + droseu_theme
 
 ```
 
@@ -2226,7 +2345,7 @@ dev.off()
 
 p_DW_M_pop_Colinet <- ggplot(data = (subset(d_DW_M,Supervisor.PI=='Colinet')), aes(x=Population_Lat, y=DW_micrograms, fill=Population)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-        labs(title="p_DW_M_pop_Colinet", x="Population", y = "DW_micrograms") + ylim(c(min_DW, max_DW))+ droseu_theme
+        labs(title="p_DW_M_pop_Colinet", x="Population", y = "DW_micrograms") + ylim(c(min_DW, max_DW))+geom_text(data = model_means_DW_M_Colinet_cld, aes(x = Population, label = cld), y = 1, vjust = 1) +  droseu_theme
 
 ```
 
@@ -2250,6 +2369,12 @@ capture.output(emmeans(DW_F_lmer_Hoedjes, list(pairwise ~ Population), adjust = 
 ```
 
 ```{r}
+model_means_DW_F_Hoedjes <- emmeans(object = DW_F_lmer_Hoedjes, specs = ~ Population)
+model_means_DW_F_Hoedjes_cld <- cld(object = model_means_DW_F_Hoedjes, adjust = "Tukey", Letters = letters, alpha = 0.05) %>% as.data.frame %>% mutate(Population = factor(Population, levels = c("YE","RE","GI","MU","MA","UM","KA","VA","AK"))) %>% arrange(Population) %>% dplyr::rename(cld = .group)
+```
+
+
+```{r}
 anova(DW_F_lmer_Hoedjes)
 ```
 
@@ -2263,6 +2388,12 @@ capture.output(summary(DW_M_lmer_Hoedjes),file = "DryWeight/DW_M_lmer_Hoedjes_su
 capture.output(anova(DW_M_lmer_Hoedjes),file = "DryWeight/DW_M_lmer_Hoedjes.txt")
 capture.output(emmeans(DW_M_lmer_Hoedjes, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "DryWeight/DW_M_lmer_Hoedjes_tk.txt")
 ```
+
+```{r}
+model_means_DW_M_Hoedjes <- emmeans(object = DW_M_lmer_Hoedjes, specs = ~ Population)
+model_means_DW_M_Hoedjes_cld <- cld(object = model_means_DW_M_Hoedjes, adjust = "Tukey", Letters = letters, alpha = 0.05) %>% as.data.frame %>% mutate(Population = factor(Population, levels = c("YE","RE","GI","MU","MA","UM","KA","VA","AK"))) %>% arrange(Population) %>% dplyr::rename(cld = .group)
+```
+
 
 ```{r}
 anova(DW_M_lmer_Hoedjes)
@@ -2295,7 +2426,7 @@ dev.off()
 
 p_DW_F_pop_Hoedjes <- ggplot(data = (subset(d_DW_F,Supervisor.PI=='Hoedjes')), aes(x=Population_Lat, y=DW_micrograms, fill=Population)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-        labs(title="p_DW_F_pop_Hoedjes", x="Population", y = "DW_micrograms") + ylim(c(min_DW, max_DW))+ droseu_theme
+        labs(title="p_DW_F_pop_Hoedjes", x="Population", y = "DW_micrograms") + ylim(c(min_DW, max_DW))+geom_text(data = model_means_DW_F_Hoedjes_cld, aes(x = Population, label = cld), y = 1, vjust = 1) +  droseu_theme
 
 ```
 
@@ -2335,7 +2466,7 @@ dev.off()
 
 p_DW_M_pop_Hoedjes <- ggplot(data = (subset(d_DW_M,Supervisor.PI=='Hoedjes')), aes(x=Population_Lat, y=DW_micrograms, fill=Population)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-        labs(title="p_DW_M_pop_Hoedjes", x="Population", y = "DW_micrograms") + ylim(c(min_DW, max_DW))+ droseu_theme
+        labs(title="p_DW_M_pop_Hoedjes", x="Population", y = "DW_micrograms") + ylim(c(min_DW, max_DW))+geom_text(data = model_means_DW_F_Hoedjes_cld, aes(x = Population, label = cld), y = 1, vjust = 1) +  droseu_theme
 
 ```
 
@@ -2363,6 +2494,12 @@ capture.output(emmeans(DW_F_lmer_Onder, list(pairwise ~ Population), adjust = "t
 ```
 
 
+
+```{r}
+model_means_DW_F_Onder <- emmeans(object = DW_F_lmer_Onder, specs = ~ Population)
+model_means_DW_F_Onder_cld <- cld(object = model_means_DW_F_Onder, adjust = "Tukey", Letters = letters, alpha = 0.05) %>% as.data.frame %>% mutate(Population = factor(Population, levels = c("YE","RE","GI","MU","MA","UM","KA","VA","AK"))) %>% arrange(Population) %>% dplyr::rename(cld = .group)
+```
+
 ```{r}
 anova(DW_F_lmer_Onder)
 ```
@@ -2379,6 +2516,12 @@ capture.output(summary(DW_M_lmer_Onder),file = "DryWeight/DW_M_lmer_Onder_sum.tx
 capture.output(anova(DW_M_lmer_Onder),file = "DryWeight/DW_M_lmer_Onder.txt")
 capture.output(emmeans(DW_M_lmer_Onder, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "DryWeight/DW_M_lmer_Onder_tk.txt")
 
+```
+
+
+```{r}
+model_means_DW_M_Onder <- emmeans(object = DW_M_lmer_Onder, specs = ~ Population)
+model_means_DW_M_Onder_cld <- cld(object = model_means_DW_M_Onder, adjust = "Tukey", Letters = letters, alpha = 0.05) %>% as.data.frame %>% mutate(Population = factor(Population, levels = c("YE","RE","GI","MU","MA","UM","KA","VA","AK"))) %>% arrange(Population) %>% dplyr::rename(cld = .group)
 ```
 
 ```{r}
@@ -2413,7 +2556,7 @@ dev.off()
 
 p_DW_F_pop_Onder <- ggplot(data = (subset(d_DW_F,Supervisor.PI=='Onder')), aes(x=Population_Lat, y=DW_micrograms, fill=Population)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-        labs(title="p_DW_F_pop_Onder", x="Population", y = "DW_micrograms") + ylim(c(min_DW, max_DW))+ droseu_theme
+        labs(title="p_DW_F_pop_Onder", x="Population", y = "DW_micrograms") + ylim(c(min_DW, max_DW))+geom_text(data = model_means_DW_F_Onder_cld, aes(x = Population, label = cld), y = 1, vjust = 1) +  droseu_theme
 
 ```
 
@@ -2452,7 +2595,7 @@ dev.off()
 
 p_DW_M_pop_Onder <- ggplot(data = (subset(d_DW_M,Supervisor.PI=='Onder')), aes(x=Population_Lat, y=DW_micrograms, fill=Population)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-        labs(title="p_DW_M_pop_Onder", x="Population", y = "DW_micrograms")+ ylim(c(min_DW, max_DW))+ droseu_theme
+        labs(title="p_DW_M_pop_Onder", x="Population", y = "DW_micrograms")+ ylim(c(min_DW, max_DW))+geom_text(data = model_means_DW_M_Onder_cld, aes(x = Population, label = cld), y = 1, vjust = 1) +  droseu_theme
 
 ```
 
@@ -4628,6 +4771,13 @@ capture.output(summary(Fec_lmer_Billeter),file = "Fecundity/Fec_lmer_Billeter_su
 capture.output(emmeans(Fec_lmer_Billeter, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"), file = "Fecundity/Fec_lmer_Billeter_tk.txt")
 ```
 
+
+```{r}
+model_means_Fec_Billeter <- emmeans(object = Fec_lmer_Billeter, specs = ~ Population)
+model_means_Fec_Billeter_cld <- cld(object = model_means_Fec_Billeter, adjust = "Tukey", Letters = letters, alpha = 0.05) %>% as.data.frame %>% mutate(Population = factor(Population, levels = c("YE","RE","GI","MU","MA","UM","KA","VA","AK"))) %>% arrange(Population) %>% dplyr::rename(cld = .group)
+```
+
+
 ```{r}
 anova(Fec_lmer_Billeter)
 ```
@@ -4652,7 +4802,7 @@ dev.off()
 ```
 
 ```{r p_Fec_pop_Billeter, echo=TRUE, message=TRUE, warning=TRUE}
-p_Fec_pop_Billeter <- ggplot(data = (subset(d_Fec,Supervisor.PI=='Billeter')), aes(x=Population_Lat, y=NumberOfAdultsEclosed, fill=Population)) + geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_Fec_pop_Billeter", x="Population", y = "NumberOfAdultsEclosed") + ylim(c(min_Fec, max_Fec))+ droseu_theme
+p_Fec_pop_Billeter <- ggplot(data = (subset(d_Fec,Supervisor.PI=='Billeter')), aes(x=Population_Lat, y=NumberOfAdultsEclosed, fill=Population)) + geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_Fec_pop_Billeter", x="Population", y = "NumberOfAdultsEclosed") + ylim(c(min_Fec, max_Fec))+geom_text(data = model_means_Fec_Billeter_cld, aes(x = Population, label = cld), y = 1, vjust = 1) +  droseu_theme
 ```
 
 ```{r echo=FALSE}
@@ -4674,6 +4824,11 @@ Fec_lmer_Fricke <- lmer(NumberOfAdultsEclosed ~ -1 + Population + (1|Population:
 capture.output(anova(Fec_lmer_Fricke),file = "Fecundity/Fec_lmer_Fricke.txt")
 capture.output(summary(Fec_lmer_Fricke),file = "Fecundity/Fec_lmer_Fricke_sum.txt")
 capture.output(emmeans(Fec_lmer_Fricke, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "Fecundity/Fec_lmer_Fricke_tk.txt")
+```
+
+```{r}
+model_means_Fec_Fricke <- emmeans(object = Fec_lmer_Fricke, specs = ~ Population)
+model_means_Fec_Fricke_cld <- cld(object = model_means_Fec_Fricke, adjust = "Tukey", Letters = letters, alpha = 0.05) %>% as.data.frame %>% mutate(Population = factor(Population, levels = c("YE","RE","GI","MU","MA","UM","KA","VA","AK"))) %>% arrange(Population) %>% dplyr::rename(cld = .group)
 ```
 
 ```{r}
@@ -4702,7 +4857,7 @@ dev.off()
 
 ```{r p_Fec_pop_Fricke, echo=FALSE, message=FALSE, warning=FALSE}
 
-p_Fec_pop_Fricke <- ggplot(data = (subset(d_Fec,Supervisor.PI=='Fricke')), aes(x=Population_Lat, y=NumberOfAdultsEclosed, fill=Population)) + geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_Fec_pop_Fricke", x="Population", y = "NumberOfAdultsEclosed") + ylim(c(min_Fec, max_Fec))+ droseu_theme
+p_Fec_pop_Fricke <- ggplot(data = (subset(d_Fec,Supervisor.PI=='Fricke')), aes(x=Population_Lat, y=NumberOfAdultsEclosed, fill=Population)) + geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_Fec_pop_Fricke", x="Population", y = "NumberOfAdultsEclosed") + ylim(c(min_Fec, max_Fec))+ geom_text(data = model_means_Fec_Fricke_cld, aes(x = Population, label = cld), y = 1, vjust = 1) + droseu_theme
 ```
 
 ```{r echo=FALSE}
@@ -6171,6 +6326,11 @@ capture.output(emmeans(CCRT_F_lmer_Vieira, list(pairwise ~ Population), adjust =
 
 
 ```{r}
+model_means_CCRT_F_Vieira <- emmeans(object = CCRT_F_lmer_Vieira, specs = ~ Population)
+model_means_CCRT_F_Vieira_cld <- cld(object = model_means_CCRT_F_Vieira, adjust = "Tukey", Letters = letters, alpha = 0.05) %>% as.data.frame %>% mutate(Population = factor(Population, levels = c("YE","RE","GI","MU","MA","UM","KA","VA","AK"))) %>% arrange(Population) %>% dplyr::rename(cld = .group)
+```
+
+```{r}
 anova(CCRT_F_lmer_Vieira)
 ```
 
@@ -6179,12 +6339,19 @@ summary(CCRT_F_lmer_Vieira)
 ```
 
 
+
 ```{r CCRT_M_lmer_Vieira}
+# might need to remove batch or data -- singularity is not coming from reps 
 CCRT_M_lmer_Vieira <- lmer(CCRT_seconds ~ -1 + Population + (1|Population:Line) + (1|Batch) + (1|ReplicateVial:Line), data = filter(d_CCRT_M, Censor == "0" & Supervisor.PI == "Vieira"))
 capture.output(summary(CCRT_M_lmer_Vieira),file = "ChillComa/CCRT_M_lmer_Vieira_sum.txt")
 capture.output(anova(CCRT_M_lmer_Vieira),file = "ChillComa/CCRT_M_lmer_Vieira.txt")
 capture.output(emmeans(CCRT_M_lmer_Vieira, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "ChillComa/CCRT_M_lmer_Vieira_tk.txt")
 
+```
+
+```{r}
+model_means_CCRT_M_Vieira <- emmeans(object = CCRT_M_lmer_Vieira, specs = ~ Population)
+model_means_CCRT_M_Vieira_cld <- cld(object = model_means_CCRT_M_Vieira, adjust = "Tukey", Letters = letters, alpha = 0.05) %>% as.data.frame %>% mutate(Population = factor(Population, levels = c("YE","RE","GI","MU","MA","UM","KA","VA","AK"))) %>% arrange(Population) %>% dplyr::rename(cld = .group)
 ```
 
 
@@ -6220,7 +6387,7 @@ dev.off()
 
 p_CCRT_F_pop_Vieira <- ggplot(data = filter(d_CCRT_F, (Censor == "0") & (Supervisor.PI == "Vieira")), aes(x=Population_Lat, y=CCRT_seconds, fill=Population)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-        labs(title="p_CCRT_F_pop_Vieira", x="Population", y = "CCRT_seconds")+ ylim(c(min_CCRT, max_CCRT))+ droseu_theme
+        labs(title="p_CCRT_F_pop_Vieira", x="Population", y = "CCRT_seconds")+ ylim(c(min_CCRT, max_CCRT))+ geom_text(data = model_means_CCRT_F_Vieira_cld, aes(x = Population, label = cld), y = 1, vjust = 1) + droseu_theme
 
 
 ```
@@ -6258,7 +6425,7 @@ dev.off()
 ```{r p_CCRT_M_pop_Vieira}
 p_CCRT_M_pop_Vieira <- ggplot(data = filter(d_CCRT_M, (Censor == "0") & (Supervisor.PI == "Vieira")), aes(x=Population_Lat, y=CCRT_seconds, fill=Population)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-        labs(title="p_CCRT_M_pop_Vieira", x="Population", y = "CCRT_seconds") + ylim(c(min_CCRT, max_CCRT))+ droseu_theme
+        labs(title="p_CCRT_M_pop_Vieira", x="Population", y = "CCRT_seconds") + ylim(c(min_CCRT, max_CCRT))+ geom_text(data = model_means_CCRT_M_Vieira_cld, aes(x = Population, label = cld), y = 1, vjust = 1) + droseu_theme
 
 ```
 
@@ -8433,13 +8600,11 @@ capture.output(summary(SR_F_coxme_Onder), file = "Starvation/SR_F_coxme_Onder_su
 capture.output(anova(SR_F_coxme_Onder), file = "Starvation/SR_F_coxme_Onder.txt")
 ```  
          
-
 ```{r eval = FALSE}
 SR_M_coxme_Onder <- coxme(Surv(AgeAtDeath_hours, Censor) ~ Population + (1|Batch) + (1|Population/Line) + (1|Population/Line/ReplicateVial), data = filter(d_SR_surv, Supervisor.PI == "Onder", Sex == "M"))
 capture.output(summary(SR_M_coxme_Onder), file = "Starvation/SR_M_coxme_Onder_sum.txt")
 capture.output(anova(SR_M_coxme_Onder), file = "Starvation/SR_M_coxme_Onder.txt")
 ```  
-
 
 ```{r eval = FALSE}
 SR_F_coxme_Pasyukova <- coxme(Surv(AgeAtDeath_hours, Censor) ~ Population + (1|Batch) + (1|Population/Line) + (1|Population/Line/ReplicateVial), data = filter(d_SR_surv, Supervisor.PI == "Pasyukova", Sex == "F"))
