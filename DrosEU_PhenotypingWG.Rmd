@@ -148,7 +148,7 @@ globe_labs + map_theme
 
 ## Contributers (analyses)
 
-Esra Durmaz (all), Envel Kerdaffrec (all), Katja Hoedjes (DW, Via, DT), Banu Onder (SR, WA), Chris Wegener (CET), Eran Tauber (LA), Rudolf Rohr (UniFr), coordination-team
+Esra Durmaz (all), Envel Kerdaffrec (all), Katja Hoedjes (Via, DT, DW), Banu Onder (SR, WA), Marija Tanaskovic (WA), Chris Wegener (CET), Eran Tauber (LA), Rudolf Rohr (UniFr), coordination-team
 
 
 # Phenotyping 
@@ -370,7 +370,7 @@ knitr::kable(README_example, align = "ll", caption = 'Table X. Filling in the da
 ```
 
 ```{r MS_example, echo=FALSE}
-MS_example <- data.table(read.csv("MasterSheets_Oct21_git/TL_MasterSheet_Oct21.csv"))
+MS_example <- data.table(read.csv("MasterSheets_Oct21_git/TL_MasterSheet_Feb22.csv"))
 ```
 
 ```{r, echo=FALSE}
@@ -429,7 +429,7 @@ The very same ggplot theme has been used all across the document, called _droseu
 ```{r droseu_theme, eval=FALSE, echo=TRUE}
 droseu_theme <- theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), panel.background = element_blank(), axis.line = element_line(colour = "black",),  axis.title.x = element_text(size = 16), axis.text.x = element_text(size = 16),axis.text.y = element_text(size = 16),axis.title.y = element_text(size = 16))
 
-p_TraitAbbreviation_Lab + coord_cartesian(ylim = c(min_trait, max_triat)) + droseu_theme 
+p_TraitAbbreviation_Lab + ylim(c(min_trait, max_triat)) + droseu_theme 
 
 ```
 
@@ -450,7 +450,7 @@ p_Via_Gibert <- ggplot(data = (subset(d_Via,Supervisor.PI=='Gibert')), #subsets 
                        geom_boxplot(outlier.shape = NA, notch=FALSE) +  #boxplot
                        geom_jitter(width=0.2,alpha=0.05) + #jitters
                        labs(title="p_Via_Gibert", x="Population", y = "ProportionEggtoAdultSurvival") + 
-                      coord_cartesian(ylim = c(min_Via, max_Via)) + 
+                      ylim(c(min_Via, max_Via)) + 
                       droseu_theme #y-axis limits, axis labels and droseu_theme
 
 pdf(file="Viability/p_Via_Gibert.pdf",width=8, height=5)
@@ -633,8 +633,8 @@ y-axis is scaled by the minimum (`r min_Via`) and maximum (`r max_Via`) values i
 
 ```{r p_Via_all, echo=FALSE}
 p_Via_all <- ggplot(data = d_Via, aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Supervisor.PI)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-        labs(title="p_Via_all", x="Population", y = "DW_micrograms") + coord_cartesian(ylim = c(min_Via, max_Via))+ droseu_theme
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+        labs(title="p_Via_all", x="Population", y = "DW_micrograms") + ylim(c(min_Via, max_Via))+ droseu_theme
 ```
 
 ```{r echo=FALSE}
@@ -668,7 +668,7 @@ summary(Via_lmer_Gibert)
 
 
 ```{r p_Via_Gibert, echo=FALSE}
-p_Via_Gibert <- ggplot(data = (subset(d_Via,Supervisor.PI=='Gibert')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Batch)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_Via_Gibert", x="Population", y = "ProportionEggtoAdultSurvival") + coord_cartesian(ylim = c(min_Via, max_Via))+ droseu_theme
+p_Via_Gibert <- ggplot(data = (subset(d_Via,Supervisor.PI=='Gibert')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Batch)) + geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_Via_Gibert", x="Population", y = "ProportionEggtoAdultSurvival") + ylim(c(min_Via, max_Via))+ droseu_theme
 ```
 
 ```{r echo=FALSE}
@@ -683,7 +683,7 @@ invisible(dev.off())
 
 
 ```{r p_Via_pop_Gibert, echo=FALSE, message=FALSE, warning=FALSE}
-p_Via_pop_Gibert <- ggplot(data = (subset(d_Via,Supervisor.PI=='Gibert')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Population)) +geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_Via_pop_Gibert", x="Population", y = "ProportionEggtoAdultSurvival") + coord_cartesian(ylim = c(min_Via, max_Via))+ droseu_theme
+p_Via_pop_Gibert <- ggplot(data = (subset(d_Via,Supervisor.PI=='Gibert')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Population)) +geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_Via_pop_Gibert", x="Population", y = "ProportionEggtoAdultSurvival") + ylim(c(min_Via, max_Via))+ droseu_theme
 ```
 
 ```{r echo=FALSE}
@@ -715,7 +715,7 @@ summary(Via_lmer_Grath)
 
 
 ```{r p_Via_Grath, echo=FALSE, message= FALSE, warning=FALSE}
-p_Via_Grath <- ggplot(data = (subset(d_Via,Supervisor.PI=='Grath')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Batch)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_Via_Grath", x="Population", y = "ProportionEggtoAdultSurvival")+ coord_cartesian(ylim = c(min_Via, max_Via))+ droseu_theme
+p_Via_Grath <- ggplot(data = (subset(d_Via,Supervisor.PI=='Grath')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Batch)) + geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_Via_Grath", x="Population", y = "ProportionEggtoAdultSurvival")+ ylim(c(min_Via, max_Via))+ droseu_theme
 ```
 
 ```{r echo=FALSE}
@@ -730,7 +730,7 @@ invisible(dev.off())
 
 
 ```{r, echo=FALSE, message= FALSE, warning=FALSE}
-p_Via_pop_Grath <- ggplot(data = (subset(d_Via,Supervisor.PI=='Grath')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Population)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_Via_pop_Grath", x="Population", y = "ProportionEggtoAdultSurvival") + coord_cartesian(ylim = c(min_Via, max_Via))+ droseu_theme
+p_Via_pop_Grath <- ggplot(data = (subset(d_Via,Supervisor.PI=='Grath')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Population)) + geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_Via_pop_Grath", x="Population", y = "ProportionEggtoAdultSurvival") + ylim(c(min_Via, max_Via))+ droseu_theme
 
 ```
 
@@ -764,7 +764,7 @@ summary(Via_lmer_Hoedjes)
 
 
 ```{r p_Via_Hoedjes, echo=FALSE, message= FALSE, warning=FALSE}
-p_Via_Hoedjes <- ggplot(data = (subset(d_Via,Supervisor.PI=='Hoedjes')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Batch)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_Via_Hoedjes", x="Population", y = "ProportionEggtoAdultSurvival")+ coord_cartesian(ylim = c(min_Via, max_Via))+ droseu_theme
+p_Via_Hoedjes <- ggplot(data = (subset(d_Via,Supervisor.PI=='Hoedjes')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Batch)) + geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_Via_Hoedjes", x="Population", y = "ProportionEggtoAdultSurvival")+ ylim(c(min_Via, max_Via))+ droseu_theme
 
 ```
 
@@ -781,7 +781,7 @@ invisible(dev.off())
 
 ```{r p_Via_pop_Hoedjes, echo=FALSE, message= FALSE, warning=FALSE}
 
-p_Via_pop_Hoedjes <- ggplot(data = (subset(d_Via,Supervisor.PI=='Hoedjes')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Population)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_Via_pop_Hoedjes", x="Population", y = "ProportionEggtoAdultSurvival") + coord_cartesian(ylim = c(min_Via, max_Via))+ droseu_theme
+p_Via_pop_Hoedjes <- ggplot(data = (subset(d_Via,Supervisor.PI=='Hoedjes')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Population)) + geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_Via_pop_Hoedjes", x="Population", y = "ProportionEggtoAdultSurvival") + ylim(c(min_Via, max_Via))+ droseu_theme
 
 ```
 
@@ -817,7 +817,7 @@ summary(Via_lm_Schmidt)
 
 ```{r p_Via_Schmidt, echo=FALSE, message= FALSE, warning=FALSE}
 
-p_Via_Schmidt <- ggplot(data = (subset(d_Via,Supervisor.PI=='Schmidt')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Batch)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_Via_Schmidt", x="Population", y = "ProportionEggtoAdultSurvival") + coord_cartesian(ylim = c(min_Via, max_Via))+ droseu_theme
+p_Via_Schmidt <- ggplot(data = (subset(d_Via,Supervisor.PI=='Schmidt')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Batch)) + geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_Via_Schmidt", x="Population", y = "ProportionEggtoAdultSurvival") + ylim(c(min_Via, max_Via))+ droseu_theme
 
 ```
 
@@ -834,10 +834,10 @@ invisible(dev.off())
 
 ```{r p_Via_pop_Schmidt, echo=FALSE, message= FALSE, warning=FALSE}
 pdf(file="Viability/p_Via_pop_Schmidt.pdf",width=8, height=5)
-p_Via_pop_Schmidt <- ggplot(data = (subset(d_Via,Supervisor.PI=='Schmidt')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Population)) +geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_Via_pop_Schmidt", x="Population", y = "ProportionEggtoAdultSurvival") 
+p_Via_pop_Schmidt <- ggplot(data = (subset(d_Via,Supervisor.PI=='Schmidt')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Population)) +geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_Via_pop_Schmidt", x="Population", y = "ProportionEggtoAdultSurvival") 
 dev.off()
 
-p_Via_pop_Schmidt + coord_cartesian(ylim = c(min_Via, max_Via))+ droseu_theme
+p_Via_pop_Schmidt + ylim(c(min_Via, max_Via))+ droseu_theme
 invisible(dev.off())
 ```
 
@@ -860,7 +860,7 @@ summary(Via_lmer_StamenkovicRadak)
 
 ```{r p_Via_StamenkovicRadak, echo=FALSE, message= FALSE, warning=FALSE}
 
-p_Via_StamenkovicRadak <- ggplot(data = (subset(d_Via,Supervisor.PI=='StamenkovicRadak')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Batch)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_Via_StamenkovicRadak", x="Population", y = "ProportionEggtoAdultSurvival") + coord_cartesian(ylim = c(min_Via, max_Via))+ droseu_theme
+p_Via_StamenkovicRadak <- ggplot(data = (subset(d_Via,Supervisor.PI=='StamenkovicRadak')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Batch)) + geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_Via_StamenkovicRadak", x="Population", y = "ProportionEggtoAdultSurvival") + ylim(c(min_Via, max_Via))+ droseu_theme
 ```
 
 ```{r echo=FALSE}
@@ -874,7 +874,7 @@ invisible(dev.off())
 ```
 
 ```{r p_Via_pop_StamenkovicRadak, echo=FALSE, message= FALSE, warning=FALSE}
-p_Via_pop_StamenkovicRadak <- ggplot(data = (subset(d_Via,Supervisor.PI=='StamenkovicRadak')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Population)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_Via_pop_StamenkovicRadak", x="Population", y = "ProportionEggtoAdultSurvival")  + coord_cartesian(ylim = c(min_Via, max_Via))+ droseu_theme
+p_Via_pop_StamenkovicRadak <- ggplot(data = (subset(d_Via,Supervisor.PI=='StamenkovicRadak')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Population)) + geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_Via_pop_StamenkovicRadak", x="Population", y = "ProportionEggtoAdultSurvival")  + ylim(c(min_Via, max_Via))+ droseu_theme
 ```
 
 ```{r echo=FALSE}
@@ -907,7 +907,7 @@ summary(Via_lmer_Zwaan)
 
 ```{r p_Via_Zwaan, echo=FALSE, message= FALSE, warning=FALSE}
 
-p_Via_Zwaan <- ggplot(data = (subset(d_Via,Supervisor.PI=='Zwaan')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Batch)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_Via_Zwaan", x="Population", y = "ProportionEggtoAdultSurvival") + coord_cartesian(ylim = c(min_Via, max_Via))+ droseu_theme
+p_Via_Zwaan <- ggplot(data = (subset(d_Via,Supervisor.PI=='Zwaan')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Batch)) + geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_Via_Zwaan", x="Population", y = "ProportionEggtoAdultSurvival") + ylim(c(min_Via, max_Via))+ droseu_theme
 
 ```
 
@@ -924,7 +924,7 @@ invisible(dev.off())
 
 ```{r p_Via_pop_Zwaan, echo=FALSE, message= FALSE, warning=FALSE}
 
-p_Via_pop_Zwaan <- ggplot(data = (subset(d_Via,Supervisor.PI=='Zwaan')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Population)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_Via_pop_Zwaan", x="Population", y = "ProportionEggtoAdultSurvival") + coord_cartesian(ylim = c(min_Via, max_Via))+ droseu_theme
+p_Via_pop_Zwaan <- ggplot(data = (subset(d_Via,Supervisor.PI=='Zwaan')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Population)) + geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_Via_pop_Zwaan", x="Population", y = "ProportionEggtoAdultSurvival") + ylim(c(min_Via, max_Via))+ droseu_theme
 
 ```
 
@@ -1093,7 +1093,7 @@ summary(DT_P_lmer)
 
 p_DT_P_Schmidt <- ggplot(data = (subset(d_DT_P,Supervisor.PI=='Schmidt')), aes(x=Population_Lat, y=DT_EggPupa, fill=Population)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.01) + 
-        labs(title="p_DT_P_Schmidt", x="Population", y = "DT_EggPupa") + coord_cartesian(ylim = c(min_DT_P, max_DT_P))+ droseu_theme
+        labs(title="p_DT_P_Schmidt", x="Population", y = "DT_EggPupa") + ylim(c(min_DT_P, max_DT_P))+ droseu_theme
 
 ```
 
@@ -1234,8 +1234,8 @@ y-axis is scaled by the minimum (`r min_DT_A`) and maximum (`r max_DT_A`) values
 ```{r p_DT_A_F_all}
 
 p_DT_A_F_all <- ggplot(data = d_DT_A_F, aes(x=Population_Lat, y=DT_EggAdult, fill=Supervisor.PI)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-        labs(title="p_DT_A_F_all", x="Population", y = "DW_micrograms") + coord_cartesian(ylim = c(min_DT_A, max_DT_A))+ droseu_theme
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+        labs(title="p_DT_A_F_all", x="Population", y = "DW_micrograms") + ylim(c(min_DT_A, max_DT_A))+ droseu_theme
 ```
 
 
@@ -1256,8 +1256,8 @@ dev.off()
 
 ```{r p_DT_A_M_all}
 p_DT_A_M_all <- ggplot(data = d_DT_A_M, aes(x=Population_Lat, y=DT_EggAdult, fill=Supervisor.PI)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-        labs(title="p_DT_A_M_all", x="Population", y = "DW_micrograms") + coord_cartesian(ylim = c(min_DT_A, max_DT_A))+ droseu_theme
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+        labs(title="p_DT_A_M_all", x="Population", y = "DW_micrograms") + ylim(c(min_DT_A, max_DT_A))+ droseu_theme
 ```
 
 ```{r echo=FALSE}
@@ -1308,7 +1308,7 @@ summary(DT_A_M_lmer_Gibert)
 
 p_DT_A_F_Gibert <- ggplot(data = (subset(d_DT_A_F,Supervisor.PI=='Gibert')), aes(x=Population_Lat, y=DT_EggAdult, fill=Batch)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.01) + 
-        labs(title="p_DT_A_F_Gibert", x="Population", y = "DT_EggAdult") + coord_cartesian(ylim = c(min_DT_A, max_DT_A))+ droseu_theme
+        labs(title="p_DT_A_F_Gibert", x="Population", y = "DT_EggAdult") + ylim(c(min_DT_A, max_DT_A))+ droseu_theme
 
 ```
 
@@ -1326,7 +1326,7 @@ dev.off()
 ```{r p_DT_A_F_pop_Gibert, echo=FALSE}
 p_DT_A_F_pop_Gibert <- ggplot(data = (subset(d_DT_A_F,Supervisor.PI=='Gibert')), aes(x=Population_Lat, y=DT_EggAdult, fill=Population)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.01) + 
-        labs(title="p_DT_A_F_pop_Gibert", x="Population", y = "DT_EggAdult")+ coord_cartesian(ylim = c(min_DT_A, max_DT_A))+ droseu_theme
+        labs(title="p_DT_A_F_pop_Gibert", x="Population", y = "DT_EggAdult")+ ylim(c(min_DT_A, max_DT_A))+ droseu_theme
 
 ```
 
@@ -1345,7 +1345,7 @@ dev.off()
 
 p_DT_A_M_Gibert <- ggplot(data = (subset(d_DT_A_M,Supervisor.PI=='Gibert')), aes(x=Population_Lat, y=DT_EggAdult, fill=Batch)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.01) + 
-        labs(title="p_DT_A_M_Gibert", x="Population", y = "DT_EggAdult") + coord_cartesian(ylim = c(min_DT_A, max_DT_A))+ droseu_theme
+        labs(title="p_DT_A_M_Gibert", x="Population", y = "DT_EggAdult") + ylim(c(min_DT_A, max_DT_A))+ droseu_theme
 
 ```
 
@@ -1365,7 +1365,7 @@ dev.off()
 
 p_DT_A_M_pop_Gibert <- ggplot(data = (subset(d_DT_A_M,Supervisor.PI=='Gibert')), aes(x=Population_Lat, y=DT_EggAdult, fill=Population)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.01) + 
-        labs(title="p_DT_A_M_pop_Gibert", x="Population", y = "DT_EggAdult")+ coord_cartesian(ylim = c(min_DT_A, max_DT_A))+ droseu_theme
+        labs(title="p_DT_A_M_pop_Gibert", x="Population", y = "DT_EggAdult")+ ylim(c(min_DT_A, max_DT_A))+ droseu_theme
 
 ```
 
@@ -1417,7 +1417,7 @@ p_DT_A_F_Grath <- ggplot(data = (subset(d_DT_A_F,Supervisor.PI=='Grath')), aes(x
         geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.01) + 
         labs(title="p_DT_A_F_Grath", x="Population", y = "DT_EggAdult")
 
-p_DT_A_F_Grath + coord_cartesian(ylim = c(min_DT_A, max_DT_A))+ droseu_theme
+p_DT_A_F_Grath + ylim(c(min_DT_A, max_DT_A))+ droseu_theme
 dev.off()
 ```
 
@@ -1434,7 +1434,7 @@ dev.off()
 
 p_DT_A_F_pop_Grath <- ggplot(data = (subset(d_DT_A_F,Supervisor.PI=='Grath')), aes(x=Population_Lat, y=DT_EggAdult, fill=Population)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.01) + 
-        labs(title="p_DT_A_F_pop_Grath", x="Population", y = "DT_EggAdult") + coord_cartesian(ylim = c(min_DT_A, max_DT_A))+ droseu_theme
+        labs(title="p_DT_A_F_pop_Grath", x="Population", y = "DT_EggAdult") + ylim(c(min_DT_A, max_DT_A))+ droseu_theme
 
 ```
 
@@ -1454,7 +1454,7 @@ dev.off()
 
 p_DT_A_M_Grath <- ggplot(data = (subset(d_DT_A_M,Supervisor.PI=='Grath')), aes(x=Population_Lat, y=DT_EggAdult, fill=Batch)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.01) + 
-        labs(title="p_DT_A_M_Grath", x="Population", y = "DT_EggAdult") + coord_cartesian(ylim = c(min_DT_A, max_DT_A))+ droseu_theme
+        labs(title="p_DT_A_M_Grath", x="Population", y = "DT_EggAdult") + ylim(c(min_DT_A, max_DT_A))+ droseu_theme
 
 ```
 
@@ -1474,7 +1474,7 @@ dev.off()
 
 p_DT_A_M_pop_Grath <- ggplot(data = (subset(d_DT_A_M,Supervisor.PI=='Grath')), aes(x=Population_Lat, y=DT_EggAdult, fill=Population)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.01) + 
-        labs(title="p_DT_A_M_pop_Grath", x="Population", y = "DT_EggAdult") + coord_cartesian(ylim = c(min_DT_A, max_DT_A))+ droseu_theme
+        labs(title="p_DT_A_M_pop_Grath", x="Population", y = "DT_EggAdult") + ylim(c(min_DT_A, max_DT_A))+ droseu_theme
 
 ```
 
@@ -1529,7 +1529,7 @@ summary(DT_A_M_lmer_Hoedjes)
 
 p_DT_A_F_Hoedjes <- ggplot(data = (subset(d_DT_A_F,Supervisor.PI=='Hoedjes')), aes(x=Population_Lat, y=DT_EggAdult, fill=Batch)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.01) + 
-        labs(title="p_DT_A_F_Hoedjes", x="Population", y = "DT_EggAdult")+ coord_cartesian(ylim = c(min_DT_A, max_DT_A))+ droseu_theme
+        labs(title="p_DT_A_F_Hoedjes", x="Population", y = "DT_EggAdult")+ ylim(c(min_DT_A, max_DT_A))+ droseu_theme
 
 ```
 
@@ -1548,7 +1548,7 @@ dev.off()
 
 p_DT_A_F_pop_Hoedjes <- ggplot(data = (subset(d_DT_A_F,Supervisor.PI=='Hoedjes')), aes(x=Population_Lat, y=DT_EggAdult, fill=Population)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.01) + 
-        labs(title="p_DT_A_F_pop_Hoedjes", x="Population", y = "DT_EggAdult") + coord_cartesian(ylim = c(min_DT_A, max_DT_A))+ droseu_theme
+        labs(title="p_DT_A_F_pop_Hoedjes", x="Population", y = "DT_EggAdult") + ylim(c(min_DT_A, max_DT_A))+ droseu_theme
 
 ```
 
@@ -1567,7 +1567,7 @@ dev.off()
 
 p_DT_A_M_Hoedjes <- ggplot(data = (subset(d_DT_A_M,Supervisor.PI=='Hoedjes')), aes(x=Population_Lat, y=DT_EggAdult, fill=Batch)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.01) + 
-        labs(title="p_DT_A_M_Hoedjes", x="Population", y = "DT_EggAdult")+ coord_cartesian(ylim = c(min_DT_A, max_DT_A))+ droseu_theme
+        labs(title="p_DT_A_M_Hoedjes", x="Population", y = "DT_EggAdult")+ ylim(c(min_DT_A, max_DT_A))+ droseu_theme
 ```
 
 ```{r echo=FALSE}
@@ -1585,7 +1585,7 @@ dev.off()
 
 p_DT_A_M_pop_Hoedjes <- ggplot(data = (subset(d_DT_A_M,Supervisor.PI=='Hoedjes')), aes(x=Population_Lat, y=DT_EggAdult, fill=Population)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.01) + 
-        labs(title="p_DT_A_M_pop_Hoedjes", x="Population", y = "DT_EggAdult") + coord_cartesian(ylim = c(min_DT_A, max_DT_A))+ droseu_theme
+        labs(title="p_DT_A_M_pop_Hoedjes", x="Population", y = "DT_EggAdult") + ylim(c(min_DT_A, max_DT_A))+ droseu_theme
 
 ```
 
@@ -1638,7 +1638,7 @@ summary(DT_A_M_lmer_Schmidt)
 
 p_DT_A_F_Schmidt <- ggplot(data = (subset(d_DT_A_F,Supervisor.PI=='Schmidt')), aes(x=Population_Lat, y=DT_EggAdult, fill=Batch)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.01) + 
-        labs(title="p_DT_A_F_Schmidt", x="Population", y = "DT_EggAdult") + coord_cartesian(ylim = c(min_DT_A, max_DT_A))+ droseu_theme
+        labs(title="p_DT_A_F_Schmidt", x="Population", y = "DT_EggAdult") + ylim(c(min_DT_A, max_DT_A))+ droseu_theme
 
 ```
 
@@ -1656,7 +1656,7 @@ dev.off()
 
 p_DT_A_F_pop_Schmidt <- ggplot(data = (subset(d_DT_A_F,Supervisor.PI=='Schmidt')), aes(x=Population_Lat, y=DT_EggAdult, fill=Population)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.01) + 
-        labs(title="p_DT_A_F_pop_Schmidt", x="Population", y = "DT_EggAdult") + coord_cartesian(ylim = c(min_DT_A, max_DT_A))+ droseu_theme
+        labs(title="p_DT_A_F_pop_Schmidt", x="Population", y = "DT_EggAdult") + ylim(c(min_DT_A, max_DT_A))+ droseu_theme
 
 ```
 
@@ -1674,7 +1674,7 @@ dev.off()
 
 p_DT_A_M_Schmidt <- ggplot(data = (subset(d_DT_A_M,Supervisor.PI=='Schmidt')), aes(x=Population_Lat, y=DT_EggAdult, fill=Batch)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.01) + 
-        labs(title="p_DT_A_M_Schmidt", x="Population", y = "DT_EggAdult") + coord_cartesian(ylim = c(min_DT_A, max_DT_A))+ droseu_theme
+        labs(title="p_DT_A_M_Schmidt", x="Population", y = "DT_EggAdult") + ylim(c(min_DT_A, max_DT_A))+ droseu_theme
 
 ```
 
@@ -1693,7 +1693,7 @@ dev.off()
 
 p_DT_A_M_pop_Schmidt <- ggplot(data = (subset(d_DT_A_M,Supervisor.PI=='Schmidt')), aes(x=Population_Lat, y=DT_EggAdult, fill=Population)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.01) + 
-        labs(title="p_DT_A_M_pop_Schmidt", x="Population", y = "DT_EggAdult") + coord_cartesian(ylim = c(min_DT_A, max_DT_A))+ droseu_theme
+        labs(title="p_DT_A_M_pop_Schmidt", x="Population", y = "DT_EggAdult") + ylim(c(min_DT_A, max_DT_A))+ droseu_theme
 
 ```
 
@@ -1745,7 +1745,7 @@ summary(DT_A_M_lmer_StamenkovicRadak)
 
 p_DT_A_F_StamenkovicRadak <- ggplot(data = (subset(d_DT_A_F,Supervisor.PI=='StamenkovicRadak')), aes(x=Population_Lat, y=DT_EggAdult, fill=Batch)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.01) + 
-        labs(title="p_DT_A_F_StamenkovicRadak", x="Population", y = "DT_EggAdult") + coord_cartesian(ylim = c(min_DT_A, max_DT_A))+ droseu_theme
+        labs(title="p_DT_A_F_StamenkovicRadak", x="Population", y = "DT_EggAdult") + ylim(c(min_DT_A, max_DT_A))+ droseu_theme
 
 ```
 
@@ -1763,7 +1763,7 @@ dev.off()
 ```{r p_DT_A_F_pop_StamenkovicRadak}
 p_DT_A_F_pop_StamenkovicRadak <- ggplot(data = (subset(d_DT_A_F,Supervisor.PI=='StamenkovicRadak')), aes(x=Population_Lat, y=DT_EggAdult, fill=Population)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.01) + 
-        labs(title="p_DT_A_F_pop_StamenkovicRadak", x="Population", y = "DT_EggAdult") + coord_cartesian(ylim = c(min_DT_A, max_DT_A))+ droseu_theme
+        labs(title="p_DT_A_F_pop_StamenkovicRadak", x="Population", y = "DT_EggAdult") + ylim(c(min_DT_A, max_DT_A))+ droseu_theme
 
 ```
 
@@ -1781,7 +1781,7 @@ dev.off()
 
 p_DT_A_M_StamenkovicRadak <- ggplot(data = (subset(d_DT_A_M,Supervisor.PI=='StamenkovicRadak')), aes(x=Population_Lat, y=DT_EggAdult, fill=Batch)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.01) + 
-        labs(title="p_DT_A_M_StamenkovicRadak", x="Population", y = "DT_EggAdult") + coord_cartesian(ylim = c(min_DT_A, max_DT_A))+ droseu_theme
+        labs(title="p_DT_A_M_StamenkovicRadak", x="Population", y = "DT_EggAdult") + ylim(c(min_DT_A, max_DT_A))+ droseu_theme
 
 ```
 
@@ -1800,7 +1800,7 @@ dev.off()
 
 p_DT_A_M_pop_StamenkovicRadak <- ggplot(data = (subset(d_DT_A_M,Supervisor.PI=='StamenkovicRadak')), aes(x=Population_Lat, y=DT_EggAdult, fill=Population)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.01) + 
-        labs(title="p_DT_A_M_pop_StamenkovicRadak", x="Population", y = "DT_EggAdult")+ coord_cartesian(ylim = c(min_DT_A, max_DT_A))+ droseu_theme
+        labs(title="p_DT_A_M_pop_StamenkovicRadak", x="Population", y = "DT_EggAdult")+ ylim(c(min_DT_A, max_DT_A))+ droseu_theme
 
 ```
 
@@ -1853,7 +1853,7 @@ summary(DT_A_M_lmer_Zwaan)
 
 p_DT_A_F_Zwaan <- ggplot(data = (subset(d_DT_A_F,Supervisor.PI=='Zwaan')), aes(x=Population_Lat, y=DT_EggAdult, fill=Batch)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.01) + 
-        labs(title="p_DT_A_F_Zwaan", x="Population", y = "DT_EggAdult")+ coord_cartesian(ylim = c(min_DT_A, max_DT_A))+ droseu_theme
+        labs(title="p_DT_A_F_Zwaan", x="Population", y = "DT_EggAdult")+ ylim(c(min_DT_A, max_DT_A))+ droseu_theme
 
 ```
 
@@ -1871,7 +1871,7 @@ dev.off()
 
 p_DT_A_F_pop_Zwaan <- ggplot(data = (subset(d_DT_A_F,Supervisor.PI=='Zwaan')), aes(x=Population_Lat, y=DT_EggAdult, fill=Population)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.01) + 
-        labs(title="p_DT_A_F_pop_Zwaan", x="Population", y = "DT_EggAdult")+ coord_cartesian(ylim = c(min_DT_A, max_DT_A))+ droseu_theme
+        labs(title="p_DT_A_F_pop_Zwaan", x="Population", y = "DT_EggAdult")+ ylim(c(min_DT_A, max_DT_A))+ droseu_theme
 
 ```
 
@@ -1890,7 +1890,7 @@ dev.off()
 
 p_DT_A_M_Zwaan <- ggplot(data = (subset(d_DT_A_M,Supervisor.PI=='Zwaan')), aes(x=Population_Lat, y=DT_EggAdult, fill=Batch)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.01) + 
-        labs(title="p_DT_A_M_Zwaan", x="Population", y = "DT_EggAdult")+ coord_cartesian(ylim = c(min_DT_A, max_DT_A))+ droseu_theme
+        labs(title="p_DT_A_M_Zwaan", x="Population", y = "DT_EggAdult")+ ylim(c(min_DT_A, max_DT_A))+ droseu_theme
 
 ```
 
@@ -1908,7 +1908,7 @@ dev.off()
 
 p_DT_A_M_pop_Zwaan <- ggplot(data = (subset(d_DT_A_M,Supervisor.PI=='Zwaan')), aes(x=Population_Lat, y=DT_EggAdult, fill=Population)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.01) + 
-        labs(title="p_DT_A_M_pop_Zwaan", x="Population", y = "DT_EggAdult") + coord_cartesian(ylim = c(min_DT_A, max_DT_A))+ droseu_theme
+        labs(title="p_DT_A_M_pop_Zwaan", x="Population", y = "DT_EggAdult") + ylim(c(min_DT_A, max_DT_A))+ droseu_theme
 ```
 
 ```{r}
@@ -2107,10 +2107,10 @@ y-axis is scaled by the minimum (`r min_DW`) and maximum (`r max_DW`) values in 
 ```{r p_DW_F_all}
 pdf(file="DryWeight/p_DW_F_all.pdf",width=8, height=5)
 p_DW_F_all <- ggplot(data = d_DW_F, aes(x=Population_Lat, y=DW_micrograms, fill=Supervisor.PI)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
         labs(title="p_DW_F_all", x="Population", y = "DW_micrograms")
 
-p_DW_F_all + coord_cartesian(ylim = c(min_DW, max_DW))+ droseu_theme
+p_DW_F_all + ylim(c(min_DW, max_DW))+ droseu_theme
 dev.off()
 ```
 
@@ -2118,10 +2118,10 @@ dev.off()
 ```{r p_DW_M_all}
 pdf(file="DryWeight/p_DW_M_all.pdf",width=8, height=5)
 p_DW_M_all <- ggplot(data = d_DW_M, aes(x=Population_Lat, y=DW_micrograms, fill=Supervisor.PI)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
         labs(title="p_DW_M_all", x="Population", y = "DW_micrograms")
 
-p_DW_M_all + coord_cartesian(ylim = c(min_DW, max_DW))+ droseu_theme
+p_DW_M_all + ylim(c(min_DW, max_DW))+ droseu_theme
 dev.off()
 ```
 
@@ -2166,8 +2166,8 @@ summary(DW_M_lmer_Colinet)
 ```{r p_DW_F_Colinet}
 
 p_DW_F_Colinet <- ggplot(data = (subset(d_DW_F,Supervisor.PI=='Colinet')), aes(x=Population_Lat, y=DW_micrograms, fill=Batch)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-        labs(title="p_DW_F_Colinet", x="Population", y = "DW_micrograms") + coord_cartesian(ylim = c(min_DW, max_DW))+ droseu_theme
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+        labs(title="p_DW_F_Colinet", x="Population", y = "DW_micrograms") + ylim(c(min_DW, max_DW))+ droseu_theme
 
 ```
 
@@ -2185,8 +2185,8 @@ dev.off()
 ```{r p_DW_F_pop_Colinet}
 
 p_DW_F_pop_Colinet <- ggplot(data = (subset(d_DW_F,Supervisor.PI=='Colinet')), aes(x=Population_Lat, y=DW_micrograms, fill=Population)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-        labs(title="p_DW_F_pop_Colinet", x="Population", y = "DW_micrograms") + coord_cartesian(ylim = c(min_DW, max_DW))+ droseu_theme
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+        labs(title="p_DW_F_pop_Colinet", x="Population", y = "DW_micrograms") + ylim(c(min_DW, max_DW))+ droseu_theme
 
 ```
 
@@ -2205,8 +2205,8 @@ dev.off()
 ```{r p_DW_M_Colinet}
 
 p_DW_M_Colinet <- ggplot(data = (subset(d_DW_M,Supervisor.PI=='Colinet')), aes(x=Population_Lat, y=DW_micrograms, fill=Batch)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-        labs(title="p_DW_M_Colinet", x="Population", y = "DW_micrograms") + coord_cartesian(ylim = c(min_DW, max_DW))+ droseu_theme
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+        labs(title="p_DW_M_Colinet", x="Population", y = "DW_micrograms") + ylim(c(min_DW, max_DW))+ droseu_theme
 
 ```
 
@@ -2226,8 +2226,8 @@ dev.off()
 ```{r p_DW_M_pop_Colinet}
 
 p_DW_M_pop_Colinet <- ggplot(data = (subset(d_DW_M,Supervisor.PI=='Colinet')), aes(x=Population_Lat, y=DW_micrograms, fill=Population)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-        labs(title="p_DW_M_pop_Colinet", x="Population", y = "DW_micrograms") + coord_cartesian(ylim = c(min_DW, max_DW))+ droseu_theme
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+        labs(title="p_DW_M_pop_Colinet", x="Population", y = "DW_micrograms") + ylim(c(min_DW, max_DW))+ droseu_theme
 
 ```
 
@@ -2276,8 +2276,8 @@ summary(DW_M_lmer_Hoedjes)
 ```{r p_DW_F_Hoedjes}
 
 p_DW_F_Hoedjes <- ggplot(data = (subset(d_DW_F,Supervisor.PI=='Hoedjes')), aes(x=Population_Lat, y=DW_micrograms, fill=Batch)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-        labs(title="p_DW_F_Hoedjes", x="Population", y = "DW_micrograms") + coord_cartesian(ylim = c(min_DW, max_DW))+ droseu_theme
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+        labs(title="p_DW_F_Hoedjes", x="Population", y = "DW_micrograms") + ylim(c(min_DW, max_DW))+ droseu_theme
 
 ```
 
@@ -2295,8 +2295,8 @@ dev.off()
 ```{r p_DW_F_pop_Hoedjes}
 
 p_DW_F_pop_Hoedjes <- ggplot(data = (subset(d_DW_F,Supervisor.PI=='Hoedjes')), aes(x=Population_Lat, y=DW_micrograms, fill=Population)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-        labs(title="p_DW_F_pop_Hoedjes", x="Population", y = "DW_micrograms") + coord_cartesian(ylim = c(min_DW, max_DW))+ droseu_theme
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+        labs(title="p_DW_F_pop_Hoedjes", x="Population", y = "DW_micrograms") + ylim(c(min_DW, max_DW))+ droseu_theme
 
 ```
 
@@ -2315,8 +2315,8 @@ dev.off()
 ```{r p_DW_M_Hoedjes}
 
 p_DW_M_Hoedjes <- ggplot(data = (subset(d_DW_M,Supervisor.PI=='Hoedjes')), aes(x=Population_Lat, y=DW_micrograms, fill=Batch)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-        labs(title="p_DW_M_Hoedjes", x="Population", y = "DW_micrograms")+ coord_cartesian(ylim = c(min_DW, max_DW))+ droseu_theme
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+        labs(title="p_DW_M_Hoedjes", x="Population", y = "DW_micrograms")+ ylim(c(min_DW, max_DW))+ droseu_theme
 
 ```
 
@@ -2335,8 +2335,8 @@ dev.off()
 ```{r p_DW_M_pop_Hoedjes}
 
 p_DW_M_pop_Hoedjes <- ggplot(data = (subset(d_DW_M,Supervisor.PI=='Hoedjes')), aes(x=Population_Lat, y=DW_micrograms, fill=Population)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-        labs(title="p_DW_M_pop_Hoedjes", x="Population", y = "DW_micrograms") + coord_cartesian(ylim = c(min_DW, max_DW))+ droseu_theme
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+        labs(title="p_DW_M_pop_Hoedjes", x="Population", y = "DW_micrograms") + ylim(c(min_DW, max_DW))+ droseu_theme
 
 ```
 
@@ -2394,8 +2394,8 @@ summary(DW_M_lmer_Onder)
 ```{r p_DW_F_Onder}
 
 p_DW_F_Onder <- ggplot(data = (subset(d_DW_F,Supervisor.PI=='Onder')), aes(x=Population_Lat, y=DW_micrograms, fill=Batch)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-        labs(title="p_DW_F_Onder", x="Population", y = "DW_micrograms") + coord_cartesian(ylim = c(min_DW, max_DW))+ droseu_theme
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+        labs(title="p_DW_F_Onder", x="Population", y = "DW_micrograms") + ylim(c(min_DW, max_DW))+ droseu_theme
 
 ```
 
@@ -2413,8 +2413,8 @@ dev.off()
 ```{r p_DW_F_pop_Onder}
 
 p_DW_F_pop_Onder <- ggplot(data = (subset(d_DW_F,Supervisor.PI=='Onder')), aes(x=Population_Lat, y=DW_micrograms, fill=Population)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-        labs(title="p_DW_F_pop_Onder", x="Population", y = "DW_micrograms") + coord_cartesian(ylim = c(min_DW, max_DW))+ droseu_theme
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+        labs(title="p_DW_F_pop_Onder", x="Population", y = "DW_micrograms") + ylim(c(min_DW, max_DW))+ droseu_theme
 
 ```
 
@@ -2432,8 +2432,8 @@ dev.off()
 ```{r p_DW_M_Onder}
 
 p_DW_M_Onder <- ggplot(data = (subset(d_DW_M,Supervisor.PI=='Onder')), aes(x=Population_Lat, y=DW_micrograms, fill=Batch)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-        labs(title="p_DW_M_Onder", x="Population", y = "DW_micrograms")+ coord_cartesian(ylim = c(min_DW, max_DW))+ droseu_theme
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+        labs(title="p_DW_M_Onder", x="Population", y = "DW_micrograms")+ ylim(c(min_DW, max_DW))+ droseu_theme
 
 ```
 
@@ -2452,8 +2452,8 @@ dev.off()
 ```{r p_DW_M_pop_Onder}
 
 p_DW_M_pop_Onder <- ggplot(data = (subset(d_DW_M,Supervisor.PI=='Onder')), aes(x=Population_Lat, y=DW_micrograms, fill=Population)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-        labs(title="p_DW_M_pop_Onder", x="Population", y = "DW_micrograms")+ coord_cartesian(ylim = c(min_DW, max_DW))+ droseu_theme
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+        labs(title="p_DW_M_pop_Onder", x="Population", y = "DW_micrograms")+ ylim(c(min_DW, max_DW))+ droseu_theme
 
 ```
 
@@ -2550,7 +2550,7 @@ Schmidt Lab : Amy Goldfischer, Paul Schmidt
 **Read data in R**
 
 ```{r d_TL}
-d_TL <- read.csv("MasterSheets_Oct21_git/TL_MasterSheet_Oct21.csv")
+d_TL <- read.csv("MasterSheets_Oct21_git/TL_MasterSheet_Feb22.csv")
 str(d_TL)
 ```
 
@@ -2576,11 +2576,10 @@ str(d_TL)
 ```
 
 ```{r}
-d_TL$TL_micrometers[d_TL$ReplicateVial == "Ritchie_12_AK4_2" & d_TL$Individual == 2 & d_TL$Sex == "F"] <- 975 # quick fix - not corrected in this MasterSheet but corrected on Drive. One would need to replace the .csv file with the latest one.
-d_TL$TL_micrometers[d_TL$ReplicateVial == "Ritchie_2_AK1_1" & d_TL$Individual == 9 & d_TL$Sex == "F"] <- 978 # quick fix - not corrected in this MasterSheet but corrected on Drive. One would need to replace the .csv file with the latest one.
+
 d_TL_F <-subset(d_TL,Sex=='F')
 d_TL_M <-subset(d_TL,Sex=='M')
-####
+
 ```
 
 
@@ -2661,8 +2660,8 @@ y-axis is scaled by the minimum (`r min_TL`) and maximum (`r max_TL`) values in 
 
 ```{r p_TL_F, echo=FALSE}
 p_TL_F <- ggplot(data = d_TL_F, aes(x=Population_Lat, y=TL_micrometers, fill=Supervisor.PI)) + 
-  geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_TL_F", x="Population", y = "TL_micrometers")+ coord_cartesian(ylim = c(min_TL, max_TL))+ droseu_theme
+  geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+  labs(title="p_TL_F", x="Population", y = "TL_micrometers")+ ylim(c(min_TL, max_TL))+ droseu_theme
 ```
 
 
@@ -2679,8 +2678,8 @@ dev.off()
 ```{r p_TL_M}
 
 p_TL_M <- ggplot(data = d_TL_M, aes(x=Population_Lat, y=TL_micrometers, fill=Supervisor.PI)) + 
-  geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_TL_M", x="Population", y = "TL_micrometers") + coord_cartesian(ylim = c(min_TL, max_TL))+ droseu_theme
+  geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+  labs(title="p_TL_M", x="Population", y = "TL_micrometers") + ylim(c(min_TL, max_TL))+ droseu_theme
 
 
 ```
@@ -2735,8 +2734,8 @@ summary(TL_M_lmer_Kozeretska)
 ```{r p_TL_F_Kozeretska}
 
 p_TL_F_Kozeretska <- ggplot(data = (subset(d_TL_F,Supervisor.PI=='Kozeretska')), aes(x=Population_Lat, y=TL_micrometers, fill=Batch)) + 
-  geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_TL_F_Kozeretska", x="Population", y = "TL_micrometers") + coord_cartesian(ylim = c(min_TL, max_TL))+ droseu_theme
+  geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+  labs(title="p_TL_F_Kozeretska", x="Population", y = "TL_micrometers") + ylim(c(min_TL, max_TL))+ droseu_theme
 
 ```
 
@@ -2753,8 +2752,8 @@ dev.off()
 ```{r p_TL_F_pop_Kozeretska}
 
 p_TL_F_pop_Kozeretska <- ggplot(data = (subset(d_TL_F,Supervisor.PI=='Kozeretska')), aes(x=Population_Lat, y=TL_micrometers, fill=Population)) + 
-  geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_TL_F_pop_Kozeretska", x="Population", y = "TL_micrometers") + coord_cartesian(ylim = c(min_TL, max_TL))+ droseu_theme
+  geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+  labs(title="p_TL_F_pop_Kozeretska", x="Population", y = "TL_micrometers") + ylim(c(min_TL, max_TL))+ droseu_theme
 
 ```
 
@@ -2771,8 +2770,8 @@ dev.off()
 ```{r p_TL_M_Kozeretska}
 
 p_TL_M_Kozeretska <- ggplot(data = (subset(d_TL_M,Supervisor.PI=='Kozeretska')), aes(x=Population_Lat, y=TL_micrometers, fill=Batch)) + 
-  geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_TL_M_Kozeretska", x="Population", y = "TL_micrometers") + coord_cartesian(ylim = c(min_TL, max_TL))+ droseu_theme
+  geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+  labs(title="p_TL_M_Kozeretska", x="Population", y = "TL_micrometers") + ylim(c(min_TL, max_TL))+ droseu_theme
 
 ```
 
@@ -2790,8 +2789,8 @@ dev.off()
 ```{r p_TL_M_pop_Kozeretska}
 
 p_TL_M_pop_Kozeretska <- ggplot(data = (subset(d_TL_M,Supervisor.PI=='Kozeretska')), aes(x=Population_Lat, y=TL_micrometers, fill=Population)) + 
-  geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_TL_M_pop_Kozeretska", x="Population", y = "TL_micrometers") + coord_cartesian(ylim = c(min_TL, max_TL))+ droseu_theme
+  geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+  labs(title="p_TL_M_pop_Kozeretska", x="Population", y = "TL_micrometers") + ylim(c(min_TL, max_TL))+ droseu_theme
 
 ```
 
@@ -2844,8 +2843,8 @@ summary(TL_M_lmer_Posnien)
 ```{r p_TL_F_Posnien}
 
 p_TL_F_Posnien <- ggplot(data = (subset(d_TL_F,Supervisor.PI=='Posnien')), aes(x=Population_Lat, y=TL_micrometers, fill=Batch)) + 
-  geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_TL_F_Posnien", x="Population", y = "TL_micrometers") + coord_cartesian(ylim = c(min_TL, max_TL))+ droseu_theme
+  geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+  labs(title="p_TL_F_Posnien", x="Population", y = "TL_micrometers") + ylim(c(min_TL, max_TL))+ droseu_theme
 
 ```
 
@@ -2863,8 +2862,8 @@ dev.off()
 ```{r p_TL_F_pop_Posnien}
 
 p_TL_F_pop_Posnien <- ggplot(data = (subset(d_TL_F,Supervisor.PI=='Posnien')), aes(x=Population_Lat, y=TL_micrometers, fill=Population)) + 
-  geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_TL_F_pop_Posnien", x="Population", y = "TL_micrometers")+ coord_cartesian(ylim = c(min_TL, max_TL))+ droseu_theme
+  geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+  labs(title="p_TL_F_pop_Posnien", x="Population", y = "TL_micrometers")+ ylim(c(min_TL, max_TL))+ droseu_theme
 
 ```
 
@@ -2881,8 +2880,8 @@ dev.off()
 ```{r p_TL_M_Posnien}
 
 p_TL_M_Posnien <- ggplot(data = (subset(d_TL_M,Supervisor.PI=='Posnien')), aes(x=Population_Lat, y=TL_micrometers, fill=Batch)) + 
-  geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_TL_M_Posnien", x="Population", y = "TL_micrometers")+ coord_cartesian(ylim = c(min_TL, max_TL))+ droseu_theme
+  geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+  labs(title="p_TL_M_Posnien", x="Population", y = "TL_micrometers")+ ylim(c(min_TL, max_TL))+ droseu_theme
 
 ```
 
@@ -2900,8 +2899,8 @@ dev.off()
 ```{r p_TL_M_pop_Posnien}
 
 p_TL_M_pop_Posnien <- ggplot(data = (subset(d_TL_M,Supervisor.PI=='Posnien')), aes(x=Population_Lat, y=TL_micrometers, fill=Population)) + 
-  geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_TL_M_pop_Posnien", x="Population", y = "TL_micrometers") + coord_cartesian(ylim = c(min_TL, max_TL))+ droseu_theme
+  geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+  labs(title="p_TL_M_pop_Posnien", x="Population", y = "TL_micrometers") + ylim(c(min_TL, max_TL))+ droseu_theme
 
 ```
 
@@ -2960,7 +2959,7 @@ p_TL_F_Ritchie <- filter(d_TL_F, Supervisor.PI == "Ritchie") %>%
   geom_boxplot(outlier.shape = NA, notch=FALSE) + 
   geom_jitter(width=0.2,alpha=0.05) + 
   labs(title="p_TL_F_Ritchie", x="Population", y = "TL_micrometers") +
-  coord_cartesian(ylim = c(min_TL, max_TL)) + 
+  ylim(c(min_TL, max_TL)) + 
   droseu_theme
 
 ```
@@ -2978,7 +2977,7 @@ dev.off()
 ```{r p_TL_F_pop_Ritchie}
 
 p_TL_F_pop_Ritchie <- ggplot(data = (subset(d_TL_F,Supervisor.PI=='Ritchie')), aes(x=Population_Lat, y=TL_micrometers, fill=Population)) + 
-  geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
+  geom_boxplot(outlier.shape = NA, notch=FALSE) + 
   labs(title="p_TL_F_pop_Ritchie", x="Population", y = "TL_micrometers")+ coord_cartesian(ylim =c(min_TL, max_TL))+ droseu_theme
 dev.off()
 ```
@@ -2999,8 +2998,8 @@ dev.off()
 ```{r p_TL_M_Ritchie}
 
 p_TL_M_Ritchie <- ggplot(data = (subset(d_TL_M,Supervisor.PI=='Ritchie')), aes(x=Population_Lat, y=TL_micrometers, fill=Batch)) + 
-  geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_TL_M_Ritchie", x="Population", y = "TL_micrometers")+ coord_cartesian(ylim = c(min_TL, max_TL))+ droseu_theme
+  geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+  labs(title="p_TL_M_Ritchie", x="Population", y = "TL_micrometers")+ ylim(c(min_TL, max_TL))+ droseu_theme
 
 ```
 
@@ -3019,8 +3018,8 @@ dev.off()
 ```{r p_TL_M_pop_Ritchie}
 
 p_TL_M_pop_Ritchie <- ggplot(data = (subset(d_TL_M,Supervisor.PI=='Ritchie')), aes(x=Population_Lat, y=TL_micrometers, fill=Population)) + 
-  geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_TL_M_pop_Ritchie", x="Population", y = "TL_micrometers")+ coord_cartesian(ylim = c(min_TL, max_TL))+ droseu_theme
+  geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+  labs(title="p_TL_M_pop_Ritchie", x="Population", y = "TL_micrometers")+ ylim(c(min_TL, max_TL))+ droseu_theme
 
 ```
 
@@ -3055,8 +3054,8 @@ summary(TL_F_lmer_Schmidt)
 ```{r p_TL_F_Schmidt}
 
 p_TL_F_Schmidt <- ggplot(data = (subset(d_TL_F,Supervisor.PI=='Schmidt')), aes(x=Population_Lat, y=TL_micrometers, fill=Batch)) + 
-  geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_TL_F_Schmidt", x="Population", y = "TL_micrometers") + coord_cartesian(ylim = c(min_TL, max_TL))+ droseu_theme
+  geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+  labs(title="p_TL_F_Schmidt", x="Population", y = "TL_micrometers") + ylim(c(min_TL, max_TL))+ droseu_theme
 
 ```
 
@@ -3074,8 +3073,8 @@ dev.off()
 ```{r p_TL_F_pop_Schmidt}
 
 p_TL_F_pop_Schmidt <- ggplot(data = (subset(d_TL_F,Supervisor.PI=='Schmidt')), aes(x=Population_Lat, y=TL_micrometers, fill=Population)) + 
-  geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_TL_F_pop_Schmidt", x="Population", y = "TL_micrometers") + coord_cartesian(ylim = c(min_TL, max_TL))+ droseu_theme
+  geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+  labs(title="p_TL_F_pop_Schmidt", x="Population", y = "TL_micrometers") + ylim(c(min_TL, max_TL))+ droseu_theme
 
 ```
 
@@ -3285,8 +3284,8 @@ y-axis is scaled by the minimum (`r min_WAL`) and maximum (`r max_WAL`) values i
 ```{r p_WA_F_L}
 
 p_WA_F_L <- ggplot(data = d_WA_F, aes(x=Population_Lat, y=CentroidSizeLeft_micrometers, fill=Supervisor.PI)) + 
-  geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_WA_F_L", x="Population", y = "CentroidSizeLeft_micrometers") + coord_cartesian(ylim = c(min_WAL, max_WAL))+ droseu_theme
+  geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+  labs(title="p_WA_F_L", x="Population", y = "CentroidSizeLeft_micrometers") + ylim(c(min_WAL, max_WAL))+ droseu_theme
 
 ```
 
@@ -3304,8 +3303,8 @@ dev.off()
 ```{r p_WA_M_L}
 
 p_WA_M_L <- ggplot(data = d_WA_M, aes(x=Population_Lat, y=CentroidSizeLeft_micrometers, fill=Supervisor.PI)) + 
-  geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_WA_M_L", x="Population", y = "CentroidSizeLeft_micrometers")+ coord_cartesian(ylim = c(min_WAL, max_WAL))+ droseu_theme
+  geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+  labs(title="p_WA_M_L", x="Population", y = "CentroidSizeLeft_micrometers")+ ylim(c(min_WAL, max_WAL))+ droseu_theme
 
 ```
 
@@ -3360,8 +3359,8 @@ summary(WA_M_L_Onder_lmer)
 ```{r p_WA_F_L_Onder}
 
 p_WA_F_L_Onder <- ggplot(data = (subset(d_WA_F,Supervisor.PI=='Onder')), aes(x=Population_Lat, y=CentroidSizeLeft_micrometers, fill=Batch)) + 
-  geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_WA_F_Onder_L", x="Population", y = "CentroidSizeLeft_micrometers") + coord_cartesian(ylim = c(min_WAL, max_WAL))+ droseu_theme
+  geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+  labs(title="p_WA_F_Onder_L", x="Population", y = "CentroidSizeLeft_micrometers") + ylim(c(min_WAL, max_WAL))+ droseu_theme
 
 ```
 
@@ -3378,8 +3377,8 @@ dev.off()
 ```{r p_WA_F_L_pop_Onder}
 
 p_WA_F_L_pop_Onder <- ggplot(data = (subset(d_WA_F,Supervisor.PI=='Onder')), aes(x=Population_Lat, y=CentroidSizeLeft_micrometers, fill=Population)) + 
-  geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_WA_F_L_pop_Onder", x="Population", y = "CentroidSizeLeft_micrometers") + coord_cartesian(ylim = c(min_WAL, max_WAL))+ droseu_theme
+  geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+  labs(title="p_WA_F_L_pop_Onder", x="Population", y = "CentroidSizeLeft_micrometers") + ylim(c(min_WAL, max_WAL))+ droseu_theme
 
 ```
 
@@ -3399,8 +3398,8 @@ dev.off()
 
 
 p_WA_M_L_Onder <- ggplot(data = (subset(d_WA_M,Supervisor.PI=='Onder')), aes(x=Population_Lat, y=CentroidSizeLeft_micrometers, fill=Batch)) + 
-  geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_WA_M_Onder_L", x="Population", y = "CentroidSizeLeft_micrometers")+ coord_cartesian(ylim = c(min_WAL, max_WAL))+ droseu_theme
+  geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+  labs(title="p_WA_M_Onder_L", x="Population", y = "CentroidSizeLeft_micrometers")+ ylim(c(min_WAL, max_WAL))+ droseu_theme
 
 ```
 
@@ -3418,8 +3417,8 @@ dev.off()
 ```{r p_WA_M_L_pop_Onder}
 
 p_WA_M_L_pop_Onder <- ggplot(data = (subset(d_WA_M,Supervisor.PI=='Onder')), aes(x=Population_Lat, y=CentroidSizeLeft_micrometers, fill=Population)) + 
-  geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_WA_M_L_pop_Onder", x="Population", y = "CentroidSizeLeft_micrometers") + coord_cartesian(ylim = c(min_WAL, max_WAL))+ droseu_theme
+  geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+  labs(title="p_WA_M_L_pop_Onder", x="Population", y = "CentroidSizeLeft_micrometers") + ylim(c(min_WAL, max_WAL))+ droseu_theme
 
 ```
 
@@ -3476,8 +3475,8 @@ summary(WA_M_L_Posnien_lmer)
 ```{r p_WA_F_L_Posnien}
 
 p_WA_F_L_Posnien <- ggplot(data = (subset(d_WA_F,Supervisor.PI=='Posnien')), aes(x=Population_Lat, y=CentroidSizeLeft_micrometers, fill=Batch)) + 
-  geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_WA_F_L_Posnien", x="Population", y = "CentroidSizeLeft_micrometers") + coord_cartesian(ylim = c(min_WAL, max_WAL))+ droseu_theme
+  geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+  labs(title="p_WA_F_L_Posnien", x="Population", y = "CentroidSizeLeft_micrometers") + ylim(c(min_WAL, max_WAL))+ droseu_theme
 
 ```
 
@@ -3496,8 +3495,8 @@ dev.off()
 ```{r p_WA_F_L_pop_Posnien}
 
 p_WA_F_L_pop_Posnien <- ggplot(data = (subset(d_WA_F,Supervisor.PI=='Posnien')), aes(x=Population_Lat, y=CentroidSizeLeft_micrometers, fill=Population)) + 
-  geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_WA_F_L_pop_Posnien", x="Population", y = "CentroidSizeLeft_micrometers")+ coord_cartesian(ylim = c(min_WAL, max_WAL))+ droseu_theme
+  geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+  labs(title="p_WA_F_L_pop_Posnien", x="Population", y = "CentroidSizeLeft_micrometers")+ ylim(c(min_WAL, max_WAL))+ droseu_theme
 
 ```
 
@@ -3515,8 +3514,8 @@ dev.off()
 ```{r p_WA_M_L_Posnien}
 
 p_WA_M_L_Posnien <- ggplot(data = (subset(d_WA_M,Supervisor.PI=='Posnien')), aes(x=Population_Lat, y=CentroidSizeLeft_micrometers, fill=Batch)) + 
-  geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_WA_M_L_Posnien", x="Population", y = "CentroidSizeLeft_micrometers")+ coord_cartesian(ylim = c(min_WAL, max_WAL))+ droseu_theme
+  geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+  labs(title="p_WA_M_L_Posnien", x="Population", y = "CentroidSizeLeft_micrometers")+ ylim(c(min_WAL, max_WAL))+ droseu_theme
 
 ```
 
@@ -3535,8 +3534,8 @@ dev.off()
 
 
 p_WA_M_L_pop_Posnien <- ggplot(data = (subset(d_WA_M,Supervisor.PI=='Posnien')), aes(x=Population_Lat, y=CentroidSizeLeft_micrometers, fill=Population)) + 
-  geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_WA_M_L_pop_Posnien", x="Population", y = "CentroidSizeLeft_micrometers")+ coord_cartesian(ylim = c(min_WAL, max_WAL))+ droseu_theme
+  geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+  labs(title="p_WA_M_L_pop_Posnien", x="Population", y = "CentroidSizeLeft_micrometers")+ ylim(c(min_WAL, max_WAL))+ droseu_theme
 
 ```
 
@@ -3594,8 +3593,8 @@ summary(WA_M_L_Ritchie_lmer)
 ```{r p_WA_F_L_Ritchie}
 
 p_WA_F_L_Ritchie <- ggplot(data = (subset(d_WA_F,Supervisor.PI=='Ritchie')), aes(x=Population_Lat, y=CentroidSizeLeft_micrometers, fill=Batch)) + 
-  geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_WA_F_L_Ritchie", x="Population", y = "CentroidSizeLeft_micrometers")+ coord_cartesian(ylim = c(min_WAL, max_WAL))+ droseu_theme
+  geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+  labs(title="p_WA_F_L_Ritchie", x="Population", y = "CentroidSizeLeft_micrometers")+ ylim(c(min_WAL, max_WAL))+ droseu_theme
 
 ```
 
@@ -3614,8 +3613,8 @@ dev.off()
 ```{r p_WA_F_L_pop_Ritchie}
 
 p_WA_F_L_pop_Ritchie <- ggplot(data = (subset(d_WA_F,Supervisor.PI=='Ritchie')), aes(x=Population_Lat, y=CentroidSizeLeft_micrometers, fill=Population)) + 
-  geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_WA_F_L_pop_Ritchie", x="Population", y = "CentroidSizeLeft_micrometers")+ coord_cartesian(ylim = c(min_WAL, max_WAL))+ droseu_theme
+  geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+  labs(title="p_WA_F_L_pop_Ritchie", x="Population", y = "CentroidSizeLeft_micrometers")+ ylim(c(min_WAL, max_WAL))+ droseu_theme
 
 ```
 
@@ -3634,8 +3633,8 @@ dev.off()
 ```{r p_WA_M_L_Ritchie}
 
 p_WA_M_L_Ritchie <- ggplot(data = (subset(d_WA_M,Supervisor.PI=='Ritchie')), aes(x=Population_Lat, y=CentroidSizeLeft_micrometers, fill=Batch)) + 
-  geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_WA_M_L_Ritchie", x="Population", y = "CentroidSizeLeft_micrometers") + coord_cartesian(ylim = c(min_WAL, max_WAL))+ droseu_theme
+  geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+  labs(title="p_WA_M_L_Ritchie", x="Population", y = "CentroidSizeLeft_micrometers") + ylim(c(min_WAL, max_WAL))+ droseu_theme
 
 ```
 
@@ -3653,8 +3652,8 @@ dev.off()
 
 
 p_WA_M_L_pop_Ritchie <- ggplot(data = (subset(d_WA_M,Supervisor.PI=='Ritchie')), aes(x=Population_Lat, y=CentroidSizeLeft_micrometers, fill=Population)) + 
-  geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_WA_M_L_pop_Ritchie", x="Population", y = "CentroidSizeLeft_micrometers") + coord_cartesian(ylim = c(min_WAL, max_WAL))+ droseu_theme
+  geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+  labs(title="p_WA_M_L_pop_Ritchie", x="Population", y = "CentroidSizeLeft_micrometers") + ylim(c(min_WAL, max_WAL))+ droseu_theme
 
 ```
 
@@ -3712,8 +3711,8 @@ summary(WA_M_L_StamenkovicRadak_lmer)
 ```{r p_WA_F_L_StamenkovicRadak}
 
 p_WA_F_L_StamenkovicRadak <- ggplot(data = (subset(d_WA_F,Supervisor.PI=='StamenkovicRadak')), aes(x=Population_Lat, y=CentroidSizeLeft_micrometers, fill=Batch)) + 
-  geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_WA_F_L_StamenkovicRadak", x="Population", y = "CentroidSizeLeft_micrometers")+ coord_cartesian(ylim = c(min_WAL, max_WAL))+ droseu_theme
+  geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+  labs(title="p_WA_F_L_StamenkovicRadak", x="Population", y = "CentroidSizeLeft_micrometers")+ ylim(c(min_WAL, max_WAL))+ droseu_theme
 
 ```
 
@@ -3732,8 +3731,8 @@ dev.off()
 ```{r p_WA_F_L_pop_StamenkovicRadak}
 
 p_WA_F_L_pop_StamenkovicRadak <- ggplot(data = (subset(d_WA_F,Supervisor.PI=='StamenkovicRadak')), aes(x=Population_Lat, y=CentroidSizeLeft_micrometers, fill=Population)) + 
-  geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_WA_F_L_pop_StamenkovicRadak", x="Population", y = "CentroidSizeLeft_micrometers")+ coord_cartesian(ylim = c(min_WAL, max_WAL))+ droseu_theme
+  geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+  labs(title="p_WA_F_L_pop_StamenkovicRadak", x="Population", y = "CentroidSizeLeft_micrometers")+ ylim(c(min_WAL, max_WAL))+ droseu_theme
 
 ```
 
@@ -3751,8 +3750,8 @@ dev.off()
 ```{r p_WA_M_L_StamenkovicRadak}
 
 p_WA_M_L_StamenkovicRadak <- ggplot(data = (subset(d_WA_M,Supervisor.PI=='StamenkovicRadak')), aes(x=Population_Lat, y=CentroidSizeLeft_micrometers, fill=Batch)) + 
-  geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_WA_M_L_StamenkovicRadak", x="Population", y = "CentroidSizeLeft_micrometers") + coord_cartesian(ylim = c(min_WAL, max_WAL))+ droseu_theme
+  geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+  labs(title="p_WA_M_L_StamenkovicRadak", x="Population", y = "CentroidSizeLeft_micrometers") + ylim(c(min_WAL, max_WAL))+ droseu_theme
 
 ```
 
@@ -3769,8 +3768,8 @@ dev.off()
 ```{r p_WA_M_L_pop_StamenkovicRadak}
 
 p_WA_M_L_pop_StamenkovicRadak <- ggplot(data = (subset(d_WA_M,Supervisor.PI=='StamenkovicRadak')), aes(x=Population_Lat, y=CentroidSizeLeft_micrometers, fill=Population)) + 
-  geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_WA_M_L_pop_StamenkovicRadak", x="Population", y = "CentroidSizeLeft_micrometers") + coord_cartesian(ylim = c(min_WAL, max_WAL))+ droseu_theme
+  geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+  labs(title="p_WA_M_L_pop_StamenkovicRadak", x="Population", y = "CentroidSizeLeft_micrometers") + ylim(c(min_WAL, max_WAL))+ droseu_theme
 
 ```
 
@@ -3869,8 +3868,8 @@ max_WAR <- max(d_WA$CentroidSizeRight_micrometers)
 ```{r p_WA_F_R}
 
 p_WA_F_R <- ggplot(data = d_WA_F, aes(x=Population_Lat, y=CentroidSizeRight_micrometers, fill=Supervisor.PI)) + 
-  geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_WA_F_R", x="Population", y = "CentroidSizeRight_micrometers") + coord_cartesian(ylim = c(min_WAL, max_WAL))+ droseu_theme
+  geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+  labs(title="p_WA_F_R", x="Population", y = "CentroidSizeRight_micrometers") + ylim(c(min_WAL, max_WAL))+ droseu_theme
 
 ```
 
@@ -3888,8 +3887,8 @@ dev.off()
 ```{r p_WA_M_R}
 
 p_WA_M_R <- ggplot(data = d_WA_M, aes(x=Population_Lat, y=CentroidSizeRight_micrometers, fill=Supervisor.PI)) + 
-  geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_WA_M_R", x="Population", y = "CentroidSizeRight_micrometers")+ coord_cartesian(ylim = c(min_WAL, max_WAL))+ droseu_theme
+  geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+  labs(title="p_WA_M_R", x="Population", y = "CentroidSizeRight_micrometers")+ ylim(c(min_WAL, max_WAL))+ droseu_theme
 
 ```
 
@@ -3954,8 +3953,8 @@ summary(WA_M_R_Onder_lmer)
 ```{r p_WA_F_R_Onder}
 
 p_WA_F_R_Onder <- ggplot(data = (subset(d_WA_F,Supervisor.PI=='Onder')), aes(x=Population_Lat, y=CentroidSizeRight_micrometers, fill=Batch)) + 
-  geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_WA_F_Onder_R", x="Population", y = "CentroidSizeRight_micrometers")+ coord_cartesian(ylim = c(min_WAR, max_WAR))+ droseu_theme
+  geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+  labs(title="p_WA_F_Onder_R", x="Population", y = "CentroidSizeRight_micrometers")+ ylim(c(min_WAR, max_WAR))+ droseu_theme
 
 ```
 
@@ -3973,8 +3972,8 @@ dev.off()
 ```{r p_WA_F_R_pop_Onder}
 
 p_WA_F_R_pop_Onder <- ggplot(data = (subset(d_WA_F,Supervisor.PI=='Onder')), aes(x=Population_Lat, y=CentroidSizeRight_micrometers, fill=Population)) + 
-  geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_WA_F_R_pop_Onder", x="Population", y = "CentroidSizeRight_micrometers") + coord_cartesian(ylim = c(min_WAR, max_WAR))+ droseu_theme
+  geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+  labs(title="p_WA_F_R_pop_Onder", x="Population", y = "CentroidSizeRight_micrometers") + ylim(c(min_WAR, max_WAR))+ droseu_theme
 
 ```
 
@@ -3993,8 +3992,8 @@ dev.off()
 ```{r p_WA_M_R_Onder}
 
 p_WA_M_R_Onder <- ggplot(data = (subset(d_WA_M,Supervisor.PI=='Onder')), aes(x=Population_Lat, y=CentroidSizeRight_micrometers, fill=Batch)) + 
-  geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_WA_M_R_Onder", x="Population", y = "CentroidSizeRight_micrometers") + coord_cartesian(ylim = c(min_WAR, max_WAR))+ droseu_theme
+  geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+  labs(title="p_WA_M_R_Onder", x="Population", y = "CentroidSizeRight_micrometers") + ylim(c(min_WAR, max_WAR))+ droseu_theme
 
 ```
 
@@ -4012,8 +4011,8 @@ dev.off()
 ```{r p_WA_M_R_pop_Onder}
 
 p_WA_M_R_pop_Onder <- ggplot(data = (subset(d_WA_M,Supervisor.PI=='Onder')), aes(x=Population_Lat, y=CentroidSizeRight_micrometers, fill=Population)) + 
-  geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_WA_M_R_pop_Onder", x="Population", y = "CentroidSizeRight_micrometers") + coord_cartesian(ylim = c(min_WAR, max_WAR))+ droseu_theme
+  geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+  labs(title="p_WA_M_R_pop_Onder", x="Population", y = "CentroidSizeRight_micrometers") + ylim(c(min_WAR, max_WAR))+ droseu_theme
 
 ```
 
@@ -4070,8 +4069,8 @@ summary(WA_M_R_Posnien_lmer)
 ```{r p_WA_F_R_Posnien}
 
 p_WA_F_R_Posnien <- ggplot(data = (subset(d_WA_F,Supervisor.PI=='Posnien')), aes(x=Population_Lat, y=CentroidSizeRight_micrometers, fill=Batch)) + 
-  geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_WA_F_R_Posnien", x="Population", y = "CentroidSizeRight_micrometers") + coord_cartesian(ylim = c(min_WAR, max_WAR))+ droseu_theme
+  geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+  labs(title="p_WA_F_R_Posnien", x="Population", y = "CentroidSizeRight_micrometers") + ylim(c(min_WAR, max_WAR))+ droseu_theme
 
 ```
 
@@ -4090,8 +4089,8 @@ dev.off()
 ```{r p_WA_F_R_pop_Posnien}
 
 p_WA_F_R_pop_Posnien <- ggplot(data = (subset(d_WA_F,Supervisor.PI=='Posnien')), aes(x=Population_Lat, y=CentroidSizeRight_micrometers, fill=Population)) + 
-  geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_WA_F_R_pop_Posnien", x="Population", y = "CentroidSizeRight_micrometers")+ coord_cartesian(ylim = c(min_WAR, max_WAR))+ droseu_theme
+  geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+  labs(title="p_WA_F_R_pop_Posnien", x="Population", y = "CentroidSizeRight_micrometers")+ ylim(c(min_WAR, max_WAR))+ droseu_theme
 
 ```
 
@@ -4108,8 +4107,8 @@ dev.off()
 ```{r p_WA_M_R_Posnien}
 
 p_WA_M_R_Posnien <- ggplot(data = (subset(d_WA_M,Supervisor.PI=='Posnien')), aes(x=Population_Lat, y=CentroidSizeRight_micrometers, fill=Batch)) + 
-  geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_WA_M_R_Posnien", x="Population", y = "CentroidSizeRight_micrometers") + coord_cartesian(ylim = c(min_WAR, max_WAR))+ droseu_theme
+  geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+  labs(title="p_WA_M_R_Posnien", x="Population", y = "CentroidSizeRight_micrometers") + ylim(c(min_WAR, max_WAR))+ droseu_theme
 
 ```
 
@@ -4127,8 +4126,8 @@ dev.off()
 ```{r p_WA_M_R_pop_Posnien}
 
 p_WA_M_R_pop_Posnien <- ggplot(data = (subset(d_WA_M,Supervisor.PI=='Posnien')), aes(x=Population_Lat, y=CentroidSizeRight_micrometers, fill=Population)) + 
-  geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_WA_M_R_pop_Posnien", x="Population", y = "CentroidSizeRight_micrometers") + coord_cartesian(ylim = c(min_WAR, max_WAR))+ droseu_theme
+  geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+  labs(title="p_WA_M_R_pop_Posnien", x="Population", y = "CentroidSizeRight_micrometers") + ylim(c(min_WAR, max_WAR))+ droseu_theme
 
 ```
 
@@ -4186,8 +4185,8 @@ summary(WA_M_R_Ritchie_lmer)
 ```{r p_WA_F_R_Ritchie}
 
 p_WA_F_R_Ritchie <- ggplot(data = (subset(d_WA_F,Supervisor.PI=='Ritchie')), aes(x=Population_Lat, y=CentroidSizeRight_micrometers, fill=Batch)) + 
-  geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_WA_F_R_Ritchie", x="Population", y = "CentroidSizeRight_micrometers") + coord_cartesian(ylim = c(min_WAR, max_WAR))+ droseu_theme
+  geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+  labs(title="p_WA_F_R_Ritchie", x="Population", y = "CentroidSizeRight_micrometers") + ylim(c(min_WAR, max_WAR))+ droseu_theme
 
 ```
 
@@ -4205,8 +4204,8 @@ dev.off()
 ```{r p_WA_F_R_pop_Ritchie}
 
 p_WA_F_R_pop_Ritchie <- ggplot(data = (subset(d_WA_F,Supervisor.PI=='Ritchie')), aes(x=Population_Lat, y=CentroidSizeRight_micrometers, fill=Population)) + 
-  geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_WA_F_R_pop_Ritchie", x="Population", y = "CentroidSizeRight_micrometers") + coord_cartesian(ylim = c(min_WAR, max_WAR))+ droseu_theme
+  geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+  labs(title="p_WA_F_R_pop_Ritchie", x="Population", y = "CentroidSizeRight_micrometers") + ylim(c(min_WAR, max_WAR))+ droseu_theme
 
 ```
 
@@ -4224,8 +4223,8 @@ dev.off()
 
 
 p_WA_M_R_Ritchie <- ggplot(data = (subset(d_WA_M,Supervisor.PI=='Ritchie')), aes(x=Population_Lat, y=CentroidSizeRight_micrometers, fill=Batch)) + 
-  geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_WA_M_R_Ritchie", x="Population", y = "CentroidSizeRight_micrometers") + coord_cartesian(ylim = c(min_WAR, max_WAR))+ droseu_theme
+  geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+  labs(title="p_WA_M_R_Ritchie", x="Population", y = "CentroidSizeRight_micrometers") + ylim(c(min_WAR, max_WAR))+ droseu_theme
 
 ```
 
@@ -4244,8 +4243,8 @@ dev.off()
 ```{r p_WA_M_R_pop_Ritchie}
 
 p_WA_M_R_pop_Ritchie <- ggplot(data = (subset(d_WA_M,Supervisor.PI=='Ritchie')), aes(x=Population_Lat, y=CentroidSizeRight_micrometers, fill=Population)) + 
-  geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_WA_M_R_pop_Ritchie", x="Population", y = "CentroidSizeRight_micrometers")+ coord_cartesian(ylim = c(min_WAR, max_WAR))+ droseu_theme
+  geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+  labs(title="p_WA_M_R_pop_Ritchie", x="Population", y = "CentroidSizeRight_micrometers")+ ylim(c(min_WAR, max_WAR))+ droseu_theme
 
 ```
 
@@ -4303,8 +4302,8 @@ summary(WA_M_R_StamenkovicRadak_lmer)
 ```{r p_WA_F_R_StamenkovicRadak}
 
 p_WA_F_R_StamenkovicRadak <- ggplot(data = (subset(d_WA_F,Supervisor.PI=='StamenkovicRadak')), aes(x=Population_Lat, y=CentroidSizeRight_micrometers, fill=Batch)) + 
-  geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_WA_F_R_StamenkovicRadak", x="Population", y = "CentroidSizeRight_micrometers")+ coord_cartesian(ylim = c(min_WAR, max_WAR))+ droseu_theme
+  geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+  labs(title="p_WA_F_R_StamenkovicRadak", x="Population", y = "CentroidSizeRight_micrometers")+ ylim(c(min_WAR, max_WAR))+ droseu_theme
 
 ```
 
@@ -4323,8 +4322,8 @@ dev.off()
 ```{r p_WA_F_R_pop_StamenkovicRadak}
 
 p_WA_F_R_pop_StamenkovicRadak <- ggplot(data = (subset(d_WA_F,Supervisor.PI=='StamenkovicRadak')), aes(x=Population_Lat, y=CentroidSizeRight_micrometers, fill=Population)) + 
-  geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_WA_F_R_pop_StamenkovicRadak", x="Population", y = "CentroidSizeRight_micrometers") + coord_cartesian(ylim = c(min_WAR, max_WAR))+ droseu_theme
+  geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+  labs(title="p_WA_F_R_pop_StamenkovicRadak", x="Population", y = "CentroidSizeRight_micrometers") + ylim(c(min_WAR, max_WAR))+ droseu_theme
 
 ```
 
@@ -4343,8 +4342,8 @@ dev.off()
 
 
 p_WA_M_R_StamenkovicRadak <- ggplot(data = (subset(d_WA_M,Supervisor.PI=='StamenkovicRadak')), aes(x=Population_Lat, y=CentroidSizeRight_micrometers, fill=Batch)) + 
-  geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_WA_M_R_StamenkovicRadak", x="Population", y = "CentroidSizeRight_micrometers")+ coord_cartesian(ylim = c(min_WAR, max_WAR))+ droseu_theme
+  geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+  labs(title="p_WA_M_R_StamenkovicRadak", x="Population", y = "CentroidSizeRight_micrometers")+ ylim(c(min_WAR, max_WAR))+ droseu_theme
 
 ```
 
@@ -4363,8 +4362,8 @@ dev.off()
 
 
 p_WA_M_R_pop_StamenkovicRadak <- ggplot(data = (subset(d_WA_M,Supervisor.PI=='StamenkovicRadak')), aes(x=Population_Lat, y=CentroidSizeRight_micrometers, fill=Population)) + 
-  geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_WA_M_R_pop_StamenkovicRadak", x="Population", y = "CentroidSizeRight_micrometers") + coord_cartesian(ylim = c(min_WAR, max_WAR))+ droseu_theme
+  geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+  labs(title="p_WA_M_R_pop_StamenkovicRadak", x="Population", y = "CentroidSizeRight_micrometers") + ylim(c(min_WAR, max_WAR))+ droseu_theme
 
 ```
 
@@ -4606,8 +4605,8 @@ y-axis is scaled by the minimum (`r min_Fec`) and maximum (`r max_Fec`) values i
 ```{r p_Fec_all}
 
 p_Fec_all <- ggplot(data = d_Fec, aes(x=Population_Lat, y=NumberOfAdultsEclosed, fill=Supervisor.PI)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-        labs(title="p_Fec_all", x="Population", y = "DW_micrograms") + coord_cartesian(ylim = c(min_Fec, max_Fec))+ droseu_theme
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+        labs(title="p_Fec_all", x="Population", y = "DW_micrograms") + ylim(c(min_Fec, max_Fec))+ droseu_theme
 
 ```
 
@@ -4642,7 +4641,7 @@ summary(Fec_lmer_Billeter)
 
 ```{r p_Fec_Billeter, echo=TRUE, message=TRUE, warning=TRUE}
 
-p_Fec_Billeter <- ggplot(data = (subset(d_Fec,Supervisor.PI=='Billeter')), aes(x=Population_Lat, y=NumberOfAdultsEclosed, fill=Batch)) +  geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_Fec_Billeter", x="Population", y = "NumberOfAdultsEclosed") + coord_cartesian(ylim = c(min_Fec, max_Fec))+ droseu_theme
+p_Fec_Billeter <- ggplot(data = (subset(d_Fec,Supervisor.PI=='Billeter')), aes(x=Population_Lat, y=NumberOfAdultsEclosed, fill=Batch)) +  geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_Fec_Billeter", x="Population", y = "NumberOfAdultsEclosed") + ylim(c(min_Fec, max_Fec))+ droseu_theme
 
 ```
 
@@ -4657,7 +4656,7 @@ dev.off()
 ```
 
 ```{r p_Fec_pop_Billeter, echo=TRUE, message=TRUE, warning=TRUE}
-p_Fec_pop_Billeter <- ggplot(data = (subset(d_Fec,Supervisor.PI=='Billeter')), aes(x=Population_Lat, y=NumberOfAdultsEclosed, fill=Population)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_Fec_pop_Billeter", x="Population", y = "NumberOfAdultsEclosed") + coord_cartesian(ylim = c(min_Fec, max_Fec))+ droseu_theme
+p_Fec_pop_Billeter <- ggplot(data = (subset(d_Fec,Supervisor.PI=='Billeter')), aes(x=Population_Lat, y=NumberOfAdultsEclosed, fill=Population)) + geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_Fec_pop_Billeter", x="Population", y = "NumberOfAdultsEclosed") + ylim(c(min_Fec, max_Fec))+ droseu_theme
 ```
 
 ```{r echo=FALSE}
@@ -4691,7 +4690,7 @@ summary(Fec_lmer_Fricke)
 
 ```{r p_Fec_Fricke, echo=FALSE, message=FALSE, warning=FALSE}
 
-p_Fec_Fricke <- ggplot(data = (subset(d_Fec,Supervisor.PI=='Fricke')), aes(x=Population_Lat, y=NumberOfAdultsEclosed, fill=Batch)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_Fec_Fricke", x="Population", y = "NumberOfAdultsEclosed") + coord_cartesian(ylim = c(min_Fec, max_Fec))+ droseu_theme
+p_Fec_Fricke <- ggplot(data = (subset(d_Fec,Supervisor.PI=='Fricke')), aes(x=Population_Lat, y=NumberOfAdultsEclosed, fill=Batch)) + geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_Fec_Fricke", x="Population", y = "NumberOfAdultsEclosed") + ylim(c(min_Fec, max_Fec))+ droseu_theme
 
 ```
 
@@ -4708,7 +4707,7 @@ dev.off()
 
 ```{r p_Fec_pop_Fricke, echo=FALSE, message=FALSE, warning=FALSE}
 
-p_Fec_pop_Fricke <- ggplot(data = (subset(d_Fec,Supervisor.PI=='Fricke')), aes(x=Population_Lat, y=NumberOfAdultsEclosed, fill=Population)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_Fec_pop_Fricke", x="Population", y = "NumberOfAdultsEclosed") + coord_cartesian(ylim = c(min_Fec, max_Fec))+ droseu_theme
+p_Fec_pop_Fricke <- ggplot(data = (subset(d_Fec,Supervisor.PI=='Fricke')), aes(x=Population_Lat, y=NumberOfAdultsEclosed, fill=Population)) + geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_Fec_pop_Fricke", x="Population", y = "NumberOfAdultsEclosed") + ylim(c(min_Fec, max_Fec))+ droseu_theme
 
 ```
 
@@ -4982,7 +4981,7 @@ y-axis is scaled by the minimum (`r min_LS`) and maximum (`r max_LS`) values in 
 
 ```{r p_LS_F, echo=FALSE, message=FALSE, warning=FALSE}
 
-p_LS_F <- ggplot(data = d_LS_M_F, aes(x=Population_Lat, y=LSM_AgeAtDeath_days, fill=Supervisor.PI)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_LS_F", x="Population", y = "LSM_AgeAtDeath_days") + coord_cartesian(ylim = c(min_LS, max_LS))+ droseu_theme
+p_LS_F <- ggplot(data = d_LS_M_F, aes(x=Population_Lat, y=LSM_AgeAtDeath_days, fill=Supervisor.PI)) + geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_LS_F", x="Population", y = "LSM_AgeAtDeath_days") + ylim(c(min_LS, max_LS))+ droseu_theme
 
 ```
 
@@ -4999,7 +4998,7 @@ dev.off()
 
 ```{r p_LS_M, echo=FALSE, message=FALSE, warning=FALSE}
 
-p_LS_M <- ggplot(data = d_LS_M_M, aes(x=Population_Lat, y=LSM_AgeAtDeath_days, fill=Supervisor.PI)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_LS_M", x="Population", y = "LSM_AgeAtDeath_days") + coord_cartesian(ylim = c(min_LS, max_LS))+ droseu_theme
+p_LS_M <- ggplot(data = d_LS_M_M, aes(x=Population_Lat, y=LSM_AgeAtDeath_days, fill=Supervisor.PI)) + geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_LS_M", x="Population", y = "LSM_AgeAtDeath_days") + ylim(c(min_LS, max_LS))+ droseu_theme
 
 ```
 
@@ -5051,7 +5050,7 @@ summary(LS_P_M_Flatt_lmer)
 
 ```{r p_LS_F_Flatt, echo=FALSE, message=FALSE, warning=FALSE}
 
-p_LS_F_Flatt <- ggplot(data = filter(d_LS_M_M, (Censor == "0") & (Supervisor.PI == "Flatt")), aes(x=Population_Lat, y=LSM_AgeAtDeath_days, fill=Population)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_LS_F_Flatt", x="Population", y = "LSM_AgeAtDeath_days") + coord_cartesian(ylim = c(min_LS, max_LS))+ droseu_theme
+p_LS_F_Flatt <- ggplot(data = filter(d_LS_M_M, (Censor == "0") & (Supervisor.PI == "Flatt")), aes(x=Population_Lat, y=LSM_AgeAtDeath_days, fill=Population)) + geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_LS_F_Flatt", x="Population", y = "LSM_AgeAtDeath_days") + ylim(c(min_LS, max_LS))+ droseu_theme
 
 ```
 
@@ -5068,7 +5067,7 @@ dev.off()
 
 ```{r p_LS_M_Flatt, echo=FALSE, message=FALSE, warning=FALSE}
 
-p_LS_M_Flatt <- ggplot(data = filter(d_LS_M_M, (Censor == "0") & (Supervisor.PI == "Flatt")), aes(x=Population_Lat, y=LSM_AgeAtDeath_days, fill=Population)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_LS_M_Flatt", x="Population", y = "LSM_AgeAtDeath_days") + coord_cartesian(ylim = c(min_LS, max_LS))+ droseu_theme
+p_LS_M_Flatt <- ggplot(data = filter(d_LS_M_M, (Censor == "0") & (Supervisor.PI == "Flatt")), aes(x=Population_Lat, y=LSM_AgeAtDeath_days, fill=Population)) + geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_LS_M_Flatt", x="Population", y = "LSM_AgeAtDeath_days") + ylim(c(min_LS, max_LS))+ droseu_theme
 
 ```
 
@@ -5119,7 +5118,7 @@ summary(LS_L_M_Parsch_lmer)
 
 ```{r p_LS_F_Parsch, echo=FALSE, message=FALSE, warning=FALSE}
 
-p_LS_F_Parsch <- ggplot(data = filter(d_LS_M_F, (Censor == "0") & (Supervisor.PI == "Parsch")), aes(x=Population_Lat, y=LSM_AgeAtDeath_days, fill=Batch)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_LS_F_Parsch", x="Population", y = "LSM_AgeAtDeath_days") + coord_cartesian(ylim = c(min_LS, max_LS))+ droseu_theme
+p_LS_F_Parsch <- ggplot(data = filter(d_LS_M_F, (Censor == "0") & (Supervisor.PI == "Parsch")), aes(x=Population_Lat, y=LSM_AgeAtDeath_days, fill=Batch)) + geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_LS_F_Parsch", x="Population", y = "LSM_AgeAtDeath_days") + ylim(c(min_LS, max_LS))+ droseu_theme
 
 ```
 
@@ -5135,7 +5134,7 @@ dev.off()
 
 ```{r p_LS_F_pop_Parsch, echo=FALSE, message=FALSE, warning=FALSE}
 
-p_LS_F_pop_Parsch <- ggplot(data = filter(d_LS_M_F, (Censor == "0") & (Supervisor.PI == "Parsch")), aes(x=Population_Lat, y=LSM_AgeAtDeath_days, fill=Population)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_LS_F_pop_Parsch", x="Population", y = "LSM_AgeAtDeath_days") + coord_cartesian(ylim = c(min_LS, max_LS))+ droseu_theme
+p_LS_F_pop_Parsch <- ggplot(data = filter(d_LS_M_F, (Censor == "0") & (Supervisor.PI == "Parsch")), aes(x=Population_Lat, y=LSM_AgeAtDeath_days, fill=Population)) + geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_LS_F_pop_Parsch", x="Population", y = "LSM_AgeAtDeath_days") + ylim(c(min_LS, max_LS))+ droseu_theme
 
 ```
 
@@ -5153,7 +5152,7 @@ dev.off()
 
 ```{r p_LS_M_Parsch, echo=FALSE, message=FALSE, warning=FALSE}
 
-p_LS_M_Parsch <- ggplot(data = filter(d_LS_M_M, (Censor == "0") & (Supervisor.PI == "Parsch")), aes(x=Population_Lat, y=LSM_AgeAtDeath_days, fill=Batch)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_LS_M_Parsch", x="Population", y = "LSM_AgeAtDeath_days") + coord_cartesian(ylim = c(min_LS, max_LS))+ droseu_theme
+p_LS_M_Parsch <- ggplot(data = filter(d_LS_M_M, (Censor == "0") & (Supervisor.PI == "Parsch")), aes(x=Population_Lat, y=LSM_AgeAtDeath_days, fill=Batch)) + geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_LS_M_Parsch", x="Population", y = "LSM_AgeAtDeath_days") + ylim(c(min_LS, max_LS))+ droseu_theme
 
 ```
 
@@ -5169,7 +5168,7 @@ dev.off()
 
 ```{r p_LS_M_pop_Parsch, echo=FALSE, message=FALSE, warning=FALSE}
 
-p_LS_M_pop_Parsch <- ggplot(data = filter(d_LS_M_M, (Censor == "0") & (Supervisor.PI == "Parsch")), aes(x=Population_Lat, y=LSM_AgeAtDeath_days, fill=Population)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_LS_M_pop_Parsch", x="Population", y = "LSM_AgeAtDeath_days") + coord_cartesian(ylim = c(min_LS, max_LS))+ droseu_theme
+p_LS_M_pop_Parsch <- ggplot(data = filter(d_LS_M_M, (Censor == "0") & (Supervisor.PI == "Parsch")), aes(x=Population_Lat, y=LSM_AgeAtDeath_days, fill=Population)) + geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_LS_M_pop_Parsch", x="Population", y = "LSM_AgeAtDeath_days") + ylim(c(min_LS, max_LS))+ droseu_theme
 
 ```
 
@@ -5219,7 +5218,7 @@ summary(LS_L_M_Pasyukova_lmer)
 
 ```{r p_LS_F_Pasyukova, echo=FALSE, message=FALSE, warning=FALSE}
 
-p_LS_F_Pasyukova <- ggplot(data = filter(d_LS_M_F, (Censor == "0") & (Supervisor.PI == "Pasyukova")), aes(x=Population_Lat, y=LSM_AgeAtDeath_days, fill=Batch)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_LS_F_Pasyukova", x="Population", y = "LSM_AgeAtDeath_days") + coord_cartesian(ylim = c(min_LS, max_LS))+ droseu_theme
+p_LS_F_Pasyukova <- ggplot(data = filter(d_LS_M_F, (Censor == "0") & (Supervisor.PI == "Pasyukova")), aes(x=Population_Lat, y=LSM_AgeAtDeath_days, fill=Batch)) + geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_LS_F_Pasyukova", x="Population", y = "LSM_AgeAtDeath_days") + ylim(c(min_LS, max_LS))+ droseu_theme
 
 ```
 
@@ -5235,7 +5234,7 @@ dev.off()
 
 ```{r p_LS_F_pop_Pasyukova, echo=FALSE, message=FALSE, warning=FALSE}
 
-p_LS_F_pop_Pasyukova <- ggplot(data = filter(d_LS_M_F, (Censor == "0") & (Supervisor.PI == "Pasyukova")), aes(x=Population_Lat, y=LSM_AgeAtDeath_days, fill=Population)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_LS_F_pop_Pasyukova", x="Population", y = "LSM_AgeAtDeath_days") + coord_cartesian(ylim = c(min_LS, max_LS))+ droseu_theme
+p_LS_F_pop_Pasyukova <- ggplot(data = filter(d_LS_M_F, (Censor == "0") & (Supervisor.PI == "Pasyukova")), aes(x=Population_Lat, y=LSM_AgeAtDeath_days, fill=Population)) + geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_LS_F_pop_Pasyukova", x="Population", y = "LSM_AgeAtDeath_days") + ylim(c(min_LS, max_LS))+ droseu_theme
 
 ```
 
@@ -5253,7 +5252,7 @@ dev.off()
 
 ```{r p_LS_M_Pasyukova, echo=FALSE, message=FALSE, warning=FALSE}
 
-p_LS_M_Pasyukova <- ggplot(data = filter(d_LS_M_M, (Censor == "0") & (Supervisor.PI == "Pasyukova")), aes(x=Population_Lat, y=LSM_AgeAtDeath_days, fill=Batch)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_LS_M_Pasyukova", x="Population", y = "LSM_AgeAtDeath_days") + coord_cartesian(ylim = c(min_LS, max_LS))+ droseu_theme
+p_LS_M_Pasyukova <- ggplot(data = filter(d_LS_M_M, (Censor == "0") & (Supervisor.PI == "Pasyukova")), aes(x=Population_Lat, y=LSM_AgeAtDeath_days, fill=Batch)) + geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_LS_M_Pasyukova", x="Population", y = "LSM_AgeAtDeath_days") + ylim(c(min_LS, max_LS))+ droseu_theme
 
 ```
 
@@ -5269,7 +5268,7 @@ dev.off()
 
 ```{r p_LS_M_pop_Pasyukova, echo=FALSE, message=FALSE, warning=FALSE}
 
-p_LS_M_pop_Pasyukova <- ggplot(data = filter(d_LS_M_M, (Censor == "0") & (Supervisor.PI == "Pasyukova")), aes(x=Population_Lat, y=LSM_AgeAtDeath_days, fill=Population)) + geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + labs(title="p_LS_M_pop_Pasyukova", x="Population", y = "LSM_AgeAtDeath_days") + coord_cartesian(ylim = c(min_LS, max_LS))+ droseu_theme
+p_LS_M_pop_Pasyukova <- ggplot(data = filter(d_LS_M_M, (Censor == "0") & (Supervisor.PI == "Pasyukova")), aes(x=Population_Lat, y=LSM_AgeAtDeath_days, fill=Population)) + geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_LS_M_pop_Pasyukova", x="Population", y = "LSM_AgeAtDeath_days") + ylim(c(min_LS, max_LS))+ droseu_theme
 
 ```
 
@@ -5620,8 +5619,8 @@ y-axis is scaled by the minimum (`r min_CSM`) and maximum (`r max_CSM`) values i
 
 ```{r p_CSM_F}
 p_CSM_F <- ggplot(data = d_CSM_F, aes(x=Population_Lat, y=CSM_PropDead_ED, fill=Supervisor.PI)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-        labs(title="p_CSM_F", x="Population", y = "Prop_dead") + coord_cartesian(ylim = c(min_CSM, max_CSM))+ droseu_theme
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+        labs(title="p_CSM_F", x="Population", y = "Prop_dead") + ylim(c(min_CSM, max_CSM))+ droseu_theme
 ```
 
 ```{r}
@@ -5637,8 +5636,8 @@ dev.off()
 
 ```{r p_CSM_M}
 p_CSM_M <- ggplot(data = d_CSM_M, aes(x=Population_Lat, y=CSM_PropDead_ED, fill=Supervisor.PI)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-        labs(title="p_CSM_M", x="Population", y = "Prop_dead") +  coord_cartesian(ylim = c(min_CSM, max_CSM))+ droseu_theme
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+        labs(title="p_CSM_M", x="Population", y = "Prop_dead") +  ylim(c(min_CSM, max_CSM))+ droseu_theme
 ```
 
 ```{r}
@@ -5689,8 +5688,8 @@ summary(CSM_M_lmer_Gonzalez)
 
 ```{r p_CSM_F_Gonzalez}
 p_CSM_F_Gonzalez <- ggplot(data = (subset(d_CSM_F, Supervisor.PI == "Gonzalez")), aes(x=Population_Lat, y=CSM_PropDead_ED, fill=Batch)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-        labs(title="p_CSM_F_Gonzalez", x="Population", y = "CSM (PropSur)") + coord_cartesian(ylim = c(min_CSM, max_CSM))+ droseu_theme
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+        labs(title="p_CSM_F_Gonzalez", x="Population", y = "CSM (PropSur)") + ylim(c(min_CSM, max_CSM))+ droseu_theme
 ```
 
 ```{r}
@@ -5706,8 +5705,8 @@ dev.off()
 
 ```{r p_CSM_F_pop_Gonzalez}
 p_CSM_F_pop_Gonzalez <- ggplot(data = (subset(d_CSM_F, Supervisor.PI == "Gonzalez")), aes(x=Population_Lat, y=CSM_PropDead_ED, fill=Population)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-        labs(title="p_CSM_F_pop_Gonzalez", x="Population", y = "CSM (PropSur)") +  coord_cartesian(ylim = c(min_CSM, max_CSM))+ droseu_theme
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+        labs(title="p_CSM_F_pop_Gonzalez", x="Population", y = "CSM (PropSur)") +  ylim(c(min_CSM, max_CSM))+ droseu_theme
 ```
 
 ```{r}
@@ -5724,8 +5723,8 @@ dev.off()
 
 ```{r p_CSM_M_Gonzalez}
 p_CSM_M_Gonzalez <- ggplot(data = (subset(d_CSM_M, Supervisor.PI == "Gonzalez")), aes(x=Population_Lat, y=CSM_PropDead_ED, fill=Batch)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-        labs(title="p_CSM_M_Gonzalez", x="Population", y = "CSM (PropSur)") + coord_cartesian(ylim = c(min_CSM, max_CSM))+ droseu_theme
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+        labs(title="p_CSM_M_Gonzalez", x="Population", y = "CSM (PropSur)") + ylim(c(min_CSM, max_CSM))+ droseu_theme
 ```
 
 ```{r}
@@ -5742,8 +5741,8 @@ dev.off()
 
 ```{r p_CSM_M_pop_Gonzalez}
 p_CSM_M_pop_Gonzalez <- ggplot(data = (subset(d_CSM_M, Supervisor.PI == "Gonzalez")), aes(x=Population_Lat, y=CSM_PropDead_ED, fill=Population)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-        labs(title="p_CSM_M_pop_Gonzalez", x="Population", y = "CSM (PropSur)") + coord_cartesian(ylim = c(min_CSM, max_CSM))+ droseu_theme
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+        labs(title="p_CSM_M_pop_Gonzalez", x="Population", y = "CSM (PropSur)") + ylim(c(min_CSM, max_CSM))+ droseu_theme
 
 ```
 
@@ -5803,8 +5802,8 @@ summary(CSM_M_lmer_Kozeretska)
 ```{r p_CSM_F_Kozeretska}
 
 p_CSM_F_Kozeretska <- ggplot(data = (subset(d_CSM_F, Supervisor.PI == "Kozeretska")), aes(x=Population_Lat, y=CSM_PropDead_ED, fill=Batch)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-        labs(title="p_CSM_F_Kozeretska", x="Population", y = "CSM (PropSur)") + coord_cartesian(ylim = c(min_CSM, max_CSM))+ droseu_theme
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+        labs(title="p_CSM_F_Kozeretska", x="Population", y = "CSM (PropSur)") + ylim(c(min_CSM, max_CSM))+ droseu_theme
 
 ```
 
@@ -5822,8 +5821,8 @@ dev.off()
 ```{r p_CSM_F_pop_Kozeretska}
 
 p_CSM_F_pop_Kozeretska <- ggplot(data = (subset(d_CSM_F, Supervisor.PI == "Kozeretska")), aes(x=Population_Lat, y=CSM_PropDead_ED, fill=Population)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-        labs(title="p_CSM_F_pop_Kozeretska", x="Population", y = "CSM (PropSur)") +  coord_cartesian(ylim = c(min_CSM, max_CSM))+ droseu_theme
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+        labs(title="p_CSM_F_pop_Kozeretska", x="Population", y = "CSM (PropSur)") +  ylim(c(min_CSM, max_CSM))+ droseu_theme
 
 ```
 
@@ -5841,8 +5840,8 @@ dev.off()
 
 ```{r p_CSM_M_Kozeretska}
 p_CSM_M_Kozeretska <- ggplot(data = (subset(d_CSM_M, Supervisor.PI == "Kozeretska")), aes(x=Population_Lat, y=CSM_PropDead_ED, fill=Batch)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-        labs(title="p_CSM_M_Kozeretska", x="Population", y = "CSM (PropSur)")  +  coord_cartesian(ylim = c(min_CSM, max_CSM))+ droseu_theme
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+        labs(title="p_CSM_M_Kozeretska", x="Population", y = "CSM (PropSur)")  +  ylim(c(min_CSM, max_CSM))+ droseu_theme
 
 ```
 
@@ -5859,8 +5858,8 @@ dev.off()
 
 ```{r p_CSM_M_pop_Kozeretska}
 p_CSM_M_pop_Kozeretska <- ggplot(data = (subset(d_CSM_M, Supervisor.PI == "Kozeretska")), aes(x=Population_Lat, y=CSM_PropDead_ED, fill=Population)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-        labs(title="p_CSM_M_pop_Kozeretska", x="Population", y = "CSM (PropSur)")  +  coord_cartesian(ylim = c(min_CSM, max_CSM))+ droseu_theme
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+        labs(title="p_CSM_M_pop_Kozeretska", x="Population", y = "CSM (PropSur)")  +  ylim(c(min_CSM, max_CSM))+ droseu_theme
 
 ```
 
@@ -5917,8 +5916,8 @@ summary(CSM_M_lmer_Vieira)
 
 
 p_CSM_F_Vieira <- ggplot(data = (subset(d_CSM_F, Supervisor.PI == "Vieira")), aes(x=Population_Lat, y=CSM_PropDead_ED, fill=Batch)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-        labs(title="p_CSM_F_Vieira", x="Population", y = "CSM (PropSur)") +  coord_cartesian(ylim = c(min_CSM, max_CSM))+ droseu_theme
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+        labs(title="p_CSM_F_Vieira", x="Population", y = "CSM (PropSur)") +  ylim(c(min_CSM, max_CSM))+ droseu_theme
 
 ```
 
@@ -5937,8 +5936,8 @@ dev.off()
 
 
 p_CSM_F_pop_Vieira <- ggplot(data = (subset(d_CSM_F, Supervisor.PI == "Vieira")), aes(x=Population_Lat, y=CSM_PropDead_ED, fill=Population)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-        labs(title="p_CSM_F_pop_Vieira", x="Population", y = "CSM (PropSur)") +  coord_cartesian(ylim = c(min_CSM, max_CSM))+ droseu_theme
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+        labs(title="p_CSM_F_pop_Vieira", x="Population", y = "CSM (PropSur)") +  ylim(c(min_CSM, max_CSM))+ droseu_theme
 
 ```
 
@@ -5958,8 +5957,8 @@ dev.off()
 
 
 p_CSM_M_Vieira <- ggplot(data = (subset(d_CSM_M, Supervisor.PI == "Vieira")), aes(x=Population_Lat, y=CSM_PropDead_ED, fill=Batch)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-        labs(title="p_CSM_M_Vieira", x="Population", y = "CSM (PropSur)") +  coord_cartesian(ylim = c(min_CSM, max_CSM))+ droseu_theme
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+        labs(title="p_CSM_M_Vieira", x="Population", y = "CSM (PropSur)") +  ylim(c(min_CSM, max_CSM))+ droseu_theme
 
 ```
 
@@ -5978,8 +5977,8 @@ dev.off()
 
 
 p_CSM_M_pop_Vieira <- ggplot(data = (subset(d_CSM_M, Supervisor.PI == "Vieira")), aes(x=Population_Lat, y=CSM_PropDead_ED, fill=Population)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-        labs(title="p_CSM_M_pop_Vieira", x="Population", y = "CSM (PropSur)") +  coord_cartesian(ylim = c(min_CSM, max_CSM))+ droseu_theme
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+        labs(title="p_CSM_M_pop_Vieira", x="Population", y = "CSM (PropSur)") +  ylim(c(min_CSM, max_CSM))+ droseu_theme
 
 ```
 
@@ -6206,8 +6205,8 @@ summary(CCRT_M_lmer_Vieira)
 
 ```{r p_CCRT_F_Vieira}
 p_CCRT_F_Vieira <- ggplot(data = filter(d_CCRT_F, (Censor == "0") & (Supervisor.PI == "Vieira")), aes(x=Population_Lat, y=CCRT_seconds, fill=Batch)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-        labs(title="p_CCRT_F_Vieira", x="Population", y = "CCRT_seconds") + coord_cartesian(ylim = c(625, 3625))+ droseu_theme
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+        labs(title="p_CCRT_F_Vieira", x="Population", y = "CCRT_seconds") + ylim(c(min_CCRT, max_CCRT))+ droseu_theme
 
 ```
 
@@ -6226,8 +6225,9 @@ dev.off()
 ```{r p_CCRT_F_pop_Vieira}
 
 p_CCRT_F_pop_Vieira <- ggplot(data = filter(d_CCRT_F, (Censor == "0") & (Supervisor.PI == "Vieira")), aes(x=Population_Lat, y=CCRT_seconds, fill=Population)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-        labs(title="p_CCRT_F_pop_Vieira", x="Population", y = "CCRT_seconds") + coord_cartesian(ylim = c(625, 3625))+ droseu_theme
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+        labs(title="p_CCRT_F_pop_Vieira", x="Population", y = "CCRT_seconds")+ ylim(c(min_CCRT, max_CCRT))+ droseu_theme
+
 
 ```
 
@@ -6245,8 +6245,9 @@ dev.off()
 
 ```{r}
 p_CCRT_M_Vieira <- ggplot(data = filter(d_CCRT_M, (Censor == "0") & (Supervisor.PI == "Vieira")), aes(x=Population_Lat, y=CCRT_seconds, fill=Batch)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-        labs(title="p_CCRT_M", x="Population", y = "CCRT_seconds") + coord_cartesian(ylim = c(625, 3625))+ droseu_theme
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+        labs(title="p_CCRT_M", x="Population", y = "CCRT_seconds") + ylim(c(min_CCRT, max_CCRT))+ droseu_theme
+
 ```
 
 ```{r}
@@ -6262,8 +6263,9 @@ dev.off()
 
 ```{r p_CCRT_M_pop_Vieira}
 p_CCRT_M_pop_Vieira <- ggplot(data = filter(d_CCRT_M, (Censor == "0") & (Supervisor.PI == "Vieira")), aes(x=Population_Lat, y=CCRT_seconds, fill=Population)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-        labs(title="p_CCRT_M_pop_Vieira", x="Population", y = "CCRT_seconds") + coord_cartesian(ylim = c(625, 3625))+ droseu_theme
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+        labs(title="p_CCRT_M_pop_Vieira", x="Population", y = "CCRT_seconds") + ylim(c(min_CCRT, max_CCRT))+ droseu_theme
+
 ```
 
 ```{r}
@@ -6443,8 +6445,8 @@ y-axis is scaled by the minimum (`r min_HSM`) and maximum (`r max_HSM`) values i
 ```{r p_HSM_F}
 
 p_HSM_F <- ggplot(data = filter(d_HSM_F, (Censor == "0")), aes(x=Population_Lat, y=TimeDeath_min, fill=Supervisor.PI)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-        labs(title="p_HSM_F", x="Population", y = "TimeDeath(min)")  + coord_cartesian(ylim = c(min_HSM, max_HSM))+ droseu_theme
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+        labs(title="p_HSM_F", x="Population", y = "TimeDeath(min)")  + ylim(c(min_HSM, max_HSM))+ droseu_theme
 ```
 
 ```{r}
@@ -6461,8 +6463,8 @@ dev.off()
 ```{r p_HSM_M}
 
 p_HSM_M <- ggplot(data = filter(d_HSM_M, (Censor == "0")), aes(x=Population_Lat, y=TimeDeath_min, fill=Supervisor.PI)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-        labs(title="p_HSM_M", x="Population", y = "TimeDeath(min)")  + coord_cartesian(ylim = c(min_HSM, max_HSM))+ droseu_theme
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+        labs(title="p_HSM_M", x="Population", y = "TimeDeath(min)")  + ylim(c(min_HSM, max_HSM))+ droseu_theme
 ```
 
 ```{r}
@@ -6511,8 +6513,8 @@ summary(HSM_M_lmer_Parsch)
 
 ```{r p_HSM_F_Parsch}
 p_HSM_F_Parsch <- ggplot(data = filter(d_HSM_F, (Censor == "0") & (Supervisor.PI == "Parsch")), aes(x=Population_Lat, y=TimeDeath_min, fill=Batch)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-        labs(title="p_HSM_F_Parsch", x="Population", y = "TimeDeath_min") + coord_cartesian(ylim = c(min_HSM, max_HSM))+ droseu_theme
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+        labs(title="p_HSM_F_Parsch", x="Population", y = "TimeDeath_min") + ylim(c(min_HSM, max_HSM))+ droseu_theme
 ```
 
 ```{r}
@@ -6528,8 +6530,8 @@ dev.off()
 
 ```{r p_HSM_F_pop_Parsch}
 p_HSM_F_pop_Parsch <- ggplot(data = filter(d_HSM_F, (Censor == "0") & (Supervisor.PI == "Parsch")), aes(x=Population_Lat, y=TimeDeath_min, fill=Population)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-        labs(title="p_HSM_F_pop_Parsch", x="Population", y = "TimeDeath_min") + coord_cartesian(ylim = c(min_HSM, max_HSM))+ droseu_theme
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+        labs(title="p_HSM_F_pop_Parsch", x="Population", y = "TimeDeath_min") + ylim(c(min_HSM, max_HSM))+ droseu_theme
 ```
 
 ```{r}
@@ -6545,8 +6547,8 @@ dev.off()
 
 ```{r p_HSM_M_Parsch}
 p_HSM_M_Parsch <- ggplot(data = filter(d_HSM_M, (Censor == "0") & (Supervisor.PI == "Parsch")), aes(x=Population_Lat, y=TimeDeath_min, fill=Batch)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-        labs(title="p_HSM_M_Parsch", x="Population", y = "TimeDeath_min") + coord_cartesian(ylim = c(min_HSM, max_HSM))+ droseu_theme
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+        labs(title="p_HSM_M_Parsch", x="Population", y = "TimeDeath_min") + ylim(c(min_HSM, max_HSM))+ droseu_theme
 ```
 
 ```{r}
@@ -6562,8 +6564,8 @@ dev.off()
 
 ```{r p_HSM_M_pop_Parsch}
 p_HSM_M_pop_Parsch <- ggplot(data = filter(d_HSM_M, (Censor == "0") & (Supervisor.PI == "Parsch")), aes(x=Population_Lat, y=TimeDeath_min, fill=Population)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-        labs(title="p_HSM_M_pop_Parsch", x="Population", y = "TimeDeath_min") + coord_cartesian(ylim = c(min_HSM, max_HSM))+ droseu_theme
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+        labs(title="p_HSM_M_pop_Parsch", x="Population", y = "TimeDeath_min") + ylim(c(min_HSM, max_HSM))+ droseu_theme
 ```
 
 ```{r}
@@ -6614,8 +6616,8 @@ summary(HSM_M_lmer_Vieira)
 
 ```{r p_HSM_F_Vieira}
 p_HSM_F_Vieira <- ggplot(data = filter(d_HSM_F, (Censor == "0") & (Supervisor.PI == "Vieira")), aes(x=Population_Lat, y=TimeDeath_min, fill=Batch)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-        labs(title="p_HSM_F_Vieira", x="Population", y = "TimeDeath_min") + coord_cartesian(ylim = c(min_HSM, max_HSM))+ droseu_theme
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+        labs(title="p_HSM_F_Vieira", x="Population", y = "TimeDeath_min") + ylim(c(min_HSM, max_HSM))+ droseu_theme
 ```
 
 ```{r}
@@ -6631,8 +6633,8 @@ dev.off()
 
 ```{r p_HSM_F_pop_Vieira}
 p_HSM_F_pop_Vieira <- ggplot(data = filter(d_HSM_F, (Censor == "0") & (Supervisor.PI == "Vieira")), aes(x=Population_Lat, y=TimeDeath_min, fill=Population)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-        labs(title="p_HSM_F_pop_Vieira", x="Population", y = "TimeDeath_min") + coord_cartesian(ylim = c(min_HSM, max_HSM))+ droseu_theme
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+        labs(title="p_HSM_F_pop_Vieira", x="Population", y = "TimeDeath_min") + ylim(c(min_HSM, max_HSM))+ droseu_theme
 ```
 
 ```{r}
@@ -6648,8 +6650,8 @@ dev.off()
 
 ```{r p_HSM_M_Vieira}
 p_HSM_M_Vieira <- ggplot(data = filter(d_HSM_M, (Censor == "0") & (Supervisor.PI == "Vieira")), aes(x=Population_Lat, y=TimeDeath_min, fill=Batch)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-        labs(title="p_HSM_M_Vieira", x="Population", y = "TimeDeath_min") + coord_cartesian(ylim = c(min_HSM, max_HSM))+ droseu_theme
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+        labs(title="p_HSM_M_Vieira", x="Population", y = "TimeDeath_min") + ylim(c(min_HSM, max_HSM))+ droseu_theme
 ```
 
 ```{r}
@@ -6665,8 +6667,8 @@ dev.off()
 
 ```{r p_HSM_M_pop_Vieira}
 p_HSM_M_pop_Vieira <- ggplot(data = filter(d_HSM_M, (Censor == "0") & (Supervisor.PI == "Vieira")), aes(x=Population_Lat, y=TimeDeath_min, fill=Population)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-        labs(title="p_HSM_M_pop_Vieira", x="Population", y = "TimeDeath_min") + coord_cartesian(ylim = c(min_HSM, max_HSM))+ droseu_theme
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+        labs(title="p_HSM_M_pop_Vieira", x="Population", y = "TimeDeath_min") + ylim(c(min_HSM, max_HSM))+ droseu_theme
 ```
 
 ```{r}
@@ -6886,7 +6888,7 @@ p_Dia_Pop_Bergland_wbatch <- d_Dia_Line_wbatch %>%
   geom_jitter(width = 0.2, alpha = 0.05) + 
   labs(title = "p_Dia_Bergland", x = "Population", y = "Max_Stage9_Prop") +
   droseu_theme +
-  coord_cartesian(ylim = c(min_Dia, max_Dia))
+  ylim(c(min_Dia, max_Dia))
 p_Dia_Pop_Bergland_wbatch
 ```
 ```{r}
@@ -6904,7 +6906,7 @@ p_Dia_Pop_Bergland_wobatch <- d_Dia_Line_wobatch %>%
   geom_text(data = model_means_Bergland_cld, aes(x = Population, label = cld), y = 1, vjust = -1) +
   labs(title = "p_Dia_Bergland", x = "Population", y = "Max_Stage9_Prop") +
   droseu_theme +
-  coord_cartesian(ylim = c(min_Dia, max_Dia))
+  ylim(c(min_Dia, max_Dia))
 p_Dia_Pop_Bergland_wobatch
 ```
 ```{r}
@@ -6934,7 +6936,7 @@ p_Dia_Pop_Flatt_wbatch <- d_Dia_Line_wbatch %>%
   geom_jitter(width = 0.2, alpha = 0.05) + 
   labs(title = "p_Dia_Flatt", x = "Population", y = "Max_Stage9_Prop") +
   droseu_theme +
-  coord_cartesian(ylim = c(min_Dia, max_Dia))
+  ylim(c(min_Dia, max_Dia))
 p_Dia_Pop_Flatt_wbatch
 ```
 
@@ -6953,7 +6955,7 @@ p_Dia_Pop_Flatt_wobatch <- d_Dia_Line_wobatch %>%
   geom_text(data = model_means_Flatt_cld, aes(x = Population, label = cld), y = 1, vjust = -1) +
   labs(title = "p_Dia_Flatt", x = "Population", y = "Max_Stage9_Prop") +
   droseu_theme +
-  coord_cartesian(ylim = c(min_Dia, max_Dia))
+  ylim(c(min_Dia, max_Dia))
 p_Dia_Pop_Flatt_wobatch
 ```
 
@@ -6988,7 +6990,7 @@ p_Dia_Pop_Schlotterer_wbatch <- d_Dia_Line_wbatch %>%
   geom_jitter(width = 0.2, alpha = 0.05) + 
   labs(title = "p_Dia_Schlotterer", x = "Population", y = "Max_Stage9_Prop") +
   droseu_theme +
-  coord_cartesian(ylim = c(min_Dia, max_Dia))
+  ylim(c(min_Dia, max_Dia))
 p_Dia_Pop_Schlotterer_wbatch
 ```
 ```{r message=FALSE, warning=FALSE}
@@ -7005,7 +7007,7 @@ p_Dia_Pop_Schlotterer_wobatch <- d_Dia_Line_wobatch %>%
   geom_text(data = model_means_Schlotterer_cld, aes(x = Population, label = cld), y = 1, vjust = -0.7) +
   labs(title = "p_Dia_Schlotterer", x = "Population", y = "Max_Stage9_Prop") +
   droseu_theme +
-  coord_cartesian(ylim = c(min_Dia, max_Dia))
+  ylim(c(min_Dia, max_Dia))
 p_Dia_Pop_Schlotterer_wobatch
 ```
 
@@ -7042,16 +7044,16 @@ There are `r length(intersect_Pop_Dia) ` populations and `r length(intersect_Lin
 ```{r lab_correlations_Dia}
 Dia_fitted <- combineFitted(labs = c("Bergland", "Flatt", "Schlotterer"), sex = rep("F", 3), models = list(Dia_lmer_Bergland, Dia_lm_Flatt, Dia_lmer_Schlotterer))
 
-p_Dia_F_fitted <- function() scatterPlotMatrix(Dia_fitted, sex = "F")
+p_Dia_F_lab_cor <- function() scatterPlotMatrix(Dia_fitted, sex = "F")
 ```
 
-```{r lab_correlations_Dia2, fig.height = 8, fig.width = 8}
-p_Dia_F_fitted()
+```{r p_Dia_F_lab_cor, fig.height = 8, fig.width = 8}
+p_Dia_F_lab_cor()
 ```
 
 ```{r}
-pdf(file="Diapause/p_Dia_F_fitted.pdf",width=8, height=8)
-p_Dia_F_fitted()
+pdf(file="Diapause/p_Dia_F_lab_cor.pdf",width=8, height=8)
+p_Dia_F_lab_cor()
 invisible(dev.off())
 ```
 
@@ -7749,6 +7751,7 @@ DT::datatable(table_LA_CircPhase_Pop_wobatch, options = list(pageLength = 10)) %
 
 _ND_
 
+
 ```{r LA_lmer_ND_Tauber}
 LA_lmer_ND_Tauber <- lmer(ND ~ -1 + Population  + (1|Line:Population) +
                           (1|Batch), data = (d_LA))
@@ -7960,7 +7963,7 @@ max_SR <- max(d_SR$AgeAtDeath_hours)
 
 p_SR_F <- ggplot(data = d_SR_F, aes(x=Population_Lat, y=AgeAtDeath_hours, fill=Supervisor.PI)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) +  #geom_jitter(width=0.2,alpha=0.05) + 
-        labs(title="p_SR_F", x="Population", y = "AgeAtDeath_hours") + coord_cartesian(ylim = c(min_SR, max_SR))+ droseu_theme
+        labs(title="p_SR_F", x="Population", y = "AgeAtDeath_hours") + ylim(c(min_SR, max_SR))+ droseu_theme
 
 ```
 
@@ -7979,7 +7982,7 @@ dev.off()
 
 p_SR_M <- ggplot(data = d_SR_M, aes(x=Population_Lat, y=AgeAtDeath_hours, fill=Supervisor.PI)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) +  #geom_jitter(width=0.2,alpha=0.05) + 
-        labs(title="p_SR_M", x="Population", y = "AgeAtDeath_hours") + coord_cartesian(ylim = c(min_SR, max_SR))+ droseu_theme
+        labs(title="p_SR_M", x="Population", y = "AgeAtDeath_hours") + ylim(c(min_SR, max_SR))+ droseu_theme
 
 ```
 
@@ -8038,9 +8041,8 @@ summary(SR_M_lmer_Gonzalez)
 ```{r p_SR_F_Gonzalez}
 
 p_SR_F_Gonzalez <- ggplot(data = (subset(d_SR_F,Supervisor.PI=='Gonzalez')), aes(x=Population_Lat, y=AgeAtDeath_hours, fill=Batch)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-        labs(title="p_SR_F_Gonzalez", x="Population", y = "AgeAtDeath_hours") + coord_cartesian(ylim = c(0, 210))+ droseu_theme
-
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+        labs(title="p_SR_F_Gonzalez", x="Population", y = "AgeAtDeath_hours") + ylim(c(min_SR, max_SR))+ droseu_theme
 ```
 
 ```{r echo=FALSE}
@@ -8056,8 +8058,8 @@ dev.off()
 ```{r p_SR_F_pop_Gonzalez}
 
 p_SR_F_pop_Gonzalez <- ggplot(data = (subset(d_SR_F,Supervisor.PI=='Gonzalez')), aes(x=Population_Lat, y=AgeAtDeath_hours, fill=Population)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-        labs(title="p_SR_F_pop_Gonzalez", x="Population", y = "AgeAtDeath_hours") + coord_cartesian(ylim = c(0, 210))+ droseu_theme
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+        labs(title="p_SR_F_pop_Gonzalez", x="Population", y = "AgeAtDeath_hours") + ylim(c(min_SR, max_SR))+ droseu_theme
 
 ```
 
@@ -8075,8 +8077,8 @@ dev.off()
 ```{r p_SR_M_Gonzalez}
 
 p_SR_M_Gonzalez <- ggplot(data = (subset(d_SR_M,Supervisor.PI=='Gonzalez')), aes(x=Population_Lat, y=AgeAtDeath_hours, fill=Batch)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-        labs(title="p_SR_M_Gonzalez", x="Population", y = "AgeAtDeath_hours") + coord_cartesian(ylim = c(0, 210))+ droseu_theme
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+        labs(title="p_SR_M_Gonzalez", x="Population", y = "AgeAtDeath_hours") + ylim(c(min_SR, max_SR))+ droseu_theme
 
 ```
 
@@ -8093,8 +8095,8 @@ dev.off()
 ```{r p_SR_M_pop_Gonzalez}
 
 p_SR_M_pop_Gonzalez <- ggplot(data = (subset(d_SR_M,Supervisor.PI=='Gonzalez')), aes(x=Population_Lat, y=AgeAtDeath_hours, fill=Population)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-        labs(title="p_SR_M_pop_Gonzalez", x="Population", y = "AgeAtDeath_hours") + coord_cartesian(ylim = c(0, 210))+ droseu_theme
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+        labs(title="p_SR_M_pop_Gonzalez", x="Population", y = "AgeAtDeath_hours") + ylim(c(min_SR, max_SR))+ droseu_theme
 
 ```
 
@@ -8148,8 +8150,8 @@ summary(SR_M_lmer_Onder)
 ```{r p_SR_F_Onder}
 
 p_SR_F_Onder <- ggplot(data = (subset(d_SR_F,Supervisor.PI=='Onder')), aes(x=Population_Lat, y=AgeAtDeath_hours, fill=Batch)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-        labs(title="p_SR_F_Onder", x="Population", y = "AgeAtDeath_hours") + coord_cartesian(ylim = c(0, 210))+ droseu_theme
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+        labs(title="p_SR_F_Onder", x="Population", y = "AgeAtDeath_hours") + ylim(c(min_SR, max_SR))+ droseu_theme
 
 ```
 
@@ -8166,8 +8168,8 @@ dev.off()
 ```{r p_SR_F_pop_Onder}
 
 p_SR_F_pop_Onder <- ggplot(data = (subset(d_SR_F,Supervisor.PI=='Onder')), aes(x=Population_Lat, y=AgeAtDeath_hours, fill=Population)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-        labs(title="p_SR_F_pop_Onder", x="Population", y = "AgeAtDeath_hours") + coord_cartesian(ylim = c(0, 210))+ droseu_theme
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+        labs(title="p_SR_F_pop_Onder", x="Population", y = "AgeAtDeath_hours") + ylim(c(min_SR, max_SR))+ droseu_theme
 
 ```
 
@@ -8185,8 +8187,8 @@ dev.off()
 ```{r p_SR_M_Onder}
 
 p_SR_M_Onder <- ggplot(data = (subset(d_SR_M,Supervisor.PI=='Onder')), aes(x=Population_Lat, y=AgeAtDeath_hours, fill=Batch)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-        labs(title="p_SR_M_Onder", x="Population", y = "AgeAtDeath_hours") + coord_cartesian(ylim = c(0, 210))+ droseu_theme
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+        labs(title="p_SR_M_Onder", x="Population", y = "AgeAtDeath_hours") + ylim(c(min_SR, max_SR))+ droseu_theme
 
 ```
 
@@ -8203,8 +8205,8 @@ dev.off()
 ```{r p_SR_M_pop_Onder}
 
 p_SR_M_pop_Onder <- ggplot(data = (subset(d_SR_M,Supervisor.PI=='Onder')), aes(x=Population_Lat, y=AgeAtDeath_hours, fill=Population)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-        labs(title="p_SR_M_pop_Onder", x="Population", y = "AgeAtDeath_hours") + coord_cartesian(ylim = c(0, 210))+ droseu_theme
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+        labs(title="p_SR_M_pop_Onder", x="Population", y = "AgeAtDeath_hours") + ylim(c(min_SR, max_SR))+ droseu_theme
 
 ```
 
@@ -8249,8 +8251,8 @@ capture.output(anova(SR_M_lmer_Pasyukova),file = "Starvation/SR_M_lmer_Pasyukova
 ```{r p_SR_F_Pasyukova}
 
 p_SR_F_Pasyukova <- ggplot(data = (subset(d_SR_F,Supervisor.PI=='Pasyukova')), aes(x=Population_Lat, y=AgeAtDeath_hours, fill=Batch)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-        labs(title="p_SR_F_Pasyukova", x="Population", y = "AgeAtDeath_hours") + coord_cartesian(ylim = c(0, 210))+ droseu_theme
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+        labs(title="p_SR_F_Pasyukova", x="Population", y = "AgeAtDeath_hours") + ylim(c(min_SR, max_SR))+ droseu_theme
 
 ```
 
@@ -8268,8 +8270,8 @@ dev.off()
 ```{r p_SR_F_pop_Pasyukova}
 
 p_SR_F_pop_Pasyukova <- ggplot(data = (subset(d_SR_F,Supervisor.PI=='Pasyukova')), aes(x=Population_Lat, y=AgeAtDeath_hours, fill=Population)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-        labs(title="p_SR_F_pop_Pasyukova", x="Population", y = "AgeAtDeath_hours") + coord_cartesian(ylim = c(0, 210))+ droseu_theme
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+        labs(title="p_SR_F_pop_Pasyukova", x="Population", y = "AgeAtDeath_hours") + ylim(c(min_SR, max_SR))+ droseu_theme
 
 ```
 
@@ -8287,8 +8289,8 @@ dev.off()
 ```{r p_SR_M_Pasyukova}
 
 p_SR_M_Pasyukova <- ggplot(data = (subset(d_SR_M,Supervisor.PI=='Pasyukova')), aes(x=Population_Lat, y=AgeAtDeath_hours, fill=Batch)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-        labs(title="p_SR_M_Pasyukova", x="Population", y = "AgeAtDeath_hours") + coord_cartesian(ylim = c(0, 210))+ droseu_theme
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+        labs(title="p_SR_M_Pasyukova", x="Population", y = "AgeAtDeath_hours") + ylim(c(min_SR, max_SR))+ droseu_theme
 ```
 
 ```{r echo=FALSE}
@@ -8304,8 +8306,8 @@ dev.off()
 ```{r p_SR_M_pop_Pasyukova}
 
 p_SR_M_pop_Pasyukova <- ggplot(data = (subset(d_SR_M,Supervisor.PI=='Pasyukova')), aes(x=Population_Lat, y=AgeAtDeath_hours, fill=Population)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-        labs(title="p_SR_M_pop_Pasyukova", x="Population", y = "AgeAtDeath_hours") + coord_cartesian(ylim = c(0, 210))+ droseu_theme
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+        labs(title="p_SR_M_pop_Pasyukova", x="Population", y = "AgeAtDeath_hours") + ylim(c(min_SR, max_SR))+ droseu_theme
 
 ```
 
@@ -8601,11 +8603,1122 @@ str(d_Pgm2)
 
 ### Descriptive Statistics
 
-_will add this one later, drove me nuts with a stupid error_
+
+### _T4_
+
+
+Descriptive statistics at the line level, with batch information :
+```{r table_Pgm_Line_T4_wbatch}
+table_Pgm_Line_T4_wbatch <- write.csv(d_Pgm %>% group_by(Supervisor.PI, Batch, Population, Line) %>% summarise_at(vars(PercT4), list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, SE = std_err, CV = coef_var, Mode = estimate_mode)), file = "Pigmentation/table_Pgm_PercT4_Line_wbatch.csv", row.names = T)
+```
+
+```{r}
+DT::datatable(table_Pgm_Line_T4_wbatch, options = list(pageLength = 10)) 
+```
+
+Descriptive statistics at the line level, without batch information :
+```{r}
+table_Pgm_Line_T4_wobatch <- write.csv(d_Pgm %>% group_by(Supervisor.PI, Population, Line) %>% summarise_at(vars(PercT4), list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, SE = std_err, CV = coef_var, Mode = estimate_mode)), file = "Pigmentation/table_Pgm_PercT4_Line_wobatch.csv", row.names = T)
+```
+
+```{r table_Pgm_Line_T4_wobatch}
+DT::datatable(table_Pgm_Line_T4_wobatch, options = list(pageLength = 10)) 
+```
+
+Descriptive statistics at the population level, with batch information :
+```{r}
+table_Pgm_Pop_T4_wbatch <- write.csv(d_Pgm %>% group_by(Supervisor.PI, Batch, Population) %>% 
+                                   summarise_at(vars(PercT4), 
+                                                list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
+                                                     SE = std_err, CV = coef_var, Mode = estimate_mode)), 
+                           file = "Pigmentation/table_Pgm_Pop_T4_wbatch.csv", row.names = T)
+
+```
+
+```{r table_Pgm_Pop_T4_wbatch}
+DT::datatable(table_Pgm_Pop_T4_wbatch, options = list(pageLength = 10)) 
+```
+
+Descriptive statistics at the population level, without batch information :
+```{r}
+table_Pgm_Pop_T4_wobatch <- write.csv(d_Pgm %>% group_by(Supervisor.PI, Population) %>% 
+                                   summarise_at(vars(PercT4), 
+                                                list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
+                                                     SE = std_err, CV = coef_var, Mode = estimate_mode)), 
+                           file = "Pigmentation/table_Pgm_Pop_T4_wobatch.csv", row.names = T)
+
+```
+
+```{r table_Pgm_Pop_T4_wobatch}
+DT::datatable(table_Pgm_Pop_T4_wobatch, options = list(pageLength = 10))
+```
+
+
+### _T5_
+
+Descriptive statistics at the line level, with batch information :
+```{r table_Pgm_Line_T5_wbatch}
+table_Pgm_Line_T5_wbatch <- write.csv(d_Pgm %>% group_by(Supervisor.PI, Batch, Population, Line) %>% 
+                                    summarise_at(vars(PercT5), 
+                                                 list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
+                                                      SE = std_err, CV = coef_var, Mode = estimate_mode)), 
+                            file = "Pigmentation/table_Pgm_PercT5_Line_wbatch.csv", row.names = T)
+```
+
+```{r}
+DT::datatable(table_Pgm_Line_T5_wbatch, options = list(pageLength = 10)) 
+```
+
+Descriptive statistics at the line level, without batch information :
+```{r}
+table_Pgm_Line_T5_wobatch <- write.csv(d_Pgm %>% group_by(Supervisor.PI, Population, Line) %>% 
+                                    summarise_at(vars(PercT5), 
+                                                 list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
+                                                      SE = std_err, CV = coef_var, Mode = estimate_mode)), 
+                            file = "Pigmentation/table_Pgm_PercT5_Line_wobatch.csv", row.names = T)
+```
+
+```{r table_Pgm_Line_T5_wobatch}
+DT::datatable(table_Pgm_Line_T5_wobatch, options = list(pageLength = 10))
+```
+
+Descriptive statistics at the population level, with batch information :
+```{r}
+table_Pgm_Pop_T5_wbatch <- write.csv(d_Pgm %>% group_by(Supervisor.PI, Batch, Population) %>% 
+                                   summarise_at(vars(PercT5), 
+                                                list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
+                                                     SE = std_err, CV = coef_var, Mode = estimate_mode)), 
+                           file = "Pigmentation/table_Pgm_Pop_T5_wbatch.csv", row.names = T)
+
+```
+
+```{r table_Pgm_Pop_T5_wbatch}
+DT::datatable(table_Pgm_Pop_T5_wbatch, options = list(pageLength = 10))
+```
+
+Descriptive statistics at the population level, without batch information :
+```{r}
+table_Pgm_Pop_T5_wobatch <- write.csv(d_Pgm %>% group_by(Supervisor.PI, Population) %>% 
+                                   summarise_at(vars(PercT5), 
+                                                list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
+                                                     SE = std_err, CV = coef_var, Mode = estimate_mode)), 
+                           file = "Pigmentation/table_Pgm_Pop_T5_wobatch.csv", row.names = T)
+
+```
+
+```{r table_Pgm_Pop_T5_wobatch}
+DT::datatable(table_Pgm_Pop_T5_wobatch, options = list(pageLength = 10))
+```
+
+
+### _T6_
+
+Descriptive statistics at the line level, with batch information :
+```{r table_Pgm_Line_T6_wbatch}
+table_Pgm_Line_T6_wbatch <- write.csv(d_Pgm %>% group_by(Supervisor.PI, Batch, Population, Line) %>% 
+                                    summarise_at(vars(PercT6), 
+                                                 list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
+                                                      SE = std_err, CV = coef_var, Mode = estimate_mode)), 
+                            file = "Pigmentation/table_Pgm_PercT6_Line_wbatch.csv", row.names = T)
+```
+
+```{r}
+DT::datatable(table_Pgm_Line_T6_wbatch, options = list(pageLength = 10))
+```
+
+Descriptive statistics at the line level, without batch information :
+```{r}
+table_Pgm_Line_T6_wobatch <- write.csv(d_Pgm %>% group_by(Supervisor.PI, Population, Line) %>% 
+                                    summarise_at(vars(PercT6), 
+                                                 list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
+                                                      SE = std_err, CV = coef_var, Mode = estimate_mode)), 
+                            file = "Pigmentation/table_Pgm_PercT6_Line_wobatch.csv", row.names = T)
+```
+
+```{r table_Pgm_Line_T6_wobatch}
+DT::datatable(table_Pgm_Line_T6_wobatch, options = list(pageLength = 10))
+```
+
+Descriptive statistics at the population level, with batch information :
+```{r}
+table_Pgm_Pop_T6_wbatch <- write.csv(d_Pgm %>% group_by(Supervisor.PI, Batch, Population) %>% 
+                                   summarise_at(vars(PercT6), 
+                                                list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
+                                                     SE = std_err, CV = coef_var, Mode = estimate_mode)), 
+                           file = "Pigmentation/table_Pgm_Pop_T6_wbatch.csv", row.names = T)
+
+```
+
+```{r table_Pgm_Pop_T6_wbatch}
+DT::datatable(table_Pgm_Pop_T6_wbatch, options = list(pageLength = 10))
+```
+
+Descriptive statistics at the population level, without batch information :
+```{r}
+table_Pgm_Pop_T6_wobatch <- write.csv(d_Pgm %>% group_by(Supervisor.PI, Population) %>% 
+                                   summarise_at(vars(PercT6), 
+                                                list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
+                                                     SE = std_err, CV = coef_var, Mode = estimate_mode)), 
+                           file = "Pigmentation/table_Pgm_Pop_T6_wobatch.csv", row.names = T)
+
+```
+
+```{r table_Pgm_Pop_T6_wobatch}
+DT::datatable(table_Pgm_Pop_T6_wobatch, options = list(pageLength = 10))
+```
+
+### _Total_
+
+Descriptive statistics at the line level, with batch information :
+```{r table_Pgm_Line_TotalPerc_wbatch}
+table_Pgm_Line_TotalPerc_wbatch <- write.csv(d_Pgm %>% group_by(Supervisor.PI, Batch, Population, Line) %>% 
+                                    summarise_at(vars(TotalPerc), 
+                                                 list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
+                                                      SE = std_err, CV = coef_var, Mode = estimate_mode)), 
+                            file = "Pigmentation/table_Pgm_TotalPerc_Line_wbatch.csv", row.names = T)
+```
+
+```{r}
+DT::datatable(table_Pgm_Line_TotalPerc_wbatch, options = list(pageLength = 10))
+```
+
+Descriptive statistics at the line level, without batch information :
+```{r}
+table_Pgm_Line_TotalPerc_wobatch <- write.csv(d_Pgm %>% group_by(Supervisor.PI, Population, Line) %>% 
+                                    summarise_at(vars(TotalPerc), 
+                                                 list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
+                                                      SE = std_err, CV = coef_var, Mode = estimate_mode)), 
+                            file = "Pigmentation/table_Pgm_TotalPerc_Line_wobatch.csv", row.names = T)
+```
+
+```{r table_Pgm_Line_TotalPerc_wobatch}
+DT::datatable(table_Pgm_Line_TotalPerc_wobatch, options = list(pageLength = 10))
+```
+
+Descriptive statistics at the population level, with batch information :
+```{r}
+table_Pgm_Pop_TotalPerc_wbatch <- write.csv(d_Pgm %>% group_by(Supervisor.PI, Batch, Population) %>% 
+                                   summarise_at(vars(TotalPerc), 
+                                                list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
+                                                     SE = std_err, CV = coef_var, Mode = estimate_mode)), 
+                           file = "Pigmentation/table_Pgm_Pop_TotalPerc_wbatch.csv", row.names = T)
+
+```
+
+```{r table_Pgm_Pop_TotalPerc_wbatch}
+DT::datatable(table_Pgm_Pop_TotalPerc_wbatch, options = list(pageLength = 10))
+```
+
+Descriptive statistics at the population level, without batch information :
+```{r}
+table_Pgm_Pop_TotalPerc_wobatch <- write.csv(d_Pgm %>% group_by(Supervisor.PI, Population) %>% 
+                                   summarise_at(vars(TotalPerc), 
+                                                list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
+                                                     SE = std_err, CV = coef_var, Mode = estimate_mode)), 
+                           file = "Pigmentation/table_Pgm_Pop_TotalPerc_wobatch.csv", row.names = T)
+
+```
+
+```{r table_Pgm_Pop_TotalPerc_wobatch}
+DT::datatable(table_Pgm_Pop_TotalPerc_wobatch, options = list(pageLength = 10))
+```
+
+### _T8_
+
+Descriptive statistics at the line level, with batch information :
+```{r table_Pgm2_Line_Tergite8_wbatch}
+table_Pgm2_Line_Tergite8_wbatch <- write.csv(d_Pgm2 %>% group_by(Supervisor.PI, Batch, Population, Line) %>% 
+                                    summarise_at(vars(Tergite8), 
+                                                 list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
+                                                      SE = std_err, CV = coef_var, Mode = estimate_mode)), 
+                            file = "Pigmentation/table_Pgm2_Tergite8_Line_wbatch.csv", row.names = T)
+```
+
+```{r}
+DT::datatable(table_Pgm2_Line_Tergite8_wbatch, options = list(pageLength = 10))
+```
+
+Descriptive statistics at the line level, without batch information :
+```{r}
+table_Pgm2_Line_Tergite8_wobatch <- write.csv(d_Pgm2 %>% group_by(Supervisor.PI, Population, Line) %>% 
+                                    summarise_at(vars(Tergite8), 
+                                                 list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
+                                                      SE = std_err, CV = coef_var, Mode = estimate_mode)), 
+                            file = "Pigmentation/table_Pgm2_Tergite8_Line_wobatch.csv", row.names = T)
+```
+
+```{r table_Pgm2_Line_Tergite8_wobatch}
+DT::datatable(table_Pgm2_Line_Tergite8_wobatch, options = list(pageLength = 10))
+```
+
+Descriptive statistics at the population level, with batch information :
+```{r}
+table_Pgm2_Pop_Tergite8_wbatch <- write.csv(d_Pgm2 %>% group_by(Supervisor.PI, Batch, Population) %>% 
+                                   summarise_at(vars(Tergite8), 
+                                                list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
+                                                     SE = std_err, CV = coef_var, Mode = estimate_mode)), 
+                           file = "Pigmentation/table_Pgm2_Pop_Tergite8_wbatch.csv", row.names = T)
+
+```
+
+```{r table_Pgm2_Pop_Tergite8_wbatch}
+DT::datatable(table_Pgm2_Pop_Tergite8_wbatch, options = list(pageLength = 10))
+```
+
+Descriptive statistics at the population level, without batch information :
+```{r}
+table_Pgm2_Pop_Tergite8_wobatch <- write.csv(d_Pgm2 %>% group_by(Supervisor.PI, Population) %>% 
+                                   summarise_at(vars(Tergite8), 
+                                                list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
+                                                     SE = std_err, CV = coef_var, Mode = estimate_mode)), 
+                           file = "Pigmentation/table_Pgm2_Pop_Tergite8_wobatch.csv", row.names = T)
+
+```
+
+```{r table_Pgm2_Pop_Tergite8_wobatch}
+DT::datatable(table_Pgm2_Pop_Tergite8_wobatch, options = list(pageLength = 10))
+```
+
+### _T9_
+
+Descriptive statistics at the line level, with batch information :
+```{r table_Pgm2_Line_Tergite9_wbatch}
+table_Pgm2_Line_Tergite9_wbatch <- write.csv(d_Pgm2 %>% group_by(Supervisor.PI, Batch, Population, Line) %>% 
+                                    summarise_at(vars(Tergite9), 
+                                                 list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
+                                                      SE = std_err, CV = coef_var, Mode = estimate_mode)), 
+                            file = "Pigmentation/table_Pgm2_Tergite9_Line_wbatch.csv", row.names = T)
+```
+
+```{r}
+DT::datatable(table_Pgm2_Line_Tergite9_wbatch, options = list(pageLength = 10))
+```
+
+Descriptive statistics at the line level, without batch information :
+```{r}
+table_Pgm2_Line_Tergite9_wobatch <- write.csv(d_Pgm2 %>% group_by(Supervisor.PI, Population, Line) %>% 
+                                    summarise_at(vars(Tergite9), 
+                                                 list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
+                                                      SE = std_err, CV = coef_var, Mode = estimate_mode)), 
+                            file = "Pigmentation/table_Pgm2_Tergite9_Line_wobatch.csv", row.names = T)
+```
+
+```{r table_Pgm2_Line_Tergite9_wobatch}
+DT::datatable(table_Pgm2_Line_Tergite9_wobatch, options = list(pageLength = 10))
+```
+
+Descriptive statistics at the population level, with batch information :
+```{r}
+table_Pgm2_Pop_Tergite9_wbatch <- write.csv(d_Pgm2 %>% group_by(Supervisor.PI, Batch, Population) %>% 
+                                   summarise_at(vars(Tergite9), 
+                                                list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
+                                                     SE = std_err, CV = coef_var, Mode = estimate_mode)), 
+                           file = "Pigmentation/table_Pgm2_Pop_Tergite9_wbatch.csv", row.names = T)
+
+```
+
+```{r table_Pgm2_Pop_Tergite9_wbatch}
+DT::datatable(table_Pgm2_Pop_Tergite9_wbatch, options = list(pageLength = 10))
+```
+
+Descriptive statistics at the population level, without batch information :
+```{r}
+table_Pgm2_Pop_Tergite9_wobatch <- write.csv(d_Pgm2 %>% group_by(Supervisor.PI, Population) %>% 
+                                   summarise_at(vars(Tergite9), 
+                                                list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
+                                                     SE = std_err, CV = coef_var, Mode = estimate_mode)), 
+                           file = "Pigmentation/table_Pgm2_Pop_Tergite9_wobatch.csv", row.names = T)
+
+```
+
+```{r table_Pgm2_Pop_Tergite9_wobatch}
+DT::datatable(table_Pgm2_Pop_Tergite9_wobatch, options = list(pageLength = 10))
+```
+
+### _T10_
+
+
+Descriptive statistics at the line level, with batch information :
+```{r table_Pgm2_Line_Tergite10_wbatch}
+table_Pgm2_Line_Tergite10_wbatch <- write.csv(d_Pgm2 %>% group_by(Supervisor.PI, Batch, Population, Line) %>% 
+                                    summarise_at(vars(Tergite10), 
+                                                 list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
+                                                      SE = std_err, CV = coef_var, Mode = estimate_mode)), 
+                            file = "Pigmentation/table_Pgm2_Tergite10_Line_wbatch.csv", row.names = T)
+```
+
+```{r}
+DT::datatable(table_Pgm2_Line_Tergite10_wbatch, options = list(pageLength = 10))
+```
+
+Descriptive statistics at the line level, without batch information :
+```{r}
+table_Pgm2_Line_Tergite10_wobatch <- write.csv(d_Pgm2 %>% group_by(Supervisor.PI, Population, Line) %>% 
+                                    summarise_at(vars(Tergite10), 
+                                                 list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
+                                                      SE = std_err, CV = coef_var, Mode = estimate_mode)), 
+                            file = "Pigmentation/table_Pgm2_Tergite10_Line_wobatch.csv", row.names = T)
+```
+
+```{r table_Pgm2_Line_Tergite10_wobatch}
+DT::datatable(table_Pgm2_Line_Tergite10_wobatch, options = list(pageLength = 10))
+```
+
+Descriptive statistics at the population level, with batch information :
+```{r}
+table_Pgm2_Pop_Tergite10_wbatch <- write.csv(d_Pgm2 %>% group_by(Supervisor.PI, Batch, Population) %>% 
+                                   summarise_at(vars(Tergite10), 
+                                                list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
+                                                     SE = std_err, CV = coef_var, Mode = estimate_mode)), 
+                           file = "Pigmentation/table_Pgm2_Pop_Tergite10_wbatch.csv", row.names = T)
+
+```
+
+```{r table_Pgm2_Pop_Tergite10_wbatch}
+DT::datatable(table_Pgm2_Pop_Tergite10_wbatch, options = list(pageLength = 10))
+```
+
+Descriptive statistics at the population level, without batch information :
+```{r}
+table_Pgm2_Pop_Tergite10_wobatch <- write.csv(d_Pgm2 %>% group_by(Supervisor.PI, Population) %>% 
+                                   summarise_at(vars(Tergite10), 
+                                                list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
+                                                     SE = std_err, CV = coef_var, Mode = estimate_mode)), 
+                           file = "Pigmentation/table_Pgm2_Pop_Tergite10_wobatch.csv", row.names = T)
+
+```
+
+```{r table_Pgm2_Pop_Tergite10_wobatch}
+DT::datatable(table_Pgm2_Pop_Tergite10_wobatch, options = list(pageLength = 10))
+```
+
+### _Total2_
+
+
+Descriptive statistics at the line level, with batch information :
+```{r table_Pgm2_Line_Total_wbatch}
+table_Pgm2_Line_Total_wbatch <- write.csv(d_Pgm2 %>% group_by(Supervisor.PI, Batch, Population, Line) %>% 
+                                    summarise_at(vars(Total), 
+                                                 list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
+                                                      SE = std_err, CV = coef_var, Mode = estimate_mode)), 
+                            file = "Pigmentation/table_Pgm2_Total_Line_wbatch.csv", row.names = T)
+```
+
+```{r}
+DT::datatable(table_Pgm2_Line_Total_wbatch, options = list(pageLength = 10))
+```
+
+Descriptive statistics at the line level, without batch information :
+```{r}
+table_Pgm2_Line_Total_wobatch <- write.csv(d_Pgm2 %>% group_by(Supervisor.PI, Population, Line) %>% 
+                                    summarise_at(vars(Total), 
+                                                 list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
+                                                      SE = std_err, CV = coef_var, Mode = estimate_mode)), 
+                            file = "Pigmentation/table_Pgm2_Total_Line_wobatch.csv", row.names = T)
+```
+
+```{r table_Pgm2_Line_Total_wobatch}
+DT::datatable(table_Pgm2_Line_Total_wobatch, options = list(pageLength = 10))
+```
+
+Descriptive statistics at the population level, with batch information :
+```{r}
+table_Pgm2_Pop_Total_wbatch <- write.csv(d_Pgm2 %>% group_by(Supervisor.PI, Batch, Population) %>% 
+                                   summarise_at(vars(Total), 
+                                                list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
+                                                     SE = std_err, CV = coef_var, Mode = estimate_mode)), 
+                           file = "Pigmentation/table_Pgm2_Pop_Total_wbatch.csv", row.names = T)
+
+```
+
+```{r table_Pgm2_Pop_Total_wbatch}
+DT::datatable(table_Pgm2_Pop_Total_wbatch, options = list(pageLength = 10))
+```
+
+Descriptive statistics at the population level, without batch information :
+```{r}
+table_Pgm2_Pop_Total_wobatch <- write.csv(d_Pgm2 %>% group_by(Supervisor.PI, Population) %>% 
+                                   summarise_at(vars(Total), 
+                                                list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
+                                                     SE = std_err, CV = coef_var, Mode = estimate_mode)), 
+                           file = "Pigmentation/table_Pgm2_Pop_Total_wobatch.csv", row.names = T)
+
+```
+
+```{r table_Pgm2_Pop_Total_wobatch}
+DT::datatable(table_Pgm2_Pop_Total_wobatch, options = list(pageLength = 10))
+```
+
+
+#### Overview 
 
 ### Plots and Linear Models by Lab  
 
-#### Overview 
+#### Abbott Lab
+
+_PercT4_
+
+```{r Pgm_lmer_Abbott_PercT4}
+Pgm_lmer_Abbott_PercT4 <- lmer(PercT4 ~ -1 + Population + (1|Line:Population), 
+                               data = (subset(d_Pgm,Supervisor.PI=='Abbott')))
+capture.output(summary(Pgm_lmer_Abbott_PercT4),file = "Pigmentation/Pgm_lmer_Abbott_PercT4_sum.txt")
+capture.output(anova(Pgm_lmer_Abbott_PercT4),file = "Pigmentation/Pgm_lmer_Abbott_PercT4.txt")
+
+```
+
+```{r}
+anova(Pgm_lmer_Abbott_PercT4)
+```
+
+```{r}
+summary(Pgm_lmer_Abbott_PercT4)
+```
+
+
+```{r p_Pgm_Abbott_PercT4}
+
+p_Pgm_Abbott_PercT4 <- ggplot(data = (subset(d_Pgm,Supervisor.PI=='Abbott')), aes(x=Population_Lat, y=PercT4, fill=Batch)) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+        labs(title="p_Pgm_Abbott_PercT4", x="Population", y = "PercT4") + ylim(c(min(d_Pgm$PercT4) , max(d_Pgm$PercT4)))+ droseu_theme
+```
+
+```{r echo=FALSE}
+p_Pgm_Abbott_PercT4
+```
+
+```{r echo=FALSE}
+pdf(file="Pigmentation/p_Pgm_Abbott_PercT4.pdf",width=8, height=5)
+p_Pgm_Abbott_PercT4
+dev.off()
+```
+
+
+```{r p_Pgm_pop_Abbott_PercT4}
+
+p_Pgm_pop_Abbott_PercT4 <- ggplot(data = (subset(d_Pgm,Supervisor.PI=='Abbott')), aes(x=Population_Lat, y=PercT4, fill=Population)) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+        labs(title="p_Pgm_pop_Abbott_PercT4", x="Population", y = "PercT4") + ylim(c(min(d_Pgm$PercT4) , max(d_Pgm$PercT4)))+ droseu_theme
+```
+
+```{r echo=FALSE}
+p_Pgm_pop_Abbott_PercT4
+```
+
+```{r echo=FALSE}
+pdf(file="Pigmentation/p_Pgm_pop_Abbott_PercT4.pdf",width=8, height=5)
+p_Pgm_pop_Abbott_PercT4
+dev.off()
+```
+
+
+
+_PercT5_
+
+```{r Pgm_lmer_Abbott_PercT5}
+Pgm_lmer_Abbott_PercT5 <- lmer(PercT5 ~ -1 + Population  + (1|Line:Population) , data = (subset(d_Pgm,Supervisor.PI=='Abbott')))
+capture.output(summary(Pgm_lmer_Abbott_PercT5),file = "Pigmentation/Pgm_lmer_Abbott_PercT5_sum.txt")
+capture.output(anova(Pgm_lmer_Abbott_PercT5),file = "Pigmentation/Pgm_lmer_Abbott_PercT5.txt")
+
+```
+
+```{r}
+anova(Pgm_lmer_Abbott_PercT5)
+```
+
+```{r}
+summary(Pgm_lmer_Abbott_PercT5)
+```
+
+
+```{r p_Pgm_Abbott_PercT5}
+
+p_Pgm_Abbott_PercT5 <- ggplot(data = (subset(d_Pgm,Supervisor.PI=='Abbott')), aes(x=Population_Lat, y=PercT5, fill=Batch)) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+        labs(title="p_Pgm_Abbott_PercT5", x="Population", y = "PercT5") + ylim(c(min(d_Pgm$PercT5) , max(d_Pgm$PercT5)))+ droseu_theme
+```
+
+```{r echo=FALSE}
+p_Pgm_Abbott_PercT5
+```
+
+```{r echo=FALSE}
+pdf(file="Pigmentation/p_Pgm_Abbott_PercT5.pdf",width=8, height=5)
+p_Pgm_Abbott_PercT5
+dev.off()
+```
+
+
+```{r p_Pgm_pop_Abbott_PercT5}
+
+p_Pgm_pop_Abbott_PercT5 <- ggplot(data = (subset(d_Pgm,Supervisor.PI=='Abbott')), aes(x=Population_Lat, y=PercT5, fill=Population)) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+        labs(title="p_Pgm_pop_Abbott_PercT5", x="Population", y = "PercT5") + ylim(c(min(d_Pgm$PercT5) , max(d_Pgm$PercT5)))+ droseu_theme
+```
+
+```{r echo=FALSE}
+p_Pgm_pop_Abbott_PercT5
+```
+
+```{r echo=FALSE}
+pdf(file="Pigmentation/p_Pgm_pop_Abbott_PercT5.pdf",width=8, height=5)
+p_Pgm_pop_Abbott_PercT5
+dev.off()
+```
+
+
+_PercT6_
+
+```{r Pgm_lmer_Abbott_PercT6}
+Pgm_lmer_Abbott_PercT6 <- lmer(PercT6 ~ -1 + Population  + (1|Line:Population) , data = (subset(d_Pgm,Supervisor.PI=='Abbott')))
+capture.output(summary(Pgm_lmer_Abbott_PercT6),file = "Pigmentation/Pgm_lmer_Abbott_PercT6_sum.txt")
+capture.output(anova(Pgm_lmer_Abbott_PercT6),file = "Pigmentation/Pgm_lmer_Abbott_PercT6.txt")
+
+```
+
+```{r}
+anova(Pgm_lmer_Abbott_PercT6)
+```
+
+```{r}
+summary(Pgm_lmer_Abbott_PercT6)
+```
+
+
+```{r p_Pgm_Abbott_PercT6}
+
+p_Pgm_Abbott_PercT6 <- ggplot(data = (subset(d_Pgm,Supervisor.PI=='Abbott')), aes(x=Population_Lat, y=PercT6, fill=Batch)) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+        labs(title="p_Pgm_Abbott_PercT6", x="Population", y = "PercT6") + ylim(c(min(d_Pgm$PercT6) , max(d_Pgm$PercT6)))+ droseu_theme
+```
+
+```{r echo=FALSE}
+p_Pgm_Abbott_PercT6
+```
+
+```{r echo=FALSE}
+pdf(file="Pigmentation/p_Pgm_Abbott_PercT6.pdf",width=8, height=5)
+p_Pgm_Abbott_PercT6
+dev.off()
+```
+
+
+```{r p_Pgm_pop_Abbott_PercT6}
+
+p_Pgm_pop_Abbott_PercT6 <- ggplot(data = (subset(d_Pgm,Supervisor.PI=='Abbott')), aes(x=Population_Lat, y=PercT6, fill=Population)) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+        labs(title="p_Pgm_pop_Abbott_PercT6", x="Population", y = "PercT6") + ylim(c(min(d_Pgm$PercT6) , max(d_Pgm$PercT6)))+ droseu_theme
+```
+
+```{r echo=FALSE}
+p_Pgm_pop_Abbott_PercT6
+```
+
+```{r echo=FALSE}
+pdf(file="Pigmentation/p_Pgm_pop_Abbott_PercT6.pdf",width=8, height=5)
+p_Pgm_pop_Abbott_PercT6
+dev.off()
+```
+
+
+_TotalPerc_
+
+```{r Pgm_lmer_Abbott_TotalPerc}
+Pgm_lmer_Abbott_TotalPerc <- lmer(TotalPerc ~ -1 + Population  + (1|Line:Population)  , data = (subset(d_Pgm,Supervisor.PI=='Abbott')))
+capture.output(summary(Pgm_lmer_Abbott_TotalPerc),file = "Pigmentation/Pgm_lmer_Abbott_TotalPerc_sum.txt")
+capture.output(anova(Pgm_lmer_Abbott_TotalPerc),file = "Pigmentation/Pgm_lmer_Abbott_TotalPerc.txt")
+
+```
+
+```{r}
+anova(Pgm_lmer_Abbott_TotalPerc)
+```
+
+```{r}
+summary(Pgm_lmer_Abbott_TotalPerc)
+```
+
+
+```{r p_Pgm_Abbott_TotalPerc}
+
+p_Pgm_Abbott_TotalPerc <- ggplot(data = (subset(d_Pgm,Supervisor.PI=='Abbott')), aes(x=Population_Lat, y=TotalPerc, fill=Batch)) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+        labs(title="p_Pgm_Abbott_TotalPerc", x="Population", y = "TotalPerc") + ylim(c(min(d_Pgm$TotalPerc) , max(d_Pgm$TotalPerc)))+ droseu_theme
+```
+
+```{r echo=FALSE}
+p_Pgm_Abbott_TotalPerc
+```
+
+```{r echo=FALSE}
+pdf(file="Pigmentation/p_Pgm_Abbott_TotalPerc.pdf",width=8, height=5)
+p_Pgm_Abbott_TotalPerc
+dev.off()
+```
+
+
+```{r p_Pgm_pop_Abbott_TotalPerc}
+
+p_Pgm_pop_Abbott_TotalPerc <- ggplot(data = (subset(d_Pgm,Supervisor.PI=='Abbott')), aes(x=Population_Lat, y=TotalPerc, fill=Population)) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+        labs(title="p_Pgm_pop_Abbott_TotalPerc", x="Population", y = "TotalPerc") + ylim(c(min(d_Pgm$TotalPerc) , max(d_Pgm$TotalPerc)))+ droseu_theme
+```
+
+```{r echo=FALSE}
+p_Pgm_pop_Abbott_TotalPerc
+```
+
+```{r echo=FALSE}
+pdf(file="Pigmentation/p_Pgm_pop_Abbott_TotalPerc.pdf",width=8, height=5)
+p_Pgm_pop_Abbott_TotalPerc
+dev.off()
+```
+
+
+#### Gibert Lab 
+
+
+_PercT4_
+
+```{r Pgm_lmer_Gibert_PercT4}
+Pgm_lmer_Gibert_PercT4 <- lmer(PercT4 ~ -1 + Population  + (1|Line:Population) +
+                                    (1|Batch), data = (subset(d_Pgm,Supervisor.PI=='Gibert')))
+capture.output(summary(Pgm_lmer_Gibert_PercT4),file = "Pigmentation/Pgm_lmer_Gibert_PercT4_sum.txt")
+capture.output(anova(Pgm_lmer_Gibert_PercT4),file = "Pigmentation/Pgm_lmer_Gibert_PercT4.txt")
+
+```
+
+```{r}
+anova(Pgm_lmer_Gibert_PercT4)
+```
+
+```{r}
+summary(Pgm_lmer_Gibert_PercT4)
+```
+
+
+```{r p_Pgm_Gibert_PercT4}
+
+p_Pgm_Gibert_PercT4 <- ggplot(data = (subset(d_Pgm,Supervisor.PI=='Gibert')), aes(x=Population_Lat, y=PercT4, fill=Batch)) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+        labs(title="p_Pgm_Gibert_PercT4", x="Population", y = "PercT4") + ylim(c(min(d_Pgm$PercT4) , max(d_Pgm$PercT4)))+ droseu_theme
+```
+
+```{r echo=FALSE}
+p_Pgm_Gibert_PercT4
+```
+
+```{r echo=FALSE}
+pdf(file="Pigmentation/p_Pgm_Gibert_PercT4.pdf",width=8, height=5)
+p_Pgm_Gibert_PercT4
+dev.off()
+```
+
+
+```{r p_Pgm_pop_Gibert_PercT4}
+
+p_Pgm_pop_Gibert_PercT4 <- ggplot(data = (subset(d_Pgm,Supervisor.PI=='Gibert')), aes(x=Population_Lat, y=PercT4, fill=Population)) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+        labs(title="p_Pgm_pop_Gibert_PercT4", x="Population", y = "PercT4") + ylim(c(min(d_Pgm$PercT4) , max(d_Pgm$PercT4)))+ droseu_theme
+```
+
+```{r echo=FALSE}
+p_Pgm_pop_Gibert_PercT4
+```
+
+```{r echo=FALSE}
+pdf(file="Pigmentation/p_Pgm_pop_Gibert_PercT4.pdf",width=8, height=5)
+p_Pgm_pop_Gibert_PercT4
+dev.off()
+```
+
+
+
+_PercT5_
+
+```{r Pgm_lmer_Gibert_PercT5}
+Pgm_lmer_Gibert_PercT5 <- lmer(PercT5 ~ -1 + Population  + (1|Line:Population) +
+                                    (1|Batch), data = (subset(d_Pgm,Supervisor.PI=='Gibert')))
+capture.output(summary(Pgm_lmer_Gibert_PercT5),file = "Pigmentation/Pgm_lmer_Gibert_PercT5_sum.txt")
+capture.output(anova(Pgm_lmer_Gibert_PercT5),file = "Pigmentation/Pgm_lmer_Gibert_PercT5.txt")
+
+```
+
+```{r}
+anova(Pgm_lmer_Gibert_PercT5)
+```
+
+```{r}
+summary(Pgm_lmer_Gibert_PercT5)
+```
+
+
+```{r p_Pgm_Gibert_PercT5}
+
+p_Pgm_Gibert_PercT5 <- ggplot(data = (subset(d_Pgm,Supervisor.PI=='Gibert')), aes(x=Population_Lat, y=PercT5, fill=Batch)) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+        labs(title="p_Pgm_Gibert_PercT5", x="Population", y = "PercT5") + ylim(c(min(d_Pgm$PercT5) , max(d_Pgm$PercT5)))+ droseu_theme
+```
+
+```{r echo=FALSE}
+p_Pgm_Gibert_PercT5
+```
+
+```{r echo=FALSE}
+pdf(file="Pigmentation/p_Pgm_Gibert_PercT5.pdf",width=8, height=5)
+p_Pgm_Gibert_PercT5
+dev.off()
+```
+
+
+```{r p_Pgm_pop_Gibert_PercT5}
+
+p_Pgm_pop_Gibert_PercT5 <- ggplot(data = (subset(d_Pgm,Supervisor.PI=='Gibert')), aes(x=Population_Lat, y=PercT5, fill=Population)) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+        labs(title="p_Pgm_pop_Gibert_PercT5", x="Population", y = "PercT5") + ylim(c(min(d_Pgm$PercT5) , max(d_Pgm$PercT5)))+ droseu_theme
+```
+
+```{r echo=FALSE}
+p_Pgm_pop_Gibert_PercT5
+```
+
+```{r echo=FALSE}
+pdf(file="Pigmentation/p_Pgm_pop_Gibert_PercT5.pdf",width=8, height=5)
+p_Pgm_pop_Gibert_PercT5
+dev.off()
+```
+
+
+_PercT6_
+
+```{r Pgm_lmer_Gibert_PercT6}
+Pgm_lmer_Gibert_PercT6 <- lmer(PercT6 ~ -1 + Population  + (1|Line:Population) +
+                                    (1|Batch), data = (subset(d_Pgm,Supervisor.PI=='Gibert')))
+capture.output(summary(Pgm_lmer_Gibert_PercT6),file = "Pigmentation/Pgm_lmer_Gibert_PercT6_sum.txt")
+capture.output(anova(Pgm_lmer_Gibert_PercT6),file = "Pigmentation/Pgm_lmer_Gibert_PercT6.txt")
+
+```
+
+```{r}
+anova(Pgm_lmer_Gibert_PercT6)
+```
+
+```{r}
+summary(Pgm_lmer_Gibert_PercT6)
+```
+
+
+```{r p_Pgm_Gibert_PercT6}
+
+p_Pgm_Gibert_PercT6 <- ggplot(data = (subset(d_Pgm,Supervisor.PI=='Gibert')), aes(x=Population_Lat, y=PercT6, fill=Batch)) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+        labs(title="p_Pgm_Gibert_PercT6", x="Population", y = "PercT6") + ylim(c(min(d_Pgm$PercT6) , max(d_Pgm$PercT6)))+ droseu_theme
+```
+
+```{r echo=FALSE}
+p_Pgm_Gibert_PercT6
+```
+
+```{r echo=FALSE}
+pdf(file="Pigmentation/p_Pgm_Gibert_PercT6.pdf",width=8, height=5)
+p_Pgm_Gibert_PercT6
+dev.off()
+```
+
+
+```{r p_Pgm_pop_Gibert_PercT6}
+
+p_Pgm_pop_Gibert_PercT6 <- ggplot(data = (subset(d_Pgm,Supervisor.PI=='Gibert')), aes(x=Population_Lat, y=PercT6, fill=Population)) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+        labs(title="p_Pgm_pop_Gibert_PercT6", x="Population", y = "PercT6") + ylim(c(min(d_Pgm$PercT6) , max(d_Pgm$PercT6)))+ droseu_theme
+```
+
+```{r echo=FALSE}
+p_Pgm_pop_Gibert_PercT6
+```
+
+```{r echo=FALSE}
+pdf(file="Pigmentation/p_Pgm_pop_Gibert_PercT6.pdf",width=8, height=5)
+p_Pgm_pop_Gibert_PercT6
+dev.off()
+```
+
+
+_TotalPerc_
+
+```{r Pgm_lmer_Gibert_TotalPerc}
+Pgm_lmer_Gibert_TotalPerc <- lmer(TotalPerc ~ -1 + Population  + (1|Line:Population) +
+                                    (1|Batch), data = (subset(d_Pgm,Supervisor.PI=='Gibert')))
+capture.output(summary(Pgm_lmer_Gibert_TotalPerc),file = "Pigmentation/Pgm_lmer_Gibert_TotalPerc_sum.txt")
+capture.output(anova(Pgm_lmer_Gibert_TotalPerc),file = "Pigmentation/Pgm_lmer_Gibert_TotalPerc.txt")
+
+```
+
+```{r}
+anova(Pgm_lmer_Gibert_TotalPerc)
+```
+
+```{r}
+summary(Pgm_lmer_Gibert_TotalPerc)
+```
+
+
+```{r p_Pgm_Gibert_TotalPerc}
+
+p_Pgm_Gibert_TotalPerc <- ggplot(data = (subset(d_Pgm,Supervisor.PI=='Gibert')), aes(x=Population_Lat, y=TotalPerc, fill=Batch)) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+        labs(title="p_Pgm_Gibert_TotalPerc", x="Population", y = "TotalPerc") + ylim(c(min(d_Pgm$TotalPerc) , max(d_Pgm$TotalPerc)))+ droseu_theme
+```
+
+```{r echo=FALSE}
+p_Pgm_Gibert_TotalPerc
+```
+
+```{r echo=FALSE}
+pdf(file="Pigmentation/p_Pgm_Gibert_TotalPerc.pdf",width=8, height=5)
+p_Pgm_Gibert_TotalPerc
+dev.off()
+```
+
+
+```{r p_Pgm_pop_Gibert_TotalPerc}
+
+p_Pgm_pop_Gibert_TotalPerc <- ggplot(data = (subset(d_Pgm,Supervisor.PI=='Gibert')), aes(x=Population_Lat, y=TotalPerc, fill=Population)) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+        labs(title="p_Pgm_pop_Gibert_TotalPerc", x="Population", y = "TotalPerc") + ylim(c(min(d_Pgm$TotalPerc) , max(d_Pgm$TotalPerc)))+ droseu_theme
+```
+
+```{r echo=FALSE}
+p_Pgm_pop_Gibert_TotalPerc
+```
+
+```{r echo=FALSE}
+pdf(file="Pigmentation/p_Pgm_pop_Gibert_TotalPerc.pdf",width=8, height=5)
+p_Pgm_pop_Gibert_TotalPerc
+dev.off()
+```
+
+
+#### Schmidt Lab
+
+
+_Tergite8_
+
+```{r Pgm2_lmer_Schmidt_Tergite8}
+Pgm2_lmer_Schmidt_Tergite8 <- lmer(Tergite8 ~ -1 + Population  + (1|Line:Population), data = (subset(d_Pgm2,Supervisor.PI=='Schmidt')))
+capture.output(summary(Pgm2_lmer_Schmidt_Tergite8),file = "Pigmentation/Pgm2_lmer_Schmidt_Tergite8_sum.txt")
+capture.output(anova(Pgm2_lmer_Schmidt_Tergite8),file = "Pigmentation/Pgm2_lmer_Schmidt_Tergite8.txt")
+
+```
+
+```{r}
+anova(Pgm2_lmer_Schmidt_Tergite8)
+```
+
+```{r}
+summary(Pgm2_lmer_Schmidt_Tergite8)
+```
+
+
+```{r p_Pgm2_Schmidt_Tergite8}
+
+p_Pgm2_Schmidt_Tergite8 <- ggplot(data = (subset(d_Pgm2,Supervisor.PI=='Schmidt')), aes(x=Population_Lat, y=Tergite8, fill=Batch)) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+        labs(title="p_Pgm2_Schmidt_Tergite8", x="Population", y = "Tergite8") + ylim(c(min(d_Pgm2$Tergite8) , max(d_Pgm2$Tergite8)))+ droseu_theme
+```
+
+```{r echo=FALSE}
+p_Pgm2_Schmidt_Tergite8
+```
+
+```{r echo=FALSE}
+pdf(file="Pigmentation/p_Pgm2_Schmidt_Tergite8.pdf",width=8, height=5)
+p_Pgm2_Schmidt_Tergite8
+dev.off()
+```
+
+
+```{r p_Pgm2_pop_Schmidt_Tergite8}
+
+p_Pgm2_pop_Schmidt_Tergite8 <- ggplot(data = (subset(d_Pgm2,Supervisor.PI=='Schmidt')), aes(x=Population_Lat, y=Tergite8, fill=Population)) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+        labs(title="p_Pgm2_pop_Schmidt_Tergite8", x="Population", y = "Tergite8") + ylim(c(min(d_Pgm2$Tergite8) , max(d_Pgm2$Tergite8)))+ droseu_theme
+```
+
+```{r echo=FALSE}
+p_Pgm2_pop_Schmidt_Tergite8
+```
+
+```{r echo=FALSE}
+pdf(file="Pigmentation/p_Pgm2_pop_Schmidt_Tergite8.pdf",width=8, height=5)
+p_Pgm2_pop_Schmidt_Tergite8
+dev.off()
+```
+
+
+
+_Tergite9_
+
+```{r Pgm2_lmer_Schmidt_Tergite9}
+Pgm2_lmer_Schmidt_Tergite9 <- lmer(Tergite9 ~ -1 + Population  + (1|Line:Population) , data = (subset(d_Pgm2,Supervisor.PI=='Schmidt')))
+capture.output(summary(Pgm2_lmer_Schmidt_Tergite9),file = "Pigmentation/Pgm2_lmer_Schmidt_Tergite9_sum.txt")
+capture.output(anova(Pgm2_lmer_Schmidt_Tergite9),file = "Pigmentation/Pgm2_lmer_Schmidt_Tergite9.txt")
+
+```
+
+```{r}
+anova(Pgm2_lmer_Schmidt_Tergite9)
+```
+
+```{r}
+summary(Pgm2_lmer_Schmidt_Tergite9)
+```
+
+
+```{r p_Pgm2_Schmidt_Tergite9}
+
+p_Pgm2_Schmidt_Tergite9 <- ggplot(data = (subset(d_Pgm2,Supervisor.PI=='Schmidt')), aes(x=Population_Lat, y=Tergite9, fill=Batch)) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+        labs(title="p_Pgm2_Schmidt_Tergite9", x="Population", y = "Tergite9") + ylim(c(min(d_Pgm2$Tergite9) , max(d_Pgm2$Tergite9)))+ droseu_theme
+```
+
+```{r echo=FALSE}
+p_Pgm2_Schmidt_Tergite9
+```
+
+```{r echo=FALSE}
+pdf(file="Pigmentation/p_Pgm2_Schmidt_Tergite9.pdf",width=8, height=5)
+p_Pgm2_Schmidt_Tergite9
+dev.off()
+```
+
+
+```{r p_Pgm2_pop_Schmidt_Tergite9}
+
+p_Pgm2_pop_Schmidt_Tergite9 <- ggplot(data = (subset(d_Pgm2,Supervisor.PI=='Schmidt')), aes(x=Population_Lat, y=Tergite9, fill=Population)) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+        labs(title="p_Pgm2_pop_Schmidt_Tergite9", x="Population", y = "Tergite9") + ylim(c(min(d_Pgm2$Tergite9) , max(d_Pgm2$Tergite9)))+ droseu_theme
+```
+
+```{r echo=FALSE}
+p_Pgm2_pop_Schmidt_Tergite9
+```
+
+```{r echo=FALSE}
+pdf(file="Pigmentation/p_Pgm2_pop_Schmidt_Tergite9.pdf",width=8, height=5)
+p_Pgm2_pop_Schmidt_Tergite9
+dev.off()
+```
+
+
+_Tergite10_
+
+```{r Pgm2_lmer_Schmidt_Tergite10}
+Pgm2_lmer_Schmidt_Tergite10 <- lmer(Tergite10 ~ -1 + Population  + (1|Line:Population), data = (subset(d_Pgm2,Supervisor.PI=='Schmidt')))
+capture.output(summary(Pgm2_lmer_Schmidt_Tergite10),file = "Pigmentation/Pgm2_lmer_Schmidt_Tergite10_sum.txt")
+capture.output(anova(Pgm2_lmer_Schmidt_Tergite10),file = "Pigmentation/Pgm2_lmer_Schmidt_Tergite10.txt")
+
+```
+
+```{r}
+anova(Pgm2_lmer_Schmidt_Tergite10)
+```
+
+```{r}
+summary(Pgm2_lmer_Schmidt_Tergite10)
+```
+
+
+```{r p_Pgm2_Schmidt_Tergite10}
+
+p_Pgm2_Schmidt_Tergite10 <- ggplot(data = (subset(d_Pgm2,Supervisor.PI=='Schmidt')), aes(x=Population_Lat, y=Tergite10, fill=Batch)) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+        labs(title="p_Pgm2_Schmidt_Tergite10", x="Population", y = "Tergite10") + ylim(c(min(d_Pgm2$Tergite10) , max(d_Pgm2$Tergite10)))+ droseu_theme
+```
+
+```{r echo=FALSE}
+p_Pgm2_Schmidt_Tergite10
+```
+
+```{r echo=FALSE}
+pdf(file="Pigmentation/p_Pgm2_Schmidt_Tergite10.pdf",width=8, height=5)
+p_Pgm2_Schmidt_Tergite10
+dev.off()
+```
+
+
+```{r p_Pgm2_pop_Schmidt_Tergite10}
+
+p_Pgm2_pop_Schmidt_Tergite10 <- ggplot(data = (subset(d_Pgm2,Supervisor.PI=='Schmidt')), aes(x=Population_Lat, y=Tergite10, fill=Population)) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+        labs(title="p_Pgm2_pop_Schmidt_Tergite10", x="Population", y = "Tergite10") + ylim(c(min(d_Pgm2$Tergite10) , max(d_Pgm2$Tergite10)))+ droseu_theme
+```
+
+```{r echo=FALSE}
+p_Pgm2_pop_Schmidt_Tergite10
+```
+
+```{r echo=FALSE}
+pdf(file="Pigmentation/p_Pgm2_pop_Schmidt_Tergite10.pdf",width=8, height=5)
+p_Pgm2_pop_Schmidt_Tergite10
+dev.off()
+```
+
+
+_Total_
+
+```{r Pgm2_lmer_Schmidt_Total}
+Pgm2_lmer_Schmidt_Total <- lmer(Total ~ -1 + Population  + (1|Line:Population), data = (subset(d_Pgm2,Supervisor.PI=='Schmidt')))
+capture.output(summary(Pgm2_lmer_Schmidt_Total),file = "Pigmentation/Pgm2_lmer_Schmidt_Total_sum.txt")
+capture.output(anova(Pgm2_lmer_Schmidt_Total),file = "Pigmentation/Pgm2_lmer_Schmidt_Total.txt")
+
+```
+
+```{r}
+anova(Pgm2_lmer_Schmidt_Total)
+```
+
+```{r}
+summary(Pgm2_lmer_Schmidt_Total)
+```
+
+
+```{r p_Pgm2_Schmidt_Total}
+
+p_Pgm2_Schmidt_Total <- ggplot(data = (subset(d_Pgm2,Supervisor.PI=='Schmidt')), aes(x=Population_Lat, y=Total, fill=Batch)) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+        labs(title="p_Pgm2_Schmidt_Total", x="Population", y = "Total") + ylim(c(min(d_Pgm2$Total) , max(d_Pgm2$Total)))+ droseu_theme
+```
+
+```{r echo=FALSE}
+p_Pgm2_Schmidt_Total
+```
+
+```{r echo=FALSE}
+pdf(file="Pigmentation/p_Pgm2_Schmidt_Total.pdf",width=8, height=5)
+p_Pgm2_Schmidt_Total
+dev.off()
+```
+
+
+```{r p_Pgm2_pop_Schmidt_Total}
+
+p_Pgm2_pop_Schmidt_Total <- ggplot(data = (subset(d_Pgm2,Supervisor.PI=='Schmidt')), aes(x=Population_Lat, y=Total, fill=Population)) + 
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+        labs(title="p_Pgm2_pop_Schmidt_Total", x="Population", y = "Total") + ylim(c(min(d_Pgm2$Total) , max(d_Pgm2$Total)))+ droseu_theme
+```
+
+```{r echo=FALSE}
+p_Pgm2_pop_Schmidt_Total
+```
+
+```{r echo=FALSE}
+pdf(file="Pigmentation/p_Pgm2_pop_Schmidt_Total.pdf",width=8, height=5)
+p_Pgm2_pop_Schmidt_Total
+dev.off()
+```
+
+
+
 
 
 ### Lab correlations

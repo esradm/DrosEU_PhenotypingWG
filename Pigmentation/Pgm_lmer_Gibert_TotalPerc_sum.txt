@@ -1,0 +1,45 @@
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: TotalPerc ~ -1 + Population + (1 | Line:Population) + (1 | Batch)
+   Data: (subset(d_Pgm, Supervisor.PI == "Gibert"))
+
+REML criterion at convergence: 12682.4
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.2632 -0.6733 -0.0496  0.6084  4.5241 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 34.06    5.836   
+ Batch           (Intercept)  0.00    0.000   
+ Residual                    73.53    8.575   
+Number of obs: 1741, groups:  Line:Population, 167; Batch, 3
+
+Fixed effects:
+             Estimate Std. Error      df t value Pr(>|t|)    
+PopulationAK   33.307      1.436 157.600   23.19   <2e-16 ***
+PopulationGI   31.425      1.656 156.755   18.97   <2e-16 ***
+PopulationKA   33.445      1.435 157.305   23.30   <2e-16 ***
+PopulationMA   36.135      1.477 158.778   24.47   <2e-16 ***
+PopulationMU   35.380      1.436 157.600   24.64   <2e-16 ***
+PopulationRE   33.354      1.604 156.892   20.80   <2e-16 ***
+PopulationUM   35.303      1.513 157.122   23.34   <2e-16 ***
+PopulationVA   34.543      1.473 157.218   23.46   <2e-16 ***
+PopulationYE   34.505      1.449 162.399   23.82   <2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Correlation of Fixed Effects:
+            PpltAK PpltGI PpltKA PpltMA PpltMU PpltRE PpltUM PpltVA
+PopulatinGI 0.000                                                  
+PopulatinKA 0.000  0.000                                           
+PopulatinMA 0.000  0.000  0.000                                    
+PopulatinMU 0.000  0.000  0.000  0.000                             
+PopulatinRE 0.000  0.000  0.000  0.000  0.000                      
+PopulatinUM 0.000  0.000  0.000  0.000  0.000  0.000               
+PopulatinVA 0.000  0.000  0.000  0.000  0.000  0.000  0.000        
+PopulatinYE 0.000  0.000  0.000  0.000  0.000  0.000  0.000  0.000 
+optimizer (nloptwrap) convergence code: 0 (OK)
+boundary (singular) fit: see ?isSingular
+
