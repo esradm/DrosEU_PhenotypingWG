@@ -1,0 +1,53 @@
+              SMD             95%-CI %W(random) Population
+YE_Abbott 20.8154 [18.5576; 23.0733]        5.6         YE
+YE_Gibert 34.5051 [31.6659; 37.3444]        5.5         YE
+RE_Abbott 25.1453 [22.6210; 27.6695]        5.6         RE
+RE_Gibert 33.3536 [30.2100; 36.4972]        5.5         RE
+GI_Abbott 19.7403 [17.0417; 22.4390]        5.6         GI
+GI_Gibert 31.4246 [28.1785; 34.6706]        5.5         GI
+MU_Abbott 20.5474 [18.1025; 22.9924]        5.6         MU
+MU_Gibert 35.3797 [32.5649; 38.1945]        5.5         MU
+MA_Abbott 30.0272 [27.6470; 32.4074]        5.6         MA
+MA_Gibert 36.1350 [33.2408; 39.0292]        5.5         MA
+UM_Abbott 23.7947 [21.4180; 26.1714]        5.6         UM
+UM_Gibert 35.3034 [32.3386; 38.2683]        5.5         UM
+KA_Abbott 17.6144 [15.2990; 19.9299]        5.6         KA
+KA_Gibert 33.4451 [30.6316; 36.2585]        5.5         KA
+VA_Abbott 16.1424 [13.8327; 18.4522]        5.6         VA
+VA_Gibert 34.5428 [31.6566; 37.4289]        5.5         VA
+AK_Abbott 21.0192 [18.7701; 23.2684]        5.6         AK
+AK_Gibert 33.3071 [30.4923; 36.1219]        5.5         AK
+
+Number of studies combined: k = 18
+
+                         SMD             95%-CI     z  p-value
+Random effects model 27.8579 [24.5420; 31.1738] 16.47 < 0.0001
+
+Quantifying heterogeneity:
+ tau^2 = 49.6504 [27.0335; 114.0840]; tau = 7.0463 [5.1994; 10.6810]
+ I^2 = 96.5% [95.5%; 97.3%]; H = 5.37 [4.72; 6.11]
+
+Test of heterogeneity:
+      Q d.f.  p-value
+ 490.22   17 < 0.0001
+
+Results for subgroups (random effects model):
+                  k     SMD             95%-CI    tau^2     tau     Q   I^2
+Population = YE   2 27.6321 [14.2166; 41.0476]  91.9909  9.5912 54.71 98.2%
+Population = RE   2 29.1938 [21.1505; 37.2370]  31.5726  5.6189 15.92 93.7%
+Population = GI   2 25.5462 [14.0961; 36.9963]  65.9414  8.1204 29.43 96.6%
+Population = MU   2 27.9465 [13.4112; 42.4819] 108.1892 10.4014 60.80 98.4%
+Population = MA   2 33.0233 [27.0389; 39.0077]  16.8248  4.1018 10.21 90.2%
+Population = UM   2 29.5135 [18.2354; 40.7917]  64.3465  8.0216 35.24 97.2%
+Population = KA   2 25.5088 [ 9.9951; 41.0224] 123.5766 11.1165 72.51 98.6%
+Population = VA   2 25.3214 [ 7.2895; 43.3534] 167.5076 12.9425 95.18 98.9%
+Population = AK   2 27.1328 [15.0911; 39.1746]  73.8066  8.5911 44.68 97.8%
+
+Test for subgroup differences (random effects model):
+                    Q d.f. p-value
+Between groups   2.52    8  0.9607
+
+Details on meta-analytical method:
+- Inverse variance method
+- DerSimonian-Laird estimator for tau^2
+- Jackson method for confidence interval of tau^2 and tau

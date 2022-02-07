@@ -1,0 +1,62 @@
+                 SMD             95%-CI %W(random) Population
+YE_Flatt     49.6624 [47.8963; 51.4285]        4.0         YE
+YE_Parsch    54.5917 [48.6971; 60.4862]        3.3         YE
+YE_Pasyukova 41.3050 [37.9353; 44.6746]        3.8         YE
+RE_Flatt     45.6074 [43.8359; 47.3789]        4.0         RE
+RE_Parsch    46.4384 [40.5557; 52.3211]        3.3         RE
+RE_Pasyukova 44.1790 [40.5860; 47.7720]        3.8         RE
+GI_Flatt     42.9477 [41.1944; 44.7009]        4.0         GI
+GI_Parsch    54.9092 [49.0182; 60.8002]        3.3         GI
+GI_Pasyukova 43.8443 [40.0097; 47.6788]        3.7         GI
+MU_Flatt     57.4202 [55.6360; 59.2043]        4.0         MU
+MU_Parsch    54.0139 [48.1272; 59.9005]        3.3         MU
+MU_Pasyukova 43.9212 [40.5516; 47.2908]        3.8         MU
+MA_Flatt     50.5195 [48.7411; 52.2979]        4.0         MA
+MA_Parsch    47.3064 [41.4056; 53.2072]        3.3         MA
+MA_Pasyukova 43.6175 [40.2478; 46.9871]        3.8         MA
+UM_Flatt     51.6708 [49.8661; 53.4755]        4.0         UM
+UM_Parsch    49.0835 [43.1959; 54.9711]        3.3         UM
+UM_Pasyukova 39.3240 [35.8533; 42.7947]        3.8         UM
+KA_Flatt     55.4246 [53.6661; 57.1831]        4.0         KA
+KA_Parsch    56.8662 [50.9797; 62.7528]        3.3         KA
+KA_Pasyukova 46.7631 [43.3935; 50.1327]        3.8         KA
+VA_Flatt     56.2711 [54.4857; 58.0565]        4.0         VA
+VA_Parsch    56.4203 [50.5463; 62.2943]        3.3         VA
+VA_Pasyukova 44.0556 [40.6860; 47.4252]        3.8         VA
+AK_Flatt     60.0334 [58.2436; 61.8232]        4.0         AK
+AK_Parsch    59.6254 [53.7465; 65.5043]        3.3         AK
+AK_Pasyukova 43.9775 [40.6928; 47.2621]        3.8         AK
+
+Number of studies combined: k = 27
+
+                         SMD             95%-CI     z p-value
+Random effects model 49.5126 [47.1345; 51.8907] 40.81       0
+
+Quantifying heterogeneity:
+ tau^2 = 35.7209 [19.9491; 71.9771]; tau = 5.9767 [4.4664; 8.4839]
+ I^2 = 95.0% [93.7%; 96.1%]; H = 4.48 [3.99; 5.04]
+
+Test of heterogeneity:
+      Q d.f.  p-value
+ 522.79   26 < 0.0001
+
+Results for subgroups (random effects model):
+                  k     SMD             95%-CI   tau^2    tau     Q   I^2
+Population = YE   3 48.2235 [41.6119; 54.8351] 30.2032 5.4957 23.22 91.4%
+Population = RE   3 45.4036 [43.8697; 46.9375]       0      0  0.62  0.0%
+Population = GI   3 46.5748 [40.9487; 52.2010] 20.6103 4.5399 14.55 86.3%
+Population = MU   3 51.7848 [42.3130; 61.2566] 65.9619 8.1217 48.17 95.8%
+Population = MA   3 47.2862 [42.3160; 52.2564] 15.5781 3.9469 12.91 84.5%
+Population = UM   3 46.6874 [38.0726; 55.3023] 53.8217 7.3363 38.27 94.8%
+Population = KA   3 52.8596 [46.5610; 59.1581] 27.0879 5.2046 21.07 90.5%
+Population = VA   3 52.1671 [43.5001; 60.8341] 54.6033 7.3894 40.25 95.0%
+Population = AK   3 54.4827 [43.1011; 65.8643] 97.0692 9.8524 71.88 97.2%
+
+Test for subgroup differences (random effects model):
+                     Q d.f. p-value
+Between groups   10.96    8  0.2040
+
+Details on meta-analytical method:
+- Inverse variance method
+- DerSimonian-Laird estimator for tau^2
+- Jackson method for confidence interval of tau^2 and tau

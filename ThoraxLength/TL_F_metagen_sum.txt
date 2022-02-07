@@ -1,0 +1,78 @@
+                    SMD                 95%-CI %W(random) Population
+YE_Kozeretska  950.4143 [ 929.4008;  971.4278]        3.2         YE
+YE_Posnien     941.8453 [ 903.3015;  980.3892]        2.7         YE
+YE_Ritchie     988.7117 [ 954.1673; 1023.2560]        2.8         YE
+YE_Schmidt    1009.8852 [ 999.3660; 1020.4043]        3.4         YE
+RE_Kozeretska  962.3955 [ 940.7909;  984.0001]        3.2         RE
+RE_Posnien     902.7722 [ 864.2284;  941.3161]        2.7         RE
+RE_Schmidt    1036.7173 [1024.0825; 1049.3521]        3.4         RE
+GI_Kozeretska  935.0365 [ 910.0903;  959.9827]        3.1         GI
+GI_Posnien     944.3770 [ 905.8331;  982.9209]        2.7         GI
+GI_Ritchie     969.4315 [ 933.9992; 1004.8638]        2.8         GI
+GI_Schmidt    1021.9497 [1008.8939; 1035.0054]        3.4         GI
+MU_Kozeretska  942.8911 [ 924.6112;  961.1710]        3.3         MU
+MU_Posnien     866.2315 [ 827.6876;  904.7754]        2.7         MU
+MU_Ritchie     970.7766 [ 920.6642; 1020.8889]        2.3         MU
+MU_Schmidt    1004.7704 [ 994.3483; 1015.1926]        3.4         MU
+MA_Kozeretska  964.2961 [ 945.7081;  982.8841]        3.3         MA
+MA_Posnien     881.9976 [ 843.4537;  920.5414]        2.7         MA
+MA_Ritchie     976.9722 [ 940.9170; 1013.0274]        2.8         MA
+MA_Schmidt    1014.8919 [1004.1381; 1025.6457]        3.4         MA
+UM_Kozeretska  941.4621 [ 920.1069;  962.8172]        3.2         UM
+UM_Posnien     908.4308 [ 869.8869;  946.9746]        2.7         UM
+UM_Schmidt    1011.0814 [ 999.0220; 1023.1408]        3.4         UM
+KA_Kozeretska  911.6229 [ 890.5099;  932.7360]        3.2         KA
+KA_Posnien     928.6051 [ 890.0612;  967.1489]        2.7         KA
+KA_Ritchie     956.3534 [ 920.2119;  992.4950]        2.8         KA
+KA_Schmidt    1005.3833 [ 994.7206; 1016.0460]        3.4         KA
+VA_Kozeretska  958.3653 [ 941.1250;  975.6056]        3.3         VA
+VA_Posnien     898.4293 [ 859.8855;  936.9732]        2.7         VA
+VA_Schmidt    1012.3335 [1001.0372; 1023.6298]        3.4         VA
+AK_Kozeretska  936.5440 [ 918.9315;  954.1566]        3.3         AK
+AK_Posnien     880.6644 [ 842.1205;  919.2083]        2.7         AK
+AK_Ritchie     955.3124 [ 916.6719;  993.9530]        2.7         AK
+AK_Schmidt     995.0466 [ 984.6481; 1005.4450]        3.4         AK
+
+Number of studies combined: k = 33
+
+                          SMD               95%-CI      z p-value
+Random effects model 960.0832 [946.7718; 973.3945] 141.36       0
+
+Quantifying heterogeneity:
+ tau^2 = 1324.6357 [1037.1888; 3338.0798]; tau = 36.3955 [32.2054; 57.7761]
+ I^2 = 94.0% [92.5%; 95.2%]; H = 4.09 [3.66; 4.57]
+
+Test of heterogeneity:
+      Q d.f.  p-value
+ 534.55   32 < 0.0001
+
+Results for subgroups (random effects model):
+                  k      SMD                95%-CI     tau^2     tau     Q
+Population = YE   4 974.1657 [936.4268; 1011.9046] 1286.6997 35.8706 32.40
+Population = RE   3 969.1048 [896.5261; 1041.6834] 3935.7134 62.7353 65.54
+Population = GI   4 968.7977 [918.0887; 1019.5067] 2454.4199 49.5421 47.17
+Population = MU   4 947.3885 [892.5535; 1002.2235] 2861.4591 53.4926 70.74
+Population = MA   4 961.8267 [913.9376; 1009.7159] 2186.5918 46.7610 57.59
+Population = UM   3 955.5090 [893.8572; 1017.1608] 2794.5276 52.8633 48.68
+Population = KA   4 951.2364 [895.4286; 1007.0443] 3031.8513 55.0622 70.45
+Population = VA   3 959.1809 [904.6044; 1013.7574] 2170.5042 46.5887 49.62
+Population = AK   4 943.8390 [897.2902;  990.3877] 2047.5637 45.2500 56.53
+                  I^2
+Population = YE 90.7%
+Population = RE 96.9%
+Population = GI 93.6%
+Population = MU 95.8%
+Population = MA 94.8%
+Population = UM 95.9%
+Population = KA 95.7%
+Population = VA 96.0%
+Population = AK 94.7%
+
+Test for subgroup differences (random effects model):
+                    Q d.f. p-value
+Between groups   1.51    8  0.9926
+
+Details on meta-analytical method:
+- Inverse variance method
+- DerSimonian-Laird estimator for tau^2
+- Jackson method for confidence interval of tau^2 and tau

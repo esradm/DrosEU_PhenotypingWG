@@ -1,0 +1,83 @@
+                       SMD           95%-CI %W(random) Population
+YE_Gibert           0.5109 [0.4586; 0.5632]        2.3         YE
+YE_Hoedjes          0.5597 [0.5068; 0.6126]        2.3         YE
+YE_Schmidt          0.5377 [0.4403; 0.6351]        1.7         YE
+YE_StamenkovicRadak 0.4947 [0.4290; 0.5603]        2.1         YE
+YE_Zwaan            0.5273 [0.4681; 0.5865]        2.2         YE
+RE_Gibert           0.6469 [0.5886; 0.7053]        2.2         RE
+RE_Grath            0.6358 [0.5855; 0.6862]        2.3         RE
+RE_Hoedjes          0.6233 [0.5622; 0.6844]        2.2         RE
+RE_Schmidt          0.6298 [0.5174; 0.7423]        1.5         RE
+RE_StamenkovicRadak 0.6260 [0.5546; 0.6975]        2.0         RE
+RE_Zwaan            0.6459 [0.5815; 0.7104]        2.1         RE
+GI_Gibert           0.6092 [0.5492; 0.6692]        2.2         GI
+GI_Hoedjes          0.6027 [0.5416; 0.6638]        2.2         GI
+GI_Schmidt          0.4813 [0.3688; 0.5938]        1.5         GI
+GI_StamenkovicRadak 0.6026 [0.5248; 0.6803]        2.0         GI
+GI_Zwaan            0.6436 [0.5765; 0.7107]        2.1         GI
+MU_Gibert           0.7206 [0.6684; 0.7729]        2.3         MU
+MU_Grath            0.6160 [0.5657; 0.6664]        2.3         MU
+MU_Hoedjes          0.7395 [0.6866; 0.7924]        2.3         MU
+MU_Schmidt          0.5726 [0.4752; 0.6700]        1.7         MU
+MU_StamenkovicRadak 0.7010 [0.6353; 0.7666]        2.1         MU
+MU_Zwaan            0.7074 [0.6479; 0.7668]        2.2         MU
+MA_Gibert           0.6441 [0.5920; 0.6963]        2.3         MA
+MA_Hoedjes          0.7085 [0.6556; 0.7614]        2.3         MA
+MA_Schmidt          0.6326 [0.5300; 0.7353]        1.6         MA
+MA_StamenkovicRadak 0.5566 [0.4908; 0.6224]        2.1         MA
+MA_Zwaan            0.7137 [0.6551; 0.7722]        2.2         MA
+UM_Gibert           0.7145 [0.6595; 0.7695]        2.2         UM
+UM_Hoedjes          0.6849 [0.6275; 0.7423]        2.2         UM
+UM_Schmidt          0.7107 [0.5942; 0.8271]        1.5         UM
+UM_StamenkovicRadak 0.5892 [0.5209; 0.6575]        2.1         UM
+UM_Zwaan            0.7789 [0.7175; 0.8403]        2.2         UM
+KA_Gibert           0.7227 [0.6703; 0.7751]        2.3         KA
+KA_Hoedjes          0.7182 [0.6653; 0.7711]        2.3         KA
+KA_Schmidt          0.7603 [0.6629; 0.8577]        1.7         KA
+KA_StamenkovicRadak 0.6490 [0.5834; 0.7146]        2.1         KA
+KA_Zwaan            0.7603 [0.7018; 0.8187]        2.2         KA
+VA_Gibert           0.6361 [0.5839; 0.6884]        2.3         VA
+VA_Hoedjes          0.6808 [0.6279; 0.7337]        2.3         VA
+VA_Schmidt          0.5837 [0.4863; 0.6811]        1.7         VA
+VA_StamenkovicRadak 0.5608 [0.4950; 0.6265]        2.1         VA
+VA_Zwaan            0.7325 [0.6732; 0.7919]        2.2         VA
+AK_Gibert           0.7569 [0.7048; 0.8090]        2.3         AK
+AK_Grath            0.6903 [0.6391; 0.7415]        2.3         AK
+AK_Hoedjes          0.7745 [0.7216; 0.8274]        2.3         AK
+AK_Schmidt          0.6252 [0.5278; 0.7226]        1.7         AK
+AK_StamenkovicRadak 0.6769 [0.6112; 0.7427]        2.1         AK
+AK_Zwaan            0.7533 [0.6953; 0.8113]        2.2         AK
+
+Number of studies combined: k = 48
+
+                        SMD           95%-CI     z p-value
+Random effects model 0.6535 [0.6319; 0.6752] 59.03       0
+
+Quantifying heterogeneity:
+ tau^2 = 0.0047 [0.0030; 0.0081]; tau = 0.0686 [0.0544; 0.0902]
+ I^2 = 82.5% [77.4%; 86.4%]; H = 2.39 [2.10; 2.71]
+
+Test of heterogeneity:
+      Q d.f.  p-value
+ 268.03   47 < 0.0001
+
+Results for subgroups (random effects model):
+                  k    SMD           95%-CI  tau^2    tau     Q   I^2
+Population = YE   5 0.5266 [0.4994; 0.5539]      0      0  2.81  0.0%
+Population = RE   6 0.6358 [0.6097; 0.6619]      0      0  0.48  0.0%
+Population = GI   5 0.6010 [0.5618; 0.6402] 0.0006 0.0254  5.94 32.7%
+Population = MU   6 0.6817 [0.6338; 0.7296] 0.0026 0.0506 18.92 73.6%
+Population = MA   5 0.6539 [0.5965; 0.7113] 0.0032 0.0562 16.57 75.9%
+Population = UM   5 0.6957 [0.6336; 0.7577] 0.0037 0.0608 17.02 76.5%
+Population = KA   5 0.7199 [0.6830; 0.7568] 0.0007 0.0273  6.99 42.8%
+Population = VA   5 0.6429 [0.5836; 0.7022] 0.0035 0.0588 17.85 77.6%
+Population = AK   6 0.7204 [0.6799; 0.7609] 0.0016 0.0396 13.56 63.1%
+
+Test for subgroup differences (random effects model):
+                      Q d.f.  p-value
+Between groups   108.86    8 < 0.0001
+
+Details on meta-analytical method:
+- Inverse variance method
+- DerSimonian-Laird estimator for tau^2
+- Jackson method for confidence interval of tau^2 and tau

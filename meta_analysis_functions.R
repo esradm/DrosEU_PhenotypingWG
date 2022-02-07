@@ -67,12 +67,13 @@ T2Comp <- function(Y, V) {
   VT2 = 2*(A/C^2)
   SET2 = sqrt(VT2)
   if (Q > df + 1) B = 0.5 * (log(Q) - log(df)) / (sqrt(2*Q) - sqrt(2*df-1))
-  if (Q <= df + 1) B = sqrt(1 / (2 * (df-1) * (1 - (1 / (3 * (df-1)^2)))))
+  if (Q <= df + 1 & df > 1) B = sqrt(1 / (2 * (df-1) * (1 - (1 / (3 * (df-1)^2)))))
+  if (Q <= df + 1 & df <= 1) B = 0
   L = exp(0.5 * log(Q/df) - 1.96 * B)
   U = exp(0.5 * log(Q/df) + 1.96 * B)
-  LLT2 =  df * (L^2 - 1) / C
+  LLT2 = df * (L^2 - 1) / C
   if (LLT2 < 0) LLT2 = 0
-  ULT2 =  df * (U^2 - 1) / C
+  ULT2 = df * (U^2 - 1) / C
   if (ULT2 < 0) ULT2 = 0
   LLT = sqrt(LLT2)
   ULT = sqrt(ULT2)
