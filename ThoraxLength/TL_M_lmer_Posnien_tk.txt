@@ -1,57 +1,57 @@
 $`emmeans of Population`
- Population emmean   SE df lower.CL upper.CL
- AK            777 17.7 18      740      814
- GI            841 17.7 18      804      878
- KA            824 17.7 18      786      861
- MA            785 17.7 18      748      823
- MU            757 17.7 18      720      794
- RE            803 17.7 18      765      840
- UM            822 17.7 18      785      859
- VA            797 17.7 18      760      834
- YE            820 17.7 18      782      857
+ Population emmean   SE  df asymp.LCL asymp.UCL
+ AK            777 17.7 Inf       743       812
+ GI            841 17.7 Inf       807       876
+ KA            824 17.7 Inf       789       858
+ MA            785 17.7 Inf       751       820
+ MU            757 17.7 Inf       722       791
+ RE            803 17.7 Inf       768       837
+ UM            822 17.7 Inf       787       857
+ VA            797 17.7 Inf       762       831
+ YE            820 17.7 Inf       785       854
 
-Degrees-of-freedom method: kenward-roger 
+Degrees-of-freedom method: asymptotic 
 Confidence level used: 0.95 
 
 $`pairwise differences of Population`
- 1       estimate SE df t.ratio p.value
- AK - GI   -64.07 25 18  -2.564  0.2664
- AK - KA   -46.40 25 18  -1.857  0.6478
- AK - MA    -8.28 25 18  -0.331  1.0000
- AK - MU    20.49 25 18   0.820  0.9946
- AK - RE   -25.44 25 18  -1.018  0.9788
- AK - UM   -44.73 25 18  -1.790  0.6875
- AK - VA   -19.51 25 18  -0.781  0.9961
- AK - YE   -42.41 25 18  -1.697  0.7410
- GI - KA    17.67 25 18   0.707  0.9980
- GI - MA    55.80 25 18   2.233  0.4265
- GI - MU    84.56 25 18   3.385  0.0630
- GI - RE    38.64 25 18   1.546  0.8200
- GI - UM    19.34 25 18   0.774  0.9963
- GI - VA    44.56 25 18   1.783  0.6916
- GI - YE    21.67 25 18   0.867  0.9922
- KA - MA    38.13 25 18   1.526  0.8297
- KA - MU    66.89 25 18   2.677  0.2229
- KA - RE    20.97 25 18   0.839  0.9937
- KA - UM     1.67 25 18   0.067  1.0000
- KA - VA    26.89 25 18   1.076  0.9707
- KA - YE     4.00 25 18   0.160  1.0000
- MA - MU    28.77 25 18   1.151  0.9571
- MA - RE   -17.16 25 18  -0.687  0.9984
- MA - UM   -36.46 25 18  -1.459  0.8597
- MA - VA   -11.24 25 18  -0.450  0.9999
- MA - YE   -34.13 25 18  -1.366  0.8965
- MU - RE   -45.93 25 18  -1.838  0.6592
- MU - UM   -65.22 25 18  -2.610  0.2480
- MU - VA   -40.00 25 18  -1.601  0.7926
- MU - YE   -62.90 25 18  -2.517  0.2863
- RE - UM   -19.30 25 18  -0.772  0.9964
- RE - VA     5.92 25 18   0.237  1.0000
- RE - YE   -16.97 25 18  -0.679  0.9985
- UM - VA    25.22 25 18   1.009  0.9799
- UM - YE     2.33 25 18   0.093  1.0000
- VA - YE   -22.89 25 18  -0.916  0.9889
+ 1       estimate SE  df z.ratio p.value
+ AK - GI   -64.07 25 Inf  -2.564  0.2017
+ AK - KA   -46.40 25 Inf  -1.857  0.6435
+ AK - MA    -8.28 25 Inf  -0.331  1.0000
+ AK - MU    20.49 25 Inf   0.820  0.9963
+ AK - RE   -25.44 25 Inf  -1.018  0.9843
+ AK - UM   -44.73 25 Inf  -1.790  0.6888
+ AK - VA   -19.51 25 Inf  -0.781  0.9974
+ AK - YE   -42.41 25 Inf  -1.697  0.7486
+ GI - KA    17.67 25 Inf   0.707  0.9987
+ GI - MA    55.80 25 Inf   2.233  0.3839
+ GI - MU    84.56 25 Inf   3.385  0.0204
+ GI - RE    38.64 25 Inf   1.546  0.8335
+ GI - UM    19.34 25 Inf   0.774  0.9975
+ GI - VA    44.56 25 Inf   1.783  0.6933
+ GI - YE    21.67 25 Inf   0.867  0.9946
+ KA - MA    38.13 25 Inf   1.526  0.8436
+ KA - MU    66.89 25 Inf   2.677  0.1558
+ KA - RE    20.97 25 Inf   0.839  0.9957
+ KA - UM     1.67 25 Inf   0.067  1.0000
+ KA - VA    26.89 25 Inf   1.076  0.9777
+ KA - YE     4.00 25 Inf   0.160  1.0000
+ MA - MU    28.77 25 Inf   1.151  0.9662
+ MA - RE   -17.16 25 Inf  -0.687  0.9990
+ MA - UM   -36.46 25 Inf  -1.459  0.8743
+ MA - VA   -11.24 25 Inf  -0.450  1.0000
+ MA - YE   -34.13 25 Inf  -1.366  0.9106
+ MU - RE   -45.93 25 Inf  -1.838  0.6565
+ MU - UM   -65.22 25 Inf  -2.610  0.1820
+ MU - VA   -40.00 25 Inf  -1.601  0.8046
+ MU - YE   -62.90 25 Inf  -2.517  0.2234
+ RE - UM   -19.30 25 Inf  -0.772  0.9976
+ RE - VA     5.92 25 Inf   0.237  1.0000
+ RE - YE   -16.97 25 Inf  -0.679  0.9990
+ UM - VA    25.22 25 Inf   1.009  0.9851
+ UM - YE     2.33 25 Inf   0.093  1.0000
+ VA - YE   -22.89 25 Inf  -0.916  0.9921
 
-Degrees-of-freedom method: kenward-roger 
+Degrees-of-freedom method: asymptotic 
 P value adjustment: tukey method for comparing a family of 9 estimates 
 

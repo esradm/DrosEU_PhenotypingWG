@@ -472,7 +472,7 @@ DT_A_M_lmer_Gibert <- lmer(DT_EggAdult ~ -1 + Population + (1|Line:Population) +
                            data = d_DT_A_M[d_DT_A_M$Supervisor.PI == "Gibert",]) #Filter by Lab in development time, males data 
 capture.output(summary(DT_A_M_lmer_Gibert),file = "DevelopmentTime/DT_A_M_lmer_Gibert_sum.txt") #save output summary 
 capture.output(anova(DT_A_M_lmer_Gibert),file = "DevelopmentTime/DT_A_M_lmer_Gibert.txt") #save anova output 
-capture.output(emmeans(DT_A_M_lmer_Gibert, list(pairwise ~ Population), adjust = "tukey"),file =  "DevelopmentTime/DT_A_M_lmer_Gibert_tk.txt") #run and save post-hoc test (tukey) output 
+capture.output(emmeans(DT_A_M_lmer_Gibert, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file =  "DevelopmentTime/DT_A_M_lmer_Gibert_tk.txt") #run and save post-hoc test (tukey) output 
 ```
 
 ```{r anova_example, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE}
@@ -654,7 +654,7 @@ invisible(dev.off())
 Via_lmer_Gibert <- lmer(ProportionEggtoAdultSurvival ~ -1 + Population + (1|Line:Population) + (1|Batch) , data = d_Via[d_Via$Supervisor.PI == "Gibert",])
 capture.output(summary(Via_lmer_Gibert),file = "Viability/Via_lmer_Gibert_sum.txt")
 capture.output(anova(Via_lmer_Gibert),file = "Viability/Via_lmer_Gibert.txt")
-capture.output(emmeans(Via_lmer_Gibert, list(pairwise ~ Population), adjust = "tukey"),file = "Viability/Via_lmer_Gibert_tk.txt")
+capture.output(emmeans(Via_lmer_Gibert, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "Viability/Via_lmer_Gibert_tk.txt")
 ```
 
 ```{r}
@@ -701,7 +701,7 @@ invisible(dev.off())
 Via_lmer_Grath <- lmer(ProportionEggtoAdultSurvival ~ -1 + Population + (1|Line:Population) , data = d_Via[d_Via$Supervisor.PI == "Grath",])
 capture.output(summary(Via_lmer_Grath),file = "Viability/Via_lmer_Grath_sum.txt")
 capture.output(anova(Via_lmer_Grath),file = "Viability/Via_lmer_Grath.txt")
-capture.output(emmeans(Via_lmer_Grath, list(pairwise ~ Population), adjust = "tukey"),file = "Viability/Via_lmer_Grath_tk.txt")
+capture.output(emmeans(Via_lmer_Grath, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "Viability/Via_lmer_Grath_tk.txt")
 ```
 
 ```{r}
@@ -750,7 +750,7 @@ invisible(dev.off())
 Via_lmer_Hoedjes <- lmer(ProportionEggtoAdultSurvival ~ -1 + Population + (1|Line:Population) + (1|Batch), data = d_Via[d_Via$Supervisor.PI == "Hoedjes",])
 capture.output(summary(Via_lmer_Hoedjes),file = "Viability/Via_lmer_Hoedjes_sum.txt")
 capture.output(anova(Via_lmer_Hoedjes),file = "Viability/Via_lmer_Hoedjes.txt")
-capture.output(emmeans(Via_lmer_Hoedjes, list(pairwise ~ Population), adjust = "tukey"),file = "Viability/Via_lmer_Hoedjes_tk.txt")
+capture.output(emmeans(Via_lmer_Hoedjes, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "Viability/Via_lmer_Hoedjes_tk.txt")
 ```
 
 ```{r}
@@ -802,7 +802,7 @@ invisible(dev.off())
 Via_lm_Schmidt <- lm(ProportionEggtoAdultSurvival ~ -1 + Population, data = d_Via[d_Via$Supervisor.PI == "Schmidt",])
 capture.output(summary(Via_lm_Schmidt),file = "Viability/Via_lm_Schmidt_sum.txt")
 capture.output(anova(Via_lm_Schmidt),file = "Viability/Via_lm_Schmidt.txt")
-capture.output(emmeans(Via_lm_Schmidt, list(pairwise ~ Population), adjust = "tukey"),file = "Viability/Via_lm_Schmidt_tk.txt")
+capture.output(emmeans(Via_lm_Schmidt, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "Viability/Via_lm_Schmidt_tk.txt")
 ```
 
 ```{r}
@@ -846,7 +846,7 @@ invisible(dev.off())
 Via_lmer_StamenkovicRadak <- lmer(ProportionEggtoAdultSurvival ~ -1 + Population + (1|Line:Population)+ (1|Batch), data = d_Via[d_Via$Supervisor.PI == "StamenkovicRadak",])
 capture.output(summary(Via_lmer_StamenkovicRadak),file = "Viability/Via_lmer_StamenkovicRadak_sum.txt")
 capture.output(anova(Via_lmer_StamenkovicRadak),file = "Viability/Via_lmer_StamenkovicRadak.txt")
-capture.output(emmeans(Via_lmer_StamenkovicRadak, list(pairwise ~ Population), adjust = "tukey"),file = "Viability/Via_lmer_StamenkovicRadak_tk.txt")
+capture.output(emmeans(Via_lmer_StamenkovicRadak, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "Viability/Via_lmer_StamenkovicRadak_tk.txt")
 ```
 
 ```{r}
@@ -893,7 +893,7 @@ invisible(dev.off())
 Via_lmer_Zwaan <- lmer(ProportionEggtoAdultSurvival ~ -1 + Population + (1|Line:Population) + (1|Batch), data = d_Via[d_Via$Supervisor.PI == "Zwaan",])
 capture.output(summary(Via_lmer_Zwaan),file = "Viability/Via_lmer_Zwaan_sum.txt")
 capture.output(anova(Via_lmer_Zwaan),file = "Viability/Via_lmer_Zwaan.txt")
-capture.output(emmeans(Via_lmer_Zwaan, list(pairwise ~ Population), adjust = "tukey"),file = "Viability/Via_lmer_Zwaan_tk.txt")
+capture.output(emmeans(Via_lmer_Zwaan, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "Viability/Via_lmer_Zwaan_tk.txt")
 ```
 
 ```{r}
@@ -1077,7 +1077,7 @@ y-axis is scaled by the minimum (`r min_DT_P`) and maximum (`r max_DT_P`) values
 DT_P_lmer <- lmer(DT_EggPupa ~ -1 + Population + (1|Population:Line), data = d_DT_P)
 capture.output(summary(DT_P_lmer),file = "DevelopmentTime/DT_P_lmer_sum.txt")
 capture.output(anova(DT_P_lmer),file = "DevelopmentTime/DT_P_F_lmer.txt")
-capture.output(emmeans(DT_P_lmer, list(pairwise ~ Population), adjust = "tukey"),file = "DevelopmentTime/DT_P_tk.txt")
+capture.output(emmeans(DT_P_lmer, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "DevelopmentTime/DT_P_tk.txt")
 ```
 
 ```{r}
@@ -1276,7 +1276,7 @@ dev.off()
 DT_A_F_lmer_Gibert <- lmer(DT_EggAdult ~ -1 + Population + (1|Line:Population) + (1|Batch) + (1|ReplicateVial : Line), data = d_DT_A_F[d_DT_A_F$Supervisor.PI == "Gibert",])
 capture.output(summary(DT_A_F_lmer_Gibert),file = "DevelopmentTime/DT_A_F_lmer_Gibert_sum.txt")
 capture.output(anova(DT_A_F_lmer_Gibert),file = "DevelopmentTime/DT_A_F_lmer_Gibert.txt")
-capture.output(emmeans(DT_A_F_lmer_Gibert, list(pairwise ~ Population), adjust = "tukey"),file = "DevelopmentTime/DT_A_F_lmer_Gibert_tk.txt")
+capture.output(emmeans(DT_A_F_lmer_Gibert, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"), file = "DevelopmentTime/DT_A_F_lmer_Gibert_tk.txt")
 ```
 
 ```{r}
@@ -1291,7 +1291,7 @@ summary(DT_A_F_lmer_Gibert)
 DT_A_M_lmer_Gibert <- lmer(DT_EggAdult ~ -1 + Population + (1|Line:Population) + (1|Batch) + (1|ReplicateVial : Line), data = d_DT_A_M[d_DT_A_M$Supervisor.PI == "Gibert",])
 capture.output(summary(DT_A_M_lmer_Gibert),file = "DevelopmentTime/DT_A_M_lmer_Gibert_sum.txt")
 capture.output(anova(DT_A_M_lmer_Gibert),file = "DevelopmentTime/DT_A_M_lmer_Gibert.txt")
-capture.output(emmeans(DT_A_M_lmer_Gibert, list(pairwise ~ Population), adjust = "tukey"),file = "DevelopmentTime/DT_A_M_lmer_Gibert_tk.txt")
+capture.output(emmeans(DT_A_M_lmer_Gibert, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "DevelopmentTime/DT_A_M_lmer_Gibert_tk.txt")
 ```
 
 ```{r}
@@ -1384,7 +1384,7 @@ dev.off()
 DT_A_F_lmer_Grath <- lmer(DT_EggAdult ~ -1 + Population + (1|Line:Population) + (1|ReplicateVial : Line), data = d_DT_A_F[d_DT_A_F$Supervisor.PI == "Grath",])
 capture.output(summary(DT_A_F_lmer_Grath),file = "DevelopmentTime/DT_A_F_lmer_Grath_sum.txt")
 capture.output(anova(DT_A_F_lmer_Grath),file = "DevelopmentTime/DT_A_F_lmer_Grath.txt")
-capture.output(emmeans(DT_A_F_lmer_Grath, list(pairwise ~ Population), adjust = "tukey"),file = "DevelopmentTime/DT_A_F_lmer_Grath_tk.txt")
+capture.output(emmeans(DT_A_F_lmer_Grath, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "DevelopmentTime/DT_A_F_lmer_Grath_tk.txt")
 ```
 
 ```{r}
@@ -1399,7 +1399,7 @@ summary(DT_A_F_lmer_Grath)
 DT_A_M_lmer_Grath <- lmer(DT_EggAdult ~ -1 + Population + (1|Line:Population) + (1|ReplicateVial : Line), data = d_DT_A_M[d_DT_A_M$Supervisor.PI == "Grath",])
 capture.output(summary(DT_A_M_lmer_Grath),file = "DevelopmentTime/DT_A_M_lmer_Grath_sum.txt")
 capture.output(anova(DT_A_M_lmer_Grath),file = "DevelopmentTime/DT_A_M_lmer_Grath.txt")
-capture.output(emmeans(DT_A_M_lmer_Grath, list(pairwise ~ Population), adjust = "tukey"),file = "DevelopmentTime/DT_A_M_lmer_Grath_tk.txt")
+capture.output(emmeans(DT_A_M_lmer_Grath, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "DevelopmentTime/DT_A_M_lmer_Grath_tk.txt")
 ```
 
 ```{r}
@@ -1495,7 +1495,7 @@ dev.off()
 DT_A_F_lmer_Hoedjes <- lmer(DT_EggAdult ~ -1 + Population + (1|Line:Population) + (1|Batch) + (1|ReplicateVial : Line), data = d_DT_A_F[d_DT_A_F$Supervisor.PI == "Hoedjes",])
 capture.output(summary(DT_A_F_lmer_Hoedjes),file = "DevelopmentTime/DT_A_F_lmer_Hoedjes_sum.txt")
 capture.output(anova(DT_A_F_lmer_Hoedjes),file = "DevelopmentTime/DT_A_F_lmer_Hoedjes.txt")
-capture.output(emmeans(DT_A_F_lmer_Hoedjes, list(pairwise ~ Population), adjust = "tukey"),file = "DevelopmentTime/DT_A_F_lmer_Hoedjes_tk.txt")
+capture.output(emmeans(DT_A_F_lmer_Hoedjes, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "DevelopmentTime/DT_A_F_lmer_Hoedjes_tk.txt")
 
 ```
 
@@ -1511,7 +1511,7 @@ summary(DT_A_F_lmer_Hoedjes)
 DT_A_M_lmer_Hoedjes <- lmer(DT_EggAdult ~ -1 + Population + (1|Line:Population) + (1|Batch) + (1|ReplicateVial : Line), data = d_DT_A_M[d_DT_A_M$Supervisor.PI == "Hoedjes",])
 capture.output(summary(DT_A_M_lmer_Hoedjes),file = "DevelopmentTime/DT_A_M_lmer_Hoedjes_sum.txt")
 capture.output(anova(DT_A_M_lmer_Hoedjes),file = "DevelopmentTime/DT_A_M_lmer_Hoedjes.txt")
-capture.output(emmeans(DT_A_M_lmer_Hoedjes, list(pairwise ~ Population), adjust = "tukey"),file = "DevelopmentTime/DT_A_M_lmer_Hoedjes_tk.txt")
+capture.output(emmeans(DT_A_M_lmer_Hoedjes, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "DevelopmentTime/DT_A_M_lmer_Hoedjes_tk.txt")
 
 ```
 
@@ -1606,7 +1606,7 @@ dev.off()
 DT_A_F_lmer_Schmidt <- lmer(DT_EggAdult ~ -1 + Population + (1|Line:Population), data = d_DT_A_F[d_DT_A_F$Supervisor.PI == "Schmidt",])
 capture.output(summary(DT_A_F_lmer_Schmidt),file = "DevelopmentTime/DT_A_F_lmer_Schmidt_sum.txt")
 capture.output(anova(DT_A_F_lmer_Schmidt),file = "DevelopmentTime/DT_A_F_lmer_Schmidt.txt")
-capture.output(emmeans(DT_A_F_lmer_Schmidt, list(pairwise ~ Population), adjust = "tukey"),file = "DevelopmentTime/DT_A_F_lmer_Schmidt_tk.txt")
+capture.output(emmeans(DT_A_F_lmer_Schmidt, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "DevelopmentTime/DT_A_F_lmer_Schmidt_tk.txt")
 ```
 
 ```{r}
@@ -1621,7 +1621,7 @@ summary(DT_A_F_lmer_Schmidt)
 DT_A_M_lmer_Schmidt <- lmer(DT_EggAdult ~ -1 + Population + (1|Line:Population), data = d_DT_A_M[d_DT_A_M$Supervisor.PI == "Schmidt",])
 capture.output(summary(DT_A_M_lmer_Schmidt),file = "DevelopmentTime/DT_A_M_lmer_Schmidt_sum.txt")
 capture.output(anova(DT_A_M_lmer_Schmidt),file = "DevelopmentTime/DT_A_M_lmer_Schmidt.txt")
-capture.output(emmeans(DT_A_M_lmer_Schmidt, list(pairwise ~ Population), adjust = "tukey"),file = "DevelopmentTime/DT_A_M_lmer_Schmidt_tk.txt")
+capture.output(emmeans(DT_A_M_lmer_Schmidt, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "DevelopmentTime/DT_A_M_lmer_Schmidt_tk.txt")
 ```
 
 ```{r}
@@ -1713,7 +1713,7 @@ dev.off()
 DT_A_F_lmer_StamenkovicRadak <- lmer(DT_EggAdult ~ -1 + Population + (1|Line:Population)+ (1|Batch) + (1|ReplicateVial : Line), data = d_DT_A_F[d_DT_A_F$Supervisor.PI == "StamenkovicRadak",])
 capture.output(summary(DT_A_F_lmer_StamenkovicRadak),file = "DevelopmentTime/DT_A_F_lmer_StamenkovicRadak_sum.txt")
 capture.output(anova(DT_A_F_lmer_StamenkovicRadak),file = "DevelopmentTime/DT_A_F_lmer_StamenkovicRadak.txt")
-capture.output(emmeans(DT_A_F_lmer_StamenkovicRadak, list(pairwise ~ Population), adjust = "tukey"),file = "DevelopmentTime/DT_A_F_lmer_StamenkovicRadak_tk.txt")
+capture.output(emmeans(DT_A_F_lmer_StamenkovicRadak, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "DevelopmentTime/DT_A_F_lmer_StamenkovicRadak_tk.txt")
 ```
 
 ```{r}
@@ -1728,7 +1728,7 @@ summary(DT_A_F_lmer_StamenkovicRadak)
 DT_A_M_lmer_StamenkovicRadak <- lmer(DT_EggAdult ~ -1 + Population + (1|Line:Population) + (1|Batch) + (1|ReplicateVial : Line), data = d_DT_A_M[d_DT_A_M$Supervisor.PI == "StamenkovicRadak",])
 capture.output(summary(DT_A_M_lmer_StamenkovicRadak),file = "DevelopmentTime/DT_A_M_lmer_StamenkovicRadak_sum.txt")
 capture.output(anova(DT_A_M_lmer_StamenkovicRadak),file = "DevelopmentTime/DT_A_M_lmer_StamenkovicRadak.txt")
-capture.output(emmeans(DT_A_M_lmer_StamenkovicRadak, list(pairwise ~ Population), adjust = "tukey"),file = "DevelopmentTime/DT_A_M_lmer_StamenkovicRadak_tk.txt")
+capture.output(emmeans(DT_A_M_lmer_StamenkovicRadak, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "DevelopmentTime/DT_A_M_lmer_StamenkovicRadak_tk.txt")
 ```
 
 ```{r}
@@ -1820,7 +1820,7 @@ dev.off()
 DT_A_F_lmer_Zwaan <- lmer(DT_EggAdult ~ -1 + Population + (1|Line:Population) + (1|Batch) + (1|ReplicateVial : Line), data = d_DT_A_F[d_DT_A_F$Supervisor.PI == "Zwaan",])
 capture.output(summary(DT_A_F_lmer_Zwaan),file = "DevelopmentTime/DT_A_F_lmer_Zwaan_sum.txt")
 capture.output(anova(DT_A_F_lmer_Zwaan),file = "DevelopmentTime/DT_A_F_lmer_Zwaan.txt")
-capture.output(emmeans(DT_A_F_lmer_Zwaan, list(pairwise ~ Population), adjust = "tukey"),file = "DevelopmentTime/DT_A_F_lmer_Zwaan_tk.txt")
+capture.output(emmeans(DT_A_F_lmer_Zwaan, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "DevelopmentTime/DT_A_F_lmer_Zwaan_tk.txt")
 
 ```
 
@@ -1836,7 +1836,7 @@ summary(DT_A_F_lmer_Zwaan)
 DT_A_M_lmer_Zwaan <- lmer(DT_EggAdult ~ -1 + Population + (1|Line:Population) + (1|Batch) + (1|ReplicateVial : Line), data = d_DT_A_M[d_DT_A_M$Supervisor.PI == "Zwaan",])
 capture.output(summary(DT_A_M_lmer_Zwaan),file = "DevelopmentTime/DT_A_M_lmer_Zwaan_sum.txt")
 capture.output(anova(DT_A_M_lmer_Zwaan),file = "DevelopmentTime/DT_A_M_lmer_Zwaan.txt")
-capture.output(emmeans(DT_A_M_lmer_Zwaan, list(pairwise ~ Population), adjust = "tukey"),file = "DevelopmentTime/DT_A_M_lmer_Zwaan_tk.txt")
+capture.output(emmeans(DT_A_M_lmer_Zwaan, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "DevelopmentTime/DT_A_M_lmer_Zwaan_tk.txt")
 ```
 
 
@@ -2133,7 +2133,7 @@ dev.off()
 DW_F_lmer_Colinet <- lmer(DW_micrograms ~ -1 + Population + (1|Population:Line) + (1|Batch), data = d_DW_F[d_DW_F$Supervisor.PI == "Colinet",])
 capture.output(summary(DW_F_lmer_Colinet),file = "DryWeight/DW_F_lmer_Colinet_sum.txt")
 capture.output(anova(DW_F_lmer_Colinet),file = "DryWeight/DW_F_lmer_Colinet.txt")
-capture.output(emmeans(DW_F_lmer_Colinet, list(pairwise ~ Population), adjust = "tukey"),file = "DryWeight/DW_F_lmer_Colinet_tk.txt")
+capture.output(emmeans(DW_F_lmer_Colinet, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "DryWeight/DW_F_lmer_Colinet_tk.txt")
 ```
 
 ```{r}
@@ -2149,7 +2149,7 @@ summary(DW_F_lmer_Colinet)
 DW_M_lmer_Colinet <- lmer(DW_micrograms ~ -1 + Population + (1|Population:Line) + (1|Batch), data = d_DW_M[d_DW_M$Supervisor.PI == "Colinet",])
 capture.output(summary(DW_M_lmer_Colinet),file = "DryWeight/DW_M_lmer_Colinet_sum.txt")
 capture.output(anova(DW_M_lmer_Colinet),file = "DryWeight/DW_M_lmer_Colinet.txt")
-capture.output(emmeans(DW_M_lmer_Colinet, list(pairwise ~ Population), adjust = "tukey"),file = "DryWeight/DW_M_lmer_Colinet_tk.txt")
+capture.output(emmeans(DW_M_lmer_Colinet, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "DryWeight/DW_M_lmer_Colinet_tk.txt")
 ```
 
 
@@ -2246,7 +2246,7 @@ dev.off()
 DW_F_lmer_Hoedjes <- lmer(DW_micrograms ~ -1 + Population + (1|Population:Line) + (1|Batch), data = d_DW_F[d_DW_F$Supervisor.PI == "Hoedjes",])
 capture.output(summary(DW_F_lmer_Hoedjes),file = "DryWeight/DW_F_lmer_Hoedjes_sum.txt")
 capture.output(anova(DW_F_lmer_Hoedjes),file = "DryWeight/DW_F_lmer_Hoedjes.txt")
-capture.output(emmeans(DW_F_lmer_Hoedjes, list(pairwise ~ Population), adjust = "tukey"),file = "DryWeight/DW_F_lmer_Hoedjes_tk.txt")
+capture.output(emmeans(DW_F_lmer_Hoedjes, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "DryWeight/DW_F_lmer_Hoedjes_tk.txt")
 ```
 
 ```{r}
@@ -2261,7 +2261,7 @@ summary(DW_F_lmer_Hoedjes)
 DW_M_lmer_Hoedjes <- lmer(DW_micrograms ~ -1 + Population + (1|Population:Line) + (1|Batch), data = d_DW_M[d_DW_M$Supervisor.PI == "Hoedjes",])
 capture.output(summary(DW_M_lmer_Hoedjes),file = "DryWeight/DW_M_lmer_Hoedjes_sum.txt")
 capture.output(anova(DW_M_lmer_Hoedjes),file = "DryWeight/DW_M_lmer_Hoedjes.txt")
-capture.output(emmeans(DW_M_lmer_Hoedjes, list(pairwise ~ Population), adjust = "tukey"),file = "DryWeight/DW_M_lmer_Hoedjes_tk.txt")
+capture.output(emmeans(DW_M_lmer_Hoedjes, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "DryWeight/DW_M_lmer_Hoedjes_tk.txt")
 ```
 
 ```{r}
@@ -2358,7 +2358,7 @@ dev.off()
 DW_F_lmer_Onder <- lmer(DW_micrograms ~ -1 + Population + (1|Population:Line) + (1|Batch), data = d_DW_F[d_DW_F$Supervisor.PI == "Onder",])
 capture.output(summary(DW_F_lmer_Onder),file = "DryWeight/DW_F_lmer_Onder_sum.txt")
 capture.output(anova(DW_F_lmer_Onder),file = "DryWeight/DW_F_lmer_Onder.txt")
-capture.output(emmeans(DW_F_lmer_Onder, list(pairwise ~ Population), adjust = "tukey"),file = "DryWeight/DW_F_lmer_Onder_tk.txt")
+capture.output(emmeans(DW_F_lmer_Onder, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "DryWeight/DW_F_lmer_Onder_tk.txt")
 
 ```
 
@@ -2377,7 +2377,7 @@ summary(DW_F_lmer_Onder)
 DW_M_lmer_Onder <- lmer(DW_micrograms ~ -1 + Population + (1|Population:Line) + (1|Batch), data = d_DW_M[d_DW_M$Supervisor.PI == "Onder",])
 capture.output(summary(DW_M_lmer_Onder),file = "DryWeight/DW_M_lmer_Onder_sum.txt")
 capture.output(anova(DW_M_lmer_Onder),file = "DryWeight/DW_M_lmer_Onder.txt")
-capture.output(emmeans(DW_M_lmer_Onder, list(pairwise ~ Population), adjust = "tukey"),file = "DryWeight/DW_M_lmer_Onder_tk.txt")
+capture.output(emmeans(DW_M_lmer_Onder, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "DryWeight/DW_M_lmer_Onder_tk.txt")
 
 ```
 
@@ -2702,7 +2702,7 @@ TL_F_lmer_Kozeretska <- lmer(TL_micrometers ~ -1 + Population + (1|Line:Populati
                                (1|Batch) + (1|ReplicateVial : Line : Population), data = (subset(d_TL_F,Supervisor.PI=='Kozeretska')))
 capture.output(summary(TL_F_lmer_Kozeretska),file = "ThoraxLength/TL_F_Kozeretska_sum.txt")
 capture.output(anova(TL_F_lmer_Kozeretska),file = "ThoraxLength/TL_F_lmer_Kozeretska.txt")
-capture.output(emmeans(TL_F_lmer_Kozeretska, list(pairwise ~ Population), adjust = "tukey"),file = "ThoraxLength/TL_F_tk.txt")
+capture.output(emmeans(TL_F_lmer_Kozeretska, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "ThoraxLength/TL_F_tk.txt")
 ```
 
 ```{r}
@@ -2718,7 +2718,7 @@ TL_M_lmer_Kozeretska <- lmer(TL_micrometers ~ -1 + Population + (1|Line:Populati
                                (1|Batch) + (1|ReplicateVial : Line : Population), data = (subset(d_TL_M,Supervisor.PI=='Kozeretska')))
 capture.output(summary(TL_M_lmer_Kozeretska),file = "ThoraxLength/TL_M_Kozeretska_sum.txt")
 capture.output(anova(TL_M_lmer_Kozeretska),file = "ThoraxLength/TL_M_lmer_Kozeretska.txt")
-capture.output(emmeans(TL_M_lmer_Kozeretska, list(pairwise ~ Population), adjust = "tukey"),file = "ThoraxLength/TL_M_tk.txt")
+capture.output(emmeans(TL_M_lmer_Kozeretska, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "ThoraxLength/TL_M_tk.txt")
 ```
 
 ```{r}
@@ -2811,7 +2811,7 @@ TL_F_lmer_Posnien <- lmer(TL_micrometers ~ -1 + Population + (1|Line:Population)
                             (1|ReplicateVial : Line : Population), data = (subset(d_TL_F,Supervisor.PI=='Posnien')))
 capture.output(summary(TL_F_lmer_Posnien),file = "ThoraxLength/TL_F_Posnien_sum.txt")
 capture.output(anova(TL_F_lmer_Posnien),file = "ThoraxLength/TL_F_lmer_Posnien.txt")
-capture.output(emmeans(TL_F_lmer_Posnien, list(pairwise ~ Population), adjust = "tukey"),file = "ThoraxLength/TL_F_lmer_Posnientk.txt")
+capture.output(emmeans(TL_F_lmer_Posnien, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "ThoraxLength/TL_F_lmer_Posnientk.txt")
 ```
 
 ```{r}
@@ -2827,7 +2827,7 @@ summary(TL_F_lmer_Posnien)
 TL_M_lmer_Posnien <- lmer(TL_micrometers ~ -1 + Population + (1|Line:Population), data = (subset(d_TL_M,Supervisor.PI=='Posnien')))
 capture.output(summary(TL_M_lmer_Posnien),file = "ThoraxLength/TL_M_Posnien_sum.txt")
 capture.output(anova(TL_M_lmer_Posnien),file = "ThoraxLength/TL_M_lmer_Posnien.txt")
-capture.output(emmeans(TL_M_lmer_Posnien, list(pairwise ~ Population), adjust = "tukey"),file = "ThoraxLength/TL_M_lmer_Posnien_tk.txt")
+capture.output(emmeans(TL_M_lmer_Posnien, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "ThoraxLength/TL_M_lmer_Posnien_tk.txt")
 ```
 
 ```{r}
@@ -2922,7 +2922,7 @@ TL_F_lmer_Ritchie <- lmer(TL_micrometers ~ -1 + Population + (1|Line:Population)
                             (1|Batch), data = (subset(d_TL_F,Supervisor.PI=='Ritchie')))
 capture.output(summary(TL_F_lmer_Ritchie),file = "ThoraxLength/TL_F_Ritchie_sum.txt")
 capture.output(anova(TL_F_lmer_Ritchie),file = "ThoraxLength/TL_F_lmer_Ritchie.txt")
-capture.output(emmeans(TL_F_lmer_Ritchie, list(pairwise ~ Population), adjust = "tukey"),file = "ThoraxLength/TL_F_lmer_Ritchie_tk.txt")
+capture.output(emmeans(TL_F_lmer_Ritchie, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "ThoraxLength/TL_F_lmer_Ritchie_tk.txt")
 ```
 
 
@@ -2939,7 +2939,7 @@ TL_M_lmer_Ritchie <- lmer(TL_micrometers ~ -1 + Population + (1|Line:Population)
                             (1|Batch), data = (subset(d_TL_M,Supervisor.PI=='Ritchie')))
 capture.output(summary(TL_M_lmer_Ritchie),file = "ThoraxLength/TL_M_Ritchie_sum.txt")
 capture.output(anova(TL_M_lmer_Ritchie),file = "ThoraxLength/TL_M_lmer_Ritchie.txt")
-capture.output(emmeans(TL_M_lmer_Ritchie, list(pairwise ~ Population), adjust = "tukey"),file = "ThoraxLength/TL_M_lmer_Ritchie_tk.txt")
+capture.output(emmeans(TL_M_lmer_Ritchie, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "ThoraxLength/TL_M_lmer_Ritchie_tk.txt")
 ```
 
 ```{r}
@@ -3037,7 +3037,7 @@ dev.off()
 TL_F_lmer_Schmidt <- lmer(TL_micrometers ~ -1 + Population + (1|Line:Population), data = (subset(d_TL_F,Supervisor.PI=='Schmidt')))
 capture.output(summary(TL_F_lmer_Schmidt),file = "ThoraxLength/TL_F_Schmidt_sum.txt")
 capture.output(anova(TL_F_lmer_Schmidt),file = "ThoraxLength/TL_F_lmer_Schmidt.txt")
-capture.output(emmeans(TL_F_lmer_Schmidt, list(pairwise ~ Population), adjust = "tukey"),file = "ThoraxLength/TL_F_lmer_Schmidt_tk.txt")
+capture.output(emmeans(TL_F_lmer_Schmidt, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "ThoraxLength/TL_F_lmer_Schmidt_tk.txt")
 ```
 
 ```{r}
@@ -3323,7 +3323,7 @@ dev.off()
 WA_F_L_Onder_lmer <- lmer(CentroidSizeLeft_micrometers ~ -1 + Population + (1|Line:Population) + (1|Batch) + (1|ReplicateVial:Line:Population), data = d_WA_F %>% filter(Supervisor.PI=='Onder'))
 capture.output(summary(WA_F_L_Onder_lmer),file = "WingArea/WA_F_L_Onder_sum.txt")
 capture.output(anova(WA_F_L_Onder_lmer),file = "WingArea/WA_F_L_Onder_lmer.txt")
-capture.output(emmeans(WA_F_L_Onder_lmer, list(pairwise ~ Population), adjust = "tukey"),file = "WingArea/WA_F_L_Onder_lmer_tk.txt")
+capture.output(emmeans(WA_F_L_Onder_lmer, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "WingArea/WA_F_L_Onder_lmer_tk.txt")
 
 ```
 
@@ -3341,7 +3341,7 @@ WA_M_L_Onder_lmer <- lmer(CentroidSizeLeft_micrometers ~ -1 + Population + (1|Li
                             (1|Batch) + (1|ReplicateVial : Line : Population), data = (subset(d_WA_M,Supervisor.PI=='Onder')))
 capture.output(summary(WA_M_L_Onder_lmer),file = "WingArea/WA_M_L_Onder_sum.txt")
 capture.output(anova(WA_M_L_Onder_lmer),file = "WingArea/WA_M_L_Onder_lmer.txt")
-capture.output(emmeans(WA_M_L_Onder_lmer, list(pairwise ~ Population), adjust = "tukey"),file = "WingArea/WA_M_L_Onder_lmer_tk.txt")
+capture.output(emmeans(WA_M_L_Onder_lmer, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "WingArea/WA_M_L_Onder_lmer_tk.txt")
 ```
 
 ```{r}
@@ -3438,7 +3438,7 @@ WA_F_L_Posnien_lmer <- lmer(CentroidSizeLeft_micrometers ~ -1 + Population + (1|
                             (1|ReplicateVial : Line : Population), data = (subset(d_WA_F,Supervisor.PI=='Posnien')))
 capture.output(summary(WA_F_L_Posnien_lmer),file = "WingArea/WA_F_L_Posnien_sum.txt")
 capture.output(anova(WA_F_L_Posnien_lmer),file = "WingArea/WA_F_L_Posnien_lmer.txt")
-capture.output(emmeans(WA_F_L_Posnien_lmer, list(pairwise ~ Population), adjust = "tukey"),file = "WingArea/WA_F_L_Posnien_lmer_tk.txt")
+capture.output(emmeans(WA_F_L_Posnien_lmer, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "WingArea/WA_F_L_Posnien_lmer_tk.txt")
 
 ```
 
@@ -3457,7 +3457,7 @@ WA_M_L_Posnien_lmer <- lmer(CentroidSizeLeft_micrometers ~ -1 + Population + (1|
                               (1|ReplicateVial : Line : Population), data = (subset(d_WA_M,Supervisor.PI=='Posnien')))
 capture.output(summary(WA_M_L_Posnien_lmer),file = "WingArea/WA_M_L_Posnien_sum.txt")
 capture.output(anova(WA_M_L_Posnien_lmer),file = "WingArea/WA_M_L_Posnien_lmer.txt")
-capture.output(emmeans(WA_M_L_Posnien_lmer, list(pairwise ~ Population), adjust = "tukey"),file = "WingArea/WA_F_L_Posnien_lmer_tk.txt")
+capture.output(emmeans(WA_M_L_Posnien_lmer, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "WingArea/WA_F_L_Posnien_lmer_tk.txt")
 
 ```
 
@@ -3556,7 +3556,7 @@ WA_F_L_Ritchie_lmer <- lmer(CentroidSizeLeft_micrometers ~ -1 + Population + (1|
                               (1|Batch) + (1|ReplicateVial : Line : Population), data = (subset(d_WA_F,Supervisor.PI=='Ritchie')))
 capture.output(summary(WA_F_L_Ritchie_lmer),file = "WingArea/WA_F_L_Ritchie_sum.txt")
 capture.output(anova(WA_F_L_Ritchie_lmer),file = "WingArea/WA_F_L_Ritchie_lmer.txt")
-capture.output(emmeans(WA_F_L_Ritchie_lmer, list(pairwise ~ Population), adjust = "tukey"),file = "WingArea/WA_F_L_Ritchie_lmer_tk.txt")
+capture.output(emmeans(WA_F_L_Ritchie_lmer, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "WingArea/WA_F_L_Ritchie_lmer_tk.txt")
 
 ```
 
@@ -3574,7 +3574,7 @@ WA_M_L_Ritchie_lmer <- lmer(CentroidSizeLeft_micrometers ~ -1 + Population + (1|
                               (1|Batch) + (1|ReplicateVial : Line : Population), data = (subset(d_WA_M,Supervisor.PI=='Ritchie')))
 capture.output(summary(WA_M_L_Ritchie_lmer),file = "WingArea/WA_M_L_Ritchie_sum.txt")
 capture.output(anova(WA_M_L_Ritchie_lmer),file = "WingArea/WA_M_L_Ritchie_lmer.txt")
-capture.output(emmeans(WA_M_L_Ritchie_lmer, list(pairwise ~ Population), adjust = "tukey"),file = "WingArea/WA_M_L_Ritchie_lmer_tk.txt")
+capture.output(emmeans(WA_M_L_Ritchie_lmer, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "WingArea/WA_M_L_Ritchie_lmer_tk.txt")
 
 ```
 
@@ -3673,7 +3673,7 @@ WA_F_L_StamenkovicRadak_lmer <- lmer(CentroidSizeLeft_micrometers ~ -1 + Populat
                                        (1|Batch) + (1|ReplicateVial : Line : Population), data = (subset(d_WA_F,Supervisor.PI=='StamenkovicRadak')))
 capture.output(summary(WA_F_L_StamenkovicRadak_lmer),file = "WingArea/WA_F_L_StamenkovicRadak_sum.txt")
 capture.output(anova(WA_F_L_StamenkovicRadak_lmer),file = "WingArea/WA_F_L_StamenkovicRadak_lmer.txt")
-capture.output(emmeans(WA_F_L_StamenkovicRadak_lmer, list(pairwise ~ Population), adjust = "tukey"),file = "WingArea/WA_F_L_StamenkovicRadak_lmer_tk.txt")
+capture.output(emmeans(WA_F_L_StamenkovicRadak_lmer, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "WingArea/WA_F_L_StamenkovicRadak_lmer_tk.txt")
 
 
 ```
@@ -3692,7 +3692,7 @@ WA_M_L_StamenkovicRadak_lmer <- lmer(CentroidSizeLeft_micrometers ~ -1 + Populat
                                        (1|Batch) + (1|ReplicateVial : Line : Population), data = (subset(d_WA_M,Supervisor.PI=='StamenkovicRadak')))
 capture.output(summary(WA_M_L_StamenkovicRadak_lmer),file = "WingArea/WA_M_L_StamenkovicRadak_sum.txt")
 capture.output(anova(WA_M_L_StamenkovicRadak_lmer),file = "WingArea/WA_M_L_StamenkovicRadak_lmer.txt")
-capture.output(emmeans(WA_M_L_StamenkovicRadak_lmer, list(pairwise ~ Population), adjust = "tukey"),file = "WingArea/WA_M_L_StamenkovicRadak_lmer_tk.txt")
+capture.output(emmeans(WA_M_L_StamenkovicRadak_lmer, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "WingArea/WA_M_L_StamenkovicRadak_lmer_tk.txt")
 
 ```
 
@@ -3916,7 +3916,7 @@ WA_F_R_Onder_lmer <- lmer(CentroidSizeRight_micrometers ~ -1 + Population + (1|L
                             (1|Batch) + (1|ReplicateVial : Line : Population), data = (subset(d_WA_F,Supervisor.PI=='Onder')))
 capture.output(summary(WA_F_R_Onder_lmer),file = "WingArea/WA_F_R_Onder_sum.txt")
 capture.output(anova(WA_F_R_Onder_lmer),file = "WingArea/WA_F_R_Onder_lmer.txt")
-capture.output(emmeans(WA_F_R_Onder_lmer, list(pairwise ~ Population), adjust = "tukey"),file = "WingArea/WA_F_R_Onder_lmer_tk.txt")
+capture.output(emmeans(WA_F_R_Onder_lmer, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "WingArea/WA_F_R_Onder_lmer_tk.txt")
 
 ```
 
@@ -3934,7 +3934,7 @@ WA_M_R_Onder_lmer <- lmer(CentroidSizeRight_micrometers ~ -1 + Population + (1|L
                             (1|Batch) + (1|ReplicateVial : Line : Population), data = (subset(d_WA_M,Supervisor.PI=='Onder')))
 capture.output(summary(WA_M_R_Onder_lmer),file = "WingArea/WA_M_R_Onder_sum.txt")
 capture.output(anova(WA_M_R_Onder_lmer),file = "WingArea/WA_M_R_Onder_lmer.txt")
-capture.output(emmeans(WA_M_R_Onder_lmer, list(pairwise ~ Population), adjust = "tukey"),file = "WingArea/WA_M_R_Onder_lmer_tk.txt")
+capture.output(emmeans(WA_M_R_Onder_lmer, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "WingArea/WA_M_R_Onder_lmer_tk.txt")
 
 ```
 
@@ -4033,7 +4033,7 @@ WA_F_R_Posnien_lmer <- lmer(CentroidSizeRight_micrometers ~ -1 + Population + (1
                               (1|ReplicateVial : Line : Population), data = (subset(d_WA_F,Supervisor.PI=='Posnien')))
 capture.output(summary(WA_F_R_Posnien_lmer),file = "WingArea/WA_F_R_Posnien_sum.txt")
 capture.output(anova(WA_F_R_Posnien_lmer),file = "WingArea/WA_F_R_Posnien_lmer.txt")
-capture.output(emmeans(WA_F_R_Posnien_lmer, list(pairwise ~ Population), adjust = "tukey"),file = "WingArea/WA_F_R_Posnien_lmer_tk.txt")
+capture.output(emmeans(WA_F_R_Posnien_lmer, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "WingArea/WA_F_R_Posnien_lmer_tk.txt")
 
 ```
 
@@ -4051,7 +4051,7 @@ WA_M_R_Posnien_lmer <- lmer(CentroidSizeRight_micrometers ~ -1 + Population + (1
                                (1|ReplicateVial : Line : Population), data = (subset(d_WA_M,Supervisor.PI=='Posnien')))
 capture.output(summary(WA_M_R_Posnien_lmer),file = "WingArea/WA_M_R_Posnien_sum.txt")
 capture.output(anova(WA_M_R_Posnien_lmer),file = "WingArea/WA_M_R_Posnien_lmer.txt")
-capture.output(emmeans(WA_M_R_Posnien_lmer, list(pairwise ~ Population), adjust = "tukey"),file = "WingArea/WA_M_R_Posnien_lmer_tk.txt")
+capture.output(emmeans(WA_M_R_Posnien_lmer, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "WingArea/WA_M_R_Posnien_lmer_tk.txt")
 
 ```
 
@@ -4149,7 +4149,7 @@ WA_F_R_Ritchie_lmer <- lmer(CentroidSizeRight_micrometers ~ -1 + Population + (1
                               (1|Batch) + (1|ReplicateVial : Line : Population), data = (subset(d_WA_F,Supervisor.PI=='Ritchie')))
 capture.output(summary(WA_F_R_Ritchie_lmer),file = "WingArea/WA_F_R_Ritchie_sum.txt")
 capture.output(anova(WA_F_R_Ritchie_lmer),file = "WingArea/WA_F_R_Ritchie_lmer.txt")
-capture.output(emmeans(WA_F_R_Ritchie_lmer, list(pairwise ~ Population), adjust = "tukey"),file = "WingArea/WA_F_R_Ritchie_lmer_tk.txt")
+capture.output(emmeans(WA_F_R_Ritchie_lmer, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "WingArea/WA_F_R_Ritchie_lmer_tk.txt")
 
 ```
 
@@ -4167,7 +4167,7 @@ WA_M_R_Ritchie_lmer <- lmer(CentroidSizeRight_micrometers ~ -1 + Population + (1
                               (1|Batch) + (1|ReplicateVial : Line : Population), data = (subset(d_WA_M,Supervisor.PI=='Ritchie')))
 capture.output(summary(WA_M_R_Ritchie_lmer),file = "WingArea/WA_M_R_Ritchie_sum.txt")
 capture.output(anova(WA_M_R_Ritchie_lmer),file = "WingArea/WA_M_R_Ritchie_lmer.txt")
-capture.output(emmeans(WA_M_R_Ritchie_lmer, list(pairwise ~ Population), adjust = "tukey"),file = "WingArea/WA_M_R_Ritchie_lmer_tk.txt")
+capture.output(emmeans(WA_M_R_Ritchie_lmer, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "WingArea/WA_M_R_Ritchie_lmer_tk.txt")
 
 ```
 
@@ -4265,7 +4265,7 @@ WA_F_R_StamenkovicRadak_lmer <- lmer(CentroidSizeRight_micrometers ~ -1 + Popula
                                        (1|Batch) + (1|ReplicateVial : Line : Population), data = (subset(d_WA_F,Supervisor.PI=='StamenkovicRadak')))
 capture.output(summary(WA_F_R_StamenkovicRadak_lmer),file = "WingArea/WA_F_R_StamenkovicRadak_sum.txt")
 capture.output(anova(WA_F_R_StamenkovicRadak_lmer),file = "WingArea/WA_F_R_StamenkovicRadak_lmer.txt")
-capture.output(emmeans(WA_F_R_StamenkovicRadak_lmer, list(pairwise ~ Population), adjust = "tukey"),file = "WingArea/WA_F_R_StamenkovicRadak_lmer_tk.txt")
+capture.output(emmeans(WA_F_R_StamenkovicRadak_lmer, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "WingArea/WA_F_R_StamenkovicRadak_lmer_tk.txt")
 
 ```
 
@@ -4283,7 +4283,7 @@ WA_M_R_StamenkovicRadak_lmer <- lmer(CentroidSizeRight_micrometers ~ -1 + Popula
                                        (1|Batch) + (1|ReplicateVial : Line : Population), data = (subset(d_WA_M,Supervisor.PI=='StamenkovicRadak')))
 capture.output(summary(WA_M_R_StamenkovicRadak_lmer),file = "WingArea/WA_M_R_StamenkovicRadak_sum.txt")
 capture.output(anova(WA_M_R_StamenkovicRadak_lmer),file = "WingArea/WA_M_R_StamenkovicRadak_lmer.txt")
-capture.output(emmeans(WA_M_R_StamenkovicRadak_lmer, list(pairwise ~ Population), adjust = "tukey"),file = "WingArea/WA_F_R_StamenkovicRadak_lmer_tk.txt")
+capture.output(emmeans(WA_M_R_StamenkovicRadak_lmer, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "WingArea/WA_F_R_StamenkovicRadak_lmer_tk.txt")
 
 
 ```
@@ -4625,7 +4625,7 @@ dev.off()
 Fec_lmer_Billeter <- lmer(NumberOfAdultsEclosed ~ -1 + Population + (1|Population:Line), data = d_Fec[d_Fec$Supervisor.PI == "Billeter",]) 
 capture.output(anova(Fec_lmer_Billeter),file = "Fecundity/Fec_lmer_Billeter.txt")
 capture.output(summary(Fec_lmer_Billeter),file = "Fecundity/Fec_lmer_Billeter_sum.txt")
-capture.output(emmeans(Fec_lmer_Billeter, list(pairwise ~ Population), adjust = "tukey"),file = "Fecundity/Fec_lmer_Billeter_tukey.txt")
+capture.output(emmeans(Fec_lmer_Billeter, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "Fecundity/Fec_lmer_Billeter_tukey.txt")
 
 ```
 
@@ -4675,7 +4675,7 @@ Fec_lmer_Fricke <- lmer(NumberOfAdultsEclosed ~ -1 + Population + (1|Population:
                          (1|Batch), data = d_Fec[d_Fec$Supervisor.PI == "Fricke",])
 capture.output(anova(Fec_lmer_Fricke),file = "Fecundity/Fec_lmer_Fricke.txt")
 capture.output(summary(Fec_lmer_Fricke),file = "Fecundity/Fec_lmer_Fricke_sum.txt")
-capture.output(emmeans(Fec_lmer_Fricke, list(pairwise ~ Population), adjust = "tukey"),file = "Fecundity/Fec_lmer_Fricke_tukey.txt")
+capture.output(emmeans(Fec_lmer_Fricke, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "Fecundity/Fec_lmer_Fricke_tukey.txt")
 ```
 
 ```{r}
@@ -5018,7 +5018,7 @@ dev.off()
 LS_P_F_Flatt_lmer <- lmer(LSP_AgeAtDeath_days ~ -1 + Population + (1|Population:ReplicateCage), data = filter(d_LS_P_F, Censor == "0" & Supervisor.PI == "Flatt"))
 capture.output(summary(LS_P_F_Flatt_lmer),file = "Lifespan/LS_P_F_Flatt_lmer.txt")
 capture.output(anova(LS_P_F_Flatt_lmer),file = "Lifespan/LS_P_F_Flatt_lmer.txt")
-#capture.output(emmeans(LS_P_F_Flatt_lmer, list(pairwise ~ Population), adjust = "tukey"),file = "LS_P_F_Flatt_lmer_tk.txt")
+capture.output(emmeans(LS_P_F_Flatt_lmer, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "Lifespan/LS_P_F_Flatt_lmer_tk.txt")
 ```
 
 ```{r}
@@ -5033,7 +5033,7 @@ summary(LS_P_F_Flatt_lmer)
 LS_P_M_Flatt_lmer <- lmer(LSP_AgeAtDeath_days ~ -1 + Population + (1|Population:ReplicateCage), data = filter(d_LS_P_M, Censor == "0" & Supervisor.PI == "Flatt"))
 capture.output(summary(LS_P_M_Flatt_lmer),file = "Lifespan/LS_P_M_Flatt_lmer_sum.txt")
 capture.output(anova(LS_P_M_Flatt_lmer),file = "Lifespan/LS_P_M_Flatt_lmer.txt")
-#capture.output(emmeans(LS_P_F_Flatt_lmer, list(pairwise ~ Population), adjust = "tukey"),file = "LS_P_M_Flatt_lmer_tk.txt")
+capture.output(emmeans(LS_P_M_Flatt_lmer, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "Lifespan/LS_P_M_Flatt_lmer_tk.txt")
 ```
 
 
@@ -5086,7 +5086,7 @@ dev.off()
 LS_L_F_Parsch_lmer <- lmer(LSL_AgeAtDeath_days ~ -1 + Population + (1|Batch) + (1|Population:Line) + (1|Line:ReplicateVial), data = filter(d_LS_L_F, Censor == "0" & Supervisor.PI == "Parsch"))
 capture.output(summary(LS_L_F_Parsch_lmer),file = "Lifespan/LS_L_F_Parsch_lmer_sum.txt")
 capture.output(anova(LS_L_F_Parsch_lmer),file = "Lifespan/LS_L_F_Parsch_lmer.txt")
-#capture.output(emmeans(LS_L_F_Parsch_lmer, list(pairwise ~ Population), adjust = "tukey"),file = "d_LS_L_F_Parsch_lmer_tk.txt")
+capture.output(emmeans(LS_L_F_Parsch_lmer, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "Lifespan/d_LS_L_F_Parsch_lmer_tk.txt")
 ```
 
 
@@ -5102,7 +5102,7 @@ summary(LS_L_F_Parsch_lmer)
 LS_L_M_Parsch_lmer <- lmer(LSL_AgeAtDeath_days ~ -1 + Population + (1|Batch) + (1|Population:Line) + (1|Line:ReplicateVial), data = filter(d_LS_L_M, Censor == "0" & Supervisor.PI == "Parsch"))
 capture.output(summary(LS_L_M_Parsch_lmer),file = "Lifespan/LS_L_M_Parsch_lmer_sum.txt")
 capture.output(anova(LS_L_M_Parsch_lmer),file = "Lifespan/LS_L_M_Parsch_lmer.txt")
-#capture.output(emmeans(LS_L_F_Parsch_lmer, list(pairwise ~ Population), adjust = "tukey"),file = "LS_L_M_Parsch_lmer_tk.txt")
+capture.output(emmeans(LS_L_M_Parsch_lmer, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "Lifespan/LS_L_M_Parsch_lmer_tk.txt")
 ```
 
 ```{r}
@@ -5186,7 +5186,7 @@ dev.off()
 LS_L_F_Pasyukova_lmer <- lmer(LSL_AgeAtDeath_days ~ -1 + Population + (1|Batch) + (1|Population:Line) + (1|Line:ReplicateVial), data = filter(d_LS_L_F, Censor == "0" & Supervisor.PI == "Pasyukova"))
 capture.output(summary(LS_L_F_Pasyukova_lmer),file = "Lifespan/LS_L_F_Pasyukova_lmer_sum.txt")
 capture.output(anova(LS_L_F_Pasyukova_lmer),file = "Lifespan/LS_L_F_Pasyukova_lmer.txt")
-#capture.output(emmeans(LS_L_F_Pasyukova_lmer, list(pairwise ~ Population), adjust = "tukey"),file = "LS_L_F_Pasyukova_lmer_tk.txt")
+capture.output(emmeans(LS_L_F_Pasyukova_lmer, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "Lifespan/LS_L_F_Pasyukova_lmer_tk.txt")
 ```
 
 ```{r}
@@ -5202,7 +5202,7 @@ summary(LS_L_F_Pasyukova_lmer)
 LS_L_M_Pasyukova_lmer <- lmer(LSL_AgeAtDeath_days ~ -1 + Population + (1|Batch) + (1|Population:Line) + (1|Line:ReplicateVial), data = filter(d_LS_L_M, Censor == "0" & Supervisor.PI == "Pasyukova"))
 capture.output(summary(LS_L_M_Pasyukova_lmer),file = "Lifespan/LS_L_M_Pasyukova_lmer_sum.txt")
 capture.output(anova(LS_L_M_Pasyukova_lmer),file = "Lifespan/LS_L_M_Pasyukova_lmer.txt")
-#capture.output(emmeans(d_LS_L_F_Pasyukova_lmer, list(pairwise ~ Population), adjust = "tukey"),file = "LS_L_M_Pasyukova_lmer_tk.txt")
+capture.output(emmeans(LS_L_M_Pasyukova_lmer, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "Lifespan/LS_L_M_Pasyukova_lmer_tk.txt")
 ```
 
 ```{r}
@@ -5656,7 +5656,7 @@ CSM_F_lmer_Gonzalez <- lmer(CSM_PropDead_ED ~ -1 + Population  + (1| Line : Popu
                            (1|Batch), data = d_CSM_F[d_CSM_F$Supervisor.PI == "Gonzalez",])
 capture.output(summary(CSM_F_lmer_Gonzalez),file = "ColdShock/CSM_F_lmer_sum_Gonzalez.txt")
 capture.output(anova(CSM_F_lmer_Gonzalez),file = "ColdShock/CSM_F_lmer_Gonzalez.txt")
-#capture.output(emmeans(CSM_F_lmer_Gonzalez, list(pairwise ~ Population), adjust = "tukey"),file = "ColdShock/CSM_F_lmer_Gonzalez_tk.txt")
+capture.output(emmeans(CSM_F_lmer_Gonzalez, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "ColdShock/CSM_F_lmer_Gonzalez_tk.txt")
 ```
 
 ```{r}
@@ -5673,7 +5673,7 @@ CSM_M_lmer_Gonzalez <- lmer(CSM_PropDead_ED ~ -1 + Population  + (1| Line : Popu
                                     (1|Batch), data = d_CSM_M[d_CSM_M$Supervisor.PI == "Gonzalez",])
 capture.output(summary(CSM_M_lmer_Gonzalez),file = "ColdShock/CSM_M_lmer_sum_Gonzalez.txt")
 capture.output(anova(CSM_M_lmer_Gonzalez),file = "ColdShock/CSM_M_lmer_Gonzalez.txt")
-#capture.output(emmeans(CSM_M_lmer_Gonzalez, list(pairwise ~ Population), adjust = "tukey"),file = "ColdShock/CSM_M_lmer_Gonzalez_tk.txt")
+capture.output(emmeans(CSM_M_lmer_Gonzalez, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "ColdShock/CSM_M_lmer_Gonzalez_tk.txt")
 ```
 
 ```{r}
@@ -5766,7 +5766,7 @@ CSM_F_lmer_Kozeretska <- lmer(CSM_PropDead_ED ~ -1 + Population  + (1| Line : Po
                                       (1|Batch), data = d_CSM_F[d_CSM_F$Supervisor.PI == "Kozeretska",])
 capture.output(summary(CSM_F_lmer_Kozeretska),file = "ColdShock/CSM_F_lmer_sum_Kozeretska.txt")
 capture.output(anova(CSM_F_lmer_Kozeretska),file = "ColdShock/CSM_F_lmer_Kozeretska.txt")
-#capture.output(emmeans(CSM_F_lmer_Kozeretska, list(pairwise ~ Population), adjust = "tukey"),file = "ColdShock/CSM_F_lmer_Kozeretska_tk.txt")
+capture.output(emmeans(CSM_F_lmer_Kozeretska, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "ColdShock/CSM_F_lmer_Kozeretska_tk.txt")
 ```
 
 ```{r}
@@ -5783,7 +5783,7 @@ CSM_M_lmer_Kozeretska <- lmer(CSM_PropDead_ED ~ -1 + Population  + (1| Line : Po
                                       (1|Batch), data = d_CSM_M[d_CSM_M$Supervisor.PI == "Kozeretska",])
 capture.output(summary(CSM_M_lmer_Kozeretska),file = "ColdShock/CSM_M_lmer_sum_Kozeretska.txt")
 capture.output(anova(CSM_M_lmer_Kozeretska),file = "ColdShock/CSM_M_lmer_Kozeretska.txt")
-#capture.output(emmeans(CSM_M_lmer_Kozeretska, list(pairwise ~ Population), adjust = "tukey"),file = "CSM_M_tk_Kozeretska_tk.txt")
+capture.output(emmeans(CSM_M_lmer_Kozeretska, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "CSM_M_tk_Kozeretska_tk.txt")
 ```
 
 
@@ -5879,7 +5879,7 @@ CSM_F_lmer_Vieira <- lmer(CSM_PropDead_ED ~ -1 + Population  + (1| Line : Popula
                                   (1|Batch), data = d_CSM_F[d_CSM_F$Supervisor.PI == "Vieira",])
 capture.output(summary(CSM_F_lmer_Vieira),file = "ColdShock/CSM_F_lmer_sum_Vieira.txt")
 capture.output(anova(CSM_F_lmer_Vieira),file = "ColdShock/CSM_F_lmer_Vieira.txt")
-#capture.output(emmeans(CSM_F_lmer_Vieira, list(pairwise ~ Population), adjust = "tukey"),file = "ColdShock/CSM_F_lmer_Vieira_tk.txt")
+capture.output(emmeans(CSM_F_lmer_Vieira, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "ColdShock/CSM_F_lmer_Vieira_tk.txt")
 
 ```
 
@@ -5898,7 +5898,7 @@ CSM_M_lmer_Vieira <- lmer(CSM_PropDead_ED ~ -1 + Population  + (1| Line : Popula
                                   (1|Batch), data = d_CSM_M[d_CSM_M$Supervisor.PI == "Vieira",])
 capture.output(summary(CSM_M_lmer_Vieira),file = "ColdShock/CSM_M_lmer_sum_Vieira.txt")
 capture.output(anova(CSM_M_lmer_Vieira),file = "ColdShock/CSM_M_lmer_Vieira.txt")
-#capture.output(emmeans(CSM_M_lmer_Vieira, list(pairwise ~ Population), adjust = "tukey"),file = "ColdShock/CSM_M_lmer_Vieira_tk.txt")
+capture.output(emmeans(CSM_M_lmer_Vieira, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "ColdShock/CSM_M_lmer_Vieira_tk.txt")
 
 ```
 
@@ -6169,7 +6169,7 @@ y-axis is scaled by the minimum (`r min_CSM`) and maximum (`r max_CSM`) values i
 CCRT_F_lmer_Vieira <- lmer(CCRT_seconds ~ -1 + Population + (1|Population:Line) + (1|Batch) + (1|ReplicateVial:Line), data = filter(d_CCRT_F, Censor == "0" & Supervisor.PI == "Vieira"))
 capture.output(summary(CCRT_F_lmer_Vieira),file = "ChillComa/CCRT_F_lmer_Vieira_sum.txt")
 capture.output(anova(CCRT_F_lmer_Vieira),file = "ChillComa/CCRT_F_lmer_Vieira.txt")
-#capture.output(emmeans(CCRT_F_lmer_Vieira, list(pairwise ~ Population), adjust = "tukey"),file = "ChillComa/CCRT_F_lmer_Vieira_tk.txt")
+capture.output(emmeans(CCRT_F_lmer_Vieira, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "ChillComa/CCRT_F_lmer_Vieira_tk.txt")
 
 ```
 
@@ -6187,7 +6187,7 @@ summary(CCRT_F_lmer_Vieira)
 CCRT_M_lmer_Vieira <- lmer(CCRT_seconds ~ -1 + Population + (1|Population:Line) + (1|Batch) + (1|ReplicateVial:Line), data = filter(d_CCRT_M, Censor == "0" & Supervisor.PI == "Vieira"))
 capture.output(summary(CCRT_M_lmer_Vieira),file = "ChillComa/CCRT_M_lmer_Vieira_sum.txt")
 capture.output(anova(CCRT_M_lmer_Vieira),file = "ChillComa/CCRT_M_lmer_Vieira.txt")
-#capture.output(emmeans(CCRT_M_lmer_Vieira, list(pairwise ~ Population), adjust = "tukey"),file = "ChillComa/CCRT_M_lmer_Vieira_tk.txt")
+capture.output(emmeans(CCRT_M_lmer_Vieira, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "ChillComa/CCRT_M_lmer_Vieira_tk.txt")
 
 ```
 
@@ -6481,7 +6481,7 @@ dev.off()
 HSM_F_lmer_Parsch <- lmer(TimeDeath_min ~ -1 + Population  + (1| Line : Population) + (1|Batch), data = filter(d_HSM_F, Censor == "0" & Supervisor.PI == "Parsch"))
 capture.output(summary(HSM_F_lmer_Parsch),file = "HeatShock/HSM_F_lmer_sum_Parsch.txt")
 capture.output(anova(HSM_F_lmer_Parsch),file = "HeatShock/HSM_F_lmer_Parsch.txt")
-#capture.output(emmeans(HSM_F_lmer_Parsch, list(pairwise ~ Population), adjust = "tukey"),file = "HeatShock/HSM_F_lmer_Parsch_tk.txt")
+capture.output(emmeans(HSM_F_lmer_Parsch, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "HeatShock/HSM_F_lmer_Parsch_tk.txt")
 ```
 
 ```{r}
@@ -6496,7 +6496,7 @@ summary(HSM_F_lmer_Parsch)
 HSM_M_lmer_Parsch <- lmer(TimeDeath_min ~ -1 + Population  + (1| Line : Population) + (1|Batch), data = filter(d_HSM_M, Censor == "0" & Supervisor.PI == "Parsch"))
 capture.output(summary(HSM_M_lmer_Parsch),file = "HeatShock/HSM_M_lmer_sum_Parsch.txt")
 capture.output(anova(HSM_M_lmer_Parsch),file = "HeatShock/HSM_M_lmer_Parsch.txt")
-#capture.output(emmeans(HSM_M_lmer_Parsch, list(pairwise ~ Population), adjust = "tukey"),file = "HeatShock/HSM_M_lmer_Parsch_tk.txt")
+capture.output(emmeans(HSM_M_lmer_Parsch, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "HeatShock/HSM_M_lmer_Parsch_tk.txt")
 ```
 
 ```{r}
@@ -6585,7 +6585,7 @@ dev.off()
 HSM_F_lmer_Vieira <- lmer(TimeDeath_min ~ -1 + Population  + (1|Line:Population) + (1|Batch), data = filter(d_HSM_F, Censor == "0" & Supervisor.PI == "Vieira"))
 capture.output(summary(HSM_F_lmer_Vieira), file = "HeatShock/HSM_F_lmer_sum_Vieira.txt")
 capture.output(anova(HSM_F_lmer_Vieira), file = "HeatShock/HSM_F_lmer_Vieira.txt")
-#capture.output(emmeans(HSM_F_lmer_Vieira, list(pairwise ~ Population), adjust = "tukey"),file = "HeatShock/HSM_F_lmer_Vieira_tk.txt")
+capture.output(emmeans(HSM_F_lmer_Vieira, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "HeatShock/HSM_F_lmer_Vieira_tk.txt")
 ```
 
 ```{r}
@@ -6600,7 +6600,7 @@ summary(HSM_F_lmer_Vieira)
 HSM_M_lmer_Vieira <- lmer(TimeDeath_min ~ -1 + Population  + (1|Line:Population) + (1|Batch), data = filter(d_HSM_M, Censor == "0" & Supervisor.PI == "Vieira"))
 capture.output(summary(HSM_M_lmer_Vieira), file = "HeatShock/HSM_M_lmer_sum_Vieira.txt")
 capture.output(anova(HSM_M_lmer_Vieira), file = "HeatShock/HSM_M_lmer_Vieira.txt")
-#capture.output(emmeans(HSM_M_lmer_Vieira, list(pairwise ~ Population), adjust = "tukey"),file = "HeatShock/HSM_M_lmer_Vieira_tk.txt")
+capture.output(emmeans(HSM_M_lmer_Vieira, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "HeatShock/HSM_M_lmer_Vieira_tk.txt")
 ```
 
 ```{r}
@@ -6863,7 +6863,7 @@ DT::datatable(table_Dia_Pop_wobatch, options = list(pageLength = 10)) %>% format
 Dia_lmer_Bergland <- lmer(Max_Stage9_Prop ~ -1 + Population + (1|Population:Line) + (1|Batch) , data = d_Dia_Line_wbatch %>% filter(Supervisor.PI == "Bergland"))
 capture.output(summary(Dia_lmer_Bergland),file = "Diapause/Dia_lmer_Bergland_sum.txt")
 capture.output(anova(Dia_lmer_Bergland),file = "Diapause/Dia_lmer_Bergland.txt")
-#capture.output(emmeans(Dia_lmer_Bergland, list(pairwise ~ Population), adjust = "tukey"),file = "Diapause/Dia_lmer_Bergland_tk.txt")
+capture.output(emmeans(Dia_lmer_Bergland, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "Diapause/Dia_lmer_Bergland_tk.txt")
 ```
 
 ```{r}
@@ -6916,7 +6916,7 @@ dev.off()
 Dia_lm_Flatt <- lm(Max_Stage9_Prop ~ -1 + Population, data = d_Dia_Line_wbatch %>% filter(Supervisor.PI == "Flatt"))
 capture.output(summary(Dia_lm_Flatt),file = "Diapause/Dia_lm_Flatt_sum.txt")
 capture.output(anova(Dia_lm_Flatt),file = "Diapause/Dia_lm_Flatt")
-#capture.output(emmeans(Dia_lm_Flatt, list(pairwise ~ Population), adjust = "tukey"),file = "Diapause/Dia_lm_Flatt_tk.txt")
+capture.output(emmeans(Dia_lm_Flatt, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "Diapause/Dia_lm_Flatt_tk.txt")
 ```
 
 ```{r}
@@ -6967,7 +6967,7 @@ dev.off()
 Dia_lmer_Schlotterer <- lmer(Max_Stage9_Prop ~ -1 + Population + (1|Population:Line) + (1|Batch) , data = d_Dia_Line_wbatch %>% filter(Supervisor.PI == "Schlotterer"))
 capture.output(summary(Dia_lmer_Schlotterer),file = "Diapause/Dia_lmer_Schlotterer_sum.txt")
 capture.output(anova(Dia_lmer_Schlotterer),file = "Diapause/Dia_lmer_Schlotterer.txt")
-#capture.output(emmeans(Dia_lmer_Schlotterer, list(pairwise ~ Population), adjust = "tukey"),file = "Diapause/Dia_lmer_Schlotterer_tk.txt")
+capture.output(emmeans(Dia_lmer_Schlotterer, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "Diapause/Dia_lmer_Schlotterer_tk.txt")
 ```
 
 
@@ -7749,7 +7749,7 @@ LA_lmer_ND_Tauber <- lmer(ND ~ -1 + Population  + (1|Line:Population) +
                           (1|Batch), data = (d_LA))
 capture.output(summary(LA_lmer_ND_Tauber),file = "Locomotor/LA_lmer_ND_Tauber_sum.txt")
 capture.output(anova(LA_lmer_ND_Tauber),file = "Locomotor/LA_lmer_ND_Tauber.txt")
-#capture.output(emmeans(LA_lmer_ND_Tauber, list(pairwise ~ Population), adjust = "tukey"),file = "Locomotor/LA_lmer_ND_Tauber_tk.txt")
+capture.output(emmeans(LA_lmer_ND_Tauber, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "Locomotor/LA_lmer_ND_Tauber_tk.txt")
 ```
 
 ```{r}
@@ -7768,7 +7768,7 @@ LA_lmer_CircPhase_Tauber <- lmer(CircPhase ~ -1 + Population  + (1|Line:Populati
                           (1|Batch) , data = (d_LA))
 capture.output(summary(LA_lmer_CircPhase_Tauber),file = "Locomotor/LA_lmer_CircPhase_Tauber_sum.txt")
 capture.output(anova(LA_lmer_CircPhase_Tauber),file = "Locomotor/LA_lmer_CircPhase_Tauber.txt")
-#capture.output(emmeans(LA_lmer_CircPhase_Tauber, list(pairwise ~ Population), adjust = "tukey"),file = "Locomotor/LA_lmer_CircPhase_Tauber_tk.txt")
+capture.output(emmeans(LA_lmer_CircPhase_Tauber, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "Locomotor/LA_lmer_CircPhase_Tauber_tk.txt")
 ```
 
 ```{r}
@@ -7787,7 +7787,7 @@ LA_lmer_Activity_Tauber <- lmer(Activity ~ -1 + Population  + (1|Line:Population
                           (1|Batch), data = (d_LA))
 capture.output(summary(LA_lmer_Activity_Tauber),file = "Locomotor/LA_lmer_Activity_Tauber_sum.txt")
 capture.output(anova(LA_lmer_Activity_Tauber),file = "Locomotor/LA_lmer_Activity_Tauber.txt")
-#capture.output(emmeans(LA_lmer_Activity_Tauber, list(pairwise ~ Population), adjust = "tukey"),file = "Locomotor/LA_lmer_Activity_Tauber_tk.txt")
+capture.output(emmeans(LA_lmer_Activity_Tauber, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "Locomotor/LA_lmer_Activity_Tauber_tk.txt")
 ```
 
 ```{r}
@@ -7996,7 +7996,7 @@ SR_F_lmer_Gonzalez <- lmer(AgeAtDeath_hours ~ -1 + Population  + (1|Line:Populat
                           (1|Batch) + (1|ReplicateVial : Line : Population), data = (subset(d_SR_F,Supervisor.PI=='Gonzalez')))
 capture.output(summary(SR_F_lmer_Gonzalez),file = "Starvation/SR_F_lmer_Gonzalez_sum.txt")
 capture.output(anova(SR_F_lmer_Gonzalez),file = "Starvation/SR_F_lmer_Gonzalez.txt")
-#capture.output(emmeans(SR_F_lmer_Gonzalez, list(pairwise ~ Population), adjust = "tukey"),file = "SR_F_Gonzalez_tk.txt")
+capture.output(emmeans(SR_F_lmer_Gonzalez, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "SR_F_lmer_Gonzalez_tk.txt")
 ```
 
 ```{r}
@@ -8014,7 +8014,7 @@ SR_M_lmer_Gonzalez <- lmer(AgeAtDeath_hours ~ -1 + Population  + (1|Line:Populat
                                    (1|Batch) + (1|ReplicateVial : Line : Population), data = (subset(d_SR_M,Supervisor.PI=='Gonzalez')))
 capture.output(summary(SR_M_lmer_Gonzalez),file = "Starvation/SR_M_lmer_Gonzalez_sum.txt")
 capture.output(anova(SR_M_lmer_Gonzalez),file = "Starvation/SR_M_lmer_Gonzalez.txt")
-#capture.output(emmeans(SR_M_lmer_Gonzalez, list(pairwise ~ Population), adjust = "tukey"),file = "SR_M_Gonzalez_tk.txt")
+capture.output(emmeans(SR_M_lmer_Gonzalez, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "SR_M_lmer_Gonzalez_tk.txt")
 ```
 
 
@@ -8109,7 +8109,7 @@ SR_F_lmer_Onder <- lmer(AgeAtDeath_hours ~ -1 + Population  + (1|Line:Population
                                 (1|Batch) + (1|ReplicateVial : Line : Population), data = (subset(d_SR_F,Supervisor.PI=='Onder')))
 capture.output(summary(SR_F_lmer_Onder),file = "Starvation/SR_F_lmer_Onder_sum.txt")
 capture.output(anova(SR_F_lmer_Onder),file = "Starvation/SR_F_lmer_Onder.txt")
-#capture.output(emmeans(SR_F_lmer_Onder, list(pairwise ~ Population), adjust = "tukey"),file = "SR_F_Onder_tk.txt")
+capture.output(emmeans(SR_F_lmer_Onder, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "SR_F_lmer_Onder_tk.txt")
 ```
 
 ```{r}
@@ -8126,7 +8126,7 @@ SR_M_lmer_Onder <- lmer(AgeAtDeath_hours ~ -1 + Population  + (1|Line:Population
                                 (1|Batch) + (1|ReplicateVial : Line : Population), data = (subset(d_SR_M,Supervisor.PI=='Onder')))
 capture.output(summary(SR_M_lmer_Onder),file = "Starvation/SR_M_lmer_Onder_sum.txt")
 capture.output(anova(SR_M_lmer_Onder),file = "Starvation/SR_M_lmer_Onder.txt")
-#capture.output(emmeans(SR_M_lmer_Onder, list(pairwise ~ Population), adjust = "tukey"),file = "SR_M_Onder_tk.txt")
+capture.output(emmeans(SR_M_lmer_Onder, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "SR_M_lmer_Onder_tk.txt")
 ```
 
 ```{r}
@@ -8218,7 +8218,7 @@ SR_F_lmer_Pasyukova <- lmer(AgeAtDeath_hours ~ -1 + Population  + (1|Line:Popula
                                     (1|Batch) + (1|ReplicateVial : Line : Population), data = (subset(d_SR_F,Supervisor.PI=='Pasyukova')))
 capture.output(summary(SR_F_lmer_Pasyukova),file = "Starvation/SR_F_lmer_Pasyukova_sum.txt")
 capture.output(anova(SR_F_lmer_Pasyukova),file = "Starvation/SR_F_lmer_Pasyukova.txt")
-#capture.output(emmeans(SR_F_lmer_Pasyukova, list(pairwise ~ Population), adjust = "tukey"),file = "SR_F_Pasyukova_tk.txt")
+capture.output(emmeans(SR_F_lmer_Pasyukova, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "SR_F_lmer_Pasyukova_tk.txt")
 ```
 
 ```{r}
@@ -8234,7 +8234,7 @@ SR_M_lmer_Pasyukova <- lmer(AgeAtDeath_hours ~ -1 + Population  + (1|Line:Popula
                                     (1|Batch) + (1|ReplicateVial : Line : Population), data = (subset(d_SR_M,Supervisor.PI=='Pasyukova')))
 capture.output(summary(SR_M_lmer_Pasyukova),file = "Starvation/SR_M_lmer_Pasyukova_sum.txt")
 capture.output(anova(SR_M_lmer_Pasyukova),file = "Starvation/SR_M_lmer_Pasyukova.txt")
-#capture.output(emmeans(SR_M_lmer_Pasyukova, list(pairwise ~ Population), adjust = "tukey"),file = "SR_M_Pasyukova_tk.txt")
+capture.output(emmeans(SR_M_lmer_Pasyukova, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "SR_M_lmer_Pasyukova_tk.txt")
 ```
 
 

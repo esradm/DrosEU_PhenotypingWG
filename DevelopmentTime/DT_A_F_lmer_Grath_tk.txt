@@ -1,18 +1,18 @@
 $`emmeans of Population`
- Population emmean   SE   df lower.CL upper.CL
- AK            309 2.31 19.8      304      314
- MU            306 2.25 18.3      301      311
- RE            314 4.80 22.1      304      324
+ Population emmean   SE  df asymp.LCL asymp.UCL
+ AK            309 2.31 Inf       304       313
+ MU            306 2.25 Inf       302       310
+ RE            314 4.76 Inf       305       324
 
-Degrees-of-freedom method: kenward-roger 
+Degrees-of-freedom method: asymptotic 
 Confidence level used: 0.95 
 
 $`pairwise differences of Population`
- 1       estimate   SE   df t.ratio p.value
- AK - MU     2.82 3.23 19.0   0.875  0.6624
- AK - RE    -5.40 5.33 21.6  -1.014  0.5763
- MU - RE    -8.22 5.30 21.3  -1.551  0.2879
+ 1       estimate   SE  df z.ratio p.value
+ AK - MU     2.82 3.23 Inf   0.875  0.6558
+ AK - RE    -5.40 5.29 Inf  -1.021  0.5638
+ MU - RE    -8.22 5.27 Inf  -1.562  0.2624
 
-Degrees-of-freedom method: kenward-roger 
+Degrees-of-freedom method: asymptotic 
 P value adjustment: tukey method for comparing a family of 3 estimates 
 

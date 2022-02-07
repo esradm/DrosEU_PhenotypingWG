@@ -1,33 +1,33 @@
 $`emmeans of Population`
- Population emmean   SE   df lower.CL upper.CL
- AK            955 20.4 19.6      913      998
- GI            969 18.6 18.5      930     1008
- KA            956 18.8 17.3      917      996
- MA            977 18.8 17.1      937     1017
- MU            971 26.8 17.7      914     1027
- YE            989 18.1 19.4      951     1027
+ Population emmean   SE  df asymp.LCL asymp.UCL
+ AK            955 19.7 Inf       917       994
+ GI            969 18.1 Inf       934      1005
+ KA            956 18.4 Inf       920       992
+ MA            977 18.4 Inf       941      1013
+ MU            971 25.6 Inf       921      1021
+ YE            989 17.6 Inf       954      1023
 
-Degrees-of-freedom method: kenward-roger 
+Degrees-of-freedom method: asymptotic 
 Confidence level used: 0.95 
 
 $`pairwise differences of Population`
- 1       estimate   SE    df t.ratio p.value
- AK - GI   -14.12 20.1 10.35  -0.703  0.9775
- AK - KA    -1.04 28.0 19.24  -0.037  1.0000
- AK - MA   -21.66 27.9 19.15  -0.775  0.9685
- AK - MU   -15.46 33.3 17.54  -0.464  0.9968
- AK - YE   -33.40 23.2 13.73  -1.440  0.7041
- GI - KA    13.08 26.7 18.62   0.490  0.9960
- GI - MA    -7.54 26.7 18.53  -0.283  0.9997
- GI - MU    -1.35 32.2 17.56  -0.042  1.0000
- GI - YE   -19.28 21.1 13.03  -0.914  0.9359
- KA - MA   -20.62 18.4  9.89  -1.121  0.8623
- KA - MU   -14.42 29.7 14.65  -0.485  0.9960
- KA - YE   -32.36 26.1 19.55  -1.239  0.8129
- MA - MU     6.20 29.7 14.59   0.209  0.9999
- MA - YE   -11.74 26.1 19.45  -0.450  0.9973
- MU - YE   -17.94 29.5 15.29  -0.607  0.9888
+ 1       estimate   SE  df z.ratio p.value
+ AK - GI   -14.12 19.9 Inf  -0.708  0.9810
+ AK - KA    -1.04 26.8 Inf  -0.039  1.0000
+ AK - MA   -21.66 26.8 Inf  -0.808  0.9662
+ AK - MU   -15.46 31.4 Inf  -0.492  0.9965
+ AK - YE   -33.40 22.2 Inf  -1.508  0.6593
+ GI - KA    13.08 25.7 Inf   0.510  0.9958
+ GI - MA    -7.54 25.6 Inf  -0.294  0.9997
+ GI - MU    -1.35 30.4 Inf  -0.044  1.0000
+ GI - YE   -19.28 20.3 Inf  -0.949  0.9335
+ KA - MA   -20.62 18.4 Inf  -1.121  0.8731
+ KA - MU   -14.42 28.3 Inf  -0.509  0.9959
+ KA - YE   -32.36 25.0 Inf  -1.292  0.7897
+ MA - MU     6.20 28.3 Inf   0.219  0.9999
+ MA - YE   -11.74 25.0 Inf  -0.469  0.9972
+ MU - YE   -17.94 28.4 Inf  -0.632  0.9886
 
-Degrees-of-freedom method: kenward-roger 
+Degrees-of-freedom method: asymptotic 
 P value adjustment: tukey method for comparing a family of 6 estimates 
 
