@@ -27,14 +27,10 @@ The call was made with approximate numbers of populations, lines, etc. and under
 ```{r libraries, echo=FALSE, message=FALSE}
 
 setwd("/Users/durmazm/Documents/GitHub/DrosEU_PhenotypingWG/")
-library(ggplot2)
-library(dplyr)
-library(plyr)
-library(tibble)
+library(tidyverse)
 library(ggpubr)
 library(multcompView)
 library(hrbrthemes)
-library(tidyverse)
 library(rworldmap)
 library(maps)
 library(rnaturalearth)
@@ -48,7 +44,6 @@ library(nlme)
 library(multcomp)
 library(emmeans)
 library(coxme)
-library(ggpubr)
 library(knitr)
 library(sf)
 library(rnaturalearthdata)
@@ -805,7 +800,7 @@ invisible(dev.off())
 #### Schmidt Lab
 
 ```{r Via_lm_Schmidt, echo=FALSE, message= FALSE, warning=FALSE}
-Via_lm_Schmidt <- lm(ProportionEggtoAdultSurvival ~ Population, data = d_Via[d_Via$Supervisor.PI == "Schmidt",])
+Via_lm_Schmidt <- lm(ProportionEggtoAdultSurvival ~ -1 + Population, data = d_Via[d_Via$Supervisor.PI == "Schmidt",])
 capture.output(summary(Via_lm_Schmidt),file = "Viability/Via_lm_Schmidt_sum.txt")
 capture.output(anova(Via_lm_Schmidt),file = "Viability/Via_lm_Schmidt.txt")
 capture.output(emmeans(Via_lm_Schmidt, list(pairwise ~ Population), adjust = "tukey"),file = "Viability/Via_lm_Schmidt_tk.txt")
@@ -896,7 +891,6 @@ invisible(dev.off())
 #### Zwaan Lab
 
 ```{r Via_lmer_Zwaan, echo=FALSE, message= FALSE, warning=FALSE}
-
 Via_lmer_Zwaan <- lmer(ProportionEggtoAdultSurvival ~ -1 + Population + (1|Line:Population) + (1|Batch), data = d_Via[d_Via$Supervisor.PI == "Zwaan",])
 capture.output(summary(Via_lmer_Zwaan),file = "Viability/Via_lmer_Zwaan_sum.txt")
 capture.output(anova(Via_lmer_Zwaan),file = "Viability/Via_lmer_Zwaan.txt")
@@ -969,6 +963,26 @@ write(intersect_Via_pop, file ="Viability/Via_int_pop.txt", sep = "\t")
 ```
 
 There are `r length(intersect_Via_pop) ` populations and `r length(intersect_Via_line) ` isofemale lines that have been phenotyped across the labs. Please refer to tables named intersect_Trait_level (i.e. intersect_Via_pop) for details. 
+
+
+```{r}
+Via_fitted <- combineFitted(labs = c("Gibert", "Grath", "Hoedjes", "Schmidt", "StamenkovicRadak", "Zwaan"), sex = rep("NA", 6), models = list(Via_lmer_Gibert, Via_lmer_Grath, Via_lmer_Hoedjes, Via_lm_Schmidt, Via_lmer_StamenkovicRadak, Via_lmer_Zwaan))
+
+p_Via_lab_cor <- function() scatterPlotMatrix(Via_fitted, sex = "NA")
+```
+
+```{r fig.height=8, fig.width=8}
+p_Via_lab_cor()
+```
+
+```{r}
+pdf(file="Viability/p_Via_lab_cor.pdf",width=8, height=8)
+p_Via_lab_cor()
+invisible(dev.off())
+```
+
+
+
 
 
 ## Developmental time
@@ -1930,6 +1944,37 @@ write(intersect_Pop_DT_A, file ="DevelopmentTime/intersect_Pop_DT_A.txt", sep = 
 
 There are `r length(intersect_Pop_DT_A) ` populations and `r length(intersect_Line_DT_A) ` isofemale lines that have been phenotyped across the labs. Please refer to tables named intersect_Trait_level (i.e. intersect_Via_pop) for details. 
 
+
+
+
+```{r}
+DT_A_fitted <- combineFitted(labs = rep(c("Gibert", "Grath", "Hoedjes", "Schmidt", "StamenkovicRadak", "Zwaan"), 2), sex = rep(c("F", "M"), each = 6), models = list(DT_A_F_lmer_Gibert, DT_A_F_lmer_Grath, DT_A_F_lmer_Hoedjes, DT_A_F_lmer_Schmidt, DT_A_F_lmer_StamenkovicRadak, DT_A_F_lmer_Zwaan, DT_A_M_lmer_Gibert, DT_A_M_lmer_Grath, DT_A_M_lmer_Hoedjes, DT_A_M_lmer_Schmidt, DT_A_M_lmer_StamenkovicRadak, DT_A_M_lmer_Zwaan))
+
+p_DT_A_F_lab_cor <- function() scatterPlotMatrix(DT_A_fitted, sex = "F")
+p_DT_A_M_lab_cor <- function() scatterPlotMatrix(DT_A_fitted, sex = "M")
+```
+
+```{r fig.height=8, fig.width=8}
+p_DT_A_F_lab_cor()
+```
+```{r}
+pdf(file="DevelopmentTime/p_DT_A_F_lab_cor.pdf",width=8, height=8)
+p_DT_A_F_lab_cor()
+invisible(dev.off())
+```
+
+```{r fig.height=8, fig.width=8}
+p_DT_A_M_lab_cor()
+```
+```{r}
+pdf(file="DevelopmentTime/p_DT_A_M_lab_cor.pdf",width=8, height=8)
+p_DT_A_M_lab_cor()
+invisible(dev.off())
+```
+
+
+
+
 ## Dry weight
 
 
@@ -2442,6 +2487,35 @@ write(intersect_Pop_DW, file ="DryWeight/intersect_Pop_DW.txt", sep = "\t")
 There are `r length(intersect_Line_DW) ` populations and `r length(intersect_Pop_DW) ` isofemale lines that have been phenotyped across the labs. Please refer to tables named intersect_Trait_level (i.e. intersect_Via_pop) for details. 
 
 
+
+
+```{r}
+DW_fitted <- combineFitted(labs = rep(c("Colinet", "Onder", "Hoedjes"), 2), sex = rep(c("F", "M"), each = 3), models = list(DW_F_lmer_Colinet, DW_F_lmer_Hoedjes, DW_F_lmer_Onder, DW_M_lmer_Colinet, DW_M_lmer_Hoedjes, DW_M_lmer_Onder))
+
+p_DW_F_lab_cor <- function() scatterPlotMatrix(DW_fitted, sex = "F")
+p_DW_M_lab_cor <- function() scatterPlotMatrix(DW_fitted, sex = "M")
+```
+
+```{r fig.height=8, fig.width=8}
+p_DW_F_lab_cor()
+```
+```{r}
+pdf(file="DryWeight/p_DW_F_lab_cor.pdf",width=8, height=8)
+p_DW_F_lab_cor()
+invisible(dev.off())
+```
+
+```{r fig.height=8, fig.width=8}
+p_DW_M_lab_cor()
+```
+```{r}
+pdf(file="DryWeight/p_DW_M_lab_cor.pdf",width=8, height=8)
+p_DW_M_lab_cor()
+invisible(dev.off())
+```
+
+
+
 ```{r echo=FALSE}
 for (i in dev.list()[1]:dev.list()[length(dev.list())]) {
    dev.off()
@@ -2502,6 +2576,8 @@ str(d_TL)
 ```
 
 ```{r}
+d_TL$TL_micrometers[d_TL$ReplicateVial == "Ritchie_12_AK4_2" & d_TL$Individual == 2 & d_TL$Sex == "F"] <- 975 # quick fix - not corrected in this MasterSheet but corrected on Drive. One would need to replace the .csv file with the latest one.
+d_TL$TL_micrometers[d_TL$ReplicateVial == "Ritchie_2_AK1_1" & d_TL$Individual == 9 & d_TL$Sex == "F"] <- 978 # quick fix - not corrected in this MasterSheet but corrected on Drive. One would need to replace the .csv file with the latest one.
 d_TL_F <-subset(d_TL,Sex=='F')
 d_TL_M <-subset(d_TL,Sex=='M')
 ####
@@ -2879,12 +2955,15 @@ summary(TL_M_lmer_Ritchie)
 
 ```{r p_TL_F_Ritchie}
 
-p_TL_F_Ritchie <- ggplot(data = (subset(d_TL_F,Supervisor.PI=='Ritchie')), aes(x=Population_Lat, y=TL_micrometers, fill=Batch)) + 
-  geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
-  labs(title="p_TL_F_Ritchie", x="Population", y = "TL_micrometers") + coord_cartesian(ylim =  c(min_TL, max_TL))+ droseu_theme
+p_TL_F_Ritchie <- filter(d_TL_F, Supervisor.PI == "Ritchie") %>% 
+  ggplot(aes(x=Population_Lat, y=TL_micrometers, fill=Batch)) + 
+  geom_boxplot(outlier.shape = NA, notch=FALSE) + 
+  geom_jitter(width=0.2,alpha=0.05) + 
+  labs(title="p_TL_F_Ritchie", x="Population", y = "TL_micrometers") +
+  coord_cartesian(ylim = c(min_TL, max_TL)) + 
+  droseu_theme
 
 ```
-
 
 ```{r echo=FALSE}
 p_TL_F_Ritchie
@@ -3030,6 +3109,36 @@ write(intersect_Pop_TL, file ="ThoraxLength/intersect_Pop_TL.txt", sep = "\t")
 ```
 
 There are `r length(intersect_Line_TL) ` populations and `r length(intersect_Pop_TL) ` isofemale lines that have been phenotyped across the labs. Please refer to tables named intersect_Trait_level (i.e. intersect_Via_pop) for details. 
+
+
+
+```{r}
+TL_fitted <- combineFitted(labs = rep(c("Kozeretska", "Posnien", "Ritchie"), 2), sex = rep(c("F", "M"), each = 3), models = list(TL_F_lmer_Kozeretska, TL_F_lmer_Posnien, TL_F_lmer_Ritchie, TL_M_lmer_Kozeretska, TL_M_lmer_Posnien, TL_M_lmer_Ritchie)) %>%
+  bind_rows(combineFitted(labs = "Schmidt", sex = "F", models = list(TL_F_lmer_Schmidt)))
+
+p_TL_F_lab_cor <- function() scatterPlotMatrix(TL_fitted, sex = "F")
+p_TL_M_lab_cor <- function() scatterPlotMatrix(TL_fitted, sex = "M")
+```
+
+```{r fig.height=8, fig.width=8}
+p_TL_F_lab_cor()
+```
+```{r}
+pdf(file="ThoraxLength/p_TL_F_lab_cor.pdf",width=8, height=8)
+p_TL_F_lab_cor()
+invisible(dev.off())
+```
+
+```{r fig.height=8, fig.width=8}
+p_TL_M_lab_cor()
+```
+```{r}
+pdf(file="ThoraxLength/p_TL_M_lab_cor.pdf",width=8, height=8)
+p_TL_M_lab_cor()
+invisible(dev.off())
+```
+
+
 
 ## Wing area
 
@@ -3214,8 +3323,7 @@ dev.off()
 #### Onder Lab
 
 ```{r WA_F_L_Onder_lmer}
-WA_F_L_Onder_lmer <- lmer(CentroidSizeLeft_micrometers ~ -1 + Population + (1|Line:Population) +
-                            (1|Batch) + (1|ReplicateVial : Line : Population), data = (subset(d_WA_F,Supervisor.PI=='Onder')))
+WA_F_L_Onder_lmer <- lmer(CentroidSizeLeft_micrometers ~ -1 + Population + (1|Line:Population) + (1|Batch) + (1|ReplicateVial:Line:Population), data = d_WA_F %>% filter(Supervisor.PI=='Onder'))
 capture.output(summary(WA_F_L_Onder_lmer),file = "WingArea/WA_F_L_Onder_sum.txt")
 capture.output(anova(WA_F_L_Onder_lmer),file = "WingArea/WA_F_L_Onder_lmer.txt")
 capture.output(emmeans(WA_F_L_Onder_lmer, list(pairwise ~ Population), adjust = "tukey"),file = "WingArea/WA_F_L_Onder_lmer_tk.txt")
@@ -4309,6 +4417,67 @@ write(intersect_Pop_WA_M, file ="WingArea/intersect_Pop_WA_M.txt", sep = "\t")
 There are `r length(intersect_Pop_WA_F) ` populations and `r length(intersect_Line_WA_F) ` isofemale lines for females and `r length(intersect_Pop_WA_M) ` populations and `r length(intersect_Line_WA_M) ` isofemale lines for males have been phenotyped across the labs. Please refer to tables named intersect_Trait_level (i.e. intersect_Via_pop) for details. 
 
 
+
+
+### _Left_
+
+```{r}
+WA_L_fitted <- combineFitted(labs = rep(c("Onder", "Posnien", "Ritchie", "StamenkovicRadak"), 2), sex = rep(c("F", "M"), each = 4), models = list(WA_F_L_Onder_lmer, WA_F_L_Posnien_lmer, WA_F_L_Ritchie_lmer, WA_F_L_StamenkovicRadak_lmer, WA_M_L_Onder_lmer, WA_M_L_Posnien_lmer, WA_M_L_Ritchie_lmer, WA_M_L_StamenkovicRadak_lmer))
+
+p_WA_L_F_lab_cor <- function() scatterPlotMatrix(WA_L_fitted, sex = "F")
+p_WA_L_M_lab_cor <- function() scatterPlotMatrix(WA_L_fitted, sex = "M")
+```
+
+```{r fig.height=8, fig.width=8}
+p_WA_L_F_lab_cor()
+```
+```{r}
+pdf(file="WingArea/p_WA_L_F_lab_cor.pdf",width=8, height=8)
+p_WA_L_F_lab_cor()
+invisible(dev.off())
+```
+
+```{r fig.height=8, fig.width=8}
+p_WA_L_M_lab_cor()
+```
+```{r}
+pdf(file="WingArea/p_WA_L_M_lab_cor.pdf",width=8, height=8)
+p_WA_L_M_lab_cor()
+invisible(dev.off())
+```
+### _Right_
+
+```{r}
+WA_R_fitted <- combineFitted(labs = rep(c("Onder", "Posnien", "Ritchie", "StamenkovicRadak"), 2), sex = rep(c("F", "M"), each = 4), models = list(WA_F_R_Onder_lmer, WA_F_R_Posnien_lmer, WA_F_R_Ritchie_lmer, WA_F_R_StamenkovicRadak_lmer, WA_M_R_Onder_lmer, WA_M_R_Posnien_lmer, WA_M_R_Ritchie_lmer, WA_M_R_StamenkovicRadak_lmer))
+
+p_WA_R_F_lab_cor <- function() scatterPlotMatrix(WA_R_fitted, sex = "F")
+p_WA_R_M_lab_cor <- function() scatterPlotMatrix(WA_R_fitted, sex = "M")
+```
+
+```{r fig.height=8, fig.width=8}
+p_WA_R_F_lab_cor()
+```
+
+```{r}
+pdf(file="WingArea/p_WA_R_F_lab_cor.pdf",width=8, height=8)
+p_WA_R_F_lab_cor()
+invisible(dev.off())
+```
+
+```{r fig.height=8, fig.width=8}
+p_WA_R_M_lab_cor()
+```
+```{r}
+pdf(file="WingArea/p_WA_R_M_lab_cor.pdf",width=8, height=8)
+p_WA_R_M_lab_cor()
+invisible(dev.off())
+```
+
+
+
+
+
+
 ```{r echo=FALSE}
 for (i in dev.list()[1]:dev.list()[length(dev.list())]) {
    dev.off()
@@ -4571,6 +4740,27 @@ write(intersect_Pop_Fec, file ="Fecundity/intersect_Pop_Fec.txt", sep = "\t")
 
 There are `r length(intersect_Pop_Fec) ` populations and `r length(intersect_Line_Fec) ` isofemale lines that have been phenotyped across the labs. Please refer to tables named intersect_Trait_level (i.e. intersect_Via_pop) for details. 
 
+
+
+```{r}
+Fec_fitted <- combineFitted(labs = c("Billeter", "Fricke"), sex = rep("NA", 2), models = list(Fec_lmer_Billeter, Fec_lmer_Fricke))
+
+p_Fec_lab_cor <- function() scatterPlotMatrix(Fec_fitted, sex = "NA")
+```
+
+
+```{r fig.height=8, fig.width=8}
+p_Fec_lab_cor()
+```
+```{r}
+pdf(file="Fecundity/p_Fec_lab_cor.pdf",width=8, height=8)
+p_Fec_lab_cor()
+invisible(dev.off())
+```
+
+
+
+
 ## Lifespan
 
 
@@ -4828,7 +5018,7 @@ dev.off()
 
 ```{r LS_P_F_Flatt_lmer}
 
-LS_P_F_Flatt_lmer <- lmer(LSP_AgeAtDeath_days ~ -1 + Population + (1|Population:ReplicateCage), data = filter(d_LS_P_F, (Censor == "0") & (Supervisor.PI == "Flatt")))
+LS_P_F_Flatt_lmer <- lmer(LSP_AgeAtDeath_days ~ -1 + Population + (1|Population:ReplicateCage), data = filter(d_LS_P_F, Censor == "0" & Supervisor.PI == "Flatt"))
 capture.output(summary(LS_P_F_Flatt_lmer),file = "Lifespan/LS_P_F_Flatt_lmer.txt")
 capture.output(anova(LS_P_F_Flatt_lmer),file = "Lifespan/LS_P_F_Flatt_lmer.txt")
 #capture.output(emmeans(LS_P_F_Flatt_lmer, list(pairwise ~ Population), adjust = "tukey"),file = "LS_P_F_Flatt_lmer_tk.txt")
@@ -4843,7 +5033,7 @@ summary(LS_P_F_Flatt_lmer)
 ```
 
 ```{r LS_P_M_Flatt_lmer}
-LS_P_M_Flatt_lmer <- lmer(LSP_AgeAtDeath_days ~ -1 + Population + (1|Population:ReplicateCage), data = filter(d_LS_P_M, (Censor == "0") & (Supervisor.PI == "Flatt")))
+LS_P_M_Flatt_lmer <- lmer(LSP_AgeAtDeath_days ~ -1 + Population + (1|Population:ReplicateCage), data = filter(d_LS_P_M, Censor == "0" & Supervisor.PI == "Flatt"))
 capture.output(summary(LS_P_M_Flatt_lmer),file = "Lifespan/LS_P_M_Flatt_lmer_sum.txt")
 capture.output(anova(LS_P_M_Flatt_lmer),file = "Lifespan/LS_P_M_Flatt_lmer.txt")
 #capture.output(emmeans(LS_P_F_Flatt_lmer, list(pairwise ~ Population), adjust = "tukey"),file = "LS_P_M_Flatt_lmer_tk.txt")
@@ -4896,8 +5086,7 @@ dev.off()
 
 
 ```{r LS_L_F_Parsch_lmer}
-LS_L_F_Parsch_lmer <- lmer(LSL_AgeAtDeath_days ~ -1 + Population + (1|Batch) + (1|Population:Line) + 
-                                     (1|Line:ReplicateVial), data = filter(d_LS_L_F, (Censor == "0") & (Supervisor.PI == "Parsch")))
+LS_L_F_Parsch_lmer <- lmer(LSL_AgeAtDeath_days ~ -1 + Population + (1|Batch) + (1|Population:Line) + (1|Line:ReplicateVial), data = filter(d_LS_L_F, Censor == "0" & Supervisor.PI == "Parsch"))
 capture.output(summary(LS_L_F_Parsch_lmer),file = "Lifespan/LS_L_F_Parsch_lmer_sum.txt")
 capture.output(anova(LS_L_F_Parsch_lmer),file = "Lifespan/LS_L_F_Parsch_lmer.txt")
 #capture.output(emmeans(LS_L_F_Parsch_lmer, list(pairwise ~ Population), adjust = "tukey"),file = "d_LS_L_F_Parsch_lmer_tk.txt")
@@ -4913,8 +5102,7 @@ summary(LS_L_F_Parsch_lmer)
 ```
 
 ```{r LS_L_M_Parsch_lmer}
-LS_L_M_Parsch_lmer <- lmer(LSL_AgeAtDeath_days ~ -1 + Population + (1|Batch) + (1|Population:Line) + 
-                                     (1|Line:ReplicateVial), data = filter(d_LS_L_M, (Censor == "0") & (Supervisor.PI == "Parsch")))
+LS_L_M_Parsch_lmer <- lmer(LSL_AgeAtDeath_days ~ -1 + Population + (1|Batch) + (1|Population:Line) + (1|Line:ReplicateVial), data = filter(d_LS_L_M, Censor == "0" & Supervisor.PI == "Parsch"))
 capture.output(summary(LS_L_M_Parsch_lmer),file = "Lifespan/LS_L_M_Parsch_lmer_sum.txt")
 capture.output(anova(LS_L_M_Parsch_lmer),file = "Lifespan/LS_L_M_Parsch_lmer.txt")
 #capture.output(emmeans(LS_L_F_Parsch_lmer, list(pairwise ~ Population), adjust = "tukey"),file = "LS_L_M_Parsch_lmer_tk.txt")
@@ -4998,8 +5186,7 @@ dev.off()
 #### Pasyukova Lab
 
 ```{r LS_L_F_Pasyukova_lmer}
-LS_L_F_Pasyukova_lmer <- lmer(LSL_AgeAtDeath_days ~ -1 + Population + (1|Batch) + (1|Population:Line) + 
-                                        (1|Line:ReplicateVial), data = filter(d_LS_L_F, (Censor == "0") & (Supervisor.PI == "Pasyukova")))
+LS_L_F_Pasyukova_lmer <- lmer(LSL_AgeAtDeath_days ~ -1 + Population + (1|Batch) + (1|Population:Line) + (1|Line:ReplicateVial), data = filter(d_LS_L_F, Censor == "0" & Supervisor.PI == "Pasyukova"))
 capture.output(summary(LS_L_F_Pasyukova_lmer),file = "Lifespan/LS_L_F_Pasyukova_lmer_sum.txt")
 capture.output(anova(LS_L_F_Pasyukova_lmer),file = "Lifespan/LS_L_F_Pasyukova_lmer.txt")
 #capture.output(emmeans(LS_L_F_Pasyukova_lmer, list(pairwise ~ Population), adjust = "tukey"),file = "LS_L_F_Pasyukova_lmer_tk.txt")
@@ -5015,8 +5202,7 @@ summary(LS_L_F_Pasyukova_lmer)
 
 
 ```{r LS_L_M_Pasyukova_lmer}
-LS_L_M_Pasyukova_lmer <- lmer(LSL_AgeAtDeath_days ~ -1 + Population + (1|Batch) + (1|Population:Line) + 
-                                        (1|Line:ReplicateVial), data = filter(d_LS_L_M, (Censor == "0") & (Supervisor.PI == "Pasyukova")))
+LS_L_M_Pasyukova_lmer <- lmer(LSL_AgeAtDeath_days ~ -1 + Population + (1|Batch) + (1|Population:Line) + (1|Line:ReplicateVial), data = filter(d_LS_L_M, Censor == "0" & Supervisor.PI == "Pasyukova"))
 capture.output(summary(LS_L_M_Pasyukova_lmer),file = "Lifespan/LS_L_M_Pasyukova_lmer_sum.txt")
 capture.output(anova(LS_L_M_Pasyukova_lmer),file = "Lifespan/LS_L_M_Pasyukova_lmer.txt")
 #capture.output(emmeans(d_LS_L_F_Pasyukova_lmer, list(pairwise ~ Population), adjust = "tukey"),file = "LS_L_M_Pasyukova_lmer_tk.txt")
@@ -5098,13 +5284,156 @@ dev.off()
 ```
 
 
-### Survival Analyses
+### Survival 
+
+```{r}
+d_LS_P_surv <- d_LS_P %>% mutate(Censor = ifelse(Censor == 0, 1, 0))
+d_LS_L_surv <- d_LS_L %>% mutate(Censor = ifelse(Censor == 0, 1, 0))
+```
+
 
 #### Flatt Lab
+##### Females
+```{r}
+LS_F_Flatt_survfit <- survfit(Surv(LSP_AgeAtDeath_days) ~ Population, data = filter(d_LS_P_surv, Supervisor.PI == "Flatt", Sex == "F"))
+```
+```{r}
+p_LS_F_Flatt_survfit <- ggsurvplot(LS_F_Flatt_survfit, censor.shape="|", censor.size = 0, pval = FALSE, risk.table = FALSE, conf.int = FALSE, legend.title = "Population", legend.labs = sort(c("YE","RE","GI","MU","MA","UM","KA","VA","AK")), legend = c(0.9, 0.7), title = "LS_F_Flatt_survfit")
+```
+```{r}
+p_LS_F_Flatt_survfit$plot
+```
+```{r}
+pdf(file="Lifespan/p_LS_F_Flatt_survfit.pdf", width=8, height=5)
+p_LS_F_Flatt_survfit$plot
+invisible(dev.off())
+```
 
-#### Parsch Lab 
+##### Males
+```{r}
+LS_M_Flatt_survfit <- survfit(Surv(LSP_AgeAtDeath_days) ~ Population, data = filter(d_LS_P_surv, Supervisor.PI == "Flatt", Sex == "M"))
+```
+```{r}
+p_LS_M_Flatt_survfit <- ggsurvplot(LS_M_Flatt_survfit, censor.shape="|", censor.size = 0, pval = FALSE, risk.table = FALSE, conf.int = FALSE, legend.title = "Population", legend.labs = sort(c("YE","RE","GI","MU","MA","UM","KA","VA","AK")), legend = c(0.9, 0.7), title = "LS_M_Flatt_survfit")
+```
+```{r}
+p_LS_M_Flatt_survfit$plot
+```
+```{r}
+pdf(file="Lifespan/p_LS_M_Flatt_survfit.pdf", width=8, height=5)
+p_LS_M_Flatt_survfit$plot
+invisible(dev.off())
+```
+
+
+
+#### Parsch Lab
+##### Females
+```{r}
+LS_F_Parsch_survfit <- survfit(Surv(LSL_AgeAtDeath_days) ~ Population, data = filter(d_LS_L_surv, Supervisor.PI == "Parsch", Sex == "F"))
+```
+```{r}
+p_LS_F_Parsch_survfit <- ggsurvplot(LS_F_Parsch_survfit, censor.shape="|", censor.size = 0, pval = FALSE, risk.table = FALSE, conf.int = FALSE, legend.title = "Population", legend.labs = sort(c("YE","RE","GI","MU","MA","UM","KA","VA","AK")), legend = c(0.9, 0.7), title = "LS_F_Parsch_survfit")
+```
+```{r}
+p_LS_F_Parsch_survfit$plot
+```
+```{r}
+pdf(file="Lifespan/p_LS_F_Parsch_survfit.pdf", width=8, height=5)
+p_LS_F_Parsch_survfit$plot
+invisible(dev.off())
+```
+
+##### Males
+```{r}
+LS_M_Parsch_survfit <- survfit(Surv(LSL_AgeAtDeath_days) ~ Population, data = filter(d_LS_L_surv, Supervisor.PI == "Parsch", Sex == "M"))
+```
+```{r}
+p_LS_M_Parsch_survfit <- ggsurvplot(LS_M_Parsch_survfit, censor.shape="|", censor.size = 0, pval = FALSE, risk.table = FALSE, conf.int = FALSE, legend.title = "Population", legend.labs = sort(c("YE","RE","GI","MU","MA","UM","KA","VA","AK")), legend = c(0.9, 0.7), title = "LS_M_Parsch_survfit")
+```
+```{r}
+p_LS_M_Parsch_survfit$plot
+```
+```{r}
+pdf(file="Lifespan/p_LS_M_Parsch_survfit.pdf", width=8, height=5)
+p_LS_M_Parsch_survfit$plot
+invisible(dev.off())
+```
+
 
 #### Pasyukova Lab
+##### Females
+```{r}
+LS_F_Pasyukova_survfit <- survfit(Surv(LSL_AgeAtDeath_days) ~ Population, data = filter(d_LS_L_surv, Supervisor.PI == "Pasyukova", Sex == "F"))
+```
+```{r}
+p_LS_F_Pasyukova_survfit <- ggsurvplot(LS_F_Pasyukova_survfit, censor.shape="|", censor.size = 0, pval = FALSE, risk.table = FALSE, conf.int = FALSE, legend.title = "Population", legend.labs = sort(c("YE","RE","GI","MU","MA","UM","KA","VA","AK")), legend = c(0.9, 0.7), title = "LS_F_Pasyukova_survfit")
+```
+```{r}
+p_LS_F_Pasyukova_survfit$plot
+```
+```{r}
+pdf(file="Lifespan/p_LS_F_Pasyukova_survfit.pdf", width=8, height=5)
+p_LS_F_Pasyukova_survfit$plot
+invisible(dev.off())
+```
+
+##### Males
+```{r}
+LS_M_Pasyukova_survfit <- survfit(Surv(LSL_AgeAtDeath_days) ~ Population, data = filter(d_LS_L_surv, Supervisor.PI == "Pasyukova", Sex == "M"))
+```
+```{r}
+p_LS_M_Pasyukova_survfit <- ggsurvplot(LS_M_Pasyukova_survfit, censor.shape="|", censor.size = 0, pval = FALSE, risk.table = FALSE, conf.int = FALSE, legend.title = "Population", legend.labs = sort(c("YE","RE","GI","MU","MA","UM","KA","VA","AK")), legend = c(0.9, 0.7), title = "LS_M_Pasyukova_survfit")
+```
+```{r}
+p_LS_M_Pasyukova_survfit$plot
+```
+```{r}
+pdf(file="Lifespan/p_LS_M_Pasyukova_survfit.pdf", width=8, height=5)
+p_LS_M_Pasyukova_survfit$plot
+invisible(dev.off())
+```
+
+
+### coxme
+
+```{r eval = FALSE}
+LS_P_F_coxme_Flatt <- coxme(Surv(LSP_AgeAtDeath_days, Censor) ~ Population + (1|Population/ReplicateCage), data = filter(d_LS_P_surv, Supervisor.PI == "Flatt", Sex == "F"))
+capture.output(summary(LS_P_F_coxme_Flatt), file = "Starvation/LS_P_F_coxme_Flatt_sum.txt")
+capture.output(anova(LS_P_F_coxme_Flatt), file = "Starvation/LS_P_F_coxme_Flatt.txt")
+```           
+```{r eval = FALSE}
+LS_P_M_coxme_Flatt <- coxme(Surv(LSP_AgeAtDeath_days, Censor) ~ Population + (1|Population/ReplicateCage), data = filter(d_LS_P_surv, Supervisor.PI == "Flatt", Sex == "M"))
+capture.output(summary(LS_P_M_coxme_Flatt), file = "Starvation/LS_P_M_coxme_Flatt_sum.txt")
+capture.output(anova(LS_P_M_coxme_Flatt), file = "Starvation/LS_P_M_coxme_Flatt")
+```           
+
+
+```{r eval = FALSE}
+LS_L_F_coxme_Parsch <- coxme(Surv(AgeAtDeath_hours, Censor) ~ Population + (1|Batch) + (1|Population/Line) + (1|Population/Line/ReplicateVial), data = filter(d_LS_L_surv, Supervisor.PI == "Parsch", Sex == "F"))
+capture.output(summary(LS_L_F_coxme_Parsch), file = "Starvation/LS_L_F_coxme_Parsch_sum.txt")
+capture.output(anova(LS_L_F_coxme_Parsch), file = "Starvation/LS_L_F_coxme_Parsch.txt")
+```  
+
+```{r eval = FALSE}
+LS_L_M_coxme_Parsch <- coxme(Surv(AgeAtDeath_hours, Censor) ~ Population + (1|Batch) + (1|Population/Line) + (1|Population/Line/ReplicateVial), data = filter(d_LS_L_surv, Supervisor.PI == "Parsch", Sex == "M"))
+capture.output(summary(LS_L_M_coxme_Parsch), file = "Starvation/LS_L_M_coxme_Parsch_sum.txt")
+capture.output(anova(LS_L_M_coxme_Parsch), file = "Starvation/LS_L_M_coxme_Parsch.txt")
+```  
+
+
+```{r eval = FALSE}
+LS_L_F_coxme_Pasyukova <- coxme(Surv(AgeAtDeath_hours, Censor) ~ Population + (1|Batch) + (1|Population/Line) + (1|Population/Line/ReplicateVial), data = filter(d_LS_L_surv, Supervisor.PI == "Pasyukova", Sex == "F"))
+capture.output(summary(LS_L_F_coxme_Pasyukova), file = "Starvation/LS_L_F_coxme_Pasyukova_sum.txt")
+capture.output(anova(LS_L_F_coxme_Pasyukova), file = "Starvation/LS_L_F_coxme_Pasyukova.txt")
+```  
+
+```{r eval = FALSE}
+LS_L_M_coxme_Pasyukova <- coxme(Surv(AgeAtDeath_hours, Censor) ~ Population + (1|Batch) + (1|Population/Line) + (1|Population/Line/ReplicateVial), data = filter(d_LS_L_surv, Supervisor.PI == "Pasyukova", Sex == "M"))
+capture.output(summary(LS_L_M_coxme_Pasyukova), file = "Starvation/LS_L_M_coxme_Pasyukova_sum.txt")
+capture.output(anova(LS_L_M_coxme_Pasyukova), file = "Starvation/LS_L_M_coxme_Pasyukova.txt")
+```  
+
 
 ### Lab correlations
 
@@ -5124,6 +5453,35 @@ write(intersect_Pop_LS, file ="Lifespan/intersect_Pop_LS", sep = "\t")
 ```
 
 There are `r length(intersect_Pop_LS) ` populations and `r length(intersect_Line_LS) ` isofemale lines that have been phenotyped across the labs. Please refer to tables named intersect_Trait_level (i.e. intersect_Via_pop) for details. 
+
+
+```{r}
+LS_fitted <- combineFitted(labs = rep(c("Flatt", "Parsch", "Pasyukova"), 2), sex = rep(c("F", "M"), each = 3), models = list(LS_P_F_Flatt_lmer, LS_L_F_Parsch_lmer, LS_L_F_Pasyukova_lmer, LS_P_M_Flatt_lmer, LS_L_M_Parsch_lmer, LS_L_M_Pasyukova_lmer))
+
+p_LS_F_lab_cor <- function() scatterPlotMatrix(LS_fitted, sex = "F")
+p_LS_M_lab_cor <- function() scatterPlotMatrix(LS_fitted, sex = "M")
+```
+
+```{r fig.height=8, fig.width=8}
+p_LS_F_lab_cor()
+```
+
+```{r}
+pdf(file="Lifespan/p_LS_F_lab_cor.pdf",width=8, height=8)
+p_LS_F_lab_cor()
+invisible(dev.off())
+```
+
+```{r fig.height=8, fig.width=8}
+p_LS_M_lab_cor()
+```
+
+```{r}
+pdf(file="Lifespan/p_LS_M_lab_cor.pdf",width=8, height=8)
+p_LS_M_lab_cor()
+invisible(dev.off())
+```
+
 
 
 ## Cold-shock mortality
@@ -5811,9 +6169,7 @@ y-axis is scaled by the minimum (`r min_CSM`) and maximum (`r max_CSM`) values i
 
 
 ```{r CCRT_F_lmer_Vieira}
-CCRT_F_lmer_Vieira <- lmer(CCRT_seconds ~ -1 + Population + (1|Population:Line) + (1|Batch) +
-                            (1|ReplicateVial:Line), 
-                            data = filter(d_CCRT_F, (Censor == "0") & (Supervisor.PI == "Vieira")))
+CCRT_F_lmer_Vieira <- lmer(CCRT_seconds ~ -1 + Population + (1|Population:Line) + (1|Batch) + (1|ReplicateVial:Line), data = filter(d_CCRT_F, Censor == "0" & Supervisor.PI == "Vieira"))
 capture.output(summary(CCRT_F_lmer_Vieira),file = "ChillComa/CCRT_F_lmer_Vieira_sum.txt")
 capture.output(anova(CCRT_F_lmer_Vieira),file = "ChillComa/CCRT_F_lmer_Vieira.txt")
 #capture.output(emmeans(CCRT_F_lmer_Vieira, list(pairwise ~ Population), adjust = "tukey"),file = "ChillComa/CCRT_F_lmer_Vieira_tk.txt")
@@ -5831,8 +6187,7 @@ summary(CCRT_F_lmer_Vieira)
 
 
 ```{r CCRT_M_lmer_Vieira}
-CCRT_M_lmer_Vieira <- lmer(CCRT_seconds ~ -1 + Population + (1|Population:Line) + (1|Batch) +
-                            (1|ReplicateVial:Line),  data = filter(d_CCRT_M, (Censor == "0") & (Supervisor.PI == "Vieira")))
+CCRT_M_lmer_Vieira <- lmer(CCRT_seconds ~ -1 + Population + (1|Population:Line) + (1|Batch) + (1|ReplicateVial:Line), data = filter(d_CCRT_M, Censor == "0" & Supervisor.PI == "Vieira"))
 capture.output(summary(CCRT_M_lmer_Vieira),file = "ChillComa/CCRT_M_lmer_Vieira_sum.txt")
 capture.output(anova(CCRT_M_lmer_Vieira),file = "ChillComa/CCRT_M_lmer_Vieira.txt")
 #capture.output(emmeans(CCRT_M_lmer_Vieira, list(pairwise ~ Population), adjust = "tukey"),file = "ChillComa/CCRT_M_lmer_Vieira_tk.txt")
@@ -5850,7 +6205,6 @@ summary(CCRT_M_lmer_Vieira)
 
 
 ```{r p_CCRT_F_Vieira}
-
 p_CCRT_F_Vieira <- ggplot(data = filter(d_CCRT_F, (Censor == "0") & (Supervisor.PI == "Vieira")), aes(x=Population_Lat, y=CCRT_seconds, fill=Batch)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) +  geom_jitter(width=0.2,alpha=0.05) + 
         labs(title="p_CCRT_F_Vieira", x="Population", y = "CCRT_seconds") + coord_cartesian(ylim = c(625, 3625))+ droseu_theme
@@ -5928,6 +6282,38 @@ dev.off()
 ### Lab correlations
 
 NA
+
+```{r eval=FALSE, include=FALSE}
+CCRT_fitted <- combineFitted(labs = rep(c("Vieira", "Mensh"), 2), sex = rep(c("F", "M"), each = 2), models = list(CCRT_F_lmer_Vieira, CCRT_F_lmer_Mensh, CCRT_M_lmer_Vieira, CCRT_M_lmer_Mensh)
+
+p_CCRT_F_lab_cor <- function() scatterPlotMatrix(CCRT_fitted, sex = "F")
+p_CCRT_M_lab_cor <- function() scatterPlotMatrix(CCRT_fitted, sex = "M")
+```
+
+```{r fig.height=8, fig.width=8 eval=FALSE, include=FALSE}
+p_CCRT_F_lab_cor()
+```
+
+```{r eval=FALSE, include=FALSE}
+pdf(file="ChillComa/p_CCRT_F_lab_cor.pdf",width=8, height=8)
+p_CCRT_F_lab_cor()
+invisible(dev.off())
+```
+
+
+```{r fig.height=8, fig.width=8 eval=FALSE, include=FALSE}
+p_CCRT_M_lab_cor()
+```
+
+```{r eval=FALSE, include=FALSE}
+pdf(file="ChillComa/p_CCRT_M_lab_cor.pdf",width=8, height=8)
+p_CCRT_M_lab_cor()
+invisible(dev.off())
+```
+
+
+
+
 
 ## Heat-shock mortality
 
@@ -6092,8 +6478,7 @@ dev.off()
 #### Parsch Lab
 
 ```{r HSM_F_lmer_Parsch}
-HSM_F_lmer_Parsch <- lmer(TimeDeath_min ~ -1 + Population  + (1| Line : Population) +
-                                  (1|Batch), data = filter(d_HSM_F, (Censor == "0") & (Supervisor.PI == "Parsch")))
+HSM_F_lmer_Parsch <- lmer(TimeDeath_min ~ -1 + Population  + (1| Line : Population) + (1|Batch), data = filter(d_HSM_F, Censor == "0" & Supervisor.PI == "Parsch"))
 capture.output(summary(HSM_F_lmer_Parsch),file = "HeatShock/HSM_F_lmer_sum_Parsch.txt")
 capture.output(anova(HSM_F_lmer_Parsch),file = "HeatShock/HSM_F_lmer_Parsch.txt")
 #capture.output(emmeans(HSM_F_lmer_Parsch, list(pairwise ~ Population), adjust = "tukey"),file = "HeatShock/HSM_F_lmer_Parsch_tk.txt")
@@ -6108,8 +6493,7 @@ summary(HSM_F_lmer_Parsch)
 ```
 
 ```{r HSM_M_lmer_Parsch}
-HSM_M_lmer_Parsch <- lmer(TimeDeath_min ~ -1 + Population  + (1| Line : Population) +
-                                  (1|Batch), data = filter(d_HSM_M, (Censor == "0") & (Supervisor.PI == "Parsch")))
+HSM_M_lmer_Parsch <- lmer(TimeDeath_min ~ -1 + Population  + (1| Line : Population) + (1|Batch), data = filter(d_HSM_M, Censor == "0" & Supervisor.PI == "Parsch"))
 capture.output(summary(HSM_M_lmer_Parsch),file = "HeatShock/HSM_M_lmer_sum_Parsch.txt")
 capture.output(anova(HSM_M_lmer_Parsch),file = "HeatShock/HSM_M_lmer_Parsch.txt")
 #capture.output(emmeans(HSM_M_lmer_Parsch, list(pairwise ~ Population), adjust = "tukey"),file = "HeatShock/HSM_M_lmer_Parsch_tk.txt")
@@ -6198,10 +6582,9 @@ dev.off()
 
 
 ```{r HSM_F_lmer_Vieira}
-HSM_F_lmer_Vieira <- lmer(TimeDeath_min ~ -1 + Population  + (1| Line : Population) +
-                                  (1|Batch), data = filter(d_HSM_F, (Censor == "0") & (Supervisor.PI == "Vieira")))
-capture.output(summary(HSM_F_lmer_Vieira),file = "HeatShock/HSM_F_lmer_sum_Vieira.txt")
-capture.output(anova(HSM_F_lmer_Vieira),file = "HeatShock/HSM_F_lmer_Vieira.txt")
+HSM_F_lmer_Vieira <- lmer(TimeDeath_min ~ -1 + Population  + (1|Line:Population) + (1|Batch), data = filter(d_HSM_F, Censor == "0" & Supervisor.PI == "Vieira"))
+capture.output(summary(HSM_F_lmer_Vieira), file = "HeatShock/HSM_F_lmer_sum_Vieira.txt")
+capture.output(anova(HSM_F_lmer_Vieira), file = "HeatShock/HSM_F_lmer_Vieira.txt")
 #capture.output(emmeans(HSM_F_lmer_Vieira, list(pairwise ~ Population), adjust = "tukey"),file = "HeatShock/HSM_F_lmer_Vieira_tk.txt")
 ```
 
@@ -6214,10 +6597,9 @@ summary(HSM_F_lmer_Vieira)
 ```
 
 ```{r HSM_M_lmer_Vieira}
-HSM_M_lmer_Vieira <- lmer(TimeDeath_min ~ -1 + Population  + (1| Line : Population) +
-                                  (1|Batch), data = filter(d_HSM_M, (Censor == "0") & (Supervisor.PI == "Vieira")))
-capture.output(summary(HSM_M_lmer_Vieira),file = "HeatShock/HSM_M_lmer_sum_Vieira.txt")
-capture.output(anova(HSM_M_lmer_Vieira),file = "HeatShock/HSM_M_lmer_Vieira.txt")
+HSM_M_lmer_Vieira <- lmer(TimeDeath_min ~ -1 + Population  + (1|Line:Population) + (1|Batch), data = filter(d_HSM_M, Censor == "0" & Supervisor.PI == "Vieira"))
+capture.output(summary(HSM_M_lmer_Vieira), file = "HeatShock/HSM_M_lmer_sum_Vieira.txt")
+capture.output(anova(HSM_M_lmer_Vieira), file = "HeatShock/HSM_M_lmer_Vieira.txt")
 #capture.output(emmeans(HSM_M_lmer_Vieira, list(pairwise ~ Population), adjust = "tukey"),file = "HeatShock/HSM_M_lmer_Vieira_tk.txt")
 ```
 
@@ -6313,6 +6695,40 @@ write(intersect_Pop_HSM, file ="HeatShock/intersect_Pop_HSM.txt", sep = "\t")
 ```
 
 There are `r length(intersect_Pop_HSM) ` populations and `r length(intersect_Line_HSM) ` isofemale lines that have been phenotyped across the labs. Please refer to tables named intersect_Trait_level (i.e. intersect_Via_pop) for details. 
+
+
+
+
+```{r}
+HSM_fitted <- combineFitted(labs = rep(c("Parsch", "Vieira"), 2), sex = rep(c("F", "M"), each = 2), models = list(HSM_F_lmer_Parsch, HSM_F_lmer_Vieira, HSM_M_lmer_Parsch, HSM_M_lmer_Vieira))
+
+p_HSM_F_lab_cor <- function() scatterPlotMatrix(HSM_fitted, sex = "F")
+p_HSM_M_lab_cor <- function() scatterPlotMatrix(HSM_fitted, sex = "M")
+```
+
+```{r fig.height=8, fig.width=8}
+p_HSM_F_lab_cor()
+```
+
+```{r}
+pdf(file="HeatShock/p_HSM_F_lab_cor.pdf",width=8, height=8)
+p_HSM_F_lab_cor()
+invisible(dev.off())
+```
+
+
+```{r fig.height=8, fig.width=8}
+p_HSM_M_lab_cor()
+```
+
+```{r}
+pdf(file="HeatShock/p_HSM_M_lab_cor.pdf",width=8, height=8)
+p_HSM_M_lab_cor()
+invisible(dev.off())
+```
+
+
+
 
 
 ## Diapause
@@ -7911,12 +8327,12 @@ SR_F_Gonzalez_survfit <- survfit(Surv(AgeAtDeath_hours) ~ Population, data = fil
 p_SR_F_Gonzalez_survfit <- ggsurvplot(SR_F_Gonzalez_survfit, censor.shape="|", censor.size = 0, pval = FALSE, risk.table = FALSE, conf.int = FALSE, legend.title = "Population", legend.labs = sort(c("YE","RE","GI","MU","MA","UM","KA","VA","AK")), legend = c(0.9, 0.7), title = "p_SR_F_Gonzalez")
 ```
 ```{r}
-p_SR_F_Gonzalez_survfit
+p_SR_F_Gonzalez_survfit$plot
 ```
 ```{r}
 pdf(file="Starvation/p_SR_F_Gonzalez_survfit.pdf", width=8, height=5)
-p_SR_F_Gonzalez_survfit
-dev.off()
+p_SR_F_Gonzalez_survfit$plot
+invisible(dev.off())
 ```
 ##### Males
 ```{r}
@@ -7926,12 +8342,12 @@ SR_M_Gonzalez_survfit <- survfit(Surv(AgeAtDeath_hours) ~ Population, data = fil
 p_SR_M_Gonzalez_survfit <- ggsurvplot(SR_M_Gonzalez_survfit, censor.shape="|", censor.size = 0, pval = FALSE, risk.table = FALSE, conf.int = FALSE, legend.title = "Population", legend.labs = sort(c("YE","RE","GI","MU","MA","UM","KA","VA","AK")), legend = c(0.9, 0.7), title = "p_SR_M_Gonzalez")
 ```
 ```{r}
-p_SR_M_Gonzalez_survfit
+p_SR_M_Gonzalez_survfit$plot
 ```
 ```{r}
 pdf(file="Starvation/p_SR_M_Gonzalez_survfit.pdf", width=8, height=5)
-p_SR_M_Gonzalez_survfit
-dev.off()
+p_SR_M_Gonzalez_survfit$plot
+invisible(dev.off())
 ```
 
 
@@ -7944,12 +8360,12 @@ SR_F_Onder_survfit <- survfit(Surv(AgeAtDeath_hours) ~ Population, data = filter
 p_SR_F_Onder_survfit <- ggsurvplot(SR_F_Onder_survfit, censor.shape="|", censor.size = 0, pval = FALSE, risk.table = FALSE, conf.int = FALSE, legend.title = "Population", legend.labs = sort(c("YE","RE","GI","MU","MA","UM","KA","VA","AK")), legend = c(0.9, 0.7), title = "p_SR_F_Onder")
 ```
 ```{r}
-p_SR_F_Onder_survfit
+p_SR_F_Onder_survfit$plot
 ```
 ```{r}
 pdf(file="Starvation/p_SR_F_Onder_survfit.pdf", width=8, height=5)
-p_SR_F_Onder_survfit
-dev.off()
+p_SR_F_Onder_survfit$plot
+invisible(dev.off())
 ```
 ##### Males
 ```{r}
@@ -7959,12 +8375,12 @@ SR_M_Onder_survfit <- survfit(Surv(AgeAtDeath_hours) ~ Population, data = filter
 p_SR_M_Onder_survfit <- ggsurvplot(SR_M_Onder_survfit, censor.shape="|", censor.size = 0, pval = FALSE, risk.table = FALSE, conf.int = FALSE, legend.title = "Population", legend.labs = sort(c("YE","RE","GI","MU","MA","UM","KA","VA","AK")), legend = c(0.9, 0.7), title = "p_SR_M_Onder")
 ```
 ```{r}
-p_SR_M_Onder_survfit
+p_SR_M_Onder_survfit$plot
 ```
 ```{r}
 pdf(file="Starvation/p_SR_M_Onder_survfit.pdf", width=8, height=5)
-p_SR_M_Onder_survfit
-dev.off()
+p_SR_M_Onder_survfit$plot
+invisible(dev.off())
 ```
 
 
@@ -7978,12 +8394,12 @@ SR_F_Pasyukova_survfit <- survfit(Surv(AgeAtDeath_hours) ~ Population, data = fi
 p_SR_F_Pasyukova_survfit <- ggsurvplot(SR_F_Pasyukova_survfit, censor.shape="|", censor.size = 0, pval = FALSE, risk.table = FALSE, conf.int = FALSE, legend.title = "Population", legend.labs = sort(c("YE","RE","GI","MU","MA","UM","KA","VA","AK")), legend = c(0.9, 0.7), title = "p_SR_F_Pasyukova")
 ```
 ```{r}
-p_SR_F_Pasyukova_survfit
+p_SR_F_Pasyukova_survfit$plot
 ```
 ```{r}
 pdf(file="Starvation/p_SR_F_Pasyukova_survfit.pdf", width=8, height=5)
-p_SR_F_Pasyukova_survfit
-dev.off()
+p_SR_F_Pasyukova_survfit$plot
+invisible(dev.off())
 ```
 ##### Males
 ```{r}
@@ -7993,12 +8409,12 @@ SR_M_Pasyukova_survfit <- survfit(Surv(AgeAtDeath_hours) ~ Population, data = fi
 p_SR_M_Pasyukova_survfit <- ggsurvplot(SR_M_Pasyukova_survfit, censor.shape="|", censor.size = 0, pval = FALSE, risk.table = FALSE, conf.int = FALSE, legend.title = "Population", legend.labs = sort(c("YE","RE","GI","MU","MA","UM","KA","VA","AK")), legend = c(0.9, 0.7), title = "p_SR_M_Pasyukova")
 ```
 ```{r}
-p_SR_M_Pasyukova_survfit
+p_SR_M_Pasyukova_survfit$plot
 ```
 ```{r}
 pdf(file="Starvation/p_SR_M_Pasyukova_survfit.pdf", width=8, height=5)
-p_SR_M_Pasyukova_survfit
-dev.off()
+p_SR_M_Pasyukova_survfit$plot
+invisible(dev.off())
 ```
 
 
@@ -8006,14 +8422,14 @@ dev.off()
 
 ```{r eval = FALSE}
 SR_F_coxme_Gonzalez <- coxme(Surv(AgeAtDeath_hours, Censor) ~ Population + (1|Batch) + (1|Population/Line) + (1|Population/Line/ReplicateVial), data = filter(d_SR_surv, Supervisor.PI == "Gonzalez", Sex == "F"))
-capture.output(summary(SR_F_coxme_Gonzalez), file = "Starvation/SR_F_coxme_Gonzaleza_sum.txt")
+capture.output(summary(SR_F_coxme_Gonzalez), file = "Starvation/SR_F_coxme_Gonzalez_sum.txt")
 capture.output(anova(SR_F_coxme_Gonzalez), file = "Starvation/SR_F_coxme_Gonzalez.txt")
 ```           
 
 
 ```{r eval = FALSE}
 SR_M_coxme_Gonzalez <- coxme(Surv(AgeAtDeath_hours, Censor) ~ Population + (1|Batch) + (1|Population/Line) + (1|Population/Line/ReplicateVial), data = filter(d_SR_surv, Supervisor.PI == "Gonzalez", Sex == "M"))
-capture.output(summary(SR_M_coxme_Gonzalez), file = "Starvation/SR_M_coxme_Gonzaleza_sum.txt")
+capture.output(summary(SR_M_coxme_Gonzalez), file = "Starvation/SR_M_coxme_Gonzalez_sum.txt")
 capture.output(anova(SR_M_coxme_Gonzalez), file = "Starvation/SR_M_coxme_Gonzalez.txt")
 ``` 
 
