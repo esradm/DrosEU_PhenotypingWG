@@ -489,6 +489,7 @@ Analyses outputs can be found in the trait directory, under the file name **__Tr
 ```{r source_correlation_meta_Rs, include=FALSE}
 source("lab_correlations_functions.R")
 source("meta_analysis_functions.R")
+source("survival_functions.R")
 ```
 
 
@@ -5431,7 +5432,41 @@ dev.off()
 ```
 
 
-### Survival 
+### Survival Analyses
+
+```{r d_LS_M_prop, message=FALSE}
+d_LS_prop_pop <- d_LS_M %>%
+  filter(Censor != 1) %>%
+  group_split(Supervisor.PI, Population, Sex) %>%
+  lapply(., survProp, cuts = seq(0, 120, 10)) %>%
+  bind_rows()
+```
+
+
+#### Flatt Lab
+
+```{r LS_L_prop}
+d_LS_F_Flatt_survival_curves <- d_LS_prop_pop %>%
+  filter(Supervisor.PI == "Flatt", Sex == "F") %>%
+  mutate(Population = factor(Population, levels = c("YE", "RE", "GI", "MU", "MA", "UM", "KA", "VA", "AK"))) %>%
+  ggplot() + 
+  geom_line(aes(y = PropSurv, x = AgeAtDeath, colour = Population), size = 0.6) +
+  xlim(0, 120) +
+  scale_x_continuous(breaks=seq(0, 120, 20)) +
+  scale_colour_manual(values = c("#cab2d6", "#ff7f00", "#fdbf6f", "#e31a1c", "#fb9a99", "#33a02c", "#b2df8a", "#1f78b4", "#a6cee3"), name = "Population") +
+  labs(title = "LS_F_Flatt", x = "Age at death (days)", y = "Proportion survival") +
+  droseu_theme
+d_LS_F_Flatt_survival_curves
+```
+
+```{r, include=FALSE}
+pdf(file="Lifespan/d_LS_F_Flatt_survival_curves.pdf", width=8, height=5)
+d_LS_F_Flatt_survival_curves
+invisible(dev.off())
+```
+
+
+
 
 ```{r}
 d_LS_P_surv <- d_LS_P %>% mutate(Censor = ifelse(Censor == 0, 1, 0))
@@ -5439,7 +5474,14 @@ d_LS_L_surv <- d_LS_L %>% mutate(Censor = ifelse(Censor == 0, 1, 0))
 ```
 
 
-#### Flatt Lab
+
+
+
+
+
+
+
+
 ##### Females
 ```{r}
 LS_F_Flatt_survfit <- survfit(Surv(LSP_AgeAtDeath_days) ~ Population, data = filter(d_LS_P_surv, Supervisor.PI == "Flatt", Sex == "F"))
@@ -8494,6 +8536,7 @@ dev.off()
 ### Survival Analyses
 
 ```{r}
+# adding a Censor column, with all individuals being kept
 d_SR_surv <- d_SR %>% mutate(Censor = 1)
 ```
 
@@ -9954,10 +9997,10 @@ p_Via_meta_SE <- Via_meta$summary_effects_random %>%
   labs(x = "Summary effect", title = "Pop. summary effect with SE") +
   theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank()) + 
-  annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.4g", Via_meta$Qtest_het$Q), 
+  annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.3g", Via_meta$Qtest_het$Q), 
              hjust=-0.2, vjust=3.5, parse = T) +
-  annotate("text", x = -Inf, y = Inf, label = sprintf("italic(p) == %.4g", Via_meta$Qtest_het$p), 
-             hjust=-0.2, vjust=5, parse = T) +
+  annotate("text", x = -Inf, y = Inf, label = Via_meta$Qtest_het$p_plot, 
+             hjust=-0.2, vjust=4.5, parse = T) +
   theme(legend.position = "none")
   
   
@@ -9973,10 +10016,10 @@ p_Via_meta_CI <- Via_meta$summary_effects_random %>%
   labs(x = "Age at death (days)", title = "Pop. summary effect with 95% CI") +
   theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank()) +
-  annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.4g", Via_meta$Qtest_het$Q), 
+  annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.3g", Via_meta$Qtest_het$Q), 
              hjust=-0.2, vjust=3.5, parse = T) +
-  annotate("text", x = -Inf, y = Inf, label = sprintf("italic(p) == %.4g", Via_meta$Qtest_het$p), 
-             hjust=-0.2, vjust=5, parse = T) +
+  annotate("text", x = -Inf, y = Inf, label = Via_meta$Qtest_het$p_plot, 
+             hjust=-0.2, vjust=4.5, parse = T) +
   theme(legend.position = "none")
 
 p_Via_meta <- ggarrange(p_Via_meta_SE, p_Via_meta_CI)
@@ -10034,10 +10077,10 @@ DT_A_effects <- DT_A_fitted %>%
     labs(x = "Summary effect", title = "Pop. summary effect with SE") +
     theme(panel.grid.major = element_blank(),
           panel.grid.minor = element_blank()) +
-    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.4g", DT_A_F_meta$Qtest_het$Q), 
+    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.3g", DT_A_F_meta$Qtest_het$Q), 
              hjust=-0.2, vjust=3.5, parse = T) +
-    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(p) == %.4g", DT_A_F_meta$Qtest_het$p), 
-             hjust=-0.2, vjust=5, parse = T) +
+    annotate("text", x = -Inf, y = Inf, label = DT_A_F_meta$Qtest_het$p_plot, 
+             hjust=-0.2, vjust=4.5, parse = T) +
     theme(legend.position = "none")
   
   
@@ -10053,10 +10096,10 @@ DT_A_effects <- DT_A_fitted %>%
     labs(x = "Summary effect", title = "Pop. summary effect with 95% CI") +
     theme(panel.grid.major = element_blank(),
           panel.grid.minor = element_blank()) +
-    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.4g", DT_A_F_meta$Qtest_het$Q), 
+    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.3g", DT_A_F_meta$Qtest_het$Q), 
              hjust=-0.2, vjust=3.5, parse = T) +
-    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(p) == %.4g", DT_A_F_meta$Qtest_het$p), 
-             hjust=-0.2, vjust=5, parse = T) +
+    annotate("text", x = -Inf, y = Inf, label = DT_A_F_meta$Qtest_het$p_plot, 
+             hjust=-0.2, vjust=4.5, parse = T) +
     theme(legend.position = "none")
   
   p_DT_A_F_meta <- ggarrange(p_DT_A_F_meta_SE, p_DT_A_F_meta_CI)
@@ -10098,10 +10141,10 @@ DT_A_effects <- DT_A_fitted %>%
     labs(x = "Summary effect", title = "Pop. summary effect with SE") +
     theme(panel.grid.major = element_blank(),
           panel.grid.minor = element_blank()) +
-    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.4g", DT_A_M_meta$Qtest_het$Q), 
+    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.3g", DT_A_M_meta$Qtest_het$Q), 
              hjust=-0.2, vjust=3.5, parse = T) +
-    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(p) == %.4g", DT_A_M_meta$Qtest_het$p), 
-             hjust=-0.2, vjust=5, parse = T) +
+    annotate("text", x = -Inf, y = Inf, label = DT_A_M_meta$Qtest_het$p_plot, 
+             hjust=-0.2, vjust=4.5, parse = T) +
     theme(legend.position = "none")
   
   
@@ -10117,10 +10160,10 @@ DT_A_effects <- DT_A_fitted %>%
     labs(x = "Summary effect", title = "Pop. summary effect with 95% CI") +
     theme(panel.grid.major = element_blank(),
           panel.grid.minor = element_blank()) +
-    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.4g", DT_A_M_meta$Qtest_het$Q), 
+    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.3g", DT_A_M_meta$Qtest_het$Q), 
              hjust=-0.2, vjust=3.5, parse = T) +
-    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(p) == %.4g", DT_A_M_meta$Qtest_het$p), 
-             hjust=-0.2, vjust=5, parse = T) +
+    annotate("text", x = -Inf, y = Inf, label = DT_A_M_meta$Qtest_het$p_plot, 
+             hjust=-0.2, vjust=4.5, parse = T) +
     theme(legend.position = "none")
   
   p_DT_A_M_meta <- ggarrange(p_DT_A_M_meta_SE, p_DT_A_M_meta_CI)
@@ -10176,10 +10219,10 @@ DT_A_effects <- DT_A_fitted %>%
     labs(x = "Summary effect", title = "Pop. summary effect with SE") +
     theme(panel.grid.major = element_blank(),
           panel.grid.minor = element_blank()) +
-    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.4g", DW_F_meta$Qtest_het$Q), 
+    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.3g", DW_F_meta$Qtest_het$Q), 
              hjust=-0.2, vjust=3.5, parse = T) +
-    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(p) == %.4g", DW_F_meta$Qtest_het$p), 
-             hjust=-0.2, vjust=5, parse = T) +
+    annotate("text", x = -Inf, y = Inf, label = DW_F_meta$Qtest_het$p_plot, 
+             hjust=-0.2, vjust=4.5, parse = T) +
     theme(legend.position = "none")
   
   
@@ -10195,10 +10238,10 @@ DT_A_effects <- DT_A_fitted %>%
     labs(x = "Summary effect", title = "Pop. summary effect with 95% CI") +
     theme(panel.grid.major = element_blank(),
           panel.grid.minor = element_blank()) +
-    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.4g", DW_F_meta$Qtest_het$Q), 
+    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.3g", DW_F_meta$Qtest_het$Q), 
              hjust=-0.2, vjust=3.5, parse = T) +
-    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(p) == %.4g", DW_F_meta$Qtest_het$p), 
-             hjust=-0.2, vjust=5, parse = T) +
+    annotate("text", x = -Inf, y = Inf, label = DW_F_meta$Qtest_het$p_plot, 
+             hjust=-0.2, vjust=4.5, parse = T) +
     theme(legend.position = "none")
   
   p_DW_F_meta <- ggarrange(p_DW_F_meta_SE, p_DW_F_meta_CI)
@@ -10240,10 +10283,10 @@ DT_A_effects <- DT_A_fitted %>%
     labs(x = "Summary effect", title = "Pop. summary effect with SE") +
     theme(panel.grid.major = element_blank(),
           panel.grid.minor = element_blank()) +
-    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.4g", DW_M_meta$Qtest_het$Q), 
+    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.3g", DW_M_meta$Qtest_het$Q), 
              hjust=-0.2, vjust=3.5, parse = T) +
-    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(p) == %.4g", DW_M_meta$Qtest_het$p), 
-             hjust=-0.2, vjust=5, parse = T) +
+    annotate("text", x = -Inf, y = Inf, label = DW_M_meta$Qtest_het$p_plot, 
+             hjust=-0.2, vjust=4.5, parse = T) +
     theme(legend.position = "none")
   
   
@@ -10259,10 +10302,10 @@ DT_A_effects <- DT_A_fitted %>%
     labs(x = "Summary effect", title = "Pop. summary effect with 95% CI") +
     theme(panel.grid.major = element_blank(),
           panel.grid.minor = element_blank()) +
-    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.4g", DW_M_meta$Qtest_het$Q), 
+    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.3g", DW_M_meta$Qtest_het$Q), 
              hjust=-0.2, vjust=3.5, parse = T) +
-    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(p) == %.4g", DW_M_meta$Qtest_het$p), 
-             hjust=-0.2, vjust=5, parse = T) +
+    annotate("text", x = -Inf, y = Inf, label = DW_M_meta$Qtest_het$p_plot, 
+             hjust=-0.2, vjust=4.5, parse = T) +
     theme(legend.position = "none")
   
   p_DW_M_meta <- ggarrange(p_DW_M_meta_SE, p_DW_M_meta_CI)
@@ -10318,10 +10361,10 @@ DT_A_effects <- DT_A_fitted %>%
     labs(x = "Summary effect", title = "Pop. summary effect with SE") +
     theme(panel.grid.major = element_blank(),
           panel.grid.minor = element_blank()) +
-    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.4g", TL_F_meta$Qtest_het$Q), 
+    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.3g", TL_F_meta$Qtest_het$Q), 
              hjust=-0.2, vjust=3.5, parse = T) +
-    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(p) == %.4g", TL_F_meta$Qtest_het$p), 
-             hjust=-0.2, vjust=5, parse = T) +
+    annotate("text", x = -Inf, y = Inf, label = TL_F_meta$Qtest_het$p_plot, 
+             hjust=-0.2, vjust=4.5, parse = T) +
     theme(legend.position = "none")
   
   
@@ -10337,10 +10380,10 @@ DT_A_effects <- DT_A_fitted %>%
     labs(x = "Summary effect", title = "Pop. summary effect with 95% CI") +
     theme(panel.grid.major = element_blank(),
           panel.grid.minor = element_blank()) +
-    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.4g", TL_F_meta$Qtest_het$Q), 
+    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.3g", TL_F_meta$Qtest_het$Q), 
              hjust=-0.2, vjust=3.5, parse = T) +
-    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(p) == %.4g", TL_F_meta$Qtest_het$p), 
-             hjust=-0.2, vjust=5, parse = T) +
+    annotate("text", x = -Inf, y = Inf, label = TL_F_meta$Qtest_het$p_plot, 
+             hjust=-0.2, vjust=4.5, parse = T) +
     theme(legend.position = "none")
   
   p_TL_F_meta <- ggarrange(p_TL_F_meta_SE, p_TL_F_meta_CI)
@@ -10382,10 +10425,10 @@ p_TL_M_meta_SE <- TL_M_meta$summary_effects_random %>%
   labs(x = "Summary effect", title = "Pop. summary effect with SE") +
   theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank()) +
-  annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.4g", TL_M_meta$Qtest_het$Q), 
+  annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.3g", TL_M_meta$Qtest_het$Q), 
            hjust=-0.2, vjust=3.5, parse = T) +
-  annotate("text", x = -Inf, y = Inf, label = sprintf("italic(p) == %.4g", TL_M_meta$Qtest_het$p), 
-           hjust=-0.2, vjust=5, parse = T) +
+  annotate("text", x = -Inf, y = Inf, label = TL_M_meta$Qtest_het$p_plot, 
+           hjust=-0.2, vjust=4.5, parse = T) +
   theme(legend.position = "none")
   
   
@@ -10401,10 +10444,10 @@ p_TL_M_meta_CI <- TL_M_meta$summary_effects_random %>%
   labs(x = "Summary effect", title = "Pop. summary effect with 95% CI") +
   theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank()) +
-  annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.4g", TL_M_meta$Qtest_het$Q), 
+  annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.3g", TL_M_meta$Qtest_het$Q), 
            hjust=-0.2, vjust=3.5, parse = T) +
-  annotate("text", x = -Inf, y = Inf, label = sprintf("italic(p) == %.4g", TL_M_meta$Qtest_het$p), 
-           hjust=-0.2, vjust=5, parse = T) +
+  annotate("text", x = -Inf, y = Inf, label = TL_M_meta$Qtest_het$p_plot, 
+           hjust=-0.2, vjust=4.5, parse = T) +
   theme(legend.position = "none")
   
 p_TL_M_meta <- ggarrange(p_TL_M_meta_SE, p_TL_M_meta_CI)
@@ -10461,10 +10504,10 @@ p_WA_L_F_meta_SE <- WA_L_F_meta$summary_effects_random %>%
   labs(x = "Summary effect", title = "Pop. summary effect with SE") +
   theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank()) +
-  annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.4g", WA_L_F_meta$Qtest_het$Q), 
+  annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.3g", WA_L_F_meta$Qtest_het$Q), 
            hjust=-0.2, vjust=3.5, parse = T) +
-  annotate("text", x = -Inf, y = Inf, label = sprintf("italic(p) == %.4g", WA_L_F_meta$Qtest_het$p), 
-           hjust=-0.2, vjust=5, parse = T) +
+  annotate("text", x = -Inf, y = Inf, label = WA_L_F_meta$Qtest_het$p_plot, 
+           hjust=-0.2, vjust=4.5, parse = T) +
   theme(legend.position = "none")
   
   
@@ -10479,10 +10522,10 @@ p_WA_L_F_meta_CI <- WA_L_F_meta$summary_effects_random %>%
                      labels = c("YE","RE","GI","MU","MA","UM","KA","VA","AK")) + labs(x = "Summary effect", title = "Pop. summary effect with 95% CI") +
   theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank()) +
-  annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.4g", WA_L_F_meta$Qtest_het$Q), 
+  annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.3g", WA_L_F_meta$Qtest_het$Q), 
            hjust=-0.2, vjust=3.5, parse = T) +
-  annotate("text", x = -Inf, y = Inf, label = sprintf("italic(p) == %.4g", WA_L_F_meta$Qtest_het$p), 
-           hjust=-0.2, vjust=5, parse = T) +
+  annotate("text", x = -Inf, y = Inf, label = WA_L_F_meta$Qtest_het$p_plot, 
+           hjust=-0.2, vjust=4.5, parse = T) +
   theme(legend.position = "none")
   
 p_WA_L_F_meta <- ggarrange(p_WA_L_F_meta_SE, p_WA_L_F_meta_CI)
@@ -10524,10 +10567,10 @@ p_WA_L_M_meta_SE <- WA_L_M_meta$summary_effects_random %>%
   labs(x = "Summary effect", title = "Pop. summary effect with SE") +
   theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank()) +
-  annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.4g", WA_L_M_meta$Qtest_het$Q), 
+  annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.3g", WA_L_M_meta$Qtest_het$Q), 
            hjust=-0.2, vjust=3.5, parse = T) +
-  annotate("text", x = -Inf, y = Inf, label = sprintf("italic(p) == %.4g", WA_L_M_meta$Qtest_het$p), 
-           hjust=-0.2, vjust=5, parse = T) +
+  annotate("text", x = -Inf, y = Inf, label = WA_L_M_meta$Qtest_het$p_plot, 
+           hjust=-0.2, vjust=4.5, parse = T) +
   theme(legend.position = "none")
   
   
@@ -10543,10 +10586,10 @@ p_WA_L_M_meta_CI <- WA_L_M_meta$summary_effects_random %>%
   labs(x = "Summary effect", title = "Pop. summary effect with 95% CI") +
   theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank()) +
-  annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.4g", WA_L_M_meta$Qtest_het$Q), 
+  annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.3g", WA_L_M_meta$Qtest_het$Q), 
            hjust=-0.2, vjust=3.5, parse = T) +
-  annotate("text", x = -Inf, y = Inf, label = sprintf("italic(p) == %.4g", WA_L_M_meta$Qtest_het$p), 
-           hjust=-0.2, vjust=5, parse = T) +
+  annotate("text", x = -Inf, y = Inf, label = WA_L_M_meta$Qtest_het$p_plot, 
+           hjust=-0.2, vjust=4.5, parse = T) +
   theme(legend.position = "none")
   
 p_WA_L_M_meta <- ggarrange(p_WA_L_M_meta_SE, p_WA_L_M_meta_CI)
@@ -10601,10 +10644,10 @@ invisible(dev.off())
     labs(x = "Summary effect", title = "Pop. summary effect with SE") +
     theme(panel.grid.major = element_blank(),
           panel.grid.minor = element_blank()) +
-    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.4g", WA_R_F_meta$Qtest_het$Q), 
+    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.3g", WA_R_F_meta$Qtest_het$Q), 
              hjust=-0.2, vjust=3.5, parse = T) +
-    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(p) == %.4g", WA_R_F_meta$Qtest_het$p), 
-             hjust=-0.2, vjust=5, parse = T) +
+    annotate("text", x = -Inf, y = Inf, label = WA_R_F_meta$Qtest_het$p_plot, 
+             hjust=-0.2, vjust=4.5, parse = T) +
     theme(legend.position = "none")
   
   
@@ -10620,10 +10663,10 @@ invisible(dev.off())
     labs(x = "Summary effect", title = "Pop. summary effect with 95% CI") +
     theme(panel.grid.major = element_blank(),
           panel.grid.minor = element_blank()) +
-    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.4g", WA_R_F_meta$Qtest_het$Q), 
+    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.3g", WA_R_F_meta$Qtest_het$Q), 
              hjust=-0.2, vjust=3.5, parse = T) +
-    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(p) == %.4g", WA_R_F_meta$Qtest_het$p), 
-             hjust=-0.2, vjust=5, parse = T) +
+    annotate("text", x = -Inf, y = Inf, label = WA_R_F_meta$Qtest_het$p_plot, 
+             hjust=-0.2, vjust=4.5, parse = T) +
     theme(legend.position = "none")
   
   p_WA_R_F_meta <- ggarrange(p_WA_R_F_meta_SE, p_WA_R_F_meta_CI)
@@ -10664,10 +10707,10 @@ invisible(dev.off())
     labs(x = "Summary effect", title = "Pop. summary effect with SE") +
     theme(panel.grid.major = element_blank(),
           panel.grid.minor = element_blank()) +
-    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.4g", WA_R_M_meta$Qtest_het$Q), 
+    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.3g", WA_R_M_meta$Qtest_het$Q), 
              hjust=-0.2, vjust=3.5, parse = T) +
-    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(p) == %.4g", WA_R_M_meta$Qtest_het$p), 
-             hjust=-0.2, vjust=5, parse = T) +
+    annotate("text", x = -Inf, y = Inf, label = WA_R_M_meta$Qtest_het$p_plot, 
+             hjust=-0.2, vjust=4.5, parse = T) +
     theme(legend.position = "none")
   
   
@@ -10683,10 +10726,10 @@ invisible(dev.off())
     labs(x = "Summary effect", title = "Pop. summary effect with 95% CI") +
     theme(panel.grid.major = element_blank(),
           panel.grid.minor = element_blank()) +
-    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.4g", WA_R_M_meta$Qtest_het$Q), 
+    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.3g", WA_R_M_meta$Qtest_het$Q), 
              hjust=-0.2, vjust=3.5, parse = T) +
-    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(p) == %.4g", WA_R_M_meta$Qtest_het$p), 
-             hjust=-0.2, vjust=5, parse = T) +
+    annotate("text", x = -Inf, y = Inf, label = WA_R_M_meta$Qtest_het$p_plot, 
+             hjust=-0.2, vjust=4.5, parse = T) +
     theme(legend.position = "none")
   
   p_WA_R_M_meta <- ggarrange(p_WA_R_M_meta_SE, p_WA_R_M_meta_CI)
@@ -10741,10 +10784,10 @@ invisible(dev.off())
     labs(x = "Summary effect", title = "Pop. summary effect with SE") +
     theme(panel.grid.major = element_blank(),
           panel.grid.minor = element_blank()) +
-    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.4g", Fec_meta$Qtest_het$Q), 
+    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.3g", Fec_meta$Qtest_het$Q), 
              hjust=-0.2, vjust=3.5, parse = T) +
-    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(p) == %.4g", Fec_meta$Qtest_het$p), 
-             hjust=-0.2, vjust=5, parse = T) +
+    annotate("text", x = -Inf, y = Inf, label = Fec_meta$Qtest_het$p_plot, 
+             hjust=-0.2, vjust=4.5, parse = T) +
     theme(legend.position = "none")
   
   
@@ -10760,10 +10803,10 @@ invisible(dev.off())
     labs(x = "Summary effect", title = "Pop. summary effect with 95% CI") +
     theme(panel.grid.major = element_blank(),
           panel.grid.minor = element_blank()) +
-    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.4g", Fec_meta$Qtest_het$Q), 
+    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.3g", Fec_meta$Qtest_het$Q), 
              hjust=-0.2, vjust=3.5, parse = T) +
-    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(p) == %.4g", Fec_meta$Qtest_het$p), 
-             hjust=-0.2, vjust=5, parse = T) +
+    annotate("text", x = -Inf, y = Inf, label = Fec_meta$Qtest_het$p_plot, 
+             hjust=-0.2, vjust=4.5, parse = T) +
     theme(legend.position = "none")
   
   p_Fec_meta <- ggarrange(p_Fec_meta_SE, p_Fec_meta_CI)
@@ -10820,10 +10863,10 @@ invisible(dev.off())
     labs(x = "Summary effect", title = "Pop. summary effect with SE") +
     theme(panel.grid.major = element_blank(),
           panel.grid.minor = element_blank()) +
-    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.4g", LS_F_meta$Qtest_het$Q), 
+    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.3g", LS_F_meta$Qtest_het$Q), 
              hjust=-0.2, vjust=3.5, parse = T) +
-    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(p) == %.4g", LS_F_meta$Qtest_het$p), 
-             hjust=-0.2, vjust=5, parse = T) +
+    annotate("text", x = -Inf, y = Inf, label = LS_F_meta$Qtest_het$p_plot, 
+             hjust=-0.2, vjust=4.5, parse = T) +
     theme(legend.position = "none")
   
   
@@ -10839,10 +10882,10 @@ invisible(dev.off())
     labs(x = "Summary effect", title = "Pop. summary effect with 95% CI") +
     theme(panel.grid.major = element_blank(),
           panel.grid.minor = element_blank()) +
-    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.4g", LS_F_meta$Qtest_het$Q), 
+    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.3g", LS_F_meta$Qtest_het$Q), 
              hjust=-0.2, vjust=3.5, parse = T) +
-    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(p) == %.4g", LS_F_meta$Qtest_het$p), 
-             hjust=-0.2, vjust=5, parse = T) +
+    annotate("text", x = -Inf, y = Inf, label = LS_F_meta$Qtest_het$p_plot, 
+             hjust=-0.2, vjust=4.5, parse = T) +
     theme(legend.position = "none")
   
   p_LS_F_meta <- ggarrange(p_LS_F_meta_SE, p_LS_F_meta_CI)
@@ -10884,8 +10927,8 @@ p_LS_M_meta_SE <- LS_M_meta$summary_effects_random %>%
   labs(x = "Summary effect", title = "Pop. summary effect with SE") +
   theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank()) +
-  annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.4g", LS_M_meta$Qtest_het$Q), hjust=-0.2, vjust=3.5, parse = T) +
-  annotate("text", x = -Inf, y = Inf, label = sprintf("italic(p) == %.4g", LS_M_meta$Qtest_het$p), hjust=-0.2, vjust=5, parse = T) +
+  annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.3g", LS_M_meta$Qtest_het$Q), hjust=-0.2, vjust=3.5, parse = T) +
+  annotate("text", x = -Inf, y = Inf, label = LS_M_meta$Qtest_het$p_plot, hjust=-0.2, vjust=4.5, parse = T) +
   theme(legend.position = "none")
   
   
@@ -10901,8 +10944,8 @@ p_LS_M_meta_CI <- LS_M_meta$summary_effects_random %>%
   labs(x = "Summary effect", title = "Pop. summary effect with 95% CI") +
   theme(panel.grid.major = element_blank(),
           panel.grid.minor = element_blank()) +
-  annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.4g", LS_M_meta$Qtest_het$Q), hjust=-0.2, vjust=3.5, parse = T) +
-  annotate("text", x = -Inf, y = Inf, label = sprintf("italic(p) == %.4g", LS_M_meta$Qtest_het$p), hjust=-0.2, vjust=5, parse = T) +
+  annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.3g", LS_M_meta$Qtest_het$Q), hjust=-0.2, vjust=3.5, parse = T) +
+  annotate("text", x = -Inf, y = Inf, label = LS_M_meta$Qtest_het$p_plot, hjust=-0.2, vjust=4.5, parse = T) +
 theme(legend.position = "none")
   
 p_LS_M_meta <- ggarrange(p_LS_M_meta_SE, p_LS_M_meta_CI)
@@ -10957,8 +11000,8 @@ p_CSM_F_meta_SE <- CSM_F_meta$summary_effects_random %>%
   labs(x = "Summary effect", title = "Pop. summary effect with SE") +
   theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank()) +
-  annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.4g", CSM_F_meta$Qtest_het$Q), hjust=-0.2, vjust=3.5, parse = T) +
-  annotate("text", x = -Inf, y = Inf, label = sprintf("italic(p) == %.4g", CSM_F_meta$Qtest_het$p), hjust=-0.2, vjust=5, parse = T) +
+  annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.3g", CSM_F_meta$Qtest_het$Q), hjust=-0.2, vjust=3.5, parse = T) +
+  annotate("text", x = -Inf, y = Inf, label = CSM_F_meta$Qtest_het$p_plot, hjust=-0.2, vjust=4.5, parse = T) +
   theme(legend.position = "none")
   
   
@@ -10974,8 +11017,8 @@ p_CSM_F_meta_CI <- CSM_F_meta$summary_effects_random %>%
   labs(x = "Summary effect", title = "Pop. summary effect with 95% CI") +
   theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank()) +
-  annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.4g", CSM_F_meta$Qtest_het$Q), hjust=-0.2, vjust=3.5, parse = T) +
-  annotate("text", x = -Inf, y = Inf, label = sprintf("italic(p) == %.4g", CSM_F_meta$Qtest_het$p), hjust=-0.2, vjust=5, parse = T) +
+  annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.3g", CSM_F_meta$Qtest_het$Q), hjust=-0.2, vjust=3.5, parse = T) +
+  annotate("text", x = -Inf, y = Inf, label = CSM_F_meta$Qtest_het$p_plot, hjust=-0.2, vjust=4.5, parse = T) +
   theme(legend.position = "none")
   
 p_CSM_F_meta <- ggarrange(p_CSM_F_meta_SE, p_CSM_F_meta_CI)
@@ -11017,8 +11060,8 @@ p_CSM_M_meta_SE <- CSM_M_meta$summary_effects_random %>%
   labs(x = "Summary effect", title = "Pop. summary effect with SE") +
   theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank()) +
-  annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.4g", CSM_M_meta$Qtest_het$Q), hjust=-0.2, vjust=3.5, parse = T) +
-  annotate("text", x = -Inf, y = Inf, label = sprintf("italic(p) == %.4g", CSM_M_meta$Qtest_het$p), hjust=-0.2, vjust=5, parse = T) +
+  annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.3g", CSM_M_meta$Qtest_het$Q), hjust=-0.2, vjust=3.5, parse = T) +
+  annotate("text", x = -Inf, y = Inf, label = CSM_M_meta$Qtest_het$p_plot, hjust=-0.2, vjust=4.5, parse = T) +
   theme(legend.position = "none")
   
   
@@ -11034,8 +11077,8 @@ p_CSM_M_meta_CI <- CSM_M_meta$summary_effects_random %>%
   labs(x = "Summary effect", title = "Pop. summary effect with 95% CI") +
   theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank()) +
-  annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.4g", CSM_M_meta$Qtest_het$Q), hjust=-0.2, vjust=3.5, parse = T) +
-  annotate("text", x = -Inf, y = Inf, label = sprintf("italic(p) == %.4g", CSM_M_meta$Qtest_het$p), hjust=-0.2, vjust=5, parse = T) +
+  annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.3g", CSM_M_meta$Qtest_het$Q), hjust=-0.2, vjust=3.5, parse = T) +
+  annotate("text", x = -Inf, y = Inf, label = CSM_M_meta$Qtest_het$p_plot, hjust=-0.2, vjust=4.5, parse = T) +
   theme(legend.position = "none")
   
 p_CSM_M_meta <- ggarrange(p_CSM_M_meta_SE, p_CSM_M_meta_CI)
@@ -11092,10 +11135,10 @@ invisible(dev.off())
     labs(x = "Summary effect", title = "Pop. summary effect with SE") +
     theme(panel.grid.major = element_blank(),
           panel.grid.minor = element_blank()) +
-    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.4g", CCRT_F_meta$Qtest_het$Q), 
+    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.3g", CCRT_F_meta$Qtest_het$Q), 
              hjust=-0.2, vjust=3.5, parse = T) +
-    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(p) == %.4g", CCRT_F_meta$Qtest_het$p), 
-             hjust=-0.2, vjust=5, parse = T) +
+    annotate("text", x = -Inf, y = Inf, label = CCRT_F_meta$Qtest_het$p_plot, 
+             hjust=-0.2, vjust=4.5, parse = T) +
     theme(legend.position = "none")
   
   
@@ -11111,10 +11154,10 @@ invisible(dev.off())
     labs(x = "Summary effect", title = "Pop. summary effect with 95% CI") +
     theme(panel.grid.major = element_blank(),
           panel.grid.minor = element_blank()) +
-    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.4g", CCRT_F_meta$Qtest_het$Q), 
+    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.3g", CCRT_F_meta$Qtest_het$Q), 
              hjust=-0.2, vjust=3.5, parse = T) +
-    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(p) == %.4g", CCRT_F_meta$Qtest_het$p), 
-             hjust=-0.2, vjust=5, parse = T) +
+    annotate("text", x = -Inf, y = Inf, label = CCRT_F_meta$Qtest_het$p_plot, 
+             hjust=-0.2, vjust=4.5, parse = T) +
     theme(legend.position = "none")
   
   p_CCRT_F_meta <- ggarrange(p_CCRT_F_meta_SE, p_CCRT_F_meta_CI)
@@ -11156,10 +11199,10 @@ invisible(dev.off())
     labs(x = "Summary effect", title = "Pop. summary effect with SE") +
     theme(panel.grid.major = element_blank(),
           panel.grid.minor = element_blank()) +
-    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.4g", CCRT_M_meta$Qtest_het$Q), 
+    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.3g", CCRT_M_meta$Qtest_het$Q), 
              hjust=-0.2, vjust=3.5, parse = T) +
-    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(p) == %.4g", CCRT_M_meta$Qtest_het$p), 
-             hjust=-0.2, vjust=5, parse = T) +
+    annotate("text", x = -Inf, y = Inf, label = CCRT_M_meta$Qtest_het$p_plot, 
+             hjust=-0.2, vjust=4.5, parse = T) +
     theme(legend.position = "none")
   
   
@@ -11175,10 +11218,10 @@ invisible(dev.off())
     labs(x = "Summary effect", title = "Pop. summary effect with 95% CI") +
     theme(panel.grid.major = element_blank(),
           panel.grid.minor = element_blank()) +
-    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.4g", CCRT_M_meta$Qtest_het$Q), 
+    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.3g", CCRT_M_meta$Qtest_het$Q), 
              hjust=-0.2, vjust=3.5, parse = T) +
-    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(p) == %.4g", CCRT_M_meta$Qtest_het$p), 
-             hjust=-0.2, vjust=5, parse = T) +
+    annotate("text", x = -Inf, y = Inf, label = CCRT_M_meta$Qtest_het$p_plot, 
+             hjust=-0.2, vjust=4.5, parse = T) +
     theme(legend.position = "none")
   
   p_CCRT_M_meta <- ggarrange(p_CCRT_M_meta_SE, p_CCRT_M_meta_CI)
@@ -11235,10 +11278,10 @@ invisible(dev.off())
     labs(x = "Summary effect", title = "Pop. summary effect with SE") +
     theme(panel.grid.major = element_blank(),
           panel.grid.minor = element_blank()) +
-    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.4g", HSM_F_meta$Qtest_het$Q), 
+    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.3g", HSM_F_meta$Qtest_het$Q), 
              hjust=-0.2, vjust=3.5, parse = T) +
-    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(p) == %.4g", HSM_F_meta$Qtest_het$p), 
-             hjust=-0.2, vjust=5, parse = T) +
+    annotate("text", x = -Inf, y = Inf, label = HSM_F_meta$Qtest_het$p_plot, 
+             hjust=-0.2, vjust=4.5, parse = T) +
     theme(legend.position = "none")
   
   
@@ -11254,10 +11297,10 @@ invisible(dev.off())
     labs(x = "Summary effect", title = "Pop. summary effect with 95% CI") +
     theme(panel.grid.major = element_blank(),
           panel.grid.minor = element_blank()) +
-    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.4g", HSM_F_meta$Qtest_het$Q), 
+    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.3g", HSM_F_meta$Qtest_het$Q), 
              hjust=-0.2, vjust=3.5, parse = T) +
-    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(p) == %.4g", HSM_F_meta$Qtest_het$p), 
-             hjust=-0.2, vjust=5, parse = T) +
+    annotate("text", x = -Inf, y = Inf, label = HSM_F_meta$Qtest_het$p_plot, 
+             hjust=-0.2, vjust=4.5, parse = T) +
     theme(legend.position = "none")
   
   p_HSM_F_meta <- ggarrange(p_HSM_F_meta_SE, p_HSM_F_meta_CI)
@@ -11299,10 +11342,10 @@ invisible(dev.off())
     labs(x = "Summary effect", title = "Pop. summary effect with SE") +
     theme(panel.grid.major = element_blank(),
           panel.grid.minor = element_blank()) +
-    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.4g", HSM_M_meta$Qtest_het$Q), 
+    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.3g", HSM_M_meta$Qtest_het$Q), 
              hjust=-0.2, vjust=3.5, parse = T) +
-    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(p) == %.4g", HSM_M_meta$Qtest_het$p), 
-             hjust=-0.2, vjust=5, parse = T) +
+    annotate("text", x = -Inf, y = Inf, label = HSM_M_meta$Qtest_het$p_plot, 
+             hjust=-0.2, vjust=4.5, parse = T) +
     theme(legend.position = "none")
   
   
@@ -11318,10 +11361,10 @@ invisible(dev.off())
     labs(x = "Summary effect", title = "Pop. summary effect with 95% CI") +
     theme(panel.grid.major = element_blank(),
           panel.grid.minor = element_blank()) +
-    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.4g", HSM_M_meta$Qtest_het$Q), 
+    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.3g", HSM_M_meta$Qtest_het$Q), 
              hjust=-0.2, vjust=3.5, parse = T) +
-    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(p) == %.4g", HSM_M_meta$Qtest_het$p), 
-             hjust=-0.2, vjust=5, parse = T) +
+    annotate("text", x = -Inf, y = Inf, label = HSM_M_meta$Qtest_het$p_plot, 
+             hjust=-0.2, vjust=4.5, parse = T) +
     theme(legend.position = "none")
   
   p_HSM_M_meta <- ggarrange(p_HSM_M_meta_SE, p_HSM_M_meta_CI)
@@ -11378,10 +11421,10 @@ invisible(dev.off())
     labs(x = "Summary effect", title = "Pop. summary effect with SE") +
     theme(panel.grid.major = element_blank(),
           panel.grid.minor = element_blank()) +
-    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.4g", Dia_meta$Qtest_het$Q), 
+    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.3g", Dia_meta$Qtest_het$Q), 
              hjust=-0.2, vjust=3.5, parse = T) +
-    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(p) == %.4g", Dia_meta$Qtest_het$p), 
-             hjust=-0.2, vjust=5, parse = T) +
+    annotate("text", x = -Inf, y = Inf, label = Dia_meta$Qtest_het$p_plot, 
+             hjust=-0.2, vjust=4.5, parse = T) +
     theme(legend.position = "none")
   
   
@@ -11397,10 +11440,10 @@ invisible(dev.off())
     labs(x = "Summary effect", title = "Pop. summary effect with 95% CI") +
     theme(panel.grid.major = element_blank(),
           panel.grid.minor = element_blank()) +
-    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.4g", Dia_meta$Qtest_het$Q), 
+    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.3g", Dia_meta$Qtest_het$Q), 
              hjust=-0.2, vjust=3.5, parse = T) +
-    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(p) == %.4g", Dia_meta$Qtest_het$p), 
-             hjust=-0.2, vjust=5, parse = T) +
+    annotate("text", x = -Inf, y = Inf, label = Dia_meta$Qtest_het$p_plot, 
+             hjust=-0.2, vjust=4.5, parse = T) +
     theme(legend.position = "none")
   
   p_Dia_meta <- ggarrange(p_Dia_meta_SE, p_Dia_meta_CI)
@@ -11455,10 +11498,10 @@ invisible(dev.off())
     labs(x = "Summary effect", title = "Pop. summary effect with SE") +
     theme(panel.grid.major = element_blank(),
           panel.grid.minor = element_blank()) +
-    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.4g", SR_F_meta$Qtest_het$Q), 
+    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.3g", SR_F_meta$Qtest_het$Q), 
              hjust=-0.2, vjust=3.5, parse = T) +
-    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(p) == %.4g", SR_F_meta$Qtest_het$p), 
-             hjust=-0.2, vjust=5, parse = T) +
+    annotate("text", x = -Inf, y = Inf, label = SR_F_meta$Qtest_het$p_plot, 
+             hjust=-0.2, vjust=4.5, parse = T) +
     theme(legend.position = "none")
   
   
@@ -11474,10 +11517,10 @@ invisible(dev.off())
     labs(x = "Summary effect", title = "Pop. summary effect with 95% CI") +
     theme(panel.grid.major = element_blank(),
           panel.grid.minor = element_blank()) +
-    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.4g", SR_F_meta$Qtest_het$Q), 
+    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.3g", SR_F_meta$Qtest_het$Q), 
              hjust=-0.2, vjust=3.5, parse = T) +
-    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(p) == %.4g", SR_F_meta$Qtest_het$p), 
-             hjust=-0.2, vjust=5, parse = T) +
+    annotate("text", x = -Inf, y = Inf, label = SR_F_meta$Qtest_het$p_plot, 
+             hjust=-0.2, vjust=4.5, parse = T) +
     theme(legend.position = "none")
   
   p_SR_F_meta <- ggarrange(p_SR_F_meta_SE, p_SR_F_meta_CI)
@@ -11519,10 +11562,10 @@ invisible(dev.off())
     labs(x = "Summary effect", title = "Pop. summary effect with SE") +
     theme(panel.grid.major = element_blank(),
           panel.grid.minor = element_blank()) +
-    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.4g", SR_M_meta$Qtest_het$Q), 
+    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.3g", SR_M_meta$Qtest_het$Q), 
              hjust=-0.2, vjust=3.5, parse = T) +
-    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(p) == %.4g", SR_M_meta$Qtest_het$p), 
-             hjust=-0.2, vjust=5, parse = T) +
+    annotate("text", x = -Inf, y = Inf, label = SR_M_meta$Qtest_het$p_plot, 
+             hjust=-0.2, vjust=4.5, parse = T) +
     theme(legend.position = "none")
   
   
@@ -11538,10 +11581,10 @@ invisible(dev.off())
     labs(x = "Summary effect", title = "Pop. summary effect with 95% CI") +
     theme(panel.grid.major = element_blank(),
           panel.grid.minor = element_blank()) +
-    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.4g", SR_M_meta$Qtest_het$Q), 
+    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.3g", SR_M_meta$Qtest_het$Q), 
              hjust=-0.2, vjust=3.5, parse = T) +
-    annotate("text", x = -Inf, y = Inf, label = sprintf("italic(p) == %.4g", SR_M_meta$Qtest_het$p), 
-             hjust=-0.2, vjust=5, parse = T) +
+    annotate("text", x = -Inf, y = Inf, label = SR_M_meta$Qtest_het$p_plot, 
+             hjust=-0.2, vjust=4.5, parse = T) +
     theme(legend.position = "none")
   
   p_SR_M_meta <- ggarrange(p_SR_M_meta_SE, p_SR_M_meta_CI)
@@ -11596,10 +11639,10 @@ p_Pgm_TotalPerc_meta_SE <- Pgm_TotalPerc_meta$summary_effects_random %>%
   labs(x = "Summary effect", title = "Pop. summary effect with SE") +
   theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank()) +
-  annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.4g", Pgm_TotalPerc_meta$Qtest_het$Q),
+  annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.3g", Pgm_TotalPerc_meta$Qtest_het$Q),
              hjust=-0.2, vjust=3.5, parse = T) +
-  annotate("text", x = -Inf, y = Inf, label = sprintf("italic(p) == %.4g", Pgm_TotalPerc_meta$Qtest_het$p),
-             hjust=-0.2, vjust=5, parse = T) +
+  annotate("text", x = -Inf, y = Inf, label = Pgm_TotalPerc_meta$Qtest_het$p_plot,
+             hjust=-0.2, vjust=4.5, parse = T) +
   theme(legend.position = "none")
   
   
@@ -11615,10 +11658,10 @@ p_Pgm_TotalPerc_meta_CI <- Pgm_TotalPerc_meta$summary_effects_random %>%
   labs(x = "Summary effect", title = "Pop. summary effect with 95% CI") +
   theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank()) +
-  annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.4g", Pgm_TotalPerc_meta$Qtest_het$Q),
+  annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.3g", Pgm_TotalPerc_meta$Qtest_het$Q),
              hjust=-0.2, vjust=3.5, parse = T) +
-  annotate("text", x = -Inf, y = Inf, label = sprintf("italic(p) == %.4g", Pgm_TotalPerc_meta$Qtest_het$p),
-             hjust=-0.2, vjust=5, parse = T) +
+  annotate("text", x = -Inf, y = Inf, label = Pgm_TotalPerc_meta$Qtest_het$p_plot,
+             hjust=-0.2, vjust=4.5, parse = T) +
   theme(legend.position = "none")
   
 p_Pgm_TotalPerc_meta <- ggarrange(p_Pgm_TotalPerc_meta_SE, p_Pgm_TotalPerc_meta_CI)
@@ -11660,8 +11703,8 @@ p_Pgm_TotalPercwoSchmidt_meta_SE <- Pgm_TotalPercwoSchmidt_meta$summary_effects_
   labs(x = "Summary effect", title = "Pop. summary effect with SE") +
   theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank()) +
-  annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.4g", Pgm_TotalPercwoSchmidt_meta$Qtest_het$Q), hjust=-0.2, vjust=3.5, parse = T) +
-  annotate("text", x = -Inf, y = Inf, label = sprintf("italic(p) == %.4g", Pgm_TotalPercwoSchmidt_meta$Qtest_het$p), hjust=-0.2, vjust=5, parse = T) +
+  annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.3g", Pgm_TotalPercwoSchmidt_meta$Qtest_het$Q), hjust=-0.2, vjust=3.5, parse = T) +
+  annotate("text", x = -Inf, y = Inf, label = Pgm_TotalPercwoSchmidt_meta$Qtest_het$p_plot, hjust=-0.2, vjust=4.5, parse = T) +
   theme(legend.position = "none")
   
   
@@ -11677,8 +11720,8 @@ p_Pgm_TotalPercwoSchmidt_meta_CI <- Pgm_TotalPercwoSchmidt_meta$summary_effects_
   labs(x = "Summary effect", title = "Pop. summary effect with 95% CI") +
   theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank()) +
-  annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.4g", Pgm_TotalPercwoSchmidt_meta$Qtest_het$Q), hjust=-0.2, vjust=3.5, parse = T) +
-  annotate("text", x = -Inf, y = Inf, label = sprintf("italic(p) == %.4g", Pgm_TotalPercwoSchmidt_meta$Qtest_het$p), hjust=-0.2, vjust=5, parse = T) +
+  annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.3g", Pgm_TotalPercwoSchmidt_meta$Qtest_het$Q), hjust=-0.2, vjust=3.5, parse = T) +
+  annotate("text", x = -Inf, y = Inf, label = Pgm_TotalPercwoSchmidt_meta$Qtest_het$p_plot, hjust=-0.2, vjust=4.5, parse = T) +
   theme(legend.position = "none")
   
 p_Pgm_TotalPercwoSchmidt_meta <- ggarrange(p_Pgm_TotalPercwoSchmidt_meta_SE, p_Pgm_TotalPercwoSchmidt_meta_CI)
