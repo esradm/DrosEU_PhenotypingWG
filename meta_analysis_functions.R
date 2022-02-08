@@ -155,7 +155,8 @@ metaAnalysisRandomModel <- function(studies.effects) {
   ## 3.2) Second method, Q-test for heterogeneity
   Qtest_het <- T2Comp(Y = unique(summary_effects_random$Mstar), 
                       V = unique(summary_effects_random$VMstar)) %>%
-    dplyr::select(Q, df, excess, p)
+    dplyr::select(Q, df, excess, p) %>%
+    mutate(p_plot = ifelse(p < 0.001, "italic(p) < 0.001", paste0("italic(p) == ", round(p, 4))))
   
   
   list(summary_effects_random = inner_join(studies.effects, summary_effects_random), tau2 = tau2, Qstars = Qstars, Qtest_var = Qtest_var, Qtest_het = Qtest_het)
