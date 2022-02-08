@@ -1,0 +1,25 @@
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: DT_EggAdult ~ -1 + Altitude + (1 | Population) + (1 | Line:Population)
+   Data: d_DT_A_M[d_DT_A_M$Supervisor.PI == "Grath", ]
+
+REML criterion at convergence: 7597.5
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-2.4730 -0.5679 -0.0895  0.6033  4.2697 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept)    47.58   6.898 
+ Population      (Intercept) 52860.72 229.915 
+ Residual                      300.90  17.346 
+Number of obs: 881, groups:  Line:Population, 23; Population, 3
+
+Fixed effects:
+         Estimate Std. Error     df t value Pr(>|t|)
+Altitude   0.8000     0.4138 2.0026   1.933    0.193
+optimizer (nloptwrap) convergence code: 0 (OK)
+unable to evaluate scaled gradient
+Model failed to converge: degenerate  Hessian with 1 negative eigenvalues
+

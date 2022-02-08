@@ -1,0 +1,24 @@
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: NumberOfAdultsEclosed ~ -1 + Altitude + (1 | Population) + (1 |  
+    Population:Line)
+   Data: d_Fec[d_Fec$Supervisor.PI == "Fricke", ]
+
+REML criterion at convergence: 9349.1
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-2.7024 -0.6659 -0.0817  0.6003  3.4512 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Population:Line (Intercept)  463.9   21.54   
+ Population      (Intercept) 1065.5   32.64   
+ Residual                    1263.2   35.54   
+Number of obs: 916, groups:  Population:Line, 161; Population, 9
+
+Fixed effects:
+         Estimate Std. Error      df t value Pr(>|t|)   
+Altitude  0.11563    0.03006 7.96007   3.846  0.00495 **
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1

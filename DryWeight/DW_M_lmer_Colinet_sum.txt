@@ -1,7 +1,6 @@
 Linear mixed model fit by REML. t-tests use Satterthwaite's method [
 lmerModLmerTest]
-Formula: DW_micrograms ~ -1 + Population + (1 | Population:Line) + (1 |  
-    Batch)
+Formula: DW_micrograms ~ -1 + Population + (1 | Population:Line)
    Data: d_DW_M[d_DW_M$Supervisor.PI == "Colinet", ]
 
 REML criterion at convergence: -17014.2
@@ -13,9 +12,8 @@ Scaled residuals:
 Random effects:
  Groups          Name        Variance  Std.Dev.
  Population:Line (Intercept) 0.0003446 0.01856 
- Batch           (Intercept) 0.0000000 0.00000 
  Residual                    0.0007161 0.02676 
-Number of obs: 3975, groups:  Population:Line, 166; Batch, 3
+Number of obs: 3975, groups:  Population:Line, 166
 
 Fixed effects:
               Estimate Std. Error        df t value Pr(>|t|)    
@@ -41,6 +39,3 @@ PopulatinRE 0.000  0.000  0.000  0.000  0.000
 PopulatinUM 0.000  0.000  0.000  0.000  0.000  0.000               
 PopulatinVA 0.000  0.000  0.000  0.000  0.000  0.000  0.000        
 PopulatinYE 0.000  0.000  0.000  0.000  0.000  0.000  0.000  0.000 
-optimizer (nloptwrap) convergence code: 0 (OK)
-boundary (singular) fit: see ?isSingular
-

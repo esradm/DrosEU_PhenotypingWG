@@ -1,23 +1,13 @@
 
-getwd()
-
+# Running survival analyses takes too long and clogs the computer / knitting. 
+# Thus, all were done externally and output files are shown in .Rmd file. 
 
 library(tidyverse)
 library(ggpubr)
-library(multcompView)
-library(qwraps2)
-library(afex)
-library(Hmisc)
-library(lme4)
-library(nlme)
-library(multcomp)
 library(coxme)
-library(meta)
-library(metafor)
 library(survival)
 library(survminer)
 
-setwd("Desktop/coxmee/")
 
 ### STARVATION ###
 d_SR <- read.csv("SR_MasterSheet_Nov21.csv")
@@ -37,32 +27,31 @@ d_SR_surv <- d_SR %>% mutate(Censor = 1)
 
 ####
 
-
 SR_F_coxme_Gonzalez <- coxme(Surv(AgeAtDeath_hours, Censor) ~ Population + (1|Batch) + (1|Population/Line) , data = filter(d_SR_surv, Supervisor.PI == "Gonzalez", Sex == "F"))
-capture.output(summary(SR_F_coxme_Gonzalez), file = "outs/SR_F_coxme_Gonzalez_sum.txt")
-capture.output(anova(SR_F_coxme_Gonzalez), file = "outs/SR_F_coxme_Gonzalez.txt")
+capture.output(summary(SR_F_coxme_Gonzalez), file = "SR_F_coxme_Gonzalez_sum.txt")
+capture.output(anova(SR_F_coxme_Gonzalez), file = "SR_F_coxme_Gonzalez.txt")
 
 SR_M_coxme_Gonzalez <- coxme(Surv(AgeAtDeath_hours, Censor) ~ Population + (1|Batch) + (1|Population/Line) , data = filter(d_SR_surv, Supervisor.PI == "Gonzalez", Sex == "M"))
-capture.output(summary(SR_M_coxme_Gonzalez), file = "outs/SR_M_coxme_Gonzalez_sum.txt")
-capture.output(anova(SR_M_coxme_Gonzalez), file = "outs/SR_M_coxme_Gonzalez.txt")
+capture.output(summary(SR_M_coxme_Gonzalez), file = "SR_M_coxme_Gonzalez_sum.txt")
+capture.output(anova(SR_M_coxme_Gonzalez), file = "SR_M_coxme_Gonzalez.txt")
 
 SR_F_coxme_Onder <- coxme(Surv(AgeAtDeath_hours, Censor) ~ Population + (1|Batch) + (1|Population/Line) , data = filter(d_SR_surv, Supervisor.PI == "Onder", Sex == "F"))
-capture.output(summary(SR_F_coxme_Onder), file = "outs/SR_F_coxme_Onder_sum.txt")
-capture.output(anova(SR_F_coxme_Onder), file = "outs/SR_F_coxme_Onder.txt")
+capture.output(summary(SR_F_coxme_Onder), file = "SR_F_coxme_Onder_sum.txt")
+capture.output(anova(SR_F_coxme_Onder), file = "SR_F_coxme_Onder.txt")
 
 SR_M_coxme_Onder <- coxme(Surv(AgeAtDeath_hours, Censor) ~ Population + (1|Batch) + (1|Population/Line) , data = filter(d_SR_surv, Supervisor.PI == "Onder", Sex == "M"))
-capture.output(summary(SR_M_coxme_Onder), file = "outs/SR_M_coxme_Onder_sum.txt")
-capture.output(anova(SR_M_coxme_Onder), file = "outs/SR_M_coxme_Onder.txt")
+capture.output(summary(SR_M_coxme_Onder), file = "SR_M_coxme_Onder_sum.txt")
+capture.output(anova(SR_M_coxme_Onder), file = "SR_M_coxme_Onder.txt")
 
 SR_F_coxme_Pasyukova <- coxme(Surv(AgeAtDeath_hours, Censor) ~ Population + (1|Batch) + (1|Population/Line) , data = filter(d_SR_surv, Supervisor.PI == "Pasyukova", Sex == "F"))
-capture.output(summary(SR_F_coxme_Pasyukova), file = "outs/SR_F_coxme_Pasyukova_sum.txt")
-capture.output(anova(SR_F_coxme_Pasyukova), file = "outs/SR_F_coxme_Pasyukova.txt")
+capture.output(summary(SR_F_coxme_Pasyukova), file = "SR_F_coxme_Pasyukova_sum.txt")
+capture.output(anova(SR_F_coxme_Pasyukova), file = "SR_F_coxme_Pasyukova.txt")
 
 SR_M_coxme_Pasyukova <- coxme(Surv(AgeAtDeath_hours, Censor) ~ Population + (1|Batch) + (1|Population/Line) , data = filter(d_SR_surv, Supervisor.PI == "Pasyukova", Sex == "M"))
-capture.output(summary(SR_M_coxme_Pasyukova), file = "outs/SR_M_coxme_Pasyukova_sum.txt")
-capture.output(anova(SR_M_coxme_Pasyukova), file = "outs/SR_M_coxme_Pasyukova.txt")
+capture.output(summary(SR_M_coxme_Pasyukova), file = "SR_M_coxme_Pasyukova_sum.txt")
+capture.output(anova(SR_M_coxme_Pasyukova), file = "SR_M_coxme_Pasyukova.txt")
 
-####
+################################################################################
 
 ### LIFESPAN ###
 
@@ -100,28 +89,28 @@ d_LS_L_surv <- d_LS_L %>% mutate(Censor = ifelse(Censor == 0, 1, 0))
 ###
 
 LS_P_F_coxme_Flatt <- coxme(Surv(LSP_AgeAtDeath_days, Censor) ~ Population + (1|Population/ReplicateCage), data = filter(d_LS_P_surv, Supervisor.PI == "Flatt", Sex == "F"))
-capture.output(summary(LS_P_F_coxme_Flatt), file = "outs/LS_P_F_coxme_Flatt_sum.txt")
-capture.output(anova(LS_P_F_coxme_Flatt), file = "outs/LS_P_F_coxme_Flatt.txt")
+capture.output(summary(LS_P_F_coxme_Flatt), file = "LS_P_F_coxme_Flatt_sum.txt")
+capture.output(anova(LS_P_F_coxme_Flatt), file = "LS_P_F_coxme_Flatt.txt")
            
 LS_P_M_coxme_Flatt <- coxme(Surv(LSP_AgeAtDeath_days, Censor) ~ Population + (1|Population/ReplicateCage), data = filter(d_LS_P_surv, Supervisor.PI == "Flatt", Sex == "M"))
-capture.output(summary(LS_P_M_coxme_Flatt), file = "outs/LS_P_M_coxme_Flatt_sum.txt")
-capture.output(anova(LS_P_M_coxme_Flatt), file = "outs/LS_P_M_coxme_Flatt.txt")
+capture.output(summary(LS_P_M_coxme_Flatt), file = "LS_P_M_coxme_Flatt_sum.txt")
+capture.output(anova(LS_P_M_coxme_Flatt), file = "LS_P_M_coxme_Flatt.txt")
            
 LS_L_F_coxme_Parsch <- coxme(Surv(LSL_AgeAtDeath_days, Censor) ~ Population + (1|Batch) + (1|Population/Line) , data = filter(d_LS_L_surv, Supervisor.PI == "Parsch", Sex == "F"))
-capture.output(summary(LS_L_F_coxme_Parsch), file = "outs/LS_L_F_coxme_Parsch_sum.txt")
-capture.output(anova(LS_L_F_coxme_Parsch), file = "outs/LS_L_F_coxme_Parsch.txt")
+capture.output(summary(LS_L_F_coxme_Parsch), file = "LS_L_F_coxme_Parsch_sum.txt")
+capture.output(anova(LS_L_F_coxme_Parsch), file = "LS_L_F_coxme_Parsch.txt")
   
 LS_L_M_coxme_Parsch <- coxme(Surv(LSL_AgeAtDeath_days, Censor) ~ Population + (1|Batch) + (1|Population/Line) , data = filter(d_LS_L_surv, Supervisor.PI == "Parsch", Sex == "M"))
-capture.output(summary(LS_L_M_coxme_Parsch), file = "outs/LS_L_M_coxme_Parsch_sum.txt")
-capture.output(anova(LS_L_M_coxme_Parsch), file = "outs/LS_L_M_coxme_Parsch.txt")
+capture.output(summary(LS_L_M_coxme_Parsch), file = "LS_L_M_coxme_Parsch_sum.txt")
+capture.output(anova(LS_L_M_coxme_Parsch), file = "LS_L_M_coxme_Parsch.txt")
   
 LS_L_F_coxme_Pasyukova <- coxme(Surv(LSL_AgeAtDeath_days, Censor) ~ Population + (1|Batch) + (1|Population/Line) , data = filter(d_LS_L_surv, Supervisor.PI == "Pasyukova", Sex == "F"))
-capture.output(summary(LS_L_F_coxme_Pasyukova), file = "outs/LS_L_F_coxme_Pasyukova_sum.txt")
-capture.output(anova(LS_L_F_coxme_Pasyukova), file = "outs/LS_L_F_coxme_Pasyukova.txt")
+capture.output(summary(LS_L_F_coxme_Pasyukova), file = "LS_L_F_coxme_Pasyukova_sum.txt")
+capture.output(anova(LS_L_F_coxme_Pasyukova), file = "LS_L_F_coxme_Pasyukova.txt")
 
 LS_L_M_coxme_Pasyukova <- coxme(Surv(LSL_AgeAtDeath_days, Censor) ~ Population + (1|Batch) + (1|Population/Line) , data = filter(d_LS_L_surv, Supervisor.PI == "Pasyukova", Sex == "M"))
-capture.output(summary(LS_L_M_coxme_Pasyukova), file = "outs/LS_L_M_coxme_Pasyukova_sum.txt")
-capture.output(anova(LS_L_M_coxme_Pasyukova), file = "outs/LS_L_M_coxme_Pasyukova.txt")
+capture.output(summary(LS_L_M_coxme_Pasyukova), file = "LS_L_M_coxme_Pasyukova_sum.txt")
+capture.output(anova(LS_L_M_coxme_Pasyukova), file = "LS_L_M_coxme_Pasyukova.txt")
   
 ####
 
@@ -145,20 +134,20 @@ str(d_HSM)
 d_HSM_surv <- d_HSM %>% mutate(Censor = ifelse(Censor == 0, 1, 0))
 
 HSM_F_coxme_Parsch <- coxme(Surv(TimeDeath_min, Censor) ~ Population + (1|Batch) + (1|Population/Line) , data = filter(d_HSM_surv, Supervisor.PI == "Parsch", Sex == "F"))
-capture.output(summary(HSM_F_coxme_Parsch), file = "outs/HSM_F_coxme_Parsch_sum.txt")
-capture.output(anova(HSM_F_coxme_Parsch), file = "outs/HSM_F_coxme_Parsch.txt")
+capture.output(summary(HSM_F_coxme_Parsch), file = "HSM_F_coxme_Parsch_sum.txt")
+capture.output(anova(HSM_F_coxme_Parsch), file = "HSM_F_coxme_Parsch.txt")
 
 HSM_M_coxme_Parsch <- coxme(Surv(TimeDeath_min, Censor) ~ Population + (1|Batch) + (1|Population/Line) , data = filter(d_HSM_surv, Supervisor.PI == "Parsch", Sex == "M"))
-capture.output(summary(HSM_M_coxme_Parsch), file = "outs/HSM_M_coxme_Parsch_sum.txt")
-capture.output(anova(HSM_M_coxme_Parsch), file = "outs/HSM_M_coxme_Parsch.txt")
+capture.output(summary(HSM_M_coxme_Parsch), file = "HSM_M_coxme_Parsch_sum.txt")
+capture.output(anova(HSM_M_coxme_Parsch), file = "HSM_M_coxme_Parsch.txt")
 
 HSM_F_coxme_Vieira <- coxme(Surv(TimeDeath_min, Censor) ~ Population + (1|Batch) + (1|Population/Line) , data = filter(d_HSM_surv, Supervisor.PI == "Vieira", Sex == "F"))
-capture.output(summary(HSM_F_coxme_Vieira), file = "outs/HSM_F_coxme_Vieira_sum.txt")
-capture.output(anova(HSM_F_coxme_Vieira), file = "outs/HSM_F_coxme_Vieira.txt")
+capture.output(summary(HSM_F_coxme_Vieira), file = "HSM_F_coxme_Vieira_sum.txt")
+capture.output(anova(HSM_F_coxme_Vieira), file = "HSM_F_coxme_Vieira.txt")
 
 HSM_M_coxme_Vieira <- coxme(Surv(TimeDeath_min, Censor) ~ Population + (1|Batch) + (1|Population/Line) , data = filter(d_HSM_surv, Supervisor.PI == "Vieira", Sex == "M"))
-capture.output(summary(HSM_M_coxme_Vieira), file = "outs/HSM_M_coxme_Vieira_sum.txt")
-capture.output(anova(HSM_M_coxme_Vieira), file = "outs/HSM_M_coxme_Vieira.txt")
+capture.output(summary(HSM_M_coxme_Vieira), file = "HSM_M_coxme_Vieira_sum.txt")
+capture.output(anova(HSM_M_coxme_Vieira), file = "HSM_M_coxme_Vieira.txt")
 
 
 ### CCRT ###
@@ -180,12 +169,12 @@ d_CCRT$Censor <- as.numeric(d_CCRT$Censor)
 d_CCRT_surv <- d_CCRT %>% mutate(Censor = ifelse(Censor == 0, 1, 0))
 
 CCRT_F_coxme_Vieira <- coxme(Surv(CCRT_seconds, Censor) ~ Population + (1|Batch) + (1|Population/Line) , data = filter(d_CCRT_surv, Supervisor.PI == "Vieira", Sex == "F"))
-capture.output(summary(CCRT_F_coxme_Vieira), file = "outs/CCRT_F_coxme_Vieira_sum.txt")
-capture.output(anova(CCRT_F_coxme_Vieira), file = "outs/CCRT_F_coxme_Vieira.txt")
+capture.output(summary(CCRT_F_coxme_Vieira), file = "CCRT_F_coxme_Vieira_sum.txt")
+capture.output(anova(CCRT_F_coxme_Vieira), file = "CCRT_F_coxme_Vieira.txt")
 
 CCRT_M_coxme_Vieira <- coxme(Surv(CCRT_seconds, Censor) ~ Population + (1|Batch) + (1|Population/Line) , data = filter(d_CCRT_surv, Supervisor.PI == "Vieira", Sex == "M"))
-capture.output(summary(CCRT_M_coxme_Vieira), file = "outs/CCRT_M_coxme_Vieira_sum.txt")
-capture.output(anova(CCRT_M_coxme_Vieira), file = "outs/CCRT_M_coxme_Vieira.txt")
+capture.output(summary(CCRT_M_coxme_Vieira), file = "CCRT_M_coxme_Vieira_sum.txt")
+capture.output(anova(CCRT_M_coxme_Vieira), file = "CCRT_M_coxme_Vieira.txt")
 
 
 
