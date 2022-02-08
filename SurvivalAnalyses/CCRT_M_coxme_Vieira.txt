@@ -1,0 +1,10 @@
+Analysis of Deviance Table
+ Cox model: response is Surv(CCRT_seconds, Censor)
+Terms added sequentially (first to last)
+
+            loglik  Chisq Df Pr(>|Chi|)    
+NULL       -5939.5                         
+Population -5864.2 150.61  8  < 2.2e-16 ***
+---
+Signif. codes:  
+0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
