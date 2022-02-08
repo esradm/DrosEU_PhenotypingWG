@@ -5642,157 +5642,177 @@ p_LS_M_pop_Pasyukova
 invisible(dev.off())
 ```
 
-
 ### Survival Analyses
 
-```{r d_LS_M_prop, message=FALSE}
+```{r d_LS_M_prop, message=FALSE, include=FALSE}
 d_LS_prop_pop <- d_LS_M %>%
   filter(Censor != 1) %>%
+  rename(AgeAtDeath = LSM_AgeAtDeath_days) %>%
   group_split(Supervisor.PI, Population, Sex) %>%
-  lapply(., survProp, cuts = seq(0, 120, 10)) %>%
+  lapply(., survProp, cuts = seq(0, 120, 5)) %>%
   bind_rows()
 ```
 
 
 #### Flatt Lab
 
-```{r LS_L_prop}
-d_LS_F_Flatt_survival_curves <- d_LS_prop_pop %>%
+```{r p_LS_F_Flatt_survival_curves, include=FALSE, message=FALSE}
+p_LS_F_Flatt_survival_curves <- d_LS_prop_pop %>%
   filter(Supervisor.PI == "Flatt", Sex == "F") %>%
   mutate(Population = factor(Population, levels = c("YE", "RE", "GI", "MU", "MA", "UM", "KA", "VA", "AK"))) %>%
   ggplot() + 
-  geom_line(aes(y = PropSurv, x = AgeAtDeath, colour = Population), size = 0.6) +
+  geom_line(aes(y = PropSurv, x = AgeAtDeath, colour = Population), size = 1) +
   xlim(0, 120) +
   scale_x_continuous(breaks=seq(0, 120, 20)) +
   scale_colour_manual(values = c("#cab2d6", "#ff7f00", "#fdbf6f", "#e31a1c", "#fb9a99", "#33a02c", "#b2df8a", "#1f78b4", "#a6cee3"), name = "Population") +
   labs(title = "LS_F_Flatt", x = "Age at death (days)", y = "Proportion survival") +
   droseu_theme
-d_LS_F_Flatt_survival_curves
+```
+
+```{r, echo=FALSE}
+p_LS_F_Flatt_survival_curves
 ```
 
 ```{r, include=FALSE}
-pdf(file="Lifespan/d_LS_F_Flatt_survival_curves.pdf", width=8, height=5)
-d_LS_F_Flatt_survival_curves
+pdf(file="Lifespan/p_LS_F_Flatt_survival_curves.pdf", width=8, height=5)
+p_LS_F_Flatt_survival_curves
 invisible(dev.off())
 ```
 
 
-
-
-```{r}
-d_LS_P_surv <- d_LS_P %>% mutate(Censor = ifelse(Censor == 0, 1, 0))
-d_LS_L_surv <- d_LS_L %>% mutate(Censor = ifelse(Censor == 0, 1, 0))
+```{r p_LS_M_Flatt_survival_curves, include=FALSE, message=FALSE}
+p_LS_M_Flatt_survival_curves <- d_LS_prop_pop %>%
+  filter(Supervisor.PI == "Flatt", Sex == "M") %>%
+  mutate(Population = factor(Population, levels = c("YE", "RE", "GI", "MU", "MA", "UM", "KA", "VA", "AK"))) %>%
+  ggplot() + 
+  geom_line(aes(y = PropSurv, x = AgeAtDeath, colour = Population), size = 1) +
+  xlim(0, 120) +
+  scale_x_continuous(breaks=seq(0, 120, 20)) +
+  scale_colour_manual(values = c("#cab2d6", "#ff7f00", "#fdbf6f", "#e31a1c", "#fb9a99", "#33a02c", "#b2df8a", "#1f78b4", "#a6cee3"), name = "Population") +
+  labs(title = "LS_M_Flatt", x = "Age at death (days)", y = "Proportion survival") +
+  droseu_theme
 ```
 
-
-
-
-
-
-
-
-
-
-##### Females
-```{r}
-LS_F_Flatt_survfit <- survfit(Surv(LSP_AgeAtDeath_days) ~ Population, data = filter(d_LS_P_surv, Supervisor.PI == "Flatt", Sex == "F"))
-```
-```{r}
-p_LS_F_Flatt_survfit <- ggsurvplot(LS_F_Flatt_survfit, censor.shape="|", censor.size = 0, pval = FALSE, risk.table = FALSE, conf.int = FALSE, legend.title = "Population", legend.labs = sort(c("YE","RE","GI","MU","MA","UM","KA","VA","AK")), legend = c(0.9, 0.7), title = "LS_F_Flatt_survfit")
-```
-```{r}
-p_LS_F_Flatt_survfit$plot
-```
-```{r}
-pdf(file="Lifespan/p_LS_F_Flatt_survfit.pdf", width=8, height=5)
-p_LS_F_Flatt_survfit$plot
-invisible(dev.off())
+```{r, echo=FALSE}
+p_LS_M_Flatt_survival_curves
 ```
 
-##### Males
-```{r}
-LS_M_Flatt_survfit <- survfit(Surv(LSP_AgeAtDeath_days) ~ Population, data = filter(d_LS_P_surv, Supervisor.PI == "Flatt", Sex == "M"))
-```
-```{r}
-p_LS_M_Flatt_survfit <- ggsurvplot(LS_M_Flatt_survfit, censor.shape="|", censor.size = 0, pval = FALSE, risk.table = FALSE, conf.int = FALSE, legend.title = "Population", legend.labs = sort(c("YE","RE","GI","MU","MA","UM","KA","VA","AK")), legend = c(0.9, 0.7), title = "LS_M_Flatt_survfit")
-```
-```{r}
-p_LS_M_Flatt_survfit$plot
-```
-```{r}
-pdf(file="Lifespan/p_LS_M_Flatt_survfit.pdf", width=8, height=5)
-p_LS_M_Flatt_survfit$plot
+```{r, include=FALSE}
+pdf(file="Lifespan/p_LS_M_Flatt_survival_curves.pdf", width=8, height=5)
+p_LS_M_Flatt_survival_curves
 invisible(dev.off())
 ```
 
 
 
 #### Parsch Lab
-##### Females
-```{r}
-LS_F_Parsch_survfit <- survfit(Surv(LSL_AgeAtDeath_days) ~ Population, data = filter(d_LS_L_surv, Supervisor.PI == "Parsch", Sex == "F"))
+
+```{r p_LS_F_Parsch_survival_curves, include=FALSE, message=FALSE}
+p_LS_F_Parsch_survival_curves <- d_LS_prop_pop %>%
+  filter(Supervisor.PI == "Parsch", Sex == "F") %>%
+  mutate(Population = factor(Population, levels = c("YE", "RE", "GI", "MU", "MA", "UM", "KA", "VA", "AK"))) %>%
+  ggplot() + 
+  geom_line(aes(y = PropSurv, x = AgeAtDeath, colour = Population), size = 1) +
+  xlim(0, 120) +
+  scale_x_continuous(breaks=seq(0, 120, 20)) +
+  scale_colour_manual(values = c("#cab2d6", "#ff7f00", "#fdbf6f", "#e31a1c", "#fb9a99", "#33a02c", "#b2df8a", "#1f78b4", "#a6cee3"), name = "Population") +
+  labs(title = "LS_F_Parsch", x = "Age at death (days)", y = "Proportion survival") +
+  droseu_theme
 ```
-```{r}
-p_LS_F_Parsch_survfit <- ggsurvplot(LS_F_Parsch_survfit, censor.shape="|", censor.size = 0, pval = FALSE, risk.table = FALSE, conf.int = FALSE, legend.title = "Population", legend.labs = sort(c("YE","RE","GI","MU","MA","UM","KA","VA","AK")), legend = c(0.9, 0.7), title = "LS_F_Parsch_survfit")
+
+```{r, echo=FALSE}
+p_LS_F_Parsch_survival_curves
 ```
-```{r}
-p_LS_F_Parsch_survfit$plot
-```
-```{r}
-pdf(file="Lifespan/p_LS_F_Parsch_survfit.pdf", width=8, height=5)
-p_LS_F_Parsch_survfit$plot
+
+
+```{r, include=FALSE}
+pdf(file="Lifespan/p_LS_F_Parsch_survival_curves.pdf", width=8, height=5)
+p_LS_F_Parsch_survival_curves
 invisible(dev.off())
 ```
 
-##### Males
-```{r}
-LS_M_Parsch_survfit <- survfit(Surv(LSL_AgeAtDeath_days) ~ Population, data = filter(d_LS_L_surv, Supervisor.PI == "Parsch", Sex == "M"))
+
+```{r p_LS_M_Parsch_survival_curves, include=FALSE, message=FALSE}
+p_LS_M_Parsch_survival_curves <- d_LS_prop_pop %>%
+  filter(Supervisor.PI == "Parsch", Sex == "M") %>%
+  mutate(Population = factor(Population, levels = c("YE", "RE", "GI", "MU", "MA", "UM", "KA", "VA", "AK"))) %>%
+  ggplot() + 
+  geom_line(aes(y = PropSurv, x = AgeAtDeath, colour = Population), size = 1) +
+  xlim(0, 120) +
+  scale_x_continuous(breaks=seq(0, 120, 20)) +
+  scale_colour_manual(values = c("#cab2d6", "#ff7f00", "#fdbf6f", "#e31a1c", "#fb9a99", "#33a02c", "#b2df8a", "#1f78b4", "#a6cee3"), name = "Population") +
+  labs(title = "LS_M_Parsch", x = "Age at death (days)", y = "Proportion survival") +
+  droseu_theme
 ```
-```{r}
-p_LS_M_Parsch_survfit <- ggsurvplot(LS_M_Parsch_survfit, censor.shape="|", censor.size = 0, pval = FALSE, risk.table = FALSE, conf.int = FALSE, legend.title = "Population", legend.labs = sort(c("YE","RE","GI","MU","MA","UM","KA","VA","AK")), legend = c(0.9, 0.7), title = "LS_M_Parsch_survfit")
+
+```{r, echo=FALSE}
+p_LS_M_Parsch_survival_curves
 ```
-```{r}
-p_LS_M_Parsch_survfit$plot
-```
-```{r}
-pdf(file="Lifespan/p_LS_M_Parsch_survfit.pdf", width=8, height=5)
-p_LS_M_Parsch_survfit$plot
+
+
+```{r, include=FALSE}
+pdf(file="Lifespan/p_LS_M_Parsch_survival_curves.pdf", width=8, height=5)
+p_LS_M_Parsch_survival_curves
 invisible(dev.off())
 ```
+
 
 
 #### Pasyukova Lab
-##### Females
-```{r}
-LS_F_Pasyukova_survfit <- survfit(Surv(LSL_AgeAtDeath_days) ~ Population, data = filter(d_LS_L_surv, Supervisor.PI == "Pasyukova", Sex == "F"))
+
+```{r p_LS_F_Pasyukova_survival_curves, include=FALSE, message=FALSE}
+p_LS_F_Pasyukova_survival_curves <- d_LS_prop_pop %>%
+  filter(Supervisor.PI == "Pasyukova", Sex == "F") %>%
+  mutate(Population = factor(Population, levels = c("YE", "RE", "GI", "MU", "MA", "UM", "KA", "VA", "AK"))) %>%
+  ggplot() + 
+  geom_line(aes(y = PropSurv, x = AgeAtDeath, colour = Population), size = 1) +
+  xlim(0, 120) +
+  scale_x_continuous(breaks=seq(0, 120, 20)) +
+  scale_colour_manual(values = c("#cab2d6", "#ff7f00", "#fdbf6f", "#e31a1c", "#fb9a99", "#33a02c", "#b2df8a", "#1f78b4", "#a6cee3"), name = "Population") +
+  labs(title = "LS_F_Pasyukova", x = "Age at death (days)", y = "Proportion survival") +
+  droseu_theme
 ```
-```{r}
-p_LS_F_Pasyukova_survfit <- ggsurvplot(LS_F_Pasyukova_survfit, censor.shape="|", censor.size = 0, pval = FALSE, risk.table = FALSE, conf.int = FALSE, legend.title = "Population", legend.labs = sort(c("YE","RE","GI","MU","MA","UM","KA","VA","AK")), legend = c(0.9, 0.7), title = "LS_F_Pasyukova_survfit")
+
+```{r, echo=FALSE}
+p_LS_F_Pasyukova_survival_curves
 ```
-```{r}
-p_LS_F_Pasyukova_survfit$plot
-```
-```{r}
-pdf(file="Lifespan/p_LS_F_Pasyukova_survfit.pdf", width=8, height=5)
-p_LS_F_Pasyukova_survfit$plot
+
+
+```{r, include=FALSE}
+p_LS_F_Pasyukova_survival_curves
+pdf(file="Lifespan/p_LS_F_Pasyukova_survival_curves.pdf", width=8, height=5)
+p_LS_F_Pasyukova_survival_curves
 invisible(dev.off())
 ```
 
-##### Males
-```{r}
-LS_M_Pasyukova_survfit <- survfit(Surv(LSL_AgeAtDeath_days) ~ Population, data = filter(d_LS_L_surv, Supervisor.PI == "Pasyukova", Sex == "M"))
+
+```{r p_LS_M_Pasyukova_survival_curves, include=FALSE, message=FALSE}
+p_LS_M_Pasyukova_survival_curves <- d_LS_prop_pop %>%
+  filter(Supervisor.PI == "Pasyukova", Sex == "M") %>%
+  mutate(Population = factor(Population, levels = c("YE", "RE", "GI", "MU", "MA", "UM", "KA", "VA", "AK"))) %>%
+  ggplot() + 
+  geom_line(aes(y = PropSurv, x = AgeAtDeath, colour = Population), size = 1) +
+  xlim(0, 120) +
+  scale_x_continuous(breaks=seq(0, 120, 20)) +
+  scale_colour_manual(values = c("#cab2d6", "#ff7f00", "#fdbf6f", "#e31a1c", "#fb9a99", "#33a02c", "#b2df8a", "#1f78b4", "#a6cee3"), name = "Population") +
+  labs(title = "LS_M_Pasyukova", x = "Age at death (days)", y = "Proportion survival") +
+  droseu_theme
 ```
-```{r}
-p_LS_M_Pasyukova_survfit <- ggsurvplot(LS_M_Pasyukova_survfit, censor.shape="|", censor.size = 0, pval = FALSE, risk.table = FALSE, conf.int = FALSE, legend.title = "Population", legend.labs = sort(c("YE","RE","GI","MU","MA","UM","KA","VA","AK")), legend = c(0.9, 0.7), title = "LS_M_Pasyukova_survfit")
+
+
+```{r, echo=FALSE}
+p_LS_M_Pasyukova_survival_curves
 ```
-```{r}
-p_LS_M_Pasyukova_survfit$plot
-```
-```{r}
-pdf(file="Lifespan/p_LS_M_Pasyukova_survfit.pdf", width=8, height=5)
-p_LS_M_Pasyukova_survfit$plot
+
+
+```{r, include=FALSE}
+
+pdf(file="Lifespan/p_LS_M_Pasyukova_survival_curves.pdf", width=8, height=5)
+p_LS_M_Pasyukova_survival_curves
 invisible(dev.off())
 ```
+
+
 
 
 #### coxme
@@ -6745,7 +6765,61 @@ invisible(dev.off())
 
 ### Survival Analyses
 
-> Survival curves 
+
+```{r d_CCRT_prop, message=FALSE, include=FALSE}
+d_CCRT_prop_pop <- d_CCRT %>%
+  filter(Censor != 1) %>%
+  rename(AgeAtDeath = CCRT_seconds) %>%
+  group_split(Supervisor.PI, Population, Sex) %>%
+  lapply(., survProp, cuts = seq(0, 3600, 360)) %>%
+  bind_rows()
+```
+
+#### Vieira Lab
+
+```{r p_CCRT_F_Vieira_survival_curves, include=FALSE, message=FALSE}
+p_CCRT_F_Vieira_survival_curves <- d_CCRT_prop_pop %>%
+  filter(Supervisor.PI == "Vieira", Sex == "F") %>%
+  mutate(Population = factor(Population, levels = c("YE", "RE", "GI", "MU", "MA", "UM", "KA", "VA", "AK"))) %>%
+  ggplot() + 
+  geom_line(aes(y = 1-PropSurv, x = AgeAtDeath, colour = Population), size = 1) +
+  scale_x_continuous(breaks = seq(0, 3600, 600)) +
+  scale_colour_manual(values = c("#cab2d6", "#ff7f00", "#fdbf6f", "#e31a1c", "#fb9a99", "#33a02c", "#b2df8a", "#1f78b4", "#a6cee3"), name = "Population") +
+  labs(title = "CCRT_F_Vieira", x = "CCRT (sec)", y = "Proportion recovery") +
+  droseu_theme
+```
+
+```{r, echo=FALSE}
+p_CCRT_F_Vieira_survival_curves
+```
+
+```{r, include=FALSE}
+pdf(file="ChillComa/p_CCRT_F_Vieira_survival_curves.pdf", width=8, height=5)
+p_CCRT_F_Vieira_survival_curves
+invisible(dev.off())
+```
+
+```{r p_CCRT_M_Vieira_survival_curves, include=FALSE, message=FALSE}
+p_CCRT_M_Vieira_survival_curves <- d_CCRT_prop_pop %>%
+  filter(Supervisor.PI == "Vieira", Sex == "M") %>%
+  mutate(Population = factor(Population, levels = c("YE", "RE", "GI", "MU", "MA", "UM", "KA", "VA", "AK"))) %>%
+  ggplot() + 
+  geom_line(aes(y = 1-PropSurv, x = AgeAtDeath, colour = Population), size = 1) +
+  scale_x_continuous(breaks=seq(0, 3600, 600)) +
+  scale_colour_manual(values = c("#cab2d6", "#ff7f00", "#fdbf6f", "#e31a1c", "#fb9a99", "#33a02c", "#b2df8a", "#1f78b4", "#a6cee3"), name = "Population") +
+  labs(title = "CCRT_M_Vieira", x = "CCRT (sec)", y = "Proportion recovery") +
+  droseu_theme
+```
+
+```{r, echo=FALSE}
+p_CCRT_M_Vieira_survival_curves
+```
+
+```{r, include=FALSE}
+pdf(file="ChillComa/p_CCRT_M_Vieira_survival_curves.pdf", width=8, height=5)
+p_CCRT_M_Vieira_survival_curves
+invisible(dev.off())
+```
 
 #### coxme
 
@@ -7191,9 +7265,110 @@ invisible(dev.off())
 
 ### Survival Analyses
 
-> Survival plots 
+```{r d_HSM_prop, message=FALSE, include=FALSE}
+d_HSM_prop_pop <- d_HSM %>%
+  filter(Censor != 1) %>%
+  rename(AgeAtDeath = TimeDeath_min) %>%
+  group_split(Supervisor.PI, Population, Sex) %>%
+  lapply(., survProp, cuts = seq(0, 600, 60)) %>%
+  bind_rows()
+```
 
-#### coxme 
+#### Parsch Lab
+
+```{r p_HSM_F_Parsch_survival_curves, include=FALSE, message=FALSE}
+p_HSM_F_Parsch_survival_curves <- d_HSM_prop_pop %>%
+  filter(Supervisor.PI == "Parsch", Sex == "F") %>%
+  mutate(Population = factor(Population, levels = c("YE", "RE", "GI", "MU", "MA", "UM", "KA", "VA", "AK"))) %>%
+  ggplot() + 
+  geom_line(aes(y = PropSurv, x = AgeAtDeath, colour = Population), size = 1) +
+  scale_x_continuous(breaks=seq(0, 600, 120)) +
+  scale_colour_manual(values = c("#cab2d6", "#ff7f00", "#fdbf6f", "#e31a1c", "#fb9a99", "#33a02c", "#b2df8a", "#1f78b4", "#a6cee3"), name = "Population") +
+  labs(title = "HSM_F_Parsch", x = "Age at death (min)", y = "Proportion survival") +
+  droseu_theme
+```
+
+```{r, echo=FALSE}
+p_HSM_F_Parsch_survival_curves
+```
+
+```{r, include=FALSE}
+pdf(file="HeatShock/p_HSM_F_Parsch_survival_curves.pdf", width=8, height=5)
+p_HSM_F_Parsch_survival_curves
+invisible(dev.off())
+```
+
+```{r p_HSM_M_Parsch_survival_curves, include=FALSE, message=FALSE}
+p_HSM_M_Parsch_survival_curves <- d_HSM_prop_pop %>%
+  filter(Supervisor.PI == "Parsch", Sex == "M") %>%
+  mutate(Population = factor(Population, levels = c("YE", "RE", "GI", "MU", "MA", "UM", "KA", "VA", "AK"))) %>%
+  ggplot() + 
+  geom_line(aes(y = PropSurv, x = AgeAtDeath, colour = Population), size = 1) +
+  scale_x_continuous(breaks=seq(0, 600, 120)) +
+  scale_colour_manual(values = c("#cab2d6", "#ff7f00", "#fdbf6f", "#e31a1c", "#fb9a99", "#33a02c", "#b2df8a", "#1f78b4", "#a6cee3"), name = "Population") +
+  labs(title = "HSM_M_Parsch", x = "Age at death (min)", y = "Proportion survival") +
+  droseu_theme
+```
+
+```{r, echo=FALSE}
+p_HSM_M_Parsch_survival_curves
+```
+
+```{r, include=FALSE}
+pdf(file="HeatShock/p_HSM_M_Parsch_survival_curves.pdf", width=8, height=5)
+p_HSM_M_Parsch_survival_curves
+invisible(dev.off())
+```
+
+
+#### Vieira Lab
+
+```{r p_HSM_F_Vieira_survival_curves, include=FALSE, message=FALSE}
+p_HSM_F_Vieira_survival_curves <- d_HSM_prop_pop %>%
+  filter(Supervisor.PI == "Vieira", Sex == "F") %>%
+  mutate(Population = factor(Population, levels = c("YE", "RE", "GI", "MU", "MA", "UM", "KA", "VA", "AK"))) %>%
+  ggplot() + 
+  geom_line(aes(y = PropSurv, x = AgeAtDeath, colour = Population), size = 1) +
+  scale_x_continuous(breaks=seq(0, 600, 120)) +
+  scale_colour_manual(values = c("#cab2d6", "#ff7f00", "#fdbf6f", "#e31a1c", "#fb9a99", "#33a02c", "#b2df8a", "#1f78b4", "#a6cee3"), name = "Population") +
+  labs(title = "HSM_F_Vieira", x = "Age at death (min)", y = "Proportion survival") +
+  droseu_theme
+```
+
+```{r, echo=FALSE}
+p_HSM_F_Vieira_survival_curves
+```
+
+```{r, include=FALSE}
+pdf(file="HeatShock/p_HSM_F_Vieira_survival_curves.pdf", width=8, height=5)
+p_HSM_F_Vieira_survival_curves
+invisible(dev.off())
+```
+
+```{r p_HSM_M_Vieira_survival_curves, include=FALSE, message=FALSE}
+p_HSM_M_Vieira_survival_curves <- d_HSM_prop_pop %>%
+  filter(Supervisor.PI == "Vieira", Sex == "M") %>%
+  mutate(Population = factor(Population, levels = c("YE", "RE", "GI", "MU", "MA", "UM", "KA", "VA", "AK"))) %>%
+  ggplot() + 
+  geom_line(aes(y = PropSurv, x = AgeAtDeath, colour = Population), size = 1) +
+  scale_x_continuous(breaks=seq(0, 600, 120)) +
+  scale_colour_manual(values = c("#cab2d6", "#ff7f00", "#fdbf6f", "#e31a1c", "#fb9a99", "#33a02c", "#b2df8a", "#1f78b4", "#a6cee3"), name = "Population") +
+  labs(title = "HSM_M_Vieira", x = "Age at death (min)", y = "Proportion survival") +
+  droseu_theme
+```
+
+```{r, echo=FALSE}
+p_HSM_M_Vieira_survival_curves
+```
+
+```{r, include=FALSE}
+pdf(file="HeatShock/p_HSM_M_Vieira_survival_curves.pdf", width=8, height=5)
+p_HSM_M_Vieira_survival_curves
+invisible(dev.off())
+```
+
+#### coxme
+
 ```{r eval=FALSE, include=FALSE, echo=TRUE, val=FALSE}
 
 d_HSM_surv <- d_HSM %>% mutate(Censor = ifelse(Censor == 0, 1, 0))
@@ -8916,6 +9091,7 @@ invisible(dev.off())
 ```
 
 
+
 ### Survival Analyses
 
 
@@ -9086,116 +9262,15 @@ invisible(dev.off())
 ```
 
 
-### Survival Analyses
+
+
+
+### coxme
 
 ```{r}
 # adding a Censor column, with all individuals being kept
 d_SR_surv <- d_SR %>% mutate(Censor = 1)
 ```
-
-
-#### Gonzalez Lab
-##### Females
-
-```{r}
-SR_F_Gonzalez_survfit <- survfit(Surv(AgeAtDeath_hours) ~ Population, data = filter(d_SR_surv, Supervisor.PI == "Gonzalez", Sex == "F"))
-```
-```{r}
-p_SR_F_Gonzalez_survfit <- ggsurvplot(SR_F_Gonzalez_survfit, censor.shape="|", censor.size = 0, pval = FALSE, risk.table = FALSE, conf.int = FALSE, legend.title = "Population", legend.labs = sort(c("YE","RE","GI","MU","MA","UM","KA","VA","AK")), legend = c(0.9, 0.7), title = "p_SR_F_Gonzalez")
-```
-```{r}
-p_SR_F_Gonzalez_survfit$plot
-```
-```{r}
-pdf(file="Starvation/p_SR_F_Gonzalez_survfit.pdf", width=8, height=5)
-p_SR_F_Gonzalez_survfit$plot
-invisible(dev.off())
-```
-##### Males
-```{r}
-SR_M_Gonzalez_survfit <- survfit(Surv(AgeAtDeath_hours) ~ Population, data = filter(d_SR_surv, Supervisor.PI == "Gonzalez", Sex == "M"))
-```
-```{r}
-p_SR_M_Gonzalez_survfit <- ggsurvplot(SR_M_Gonzalez_survfit, censor.shape="|", censor.size = 0, pval = FALSE, risk.table = FALSE, conf.int = FALSE, legend.title = "Population", legend.labs = sort(c("YE","RE","GI","MU","MA","UM","KA","VA","AK")), legend = c(0.9, 0.7), title = "p_SR_M_Gonzalez")
-```
-```{r}
-p_SR_M_Gonzalez_survfit$plot
-```
-```{r}
-pdf(file="Starvation/p_SR_M_Gonzalez_survfit.pdf", width=8, height=5)
-p_SR_M_Gonzalez_survfit$plot
-invisible(dev.off())
-```
-
-
-#### Onder Lab
-##### Females
-```{r}
-SR_F_Onder_survfit <- survfit(Surv(AgeAtDeath_hours) ~ Population, data = filter(d_SR_surv, Supervisor.PI == "Onder", Sex == "F"))
-```
-```{r}
-p_SR_F_Onder_survfit <- ggsurvplot(SR_F_Onder_survfit, censor.shape="|", censor.size = 0, pval = FALSE, risk.table = FALSE, conf.int = FALSE, legend.title = "Population", legend.labs = sort(c("YE","RE","GI","MU","MA","UM","KA","VA","AK")), legend = c(0.9, 0.7), title = "p_SR_F_Onder")
-```
-```{r}
-p_SR_F_Onder_survfit$plot
-```
-```{r}
-pdf(file="Starvation/p_SR_F_Onder_survfit.pdf", width=8, height=5)
-p_SR_F_Onder_survfit$plot
-invisible(dev.off())
-```
-##### Males
-```{r}
-SR_M_Onder_survfit <- survfit(Surv(AgeAtDeath_hours) ~ Population, data = filter(d_SR_surv, Supervisor.PI == "Onder", Sex == "M"))
-```
-```{r}
-p_SR_M_Onder_survfit <- ggsurvplot(SR_M_Onder_survfit, censor.shape="|", censor.size = 0, pval = FALSE, risk.table = FALSE, conf.int = FALSE, legend.title = "Population", legend.labs = sort(c("YE","RE","GI","MU","MA","UM","KA","VA","AK")), legend = c(0.9, 0.7), title = "p_SR_M_Onder")
-```
-```{r}
-p_SR_M_Onder_survfit$plot
-```
-```{r}
-pdf(file="Starvation/p_SR_M_Onder_survfit.pdf", width=8, height=5)
-p_SR_M_Onder_survfit$plot
-invisible(dev.off())
-```
-
-
-
-#### Pasyukova Lab
-##### Females
-```{r}
-SR_F_Pasyukova_survfit <- survfit(Surv(AgeAtDeath_hours) ~ Population, data = filter(d_SR_surv, Supervisor.PI == "Pasyukova", Sex == "F"))
-```
-```{r}
-p_SR_F_Pasyukova_survfit <- ggsurvplot(SR_F_Pasyukova_survfit, censor.shape="|", censor.size = 0, pval = FALSE, risk.table = FALSE, conf.int = FALSE, legend.title = "Population", legend.labs = sort(c("YE","RE","GI","MU","MA","UM","KA","VA","AK")), legend = c(0.9, 0.7), title = "p_SR_F_Pasyukova")
-```
-```{r}
-p_SR_F_Pasyukova_survfit$plot
-```
-```{r}
-pdf(file="Starvation/p_SR_F_Pasyukova_survfit.pdf", width=8, height=5)
-p_SR_F_Pasyukova_survfit$plot
-invisible(dev.off())
-```
-##### Males
-```{r}
-SR_M_Pasyukova_survfit <- survfit(Surv(AgeAtDeath_hours) ~ Population, data = filter(d_SR_surv, Supervisor.PI == "Pasyukova", Sex == "M"))
-```
-```{r}
-p_SR_M_Pasyukova_survfit <- ggsurvplot(SR_M_Pasyukova_survfit, censor.shape="|", censor.size = 0, pval = FALSE, risk.table = FALSE, conf.int = FALSE, legend.title = "Population", legend.labs = sort(c("YE","RE","GI","MU","MA","UM","KA","VA","AK")), legend = c(0.9, 0.7), title = "p_SR_M_Pasyukova")
-```
-```{r}
-p_SR_M_Pasyukova_survfit$plot
-```
-```{r}
-pdf(file="Starvation/p_SR_M_Pasyukova_survfit.pdf", width=8, height=5)
-p_SR_M_Pasyukova_survfit$plot
-invisible(dev.off())
-```
-
-
-### coxme
 
 ```{r eval=FALSE, include=FALSE, echo=TRUE, val=FALSE}
 
