@@ -1,24 +1,44 @@
 Linear mixed model fit by REML. t-tests use Satterthwaite's method [
 lmerModLmerTest]
-Formula: 
-TL_micrometers ~ -1 + Altitude + (1 | Population) + (1 | Line:Population)
+Formula: TL_micrometers ~ -1 + Population + (1 | Line:Population) + (1 |  
+    ReplicateVial:Line:Population)
    Data: (subset(d_TL_F, Supervisor.PI == "Posnien"))
 
-REML criterion at convergence: 2861.4
+REML criterion at convergence: 2722.8
 
 Scaled residuals: 
      Min       1Q   Median       3Q      Max 
--2.86544 -0.60058  0.05861  0.63346  2.78362 
+-2.86894 -0.60033  0.05782  0.63035  2.78455 
 
 Random effects:
- Groups          Name        Variance Std.Dev.
- Line:Population (Intercept)   1006    31.72  
- Population      (Intercept) 335378   579.12  
- Residual                      1537    39.21  
-Number of obs: 270, groups:  Line:Population, 27; Population, 9
+ Groups                        Name        Variance Std.Dev.
+ Line:Population               (Intercept)  542.6   23.29   
+ ReplicateVial:Line:Population (Intercept)  463.9   21.54   
+ Residual                                  1537.3   39.21   
+Number of obs: 270, groups:  
+Line:Population, 27; ReplicateVial:Line:Population, 27
 
 Fixed effects:
-         Estimate Std. Error     df t value Pr(>|t|)   
-Altitude   1.9630     0.5243 8.0003   3.744  0.00567 **
+             Estimate Std. Error     df t value Pr(>|t|)    
+PopulationAK   880.66      19.67  18.00   44.78   <2e-16 ***
+PopulationGI   944.38      19.67  18.00   48.02   <2e-16 ***
+PopulationKA   928.61      19.67  18.00   47.22   <2e-16 ***
+PopulationMA   882.00      19.67  18.00   44.85   <2e-16 ***
+PopulationMU   866.23      19.67  18.00   44.05   <2e-16 ***
+PopulationRE   902.77      19.67  18.00   45.91   <2e-16 ***
+PopulationUM   908.43      19.67  18.00   46.19   <2e-16 ***
+PopulationVA   898.43      19.67  18.00   45.69   <2e-16 ***
+PopulationYE   941.85      19.67  18.00   47.89   <2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Correlation of Fixed Effects:
+            PpltAK PpltGI PpltKA PpltMA PpltMU PpltRE PpltUM PpltVA
+PopulatinGI 0.000                                                  
+PopulatinKA 0.000  0.000                                           
+PopulatinMA 0.000  0.000  0.000                                    
+PopulatinMU 0.000  0.000  0.000  0.000                             
+PopulatinRE 0.000  0.000  0.000  0.000  0.000                      
+PopulatinUM 0.000  0.000  0.000  0.000  0.000  0.000               
+PopulatinVA 0.000  0.000  0.000  0.000  0.000  0.000  0.000        
+PopulatinYE 0.000  0.000  0.000  0.000  0.000  0.000  0.000  0.000 

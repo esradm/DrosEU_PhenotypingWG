@@ -1,24 +1,37 @@
 Linear mixed model fit by REML. t-tests use Satterthwaite's method [
 lmerModLmerTest]
-Formula: 
-TL_micrometers ~ -1 + Altitude + (1 | Population) + (1 | Line:Population)
+Formula: TL_micrometers ~ -1 + Population + (1 | Line:Population) + (1 |  
+    Batch)
    Data: (subset(d_TL_M, Supervisor.PI == "Ritchie"))
 
-REML criterion at convergence: 11405.2
+REML criterion at convergence: 11309.7
 
 Scaled residuals: 
     Min      1Q  Median      3Q     Max 
--8.7861 -0.5011  0.0646  0.5514  3.8203 
+-8.8016 -0.5065  0.0525  0.5479  3.8390 
 
 Random effects:
  Groups          Name        Variance Std.Dev.
- Line:Population (Intercept)   2196    46.87  
- Population      (Intercept) 290665   539.13  
- Residual                      3579    59.83  
-Number of obs: 1024, groups:  Line:Population, 26; Population, 6
+ Line:Population (Intercept)  824.6   28.72   
+ Batch           (Intercept) 1396.0   37.36   
+ Residual                    3579.3   59.83   
+Number of obs: 1024, groups:  Line:Population, 26; Batch, 12
 
 Fixed effects:
-         Estimate Std. Error     df t value Pr(>|t|)  
-Altitude   1.5758     0.5151 5.0043   3.059   0.0281 *
+             Estimate Std. Error     df t value Pr(>|t|)    
+PopulationAK   826.89      22.01  19.34   37.56   <2e-16 ***
+PopulationGI   823.04      20.37  18.13   40.40   <2e-16 ***
+PopulationKA   815.06      20.90  16.85   38.99   <2e-16 ***
+PopulationMA   840.52      20.91  16.88   40.20   <2e-16 ***
+PopulationMU   844.55      27.74  17.96   30.44   <2e-16 ***
+PopulationYE   846.22      19.75  19.14   42.84   <2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Correlation of Fixed Effects:
+            PpltAK PpltGI PpltKA PpltMA PpltMU
+PopulatinGI 0.523                             
+PopulatinKA 0.020  0.023                      
+PopulatinMA 0.020  0.023  0.581               
+PopulatinMU 0.080  0.092  0.252  0.252        
+PopulatinYE 0.372  0.427  0.054  0.054  0.215 

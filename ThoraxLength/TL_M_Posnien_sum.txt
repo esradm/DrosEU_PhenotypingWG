@@ -1,24 +1,41 @@
 Linear mixed model fit by REML. t-tests use Satterthwaite's method [
 lmerModLmerTest]
-Formula: 
-TL_micrometers ~ -1 + Altitude + (1 | Population) + (1 | Line:Population)
+Formula: TL_micrometers ~ -1 + Population + (1 | Line:Population)
    Data: (subset(d_TL_M, Supervisor.PI == "Posnien"))
 
-REML criterion at convergence: 2798.5
+REML criterion at convergence: 2661.8
 
 Scaled residuals: 
     Min      1Q  Median      3Q     Max 
--3.7186 -0.5359 -0.0333  0.5998  3.7196 
+-3.7213 -0.5390 -0.0356  0.5975  3.7202 
 
 Random effects:
  Groups          Name        Variance Std.Dev.
- Line:Population (Intercept)    814.9  28.55  
- Population      (Intercept) 267326.0 517.04  
- Residual                      1215.1  34.86  
-Number of obs: 270, groups:  Line:Population, 27; Population, 9
+ Line:Population (Intercept)  814.9   28.55   
+ Residual                    1215.1   34.86   
+Number of obs: 270, groups:  Line:Population, 27
 
 Fixed effects:
-         Estimate Std. Error     df t value Pr(>|t|)   
-Altitude   1.7321     0.4681 8.0001     3.7  0.00604 **
+             Estimate Std. Error     df t value Pr(>|t|)    
+PopulationAK   777.16      17.67  18.00   43.99   <2e-16 ***
+PopulationGI   841.23      17.67  18.00   47.61   <2e-16 ***
+PopulationKA   823.56      17.67  18.00   46.61   <2e-16 ***
+PopulationMA   785.43      17.67  18.00   44.46   <2e-16 ***
+PopulationMU   756.66      17.67  18.00   42.83   <2e-16 ***
+PopulationRE   802.59      17.67  18.00   45.43   <2e-16 ***
+PopulationUM   821.89      17.67  18.00   46.52   <2e-16 ***
+PopulationVA   796.67      17.67  18.00   45.09   <2e-16 ***
+PopulationYE   819.56      17.67  18.00   46.39   <2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Correlation of Fixed Effects:
+            PpltAK PpltGI PpltKA PpltMA PpltMU PpltRE PpltUM PpltVA
+PopulatinGI 0.000                                                  
+PopulatinKA 0.000  0.000                                           
+PopulatinMA 0.000  0.000  0.000                                    
+PopulatinMU 0.000  0.000  0.000  0.000                             
+PopulatinRE 0.000  0.000  0.000  0.000  0.000                      
+PopulatinUM 0.000  0.000  0.000  0.000  0.000  0.000               
+PopulatinVA 0.000  0.000  0.000  0.000  0.000  0.000  0.000        
+PopulatinYE 0.000  0.000  0.000  0.000  0.000  0.000  0.000  0.000 
