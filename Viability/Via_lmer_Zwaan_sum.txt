@@ -1,8 +1,6 @@
 Linear mixed model fit by REML. t-tests use Satterthwaite's method [
 lmerModLmerTest]
-Formula: 
-ProportionEggtoAdultSurvival ~ -1 + Population + (1 | Line:Population) +  
-    (1 | Batch)
+Formula: ProportionEggtoAdultSurvival ~ -1 + Population + (1 | Line:Population)
    Data: d_Via[d_Via$Supervisor.PI == "Zwaan", ]
 
 REML criterion at convergence: -328.3
@@ -14,21 +12,20 @@ Scaled residuals:
 Random effects:
  Groups          Name        Variance Std.Dev.
  Line:Population (Intercept) 0.01052  0.1025  
- Batch           (Intercept) 0.00000  0.0000  
  Residual                    0.02180  0.1477  
-Number of obs: 524, groups:  Line:Population, 169; Batch, 2
+Number of obs: 524, groups:  Line:Population, 169
 
 Fixed effects:
               Estimate Std. Error        df t value Pr(>|t|)    
-PopulationAK   0.75329    0.02961 148.12936   25.44   <2e-16 ***
+PopulationAK   0.75329    0.02961 148.12937   25.44   <2e-16 ***
 PopulationGI   0.64361    0.03423 147.09939   18.80   <2e-16 ***
-PopulationKA   0.76026    0.02982 150.93460   25.50   <2e-16 ***
-PopulationMA   0.71368    0.02986 152.29083   23.90   <2e-16 ***
+PopulationKA   0.76026    0.02982 150.93461   25.50   <2e-16 ***
+PopulationMA   0.71368    0.02986 152.29084   23.90   <2e-16 ***
 PopulationMU   0.70735    0.03034 158.56478   23.32   <2e-16 ***
-PopulationRE   0.64594    0.03288 144.24242   19.65   <2e-16 ***
+PopulationRE   0.64594    0.03288 144.24243   19.65   <2e-16 ***
 PopulationUM   0.77891    0.03133 149.71959   24.86   <2e-16 ***
-PopulationVA   0.73253    0.03027 157.97927   24.20   <2e-16 ***
-PopulationYE   0.52726    0.03020 158.64348   17.46   <2e-16 ***
+PopulationVA   0.73253    0.03027 157.97928   24.20   <2e-16 ***
+PopulationYE   0.52726    0.03020 158.64349   17.46   <2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
@@ -42,6 +39,3 @@ PopulatinRE 0.000  0.000  0.000  0.000  0.000
 PopulatinUM 0.000  0.000  0.000  0.000  0.000  0.000               
 PopulatinVA 0.000  0.000  0.000  0.000  0.000  0.000  0.000        
 PopulatinYE 0.000  0.000  0.000  0.000  0.000  0.000  0.000  0.000 
-optimizer (nloptwrap) convergence code: 0 (OK)
-boundary (singular) fit: see ?isSingular
-
