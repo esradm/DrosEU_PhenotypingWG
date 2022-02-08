@@ -8500,7 +8500,7 @@ d_LA_trans <- d_LA %>% mutate(ND = log2(ND))
 
 ```{r LA_lmer_ND_Tauber} 
 LA_lmer_ND_Tauber <- lmer(ND ~ -1 + Population  + (1|Line:Population) +
-                          (1|Batch), data = d_LA_trans)
+                          (1|Batch), data = d_LA)
 capture.output(summary(LA_lmer_ND_Tauber),file = "Locomotor/LA_lmer_ND_Tauber_sum.txt")
 capture.output(anova(LA_lmer_ND_Tauber),file = "Locomotor/LA_lmer_ND_Tauber.txt")
 capture.output(emmeans(LA_lmer_ND_Tauber, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "Locomotor/LA_lmer_ND_Tauber_tk.txt")
