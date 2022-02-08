@@ -1,0 +1,62 @@
+                 SMD           95%-CI %W(random) Population
+YE_Gonzalez   0.7113 [0.5823; 0.8403]        4.1         YE
+YE_Kozeretska 0.7831 [0.5646; 1.0016]        2.2         YE
+YE_Vieira     0.8986 [0.7923; 1.0048]        4.9         YE
+RE_Gonzalez   0.5978 [0.4642; 0.7314]        4.0         RE
+RE_Kozeretska 0.6864 [0.4685; 0.9044]        2.2         RE
+RE_Vieira     0.7673 [0.6475; 0.8872]        4.4         RE
+GI_Gonzalez   0.6373 [0.5001; 0.7745]        3.9         GI
+GI_Kozeretska 0.7930 [0.5603; 1.0257]        2.0         GI
+GI_Vieira     0.7230 [0.6057; 0.8403]        4.5         GI
+MU_Gonzalez   0.5977 [0.4674; 0.7280]        4.1         MU
+MU_Kozeretska 0.6656 [0.4542; 0.8770]        2.3         MU
+MU_Vieira     0.8725 [0.7703; 0.9748]        5.0         MU
+MA_Gonzalez   0.6139 [0.4840; 0.7437]        4.1         MA
+MA_Kozeretska 0.7342 [0.5214; 0.9471]        2.2         MA
+MA_Vieira     0.7192 [0.6151; 0.8233]        5.0         MA
+UM_Gonzalez   0.5377 [0.3994; 0.6759]        3.8         UM
+UM_Kozeretska 0.6538 [0.4318; 0.8758]        2.1         UM
+UM_Vieira     0.6797 [0.5793; 0.7801]        5.1         UM
+KA_Gonzalez   0.6619 [0.5263; 0.7975]        3.9         KA
+KA_Kozeretska 0.6545 [0.4359; 0.8730]        2.2         KA
+KA_Vieira     0.7422 [0.6414; 0.8431]        5.1         KA
+VA_Gonzalez   0.5602 [0.4299; 0.6905]        4.1         VA
+VA_Kozeretska 0.6958 [0.4876; 0.9041]        2.3         VA
+VA_Vieira     0.7849 [0.6789; 0.8909]        4.9         VA
+AK_Gonzalez   0.5850 [0.4554; 0.7146]        4.1         AK
+AK_Kozeretska 0.7641 [0.5550; 0.9732]        2.3         AK
+AK_Vieira     0.7176 [0.6202; 0.8149]        5.2         AK
+
+Number of studies combined: k = 27
+
+                        SMD           95%-CI     z  p-value
+Random effects model 0.7004 [0.6629; 0.7379] 36.59 < 0.0001
+
+Quantifying heterogeneity:
+ tau^2 = 0.0045 [0.0000; 0.0108]; tau = 0.0674 [0.0000; 0.1038]
+ I^2 = 49.2% [20.7%; 67.5%]; H = 1.40 [1.12; 1.75]
+
+Test of heterogeneity:
+     Q d.f. p-value
+ 51.21   26  0.0022
+
+Results for subgroups (random effects model):
+                  k    SMD           95%-CI  tau^2    tau     Q   I^2
+Population = YE   3 0.8047 [0.6746; 0.9347] 0.0077 0.0876  4.94 59.5%
+Population = RE   3 0.6870 [0.5739; 0.8001] 0.0042 0.0646  3.43 41.7%
+Population = GI   3 0.7004 [0.6171; 0.7837]      0      0  1.56  0.0%
+Population = MU   3 0.7189 [0.5245; 0.9132] 0.0237 0.1540 11.36 82.4%
+Population = MA   3 0.6852 [0.6093; 0.7611]      0      0  1.77  0.0%
+Population = UM   3 0.6281 [0.5343; 0.7220] 0.0019 0.0433  2.69 25.7%
+Population = KA   3 0.7065 [0.6306; 0.7824]      0      0  1.12  0.0%
+Population = VA   3 0.6823 [0.5300; 0.8346] 0.0125 0.1120  6.88 70.9%
+Population = AK   3 0.6796 [0.5797; 0.7794] 0.0031 0.0553  3.26 38.6%
+
+Test for subgroup differences (random effects model):
+                    Q d.f. p-value
+Between groups   5.03    8  0.7546
+
+Details on meta-analytical method:
+- Inverse variance method
+- DerSimonian-Laird estimator for tau^2
+- Jackson method for confidence interval of tau^2 and tau
