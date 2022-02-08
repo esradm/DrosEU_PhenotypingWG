@@ -13415,7 +13415,7 @@ dir.create(file.path("Locomotor"), showWarnings = FALSE)
 
 
 ```{r LA_lmer_Lat_ND_Tauber} 
-LA_lmer_Lat_ND_Tauber <- lmer(ND ~ -1 + Latitude + (1|Population)  + (1|Line:Population), data = (d_LA_trans))
+LA_lmer_Lat_ND_Tauber <- lmer(ND ~ -1 + Latitude + (1|Population)  + (1|Line:Population), data = d_LA)
 capture.output(summary(LA_lmer_Lat_ND_Tauber),file = "Locomotor/LA_lmer_Lat_ND_Tauber_sum.txt")
 capture.output(anova(LA_lmer_Lat_ND_Tauber),file = "Locomotor/LA_lmer_Lat_ND_Tauber.txt")
 ```
