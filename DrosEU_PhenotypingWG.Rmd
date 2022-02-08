@@ -662,12 +662,15 @@ p_Via_all
 invisible(dev.off())
 ```
 
+```{r}
+d_Via_trans <- d_Via %>% mutate(ProportionEggtoAdultSurvival = asin(sqrt(ProportionEggtoAdultSurvival)))
+```
 
 
 #### Gibert Lab
 
 ```{r Via_lmer_Gibert, include=FALSE}
-Via_lmer_Gibert <- lmer(ProportionEggtoAdultSurvival ~ -1 + Population + (1|Line:Population) + (1|Batch) , data = d_Via[d_Via$Supervisor.PI == "Gibert",])
+Via_lmer_Gibert <- lmer(ProportionEggtoAdultSurvival ~ -1 + Population + (1|Line:Population) + (1|Batch) , data = d_Via_trans[d_Via_trans$Supervisor.PI == "Gibert",])
 capture.output(summary(Via_lmer_Gibert),file = "Viability/Via_lmer_Gibert_sum.txt")
 capture.output(anova(Via_lmer_Gibert),file = "Viability/Via_lmer_Gibert.txt")
 capture.output(emmeans(Via_lmer_Gibert, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "Viability/Via_lmer_Gibert_tk.txt")
@@ -720,7 +723,7 @@ invisible(dev.off())
 #### Grath Lab
 
 ```{r Via_lmer_Grath, include=FALSE}
-Via_lmer_Grath <- lmer(ProportionEggtoAdultSurvival ~ -1 + Population + (1|Line:Population) , data = d_Via[d_Via$Supervisor.PI == "Grath",])
+Via_lmer_Grath <- lmer(ProportionEggtoAdultSurvival ~ -1 + Population + (1|Line:Population) , data = d_Via_trans[d_Via_trans$Supervisor.PI == "Grath",])
 capture.output(summary(Via_lmer_Grath),file = "Viability/Via_lmer_Grath_sum.txt")
 capture.output(anova(Via_lmer_Grath),file = "Viability/Via_lmer_Grath.txt")
 capture.output(emmeans(Via_lmer_Grath, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "Viability/Via_lmer_Grath_tk.txt")
@@ -775,7 +778,7 @@ invisible(dev.off())
 
 ```{r Via_lmer_Hoedjes, include=FALSE}
 #Will simplity the model, as some random factors explain very little
-Via_lmer_Hoedjes <- lmer(ProportionEggtoAdultSurvival ~ -1 + Population + (1|Line:Population) + (1|Batch), data = d_Via[d_Via$Supervisor.PI == "Hoedjes",])
+Via_lmer_Hoedjes <- lmer(ProportionEggtoAdultSurvival ~ -1 + Population + (1|Line:Population) + (1|Batch), data = d_Via_trans[d_Via_trans$Supervisor.PI == "Hoedjes",])
 capture.output(summary(Via_lmer_Hoedjes),file = "Viability/Via_lmer_Hoedjes_sum.txt")
 capture.output(anova(Via_lmer_Hoedjes),file = "Viability/Via_lmer_Hoedjes.txt")
 capture.output(emmeans(Via_lmer_Hoedjes, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "Viability/Via_lmer_Hoedjes_tk.txt")
@@ -833,7 +836,7 @@ invisible(dev.off())
 #### Schmidt Lab
 
 ```{r Via_lm_Schmidt, include=FALSE}
-Via_lm_Schmidt <- lm(ProportionEggtoAdultSurvival ~ -1 + Population, data = d_Via[d_Via$Supervisor.PI == "Schmidt",])
+Via_lm_Schmidt <- lm(ProportionEggtoAdultSurvival ~ -1 + Population, data = d_Via_trans[d_Via_trans$Supervisor.PI == "Schmidt",])
 capture.output(summary(Via_lm_Schmidt),file = "Viability/Via_lm_Schmidt_sum.txt")
 capture.output(anova(Via_lm_Schmidt),file = "Viability/Via_lm_Schmidt.txt")
 capture.output(emmeans(Via_lm_Schmidt, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "Viability/Via_lm_Schmidt_tk.txt")
@@ -890,7 +893,7 @@ invisible(dev.off())
 #### Stamenkovic-Radak Lab
 
 ```{r Via_lmer_StamenkovicRadak, include=FALSE}
-Via_lmer_StamenkovicRadak <- lmer(ProportionEggtoAdultSurvival ~ -1 + Population + (1|Line:Population)+ (1|Batch), data = d_Via[d_Via$Supervisor.PI == "StamenkovicRadak",])
+Via_lmer_StamenkovicRadak <- lmer(ProportionEggtoAdultSurvival ~ -1 + Population + (1|Line:Population)+ (1|Batch), data = d_Via_trans[d_Via_trans$Supervisor.PI == "StamenkovicRadak",])
 capture.output(summary(Via_lmer_StamenkovicRadak),file = "Viability/Via_lmer_StamenkovicRadak_sum.txt")
 capture.output(anova(Via_lmer_StamenkovicRadak),file = "Viability/Via_lmer_StamenkovicRadak.txt")
 capture.output(emmeans(Via_lmer_StamenkovicRadak, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "Viability/Via_lmer_StamenkovicRadak_tk.txt")
@@ -945,7 +948,7 @@ invisible(dev.off())
 
 ```{r Via_lmer_Zwaan, include=FALSE}
 #Dropped batch, as it explains nothing
-Via_lmer_Zwaan <- lmer(ProportionEggtoAdultSurvival ~ -1 + Population + (1|Line:Population), data = d_Via[d_Via$Supervisor.PI == "Zwaan",])
+Via_lmer_Zwaan <- lmer(ProportionEggtoAdultSurvival ~ -1 + Population + (1|Line:Population), data = d_Via_trans[d_Via_trans$Supervisor.PI == "Zwaan",])
 capture.output(summary(Via_lmer_Zwaan),file = "Viability/Via_lmer_Zwaan_sum.txt")
 capture.output(anova(Via_lmer_Zwaan),file = "Viability/Via_lmer_Zwaan.txt")
 capture.output(emmeans(Via_lmer_Zwaan, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "Viability/Via_lmer_Zwaan_tk.txt")
@@ -6065,12 +6068,18 @@ p_CSM_M
 invisible(dev.off())
 ```
 
+```{r}
+d_CSM_F_trans <- d_CSM_F %>% mutate(CSM_PropDead_ED = asin(sqrt(CSM_PropDead_ED)))
+d_CSM_M_trans <- d_CSM_M %>% mutate(CSM_PropDead_ED = asin(sqrt(CSM_PropDead_ED)))
+```
+
+
 
 #### Gonzalez Lab
 
 ```{r CSM_F_lmer_Gonzalez}
 CSM_F_lmer_Gonzalez <- lmer(CSM_PropDead_ED ~ -1 + Population  + (1| Line : Population) +
-                           (1|Batch), data = d_CSM_F[d_CSM_F$Supervisor.PI == "Gonzalez",])
+                           (1|Batch), data = d_CSM_F_trans[d_CSM_F_trans$Supervisor.PI == "Gonzalez",])
 capture.output(summary(CSM_F_lmer_Gonzalez),file = "ColdShock/CSM_F_lmer_sum_Gonzalez.txt")
 capture.output(anova(CSM_F_lmer_Gonzalez),file = "ColdShock/CSM_F_lmer_Gonzalez.txt")
 capture.output(emmeans(CSM_F_lmer_Gonzalez, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "ColdShock/CSM_F_lmer_Gonzalez_tk.txt")
@@ -6093,7 +6102,7 @@ summary(CSM_F_lmer_Gonzalez)
 
 ```{r CSM_M_lmer_Gonzalez}
 CSM_M_lmer_Gonzalez <- lmer(CSM_PropDead_ED ~ -1 + Population  + (1| Line : Population) +
-                                    (1|Batch), data = d_CSM_M[d_CSM_M$Supervisor.PI == "Gonzalez",])
+                                    (1|Batch), data = d_CSM_M_trans[d_CSM_M_trans$Supervisor.PI == "Gonzalez",])
 capture.output(summary(CSM_M_lmer_Gonzalez),file = "ColdShock/CSM_M_lmer_sum_Gonzalez.txt")
 capture.output(anova(CSM_M_lmer_Gonzalez),file = "ColdShock/CSM_M_lmer_Gonzalez.txt")
 capture.output(emmeans(CSM_M_lmer_Gonzalez, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "ColdShock/CSM_M_lmer_Gonzalez_tk.txt")
@@ -6191,7 +6200,7 @@ invisible(dev.off())
 
 ```{r CSM_F_lmer_Kozeretska}
 CSM_F_lmer_Kozeretska <- lmer(CSM_PropDead_ED ~ -1 + Population  + (1| Line : Population) +
-                                      (1|Batch), data = d_CSM_F[d_CSM_F$Supervisor.PI == "Kozeretska",])
+                                      (1|Batch), data = d_CSM_F_trans[d_CSM_F_trans$Supervisor.PI == "Kozeretska",])
 capture.output(summary(CSM_F_lmer_Kozeretska),file = "ColdShock/CSM_F_lmer_sum_Kozeretska.txt")
 capture.output(anova(CSM_F_lmer_Kozeretska),file = "ColdShock/CSM_F_lmer_Kozeretska.txt")
 capture.output(emmeans(CSM_F_lmer_Kozeretska, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "ColdShock/CSM_F_lmer_Kozeretska_tk.txt")
@@ -6214,7 +6223,7 @@ summary(CSM_F_lmer_Kozeretska)
 
 ```{r CSM_M_lmer_Kozeretska}
 CSM_M_lmer_Kozeretska <- lmer(CSM_PropDead_ED ~ -1 + Population  + (1| Line : Population) +
-                                      (1|Batch), data = d_CSM_M[d_CSM_M$Supervisor.PI == "Kozeretska",])
+                                      (1|Batch), data = d_CSM_M_trans[d_CSM_M_trans$Supervisor.PI == "Kozeretska",])
 capture.output(summary(CSM_M_lmer_Kozeretska),file = "ColdShock/CSM_M_lmer_sum_Kozeretska.txt")
 capture.output(anova(CSM_M_lmer_Kozeretska),file = "ColdShock/CSM_M_lmer_Kozeretska.txt")
 capture.output(emmeans(CSM_M_lmer_Kozeretska, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "ColdShock/CSM_M_tk_Kozeretska_tk.txt")
@@ -6316,7 +6325,7 @@ invisible(dev.off())
 
 ```{r CSM_F_lmer_Vieira}
 CSM_F_lmer_Vieira <- lmer(CSM_PropDead_ED ~ -1 + Population  + (1| Line : Population) +
-                                  (1|Batch), data = d_CSM_F[d_CSM_F$Supervisor.PI == "Vieira",])
+                                  (1|Batch), data = d_CSM_F_trans[d_CSM_F_trans$Supervisor.PI == "Vieira",])
 capture.output(summary(CSM_F_lmer_Vieira),file = "ColdShock/CSM_F_lmer_sum_Vieira.txt")
 capture.output(anova(CSM_F_lmer_Vieira),file = "ColdShock/CSM_F_lmer_Vieira.txt")
 capture.output(emmeans(CSM_F_lmer_Vieira, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "ColdShock/CSM_F_lmer_Vieira_tk.txt")
@@ -6341,7 +6350,7 @@ summary(CSM_F_lmer_Vieira)
 
 ```{r CSM_M_lmer_Vieira}
 CSM_M_lmer_Vieira <- lmer(CSM_PropDead_ED ~ -1 + Population  + (1| Line : Population) +
-                                  (1|Batch), data = d_CSM_M[d_CSM_M$Supervisor.PI == "Vieira",])
+                                  (1|Batch), data = d_CSM_M_trans[d_CSM_M_trans$Supervisor.PI == "Vieira",])
 capture.output(summary(CSM_M_lmer_Vieira),file = "ColdShock/CSM_M_lmer_sum_Vieira.txt")
 capture.output(anova(CSM_M_lmer_Vieira),file = "ColdShock/CSM_M_lmer_Vieira.txt")
 capture.output(emmeans(CSM_M_lmer_Vieira, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "ColdShock/CSM_M_lmer_Vieira_tk.txt")
@@ -7571,9 +7580,20 @@ DT::datatable(table_Dia_Pop_wobatch, options = list(pageLength = 10)) %>% format
 
 
 ### Plots and Linear Models by Lab
+
+```{r message=FALSE}
+d_Dia_trans <- d_Dia_Line_wbatch %>% mutate(Max_Stage9_Prop = asin(sqrt(Max_Stage9_Prop)))
+
+d_Dia_trans_for_esra <- inner_join(d_Dia_trans, d_Dia %>% dplyr::select(Population, Latitude, Longitude, Altitude) %>% distinct) %>%
+  dplyr::relocate(Population, .after = Batch)
+
+save(d_Dia_trans_for_esra, file = "Diapause/d_Dia_trans_for_esra.RData")
+```
+
+
 #### Bergland Lab
 ```{r}
-Dia_lmer_Bergland <- lmer(Max_Stage9_Prop ~ -1 + Population + (1|Population:Line) + (1|Batch) , data = d_Dia_Line_wbatch %>% filter(Supervisor.PI == "Bergland"))
+Dia_lmer_Bergland <- lmer(Max_Stage9_Prop ~ -1 + Population + (1|Population:Line) + (1|Batch) , data = d_Dia_trans %>% filter(Supervisor.PI == "Bergland"))
 capture.output(summary(Dia_lmer_Bergland),file = "Diapause/Dia_lmer_Bergland_sum.txt")
 capture.output(anova(Dia_lmer_Bergland),file = "Diapause/Dia_lmer_Bergland.txt")
 capture.output(emmeans(Dia_lmer_Bergland, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "Diapause/Dia_lmer_Bergland_tk.txt")
@@ -7632,7 +7652,7 @@ invisible(dev.off())
 
 #### Flatt Lab 
 ```{r}
-Dia_lm_Flatt <- lm(Max_Stage9_Prop ~ -1 + Population, data = d_Dia_Line_wbatch %>% filter(Supervisor.PI == "Flatt"))
+Dia_lm_Flatt <- lm(Max_Stage9_Prop ~ -1 + Population, data = d_Dia_trans %>% filter(Supervisor.PI == "Flatt"))
 capture.output(summary(Dia_lm_Flatt),file = "Diapause/Dia_lm_Flatt_sum.txt")
 capture.output(anova(Dia_lm_Flatt),file = "Diapause/Dia_lm_Flatt.txt")
 capture.output(emmeans(Dia_lm_Flatt, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "Diapause/Dia_lm_Flatt_tk.txt")
@@ -7691,7 +7711,7 @@ invisible(dev.off())
 
 #### Schlotterer Lab
 ```{r}
-Dia_lmer_Schlotterer <- lmer(Max_Stage9_Prop ~ -1 + Population + (1|Population:Line) + (1|Batch) , data = d_Dia_Line_wbatch %>% filter(Supervisor.PI == "Schlotterer"))
+Dia_lmer_Schlotterer <- lmer(Max_Stage9_Prop ~ -1 + Population + (1|Population:Line) + (1|Batch) , data = d_Dia_trans %>% filter(Supervisor.PI == "Schlotterer"))
 capture.output(summary(Dia_lmer_Schlotterer),file = "Diapause/Dia_lmer_Schlotterer_sum.txt")
 capture.output(anova(Dia_lmer_Schlotterer),file = "Diapause/Dia_lmer_Schlotterer.txt")
 capture.output(emmeans(Dia_lmer_Schlotterer, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "Diapause/Dia_lmer_Schlotterer_tk.txt")
@@ -8474,12 +8494,12 @@ DT::datatable(table_LA_CircPhase_Pop_wobatch, options = list(pageLength = 10)) %
 
 #### Tauber Lab
 
-_ND_
+d_LA_trans <- d_LA %>% mutate(ND = log2(ND))
 
 
 ```{r LA_lmer_ND_Tauber} 
 LA_lmer_ND_Tauber <- lmer(ND ~ -1 + Population  + (1|Line:Population) +
-                          (1|Batch), data = (d_LA))
+                          (1|Batch), data = d_LA_trans)
 capture.output(summary(LA_lmer_ND_Tauber),file = "Locomotor/LA_lmer_ND_Tauber_sum.txt")
 capture.output(anova(LA_lmer_ND_Tauber),file = "Locomotor/LA_lmer_ND_Tauber.txt")
 capture.output(emmeans(LA_lmer_ND_Tauber, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "Locomotor/LA_lmer_ND_Tauber_tk.txt")
@@ -9265,7 +9285,7 @@ invisible(dev.off())
 
 
 
-### coxme
+#### coxme
 
 ```{r}
 # adding a Censor column, with all individuals being kept
@@ -10668,7 +10688,7 @@ invisible(dev.off())
 ## Viability
   
   
-```{r Via_effects}
+```{r Via_effects, include=FALSE}
 Via_effects <- Via_fitted %>%
   dplyr::select(-Value) %>%
   mutate(Population = factor(Population, levels = c("YE","RE","GI","MU","MA","UM","KA","VA","AK")), Lab = as.factor(Lab), V = SE^2, Study = paste(Population, Lab, sep = "_")) %>%
@@ -10685,12 +10705,12 @@ capture.output(summary(Via_metagen), file = "Viability/Via_metagen_sum.txt")
 Via_metagen
 ```
   
-```{r Via_meta_EK, message=FALSE}
+```{r Via_meta_EK, message=FALSE, include=FALSE}
 # run the analysis with EK's code for quick plotting
 Via_meta <- metaAnalysisRandomModel(Via_effects %>% filter(Sex == "NA"))
 ```
   
-```{r p_Via_meta, fig.width=8, fig.height=5}
+```{r p_Via_meta, echo=FALSE, fig.height=5, fig.width=8}
 p_Via_meta_SE <- Via_meta$summary_effects_random %>% 
   dplyr::select(Population, Mstar, SEMstar) %>% 
   distinct() %>%
@@ -10719,7 +10739,7 @@ p_Via_meta_CI <- Via_meta$summary_effects_random %>%
   geom_errorbarh(aes(xmax = ULMstar, xmin = LLMstar), height = 0) +
   scale_y_continuous(name = "Population", breaks = 1:9, 
                      labels = c("YE","RE","GI","MU","MA","UM","KA","VA","AK")) +
-  labs(x = "Age at death (days)", title = "Pop. summary effect with 95% CI") +
+  labs(x = "Summary effect", title = "Pop. summary effect with 95% CI") +
   theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank()) +
   annotate("text", x = -Inf, y = Inf, label = sprintf("italic(Q) == %.3g", Via_meta$Qtest_het$Q), 
@@ -12458,7 +12478,7 @@ dir.create(file.path("Viability"), showWarnings = FALSE)
 #### Gibert Lab
 
 ```{r Via_lmer_Lat_Gibert, include=FALSE}
-Via_lmer_Lat_Gibert <- lmer(ProportionEggtoAdultSurvival ~ -1 + Latitude + (1|Population) + (1|Line:Population) ,data = d_Via[d_Via$Supervisor.PI == "Gibert",])
+Via_lmer_Lat_Gibert <- lmer(ProportionEggtoAdultSurvival ~ -1 + Latitude + (1|Population) + (1|Line:Population) ,data = d_Via_trans[d_Via_trans$Supervisor.PI == "Gibert",])
 capture.output(summary(Via_lmer_Lat_Gibert),file = "Viability/Via_lmer_Lat_Gibert_sum.txt")
 capture.output(anova(Via_lmer_Lat_Gibert),file = "Viability/Via_lmer_Lat_Gibert.txt")
 ```
@@ -12470,7 +12490,7 @@ anova(Via_lmer_Lat_Gibert)
 #### Grath Lab
 
 ```{r Via_lmer_Lat_Grath, include=FALSE}
-Via_lmer_Lat_Grath <- lmer(ProportionEggtoAdultSurvival ~ -1 + Latitude + (1|Population) + (1|Line:Population),data = d_Via[d_Via$Supervisor.PI == "Grath",])
+Via_lmer_Lat_Grath <- lmer(ProportionEggtoAdultSurvival ~ -1 + Latitude + (1|Population) + (1|Line:Population),data = d_Via_trans[d_Via_trans$Supervisor.PI == "Grath",])
 capture.output(summary(Via_lmer_Lat_Grath),file = "Viability/Via_lmer_Lat_Grath_sum.txt")
 capture.output(anova(Via_lmer_Lat_Grath),file = "Viability/Via_lmer_Lat_Grath.txt")
 ```
@@ -12482,7 +12502,7 @@ anova(Via_lmer_Lat_Grath)
 #### Hoedjes Lab
 
 ```{r Via_lmer_Lat_Hoedjes, include=FALSE}
-Via_lmer_Lat_Hoedjes <- lmer(ProportionEggtoAdultSurvival ~ -1 + Latitude + (1|Population) + (1|Line:Population),data = d_Via[d_Via$Supervisor.PI == "Hoedjes",])
+Via_lmer_Lat_Hoedjes <- lmer(ProportionEggtoAdultSurvival ~ -1 + Latitude + (1|Population) + (1|Line:Population),data = d_Via_trans[d_Via_trans$Supervisor.PI == "Hoedjes",])
 capture.output(summary(Via_lmer_Lat_Hoedjes),file = "Viability/Via_lmer_Lat_Hoedjes_sum.txt")
 capture.output(anova(Via_lmer_Lat_Hoedjes),file = "Viability/Via_lmer_Lat_Hoedjes.txt")
 ```
@@ -12495,7 +12515,7 @@ anova(Via_lmer_Lat_Hoedjes)
 #### Schmidt Lab
 
 ```{r Via_lmer_Lat_Schmidt, include=FALSE}
-Via_lmer_Lat_Schmidt <- lmer(ProportionEggtoAdultSurvival ~ -1 + Latitude + (1|Population), data = d_Via[d_Via$Supervisor.PI == "Schmidt",])
+Via_lmer_Lat_Schmidt <- lmer(ProportionEggtoAdultSurvival ~ -1 + Latitude + (1|Population), data = d_Via_trans[d_Via_trans$Supervisor.PI == "Schmidt",])
 capture.output(summary(Via_lmer_Lat_Schmidt),file = "Viability/Via_lmer_Lat_Schmidt_sum.txt")
 capture.output(anova(Via_lmer_Lat_Schmidt),file = "Viability/Via_lmer_Lat_Schmidt.txt")
 ```
@@ -12508,7 +12528,7 @@ anova(Via_lmer_Lat_Schmidt)
 #### Stamenkovic-Radak Lab
 
 ```{r Via_lmer_Lat_StamenkovicRadak, include=FALSE}
-Via_lmer_Lat_StamenkovicRadak <- lmer(ProportionEggtoAdultSurvival ~ -1 + Latitude + (1|Population) + (1|Line:Population), data = d_Via[d_Via$Supervisor.PI == "StamenkovicRadak",])
+Via_lmer_Lat_StamenkovicRadak <- lmer(ProportionEggtoAdultSurvival ~ -1 + Latitude + (1|Population) + (1|Line:Population), data = d_Via_trans[d_Via_trans$Supervisor.PI == "StamenkovicRadak",])
 capture.output(summary(Via_lmer_Lat_StamenkovicRadak),file = "Viability/Via_lmer_Lat_StamenkovicRadak_sum.txt")
 capture.output(anova(Via_lmer_Lat_StamenkovicRadak),file = "Viability/Via_lmer_Lat_StamenkovicRadak.txt")
 ```
@@ -12520,7 +12540,7 @@ anova(Via_lmer_Lat_StamenkovicRadak)
 #### Zwaan Lab
 
 ```{r Via_lmer_Lat_Zwaan, include=FALSE}
-Via_lmer_Lat_Zwaan <- lmer(ProportionEggtoAdultSurvival ~ -1 + Latitude + (1|Population) + (1|Line:Population),data = d_Via[d_Via$Supervisor.PI == "Zwaan",])
+Via_lmer_Lat_Zwaan <- lmer(ProportionEggtoAdultSurvival ~ -1 + Latitude + (1|Population) + (1|Line:Population),data = d_Via_trans[d_Via_trans$Supervisor.PI == "Zwaan",])
 capture.output(summary(Via_lmer_Lat_Zwaan),file = "Viability/Via_lmer_Lat_Zwaan_sum.txt")
 capture.output(anova(Via_lmer_Lat_Zwaan),file = "Viability/Via_lmer_Lat_Zwaan.txt")
 ```
@@ -13179,7 +13199,7 @@ dir.create(file.path("ColdShock"), showWarnings = FALSE)
 #### Gonzalez Lab
 
 ```{r CSM_F_lmer_Lat_Gonzalez}
-CSM_F_lmer_Lat_Gonzalez <- lmer(CSM_PropDead_ED ~ -1 + Latitude + (1|Population)  + (1| Line : Population), data = d_CSM_F[d_CSM_F$Supervisor.PI == "Gonzalez",])
+CSM_F_lmer_Lat_Gonzalez <- lmer(CSM_PropDead_ED ~ -1 + Latitude + (1|Population)  + (1| Line : Population), data = d_CSM_F_trans[d_CSM_F_trans$Supervisor.PI == "Gonzalez",])
 capture.output(summary(CSM_F_lmer_Lat_Gonzalez),file = "ColdShock/CSM_F_lmer_Lat_sum_Gonzalez.txt")
 capture.output(anova(CSM_F_lmer_Lat_Gonzalez),file = "ColdShock/CSM_F_lmer_Lat_Gonzalez.txt")
 
@@ -13190,7 +13210,7 @@ anova(CSM_F_lmer_Lat_Gonzalez)
 ```
 
 ```{r CSM_M_lmer_Lat_Gonzalez}
-CSM_M_lmer_Lat_Gonzalez <- lmer(CSM_PropDead_ED ~ -1 + Latitude + (1|Population)  + (1| Line : Population), data = d_CSM_M[d_CSM_M$Supervisor.PI == "Gonzalez",])
+CSM_M_lmer_Lat_Gonzalez <- lmer(CSM_PropDead_ED ~ -1 + Latitude + (1|Population)  + (1| Line : Population), data = d_CSM_M_trans[d_CSM_M_trans$Supervisor.PI == "Gonzalez",])
 capture.output(summary(CSM_M_lmer_Lat_Gonzalez),file = "ColdShock/CSM_M_lmer_Lat_sum_Gonzalez.txt")
 capture.output(anova(CSM_M_lmer_Lat_Gonzalez),file = "ColdShock/CSM_M_lmer_Lat_Gonzalez.txt")
 
@@ -13203,7 +13223,7 @@ anova(CSM_M_lmer_Lat_Gonzalez)
 #### Kozeretska Lab 
 
 ```{r CSM_F_lmer_Lat_Kozeretska}
-CSM_F_lmer_Lat_Kozeretska <- lmer(CSM_PropDead_ED ~ -1 + Latitude + (1|Population)  + (1| Line : Population), data = d_CSM_F[d_CSM_F$Supervisor.PI == "Kozeretska",])
+CSM_F_lmer_Lat_Kozeretska <- lmer(CSM_PropDead_ED ~ -1 + Latitude + (1|Population)  + (1| Line : Population), data = d_CSM_F_trans[d_CSM_F_trans$Supervisor.PI == "Kozeretska",])
 capture.output(summary(CSM_F_lmer_Lat_Kozeretska),file = "ColdShock/CSM_F_lmer_Lat_sum_Kozeretska.txt")
 capture.output(anova(CSM_F_lmer_Lat_Kozeretska),file = "ColdShock/CSM_F_lmer_Lat_Kozeretska.txt")
 ```
@@ -13213,7 +13233,7 @@ anova(CSM_F_lmer_Lat_Kozeretska)
 ```
 
 ```{r CSM_M_lmer_Lat_Kozeretska}
-CSM_M_lmer_Lat_Kozeretska <- lmer(CSM_PropDead_ED ~ -1 + Latitude + (1|Population)  + (1| Line : Population), data = d_CSM_M[d_CSM_M$Supervisor.PI == "Kozeretska",])
+CSM_M_lmer_Lat_Kozeretska <- lmer(CSM_PropDead_ED ~ -1 + Latitude + (1|Population)  + (1| Line : Population), data = d_CSM_M_trans[d_CSM_M_trans$Supervisor.PI == "Kozeretska",])
 capture.output(summary(CSM_M_lmer_Lat_Kozeretska),file = "ColdShock/CSM_M_lmer_Lat_sum_Kozeretska.txt")
 capture.output(anova(CSM_M_lmer_Lat_Kozeretska),file = "ColdShock/CSM_M_lmer_Lat_Kozeretska.txt")
 
@@ -13226,7 +13246,7 @@ anova(CSM_M_lmer_Lat_Kozeretska)
 #### Vieira Lab
 
 ```{r CSM_F_lmer_Lat_Vieira}
-CSM_F_lmer_Lat_Vieira <- lmer(CSM_PropDead_ED ~ -1 + Latitude + (1|Population)  + (1| Line : Population), data = d_CSM_F[d_CSM_F$Supervisor.PI == "Vieira",])
+CSM_F_lmer_Lat_Vieira <- lmer(CSM_PropDead_ED ~ -1 + Latitude + (1|Population)  + (1| Line : Population), data = d_CSM_F_trans[d_CSM_F_trans$Supervisor.PI == "Vieira",])
 capture.output(summary(CSM_F_lmer_Lat_Vieira),file = "ColdShock/CSM_F_lmer_Lat_sum_Vieira.txt")
 capture.output(anova(CSM_F_lmer_Lat_Vieira),file = "ColdShock/CSM_F_lmer_Lat_Vieira.txt")
 
@@ -13237,7 +13257,7 @@ anova(CSM_F_lmer_Lat_Vieira)
 ```
 
 ```{r CSM_M_lmer_Lat_Vieira}
-CSM_M_lmer_Lat_Vieira <- lmer(CSM_PropDead_ED ~ -1 + Latitude + (1|Population)  + (1| Line : Population), data = d_CSM_M[d_CSM_M$Supervisor.PI == "Vieira",])
+CSM_M_lmer_Lat_Vieira <- lmer(CSM_PropDead_ED ~ -1 + Latitude + (1|Population)  + (1| Line : Population), data = d_CSM_M_trans[d_CSM_M_trans$Supervisor.PI == "Vieira",])
 capture.output(summary(CSM_M_lmer_Lat_Vieira),file = "ColdShock/CSM_M_lmer_Lat_sum_Vieira.txt")
 capture.output(anova(CSM_M_lmer_Lat_Vieira),file = "ColdShock/CSM_M_lmer_Lat_Vieira.txt")
 ```
@@ -13340,7 +13360,7 @@ dir.create(file.path("Diapause"), showWarnings = FALSE)
 
 #### Bergland Lab
 ```{r eval=FALSE}
-Dia_lmer_Lat_Bergland <- lmer(Max_Stage9_Prop ~ -1 + Latitude + (1|Population) + (1|Population:Line) ,data = d_Dia_Line_wbatch %>% filter(Supervisor.PI == "Bergland"))
+Dia_lmer_Lat_Bergland <- lmer(Max_Stage9_Prop ~ -1 + Latitude + (1|Population) + (1|Population:Line) ,data = d_Dia_trans %>% filter(Supervisor.PI == "Bergland"))
 capture.output(summary(Dia_lmer_Lat_Bergland),file = "Diapause/Dia_lmer_Lat_Bergland_sum.txt")
 capture.output(anova(Dia_lmer_Lat_Bergland),file = "Diapause/Dia_lmer_Lat_Bergland.txt")
 
@@ -13352,7 +13372,7 @@ anova(Dia_lmer_Lat_Bergland)
 
 #### Flatt Lab 
 ```{r eval=FALSE}
-Dia_lmer_Lat_Flatt <- lmer(Max_Stage9_Prop ~ -1 + Latitude + (1|Population), data = d_Dia_Line_wbatch %>% filter(Supervisor.PI == "Flatt"))
+Dia_lmer_Lat_Flatt <- lmer(Max_Stage9_Prop ~ -1 + Latitude + (1|Population), data = d_Dia_trans %>% filter(Supervisor.PI == "Flatt"))
 capture.output(summary(Dia_lmer_Lat_Flatt),file = "Diapause/Dia_lmer_Lat_Flatt_sum.txt")
 capture.output(anova(Dia_lmer_Lat_Flatt),file = "Diapause/Dia_lmer_Lat_Flatt.txt")
 ```
@@ -13364,7 +13384,7 @@ anova(Dia_lmer_Lat_Flatt)
 
 #### Schlotterer Lab
 ```{r eval=FALSE}
-Dia_lmer_Lat_Schlotterer <- lmer(Max_Stage9_Prop ~ -1 + Latitude + (1|Population) + (1|Population:Line) ,data = d_Dia_Line_wbatch %>% filter(Supervisor.PI == "Schlotterer"))
+Dia_lmer_Lat_Schlotterer <- lmer(Max_Stage9_Prop ~ -1 + Latitude + (1|Population) + (1|Population:Line) ,data = d_Dia_trans %>% filter(Supervisor.PI == "Schlotterer"))
 capture.output(summary(Dia_lmer_Lat_Schlotterer),file = "Diapause/Dia_lmer_Lat_Schlotterer_sum.txt")
 capture.output(anova(Dia_lmer_Lat_Schlotterer),file = "Diapause/Dia_lmer_Lat_Schlotterer.txt")
 ```
@@ -13392,10 +13412,9 @@ dir.create(file.path("Locomotor"), showWarnings = FALSE)
 
 #### Tauber Lab
 
-_ND_
 
 ```{r LA_lmer_Lat_ND_Tauber} 
-LA_lmer_Lat_ND_Tauber <- lmer(ND ~ -1 + Latitude + (1|Population)  + (1|Line:Population), data = (d_LA))
+LA_lmer_Lat_ND_Tauber <- lmer(ND ~ -1 + Latitude + (1|Population)  + (1|Line:Population), data = (d_LA_trans))
 capture.output(summary(LA_lmer_Lat_ND_Tauber),file = "Locomotor/LA_lmer_Lat_ND_Tauber_sum.txt")
 capture.output(anova(LA_lmer_Lat_ND_Tauber),file = "Locomotor/LA_lmer_Lat_ND_Tauber.txt")
 ```
