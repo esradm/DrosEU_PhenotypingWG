@@ -8494,8 +8494,9 @@ DT::datatable(table_LA_CircPhase_Pop_wobatch, options = list(pageLength = 10)) %
 
 #### Tauber Lab
 
+```{r}
 d_LA_trans <- d_LA %>% mutate(ND = log2(ND))
-
+```
 
 ```{r LA_lmer_ND_Tauber} 
 LA_lmer_ND_Tauber <- lmer(ND ~ -1 + Population  + (1|Line:Population) +
