@@ -172,11 +172,12 @@ panCor <- function(x, y, digits=2, prefix="", cex.cor){
   usr <- par("usr")
   on.exit(par(usr))
   par(usr = c(0, 1, 0, 1))
-  r <- abs(cor(x, y, use = "complete.obs"))
+  r <- cor(x, y, use = "complete.obs")
   txt <- format(c(r, 0.123456789), digits=digits)[1]
   txt <- paste(prefix, txt, sep="")
-  if(missing(cex.cor)) cex.cor <- 0.8/strwidth(txt)
-  text(0.5, 0.5, txt, cex = cex.cor * r)
+  #if(missing(cex.cor)) cex.cor <- 0.8/strwidth(txt)
+  #text(0.5, 0.5, txt, cex = cex.cor * r)
+  text(0.5, 0.5, txt, cex = 3)
   cex.lab <- 2
 }
 
@@ -191,7 +192,7 @@ scatterPlotMatrix <- function(x, sex) {
   x <- longToWide(x)
   if (!missing(sex)) { x <- prepScatterPlotMatrix(x, sex = sex) }
   else { x <- prepScatterPlotMatrix(x) }
-  par(las = 2)
+  par(las = 2, cex.axis = 1.4)
   pairs2(x, lower.panel = panScatterPlot, upper.panel = panCor, oma = c(6,4,2,4), ax.labels = TRUE, ax.ticks = TRUE, gap = 1)
   legend("bottom", xjust = 0.5, inset = -ncol(x)*0.012, legend = c("YE","RE","GI","MU","MA","UM","KA","VA","AK"), pch = 21, pt.bg = c("#cab2d6", "#ff7f00", "#fdbf6f", "#e31a1c", "#fb9a99", "#33a02c", "#b2df8a", "#1f78b4", "#a6cee3"), horiz = T, cex = 0.8, bty = "n", xpd = T)}
 
