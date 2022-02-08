@@ -872,11 +872,9 @@ invisible(dev.off())
 ```
 
 ```{r include=FALSE}
-<<<<<<< Updated upstream
+
 p_Via_pop_Schmidt <- ggplot(data = (subset(d_Via,Supervisor.PI=='Schmidt')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Population)) +geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_Via_pop_Schmidt", x="Population", y = "ProportionEggtoAdultSurvival") + ylim(c(min_Via, max_Via))+   geom_text(data = model_means_Via_Schmidt_cld, aes(x = Population, label = cld), y = max_Via, vjust = 1) + droseu_theme
-=======
-p_Via_pop_Schmidt <- ggplot(data = (subset(d_Via,Supervisor.PI=='Schmidt')), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Population)) +geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_Via_pop_Schmidt", x="Population", y = "ProportionEggtoAdultSurvival") + ylim(c(min_Via, max_Via))+   geom_text(data = model_means_Via_Schmidt_cld, aes(x = Population, label = cld), y = 1, vjust = 1) + droseu_theme
->>>>>>> Stashed changes
+
 ```
 
 ```{r}
@@ -1027,11 +1025,9 @@ write(intersect_Via_pop, file ="Viability/Via_int_pop.txt", sep = "\t")
 There are `r length(intersect_Via_pop) ` populations and `r length(intersect_Via_line) ` isofemale lines that have been phenotyped across the labs. Please refer to tables named intersect_Trait_level (i.e. intersect_Via_pop) for details. 
 
 
-<<<<<<< Updated upstream
+
 ```{r include=FALSE}
-=======
-```{r echo=FALSE}
->>>>>>> Stashed changes
+
 Via_fitted <- combineFitted(labs = c("Gibert", "Grath", "Hoedjes", "Schmidt", "StamenkovicRadak", "Zwaan"), sex = rep("NA", 6), models = list(Via_lmer_Gibert, Via_lmer_Grath, Via_lmer_Hoedjes, Via_lm_Schmidt, Via_lmer_StamenkovicRadak, Via_lmer_Zwaan))
 
 p_Via_lab_cor <- function() scatterPlotMatrix(Via_fitted, sex = "NA")
@@ -1041,11 +1037,8 @@ p_Via_lab_cor <- function() scatterPlotMatrix(Via_fitted, sex = "NA")
 p_Via_lab_cor()
 ```
 
-<<<<<<< Updated upstream
+
 ```{r include=FALSE}
-=======
-```{r echo=FALSE}
->>>>>>> Stashed changes
 pdf(file="Viability/p_Via_lab_cor.pdf", width=8, height=8)
 p_Via_lab_cor()
 invisible(dev.off())
@@ -1058,11 +1051,9 @@ invisible(dev.off())
 ## Developmental time
 
 
-<<<<<<< Updated upstream
+
 ```{r include=FALSE}
-=======
-```{r echo=FALSE}
->>>>>>> Stashed changes
+
 dir.create(file.path("DevelopmentTime"), showWarnings = FALSE)
 ```
 
@@ -1148,12 +1139,10 @@ y-axis is scaled by the minimum (`r min_DT_P`) and maximum (`r max_DT_P`) values
 
 ##### Schmidt Lab
 
-<<<<<<< Updated upstream
+
 
 ```{r DT_P_lmer, include=FALSE}
-=======
-```{r DT_P_lmer, echo=FALSE}
->>>>>>> Stashed changes
+
 DT_P_lmer <- lmer(DT_EggPupa ~ -1 + Population + (1|Population:Line), data = d_DT_P)
 capture.output(summary(DT_P_lmer),file = "DevelopmentTime/DT_P_lmer_sum.txt")
 capture.output(anova(DT_P_lmer),file = "DevelopmentTime/DT_P_F_lmer.txt")
@@ -1316,11 +1305,9 @@ y-axis is scaled by the minimum (`r min_DT_A`) and maximum (`r max_DT_A`) values
 
 
 
-<<<<<<< Updated upstream
+
 ```{r p_DT_A_F_all, message=FALSE, warning=FALSE, echo=FALSE}
-=======
-```{r p_DT_A_F_all, include=FALSE}
->>>>>>> Stashed changes
+
 
 p_DT_A_F_all <- ggplot(data = d_DT_A_F, aes(x=Population_Lat, y=DT_EggAdult, fill=Supervisor.PI)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
@@ -1536,13 +1523,10 @@ invisible(dev.off())
 p_DT_A_F_Grath
 ```
 
-<<<<<<< Updated upstream
+
 ```{r include=FALSE}
 pdf(file="DevelopmentTime/p_DT_A_F_Grath.pdf",width=8, height=5)
 p_DT_A_F_Grath
-=======
-p_DT_A_F_Grath + ylim(c(min_DT_A, max_DT_A))+ droseu_theme
->>>>>>> Stashed changes
 invisible(dev.off())
 ```
 
@@ -1567,7 +1551,7 @@ p_DT_A_F_pop_Grath
 invisible(dev.off())
 ```
 
-```{r p_DT_A_M_Grath include=FALSE}
+```{r p_DT_A_M_Grath, include=FALSE}
 
 p_DT_A_M_Grath <- ggplot(data = (subset(d_DT_A_M,Supervisor.PI=='Grath')), aes(x=Population_Lat, y=DT_EggAdult, fill=Batch)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
@@ -1600,11 +1584,9 @@ p_DT_A_M_pop_Grath
 ```
 
 
-<<<<<<< Updated upstream
+
 ```{r include=FALSE}
-=======
-```{r  include=FALSE}
->>>>>>> Stashed changes
+
 pdf(file="DevelopmentTime/p_DT_A_M_pop_Grath.pdf",width=8, height=5)
 p_DT_A_M_pop_Grath
 invisible(dev.off())
@@ -1612,11 +1594,7 @@ invisible(dev.off())
 
 ##### Hoedjes Lab
 
-<<<<<<< Updated upstream
 ```{r DT_A_F_lmer_Hoedjes, include=FALSE}
-=======
-```{r DT_A_F_lmer_Hoedjes,  include=FALSE}
->>>>>>> Stashed changes
 
 DT_A_F_lmer_Hoedjes <- lmer(DT_EggAdult ~ -1 + Population + (1|Line:Population) + (1|Batch) + (1|ReplicateVial : Line), data = d_DT_A_F[d_DT_A_F$Supervisor.PI == "Hoedjes",])
 capture.output(summary(DT_A_F_lmer_Hoedjes),file = "DevelopmentTime/DT_A_F_lmer_Hoedjes_sum.txt")
@@ -1638,11 +1616,9 @@ anova(DT_A_F_lmer_Hoedjes)
 summary(DT_A_F_lmer_Hoedjes)
 ```
 
-<<<<<<< Updated upstream
+
 ```{r DT_A_M_lmer_Hoedjes, include=FALSE}
-=======
-```{r DT_A_M_lmer_Hoedjes,  include=FALSE}
->>>>>>> Stashed changes
+
 DT_A_M_lmer_Hoedjes <- lmer(DT_EggAdult ~ -1 + Population + (1|Line:Population) + (1|Batch) + (1|ReplicateVial : Line), data = d_DT_A_M[d_DT_A_M$Supervisor.PI == "Hoedjes",])
 capture.output(summary(DT_A_M_lmer_Hoedjes),file = "DevelopmentTime/DT_A_M_lmer_Hoedjes_sum.txt")
 capture.output(anova(DT_A_M_lmer_Hoedjes),file = "DevelopmentTime/DT_A_M_lmer_Hoedjes.txt")
@@ -1651,11 +1627,9 @@ capture.output(emmeans(DT_A_M_lmer_Hoedjes, list(pairwise ~ Population), adjust 
 ```
 
 
-<<<<<<< Updated upstream
+
 ```{r include=FALSE}
-=======
-```{r  include=FALSE}
->>>>>>> Stashed changes
+
 model_means_DT_A_M_Hoedjes <- emmeans(object = DT_A_M_lmer_Hoedjes, specs = ~ Population)
 model_means_DT_A_M_Hoedjes_cld <- cld(object = model_means_DT_A_M_Hoedjes, adjust = "Tukey", Letters = letters, alpha = 0.05) %>% as.data.frame %>% mutate(Population = factor(Population, levels = c("YE","RE","GI","MU","MA","UM","KA","VA","AK"))) %>% arrange(Population) %>% dplyr::rename(cld = .group)
 ```
@@ -1691,12 +1665,7 @@ invisible(dev.off())
 ```{r p_DT_A_F_pop_Hoedjes, include=FALSE}
 
 p_DT_A_F_pop_Hoedjes <- ggplot(data = (subset(d_DT_A_F,Supervisor.PI=='Hoedjes')), aes(x=Population_Lat, y=DT_EggAdult, fill=Population)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-<<<<<<< Updated upstream
-        labs(title="p_DT_A_F_pop_Hoedjes", x="Population", y = "DT_EggAdult") + ylim(c(min_DT_A, max_DT_A))+ geom_text(data = model_means_DT_A_F_Hoedjes_cld, aes(x = Population, label = cld), y=max_DT_A, vjust = 1) + droseu_theme
-=======
-        labs(title="p_DT_A_F_pop_Hoedjes", x="Population", y = "DT_EggAdult") + ylim(c(min_DT_A, max_DT_A))+ geom_text(data = model_means_DT_A_F_Hoedjes_cld, aes(x = Population, label = cld), y = max_DT_A, vjust = 1) + droseu_theme
->>>>>>> Stashed changes
+        geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_DT_A_F_pop_Hoedjes", x="Population", y = "DT_EggAdult") + ylim(c(min_DT_A, max_DT_A))+ geom_text(data = model_means_DT_A_F_Hoedjes_cld, aes(x = Population, label = cld), y = max_DT_A, vjust = 1) + droseu_theme
 
 ```
 
@@ -1731,13 +1700,8 @@ invisible(dev.off())
 
 ```{r p_DT_A_M_pop_Hoedjes, include=FALSE}
 
-p_DT_A_M_pop_Hoedjes <- ggplot(data = (subset(d_DT_A_M,Supervisor.PI=='Hoedjes')), aes(x=Population_Lat, y=DT_EggAdult, fill=Population)) + 
-        geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-<<<<<<< Updated upstream
-        labs(title="p_DT_A_M_pop_Hoedjes", x="Population", y = "DT_EggAdult") + ylim(c(min_DT_A, max_DT_A))+ geom_text(data = model_means_DT_A_M_Hoedjes_cld, aes(x = Population, label = cld), y=max_DT_A, vjust = 1) + droseu_theme
-=======
-        labs(title="p_DT_A_M_pop_Hoedjes", x="Population", y = "DT_EggAdult") + ylim(c(min_DT_A, max_DT_A))+ geom_text(data = model_means_DT_A_M_Hoedjes_cld, aes(x = Population, label = cld), y = max_DT_A, vjust = 1) + droseu_theme
->>>>>>> Stashed changes
+p_DT_A_M_pop_Hoedjes <- ggplot(data = (subset(d_DT_A_M,Supervisor.PI=='Hoedjes')), aes(x=Population_Lat, y=DT_EggAdult, fill=Population)) + labs(title="p_DT_A_M_pop_Hoedjes", x="Population", y = "DT_EggAdult") + ylim(c(min_DT_A, max_DT_A))+ geom_text(data = model_means_DT_A_M_Hoedjes_cld, aes(x = Population, label = cld), y = max_DT_A, vjust = 1) + droseu_theme
+
 
 ```
 
@@ -3235,12 +3199,7 @@ invisible(dev.off())
 ```{r p_TL_F_pop_Ritchie}
 
 p_TL_F_pop_Ritchie <- ggplot(data = (subset(d_TL_F,Supervisor.PI=='Ritchie')), aes(x=Population_Lat, y=TL_micrometers, fill=Population)) + 
-  geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-<<<<<<< Updated upstream
-  labs(title="p_TL_F_pop_Ritchie", x="Population", y = "TL_micrometers")+ coord_cartesian(ylim =c(min_TL, max_TL))+ geom_text(data = model_means_TL_F_Ritchie_cld, aes(x = Population, label = cld), y = max_TL, vjust = 1) + droseu_theme
-=======
-  labs(title="p_TL_F_pop_Ritchie", x="Population", y = "TL_micrometers")+ coord_cartesian(ylim =c(min_TL, max_TL))+ droseu_theme
->>>>>>> Stashed changes
+  geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_TL_F_pop_Ritchie", x="Population", y = "TL_micrometers")+ coord_cartesian(ylim =c(min_TL, max_TL))+ droseu_theme
 invisible(dev.off())
 ```
 
@@ -8953,8 +8912,6 @@ p_SR_M_pop_Pasyukova
 ```{r echo=FALSE}
 pdf(file="Starvation/p_SR_M_pop_Pasyukova.pdf",width=8, height=5)
 p_SR_M_pop_Pasyukova
-<<<<<<< Updated upstream
-=======
 invisible(dev.off())
 ```
 
@@ -9125,7 +9082,6 @@ p_SR_M_Pasyukova_survival_curves
 ```{r, include=FALSE}
 pdf(file="Starvation/p_SR_M_Pasyukova_survival_curves.pdf", width=8, height=5)
 p_SR_M_Pasyukova_survival_curves
->>>>>>> Stashed changes
 invisible(dev.off())
 ```
 
