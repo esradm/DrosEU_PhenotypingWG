@@ -2,23 +2,23 @@ Linear mixed model fit by REML. t-tests use Satterthwaite's method [
 lmerModLmerTest]
 Formula: 
 CSM_PropDead_ED ~ -1 + Longitude + (1 | Population) + (1 | Line:Population)
-   Data: d_CSM_M[d_CSM_M$Supervisor.PI == "Kozeretska", ]
+   Data: d_CSM_M_trans[d_CSM_M_trans$Supervisor.PI == "Kozeretska", ]
 
-REML criterion at convergence: 139.7
+REML criterion at convergence: 278.6
 
 Scaled residuals: 
-    Min      1Q  Median      3Q     Max 
--2.3960 -0.7410  0.1575  0.8351  1.4246 
+     Min       1Q   Median       3Q      Max 
+-2.69598 -0.71871  0.01554  0.77737  1.70127 
 
 Random effects:
  Groups          Name        Variance Std.Dev.
- Line:Population (Intercept) 0.007769 0.08814 
- Population      (Intercept) 0.210438 0.45874 
- Residual                    0.079319 0.28164 
+ Line:Population (Intercept) 0.01392  0.1180  
+ Population      (Intercept) 0.47644  0.6902  
+ Residual                    0.13904  0.3729  
 Number of obs: 244, groups:  Line:Population, 130; Population, 9
 
 Fixed effects:
-          Estimate Std. Error       df t value Pr(>|t|)  
-Longitude 0.023559   0.007166 7.921418   3.288   0.0112 *
+          Estimate Std. Error      df t value Pr(>|t|)  
+Longitude  0.03595    0.01076 7.94025    3.34   0.0103 *
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1

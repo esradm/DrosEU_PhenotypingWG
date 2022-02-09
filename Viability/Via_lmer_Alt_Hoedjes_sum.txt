@@ -2,23 +2,23 @@ Linear mixed model fit by REML. t-tests use Satterthwaite's method [
 lmerModLmerTest]
 Formula: ProportionEggtoAdultSurvival ~ -1 + Altitude + (1 | Population) +  
     (1 | Line:Population)
-   Data: d_Via[d_Via$Supervisor.PI == "Hoedjes", ]
+   Data: d_Via_trans[d_Via_trans$Supervisor.PI == "Hoedjes", ]
 
-REML criterion at convergence: -688.4
+REML criterion at convergence: -519.8
 
 Scaled residuals: 
     Min      1Q  Median      3Q     Max 
--3.7800 -0.5081  0.0000  0.5530  2.7491 
+-3.3475 -0.5229 -0.0436  0.5020  4.2580 
 
 Random effects:
  Groups          Name        Variance Std.Dev.
- Line:Population (Intercept) 0.012188 0.11040 
- Population      (Intercept) 0.203590 0.45121 
- Residual                    0.007148 0.08455 
+ Line:Population (Intercept) 0.01545  0.1243  
+ Population      (Intercept) 0.41741  0.6461  
+ Residual                    0.01030  0.1015  
 Number of obs: 501, groups:  Line:Population, 167; Population, 9
 
 Fixed effects:
-         Estimate Std. Error       df t value Pr(>|t|)   
-Altitude 0.001438   0.000409 7.996847   3.517  0.00789 **
+          Estimate Std. Error        df t value Pr(>|t|)   
+Altitude 0.0020846  0.0005853 7.9981363   3.562  0.00738 **
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1

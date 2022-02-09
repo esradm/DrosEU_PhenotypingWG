@@ -1,7 +1,7 @@
 Linear mixed model fit by REML. t-tests use Satterthwaite's method [
 lmerModLmerTest]
 Formula: ND ~ -1 + Latitude + (1 | Population) + (1 | Line:Population)
-   Data: (d_LA)
+   Data: d_LA
 
 REML criterion at convergence: 708.6
 

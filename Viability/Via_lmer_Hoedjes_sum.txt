@@ -3,32 +3,32 @@ lmerModLmerTest]
 Formula: 
 ProportionEggtoAdultSurvival ~ -1 + Population + (1 | Line:Population) +  
     (1 | Batch)
-   Data: d_Via[d_Via$Supervisor.PI == "Hoedjes", ]
+   Data: d_Via_trans[d_Via_trans$Supervisor.PI == "Hoedjes", ]
 
-REML criterion at convergence: -712.5
+REML criterion at convergence: -549.5
 
 Scaled residuals: 
     Min      1Q  Median      3Q     Max 
--3.7848 -0.5126 -0.0026  0.5498  2.7446 
+-3.3516 -0.5255 -0.0429  0.4980  4.2544 
 
 Random effects:
  Groups          Name        Variance  Std.Dev. 
- Line:Population (Intercept) 1.219e-02 1.104e-01
- Batch           (Intercept) 2.196e-12 1.482e-06
- Residual                    7.148e-03 8.455e-02
+ Line:Population (Intercept) 1.545e-02 1.243e-01
+ Batch           (Intercept) 4.088e-12 2.022e-06
+ Residual                    1.030e-02 1.015e-01
 Number of obs: 501, groups:  Line:Population, 167; Batch, 4
 
 Fixed effects:
               Estimate Std. Error        df t value Pr(>|t|)    
-PopulationAK   0.77450    0.02699 157.99983   28.69   <2e-16 ***
-PopulationGI   0.60267    0.03117 157.99983   19.34   <2e-16 ***
-PopulationKA   0.71817    0.02699 157.99983   26.61   <2e-16 ***
-PopulationMA   0.70850    0.02699 157.99983   26.25   <2e-16 ***
-PopulationMU   0.73950    0.02699 157.99983   27.40   <2e-16 ***
-PopulationRE   0.62333    0.03117 157.99983   20.00   <2e-16 ***
-PopulationUM   0.68490    0.02928 157.99983   23.39   <2e-16 ***
-PopulationVA   0.68083    0.02699 157.99983   25.22   <2e-16 ***
-PopulationYE   0.55967    0.02699 157.99983   20.73   <2e-16 ***
+PopulationAK   1.09520    0.03073 157.99994   35.64   <2e-16 ***
+PopulationGI   0.89382    0.03548 157.99994   25.19   <2e-16 ***
+PopulationKA   1.02908    0.03073 157.99994   33.49   <2e-16 ***
+PopulationMA   1.00727    0.03073 157.99994   32.78   <2e-16 ***
+PopulationMU   1.04596    0.03073 157.99994   34.04   <2e-16 ***
+PopulationRE   0.91541    0.03548 157.99994   25.80   <2e-16 ***
+PopulationUM   0.98679    0.03333 157.99994   29.61   <2e-16 ***
+PopulationVA   0.98036    0.03073 157.99994   31.91   <2e-16 ***
+PopulationYE   0.84657    0.03073 157.99994   27.55   <2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 

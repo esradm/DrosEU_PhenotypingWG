@@ -1,31 +1,33 @@
 Linear mixed model fit by REML. t-tests use Satterthwaite's method [
 lmerModLmerTest]
-Formula: ProportionEggtoAdultSurvival ~ -1 + Population + (1 | Line:Population)
-   Data: d_Via[d_Via$Supervisor.PI == "Zwaan", ]
+Formula: ProportionEggtoAdultSurvival ~ -1 + Population + (1 | Batch) +  
+    (1 | Line:Population)
+   Data: d_Via_trans[d_Via_trans$Supervisor.PI == "Zwaan", ]
 
-REML criterion at convergence: -328.3
+REML criterion at convergence: -124.4
 
 Scaled residuals: 
     Min      1Q  Median      3Q     Max 
--3.8665 -0.4405  0.1045  0.5674  2.7223 
+-4.5670 -0.4679  0.0236  0.4732  2.8902 
 
 Random effects:
  Groups          Name        Variance Std.Dev.
- Line:Population (Intercept) 0.01052  0.1025  
- Residual                    0.02180  0.1477  
-Number of obs: 524, groups:  Line:Population, 169
+ Line:Population (Intercept) 0.01407  0.1186  
+ Batch           (Intercept) 0.00000  0.0000  
+ Residual                    0.03314  0.1820  
+Number of obs: 524, groups:  Line:Population, 169; Batch, 2
 
 Fixed effects:
               Estimate Std. Error        df t value Pr(>|t|)    
-PopulationAK   0.75329    0.02961 148.12937   25.44   <2e-16 ***
-PopulationGI   0.64361    0.03423 147.09939   18.80   <2e-16 ***
-PopulationKA   0.76026    0.02982 150.93461   25.50   <2e-16 ***
-PopulationMA   0.71368    0.02986 152.29084   23.90   <2e-16 ***
-PopulationMU   0.70735    0.03034 158.56478   23.32   <2e-16 ***
-PopulationRE   0.64594    0.03288 144.24243   19.65   <2e-16 ***
-PopulationUM   0.77891    0.03133 149.71959   24.86   <2e-16 ***
-PopulationVA   0.73253    0.03027 157.97928   24.20   <2e-16 ***
-PopulationYE   0.52726    0.03020 158.64349   17.46   <2e-16 ***
+PopulationAK   1.07202    0.03516 146.33813   30.49   <2e-16 ***
+PopulationGI   0.93791    0.04065 144.92938   23.07   <2e-16 ***
+PopulationKA   1.07884    0.03542 149.10334   30.46   <2e-16 ***
+PopulationMA   1.02654    0.03548 150.64028   28.93   <2e-16 ***
+PopulationMU   1.01889    0.03607 156.97589   28.25   <2e-16 ***
+PopulationRE   0.94971    0.03902 142.20713   24.34   <2e-16 ***
+PopulationUM   1.10538    0.03722 147.91911   29.70   <2e-16 ***
+PopulationVA   1.05227    0.03598 156.50416   29.24   <2e-16 ***
+PopulationYE   0.81384    0.03591 157.57741   22.66   <2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
@@ -39,3 +41,6 @@ PopulatinRE 0.000  0.000  0.000  0.000  0.000
 PopulatinUM 0.000  0.000  0.000  0.000  0.000  0.000               
 PopulatinVA 0.000  0.000  0.000  0.000  0.000  0.000  0.000        
 PopulatinYE 0.000  0.000  0.000  0.000  0.000  0.000  0.000  0.000 
+optimizer (nloptwrap) convergence code: 0 (OK)
+boundary (singular) fit: see ?isSingular
+
