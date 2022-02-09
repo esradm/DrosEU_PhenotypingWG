@@ -45,7 +45,7 @@ $`pairwise differences of Population`
  MU - UM   -0.556 13.1 Inf  -0.043  1.0000
  MU - VA  -20.289 11.6 Inf  -1.754  0.7128
  MU - YE   -7.572 13.0 Inf  -0.584  0.9997
- RE - UM   21.114 14.2 Inf   1.484  0.8634
+ RE - UM   21.114 14.2 Inf   1.484  0.8633
  RE - VA    1.381 12.8 Inf   0.107  1.0000
  RE - YE   14.099 14.1 Inf   0.999  0.9861
  UM - VA  -19.733 12.7 Inf  -1.548  0.8326

@@ -1,24 +1,29 @@
 Linear mixed model fit by REML. t-tests use Satterthwaite's method [
 lmerModLmerTest]
-Formula: NumberOfAdultsEclosed ~ -1 + Longitude + (1 | Population) + (1 |  
-    Population:Line)
+Formula: 
+NumberOfAdultsEclosed ~ Longitude + (1 | Population) + (1 | Population:Line)
    Data: d_Fec[d_Fec$Supervisor.PI == "Billeter", ]
 
-REML criterion at convergence: 8869.6
+REML criterion at convergence: 8842.5
 
 Scaled residuals: 
      Min       1Q   Median       3Q      Max 
--3.01193 -0.55216 -0.02991  0.54118  2.97316 
+-2.98019 -0.57465 -0.03547  0.52661  2.98361 
 
 Random effects:
  Groups          Name        Variance Std.Dev.
- Population:Line (Intercept) 1113     33.37   
- Population      (Intercept) 3426     58.53   
- Residual                    2763     52.56   
+ Population:Line (Intercept) 1110.9   33.33   
+ Population      (Intercept)  200.8   14.17   
+ Residual                    2763.4   52.57   
 Number of obs: 805, groups:  Population:Line, 160; Population, 9
 
 Fixed effects:
-          Estimate Std. Error     df t value Pr(>|t|)   
-Longitude   3.2553     0.9191 7.9529   3.542  0.00767 **
+            Estimate Std. Error      df t value Pr(>|t|)    
+(Intercept)  85.2266     9.1478  7.7551   9.317 1.76e-05 ***
+Longitude     0.1957     0.4221  7.5190   0.464    0.656    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Correlation of Fixed Effects:
+          (Intr)
+Longitude -0.779

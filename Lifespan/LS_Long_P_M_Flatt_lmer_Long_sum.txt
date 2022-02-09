@@ -1,22 +1,27 @@
 Linear mixed model fit by REML. t-tests use Satterthwaite's method [
 lmerModLmerTest]
-Formula: LSP_AgeAtDeath_days ~ -1 + Longitude + (1 | Population)
+Formula: LSP_AgeAtDeath_days ~ Longitude + (1 | Population)
    Data: filter(d_LS_P_M, Censor == "0" & Supervisor.PI == "Flatt")
 
-REML criterion at convergence: 35765.4
+REML criterion at convergence: 35717
 
 Scaled residuals: 
     Min      1Q  Median      3Q     Max 
--3.9005 -0.6567 -0.0245  0.6710  3.1721 
+-3.8804 -0.6596 -0.0278  0.6805  3.1645 
 
 Random effects:
  Groups     Name        Variance Std.Dev.
- Population (Intercept) 1270.7   35.65   
- Residual                178.2   13.35   
+ Population (Intercept)   4.039   2.01   
+ Residual               178.241  13.35   
 Number of obs: 4450, groups:  Population, 9
 
 Fixed effects:
-          Estimate Std. Error     df t value Pr(>|t|)   
-Longitude   1.8888     0.5525 8.0003   3.419  0.00911 **
+            Estimate Std. Error       df t value Pr(>|t|)    
+(Intercept) 52.47597    1.09204  6.96886  48.053 4.78e-10 ***
+Longitude    0.01325    0.05081  6.99036   0.261    0.802    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Correlation of Fixed Effects:
+          (Intr)
+Longitude -0.768

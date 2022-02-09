@@ -1,7 +1,6 @@
 Linear mixed model fit by REML. t-tests use Satterthwaite's method [
 lmerModLmerTest]
-Formula: Max_Stage9_Prop ~ -1 + Population + (1 | Population:Line) + (1 |  
-    Batch)
+Formula: Max_Stage9_Prop ~ Population + (1 | Population:Line) + (1 | Batch)
    Data: d_Dia_trans %>% filter(Supervisor.PI == "Schlotterer")
 
 REML criterion at convergence: 122.5
@@ -18,26 +17,26 @@ Random effects:
 Number of obs: 195, groups:  Population:Line, 159; Batch, 3
 
 Fixed effects:
-             Estimate Std. Error       df t value Pr(>|t|)    
-PopulationAK  0.81061    0.08059 19.57204   10.06 3.56e-09 ***
-PopulationGI  0.95655    0.09056 28.94464   10.56 1.92e-11 ***
-PopulationKA  1.02881    0.08101 20.01848   12.70 4.90e-11 ***
-PopulationMA  1.04006    0.08161 20.39574   12.74 3.57e-11 ***
-PopulationMU  1.05787    0.08109 20.02858   13.04 3.00e-11 ***
-PopulationRE  1.02542    0.09178 30.97411   11.17 2.15e-12 ***
-PopulationUM  1.26295    0.09189 30.37151   13.74 1.41e-14 ***
-PopulationVA  1.06466    0.08898 27.95478   11.96 1.63e-12 ***
-PopulationYE  0.99636    0.08193 20.01378   12.16 1.06e-10 ***
+              Estimate Std. Error        df t value Pr(>|t|)    
+(Intercept)    0.81061    0.08059  19.57204  10.059 3.56e-09 ***
+PopulationGI   0.14593    0.10778 147.49028   1.354   0.1778    
+PopulationKA   0.21820    0.09981 149.17906   2.186   0.0304 *  
+PopulationMA   0.22945    0.10034 144.10264   2.287   0.0237 *  
+PopulationMU   0.24726    0.09999 149.56005   2.473   0.0145 *  
+PopulationRE   0.21480    0.10889 155.57976   1.973   0.0503 .  
+PopulationUM   0.45234    0.10879 153.63777   4.158 5.32e-05 ***
+PopulationVA   0.25405    0.10645 152.79899   2.387   0.0182 *  
+PopulationYE   0.18575    0.10086 142.57733   1.842   0.0676 .  
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Correlation of Fixed Effects:
-            PpltAK PpltGI PpltKA PpltMA PpltMU PpltRE PpltUM PpltVA
-PopulatinGI 0.211                                                  
-PopulatinKA 0.237  0.213                                           
-PopulatinMA 0.235  0.208  0.233                                    
-PopulatinMU 0.235  0.210  0.235  0.235                             
-PopulatinRE 0.207  0.189  0.208  0.207  0.211                      
-PopulatinUM 0.210  0.175  0.205  0.208  0.209  0.180               
-PopulatinVA 0.215  0.192  0.214  0.214  0.216  0.191  0.190        
-PopulatinYE 0.230  0.212  0.232  0.233  0.240  0.215  0.203  0.216 
+            (Intr) PpltGI PpltKA PpltMA PpltMU PpltRE PpltUM PpltVA
+PopulatinGI -0.570                                                 
+PopulatinKA -0.615  0.462                                          
+PopulatinMA -0.612  0.458  0.494                                   
+PopulatinMU -0.615  0.460  0.496  0.495                            
+PopulatinRE -0.566  0.426  0.457  0.455  0.459                     
+PopulatinUM -0.564  0.415  0.453  0.454  0.456  0.416              
+PopulatinVA -0.578  0.432  0.466  0.464  0.468  0.430  0.428       
+PopulatinYE -0.612  0.461  0.494  0.493  0.499  0.461  0.452  0.467

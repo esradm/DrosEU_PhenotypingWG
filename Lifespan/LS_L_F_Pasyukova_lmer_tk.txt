@@ -4,9 +4,9 @@ $`emmeans of Population`
  GI           43.8 1.96 Inf      40.0      47.7
  KA           46.8 1.72 Inf      43.4      50.1
  MA           43.6 1.72 Inf      40.2      47.0
- MU           43.9 1.72 Inf      40.6      47.3
- RE           44.2 1.83 Inf      40.6      47.8
- UM           39.3 1.77 Inf      35.9      42.8
+ MU           43.9 1.72 Inf      40.5      47.3
+ RE           44.2 1.84 Inf      40.6      47.8
+ UM           39.3 1.78 Inf      35.8      42.8
  VA           44.1 1.72 Inf      40.7      47.4
  YE           41.3 1.72 Inf      37.9      44.7
 
@@ -23,26 +23,26 @@ $`pairwise differences of Population`
  AK - UM   4.6535 1.81 Inf   2.573  0.1980
  AK - VA  -0.0781 1.76 Inf  -0.044  1.0000
  AK - YE   2.6725 1.76 Inf   1.520  0.8465
- GI - KA  -2.9188 2.03 Inf  -1.440  0.8826
+ GI - KA  -2.9188 2.03 Inf  -1.440  0.8825
  GI - MA   0.2268 2.03 Inf   0.112  1.0000
  GI - MU  -0.0769 2.03 Inf  -0.038  1.0000
  GI - RE  -0.3347 2.12 Inf  -0.158  1.0000
  GI - UM   4.5203 2.07 Inf   2.182  0.4172
  GI - VA  -0.2113 2.03 Inf  -0.104  1.0000
- GI - YE   2.5393 2.03 Inf   1.252  0.9446
+ GI - YE   2.5393 2.03 Inf   1.253  0.9446
  KA - MA   3.1456 1.80 Inf   1.748  0.7165
- KA - MU   2.8419 1.80 Inf   1.579  0.8165
+ KA - MU   2.8419 1.80 Inf   1.579  0.8164
  KA - RE   2.5841 1.91 Inf   1.354  0.9148
- KA - UM   7.4391 1.85 Inf   4.023  0.0019
+ KA - UM   7.4391 1.85 Inf   4.024  0.0019
  KA - VA   2.7075 1.80 Inf   1.505  0.8539
- KA - YE   5.4581 1.80 Inf   3.033  0.0612
+ KA - YE   5.4581 1.80 Inf   3.033  0.0611
  MA - MU  -0.3038 1.80 Inf  -0.169  1.0000
  MA - RE  -0.5616 1.91 Inf  -0.294  1.0000
  MA - UM   4.2935 1.85 Inf   2.322  0.3285
  MA - VA  -0.4381 1.80 Inf  -0.243  1.0000
  MA - YE   2.3125 1.80 Inf   1.285  0.9360
  MU - RE  -0.2578 1.91 Inf  -0.135  1.0000
- MU - UM   4.5972 1.85 Inf   2.486  0.2384
+ MU - UM   4.5972 1.85 Inf   2.487  0.2384
  MU - VA  -0.1344 1.80 Inf  -0.075  1.0000
  MU - YE   2.6162 1.80 Inf   1.454  0.8766
  RE - UM   4.8550 1.96 Inf   2.483  0.2401
@@ -50,7 +50,7 @@ $`pairwise differences of Population`
  RE - YE   2.8741 1.91 Inf   1.506  0.8533
  UM - VA  -4.7316 1.85 Inf  -2.559  0.2041
  UM - YE  -1.9810 1.85 Inf  -1.071  0.9783
- VA - YE   2.7506 1.80 Inf   1.528  0.8424
+ VA - YE   2.7506 1.80 Inf   1.529  0.8424
 
 Degrees-of-freedom method: asymptotic 
 P value adjustment: tukey method for comparing a family of 9 estimates 

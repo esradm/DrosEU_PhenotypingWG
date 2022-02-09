@@ -1,7 +1,7 @@
 Linear mixed model fit by REML. t-tests use Satterthwaite's method [
 lmerModLmerTest]
-Formula: AgeAtDeath_hours ~ -1 + Population + (1 | Line:Population) +  
-    (1 | Batch) + (1 | ReplicateVial:Line:Population)
+Formula: AgeAtDeath_hours ~ Population + (1 | Line:Population) + (1 |  
+    Batch) + (1 | ReplicateVial:Line:Population)
    Data: (subset(d_SR_F, Supervisor.PI == "Onder"))
 
 REML criterion at convergence: 149434.3
@@ -11,38 +11,38 @@ Scaled residuals:
 -5.0413 -0.6188 -0.0307  0.6086  3.9849 
 
 Random effects:
- Groups                        Name        Variance  Std.Dev. 
- ReplicateVial:Line:Population (Intercept) 9.720e+00 3.118e+00
- Line:Population               (Intercept) 1.683e+02 1.297e+01
- Batch                         (Intercept) 3.004e-07 5.481e-04
- Residual                                  3.136e+02 1.771e+01
+ Groups                        Name        Variance Std.Dev.
+ ReplicateVial:Line:Population (Intercept)   9.722   3.118  
+ Line:Population               (Intercept) 168.283  12.972  
+ Batch                         (Intercept)   0.000   0.000  
+ Residual                                  313.603  17.709  
 Number of obs: 17282, groups:  
 ReplicateVial:Line:Population, 1737; Line:Population, 168; Batch, 5
 
 Fixed effects:
-             Estimate Std. Error      df t value Pr(>|t|)    
-PopulationAK   92.651      2.936 159.004   31.56   <2e-16 ***
-PopulationGI   88.175      3.390 159.025   26.01   <2e-16 ***
-PopulationKA   97.242      2.936 158.998   33.12   <2e-16 ***
-PopulationMA   92.373      2.936 159.020   31.46   <2e-16 ***
-PopulationMU  102.780      2.935 158.705   35.02   <2e-16 ***
-PopulationRE   88.775      3.282 158.821   27.05   <2e-16 ***
-PopulationUM   93.081      3.185 159.123   29.22   <2e-16 ***
-PopulationVA  102.602      2.935 158.816   34.96   <2e-16 ***
-PopulationYE   80.139      2.936 159.003   27.30   <2e-16 ***
+             Estimate Std. Error       df t value Pr(>|t|)    
+(Intercept)   92.6510     2.9360 158.9928  31.557  < 2e-16 ***
+PopulationGI  -4.4761     4.4849 159.0047  -0.998  0.31978    
+PopulationKA   4.5913     4.1521 158.9897   1.106  0.27049    
+PopulationMA  -0.2778     4.1522 159.0007  -0.067  0.94675    
+PopulationMU  10.1290     4.1512 158.8431   2.440  0.01579 *  
+PopulationRE  -3.8765     4.4033 158.8909  -0.880  0.37999    
+PopulationUM   0.4304     4.3319 159.0573   0.099  0.92098    
+PopulationVA   9.9510     4.1516 158.8990   2.397  0.01769 *  
+PopulationYE -12.5121     4.1522 158.9921  -3.013  0.00301 ** 
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Correlation of Fixed Effects:
-            PpltAK PpltGI PpltKA PpltMA PpltMU PpltRE PpltUM PpltVA
-PopulatinGI 0.000                                                  
-PopulatinKA 0.000  0.000                                           
-PopulatinMA 0.000  0.000  0.000                                    
-PopulatinMU 0.000  0.000  0.000  0.000                             
-PopulatinRE 0.000  0.000  0.000  0.000  0.000                      
-PopulatinUM 0.000  0.000  0.000  0.000  0.000  0.000               
-PopulatinVA 0.000  0.000  0.000  0.000  0.000  0.000  0.000        
-PopulatinYE 0.000  0.000  0.000  0.000  0.000  0.000  0.000  0.000 
+            (Intr) PpltGI PpltKA PpltMA PpltMU PpltRE PpltUM PpltVA
+PopulatinGI -0.655                                                 
+PopulatinKA -0.707  0.463                                          
+PopulatinMA -0.707  0.463  0.500                                   
+PopulatinMU -0.707  0.463  0.500  0.500                            
+PopulatinRE -0.667  0.436  0.471  0.471  0.472                     
+PopulatinUM -0.678  0.444  0.479  0.479  0.479  0.452              
+PopulatinVA -0.707  0.463  0.500  0.500  0.500  0.472  0.479       
+PopulatinYE -0.707  0.463  0.500  0.500  0.500  0.471  0.479  0.500
 optimizer (nloptwrap) convergence code: 0 (OK)
 boundary (singular) fit: see ?isSingular
 

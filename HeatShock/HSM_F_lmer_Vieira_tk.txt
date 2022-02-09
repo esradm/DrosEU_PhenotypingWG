@@ -47,10 +47,10 @@ $`pairwise differences of Population`
  MU - YE  -30.275 7.85 Inf  -3.858  0.0037
  RE - UM   12.585 8.78 Inf   1.433  0.8855
  RE - VA   19.728 8.58 Inf   2.299  0.3427
- RE - YE   14.972 8.69 Inf   1.722  0.7328
+ RE - YE   14.972 8.69 Inf   1.722  0.7329
  UM - VA    7.144 8.03 Inf   0.890  0.9935
  UM - YE    2.387 8.14 Inf   0.293  1.0000
- VA - YE   -4.757 7.68 Inf  -0.619  0.9995
+ VA - YE   -4.756 7.68 Inf  -0.619  0.9995
 
 Degrees-of-freedom method: asymptotic 
 P value adjustment: tukey method for comparing a family of 9 estimates 

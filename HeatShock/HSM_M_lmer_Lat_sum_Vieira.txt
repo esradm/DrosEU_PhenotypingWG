@@ -1,24 +1,28 @@
 Linear mixed model fit by REML. t-tests use Satterthwaite's method [
 lmerModLmerTest]
-Formula: 
-TimeDeath_min ~ -1 + Latitude + (1 | Population) + (1 | Line:Population)
+Formula: TimeDeath_min ~ Latitude + (1 | Population) + (1 | Line:Population)
    Data: filter(d_HSM_M, Censor == "0" & Supervisor.PI == "Vieira")
 
-REML criterion at convergence: 95297.9
+REML criterion at convergence: 95273.5
 
 Scaled residuals: 
     Min      1Q  Median      3Q     Max 
--5.8434 -0.6047  0.0470  0.6898  2.7848 
+-5.8406 -0.6094  0.0487  0.6894  2.7847 
 
 Random effects:
  Groups          Name        Variance Std.Dev.
- Line:Population (Intercept) 1215     34.85   
- Population      (Intercept) 1877     43.33   
- Residual                    2979     54.58   
+ Line:Population (Intercept) 1216.4   34.88   
+ Population      (Intercept)  254.9   15.96   
+ Residual                    2979.1   54.58   
 Number of obs: 8743, groups:  Line:Population, 168; Population, 9
 
 Fixed effects:
-         Estimate Std. Error     df t value Pr(>|t|)    
-Latitude   6.3174     0.2953 7.9884   21.39 2.44e-08 ***
+            Estimate Std. Error       df t value Pr(>|t|)    
+(Intercept) 265.3870    41.5542   6.6123   6.387  0.00047 ***
+Latitude      1.0485     0.8326   6.5508   1.259  0.25095    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Correlation of Fixed Effects:
+         (Intr)
+Latitude -0.990

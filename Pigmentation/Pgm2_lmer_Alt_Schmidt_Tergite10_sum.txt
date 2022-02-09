@@ -1,23 +1,28 @@
 Linear mixed model fit by REML. t-tests use Satterthwaite's method [
 lmerModLmerTest]
-Formula: Tergite10 ~ -1 + Altitude + (1 | Population) + (1 | Line:Population)
+Formula: Tergite10 ~ Altitude + (1 | Population) + (1 | Line:Population)
    Data: (subset(d_Pgm2, Supervisor.PI == "Schmidt"))
 
-REML criterion at convergence: 6881.2
+REML criterion at convergence: 6865
 
 Scaled residuals: 
     Min      1Q  Median      3Q     Max 
--2.7155 -0.6397 -0.1669  0.6572  3.2456 
+-2.7167 -0.6383 -0.1616  0.6397  3.2485 
 
 Random effects:
  Groups          Name        Variance Std.Dev.
- Line:Population (Intercept) 4.184    2.046   
- Population      (Intercept) 4.342    2.084   
- Residual                    4.221    2.055   
+ Line:Population (Intercept) 4.1863   2.0461  
+ Population      (Intercept) 0.4295   0.6553  
+ Residual                    4.2215   2.0546  
 Number of obs: 1514, groups:  Line:Population, 157; Population, 9
 
 Fixed effects:
-         Estimate Std. Error       df t value Pr(>|t|)   
-Altitude 0.007356   0.001938 7.902479   3.796  0.00539 **
+             Estimate Std. Error        df t value Pr(>|t|)    
+(Intercept) 3.1361776  0.4651130 6.6534290   6.743 0.000333 ***
+Altitude    0.0005518  0.0012394 6.2093558   0.445 0.671250    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Correlation of Fixed Effects:
+         (Intr)
+Altitude -0.801

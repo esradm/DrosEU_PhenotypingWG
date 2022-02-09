@@ -1,24 +1,31 @@
 Linear mixed model fit by REML. t-tests use Satterthwaite's method [
 lmerModLmerTest]
-Formula: 
-CSM_PropDead_ED ~ -1 + Latitude + (1 | Population) + (1 | Line:Population)
+Formula: CSM_PropDead_ED ~ Latitude + (1 | Population) + (1 | Line:Population)
    Data: d_CSM_F_trans[d_CSM_F_trans$Supervisor.PI == "Kozeretska", ]
 
-REML criterion at convergence: 260.9
+REML criterion at convergence: 253.1
 
 Scaled residuals: 
      Min       1Q   Median       3Q      Max 
--2.18627 -0.66018 -0.07687  0.69102  2.20724 
+-2.00390 -0.65898 -0.07316  0.65624  2.13854 
 
 Random effects:
- Groups          Name        Variance Std.Dev.
- Line:Population (Intercept) 0.031399 0.17720 
- Population      (Intercept) 0.004612 0.06791 
- Residual                    0.131269 0.36231 
+ Groups          Name        Variance  Std.Dev. 
+ Line:Population (Intercept) 2.709e-02 0.1645919
+ Population      (Intercept) 6.862e-10 0.0000262
+ Residual                    1.320e-01 0.3633557
 Number of obs: 244, groups:  Line:Population, 130; Population, 9
 
 Fixed effects:
-          Estimate Std. Error        df t value Pr(>|t|)    
-Latitude 0.0143241  0.0007198 6.7391415    19.9 3.08e-07 ***
+             Estimate Std. Error        df t value Pr(>|t|)   
+(Intercept) 6.277e-01  1.925e-01 1.220e+02   3.261  0.00144 **
+Latitude    2.017e-03  3.777e-03 1.214e+02   0.534  0.59436   
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Correlation of Fixed Effects:
+         (Intr)
+Latitude -0.990
+optimizer (nloptwrap) convergence code: 0 (OK)
+boundary (singular) fit: see ?isSingular
+

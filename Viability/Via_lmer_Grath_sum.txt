@@ -1,6 +1,6 @@
 Linear mixed model fit by REML. t-tests use Satterthwaite's method [
 lmerModLmerTest]
-Formula: ProportionEggtoAdultSurvival ~ -1 + Population + (1 | Line:Population)
+Formula: ProportionEggtoAdultSurvival ~ Population + (1 | Line:Population)
    Data: d_Via_trans[d_Via_trans$Supervisor.PI == "Grath", ]
 
 REML criterion at convergence: -123.8
@@ -17,13 +17,13 @@ Number of obs: 147, groups:  Line:Population, 30
 
 Fixed effects:
              Estimate Std. Error       df t value Pr(>|t|)    
-PopulationAK  0.98774    0.02906 28.44269   33.99   <2e-16 ***
-PopulationMU  0.91101    0.02858 26.75729   31.88   <2e-16 ***
-PopulationRE  0.92817    0.02858 26.75729   32.48   <2e-16 ***
+(Intercept)   0.98774    0.02906 28.44269  33.995   <2e-16 ***
+PopulationMU -0.07674    0.04075 27.59627  -1.883   0.0703 .  
+PopulationRE -0.05958    0.04075 27.59627  -1.462   0.1551    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Correlation of Fixed Effects:
-            PpltAK PpltMU
-PopulatinMU 0.000        
-PopulatinRE 0.000  0.000 
+            (Intr) PpltMU
+PopulatinMU -0.713       
+PopulatinRE -0.713  0.508

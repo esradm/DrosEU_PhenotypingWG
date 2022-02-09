@@ -1,6 +1,6 @@
 
 Call:
-lm(formula = Max_Stage9_Prop ~ -1 + Population, data = d_Dia_trans %>% 
+lm(formula = Max_Stage9_Prop ~ Population, data = d_Dia_trans %>% 
     filter(Supervisor.PI == "Flatt"))
 
 Residuals:
@@ -8,20 +8,20 @@ Residuals:
 -0.67844 -0.14098  0.07585  0.13055  0.15248 
 
 Coefficients:
-             Estimate Std. Error t value Pr(>|t|)    
-PopulationAK  1.43112    0.04140   34.57   <2e-16 ***
-PopulationGI  1.44025    0.04948   29.11   <2e-16 ***
-PopulationKA  1.49494    0.04140   36.11   <2e-16 ***
-PopulationMA  1.43397    0.04248   33.76   <2e-16 ***
-PopulationMU  1.50840    0.04140   36.44   <2e-16 ***
-PopulationRE  1.45096    0.04948   29.32   <2e-16 ***
-PopulationUM  1.52145    0.04629   32.87   <2e-16 ***
-PopulationVA  1.41832    0.04140   34.26   <2e-16 ***
-PopulationYE  1.45876    0.04140   35.24   <2e-16 ***
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept)   1.431116   0.041400  34.568   <2e-16 ***
+PopulationGI  0.009134   0.064517   0.142    0.888    
+PopulationKA  0.063826   0.058548   1.090    0.277    
+PopulationMA  0.002850   0.059314   0.048    0.962    
+PopulationMU  0.077286   0.058548   1.320    0.189    
+PopulationRE  0.019845   0.064517   0.308    0.759    
+PopulationUM  0.090335   0.062100   1.455    0.148    
+PopulationVA -0.012795   0.058548  -0.219    0.827    
+PopulationYE  0.027647   0.058548   0.472    0.637    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 0.1851 on 154 degrees of freedom
-Multiple R-squared:  0.9851,	Adjusted R-squared:  0.9842 
-F-statistic:  1130 on 9 and 154 DF,  p-value: < 2.2e-16
+Multiple R-squared:  0.03686,	Adjusted R-squared:  -0.01318 
+F-statistic: 0.7367 on 8 and 154 DF,  p-value: 0.659
 

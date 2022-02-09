@@ -1,27 +1,29 @@
 Linear mixed model fit by REML. t-tests use Satterthwaite's method [
 lmerModLmerTest]
-Formula: CentroidSizeRight_micrometers ~ -1 + Latitude + (1 | Population) +  
+Formula: CentroidSizeRight_micrometers ~ Latitude + (1 | Population) +  
     (1 | Line:Population)
    Data: (subset(d_WA_M, Supervisor.PI == "Onder"))
 
-REML criterion at convergence: 60226.4
+REML criterion at convergence: 60175.9
 
 Scaled residuals: 
     Min      1Q  Median      3Q     Max 
--4.1052 -0.5786  0.0356  0.6155  6.5293 
+-4.1037 -0.5790  0.0347  0.6162  6.5308 
 
 Random effects:
  Groups          Name        Variance Std.Dev.
- Line:Population (Intercept)   2535    50.35  
- Population      (Intercept) 155169   393.92  
- Residual                      5318    72.93  
+ Line:Population (Intercept) 2535     50.35   
+ Population      (Intercept) 1053     32.45   
+ Residual                    5318     72.93   
 Number of obs: 5230, groups:  Line:Population, 167; Population, 9
 
 Fixed effects:
-         Estimate Std. Error     df t value Pr(>|t|)    
-Latitude   49.501      2.639  7.991   18.76 6.83e-08 ***
+            Estimate Std. Error       df t value Pr(>|t|)    
+(Intercept) 2552.869     79.758    6.965  32.008 8.08e-09 ***
+Latitude      -1.236      1.600    6.930  -0.773    0.465    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-optimizer (nloptwrap) convergence code: 0 (OK)
-Model failed to converge with max|grad| = 0.00242639 (tol = 0.002, component 1)
 
+Correlation of Fixed Effects:
+         (Intr)
+Latitude -0.989

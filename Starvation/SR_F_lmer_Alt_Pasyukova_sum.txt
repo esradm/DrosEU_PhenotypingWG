@@ -1,24 +1,28 @@
 Linear mixed model fit by REML. t-tests use Satterthwaite's method [
 lmerModLmerTest]
-Formula: 
-AgeAtDeath_hours ~ -1 + Altitude + (1 | Population) + (1 | Line:Population)
+Formula: AgeAtDeath_hours ~ Altitude + (1 | Population) + (1 | Line:Population)
    Data: (subset(d_SR_F, Supervisor.PI == "Pasyukova"))
 
-REML criterion at convergence: 151849.2
+REML criterion at convergence: 151802.2
 
 Scaled residuals: 
     Min      1Q  Median      3Q     Max 
--5.3131 -0.6082  0.0232  0.6405  3.9579 
+-5.3135 -0.6097  0.0242  0.6393  3.9589 
 
 Random effects:
  Groups          Name        Variance Std.Dev.
- Line:Population (Intercept)  125.3   11.19   
- Population      (Intercept) 5115.2   71.52   
- Residual                     480.7   21.92   
+ Line:Population (Intercept) 125.18   11.188  
+ Population      (Intercept)  19.81    4.451  
+ Residual                    480.70   21.925  
 Number of obs: 16779, groups:  Line:Population, 169; Population, 9
 
 Fixed effects:
-         Estimate Std. Error      df t value Pr(>|t|)   
-Altitude  0.22736    0.06476 7.99757   3.511  0.00795 **
+             Estimate Std. Error        df t value Pr(>|t|)    
+(Intercept) 112.27053    2.88017   7.18774  38.981 1.25e-09 ***
+Altitude     -0.01661    0.00776   6.99561  -2.141   0.0696 .  
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Correlation of Fixed Effects:
+         (Intr)
+Altitude -0.800

@@ -1,7 +1,6 @@
 Linear mixed model fit by REML. t-tests use Satterthwaite's method [
 lmerModLmerTest]
-Formula: 
-CentroidSizeRight_micrometers ~ -1 + Population + (1 | Line:Population) +  
+Formula: CentroidSizeRight_micrometers ~ Population + (1 | Line:Population) +  
     (1 | ReplicateVial:Line:Population)
    Data: (subset(d_WA_M, Supervisor.PI == "Posnien"))
 
@@ -21,25 +20,29 @@ Line:Population, 27; ReplicateVial:Line:Population, 27
 
 Fixed effects:
              Estimate Std. Error      df t value Pr(>|t|)    
-PopulationAK  2296.73      50.23   18.00   45.73   <2e-16 ***
-PopulationGI  2405.06      50.23   18.00   47.88   <2e-16 ***
-PopulationKA  2331.64      50.23   18.00   46.42   <2e-16 ***
-PopulationMA  2382.90      50.23   18.00   47.44   <2e-16 ***
-PopulationMU  2273.85      50.23   18.00   45.27   <2e-16 ***
-PopulationRE  2374.99      50.23   18.00   47.28   <2e-16 ***
-PopulationUM  2349.13      50.23   18.00   46.77   <2e-16 ***
-PopulationVA  2334.22      50.23   18.00   46.47   <2e-16 ***
-PopulationYE  2344.77      50.23   18.00   46.68   <2e-16 ***
+(Intercept)   2296.73      50.23   18.00  45.725   <2e-16 ***
+PopulationGI   108.33      71.03   18.00   1.525    0.145    
+PopulationKA    34.91      71.03   18.00   0.492    0.629    
+PopulationMA    86.17      71.03   18.00   1.213    0.241    
+PopulationMU   -22.87      71.03   18.00  -0.322    0.751    
+PopulationRE    78.26      71.03   18.00   1.102    0.285    
+PopulationUM    52.40      71.03   18.00   0.738    0.470    
+PopulationVA    37.49      71.03   18.00   0.528    0.604    
+PopulationYE    48.05      71.03   18.00   0.676    0.507    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Correlation of Fixed Effects:
-            PpltAK PpltGI PpltKA PpltMA PpltMU PpltRE PpltUM PpltVA
-PopulatinGI 0.000                                                  
-PopulatinKA 0.000  0.000                                           
-PopulatinMA 0.000  0.000  0.000                                    
-PopulatinMU 0.000  0.000  0.000  0.000                             
-PopulatinRE 0.000  0.000  0.000  0.000  0.000                      
-PopulatinUM 0.000  0.000  0.000  0.000  0.000  0.000               
-PopulatinVA 0.000  0.000  0.000  0.000  0.000  0.000  0.000        
-PopulatinYE 0.000  0.000  0.000  0.000  0.000  0.000  0.000  0.000 
+            (Intr) PpltGI PpltKA PpltMA PpltMU PpltRE PpltUM PpltVA
+PopulatinGI -0.707                                                 
+PopulatinKA -0.707  0.500                                          
+PopulatinMA -0.707  0.500  0.500                                   
+PopulatinMU -0.707  0.500  0.500  0.500                            
+PopulatinRE -0.707  0.500  0.500  0.500  0.500                     
+PopulatinUM -0.707  0.500  0.500  0.500  0.500  0.500              
+PopulatinVA -0.707  0.500  0.500  0.500  0.500  0.500  0.500       
+PopulatinYE -0.707  0.500  0.500  0.500  0.500  0.500  0.500  0.500
+optimizer (nloptwrap) convergence code: 0 (OK)
+unable to evaluate scaled gradient
+Model failed to converge: degenerate  Hessian with 1 negative eigenvalues
+

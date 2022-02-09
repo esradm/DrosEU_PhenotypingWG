@@ -1,7 +1,6 @@
 Linear mixed model fit by REML. t-tests use Satterthwaite's method [
 lmerModLmerTest]
-Formula: 
-CentroidSizeLeft_micrometers ~ -1 + Population + (1 | Line:Population) +  
+Formula: CentroidSizeLeft_micrometers ~ Population + (1 | Line:Population) +  
     (1 | Batch) + (1 | ReplicateVial:Line:Population)
    Data: (subset(d_WA_F, Supervisor.PI == "StamenkovicRadak"))
 
@@ -13,8 +12,8 @@ Scaled residuals:
 
 Random effects:
  Groups                        Name        Variance Std.Dev.
- ReplicateVial:Line:Population (Intercept)    6.451  2.54   
- Line:Population               (Intercept) 2434.129 49.34   
+ ReplicateVial:Line:Population (Intercept) 2434.129 49.34   
+ Line:Population               (Intercept)    6.451  2.54   
  Batch                         (Intercept)    0.000  0.00   
  Residual                                  7741.151 87.98   
 Number of obs: 3787, groups:  
@@ -22,28 +21,28 @@ ReplicateVial:Line:Population, 124; Line:Population, 124; Batch, 5
 
 Fixed effects:
              Estimate Std. Error      df t value Pr(>|t|)    
-PopulationAK  2780.82      12.95  113.51   214.7   <2e-16 ***
-PopulationGI  2836.04      16.43  114.87   172.6   <2e-16 ***
-PopulationKA  2810.31      13.01  115.62   216.0   <2e-16 ***
-PopulationMA  2862.63      15.67  115.06   182.6   <2e-16 ***
-PopulationMU  2847.78      13.35  112.79   213.2   <2e-16 ***
-PopulationRE  2932.82      14.41  114.82   203.5   <2e-16 ***
-PopulationUM  2882.97      13.92  115.85   207.1   <2e-16 ***
-PopulationVA  2838.45      13.40  114.48   211.7   <2e-16 ***
-PopulationYE  2822.12      13.87  114.42   203.4   <2e-16 ***
+(Intercept)   2780.82      12.95  113.51 214.712  < 2e-16 ***
+PopulationGI    55.22      20.92  114.35   2.639 0.009472 ** 
+PopulationKA    29.48      18.36  114.56   1.606 0.111023    
+PopulationMA    81.80      20.33  114.43   4.023 0.000103 ***
+PopulationMU    66.96      18.60  113.14   3.599 0.000475 ***
+PopulationRE   151.99      19.37  114.23   7.845 2.53e-12 ***
+PopulationUM   102.14      19.01  114.75   5.373 4.12e-07 ***
+PopulationVA    57.63      18.64  114.01   3.092 0.002503 ** 
+PopulationYE    41.29      18.98  113.99   2.176 0.031645 *  
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Correlation of Fixed Effects:
-            PpltAK PpltGI PpltKA PpltMA PpltMU PpltRE PpltUM PpltVA
-PopulatinGI 0.000                                                  
-PopulatinKA 0.000  0.000                                           
-PopulatinMA 0.000  0.000  0.000                                    
-PopulatinMU 0.000  0.000  0.000  0.000                             
-PopulatinRE 0.000  0.000  0.000  0.000  0.000                      
-PopulatinUM 0.000  0.000  0.000  0.000  0.000  0.000               
-PopulatinVA 0.000  0.000  0.000  0.000  0.000  0.000  0.000        
-PopulatinYE 0.000  0.000  0.000  0.000  0.000  0.000  0.000  0.000 
+            (Intr) PpltGI PpltKA PpltMA PpltMU PpltRE PpltUM PpltVA
+PopulatinGI -0.619                                                 
+PopulatinKA -0.705  0.437                                          
+PopulatinMA -0.637  0.394  0.449                                   
+PopulatinMU -0.696  0.431  0.491  0.443                            
+PopulatinRE -0.668  0.414  0.472  0.426  0.465                     
+PopulatinUM -0.681  0.422  0.481  0.434  0.474  0.455              
+PopulatinVA -0.695  0.430  0.490  0.443  0.484  0.464  0.473       
+PopulatinYE -0.682  0.422  0.481  0.435  0.475  0.456  0.465  0.474
 optimizer (nloptwrap) convergence code: 0 (OK)
 boundary (singular) fit: see ?isSingular
 
