@@ -1,4 +1,61 @@
 
+
+# extract model estimates and SE
+getEstSE <- function(x, groups = "Population") {
+  require(emmeans)
+  df <- as.data.frame(emmeans(x, groups, mode = "asymp"))[,1:3]
+  colnames(df)[2] <- "Estimate"
+  df
+}
+
+
+
+# extract model estimates and SE
+getEstStdErr2 <- function(x, groups = "Population") {
+  require(lsmeans)
+  df <- as.data.frame(lsmeans(x, groups, mode = "asymp"))[,1:3]
+  colnames(df)[2] <- "Estimate"
+  df
+}
+
+# combine fitted values and SE extracted from different models 
+combineEst <- function(x) {
+  for(i in (1:length(x))) {
+    info <- str_split(names(x)[i], "_") %>% unlist
+    if (length(info) == 5) info[1] <- paste(info[1], info[2], sep = "_")
+    x[[i]] <- x[[i]] %>% 
+      mutate(Trait = info[1], Lab = info[length(info)-1], Sex = info[length(info)-2]) %>%
+      relocate(Trait, Lab, Sex) } 
+  bind_rows(x) }
+
+
+# combine fitted values and SE extracted from different models
+combineEst2 <- function(x) {
+  for(i in (1:length(x))) {
+    info <- str_split(names(x)[i], "_") %>% unlist
+    if (length(info) == 6) info[1] <- paste(info[1], info[2], sep = "_")
+    x[[i]] <- x[[i]] %>% 
+      mutate(Trait = info[1], Lab = info[length(info)-2], Sex = info[length(info)-3]) %>%
+      relocate(Trait, Lab, Sex) 
+    if (!unique(x[[i]]$Sex) %in% c("F", "M")) x[[i]]$Sex <- "F" 
+    } 
+  bind_rows(x) }
+
+# combine fitted values and SE extracted from different models
+combineEst3 <- function(x) {
+  for(i in (1:length(x))) {
+    info <- str_split(names(x)[i], "_") %>% unlist
+    if (length(info) >=5) info[1] <- paste(info[1], info[2], sep = "_")
+    info[1] <- sub("_F", "", info[1])
+    info[1] <- sub("_M", "", info[1])
+    x[[i]] <- x[[i]] %>% 
+      mutate(Trait = info[1], Lab = info[length(info)-2], Sex = info[length(info)-3]) %>%
+      relocate(Trait, Lab, Sex) 
+    if (!unique(x[[i]]$Sex) %in% c("F", "M")) x[[i]]$Sex <- "F" 
+  } 
+  bind_rows(x) }
+
+
 # extract model estimates and SE
 getEstStdErr <-  function(x = lmer_model) {
   data.frame(Estimate = coef(summary(x))[,1], 
@@ -24,7 +81,7 @@ combineFitted <- function(labs = rep(c("Flatt", "Parsch", "Pasyukova"), each = 2
 # turn long table to wide for correlations matrices
 longToWide <- function(fitted_values) {
   fitted_values %>% 
-    dplyr::select(-c(SE, Value)) %>%
+    dplyr::select(-c(SE)) %>%
     pivot_wider(names_from = c(Lab, Sex), names_sep = "_", values_from = Estimate) %>%
     relocate(contains("_F"), .after = Population) %>%
     mutate(Population = factor(Population, levels = c("YE","RE","GI","MU","MA","UM","KA","VA","AK"))) %>% arrange(Population) %>% 
