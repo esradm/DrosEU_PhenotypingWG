@@ -1,0 +1,6 @@
+Analysis of Variance Table
+
+Response: Prop_Max_Stage9_asin
+            Df Sum Sq  Mean Sq F value Pr(>F)
+Population   8  0.202 0.025252  0.7367  0.659
+Residuals  154  5.279 0.034279               

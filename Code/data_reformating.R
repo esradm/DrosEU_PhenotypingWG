@@ -90,6 +90,7 @@ droseu$dia <- droseu$dia %>%
  
 
 ##### define all the trait variables
+# Paul's pigmentation is not percentage, to be corrected
 
 var_list <- c("CCRT_seconds", "ZT_hours_MESA", "ZT_hours_LSPR", "Period_MESA", "Period_LSPR", "Rhythmicity_LSPR_amplitude", "Rhythmicity_JTK_p_BH_corrected", "CSM_PropDead_ED", "Prop_Max_Stage7", "Prop_Max_Stage8", "Prop_Max_Stage9", "DT_EggAdult", "DT_EggPupa", "DW_micrograms", "NumberOfAdultsEclosed", "TimeDeath_min", "Period", "CircPhase", "AbsPhase", "ND", "Activity", "LSL_AgeAtDeath_days", "LSM_AgeAtDeath_days", "LSP_AgeAtDeath_days", "PercT4", "PercT5", "PercT6", "TotalPerc", "PercT8", "PercT9", "PercT10", "AgeAtDeath_hours", "TL_micrometers", "ProportionEggtoAdultSurvival", "CentroidSizeLeft_micrometers", "CentroidSizeRight_micrometers")
 
@@ -124,7 +125,7 @@ droseu$via <- droseu$via %>%
   mutate(ProportionEggtoAdultSurvival_asin = asin(sqrt(ProportionEggtoAdultSurvival)))
 
 
-##### log2 transformation of N data
+##### log2 transformation of ND data
 
 droseu$la <- droseu$la %>% mutate(ND_log2 = log2(ND))
 
@@ -195,9 +196,10 @@ var_list_up <- c(var_list, "CSM_PropDead_ED_asin", "Prop_Max_Stage7_asin", "Prop
 
 
 ##### add some colors for plotting
+# optional, but would ensure uniform colors for populations
+# colors to be defined
 
-col_plot <- data.frame(Population = as.factor(c("AK", "GI", "KA", "MA", "MU", "RE", "UM", "VA", "YE")),
-                       Color = c("#a6cee3", "#fdbf6f", "#b2df8a", "#fb9a99", "#e31a1c", "#ff7f00", "#33a02c", "#1f78b4", "#cab2d6"))
+col_plot <- data.frame(Population = as.factor(c("AK", "GI", "KA", "MA", "MU", "RE", "UM", "VA", "YE")), Color = c("#a6cee3", "#fdbf6f", "#b2df8a", "#fb9a99", "#e31a1c", "#ff7f00", "#33a02c", "#1f78b4", "#cab2d6"))
 
 droseu <- lapply(droseu, inner_join, col_plot)
 droseu <- lapply(droseu, arrange, Population_Lat)
@@ -205,7 +207,7 @@ droseu <- lapply(droseu, arrange, Population_Lat)
 
 ##### save the data
 
-saveRDS(droseu, file = "droseu_master_list_2022-03-18.rds")
+saveRDS(droseu, file = "Data/droseu_master_list_2022-03-23.rds")
 
 
 

@@ -1,0 +1,46 @@
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: DT_EggAdult ~ Population + (1 | Line:Population) + (1 | Batch) +  
+    (1 | ReplicateVial:Line)
+   Data: filter(droseu$dta, Supervisor.PI == "StamenkovicRadak" & Sex ==  
+    "M")
+
+REML criterion at convergence: 51282.9
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.9954 -0.5866 -0.1542  0.3744  6.6404 
+
+Random effects:
+ Groups             Name        Variance Std.Dev.
+ ReplicateVial:Line (Intercept) 152.27   12.340  
+ Line:Population    (Intercept) 162.25   12.738  
+ Batch              (Intercept)  37.14    6.094  
+ Residual                       329.47   18.151  
+Number of obs: 5815, groups:  
+ReplicateVial:Line, 494; Line:Population, 165; Batch, 4
+
+Fixed effects:
+             Estimate Std. Error      df t value Pr(>|t|)    
+(Intercept)   242.718      4.584  11.349  52.952    6e-15 ***
+PopulationGI    9.006      5.388 152.718   1.671 0.096703 .  
+PopulationKA   -7.893      4.781 151.809  -1.651 0.100849    
+PopulationMA    7.749      4.789 152.779   1.618 0.107700    
+PopulationMU    1.406      4.775 151.260   0.294 0.768857    
+PopulationRE   16.917      5.070 152.105   3.337 0.001065 ** 
+PopulationUM   14.365      4.933 154.211   2.912 0.004124 ** 
+PopulationVA   16.666      4.847 152.554   3.438 0.000755 ***
+PopulationYE    3.325      4.805 154.681   0.692 0.490005    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+            (Intr) PpltGI PpltKA PpltMA PpltMU PpltRE PpltUM PpltVA
+PopulatinGI -0.473                                                 
+PopulatinKA -0.535  0.454                                          
+PopulatinMA -0.532  0.452  0.510                                   
+PopulatinMU -0.535  0.454  0.512  0.512                            
+PopulatinRE -0.505  0.426  0.484  0.482  0.484                     
+PopulatinUM -0.519  0.438  0.497  0.495  0.497  0.470              
+PopulatinVA -0.526  0.449  0.504  0.504  0.505  0.475  0.488       
+PopulatinYE -0.532  0.452  0.510  0.507  0.510  0.481  0.495  0.502

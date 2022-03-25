@@ -1,0 +1,71 @@
+$contrasts
+$emmeans
+ Population emmean   SE  df asymp.LCL asymp.UCL
+ AK            227 1.41 Inf       224       229
+ GI            232 1.63 Inf       229       235
+ KA            227 1.44 Inf       224       230
+ MA            225 1.44 Inf       222       228
+ MU            228 1.43 Inf       225       231
+ RE            229 1.58 Inf       225       232
+ UM            230 1.50 Inf       227       233
+ VA            228 1.44 Inf       226       231
+ YE            224 1.46 Inf       221       226
+
+Degrees-of-freedom method: asymptotic 
+Confidence level used: 0.95 
+
+$contrasts
+ contrast estimate   SE  df z.ratio p.value
+ AK - GI    -5.361 2.03 Inf  -2.644  0.1686
+ AK - KA    -0.708 1.87 Inf  -0.378  1.0000
+ AK - MA     1.215 1.88 Inf   0.647  0.9993
+ AK - MU    -1.286 1.87 Inf  -0.687  0.9990
+ AK - RE    -2.068 1.99 Inf  -1.041  0.9819
+ AK - UM    -3.257 1.92 Inf  -1.694  0.7503
+ AK - VA    -1.868 1.88 Inf  -0.996  0.9864
+ AK - YE     2.995 1.89 Inf   1.582  0.8149
+ GI - KA     4.653 2.03 Inf   2.291  0.3476
+ GI - MA     6.576 2.04 Inf   3.227  0.0341
+ GI - MU     4.075 2.03 Inf   2.008  0.5378
+ GI - RE     3.292 2.14 Inf   1.542  0.8357
+ GI - UM     2.103 2.08 Inf   1.012  0.9848
+ GI - VA     3.493 2.03 Inf   1.717  0.7361
+ GI - YE     8.356 2.05 Inf   4.076  0.0015
+ KA - MA     1.923 1.88 Inf   1.022  0.9839
+ KA - MU    -0.578 1.87 Inf  -0.308  1.0000
+ KA - RE    -1.360 1.99 Inf  -0.684  0.9990
+ KA - UM    -2.550 1.93 Inf  -1.324  0.9243
+ KA - VA    -1.160 1.88 Inf  -0.617  0.9995
+ KA - YE     3.703 1.90 Inf   1.953  0.5764
+ MA - MU    -2.501 1.88 Inf  -1.331  0.9223
+ MA - RE    -3.283 2.00 Inf  -1.644  0.7802
+ MA - UM    -4.473 1.93 Inf  -2.317  0.3319
+ MA - VA    -3.083 1.88 Inf  -1.636  0.7850
+ MA - YE     1.780 1.90 Inf   0.936  0.9909
+ MU - RE    -0.782 1.99 Inf  -0.393  1.0000
+ MU - UM    -1.972 1.92 Inf  -1.025  0.9836
+ MU - VA    -0.582 1.88 Inf  -0.310  1.0000
+ MU - YE     4.281 1.89 Inf   2.260  0.3667
+ RE - UM    -1.189 2.04 Inf  -0.584  0.9997
+ RE - VA     0.200 1.99 Inf   0.101  1.0000
+ RE - YE     5.063 2.01 Inf   2.519  0.2224
+ UM - VA     1.390 1.93 Inf   0.721  0.9985
+ UM - YE     6.253 1.95 Inf   3.214  0.0355
+ VA - YE     4.863 1.90 Inf   2.561  0.2035
+
+Degrees-of-freedom method: asymptotic 
+P value adjustment: tukey method for comparing a family of 9 estimates 
+
+
+$letters
+  Population   emmean       SE  df asymp.LCL asymp.UCL  cld
+1         AK 226.5155 1.411938 Inf  223.7481  229.2828  abc
+2         GI 231.8760 1.634277 Inf  228.6729  235.0792    c
+3         KA 227.2232 1.436747 Inf  224.4073  230.0392  abc
+4         MA 225.3002 1.444623 Inf  222.4688  228.1316  ab 
+5         MU 227.8011 1.434375 Inf  224.9898  230.6125  abc
+6         RE 228.5836 1.583423 Inf  225.4802  231.6871  abc
+7         UM 229.7729 1.501302 Inf  226.8304  232.7154   bc
+8         VA 228.3832 1.441038 Inf  225.5588  231.2076  abc
+9         YE 223.5203 1.463506 Inf  220.6519  226.3888  a  
+

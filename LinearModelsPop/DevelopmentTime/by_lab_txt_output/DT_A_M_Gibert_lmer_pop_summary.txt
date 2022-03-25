@@ -1,0 +1,45 @@
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: DT_EggAdult ~ Population + (1 | Line:Population) + (1 | Batch) +  
+    (1 | ReplicateVial:Line)
+   Data: filter(droseu$dta, Supervisor.PI == "Gibert" & Sex == "M")
+
+REML criterion at convergence: 49809.5
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.4032 -0.6057 -0.1597  0.4187  5.0802 
+
+Random effects:
+ Groups             Name        Variance Std.Dev.
+ ReplicateVial:Line (Intercept)   3.6930  1.9217 
+ Line:Population    (Intercept)  31.0283  5.5703 
+ Batch              (Intercept)   0.6211  0.7881 
+ Residual                       106.6292 10.3261 
+Number of obs: 6566, groups:  
+ReplicateVial:Line, 533; Line:Population, 169; Batch, 3
+
+Fixed effects:
+             Estimate Std. Error       df t value Pr(>|t|)    
+(Intercept)  226.5155     1.4119  30.2517 160.429  < 2e-16 ***
+PopulationGI   5.3606     2.0276 153.6331   2.644  0.00905 ** 
+PopulationKA   0.7077     1.8726 152.1839   0.378  0.70600    
+PopulationMA  -1.2153     1.8789 154.0211  -0.647  0.51869    
+PopulationMU   1.2857     1.8708 151.6745   0.687  0.49299    
+PopulationRE   2.0681     1.9870 152.3913   1.041  0.29960    
+PopulationUM   3.2574     1.9226 151.8367   1.694  0.09226 .  
+PopulationVA   1.8677     1.8759 153.1792   0.996  0.32099    
+PopulationYE  -2.9951     1.8932 158.5902  -1.582  0.11563    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+            (Intr) PpltGI PpltKA PpltMA PpltMU PpltRE PpltUM PpltVA
+PopulatinGI -0.600                                                 
+PopulatinKA -0.650  0.460                                          
+PopulatinMA -0.648  0.458  0.497                                   
+PopulatinMU -0.650  0.460  0.499  0.498                            
+PopulatinRE -0.612  0.434  0.469  0.468  0.470                     
+PopulatinUM -0.633  0.448  0.486  0.484  0.486  0.457              
+PopulatinVA -0.649  0.459  0.498  0.496  0.498  0.469  0.485       
+PopulatinYE -0.643  0.455  0.493  0.492  0.494  0.464  0.480  0.492
