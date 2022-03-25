@@ -2,7 +2,7 @@
 
 rm(list = ls())
 
-setwd("~/Work/UNIFR/GitHub/DrosEU_PhenotypingWG")
+setwd("~/Work/UNIFR/GitHub/DrosEU_PhenotypingWG/Data")
 
 library(tidyverse)
 library(nortest)
@@ -207,7 +207,7 @@ droseu <- lapply(droseu, arrange, Population_Lat)
 
 ##### save the data
 
-saveRDS(droseu, file = "Data/droseu_master_list_2022-03-23.rds")
+saveRDS(droseu, file = "droseu_master_list_2022-03-25.rds")
 
 
 

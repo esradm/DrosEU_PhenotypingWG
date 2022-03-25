@@ -27,7 +27,7 @@ source("Functions/lab_correlations_functions.R")
 source("Functions/meta_analysis_functions.R")
 
 ##### load data
-droseu <- readRDS("Data/droseu_master_list_2022-03-23.rds")
+droseu <- readRDS("Data/droseu_master_list_2022-03-25.rds")
 
 ##### create output directory
 lmer_dir <- "LinearModelsPop"
@@ -710,6 +710,8 @@ for (i in 1:length(lmers)){
 }
   
 
+##### by trait and by lab
+
 for (i in 1:length(lmers)){
   f <- lmers[i]
   p <- str_match(f, '(.*[^/]+)(?:/[^/]+){1}$')[,2]
@@ -756,7 +758,7 @@ for (i in 1:length(lmers)){
 saveRDS(all_model_estimates, file = "LinearModelsPop/all_model_estimates.rds")
 
 
-
+##### by trait
 
 for (i in 1:length(lmers)){
   f <- lmers[i]

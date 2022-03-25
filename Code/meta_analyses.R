@@ -44,10 +44,6 @@ makeEffects <- function(x) {
   x <- relocate(x, Trait, Population, Sex, Lab, Study) %>% arrange(Population) %>% dplyr::rename(Y = Estimate) }
 
 
-
-#all_meta_analyses <- list()
-
-
 ############# VIABILITY #############
 
 # create output directory
