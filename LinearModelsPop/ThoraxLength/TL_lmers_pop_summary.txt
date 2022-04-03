@@ -1,7 +1,8 @@
 $TL_F_Kozeretska_lmer_pop
 Linear mixed model fit by REML. t-tests use Satterthwaite's method [
 lmerModLmerTest]
-Formula: TL_micrometers ~ Population + (1 | Line:Population) + (1 | Batch) +  
+Formula: 
+TL_micrometers ~ Population + (1 | Line:Population) + (1 | Batch) +  
     (1 | ReplicateVial:Line)
    Data: filter(droseu$tl, Supervisor.PI == "Kozeretska" & Sex == "F")
 
@@ -97,7 +98,8 @@ Model is nearly unidentifiable: large eigenvalue ratio
 $TL_F_Ritchie_lmer_pop
 Linear mixed model fit by REML. t-tests use Satterthwaite's method [
 lmerModLmerTest]
-Formula: TL_micrometers ~ Population + (1 | Line:Population) + (1 | Batch) +  
+Formula: 
+TL_micrometers ~ Population + (1 | Line:Population) + (1 | Batch) +  
     (1 | ReplicateVial:Line)
    Data: filter(droseu$tl, Supervisor.PI == "Ritchie" & Sex == "F")
 
@@ -184,7 +186,8 @@ PopulatinYE -0.703  0.438  0.491  0.489  0.497  0.447  0.459  0.476
 $TL_M_Kozeretska_lmer_pop
 Linear mixed model fit by REML. t-tests use Satterthwaite's method [
 lmerModLmerTest]
-Formula: TL_micrometers ~ Population + (1 | Line:Population) + (1 | Batch) +  
+Formula: 
+TL_micrometers ~ Population + (1 | Line:Population) + (1 | Batch) +  
     (1 | ReplicateVial:Line)
    Data: filter(droseu$tl, Supervisor.PI == "Kozeretska" & Sex == "M")
 
@@ -274,7 +277,8 @@ PopulatinYE -0.707  0.500  0.500  0.500  0.500  0.500  0.500  0.500
 $TL_M_Ritchie_lmer_pop
 Linear mixed model fit by REML. t-tests use Satterthwaite's method [
 lmerModLmerTest]
-Formula: TL_micrometers ~ Population + (1 | Line:Population) + (1 | Batch) +  
+Formula: 
+TL_micrometers ~ Population + (1 | Line:Population) + (1 | Batch) +  
     (1 | ReplicateVial:Line)
    Data: filter(droseu$tl, Supervisor.PI == "Ritchie" & Sex == "M")
 

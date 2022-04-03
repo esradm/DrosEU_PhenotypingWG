@@ -1,7 +1,8 @@
 $CCRT_F_Vieira_lmer_pop
 Linear mixed model fit by REML. t-tests use Satterthwaite's method [
 lmerModLmerTest]
-Formula: CCRT_seconds ~ Population + (1 | Population:Line) + (1 | Batch) +  
+Formula: 
+CCRT_seconds ~ Population + (1 | Population:Line) + (1 | Batch) +  
     (1 | ReplicateVial:Line)
    Data: filter(droseu$ccrt, Censor == "0" & Supervisor.PI == "Vieira" &  
     Sex == "F")
