@@ -70,10 +70,10 @@ out_dir <- "DevelopmentTime"
 dir.create(file.path(meta_dir, out_dir), showWarnings = F) 
 
 # get effects
-DT_A_effects <- makeEffects(filter(estimates$dt, Trait == "DT_A"))
+DT_A_effects <- makeEffects(filter(estimates$dta, Trait == "DT_A"))
 
 # run meta
-DT_A_F_meta <- metagen(data = filter(DT_effects, Sex == "F"), TE = Y, seTE = SE, studlab = Study, fixed = FALSE, random = TRUE)
+DT_A_F_meta <- metagen(data = filter(DT_A_effects, Sex == "F"), TE = Y, seTE = SE, studlab = Study, fixed = FALSE, random = TRUE)
 # sub groups
 DT_A_F_meta <- update.meta(DT_A_F_meta, subgroup = Population, tau.common = FALSE)
 
@@ -82,7 +82,7 @@ saveRDS(DT_A_F_meta, file = file.path(meta_dir, out_dir, "DT_A_F_meta.rds"))
 
 
 # run meta
-DT_A_M_meta <- metagen(data = filter(DT_effects, Sex == "M"), TE = Y, seTE = SE, studlab = Study, fixed = FALSE, random = TRUE)
+DT_A_M_meta <- metagen(data = filter(DT_A_effects, Sex == "M"), TE = Y, seTE = SE, studlab = Study, fixed = FALSE, random = TRUE)
 # sub groups
 DT_A_M_meta <- update.meta(DT_A_M_meta, subgroup = Population, tau.common = FALSE)
 
@@ -450,10 +450,39 @@ saveRDS(all_metas, file = file.path(meta_dir, "all_metas.rds"))
 
 
 
-######### PLOTS
-
+######### summaries
 
 metas <- list.files(path = "MetaAnalyses", recursive = T, full.names = T, pattern = "meta.rds")
+
+for (i in 1:length(metas)){
+  f <- metas[i]
+  s_out_txt <- sub(".rds", "_summary.txt", f)
+  m <- readRDS(f)
+  s <- summary(m)
+  capture.output(s, file = s_out_txt)
+}
+
+
+######### multiple testing correction
+
+rdsBatchReaderToList <- function(...) {
+  temp = list.files(...)
+  tnames <- str_split(temp, "/", simplify = T)[,3]
+  tnames <- str_replace(tnames, ".rds", "")
+  tlist <- lapply(temp, readRDS)
+  names(tlist) <- tnames
+  return(tlist)
+}
+
+metas <- rdsBatchReaderToList(path = "MetaAnalyses", recursive = T, full.names = T, pattern = "meta.rds")
+
+metas_pvalues <- bind_rows(Meta = names(metas), Pvalue = lapply(metas, function(x) x$pval.Q.b.random) %>% unlist())
+metas_pvalues <- mutate(metas_pvalues, Pvalue_bonf = Pvalue * 12) %>%
+  mutate(Pvalue_bonf = ifelse(Pvalue_bonf > 1, 1, Pvalue_bonf))
+
+
+
+######### plots
 
 
 for (i in 1:length(metas)){
@@ -499,7 +528,6 @@ for (i in 1:length(metas)){
   dev.off()
 }
   
-
 
 
 

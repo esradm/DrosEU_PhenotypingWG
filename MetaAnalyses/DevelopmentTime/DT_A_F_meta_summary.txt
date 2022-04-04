@@ -1,0 +1,93 @@
+                                           95%-CI %W(random) Population
+YE_Gibert           217.8019 [214.6062; 220.9976]        2.1         YE
+YE_Hoedjes          233.1766 [230.5860; 235.7672]        2.1         YE
+YE_Schmidt          222.3651 [213.3858; 231.3444]        2.0         YE
+YE_StamenkovicRadak 240.0801 [230.8848; 249.2755]        2.0         YE
+YE_Zwaan            221.2803 [216.8733; 225.6873]        2.1         YE
+RE_Gibert           227.8516 [224.3807; 231.3225]        2.1         RE
+RE_Grath            314.2886 [304.9600; 323.6172]        2.0         RE
+RE_Hoedjes          237.7281 [234.8134; 240.6429]        2.1         RE
+RE_Schmidt          230.0495 [219.6636; 240.4354]        2.0         RE
+RE_StamenkovicRadak 255.3466 [245.5941; 265.0991]        2.0         RE
+RE_Zwaan            226.2609 [221.7497; 230.7722]        2.1         RE
+GI_Gibert           226.7164 [223.1692; 230.2637]        2.1         GI
+GI_Hoedjes          237.9437 [235.0305; 240.8568]        2.1         GI
+GI_Schmidt          226.6065 [214.3979; 238.8151]        2.0         GI
+GI_StamenkovicRadak 245.0892 [234.6653; 255.5131]        2.0         GI
+GI_Zwaan            224.8667 [220.2881; 229.4453]        2.1         GI
+MU_Gibert           223.6875 [220.5454; 226.8295]        2.1         MU
+MU_Grath            306.0659 [301.6527; 310.4790]        2.1         MU
+MU_Hoedjes          229.5011 [226.9614; 232.0407]        2.1         MU
+MU_Schmidt          221.1568 [212.3551; 229.9584]        2.0         MU
+MU_StamenkovicRadak 237.5592 [228.4136; 246.7048]        2.0         MU
+MU_Zwaan            222.1258 [217.7578; 226.4938]        2.1         MU
+MA_Gibert           222.0898 [218.9377; 225.2418]        2.1         MA
+MA_Hoedjes          233.2111 [230.6572; 235.7649]        2.1         MA
+MA_Schmidt          224.3718 [215.2606; 233.4831]        2.0         MA
+MA_StamenkovicRadak 246.2505 [237.0526; 255.4483]        2.0         MA
+MA_Zwaan            224.2196 [219.8768; 228.5623]        2.1         MA
+UM_Gibert           225.4855 [222.2115; 228.7596]        2.1         UM
+UM_Hoedjes          232.1953 [229.4563; 234.9344]        2.1         UM
+UM_Schmidt          222.1818 [212.0531; 232.3104]        2.0         UM
+UM_StamenkovicRadak 252.9173 [243.4778; 262.3567]        2.0         UM
+UM_Zwaan            222.3490 [217.9369; 226.7612]        2.1         UM
+KA_Gibert           223.3579 [220.2143; 226.5015]        2.1         KA
+KA_Hoedjes          231.0983 [228.5549; 233.6417]        2.1         KA
+KA_Schmidt          220.0274 [210.9690; 229.0857]        2.0         KA
+KA_StamenkovicRadak 229.1506 [220.0062; 238.2951]        2.0         KA
+KA_Zwaan            223.3195 [218.9754; 227.6637]        2.1         KA
+VA_Gibert           223.8895 [220.7344; 227.0446]        2.1         VA
+VA_Hoedjes          229.8804 [227.3207; 232.4401]        2.1         VA
+VA_Schmidt          245.6274 [236.6376; 254.6173]        2.0         VA
+VA_StamenkovicRadak 251.7813 [242.4724; 261.0902]        2.0         VA
+VA_Zwaan            224.9483 [220.5952; 229.3013]        2.1         VA
+AK_Gibert           222.3797 [219.3002; 225.4592]        2.1         AK
+AK_Grath            308.8893 [304.3633; 313.4153]        2.1         AK
+AK_Hoedjes          231.2781 [228.7506; 233.8056]        2.1         AK
+AK_Schmidt          218.1385 [209.3119; 226.9652]        2.0         AK
+AK_StamenkovicRadak 237.6235 [228.3446; 246.9024]        2.0         AK
+AK_Zwaan            220.7481 [216.4098; 225.0864]        2.1         AK
+
+Number of studies combined: k = 48
+
+                                            95%-CI     z p-value
+Random effects model 234.8198 [228.7032; 240.9364] 75.24       0
+
+Quantifying heterogeneity:
+ tau^2 = 456.2951 [313.0700; 723.7884]; tau = 21.3611 [17.6938; 26.9033]
+ I^2 = 98.5% [98.3%; 98.6%]; H = 8.06 [7.59; 8.55]
+
+Test of heterogeneity:
+       Q d.f. p-value
+ 3050.11   47       0
+
+Results for subgroups (random effects model):
+                  k                        95%-CI     tau^2     tau
+Population = YE   5 226.6044 [218.6626; 234.5462]   72.5519  8.5177
+Population = RE   6 248.4514 [221.4372; 275.4655] 1125.5732 33.5496
+Population = GI   5 231.9436 [224.5748; 239.3124]   57.8656  7.6069
+Population = MU   6 240.0534 [213.6217; 266.4850] 1081.8912 32.8921
+Population = MA   5 229.6200 [221.4252; 237.8148]   77.7748  8.8190
+Population = UM   5 230.7389 [220.0798; 241.3981]  136.6928 11.6916
+Population = KA   5 225.7441 [221.6158; 229.8725]   14.6714  3.8303
+Population = VA   5 234.5846 [223.7638; 245.4053]  142.3817 11.9324
+Population = AK   6 239.8802 [212.1206; 267.6398] 1194.1480 34.5564
+                      Q   I^2
+Population = YE   68.55 94.2%
+Population = RE  327.23 98.5%
+Population = GI   40.64 90.2%
+Population = MU 1100.29 99.5%
+Population = MA   47.79 91.6%
+Population = UM   44.76 91.1%
+Population = KA   20.38 80.4%
+Population = VA   49.83 92.0%
+Population = AK 1146.90 99.6%
+
+Test for subgroup differences (random effects model):
+                    Q d.f. p-value
+Between groups   7.69    8  0.4643
+
+Details on meta-analytical method:
+- Inverse variance method
+- Restricted maximum-likelihood estimator for tau^2
+- Q-profile method for confidence interval of tau^2 and tau

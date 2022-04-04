@@ -1,0 +1,63 @@
+                                 95%-CI %W(random) Population
+YE_Parsch 312.1311 [264.7240; 359.5382]        3.0         YE
+YE_Vieira 362.1755 [351.0286; 373.3224]        8.3         YE
+RE_Parsch 323.2319 [275.3911; 371.0727]        2.9         RE
+RE_Vieira 377.1472 [364.2629; 390.0316]        8.0         RE
+GI_Parsch 337.5046 [289.4629; 385.5463]        2.9         GI
+GI_Vieira 333.9964 [321.1986; 346.7941]        8.0         GI
+MU_Parsch 400.1435 [351.9549; 448.3321]        2.9         MU
+MU_Vieira 331.9003 [321.3007; 342.5000]        8.4         MU
+MA_Parsch 421.9206 [372.5000; 471.3412]        2.8         MA
+MA_Vieira 372.4506 [361.0798; 383.8215]        8.3         MA
+UM_Parsch 395.0502 [345.3233; 444.7771]        2.8         UM
+UM_Vieira 364.5627 [353.1395; 375.9859]        8.3         UM
+KA_Parsch 369.6890 [321.5267; 417.8513]        2.9         KA
+KA_Vieira 363.8725 [352.0477; 375.6972]        8.2         KA
+VA_Parsch 384.9846 [335.1750; 434.7943]        2.8         VA
+VA_Vieira 357.4190 [346.6054; 368.2326]        8.3         VA
+AK_Parsch 394.1080 [344.9371; 443.2789]        2.8         AK
+AK_Vieira 362.7389 [351.5103; 373.9675]        8.3         AK
+
+Number of studies combined: k = 18
+
+                                            95%-CI     z p-value
+Random effects model 361.5174 [351.5718; 371.4629] 71.24       0
+
+Quantifying heterogeneity:
+ tau^2 = 277.9870 [116.7439; 1392.7195]; tau = 16.6729 [10.8048; 37.3192]
+ I^2 = 77.6% [65.1%; 85.7%]; H = 2.11 [1.69; 2.64]
+
+Test of heterogeneity:
+     Q d.f.  p-value
+ 76.04   17 < 0.0001
+
+Results for subgroups (random effects model):
+                  k                        95%-CI     tau^2     tau    Q
+Population = YE   2 342.6754 [294.8420; 390.5088]  943.5247 30.7168 4.06
+Population = RE   2 355.3141 [303.4415; 407.1867] 1133.9239 33.6738 4.55
+Population = GI   2 334.2288 [321.8623; 346.5953]         0       0 0.02
+Population = MU   2 361.8072 [295.4423; 428.1721] 2011.6901 44.8519 7.35
+Population = MA   2 391.0997 [344.1103; 438.0891]  888.9121 29.8146 3.66
+Population = UM   2 369.8067 [347.2564; 392.3570]  125.9059 11.2208 1.37
+Population = KA   2 364.2032 [352.7194; 375.6869]         0       0 0.05
+Population = VA   2 360.0392 [344.1934; 375.8850]   41.7888  6.4644 1.12
+Population = AK   2 368.9146 [344.4671; 393.3620]  160.9033 12.6848 1.49
+                  I^2
+Population = YE 75.3%
+Population = RE 78.0%
+Population = GI  0.0%
+Population = MU 86.4%
+Population = MA 72.6%
+Population = UM 27.1%
+Population = KA  0.0%
+Population = VA 11.0%
+Population = AK 32.7%
+
+Test for subgroup differences (random effects model):
+                     Q d.f. p-value
+Between groups   19.10    8  0.0144
+
+Details on meta-analytical method:
+- Inverse variance method
+- Restricted maximum-likelihood estimator for tau^2
+- Q-profile method for confidence interval of tau^2 and tau

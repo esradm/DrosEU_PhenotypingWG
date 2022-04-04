@@ -1,0 +1,81 @@
+                                              95%-CI %W(random) Population
+YE_Onder            2815.2974 [2777.5968; 2852.9979]        3.2         YE
+YE_Posnien          2657.7176 [2553.3255; 2762.1098]        2.5         YE
+YE_Ritchie          2782.8196 [2653.1933; 2912.4458]        2.2         YE
+YE_StamenkovicRadak 2822.1173 [2794.9250; 2849.3096]        3.2         YE
+RE_Onder            2943.8663 [2904.2271; 2983.5056]        3.2         RE
+RE_Posnien          2723.9275 [2619.5354; 2828.3197]        2.5         RE
+RE_Ritchie          2878.6003 [2749.0824; 3008.1183]        2.2         RE
+RE_StamenkovicRadak 2932.8176 [2904.5753; 2961.0599]        3.2         RE
+GI_Onder            2852.8894 [2812.3731; 2893.4057]        3.1         GI
+GI_Posnien          2728.2014 [2623.8092; 2832.5935]        2.5         GI
+GI_Ritchie          2587.1782 [2476.6094; 2697.7471]        2.4         GI
+GI_StamenkovicRadak 2836.0410 [2803.8347; 2868.2472]        3.2         GI
+MU_Onder            2860.1002 [2823.0400; 2897.1604]        3.2         MU
+MU_Posnien          2563.4537 [2459.0616; 2667.8458]        2.5         MU
+MU_Ritchie          2782.8964 [2653.2491; 2912.5436]        2.2         MU
+MU_StamenkovicRadak 2847.7800 [2821.6046; 2873.9555]        3.2         MU
+MA_Onder            2898.8052 [2861.1764; 2936.4341]        3.2         MA
+MA_Posnien          2658.5041 [2554.1120; 2762.8962]        2.5         MA
+MA_Ritchie          2846.6664 [2716.8778; 2976.4550]        2.2         MA
+MA_StamenkovicRadak 2862.6269 [2831.9077; 2893.3461]        3.2         MA
+UM_Onder            2901.0963 [2862.2857; 2939.9068]        3.2         UM
+UM_Posnien          2663.0272 [2558.6351; 2767.4194]        2.5         UM
+UM_Ritchie          2889.0103 [2759.3561; 3018.6645]        2.2         UM
+UM_StamenkovicRadak 2882.9651 [2855.6873; 2910.2429]        3.2         UM
+KA_Onder            2858.6727 [2821.1257; 2896.2197]        3.2         KA
+KA_Posnien          2639.3788 [2534.9866; 2743.7709]        2.5         KA
+KA_Ritchie          2714.1407 [2569.1573; 2859.1241]        2.1         KA
+KA_StamenkovicRadak 2810.3090 [2784.8062; 2835.8118]        3.2         KA
+VA_Onder            2843.5016 [2806.1210; 2880.8823]        3.2         VA
+VA_Posnien          2549.5830 [2445.1909; 2653.9751]        2.5         VA
+VA_Ritchie          2774.2471 [2644.5819; 2903.9122]        2.2         VA
+VA_StamenkovicRadak 2838.4510 [2812.1776; 2864.7243]        3.2         VA
+AK_Onder            2813.8211 [2776.3719; 2851.2703]        3.2         AK
+AK_Posnien          2589.0113 [2484.6192; 2693.4034]        2.5         AK
+AK_Ritchie          2759.2352 [2614.0350; 2904.4355]        2.1         AK
+AK_StamenkovicRadak 2780.8244 [2755.4400; 2806.2088]        3.2         AK
+
+Number of studies combined: k = 36
+
+                                               95%-CI      z p-value
+Random effects model 2791.6264 [2757.5412; 2825.7116] 160.52       0
+
+Quantifying heterogeneity:
+ tau^2 = 9190.5227 [5585.4497; 17664.6206]; tau = 95.8672 [74.7359; 132.9083]
+ I^2 = 88.2% [84.7%; 90.9%]; H = 2.91 [2.56; 3.32]
+
+Test of heterogeneity:
+      Q d.f.  p-value
+ 296.71   35 < 0.0001
+
+Results for subgroups (random effects model):
+                  k                           95%-CI      tau^2      tau
+Population = YE   4 2782.3647 [2714.8742; 2849.8552]  3344.0906  57.8281
+Population = RE   4 2878.8311 [2782.5076; 2975.1546]  7996.9811  89.4258
+Population = GI   4 2760.1676 [2644.0159; 2876.3194] 12494.8245 111.7803
+Population = MU   4 2769.7015 [2636.7520; 2902.6511] 16630.4564 128.9591
+Population = MA   4 2823.6252 [2722.0153; 2925.2350]  9056.7374  95.1669
+Population = UM   4 2839.1806 [2733.2501; 2945.1112]  9981.5961  99.9079
+Population = KA   4 2768.4371 [2671.7435; 2865.1307]  7944.1259  89.1298
+Population = VA   4 2757.4290 [2624.0459; 2890.8120] 16747.2199 129.4111
+Population = AK   4 2743.4046 [2647.4960; 2839.3132]  7791.7361  88.2708
+                    Q   I^2
+Population = YE  9.15 67.2%
+Population = RE 15.91 81.1%
+Population = GI 23.35 87.1%
+Population = MU 29.16 89.7%
+Population = MA 18.23 83.5%
+Population = UM 17.79 83.1%
+Population = KA 18.05 83.4%
+Population = VA 29.24 89.7%
+Population = AK 16.00 81.2%
+
+Test for subgroup differences (random effects model):
+                    Q d.f. p-value
+Between groups   6.20    8  0.6251
+
+Details on meta-analytical method:
+- Inverse variance method
+- Restricted maximum-likelihood estimator for tau^2
+- Q-profile method for confidence interval of tau^2 and tau
