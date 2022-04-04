@@ -1,5 +1,25 @@
 
 
+
+
+# get the line overlap between labs for a given trait. Returns a list with a summary table, the ids of line that overlap, and the ids of lines used in each lab.
+getLineOverlap <- function(x) {  
+  n_unique <- length(unique(x$Line))
+  byPI <- split(x, f = x$Supervisor.PI)
+  unique_byPI <- lapply(byPI, function(x) as.character(unique(x$Line)))
+  n_unique_byPI <- unlist(lapply(unique_byPI, length))
+  overlap <- Reduce(intersect, unique_byPI)
+  n_overlap <- length(overlap)
+  line_summary <- data.frame(PI = names(n_unique_byPI), 
+                             n_lines = n_unique_byPI, 
+                             n_overlap, n_unique)
+  rownames(line_summary) <- NULL
+  list(line_summary = line_summary, overlap = overlap,
+       unique_byPI = unique_byPI)
+}
+
+
+
 # extract model estimates and SE
 getEstSE <- function(x, groups = "Population") {
   require(emmeans)
@@ -88,6 +108,21 @@ longToWide <- function(fitted_values) {
     dplyr::select(!Population)
 }
 
+
+
+# turn long table to wide for correlations matrices
+longToWide2 <- function(estimates) {
+  dplyr::select(estimates, -c(SE, Trait)) %>%
+    pivot_wider(names_from = c(Lab, Sex), names_sep = "_", values_from = Estimate) %>%
+    mutate(Population = factor(Population, levels = c("YE","RE","GI","MU","MA","UM","KA","VA","AK"))) %>%
+    arrange(Population) %>% 
+    dplyr::select(!Population)
+}
+
+
+
+
+
 # modify colnames so they can be used as plot labels
 prepScatterPlotMatrix <- function(x, sex = c("F", "M", "NA")) {
   sex <- paste0("_", sex)
@@ -95,6 +130,15 @@ prepScatterPlotMatrix <- function(x, sex = c("F", "M", "NA")) {
   if (sex == "_F") names(x) <- str_replace(names(x), "_F", "\nFemales")
   if (sex == "_M") names(x) <- str_replace(names(x), "_M", "\nMales")
   if (sex == "_NA") names(x) <- str_replace(names(x), "_NA", "") 
+  x
+}
+
+# modify colnames so they can be used as plot labels
+prepScatterPlotMatrix2 <- function(x) {
+  sex <- str_split(names(x), "_", simplify = T)[,2] %>% unique()
+  if (sex == "F") names(x) <- str_replace(names(x), "_F", "\nFemales")
+  if (sex == "M") names(x) <- str_replace(names(x), "_M", "\nMales")
+  if (sex == "NA") names(x) <- str_replace(names(x), "_NA", "")
   x
 }
 
@@ -229,12 +273,12 @@ panCor <- function(x, y, digits=2, prefix="", cex.cor){
   usr <- par("usr")
   on.exit(par(usr))
   par(usr = c(0, 1, 0, 1))
-  r <- abs(cor(x, y, use = "complete.obs"))
+  r <- round(cor(x, y, use = "complete.obs"), 2)
   txt <- format(c(r, 0.123456789), digits=digits)[1]
   txt <- paste(prefix, txt, sep="")
   #if(missing(cex.cor)) cex.cor <- 0.8/strwidth(txt)
   #text(0.5, 0.5, txt, cex = cex.cor * r)
-  text(0.5, 0.5, txt, cex = 3)
+  text(0.5, 0.5, txt, cex = 2.5)
   cex.lab <- 2
 }
 
@@ -245,12 +289,13 @@ panScatterPlot <- function(x, y, bg.col = c("#cab2d6", "#ff7f00", "#fdbf6f", "#e
 }
 
 # run longToWide and prepScatterPlotMatrix and plot the matrix with pairs2
+# requires longToWide2(), prepScatterPlotMatrix2(), pairs2(), panScatterPlot(), panCor()
 scatterPlotMatrix <- function(x, sex) {
-  x <- longToWide(x)
-  if (!missing(sex)) { x <- prepScatterPlotMatrix(x, sex = sex) }
-  else { x <- prepScatterPlotMatrix(x) }
+  x <- longToWide2(x)
+  if (!missing(sex)) { x <- prepScatterPlotMatrix2(x, sex = sex) }
+  else { x <- prepScatterPlotMatrix2(x) }
   par(las = 2)
   par(cex.axis = 1.6)
-  pairs2(x, lower.panel = panScatterPlot, upper.panel = panCor, oma = c(6,4,2,4), ax.labels = TRUE, ax.ticks = TRUE, gap = 1)
+  pairs2(x, lower.panel = panScatterPlot, upper.panel = panCor, oma = c(6.5,4.5,2,4), ax.labels = TRUE, ax.ticks = TRUE, gap = 1)
   legend("bottom", xjust = 0.5, inset = -ncol(x)*0.012, legend = c("YE","RE","GI","MU","MA","UM","KA","VA","AK"), pch = 21, pt.bg = c("#cab2d6", "#ff7f00", "#fdbf6f", "#e31a1c", "#fb9a99", "#33a02c", "#b2df8a", "#1f78b4", "#a6cee3"), horiz = T, cex = 0.8, bty = "n", xpd = T)}
 

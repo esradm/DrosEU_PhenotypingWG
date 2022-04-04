@@ -11,9 +11,6 @@ rm(list = ls())
 
 ##### libraries
 library(tidyverse)
-library(lme4)
-library(lsmeans)
-library(afex)
 library(meta)
 library(ggpubr)
 
@@ -27,8 +24,9 @@ source("Functions/lab_correlations_functions.R")
 source("Functions/meta_analysis_functions.R")
 
 ##### load data
-droseu <- readRDS("Data/droseu_master_list.rds")
+droseu <- readRDS("Data/droseu_master_list_2022-03-25.rds")
 estimates <- readRDS("LinearModelsPop/all_model_estimates.rds")
+pops <- readRDS("InfoTables/DrosEU_Populations.rds")
 
 
 ##### create output directory
@@ -463,28 +461,31 @@ for (i in 1:length(metas)){
   p_out_pdf <- sub(".rds", "_summary_effect.pdf", f)
   p_out_png <- sub(".rds", "_summary_effect.png", f)
   m <- readRDS(f)
-  m <- data.frame(Population = m$bylevs, Mstar = m$TE.random.w, SEMstar = m$seTE.random.w, Q = m$Q.b.random, p = m$pval.Q.b.random, LLMstar = m$lower.random.w, ULMstar = m$upper.random.w ) %>% mutate(Q_plot = paste0("italic(Q) == ", round(Q, 2)), p_plot = ifelse(p < 0.001, "italic(p) < 0.001", paste0("italic(p) == ", round(p, 4))))
+  m <- data.frame(Population = m$bylevs, Mstar = m$TE.random.w, SEMstar = m$seTE.random.w, Q = m$Q.b.random, p = m$pval.Q.b.random, LLMstar = m$lower.random.w, ULMstar = m$upper.random.w ) %>% mutate(Q_plot = paste0("italic(Q) == ", round(Q, 2)), p_plot = ifelse(p < 0.001, "italic(p) < 0.001", paste0("italic(p) == ", round(p, 4))), Population = factor(Population, levels = pops$by_lat$Population))
+
   
   p_meta_SE <- ggplot(data = m, aes(x = Mstar, y = 1:length(Population), color = Population)) +
     theme_bw() +
     geom_point(size = 4, shape = 15) +
     geom_errorbarh(aes(xmax = Mstar + SEMstar, xmin = Mstar - SEMstar), height = 0) +
+    scale_color_manual(values = pops$by_lat$Color) +
     scale_y_continuous(name = "Population", breaks = 1:length(m$Population), labels = m$Population) +
     labs(x = "Summary effect", title = "Pop. summary effect with SE") +
     theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank()) + 
-    annotate("text", x = -Inf, y = Inf, label = unique(m$Q_plot), hjust=-0.2, vjust=3.2, parse = T) +
-    annotate("text", x = -Inf, y = Inf, label = unique(m$p_plot), hjust=-0.2, vjust=4.2, parse = T) +
+    annotate("text", x = -Inf, y = Inf, label = unique(m$Q_plot), hjust=-0.2, vjust=3.7, parse = T) +
+    #annotate("text", x = -Inf, y = Inf, label = unique(m$p_plot), hjust=-0.2, vjust=4.2, parse = T) +
     theme(legend.position = "none")
   
   p_meta_CI <- ggplot(data = m, aes(x = Mstar, y = 1:length(Population), color = Population)) +
     theme_bw() +
     geom_point(size = 4, shape = 15) +
     geom_errorbarh(aes(xmax = ULMstar, xmin = LLMstar), height = 0) +
+    scale_color_manual(values = pops$by_lat$Color) +
     scale_y_continuous(name = "Population", breaks = 1:length(m$Population), labels = m$Population) +
     labs(x = "Summary effect", title = "Pop. summary effect with 95% CI") +
     theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank()) +
-    annotate("text", x = -Inf, y = Inf, label = unique(m$Q_plot), hjust=-0.2, vjust=3.2, parse = T) +
-    annotate("text", x = -Inf, y = Inf, label = unique(m$p_plot), hjust=-0.2, vjust=4.2, parse = T) +
+    annotate("text", x = -Inf, y = Inf, label = unique(m$Q_plot), hjust=-0.2, vjust=3.7, parse = T) +
+    #annotate("text", x = -Inf, y = Inf, label = unique(m$p_plot), hjust=-0.2, vjust=4.2, parse = T) +
     theme(legend.position = "none")
   
   p_meta <- ggarrange(p_meta_SE, p_meta_CI)
@@ -498,43 +499,6 @@ for (i in 1:length(metas)){
   dev.off()
 }
   
-
-
-
-
-
-
-m <- Via_meta
-
-a <- data.frame(Population = m$bylevs, Mstar = m$TE.random.w, SEMstar = m$seTE.random.w, Q = m$Q.b.random, p = m$pval.Q.b.random, LLMstar = m$lower.random.w, ULMstar = m$upper.random.w ) %>% mutate(Q_plot = paste0("italic(Q) == ", round(Q, 2)), p_plot = ifelse(p < 0.001, "italic(p) < 0.001", paste0("italic(p) == ", round(p, 4))))
-
-p_meta_SE <- ggplot(data = a, aes(x = Mstar, y = 1:length(Population), color = Population)) +
-  theme_bw() +
-  geom_point(size = 4, shape = 15) +
-  geom_errorbarh(aes(xmax = Mstar + SEMstar, xmin = Mstar - SEMstar), height = 0) +
-  scale_y_continuous(name = "Population", breaks = 1:length(a$Population), labels = a$Population) +
-  labs(x = "Summary effect", title = "Pop. summary effect with SE") +
-  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank()) + 
-  annotate("text", x = -Inf, y = Inf, label = unique(a$Q_plot), hjust=-0.2, vjust=3.5, parse = T) +
-  annotate("text", x = -Inf, y = Inf, label = unique(a$p_plot), hjust=-0.2, vjust=4.5, parse = T) +
-  theme(legend.position = "none")
-
-p_meta_CI <- ggplot(data = a, aes(x = Mstar, y = 1:length(Population), color = Population)) +
-  theme_bw() +
-  geom_point(size = 4, shape = 15) +
-  geom_errorbarh(aes(xmax = ULMstar, xmin = LLMstar), height = 0) +
-  scale_y_continuous(name = "Population", breaks = 1:length(a$Population), labels = a$Population) +
-  labs(x = "Summary effect", title = "Pop. summary effect with 95% CI") +
-  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank()) +
-  annotate("text", x = -Inf, y = Inf, label = unique(a$Q_plot), hjust=-0.2, vjust=3.5, parse = T) +
-  annotate("text", x = -Inf, y = Inf, label = unique(a$p_plot), hjust=-0.2, vjust=4.5, parse = T) +
-  theme(legend.position = "none")
-
-p_meta <- ggarrange(p_meta_SE, p_meta_CI)
-
-pdf(file="Viability/p_Via_meta.pdf", width=8, height=5)
-p_Via_meta
-dev.off()
 
 
 
