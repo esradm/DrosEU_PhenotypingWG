@@ -1,42 +1,78 @@
-                                        95%-CI %W(random) Population
-YE_Kozeretska  950.4144 [ 929.4013;  971.4275]        3.3         YE
-YE_Posnien     941.8453 [ 903.3015;  980.3892]        2.9         YE
-YE_Ritchie     994.2425 [ 939.0408; 1049.4442]        2.5         YE
-YE_Schmidt    1009.8852 [ 999.3660; 1020.4043]        3.4         YE
-RE_Kozeretska  962.3955 [ 940.7913;  983.9997]        3.3         RE
-RE_Posnien     902.7722 [ 864.2284;  941.3161]        2.9         RE
-RE_Schmidt    1036.7173 [1024.0825; 1049.3521]        3.4         RE
-GI_Kozeretska  935.0366 [ 910.0908;  959.9824]        3.2         GI
-GI_Posnien     944.3770 [ 905.8331;  982.9209]        2.9         GI
-GI_Ritchie     960.1104 [ 905.0160; 1015.2047]        2.5         GI
-GI_Schmidt    1021.9497 [1008.8939; 1035.0054]        3.4         GI
-MU_Kozeretska  942.8911 [ 924.6117;  961.1706]        3.3         MU
-MU_Posnien     866.2315 [ 827.6876;  904.7754]        2.9         MU
-MU_Ritchie     976.1672 [ 890.6033; 1061.7312]        1.7         MU
-MU_Schmidt    1004.7704 [ 994.3483; 1015.1926]        3.4         MU
-MA_Kozeretska  964.2962 [ 945.7086;  982.8837]        3.3         MA
-MA_Posnien     881.9976 [ 843.4537;  920.5414]        2.9         MA
-MA_Ritchie     980.0964 [ 925.5536; 1034.6392]        2.5         MA
-MA_Schmidt    1014.8919 [1004.1381; 1025.6457]        3.4         MA
-UM_Kozeretska  941.4621 [ 920.1074;  962.8168]        3.3         UM
-UM_Posnien     908.4308 [ 869.8869;  946.9746]        2.9         UM
-UM_Schmidt    1011.0814 [ 999.0220; 1023.1408]        3.4         UM
-KA_Kozeretska  911.6229 [ 890.5103;  932.7356]        3.3         KA
-KA_Posnien     928.6051 [ 890.0612;  967.1489]        2.9         KA
-KA_Ritchie     943.6430 [ 888.6347;  998.6513]        2.5         KA
-KA_Schmidt    1005.3833 [ 994.7206; 1016.0460]        3.4         KA
-VA_Kozeretska  958.3653 [ 941.1255;  975.6051]        3.3         VA
-VA_Posnien     898.4293 [ 859.8855;  936.9732]        2.9         VA
-VA_Schmidt    1012.3335 [1001.0372; 1023.6298]        3.4         VA
-AK_Kozeretska  936.5441 [ 918.9320;  954.1562]        3.3         AK
-AK_Posnien     880.6644 [ 842.1205;  919.2083]        2.9         AK
-AK_Ritchie    1015.0743 [ 952.7994; 1077.3491]        2.3         AK
-AK_Schmidt     995.0465 [ 984.6481; 1005.4450]        3.4         AK
+                                        95%-CI %W(random)
+YE_Kozeretska  950.4144 [ 929.4013;  971.4275]        3.3
+YE_Posnien     941.8453 [ 903.3015;  980.3892]        2.9
+YE_Ritchie     994.2425 [ 939.0408; 1049.4442]        2.5
+YE_Schmidt    1009.8852 [ 999.3660; 1020.4043]        3.4
+RE_Kozeretska  962.3955 [ 940.7913;  983.9997]        3.3
+RE_Posnien     902.7722 [ 864.2284;  941.3161]        2.9
+RE_Schmidt    1036.7173 [1024.0825; 1049.3521]        3.4
+GI_Kozeretska  935.0366 [ 910.0908;  959.9824]        3.2
+GI_Posnien     944.3770 [ 905.8331;  982.9209]        2.9
+GI_Ritchie     960.1104 [ 905.0160; 1015.2047]        2.5
+GI_Schmidt    1021.9497 [1008.8939; 1035.0054]        3.4
+MU_Kozeretska  942.8911 [ 924.6117;  961.1706]        3.3
+MU_Posnien     866.2315 [ 827.6876;  904.7754]        2.9
+MU_Ritchie     976.1672 [ 890.6033; 1061.7312]        1.7
+MU_Schmidt    1004.7704 [ 994.3483; 1015.1926]        3.4
+MA_Kozeretska  964.2962 [ 945.7086;  982.8837]        3.3
+MA_Posnien     881.9976 [ 843.4537;  920.5414]        2.9
+MA_Ritchie     980.0964 [ 925.5536; 1034.6392]        2.5
+MA_Schmidt    1014.8919 [1004.1381; 1025.6457]        3.4
+UM_Kozeretska  941.4621 [ 920.1074;  962.8168]        3.3
+UM_Posnien     908.4308 [ 869.8869;  946.9746]        2.9
+UM_Schmidt    1011.0814 [ 999.0220; 1023.1408]        3.4
+KA_Kozeretska  911.6229 [ 890.5103;  932.7356]        3.3
+KA_Posnien     928.6051 [ 890.0612;  967.1489]        2.9
+KA_Ritchie     943.6430 [ 888.6347;  998.6513]        2.5
+KA_Schmidt    1005.3833 [ 994.7206; 1016.0460]        3.4
+VA_Kozeretska  958.3653 [ 941.1255;  975.6051]        3.3
+VA_Posnien     898.4293 [ 859.8855;  936.9732]        2.9
+VA_Schmidt    1012.3335 [1001.0372; 1023.6298]        3.4
+AK_Kozeretska  936.5441 [ 918.9320;  954.1562]        3.3
+AK_Posnien     880.6644 [ 842.1205;  919.2083]        2.9
+AK_Ritchie    1015.0743 [ 952.7994; 1077.3491]        2.3
+AK_Schmidt     995.0465 [ 984.6481; 1005.4450]        3.4
+              Population
+YE_Kozeretska         YE
+YE_Posnien            YE
+YE_Ritchie            YE
+YE_Schmidt            YE
+RE_Kozeretska         RE
+RE_Posnien            RE
+RE_Schmidt            RE
+GI_Kozeretska         GI
+GI_Posnien            GI
+GI_Ritchie            GI
+GI_Schmidt            GI
+MU_Kozeretska         MU
+MU_Posnien            MU
+MU_Ritchie            MU
+MU_Schmidt            MU
+MA_Kozeretska         MA
+MA_Posnien            MA
+MA_Ritchie            MA
+MA_Schmidt            MA
+UM_Kozeretska         UM
+UM_Posnien            UM
+UM_Schmidt            UM
+KA_Kozeretska         KA
+KA_Posnien            KA
+KA_Ritchie            KA
+KA_Schmidt            KA
+VA_Kozeretska         VA
+VA_Posnien            VA
+VA_Schmidt            VA
+AK_Kozeretska         AK
+AK_Posnien            AK
+AK_Ritchie            AK
+AK_Schmidt            AK
 
 Number of studies combined: k = 33
 
-                                            95%-CI      z p-value
-Random effects model 960.0289 [944.0677; 975.9900] 117.89       0
+                                            95%-CI      z
+Random effects model 960.0289 [944.0677; 975.9900] 117.89
+                     p-value
+Random effects model       0
 
 Quantifying heterogeneity:
  tau^2 = 1912.8552 [1129.3144; 3439.2840]; tau = 43.7362 [33.6053; 58.6454]
@@ -47,26 +83,26 @@ Test of heterogeneity:
  530.79   32 < 0.0001
 
 Results for subgroups (random effects model):
-                  k                         95%-CI     tau^2     tau     Q
-Population = YE   4 974.5818 [939.6675; 1009.4961]  998.5968 31.6006 32.29
-Population = RE   3 968.9637 [893.3330; 1044.5944] 4288.5711 65.4872 65.54
-Population = GI   4 967.4589 [924.4619; 1010.4559] 1617.5854 40.2192 46.61
-Population = MU   4 946.8451 [885.6609; 1008.0293] 3417.9048 58.4629 70.54
-Population = MA   4 961.5134 [905.9233; 1017.1036] 2923.1048 54.0657 56.93
-Population = UM   3 955.6403 [896.1056; 1015.1751] 2594.6793 50.9380 48.68
-Population = KA   4 948.9591 [904.1962;  993.7219] 1794.6989 42.3639 70.40
-Population = VA   3 958.4751 [895.0331; 1021.9171] 2985.0710 54.6358 49.62
-Population = AK   4 955.2507 [897.9524; 1012.5489] 3082.9551 55.5244 57.17
-                  I^2
-Population = YE 90.7%
-Population = RE 96.9%
-Population = GI 93.6%
-Population = MU 95.7%
-Population = MA 94.7%
-Population = UM 95.9%
-Population = KA 95.7%
-Population = VA 96.0%
-Population = AK 94.8%
+                  k                         95%-CI     tau^2
+Population = YE   4 974.5818 [939.6675; 1009.4961]  998.5968
+Population = RE   3 968.9637 [893.3330; 1044.5944] 4288.5711
+Population = GI   4 967.4589 [924.4619; 1010.4559] 1617.5854
+Population = MU   4 946.8451 [885.6609; 1008.0293] 3417.9048
+Population = MA   4 961.5134 [905.9233; 1017.1036] 2923.1048
+Population = UM   3 955.6403 [896.1056; 1015.1751] 2594.6793
+Population = KA   4 948.9591 [904.1962;  993.7219] 1794.6989
+Population = VA   3 958.4751 [895.0331; 1021.9171] 2985.0710
+Population = AK   4 955.2507 [897.9524; 1012.5489] 3082.9551
+                    tau     Q   I^2
+Population = YE 31.6006 32.29 90.7%
+Population = RE 65.4872 65.54 96.9%
+Population = GI 40.2192 46.61 93.6%
+Population = MU 58.4629 70.54 95.7%
+Population = MA 54.0657 56.93 94.7%
+Population = UM 50.9380 48.68 95.9%
+Population = KA 42.3639 70.40 95.7%
+Population = VA 54.6358 49.62 96.0%
+Population = AK 55.5244 57.17 94.8%
 
 Test for subgroup differences (random effects model):
                     Q d.f. p-value

@@ -1,27 +1,48 @@
-                                  95%-CI %W(random) Population
-YE_Billeter  63.9367 [45.9471;  81.9263]        5.4         YE
-YE_Fricke    53.2089 [40.2891;  66.1287]        5.9         YE
-RE_Billeter  67.8538 [46.4973;  89.2103]        5.0         RE
-RE_Fricke    57.3415 [43.0815;  71.6014]        5.8         RE
-GI_Billeter  74.1934 [53.6830;  94.7037]        5.1         GI
-GI_Fricke    50.0403 [35.6040;  64.4766]        5.8         GI
-MU_Billeter  93.8425 [75.1321; 112.5528]        5.3         MU
-MU_Fricke    56.8858 [43.8348;  69.9368]        5.9         MU
-MA_Billeter  99.1196 [79.7789; 118.4603]        5.2         MA
-MA_Fricke    55.9906 [43.2687;  68.7126]        5.9         MA
-UM_Billeter 102.8267 [82.1736; 123.4797]        5.1         UM
-UM_Fricke    47.0004 [33.5961;  60.4047]        5.9         UM
-KA_Billeter 109.9704 [92.0793; 127.8614]        5.4         KA
-KA_Fricke    50.7966 [37.8525;  63.7406]        5.9         KA
-VA_Billeter  86.3333 [68.5365; 104.1301]        5.4         VA
-VA_Fricke    53.8885 [40.9093;  66.8677]        5.9         VA
-AK_Billeter  97.0671 [79.1249; 115.0092]        5.4         AK
-AK_Fricke    61.0780 [47.8082;  74.3478]        5.9         AK
+                                  95%-CI %W(random)
+YE_Billeter  63.9367 [45.9471;  81.9263]        5.4
+YE_Fricke    53.2089 [40.2891;  66.1287]        5.9
+RE_Billeter  67.8538 [46.4973;  89.2103]        5.0
+RE_Fricke    57.3415 [43.0815;  71.6014]        5.8
+GI_Billeter  74.1934 [53.6830;  94.7037]        5.1
+GI_Fricke    50.0403 [35.6040;  64.4766]        5.8
+MU_Billeter  93.8425 [75.1321; 112.5528]        5.3
+MU_Fricke    56.8858 [43.8348;  69.9368]        5.9
+MA_Billeter  99.1196 [79.7789; 118.4603]        5.2
+MA_Fricke    55.9906 [43.2687;  68.7126]        5.9
+UM_Billeter 102.8267 [82.1736; 123.4797]        5.1
+UM_Fricke    47.0004 [33.5961;  60.4047]        5.9
+KA_Billeter 109.9704 [92.0793; 127.8614]        5.4
+KA_Fricke    50.7966 [37.8525;  63.7406]        5.9
+VA_Billeter  86.3333 [68.5365; 104.1301]        5.4
+VA_Fricke    53.8885 [40.9093;  66.8677]        5.9
+AK_Billeter  97.0671 [79.1249; 115.0092]        5.4
+AK_Fricke    61.0780 [47.8082;  74.3478]        5.9
+            Population
+YE_Billeter         YE
+YE_Fricke           YE
+RE_Billeter         RE
+RE_Fricke           RE
+GI_Billeter         GI
+GI_Fricke           GI
+MU_Billeter         MU
+MU_Fricke           MU
+MA_Billeter         MA
+MA_Fricke           MA
+UM_Billeter         UM
+UM_Fricke           UM
+KA_Billeter         KA
+KA_Fricke           KA
+VA_Billeter         VA
+VA_Fricke           VA
+AK_Billeter         AK
+AK_Fricke           AK
 
 Number of studies combined: k = 18
 
-                                         95%-CI     z  p-value
-Random effects model 70.2815 [60.6512; 79.9117] 14.30 < 0.0001
+                                         95%-CI     z
+Random effects model 70.2815 [60.6512; 79.9117] 14.30
+                      p-value
+Random effects model < 0.0001
 
 Quantifying heterogeneity:
  tau^2 = 365.1041 [176.0001; 925.5145]; tau = 19.1077 [13.2665; 30.4223]
@@ -32,26 +53,26 @@ Test of heterogeneity:
  103.36   17 < 0.0001
 
 Results for subgroups (random effects model):
-                  k                      95%-CI     tau^2     tau     Q
-Population = YE   2 56.8593 [46.3654;  67.3532]         0       0  0.90
-Population = RE   2 60.5831 [48.7238;  72.4423]         0       0  0.64
-Population = GI   2 60.9729 [37.4097;  84.5361]  209.8058 14.4847  3.56
-Population = MU   2 74.7311 [38.5355; 110.9266]  615.1602 24.8024 10.08
-Population = MA   2 76.9147 [34.6677; 119.1617]  860.3015 29.3309 13.33
-Population = UM   2 74.3379 [19.6408; 129.0351] 1479.3820 38.4627 19.75
-Population = KA   2 80.0479 [22.0624; 138.0335] 1687.2996 41.0768 27.58
-Population = VA   2 69.5161 [37.7422; 101.2900]  463.1801 21.5216  8.33
-Population = AK   2 78.5451 [43.2916; 113.7986]  582.7859 24.1410  9.99
-                  I^2
-Population = YE  0.0%
-Population = RE  0.0%
-Population = GI 71.9%
-Population = MU 90.1%
-Population = MA 92.5%
-Population = UM 94.9%
-Population = KA 96.4%
-Population = VA 88.0%
-Population = AK 90.0%
+                  k                      95%-CI     tau^2
+Population = YE   2 56.8593 [46.3654;  67.3532]         0
+Population = RE   2 60.5831 [48.7238;  72.4423]         0
+Population = GI   2 60.9729 [37.4097;  84.5361]  209.8058
+Population = MU   2 74.7311 [38.5355; 110.9266]  615.1602
+Population = MA   2 76.9147 [34.6677; 119.1617]  860.3015
+Population = UM   2 74.3379 [19.6408; 129.0351] 1479.3820
+Population = KA   2 80.0479 [22.0624; 138.0335] 1687.2996
+Population = VA   2 69.5161 [37.7422; 101.2900]  463.1801
+Population = AK   2 78.5451 [43.2916; 113.7986]  582.7859
+                    tau     Q   I^2
+Population = YE       0  0.90  0.0%
+Population = RE       0  0.64  0.0%
+Population = GI 14.4847  3.56 71.9%
+Population = MU 24.8024 10.08 90.1%
+Population = MA 29.3309 13.33 92.5%
+Population = UM 38.4627 19.75 94.9%
+Population = KA 41.0768 27.58 96.4%
+Population = VA 21.5216  8.33 88.0%
+Population = AK 24.1410  9.99 90.0%
 
 Test for subgroup differences (random effects model):
                     Q d.f. p-value

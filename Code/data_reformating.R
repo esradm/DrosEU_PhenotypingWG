@@ -202,6 +202,9 @@ var_list_up <- c(var_list, "CSM_PropDead_ED_asin", "Prop_Max_Stage7_asin", "Prop
 
 col_plot <- data.frame(Population = as.factor(c("AK", "GI", "KA", "MA", "MU", "RE", "UM", "VA", "YE")), Color = c("#a6cee3", "#fdbf6f", "#b2df8a", "#fb9a99", "#e31a1c", "#ff7f00", "#33a02c", "#1f78b4", "#cab2d6"))
 
+#['#d73027','#f46d43','#fdae61','#fee090','#ffffbf','#e0f3f8','#abd9e9','#74add1','#4575b4']
+
+
 droseu <- lapply(droseu, inner_join, col_plot)
 droseu <- lapply(droseu, arrange, Population_Lat)
 
@@ -324,9 +327,6 @@ saveRDS(droseu, file = "droseu_master_list_2022-04-05.rds")
 #}
 
 #traits_line <- bind_rows(traits)
-
-
-
 
 
 

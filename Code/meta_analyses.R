@@ -471,12 +471,28 @@ rdsBatchReaderToList <- function(...) {
 
 metas_list <- rdsBatchReaderToList(path = "MetaAnalyses", recursive = T, full.names = T, pattern = "meta.rds")
 
-metas_pvalues <- bind_rows(Meta = names(metas_list), Q = lapply(metas_list, function(x) x$Q.b.random) %>% unlist(), P = lapply(metas_list, function(x) x$pval.Q.b.random) %>% unlist()) %>% mutate(P_bonf = P * 12) %>% mutate(P_bonf = ifelse(P_bonf > 1, 1, P_bonf))
+
+n_traits <- 28
+
+metas_pvalues <- bind_rows(Meta = names(metas_list), Q = lapply(metas_list, function(x) x$Q.b.random) %>% unlist(), P = lapply(metas_list, function(x) x$pval.Q.b.random) %>% unlist()) %>% mutate(P_bonf = P * n_traits) %>% mutate(P_bonf = ifelse(P_bonf > 1, 1, P_bonf))
 
 write.csv(metas_pvalues, "MetaAnalyses/all_metas_pvalues.csv", row.names = F)
 
 
 ######### plots
+
+
+
+
+
+#"Archambault"
+#"Johnson"
+#"Isfahan2"
+
+myColors <- met.brewer("Johnson", 9)
+names(myColors) <- as.factor(c("AK", "GI", "KA", "MA", "MU", "RE", "UM", "VA", "YE"))
+colScale <- scale_colour_manual(name = "Population", values = myColors)
+
 
 
 for (i in 1:length(metas)){
@@ -486,13 +502,12 @@ for (i in 1:length(metas)){
   m <- readRDS(f)
   m <- data.frame(Population = m$bylevs, Mstar = m$TE.random.w, SEMstar = m$seTE.random.w, Q = m$Q.b.random, p = m$pval.Q.b.random, LLMstar = m$lower.random.w, ULMstar = m$upper.random.w ) %>% mutate(Q_plot = paste0("italic(Q) == ", round(Q, 2)), P_plot = ifelse(metas_pvalues$P_bonf[i] < 0.001, "italic(p) < 0.001", paste0("italic(p) == ", round(metas_pvalues$P_bonf[i], 3))), Population = factor(Population, levels = pops$by_lat$Population))
   
-  ann <- data.frame(x = c(-Inf, -Inf), y = c(8, 9), l = c(unique(m$P_plot), unique(m$Q_plot)))
-
+  #ann <- data.frame(x = c(-Inf, -Inf), y = c(8, 9), l = c(unique(m$P_plot), unique(m$Q_plot)))
   p_meta_SE <- ggplot(data = m, aes(x = Mstar, y = 1:length(Population), color = Population)) +
     theme_bw() +
-    geom_point(size = 4, shape = 15) +
+    geom_point(size = 8, shape = 15) +
     geom_errorbarh(aes(xmax = Mstar + SEMstar, xmin = Mstar - SEMstar), height = 0) +
-    scale_color_manual(values = pops$by_lat$Color) +
+    colScale +
     scale_y_continuous(name = "Population", breaks = 1:length(m$Population), labels = m$Population) +
     labs(x = "Summary effect", title = "Pop. summary effect with SE") +
     theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank()) + 
@@ -502,9 +517,9 @@ for (i in 1:length(metas)){
   
   p_meta_CI <- ggplot(data = m, aes(x = Mstar, y = 1:length(Population), color = Population)) +
     theme_bw() +
-    geom_point(size = 4, shape = 15) +
+    geom_point(size = 8, shape = 15) +
     geom_errorbarh(aes(xmax = ULMstar, xmin = LLMstar), height = 0) +
-    scale_color_manual(values = pops$by_lat$Color) +
+    colScale +
     scale_y_continuous(name = "Population", breaks = 1:length(m$Population), labels = m$Population) +
     labs(x = "Summary effect", title = "Pop. summary effect with 95% CI") +
     theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank()) +

@@ -1,81 +1,156 @@
-                                              95%-CI %W(random) Population
-YE_Onder            2815.2974 [2777.5968; 2852.9979]        1.6         YE
-YE_Posnien          2657.7176 [2553.3255; 2762.1098]        1.3         YE
-YE_Ritchie          2782.8196 [2653.1933; 2912.4458]        1.1         YE
-YE_StamenkovicRadak 2822.1173 [2794.9250; 2849.3096]        1.6         YE
-YE_Onder            2815.7119 [2779.0567; 2852.3672]        1.6         YE
-YE_Posnien          2657.1996 [2552.1107; 2762.2886]        1.3         YE
-YE_Ritchie          2797.3801 [2669.0424; 2925.7178]        1.1         YE
-YE_StamenkovicRadak 2823.4123 [2796.0143; 2850.8104]        1.6         YE
-RE_Onder            2943.8663 [2904.2271; 2983.5056]        1.6         RE
-RE_Posnien          2723.9275 [2619.5354; 2828.3197]        1.3         RE
-RE_Ritchie          2878.6003 [2749.0824; 3008.1183]        1.1         RE
-RE_StamenkovicRadak 2932.8176 [2904.5753; 2961.0599]        1.6         RE
-RE_Onder            2944.6351 [2906.0261; 2983.2441]        1.6         RE
-RE_Posnien          2720.0424 [2614.9534; 2825.1314]        1.3         RE
-RE_Ritchie          2896.2191 [2767.9908; 3024.4474]        1.1         RE
-RE_StamenkovicRadak 2933.2634 [2904.8079; 2961.7188]        1.6         RE
-GI_Onder            2852.8894 [2812.3731; 2893.4057]        1.6         GI
-GI_Posnien          2728.2014 [2623.8092; 2832.5935]        1.3         GI
-GI_Ritchie          2587.1782 [2476.6094; 2697.7471]        1.2         GI
-GI_StamenkovicRadak 2836.0410 [2803.8347; 2868.2472]        1.6         GI
-GI_Onder            2854.8157 [2815.3237; 2894.3076]        1.6         GI
-GI_Posnien          2725.2397 [2620.1508; 2830.3287]        1.3         GI
-GI_Ritchie          2611.6739 [2501.9996; 2721.3482]        1.2         GI
-GI_StamenkovicRadak 2833.7286 [2801.2793; 2866.1779]        1.6         GI
-MU_Onder            2860.1002 [2823.0400; 2897.1604]        1.6         MU
-MU_Posnien          2563.4537 [2459.0616; 2667.8458]        1.3         MU
-MU_Ritchie          2782.8964 [2653.2491; 2912.5436]        1.1         MU
-MU_StamenkovicRadak 2847.7800 [2821.6046; 2873.9555]        1.6         MU
-MU_Onder            2860.4175 [2824.4115; 2896.4234]        1.6         MU
-MU_Posnien          2562.3219 [2457.2329; 2667.4109]        1.3         MU
-MU_Ritchie          2805.6944 [2677.3373; 2934.0516]        1.1         MU
-MU_StamenkovicRadak 2850.2739 [2823.8986; 2876.6492]        1.6         MU
-MA_Onder            2898.8052 [2861.1764; 2936.4341]        1.6         MA
-MA_Posnien          2658.5041 [2554.1120; 2762.8962]        1.3         MA
-MA_Ritchie          2846.6664 [2716.8778; 2976.4550]        1.1         MA
-MA_StamenkovicRadak 2862.6269 [2831.9077; 2893.3461]        1.6         MA
-MA_Onder            2899.6741 [2863.0905; 2936.2578]        1.6         MA
-MA_Posnien          2657.2750 [2552.1860; 2762.3640]        1.3         MA
-MA_Ritchie          2875.3975 [2746.8999; 3003.8951]        1.1         MA
-MA_StamenkovicRadak 2862.0380 [2831.0873; 2892.9888]        1.6         MA
-UM_Onder            2901.0963 [2862.2857; 2939.9068]        1.6         UM
-UM_Posnien          2663.0272 [2558.6351; 2767.4194]        1.3         UM
-UM_Ritchie          2889.0103 [2759.3561; 3018.6645]        1.1         UM
-UM_StamenkovicRadak 2882.9651 [2855.6873; 2910.2429]        1.6         UM
-UM_Onder            2901.8581 [2864.0830; 2939.6332]        1.6         UM
-UM_Posnien          2660.5001 [2555.4111; 2765.5891]        1.3         UM
-UM_Ritchie          2913.6355 [2785.2712; 3041.9999]        1.1         UM
-UM_StamenkovicRadak 2886.8465 [2859.3640; 2914.3291]        1.6         UM
-KA_Onder            2858.6727 [2821.1257; 2896.2197]        1.6         KA
-KA_Posnien          2639.3788 [2534.9866; 2743.7709]        1.3         KA
-KA_Ritchie          2714.1407 [2569.1573; 2859.1241]        1.0         KA
-KA_StamenkovicRadak 2810.3090 [2784.8062; 2835.8118]        1.6         KA
-KA_Onder            2860.0529 [2823.5522; 2896.5537]        1.6         KA
-KA_Posnien          2637.3288 [2532.2398; 2742.4178]        1.3         KA
-KA_Ritchie          2731.8515 [2588.3099; 2875.3931]        1.0         KA
-KA_StamenkovicRadak 2813.0587 [2787.3643; 2838.7532]        1.6         KA
-VA_Onder            2843.5016 [2806.1210; 2880.8823]        1.6         VA
-VA_Posnien          2549.5830 [2445.1909; 2653.9751]        1.3         VA
-VA_Ritchie          2774.2471 [2644.5819; 2903.9122]        1.1         VA
-VA_StamenkovicRadak 2838.4510 [2812.1776; 2864.7243]        1.6         VA
-VA_Onder            2845.2065 [2808.8736; 2881.5394]        1.6         VA
-VA_Posnien          2547.9339 [2442.8449; 2653.0229]        1.3         VA
-VA_Ritchie          2794.0000 [2665.6239; 2922.3760]        1.1         VA
-VA_StamenkovicRadak 2836.4639 [2809.9918; 2862.9359]        1.6         VA
-AK_Onder            2813.8211 [2776.3719; 2851.2703]        1.6         AK
-AK_Posnien          2589.0113 [2484.6192; 2693.4034]        1.3         AK
-AK_Ritchie          2759.2352 [2614.0350; 2904.4355]        1.0         AK
-AK_StamenkovicRadak 2780.8244 [2755.4400; 2806.2088]        1.6         AK
-AK_Onder            2815.3266 [2778.9245; 2851.7286]        1.6         AK
-AK_Posnien          2584.9821 [2479.8932; 2690.0711]        1.3         AK
-AK_Ritchie          2777.3622 [2633.5982; 2921.1261]        1.0         AK
-AK_StamenkovicRadak 2775.5345 [2749.9570; 2801.1119]        1.6         AK
+                                              95%-CI
+YE_Onder            2815.2974 [2777.5968; 2852.9979]
+YE_Posnien          2657.7176 [2553.3255; 2762.1098]
+YE_Ritchie          2782.8196 [2653.1933; 2912.4458]
+YE_StamenkovicRadak 2822.1173 [2794.9250; 2849.3096]
+YE_Onder            2815.7119 [2779.0567; 2852.3672]
+YE_Posnien          2657.1996 [2552.1107; 2762.2886]
+YE_Ritchie          2797.3801 [2669.0424; 2925.7178]
+YE_StamenkovicRadak 2823.4123 [2796.0143; 2850.8104]
+RE_Onder            2943.8663 [2904.2271; 2983.5056]
+RE_Posnien          2723.9275 [2619.5354; 2828.3197]
+RE_Ritchie          2878.6003 [2749.0824; 3008.1183]
+RE_StamenkovicRadak 2932.8176 [2904.5753; 2961.0599]
+RE_Onder            2944.6351 [2906.0261; 2983.2441]
+RE_Posnien          2720.0424 [2614.9534; 2825.1314]
+RE_Ritchie          2896.2191 [2767.9908; 3024.4474]
+RE_StamenkovicRadak 2933.2634 [2904.8079; 2961.7188]
+GI_Onder            2852.8894 [2812.3731; 2893.4057]
+GI_Posnien          2728.2014 [2623.8092; 2832.5935]
+GI_Ritchie          2587.1782 [2476.6094; 2697.7471]
+GI_StamenkovicRadak 2836.0410 [2803.8347; 2868.2472]
+GI_Onder            2854.8157 [2815.3237; 2894.3076]
+GI_Posnien          2725.2397 [2620.1508; 2830.3287]
+GI_Ritchie          2611.6739 [2501.9996; 2721.3482]
+GI_StamenkovicRadak 2833.7286 [2801.2793; 2866.1779]
+MU_Onder            2860.1002 [2823.0400; 2897.1604]
+MU_Posnien          2563.4537 [2459.0616; 2667.8458]
+MU_Ritchie          2782.8964 [2653.2491; 2912.5436]
+MU_StamenkovicRadak 2847.7800 [2821.6046; 2873.9555]
+MU_Onder            2860.4175 [2824.4115; 2896.4234]
+MU_Posnien          2562.3219 [2457.2329; 2667.4109]
+MU_Ritchie          2805.6944 [2677.3373; 2934.0516]
+MU_StamenkovicRadak 2850.2739 [2823.8986; 2876.6492]
+MA_Onder            2898.8052 [2861.1764; 2936.4341]
+MA_Posnien          2658.5041 [2554.1120; 2762.8962]
+MA_Ritchie          2846.6664 [2716.8778; 2976.4550]
+MA_StamenkovicRadak 2862.6269 [2831.9077; 2893.3461]
+MA_Onder            2899.6741 [2863.0905; 2936.2578]
+MA_Posnien          2657.2750 [2552.1860; 2762.3640]
+MA_Ritchie          2875.3975 [2746.8999; 3003.8951]
+MA_StamenkovicRadak 2862.0380 [2831.0873; 2892.9888]
+UM_Onder            2901.0963 [2862.2857; 2939.9068]
+UM_Posnien          2663.0272 [2558.6351; 2767.4194]
+UM_Ritchie          2889.0103 [2759.3561; 3018.6645]
+UM_StamenkovicRadak 2882.9651 [2855.6873; 2910.2429]
+UM_Onder            2901.8581 [2864.0830; 2939.6332]
+UM_Posnien          2660.5001 [2555.4111; 2765.5891]
+UM_Ritchie          2913.6355 [2785.2712; 3041.9999]
+UM_StamenkovicRadak 2886.8465 [2859.3640; 2914.3291]
+KA_Onder            2858.6727 [2821.1257; 2896.2197]
+KA_Posnien          2639.3788 [2534.9866; 2743.7709]
+KA_Ritchie          2714.1407 [2569.1573; 2859.1241]
+KA_StamenkovicRadak 2810.3090 [2784.8062; 2835.8118]
+KA_Onder            2860.0529 [2823.5522; 2896.5537]
+KA_Posnien          2637.3288 [2532.2398; 2742.4178]
+KA_Ritchie          2731.8515 [2588.3099; 2875.3931]
+KA_StamenkovicRadak 2813.0587 [2787.3643; 2838.7532]
+VA_Onder            2843.5016 [2806.1210; 2880.8823]
+VA_Posnien          2549.5830 [2445.1909; 2653.9751]
+VA_Ritchie          2774.2471 [2644.5819; 2903.9122]
+VA_StamenkovicRadak 2838.4510 [2812.1776; 2864.7243]
+VA_Onder            2845.2065 [2808.8736; 2881.5394]
+VA_Posnien          2547.9339 [2442.8449; 2653.0229]
+VA_Ritchie          2794.0000 [2665.6239; 2922.3760]
+VA_StamenkovicRadak 2836.4639 [2809.9918; 2862.9359]
+AK_Onder            2813.8211 [2776.3719; 2851.2703]
+AK_Posnien          2589.0113 [2484.6192; 2693.4034]
+AK_Ritchie          2759.2352 [2614.0350; 2904.4355]
+AK_StamenkovicRadak 2780.8244 [2755.4400; 2806.2088]
+AK_Onder            2815.3266 [2778.9245; 2851.7286]
+AK_Posnien          2584.9821 [2479.8932; 2690.0711]
+AK_Ritchie          2777.3622 [2633.5982; 2921.1261]
+AK_StamenkovicRadak 2775.5345 [2749.9570; 2801.1119]
+                    %W(random) Population
+YE_Onder                   1.6         YE
+YE_Posnien                 1.3         YE
+YE_Ritchie                 1.1         YE
+YE_StamenkovicRadak        1.6         YE
+YE_Onder                   1.6         YE
+YE_Posnien                 1.3         YE
+YE_Ritchie                 1.1         YE
+YE_StamenkovicRadak        1.6         YE
+RE_Onder                   1.6         RE
+RE_Posnien                 1.3         RE
+RE_Ritchie                 1.1         RE
+RE_StamenkovicRadak        1.6         RE
+RE_Onder                   1.6         RE
+RE_Posnien                 1.3         RE
+RE_Ritchie                 1.1         RE
+RE_StamenkovicRadak        1.6         RE
+GI_Onder                   1.6         GI
+GI_Posnien                 1.3         GI
+GI_Ritchie                 1.2         GI
+GI_StamenkovicRadak        1.6         GI
+GI_Onder                   1.6         GI
+GI_Posnien                 1.3         GI
+GI_Ritchie                 1.2         GI
+GI_StamenkovicRadak        1.6         GI
+MU_Onder                   1.6         MU
+MU_Posnien                 1.3         MU
+MU_Ritchie                 1.1         MU
+MU_StamenkovicRadak        1.6         MU
+MU_Onder                   1.6         MU
+MU_Posnien                 1.3         MU
+MU_Ritchie                 1.1         MU
+MU_StamenkovicRadak        1.6         MU
+MA_Onder                   1.6         MA
+MA_Posnien                 1.3         MA
+MA_Ritchie                 1.1         MA
+MA_StamenkovicRadak        1.6         MA
+MA_Onder                   1.6         MA
+MA_Posnien                 1.3         MA
+MA_Ritchie                 1.1         MA
+MA_StamenkovicRadak        1.6         MA
+UM_Onder                   1.6         UM
+UM_Posnien                 1.3         UM
+UM_Ritchie                 1.1         UM
+UM_StamenkovicRadak        1.6         UM
+UM_Onder                   1.6         UM
+UM_Posnien                 1.3         UM
+UM_Ritchie                 1.1         UM
+UM_StamenkovicRadak        1.6         UM
+KA_Onder                   1.6         KA
+KA_Posnien                 1.3         KA
+KA_Ritchie                 1.0         KA
+KA_StamenkovicRadak        1.6         KA
+KA_Onder                   1.6         KA
+KA_Posnien                 1.3         KA
+KA_Ritchie                 1.0         KA
+KA_StamenkovicRadak        1.6         KA
+VA_Onder                   1.6         VA
+VA_Posnien                 1.3         VA
+VA_Ritchie                 1.1         VA
+VA_StamenkovicRadak        1.6         VA
+VA_Onder                   1.6         VA
+VA_Posnien                 1.3         VA
+VA_Ritchie                 1.1         VA
+VA_StamenkovicRadak        1.6         VA
+AK_Onder                   1.6         AK
+AK_Posnien                 1.3         AK
+AK_Ritchie                 1.0         AK
+AK_StamenkovicRadak        1.6         AK
+AK_Onder                   1.6         AK
+AK_Posnien                 1.3         AK
+AK_Ritchie                 1.0         AK
+AK_StamenkovicRadak        1.6         AK
 
 Number of studies combined: k = 72
 
-                                               95%-CI      z p-value
-Random effects model 2793.8163 [2769.8624; 2817.7702] 228.60       0
+                                               95%-CI      z
+Random effects model 2793.8163 [2769.8624; 2817.7702] 228.60
+                     p-value
+Random effects model       0
 
 Quantifying heterogeneity:
  tau^2 = 9066.0563 [6447.2639; 14455.1281]; tau = 95.2158 [80.2949; 120.2295]
@@ -86,26 +161,26 @@ Test of heterogeneity:
  597.59   71 < 0.0001
 
 Results for subgroups (random effects model):
-                  k                           95%-CI      tau^2      tau
-Population = YE   8 2787.6589 [2746.7321; 2828.5857]  2232.6899  47.2513
-Population = RE   8 2881.9665 [2819.2715; 2944.6615]  6574.0215  81.0803
-Population = GI   8 2764.9662 [2692.7367; 2837.1956]  9351.1837  96.7015
-Population = MU   8 2773.5303 [2686.4287; 2860.6320] 14056.9714 118.5621
-Population = MA   8 2827.6842 [2761.3893; 2893.9790]  7506.3330  86.6391
-Population = UM   8 2842.9824 [2773.1398; 2912.8250]  8495.7166  92.1722
-Population = KA   8 2772.7688 [2710.3037; 2835.2338]  6409.2940  80.0581
-Population = VA   8 2760.4398 [2673.1951; 2847.6844] 14105.8339 118.7680
-Population = AK   8 2745.5358 [2683.1837; 2807.8879]  6380.7714  79.8797
-                    Q   I^2
-Population = YE 18.23 61.6%
-Population = RE 32.02 78.1%
-Population = GI 43.81 84.0%
-Population = MU 58.09 87.9%
-Population = MA 36.72 80.9%
-Population = UM 36.32 80.7%
-Population = KA 36.05 80.6%
-Population = VA 58.04 87.9%
-Population = AK 32.98 78.8%
+                  k                           95%-CI
+Population = YE   8 2787.6589 [2746.7321; 2828.5857]
+Population = RE   8 2881.9665 [2819.2715; 2944.6615]
+Population = GI   8 2764.9662 [2692.7367; 2837.1956]
+Population = MU   8 2773.5303 [2686.4287; 2860.6320]
+Population = MA   8 2827.6842 [2761.3893; 2893.9790]
+Population = UM   8 2842.9824 [2773.1398; 2912.8250]
+Population = KA   8 2772.7688 [2710.3037; 2835.2338]
+Population = VA   8 2760.4398 [2673.1951; 2847.6844]
+Population = AK   8 2745.5358 [2683.1837; 2807.8879]
+                     tau^2      tau     Q   I^2
+Population = YE  2232.6899  47.2513 18.23 61.6%
+Population = RE  6574.0215  81.0803 32.02 78.1%
+Population = GI  9351.1837  96.7015 43.81 84.0%
+Population = MU 14056.9714 118.5621 58.09 87.9%
+Population = MA  7506.3330  86.6391 36.72 80.9%
+Population = UM  8495.7166  92.1722 36.32 80.7%
+Population = KA  6409.2940  80.0581 36.05 80.6%
+Population = VA 14105.8339 118.7680 58.04 87.9%
+Population = AK  6380.7714  79.8797 32.98 78.8%
 
 Test for subgroup differences (random effects model):
                      Q d.f. p-value

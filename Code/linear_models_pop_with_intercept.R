@@ -664,8 +664,6 @@ for (i in 1:length(lmers)){
 
 
 
-
-
 compTukeyCLD <- function(x) {
   em <- emmeans(x, pairwise ~ Population, mode = "asymp", adjust = "tukey")
   let <- cld(em, Letters = letters, alpha = 0.05) %>% 
@@ -675,12 +673,7 @@ compTukeyCLD <- function(x) {
 }
 
 
-
-
-
 lmers <- list.files(path = "LinearModelsPop", recursive = T, full.names = T, pattern = "lmers_pop.rds")[-1]
-
-
 
 
 for (i in 1:length(lmers)){
