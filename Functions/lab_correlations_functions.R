@@ -114,7 +114,7 @@ longToWide <- function(fitted_values) {
 longToWide2 <- function(estimates) {
   dplyr::select(estimates, -c(SE, Trait)) %>%
     pivot_wider(names_from = c(Lab, Sex), names_sep = "_", values_from = Estimate) %>%
-    mutate(Population = factor(Population, levels = c("YE","RE","GI","MU","MA","UM","KA","VA","AK"))) %>%
+    #mutate(Population = factor(Population, levels = c("YE","RE","GI","MU","MA","UM","KA","VA","AK"))) %>%
     arrange(Population) %>% 
     dplyr::select(!Population)
 }
@@ -282,8 +282,10 @@ panCor <- function(x, y, digits=2, prefix="", cex.cor){
   cex.lab <- 2
 }
 
+
+
 # define the appearance of the scatter plots in pairs2
-panScatterPlot <- function(x, y, bg.col = c("#cab2d6", "#ff7f00", "#fdbf6f", "#e31a1c", "#fb9a99", "#33a02c", "#b2df8a", "#1f78b4", "#a6cee3")){
+panScatterPlot <- function(x, y, bg.col = met.brewer("Johnson", 9)){
   points(x, y, pch = 21, cex = 1.8, bg = bg.col)
   abline(lm(y~x))
 }
@@ -297,5 +299,5 @@ scatterPlotMatrix <- function(x, sex) {
   par(las = 2)
   par(cex.axis = 1.6)
   pairs2(x, lower.panel = panScatterPlot, upper.panel = panCor, oma = c(6.5,4.5,2,4), ax.labels = TRUE, ax.ticks = TRUE, gap = 1)
-  legend("bottom", xjust = 0.5, inset = -ncol(x)*0.012, legend = c("YE","RE","GI","MU","MA","UM","KA","VA","AK"), pch = 21, pt.bg = c("#cab2d6", "#ff7f00", "#fdbf6f", "#e31a1c", "#fb9a99", "#33a02c", "#b2df8a", "#1f78b4", "#a6cee3"), horiz = T, cex = 0.8, bty = "n", xpd = T)}
+  legend("bottom", xjust = 0.5, inset = -ncol(x)*0.012, legend = c("AK", "GI", "KA", "MA", "MU", "RE", "UM", "VA", "YE"), pch = 21, pt.cex = 2, pt.bg = met.brewer("Johnson", 9), horiz = T, cex = 0.8, bty = "n", xpd = T)}
 
