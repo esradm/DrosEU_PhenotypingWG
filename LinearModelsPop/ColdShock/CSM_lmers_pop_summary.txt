@@ -155,7 +155,7 @@ Number of obs: 544, groups:  Line:Population, 160; Batch, 9
 
 Fixed effects:
                Estimate Std. Error         df t value Pr(>|t|)    
-(Intercept)    0.890522   0.078853  16.836637  11.293 2.82e-09 ***
+(Intercept)    0.890522   0.078853  16.836636  11.293 2.82e-09 ***
 PopulationGI   0.074983   0.068797 149.870804   1.090   0.2775    
 PopulationKA   0.098935   0.067867 140.622954   1.458   0.1471    
 PopulationMA   0.026821   0.063580 147.725741   0.422   0.6737    
@@ -201,14 +201,14 @@ Number of obs: 244, groups:  Line:Population, 130; Batch, 2
 Fixed effects:
                Estimate Std. Error         df t value Pr(>|t|)  
 (Intercept)    1.141197   0.147492   1.437570   7.737   0.0382 *
-PopulationGI   0.009018   0.115920 121.640217   0.078   0.9381  
+PopulationGI   0.009018   0.115920 121.640216   0.078   0.9381  
 PopulationKA  -0.142703   0.104274 114.986203  -1.369   0.1738  
-PopulationMA  -0.049584   0.095842 118.570192  -0.517   0.6059  
-PopulationMU  -0.127495   0.094278 117.572179  -1.352   0.1789  
-PopulationRE  -0.088661   0.102357 103.311623  -0.866   0.3884  
+PopulationMA  -0.049584   0.095842 118.570191  -0.517   0.6059  
+PopulationMU  -0.127495   0.094278 117.572178  -1.352   0.1789  
+PopulationRE  -0.088661   0.102357 103.311622  -0.866   0.3884  
 PopulationUM  -0.130669   0.104837 107.557830  -1.246   0.2153  
 PopulationVA  -0.084597   0.090287 111.769032  -0.937   0.3508  
-PopulationYE   0.050031   0.101826 124.595935   0.491   0.6241  
+PopulationYE   0.050031   0.101826 124.595934   0.491   0.6241  
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 

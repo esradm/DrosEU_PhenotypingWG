@@ -61,15 +61,15 @@ Number of obs: 1953, groups:  Line:Population, 161
 
 Fixed effects:
                Estimate Std. Error         df t value Pr(>|t|)    
-(Intercept)    0.428813   0.013116 148.979745  32.694  < 2e-16 ***
-PopulationGI  -0.028007   0.020504 150.900771  -1.366 0.173998    
-PopulationKA  -0.079391   0.018837 150.494647  -4.215 4.30e-05 ***
-PopulationMA   0.073627   0.019112 150.742412   3.852 0.000173 ***
-PopulationMU  -0.006251   0.019382 150.028931  -0.323 0.747510    
-PopulationRE   0.007559   0.019732 150.772066   0.383 0.702209    
-PopulationUM  -0.001509   0.019092 150.122224  -0.079 0.937092    
-PopulationVA  -0.110063   0.018804 149.434280  -5.853 2.94e-08 ***
-PopulationYE  -0.013161   0.018599 150.645525  -0.708 0.480265    
+(Intercept)    0.428813   0.013116 148.979743  32.694  < 2e-16 ***
+PopulationGI  -0.028007   0.020504 150.900770  -1.366 0.173998    
+PopulationKA  -0.079391   0.018837 150.494646  -4.215 4.30e-05 ***
+PopulationMA   0.073627   0.019112 150.742411   3.852 0.000173 ***
+PopulationMU  -0.006251   0.019382 150.028930  -0.323 0.747510    
+PopulationRE   0.007559   0.019732 150.772065   0.383 0.702209    
+PopulationUM  -0.001509   0.019092 150.122223  -0.079 0.937092    
+PopulationVA  -0.110063   0.018804 149.434279  -5.853 2.94e-08 ***
+PopulationYE  -0.013161   0.018599 150.645524  -0.708 0.480265    
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
@@ -104,15 +104,15 @@ Number of obs: 1953, groups:  Line:Population, 161
 
 Fixed effects:
                Estimate Std. Error         df t value Pr(>|t|)    
-(Intercept)    0.607260   0.031453 150.345219  19.307   <2e-16 ***
+(Intercept)    0.607260   0.031453 150.345218  19.307   <2e-16 ***
 PopulationGI  -0.011252   0.049111 151.526296  -0.229   0.8191    
-PopulationKA  -0.013791   0.045130 151.264764  -0.306   0.7603    
-PopulationMA   0.148011   0.045781 151.426492   3.233   0.0015 ** 
-PopulationMU  -0.028600   0.046449 150.975004  -0.616   0.5390    
+PopulationKA  -0.013791   0.045130 151.264763  -0.306   0.7603    
+PopulationMA   0.148011   0.045781 151.426491   3.233   0.0015 ** 
+PopulationMU  -0.028600   0.046449 150.975003  -0.616   0.5390    
 PopulationRE   0.097076   0.047265 151.448354   2.054   0.0417 *  
 PopulationUM   0.093795   0.045751 151.033529   2.050   0.0421 *  
 PopulationVA   0.000765   0.045081 150.605926   0.017   0.9865    
-PopulationYE  -0.019515   0.044555 151.359984  -0.438   0.6620    
+PopulationYE  -0.019515   0.044555 151.359983  -0.438   0.6620    
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
@@ -147,13 +147,13 @@ Number of obs: 1953, groups:  Line:Population, 161
 
 Fixed effects:
                Estimate Std. Error         df t value Pr(>|t|)    
-(Intercept)    0.470198   0.014429 149.947205  32.587  < 2e-16 ***
+(Intercept)    0.470198   0.014429 149.947206  32.587  < 2e-16 ***
 PopulationGI  -0.017226   0.022535 151.277740  -0.764  0.44580    
 PopulationKA  -0.047223   0.020707 150.985900  -2.281  0.02398 *  
 PopulationMA   0.106132   0.021007 151.165934   5.052 1.24e-06 ***
 PopulationMU  -0.005460   0.021311 150.660208  -0.256  0.79813    
 PopulationRE   0.050674   0.021688 151.189663   2.337  0.02077 *  
-PopulationUM   0.035630   0.020991 150.725880   1.697  0.09168 .  
+PopulationUM   0.035630   0.020991 150.725881   1.697  0.09168 .  
 PopulationVA  -0.064115   0.020682 150.245165  -3.100  0.00231 ** 
 PopulationYE  -0.003938   0.020444 151.092620  -0.193  0.84753    
 ---
@@ -190,15 +190,15 @@ Number of obs: 1741, groups:  Line:Population, 167
 
 Fixed effects:
                Estimate Std. Error         df t value Pr(>|t|)    
-(Intercept)    0.499962   0.014353 154.927707  34.832   <2e-16 ***
-PopulationGI  -0.009812   0.021895 154.004966  -0.448   0.6547    
-PopulationKA  -0.036072   0.020290 154.679569  -1.778   0.0774 .  
+(Intercept)    0.499962   0.014353 154.927709  34.832   <2e-16 ***
+PopulationGI  -0.009812   0.021895 154.004967  -0.448   0.6547    
+PopulationKA  -0.036072   0.020290 154.679570  -1.778   0.0774 .  
 PopulationMA  -0.003205   0.020601 155.767313  -0.156   0.8766    
-PopulationMU   0.014337   0.020299 154.927708   0.706   0.4811    
-PopulationRE  -0.055973   0.021506 154.185056  -2.603   0.0102 *  
-PopulationUM   0.004591   0.020840 154.469279   0.220   0.8259    
-PopulationVA   0.004284   0.020553 154.582057   0.208   0.8352    
-PopulationYE   0.015169   0.020442 158.396240   0.742   0.4592    
+PopulationMU   0.014337   0.020299 154.927709   0.706   0.4811    
+PopulationRE  -0.055973   0.021506 154.185057  -2.603   0.0102 *  
+PopulationUM   0.004591   0.020840 154.469280   0.220   0.8259    
+PopulationVA   0.004284   0.020553 154.582058   0.208   0.8352    
+PopulationYE   0.015169   0.020442 158.396241   0.742   0.4592    
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
@@ -234,7 +234,7 @@ Number of obs: 1741, groups:  Line:Population, 167
 Fixed effects:
                Estimate Std. Error         df t value Pr(>|t|)    
 (Intercept)    0.600762   0.016706 156.968338  35.962   <2e-16 ***
-PopulationGI  -0.036561   0.025494 156.347588  -1.434   0.1535    
+PopulationGI  -0.036561   0.025494 156.347589  -1.434   0.1535    
 PopulationKA  -0.033777   0.023618 156.786296  -1.430   0.1547    
 PopulationMA   0.041870   0.023966 157.669699   1.747   0.0826 .  
 PopulationMU   0.023212   0.023625 156.968338   0.983   0.3274    
@@ -276,15 +276,15 @@ Number of obs: 1741, groups:  Line:Population, 167
 
 Fixed effects:
                Estimate Std. Error         df t value Pr(>|t|)    
-(Intercept)    0.741397   0.035464 158.168029  20.906   <2e-16 ***
+(Intercept)    0.741397   0.035464 158.168027  20.906   <2e-16 ***
 PopulationGI  -0.001671   0.054149 157.896095  -0.031   0.9754    
-PopulationKA   0.123941   0.050146 158.079940   2.472   0.0145 *  
+PopulationKA   0.123941   0.050146 158.079939   2.472   0.0145 *  
 PopulationMA   0.090699   0.050844 158.566994   1.784   0.0764 .  
-PopulationMU   0.063559   0.050153 158.168028   1.267   0.2069    
+PopulationMU   0.063559   0.050153 158.168027   1.267   0.2069    
 PopulationRE   0.084751   0.053177 157.945208   1.594   0.1130    
 PopulationUM   0.075964   0.051516 158.022649   1.475   0.1423    
 PopulationVA   0.047927   0.050799 158.053370   0.943   0.3469    
-PopulationYE   0.021309   0.050287 159.730432   0.424   0.6723    
+PopulationYE   0.021309   0.050287 159.730431   0.424   0.6723    
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
@@ -319,15 +319,15 @@ Number of obs: 1741, groups:  Line:Population, 167
 
 Fixed effects:
                Estimate Std. Error         df t value Pr(>|t|)    
-(Intercept)    0.609481   0.015628 157.647189  39.001   <2e-16 ***
-PopulationGI  -0.019383   0.023854 157.175238  -0.813    0.418    
-PopulationKA   0.003718   0.022095 157.502777   0.168    0.867    
-PopulationMA   0.031274   0.022414 158.242174   1.395    0.165    
-PopulationMU   0.024616   0.022101 157.647190   1.114    0.267    
-PopulationRE   0.002225   0.023427 157.262733   0.095    0.924    
-PopulationUM   0.023795   0.022697 157.400714   1.048    0.296    
-PopulationVA   0.014953   0.022383 157.455448   0.668    0.505    
-PopulationYE   0.013255   0.022195 160.004581   0.597    0.551    
+(Intercept)    0.609481   0.015628 157.647192  39.001   <2e-16 ***
+PopulationGI  -0.019383   0.023854 157.175239  -0.813    0.418    
+PopulationKA   0.003718   0.022095 157.502779   0.168    0.867    
+PopulationMA   0.031274   0.022414 158.242175   1.395    0.165    
+PopulationMU   0.024616   0.022101 157.647192   1.114    0.267    
+PopulationRE   0.002225   0.023427 157.262734   0.095    0.924    
+PopulationUM   0.023795   0.022697 157.400716   1.048    0.296    
+PopulationVA   0.014953   0.022383 157.455450   0.668    0.505    
+PopulationYE   0.013255   0.022195 160.004582   0.597    0.551    
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
@@ -342,10 +342,10 @@ PopulatinUM -0.689  0.451  0.487  0.480  0.487  0.459
 PopulatinVA -0.698  0.457  0.494  0.487  0.494  0.466  0.481       
 PopulatinYE -0.704  0.461  0.498  0.491  0.498  0.470  0.485  0.492
 
-$Pgm_T8_Schmidt_lmer_pop
+$Pgm_T5_Schmidt_lmer_pop
 Linear mixed model fit by REML. t-tests use Satterthwaite's method [
 lmerModLmerTest]
-Formula: PgmT8 ~ Population + (1 | Line:Population)
+Formula: ScoreT5 ~ Population + (1 | Line:Population)
    Data: filter(droseu$pgm2, Supervisor.PI == "Schmidt")
 
 REML criterion at convergence: 4128.7
@@ -368,7 +368,7 @@ PopulationKA   0.22474    0.24837 145.49306   0.905   0.3670
 PopulationMA   0.58606    0.24893 146.62982   2.354   0.0199 *  
 PopulationMU   0.01145    0.24532 145.83263   0.047   0.9628    
 PopulationRE   0.20939    0.27165 148.53344   0.771   0.4421    
-PopulationUM   0.53207    0.26518 146.26030   2.006   0.0467 *  
+PopulationUM   0.53207    0.26518 146.26029   2.006   0.0467 *  
 PopulationVA  -0.62944    0.25587 145.75515  -2.460   0.0151 *  
 PopulationYE   0.16110    0.24595 147.30477   0.655   0.5135    
 ---
@@ -385,10 +385,10 @@ PopulatinUM -0.654  0.409  0.456  0.455  0.462  0.417
 PopulatinVA -0.678  0.423  0.473  0.472  0.479  0.432  0.443       
 PopulatinYE -0.705  0.441  0.492  0.491  0.498  0.450  0.461  0.478
 
-$Pgm_T9_Schmidt_lmer_pop
+$Pgm_T6_Schmidt_lmer_pop
 Linear mixed model fit by REML. t-tests use Satterthwaite's method [
 lmerModLmerTest]
-Formula: PgmT9 ~ Population + (1 | Line:Population)
+Formula: ScoreT6 ~ Population + (1 | Line:Population)
    Data: filter(droseu$pgm2, Supervisor.PI == "Schmidt")
 
 REML criterion at convergence: 6123.5
@@ -428,10 +428,10 @@ PopulatinUM -0.654  0.410  0.457  0.456  0.462  0.418
 PopulatinVA -0.678  0.424  0.473  0.472  0.479  0.434  0.443       
 PopulatinYE -0.706  0.442  0.493  0.492  0.499  0.452  0.462  0.478
 
-$Pgm_T10_Schmidt_lmer_pop
+$Pgm_T7_Schmidt_lmer_pop
 Linear mixed model fit by REML. t-tests use Satterthwaite's method [
 lmerModLmerTest]
-Formula: PgmT10 ~ Population + (1 | Line:Population)
+Formula: ScoreT7 ~ Population + (1 | Line:Population)
    Data: filter(droseu$pgm2, Supervisor.PI == "Schmidt")
 
 REML criterion at convergence: 6832.2
@@ -474,7 +474,7 @@ PopulatinYE -0.705  0.441  0.492  0.491  0.499  0.451  0.461  0.478
 $Pgm_Total_Schmidt_lmer_pop
 Linear mixed model fit by REML. t-tests use Satterthwaite's method [
 lmerModLmerTest]
-Formula: TotalPgm ~ Population + (1 | Line:Population)
+Formula: TotalScore ~ Population + (1 | Line:Population)
    Data: filter(droseu$pgm2, Supervisor.PI == "Schmidt")
 
 REML criterion at convergence: 8630.2

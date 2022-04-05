@@ -582,8 +582,8 @@ $Pgm_Total_Gibert_lmer_pop$letters
 9         YE 0.6227360 0.01576066 Inf 0.5918457 0.6536264   a
 
 
-$Pgm_T8_Schmidt_lmer_pop
-$Pgm_T8_Schmidt_lmer_pop$contrasts
+$Pgm_T5_Schmidt_lmer_pop
+$Pgm_T5_Schmidt_lmer_pop$contrasts
 $emmeans
  Population emmean    SE  df asymp.LCL asymp.UCL
  AK           2.27 0.173 Inf      1.93      2.61
@@ -642,7 +642,7 @@ Degrees-of-freedom method: asymptotic
 P value adjustment: tukey method for comparing a family of 9 estimates 
 
 
-$Pgm_T8_Schmidt_lmer_pop$letters
+$Pgm_T5_Schmidt_lmer_pop$letters
   Population   emmean        SE  df asymp.LCL asymp.UCL cld
 1         AK 2.270000 0.1733585 Inf  1.930224  2.609776  ab
 2         GI 2.009546 0.2165013 Inf  1.585211  2.433880  ab
@@ -655,8 +655,8 @@ $Pgm_T8_Schmidt_lmer_pop$letters
 9         YE 2.431100 0.1744659 Inf  2.089153  2.773046  ab
 
 
-$Pgm_T9_Schmidt_lmer_pop
-$Pgm_T9_Schmidt_lmer_pop$contrasts
+$Pgm_T6_Schmidt_lmer_pop
+$Pgm_T6_Schmidt_lmer_pop$contrasts
 $emmeans
  Population emmean    SE  df asymp.LCL asymp.UCL
  AK           4.54 0.443 Inf      3.68      5.41
@@ -715,7 +715,7 @@ Degrees-of-freedom method: asymptotic
 P value adjustment: tukey method for comparing a family of 9 estimates 
 
 
-$Pgm_T9_Schmidt_lmer_pop$letters
+$Pgm_T6_Schmidt_lmer_pop$letters
   Population   emmean        SE  df asymp.LCL asymp.UCL cld
 1         AK 4.545000 0.4430492 Inf  3.676640  5.413360   a
 2         GI 4.144873 0.5516379 Inf  3.063682  5.226063   a
@@ -728,8 +728,8 @@ $Pgm_T9_Schmidt_lmer_pop$letters
 9         YE 4.762511 0.4446104 Inf  3.891091  5.633932   a
 
 
-$Pgm_T10_Schmidt_lmer_pop
-$Pgm_T10_Schmidt_lmer_pop$contrasts
+$Pgm_T7_Schmidt_lmer_pop
+$Pgm_T7_Schmidt_lmer_pop$contrasts
 $emmeans
  Population emmean    SE  df asymp.LCL asymp.UCL
  AK           2.15 0.480 Inf      1.20      3.09
@@ -788,7 +788,7 @@ Degrees-of-freedom method: asymptotic
 P value adjustment: tukey method for comparing a family of 9 estimates 
 
 
-$Pgm_T10_Schmidt_lmer_pop$letters
+$Pgm_T7_Schmidt_lmer_pop$letters
   Population   emmean        SE  df asymp.LCL asymp.UCL cld
 1         AK 2.145000 0.4798912 Inf  1.204431  3.085569  a 
 2         GI 2.260948 0.5984063 Inf  1.088093  3.433803  ab

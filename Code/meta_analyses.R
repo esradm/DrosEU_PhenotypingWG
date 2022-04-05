@@ -13,6 +13,7 @@ rm(list = ls())
 library(tidyverse)
 library(meta)
 library(ggpubr)
+library(MetBrewer)
 
 
 ##### set working directory
@@ -21,7 +22,7 @@ setwd("~/Work/UNIFR/GitHub/DrosEU_PhenotypingWG/")
 
 ##### load data
 droseu <- readRDS("Data/droseu_master_list_2022-04-05.rds")
-estimates <- readRDS("LinearModelsPop/all_model_estimates.rds")
+estimates <- readRDS("LinearModelsPop/all_lmers_list_pop_estimates.rds")
 pops <- readRDS("InfoTables/DrosEU_Populations.rds")
 
 
@@ -159,20 +160,20 @@ dir.create(file.path(meta_dir, out_dir), showWarnings = F)
 WA_effects <- makeEffects(estimates$wa)
 
 # run meta for both L and R for females
-WA_F_meta <- metagen(data = filter(WA_effects, Sex == "F"), TE = Y, seTE = SE, studlab = Study, fixed = FALSE, random = TRUE)
+#WA_F_meta <- metagen(data = filter(WA_effects, Sex == "F"), TE = Y, seTE = SE, studlab = Study, fixed = FALSE, random = TRUE)
 # sub groups
-WA_F_meta <- update.meta(WA_F_meta, subgroup = Population, tau.common = FALSE)
+#WA_F_meta <- update.meta(WA_F_meta, subgroup = Population, tau.common = FALSE)
 
 # save output
-saveRDS(WA_F_meta, file = file.path(meta_dir, out_dir, "WA_F_meta.rds"))
+#saveRDS(WA_F_meta, file = file.path(meta_dir, out_dir, "WA_F_meta.rds"))
 
 # run meta for both L and R for males
-WA_M_meta <- metagen(data = filter(WA_effects, Sex == "M"), TE = Y, seTE = SE, studlab = Study, fixed = FALSE, random = TRUE)
+#WA_M_meta <- metagen(data = filter(WA_effects, Sex == "M"), TE = Y, seTE = SE, studlab = Study, fixed = FALSE, random = TRUE)
 # sub groups
-WA_M_meta <- update.meta(WA_M_meta, subgroup = Population, tau.common = FALSE)
+#WA_M_meta <- update.meta(WA_M_meta, subgroup = Population, tau.common = FALSE)
 
 # save output
-saveRDS(WA_M_meta, file = file.path(meta_dir, out_dir, "WA_M_meta.rds"))
+#saveRDS(WA_M_meta, file = file.path(meta_dir, out_dir, "WA_M_meta.rds"))
 
 
 
@@ -231,7 +232,7 @@ dir.create(file.path(meta_dir, out_dir), showWarnings = F)
 Fec_effects <- makeEffects(estimates$fec)
 
 # run meta
-Fec_meta <- metagen(data = filter(Fec_effects, Sex == "NA"), TE = Y, seTE = SE, studlab = Study, fixed = FALSE, random = TRUE)
+Fec_meta <- metagen(data = filter(Fec_effects, Sex == "F"), TE = Y, seTE = SE, studlab = Study, fixed = FALSE, random = TRUE)
 
 # sub groups
 Fec_meta <- update.meta(Fec_meta, subgroup = Population, tau.common = FALSE)
@@ -355,7 +356,7 @@ dir.create(file.path(meta_dir, out_dir), showWarnings = F)
 Dia_effects <- makeEffects(estimates$dia)
 
 # run meta for females
-Dia_meta <- metagen(data = filter(Dia_effects, Sex == "NA"), TE = Y, seTE = SE, studlab = Study, fixed = FALSE, random = TRUE)
+Dia_meta <- metagen(data = filter(Dia_effects, Sex == "F"), TE = Y, seTE = SE, studlab = Study, fixed = FALSE, random = TRUE)
 
 # sub groups
 Dia_meta <- update.meta(Dia_meta, subgroup = Population, tau.common = FALSE)
@@ -413,18 +414,18 @@ dir.create(file.path(meta_dir, out_dir), showWarnings = F)
 Pgm_effects <- makeEffects(estimates$pgm)
 
 # run meta for females, w/o Schmidt's data
-Pgm_meta <- metagen(data = filter(Pgm_effects, Sex == "NA", Trait == "Pgm_Total",  Lab != "Schmidt"), TE = Y, seTE = SE, studlab = Study, fixed = FALSE, random = TRUE)
+Pgm_Total_meta <- metagen(data = filter(Pgm_effects, Sex == "F", Trait == "Pgm_Total",  Lab != "Schmidt"), TE = Y, seTE = SE, studlab = Study, fixed = FALSE, random = TRUE)
 
 # sub groups
-Pgm_meta <- update.meta(Pgm_meta, subgroup = Population, tau.common = FALSE)
+Pgm_Total_meta <- update.meta(Pgm_Total_meta, subgroup = Population, tau.common = FALSE)
 
 # save output
-saveRDS(Pgm_meta, file = file.path(meta_dir, out_dir, "Pgm_meta.rds"))
+saveRDS(Pgm_Total_meta, file = file.path(meta_dir, out_dir, "Pgm_Total_meta.rds"))
 
 
 
 # run meta for females, all three labs
-#Pgm_meta <- metagen(data = filter(Pgm_effects, Sex == "NA", Trait == "Pgm_Total"), TE = Y, seTE = SE, studlab = Study, fixed = FALSE, random = TRUE)
+#Pgm_meta <- metagen(data = filter(Pgm_effects, Sex == "F", Trait == "Pgm_Total"), TE = Y, seTE = SE, studlab = Study, fixed = FALSE, random = TRUE)
 
 # sub groups
 #Pgm_meta <- update.meta(Pgm_meta, subgroup = Population, tau.common = FALSE)
@@ -435,10 +436,10 @@ saveRDS(Pgm_meta, file = file.path(meta_dir, out_dir, "Pgm_meta.rds"))
 
 
 
-############# ouput all metas ############# 
+############# output all metas ############# 
 
 all_metas <- ls()[grep("_meta", ls())]
-saveRDS(all_metas, file = file.path(meta_dir, "all_metas.rds"))
+save(all_metas, file = file.path(meta_dir, "all_metas_list.Rdata"))
 
 
 

@@ -60,7 +60,7 @@ P value adjustment: tukey method for comparing a family of 9 estimates
 
 $HSM_F_Parsch_lmer_pop$letters
   Population   emmean       SE  df asymp.LCL asymp.UCL  cld
-1         AK 394.1080 25.08766 Inf  344.9371  443.2789   bc
+1         AK 394.1080 25.08767 Inf  344.9371  443.2789   bc
 2         GI 337.5046 24.51152 Inf  289.4629  385.5463  ab 
 3         KA 369.6890 24.57306 Inf  321.5267  417.8513  abc
 4         MA 421.9206 25.21505 Inf  372.5000  471.3412    c
@@ -122,10 +122,10 @@ $contrasts
  MU - YE   -30.275 7.85 Inf  -3.858  0.0037
  RE - UM    12.585 8.78 Inf   1.433  0.8855
  RE - VA    19.728 8.58 Inf   2.299  0.3427
- RE - YE    14.972 8.69 Inf   1.722  0.7328
+ RE - YE    14.972 8.69 Inf   1.722  0.7329
  UM - VA     7.144 8.03 Inf   0.890  0.9935
  UM - YE     2.387 8.14 Inf   0.293  1.0000
- VA - YE    -4.757 7.68 Inf  -0.619  0.9995
+ VA - YE    -4.756 7.68 Inf  -0.619  0.9995
 
 Degrees-of-freedom method: asymptotic 
 P value adjustment: tukey method for comparing a family of 9 estimates 
@@ -133,15 +133,15 @@ P value adjustment: tukey method for comparing a family of 9 estimates
 
 $HSM_F_Vieira_lmer_pop$letters
   Population   emmean       SE  df asymp.LCL asymp.UCL  cld
-1         AK 362.7389 5.728991 Inf  351.5103  373.9675    c
-2         GI 333.9964 6.529581 Inf  321.1986  346.7941  ab 
-3         KA 363.8725 6.033164 Inf  352.0477  375.6972    c
-4         MA 372.4506 5.801569 Inf  361.0798  383.8215    c
-5         MU 331.9003 5.408092 Inf  321.3007  342.5000  a  
-6         RE 377.1472 6.573763 Inf  364.2629  390.0316    c
-7         UM 364.5627 5.828290 Inf  353.1395  375.9859    c
-8         VA 357.4190 5.517246 Inf  346.6054  368.2326   bc
-9         YE 362.1755 5.687305 Inf  351.0286  373.3224    c
+1         AK 362.7389 5.729001 Inf  351.5103  373.9675    c
+2         GI 333.9963 6.529588 Inf  321.1986  346.7941  ab 
+3         KA 363.8725 6.033176 Inf  352.0477  375.6973    c
+4         MA 372.4506 5.801591 Inf  361.0797  383.8215    c
+5         MU 331.9003 5.408113 Inf  321.3006  342.5000  a  
+6         RE 377.1472 6.573791 Inf  364.2628  390.0316    c
+7         UM 364.5627 5.828302 Inf  353.1394  375.9859    c
+8         VA 357.4190 5.517272 Inf  346.6054  368.2327   bc
+9         YE 362.1755 5.687329 Inf  351.0286  373.3225    c
 
 
 $HSM_M_Parsch_lmer_pop
@@ -280,9 +280,9 @@ P value adjustment: tukey method for comparing a family of 9 estimates
 $HSM_M_Vieira_lmer_pop$letters
   Population   emmean        SE  df asymp.LCL asymp.UCL  cld
 1         AK 343.5972  9.406691 Inf  325.1604  362.0340    c
-2         GI 277.1857 11.169259 Inf  255.2943  299.0770  a  
+2         GI 277.1857 11.169260 Inf  255.2943  299.0770  a  
 3         KA 326.7871  9.789421 Inf  307.6001  345.9740   bc
-4         MA 319.6049 10.244362 Inf  299.5263  339.6834  abc
+4         MA 319.6049 10.244363 Inf  299.5263  339.6834  abc
 5         MU 306.2019  9.869304 Inf  286.8585  325.5454  ab 
 6         RE 327.2210 11.897246 Inf  303.9028  350.5392  abc
 7         UM 314.5061  9.645607 Inf  295.6011  333.4112  abc

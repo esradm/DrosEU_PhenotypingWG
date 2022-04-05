@@ -20,7 +20,7 @@ Fixed effects:
              Estimate Std. Error       df t value Pr(>|t|)    
 (Intercept)   60.0334     0.9132  83.3744  65.740  < 2e-16 ***
 PopulationGI -17.0858     1.2783  80.0349 -13.366  < 2e-16 ***
-PopulationKA  -4.6088     1.2802  80.5099  -3.600 0.000548 ***
+PopulationKA  -4.6088     1.2802  80.5100  -3.600 0.000548 ***
 PopulationMA  -9.5139     1.2873  82.3008  -7.390 1.09e-10 ***
 PopulationMU  -2.6133     1.2894  82.8120  -2.027 0.045911 *  
 PopulationRE -14.4260     1.2849  81.6893 -11.228  < 2e-16 ***

@@ -48,10 +48,10 @@ $contrasts
  MU - YE   -30.275 7.85 Inf  -3.858  0.0037
  RE - UM    12.585 8.78 Inf   1.433  0.8855
  RE - VA    19.728 8.58 Inf   2.299  0.3427
- RE - YE    14.972 8.69 Inf   1.722  0.7328
+ RE - YE    14.972 8.69 Inf   1.722  0.7329
  UM - VA     7.144 8.03 Inf   0.890  0.9935
  UM - YE     2.387 8.14 Inf   0.293  1.0000
- VA - YE    -4.757 7.68 Inf  -0.619  0.9995
+ VA - YE    -4.756 7.68 Inf  -0.619  0.9995
 
 Degrees-of-freedom method: asymptotic 
 P value adjustment: tukey method for comparing a family of 9 estimates 
@@ -59,13 +59,13 @@ P value adjustment: tukey method for comparing a family of 9 estimates
 
 $letters
   Population   emmean       SE  df asymp.LCL asymp.UCL  cld
-1         AK 362.7389 5.728991 Inf  351.5103  373.9675    c
-2         GI 333.9964 6.529581 Inf  321.1986  346.7941  ab 
-3         KA 363.8725 6.033164 Inf  352.0477  375.6972    c
-4         MA 372.4506 5.801569 Inf  361.0798  383.8215    c
-5         MU 331.9003 5.408092 Inf  321.3007  342.5000  a  
-6         RE 377.1472 6.573763 Inf  364.2629  390.0316    c
-7         UM 364.5627 5.828290 Inf  353.1395  375.9859    c
-8         VA 357.4190 5.517246 Inf  346.6054  368.2326   bc
-9         YE 362.1755 5.687305 Inf  351.0286  373.3224    c
+1         AK 362.7389 5.729001 Inf  351.5103  373.9675    c
+2         GI 333.9963 6.529588 Inf  321.1986  346.7941  ab 
+3         KA 363.8725 6.033176 Inf  352.0477  375.6973    c
+4         MA 372.4506 5.801591 Inf  361.0797  383.8215    c
+5         MU 331.9003 5.408113 Inf  321.3006  342.5000  a  
+6         RE 377.1472 6.573791 Inf  364.2628  390.0316    c
+7         UM 364.5627 5.828302 Inf  353.1394  375.9859    c
+8         VA 357.4190 5.517272 Inf  346.6054  368.2327   bc
+9         YE 362.1755 5.687329 Inf  351.0286  373.3225    c
 

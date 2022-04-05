@@ -72,6 +72,9 @@ combineEst3 <- function(x) {
       mutate(Trait = info[1], Lab = info[length(info)-2], Sex = info[length(info)-3]) %>%
       relocate(Trait, Lab, Sex) 
     if (!unique(x[[i]]$Sex) %in% c("F", "M")) x[[i]]$Sex <- "NA" 
+    if (length(unique(x[[i]]$Trait)) == 1 & unique(x[[i]]$Trait) %in% c("Dia", "Fec")) x[[i]]$Sex <- "F"
+    if (length(unique(x[[i]]$Trait)) == 1 & grepl("Pgm", unique(x[[i]]$Trait))) x[[i]]$Sex <- "F"
+    if (length(unique(x[[i]]$Trait)) == 1 & unique(x[[i]]$Trait) %in% c("LA")) x[[i]]$Sex <- "M"
   } 
   bind_rows(x) }
 

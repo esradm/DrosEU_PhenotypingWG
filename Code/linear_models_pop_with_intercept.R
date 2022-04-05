@@ -24,7 +24,6 @@ setwd("~/Work/UNIFR/GitHub/DrosEU_PhenotypingWG/")
 
 ##### source functions
 source("Functions/lab_correlations_functions.R")
-source("Functions/meta_analysis_functions.R")
 
 ##### load data
 droseu <- readRDS("Data/droseu_master_list_2022-04-05.rds")
@@ -96,7 +95,7 @@ DT_lmers_pop$DT_P_Schmidt_lmer_pop <- lmer(DT_EggPupa ~ Population + (1|Populati
 # Gibert
 DT_lmers_pop$DT_A_F_Gibert_lmer_pop <- lmer(DT_EggAdult ~ Population + (1|Line:Population) + (1|Batch) + (1|ReplicateVial:Line), data = filter(droseu$dta, Supervisor.PI == "Gibert" & Sex == "F"))
 
-# Grath, Batch is removed. Singular fit: Line explains nothing, removed it
+# Grath, Batch and Line removed because of singular fit
 DT_lmers_pop$DT_A_F_Grath_lmer_pop <- lmer(DT_EggAdult ~ Population + (1|ReplicateVial:Line), data = filter(droseu$dta, Supervisor.PI == "Grath" & Sex == "F"))
 
 # Hoedjes
@@ -117,7 +116,7 @@ DT_lmers_pop$DT_A_F_Zwaan_lmer_pop <- lmer(DT_EggAdult ~ Population + (1|Line:Po
 # Gibert
 DT_lmers_pop$DT_A_M_Gibert_lmer_pop <- lmer(DT_EggAdult ~ Population + (1|Line:Population) + (1|Batch) + (1|ReplicateVial:Line), data = filter(droseu$dta, Supervisor.PI == "Gibert" & Sex == "M"))
 
-# Grath, Batch is removed. Singular fit: Line explains nothing, removed it
+# Grath, Batch and Line removed because of singular fit
 DT_lmers_pop$DT_A_M_Grath_lmer_pop <- lmer(DT_EggAdult ~ Population + (1|ReplicateVial:Line), data = filter(droseu$dta, Supervisor.PI == "Grath" & Sex == "M"))
 
 # Hoedjes
@@ -163,7 +162,7 @@ DW_lmers_pop$DW_F_Onder_lmer_pop <- lmer(DW_micrograms ~ Population + (1|Populat
 
 ## Males
 
-# Colinet, singular fit, removed batch
+# Colinet, singular fit, removed Batch
 DW_lmers_pop$DW_M_Colinet_lmer_pop <- lmer(DW_micrograms ~ Population + (1|Population:Line), data = filter(droseu$dw, Supervisor.PI == "Colinet" & Sex == "M"))
 
 # Hoedjes
@@ -195,8 +194,8 @@ TL_lmers_pop <- list()
 # Kozeretska
 TL_lmers_pop$TL_F_Kozeretska_lmer_pop <- lmer(TL_micrometers ~ Population + (1|Line:Population) + (1|Batch) + (1|ReplicateVial:Line), data = filter(droseu$tl, Supervisor.PI == 'Kozeretska' & Sex == "F"))
 
-# Posnien, Batch is removed
-TL_lmers_pop$TL_F_Posnien_lmer_pop <- lmer(TL_micrometers ~ Population + (1|Line:Population) + (1|ReplicateVial:Line), data = filter(droseu$tl, Supervisor.PI == 'Posnien' & Sex == "F"))
+# Posnien, Batch and Rep removed
+TL_lmers_pop$TL_F_Posnien_lmer_pop <- lmer(TL_micrometers ~ Population + (1|Line:Population), data = filter(droseu$tl, Supervisor.PI == 'Posnien' & Sex == "F"))
 
 # Ritchie
 TL_lmers_pop$TL_F_Ritchie_lmer_pop <- lmer(TL_micrometers ~ Population + (1|Line:Population) + (1|Batch) + (1|ReplicateVial:Line), data = filter(droseu$tl, Supervisor.PI == 'Ritchie' & Sex == "F"))
@@ -239,58 +238,58 @@ WA_lmers_pop <- list()
 # Onder
 WA_lmers_pop$WA_L_F_Onder_lmer_pop <- lmer(CentroidSizeLeft_micrometers ~ Population + (1|Line:Population) + (1|Batch) + (1|ReplicateVial:Line), data = filter(droseu$wa, Supervisor.PI == "Onder" & Sex == "F"))
 
-# Posnien, does not converge, removed Rep, no more warnings, same output as when "does not converge". Also, no Batch
+# Posnien, removed Batch and Rep
 WA_lmers_pop$WA_L_F_Posnien_lmer_pop <- lmer(CentroidSizeLeft_micrometers ~ Population + (1|Line:Population), data = filter(droseu$wa, Supervisor.PI == "Posnien" & Sex == "F"))
 
 # Ritchie
 WA_lmers_pop$WA_L_F_Ritchie_lmer_pop <- lmer(CentroidSizeLeft_micrometers ~ Population + (1|Line:Population) + (1|Batch) + (1|ReplicateVial:Line:Population), data = filter(droseu$wa, Supervisor.PI == "Ritchie" & Sex == "F"))
 
-# StamenkovicRadak, singular fit warning, removed Batch. Nearly unidentifiable model, removed Rep, no more warnings, same output as when "nearly unidentifiable".
+# StamenkovicRadak, warning nearly unidentifiable model, removed Rep because it explains the least, no more warnings, same output as when "nearly unidentifiable"
 WA_lmers_pop$WA_L_F_StamenkovicRadak_lmer_pop <- lmer(CentroidSizeLeft_micrometers ~ Population + (1|Line:Population), data = filter(droseu$wa, Supervisor.PI == "StamenkovicRadak" & Sex == "F"))
 
 
 ## Males left
 
-# Onder
-WA_lmers_pop$WA_L_M_Onder_lmer_pop <- lmer(CentroidSizeLeft_micrometers ~ Population + (1|Line:Population) + (1|Batch) + (1|ReplicateVial:Line:Population), data = filter(droseu$wa, Supervisor.PI == "Onder" & Sex == "M"))
+# Onder, failed to converge, removing Batch or Rep fixes it. Removed batch as it is the variable that explains the least
+WA_lmers_pop$WA_L_M_Onder_lmer_pop <- lmer(CentroidSizeLeft_micrometers ~ Population + (1|Line:Population) + (1|ReplicateVial:Line:Population), data = filter(droseu$wa, Supervisor.PI == "Onder" & Sex == "M"))
 
-# Posnien, warning nearly unidentifiable model, removed Rep, no more warnings, same output as when "nearly unidentifiable". Also, no Batch
+# Posnien, removed Batch and Rep
 WA_lmers_pop$WA_L_M_Posnien_lmer_pop <- lmer(CentroidSizeLeft_micrometers ~ Population + (1|Line:Population), data = filter(droseu$wa, Supervisor.PI == "Posnien" & Sex == "M"))
 
 # Ritchie
 WA_lmers_pop$WA_L_M_Ritchie_lmer_pop <- lmer(CentroidSizeLeft_micrometers ~ Population + (1|Line:Population) + (1|Batch) + (1|ReplicateVial:Line:Population), data = filter(droseu$wa, Supervisor.PI == "Ritchie" & Sex == "M"))
 
-# StamenkovicRadak, warning nearly unidentifiable model, removed Rep, no more warnings, same output as when "nearly unidentifiable"
+# StamenkovicRadak, warning nearly unidentifiable model, removed Rep because it explains the least, no more warnings, same output as when "nearly unidentifiable"
 WA_lmers_pop$WA_L_M_StamenkovicRadak_lmer_pop <- lmer(CentroidSizeLeft_micrometers ~ Population + (1|Line:Population) + (1|Batch), data = filter(droseu$wa, Supervisor.PI == "StamenkovicRadak" & Sex == "M"))
 
 
 ## Females right
 
 # Onder
-WA_lmers_pop$WA_R_F_Onder_lmer_pop <- lmer(CentroidSizeRight_micrometers ~ Population + (1|Line:Population) + (1|Batch) + (1|ReplicateVial:Line), data = filter(droseu$wa, Supervisor.PI == "Onder" & Sex == "F"))
+WA_lmers_pop$WA_R_F_Onder_lmer_pop <- lmer(CentroidSizeRight_micrometers ~ Population + (1|Line:Population) + (1|Batch) + (1|ReplicateVial:Line:Population), data = filter(droseu$wa, Supervisor.PI == "Onder" & Sex == "F"))
 
-# Posnien, does not converge, removed Rep, no more warnings, same output as when "does not converge". Also, no Batch
+# Posnien, removed Batch and Rep
 WA_lmers_pop$WA_R_F_Posnien_lmer_pop <- lmer(CentroidSizeRight_micrometers ~ Population + (1|Line:Population), data = filter(droseu$wa, Supervisor.PI == "Posnien" & Sex == "F"))
 
 # Ritchie
 WA_lmers_pop$WA_R_F_Ritchie_lmer_pop <- lmer(CentroidSizeRight_micrometers ~ Population + (1|Line:Population) + (1|Batch) + (1|ReplicateVial:Line), data = filter(droseu$wa, Supervisor.PI == "Ritchie" & Sex == "F"))
 
-# StamenkovicRadak, singular fit warning, removed Batch. Failed to converge, removed Rep, no more warnings, same output as when "does not converge"
+# StamenkovicRadak, warning nearly unidentifiable model, removed Rep because it explains the least, no more warnings, same output as when "nearly unidentifiable"
 WA_lmers_pop$WA_R_F_StamenkovicRadak_lmer_pop <- lmer(CentroidSizeRight_micrometers ~ Population + (1|Line:Population), data = filter(droseu$wa, Supervisor.PI == "StamenkovicRadak" & Sex == "F"))
 
 
 ## Males right
 
-# Onder, failed to converge, removing Batch or Rep fixes it. removed batch as it is the variable that explains the least
+# Onder, failed to converge, removing Batch or Rep fixes it. Removed Batch as it is the variable that explains the least
 WA_lmers_pop$WA_R_M_Onder_lmer_pop <- lmer(CentroidSizeRight_micrometers ~ Population + (1|Line:Population) + (1|ReplicateVial:Line), data = filter(droseu$wa, Supervisor.PI == "Onder" & Sex == "M"))
 
-# Posnien, does not converge, removed Rep, no more warnings, same output as when "does not converge". Also, no Batch
+# Posnien, removed Batch and Rep
 WA_lmers_pop$WA_R_M_Posnien_lmer_pop <- lmer(CentroidSizeRight_micrometers ~ Population + (1|Line:Population), data = filter(droseu$wa, Supervisor.PI == "Posnien" & Sex == "M"))
 
 # Ritchie
 WA_lmers_pop$WA_R_M_Ritchie_lmer_pop <- lmer(CentroidSizeRight_micrometers ~ Population + (1|Line:Population) + (1|Batch) + (1|ReplicateVial:Line:Population), data = filter(droseu$wa, Supervisor.PI == "Ritchie" & Sex == "M"))
 
-# StamenkovicRadak, singular fit, removed Batch. Does not converge, removed Rep, no more warnings, same output as when "does not converge"
+# StamenkovicRadak, warning nearly unidentifiable model, removed Rep because it explains the least, no more warnings, same output as when "nearly unidentifiable"
 WA_lmers_pop$WA_R_M_StamenkovicRadak_lmer_pop <- lmer(CentroidSizeRight_micrometers ~ Population + (1|Line:Population), data = filter(droseu$wa, Supervisor.PI == "StamenkovicRadak" & Sex == "M"))
 
 
@@ -344,8 +343,8 @@ LS_lmers_pop$LS_F_Flatt_lmer_pop <- lmer(LSP_AgeAtDeath_days ~ Population + (1|P
 # Parsch
 LS_lmers_pop$LS_F_Parsch_lmer_pop <- lmer(LSL_AgeAtDeath_days ~ Population + (1|Batch) + (1|Population:Line) + (1|Line:ReplicateVial), data = filter(droseu$lsl, Censor == "0" & Supervisor.PI == "Parsch" & Sex == "F"))
 
-# Pasyukova
-LS_lmers_pop$LS_F_Pasyukova_lmer_pop <- lmer(LSL_AgeAtDeath_days ~ Population + (1|Batch) + (1|Population:Line) + (1|Line:ReplicateVial), data = filter(droseu$lsl, Censor == "0" & Supervisor.PI == "Pasyukova" & Sex == "F"))
+# Pasyukova, failed to converge, removed Batch as it explains the least, same output as when does not converge
+LS_lmers_pop$LS_F_Pasyukova_lmer_pop <- lmer(LSL_AgeAtDeath_days ~ Population + (1|Population:Line) + (1|Line:ReplicateVial), data = filter(droseu$lsl, Censor == "0" & Supervisor.PI == "Pasyukova" & Sex == "F"))
 
 
 ## Males
@@ -356,7 +355,7 @@ LS_lmers_pop$LS_M_Flatt_lmer_pop <- lmer(LSP_AgeAtDeath_days ~ Population + (1|P
 # Parsch
 LS_lmers_pop$LS_M_Parsch_lmer_pop <- lmer(LSL_AgeAtDeath_days ~ Population + (1|Batch) + (1|Population:Line) + (1|Line:ReplicateVial), data = filter(droseu$lsl, Censor == "0" & Supervisor.PI == "Parsch" & Sex == "M"))
 
-# Pasyukova, failed to coverge, removed Batch as it explains the least, same output as when does not converge
+# Pasyukova, failed to converge, removed Batch as it explains the least, same output as when does not converge
 LS_lmers_pop$LS_M_Pasyukova_lmer_pop <- lmer(LSL_AgeAtDeath_days ~ Population + (1|Population:Line) + (1|Line:ReplicateVial), data = filter(droseu$lsl, Censor == "0" & Supervisor.PI == "Pasyukova" & Sex == "M"))
 
 
@@ -606,13 +605,13 @@ Pgm_lmers_pop$Pgm_Total_Gibert_lmer_pop <- lmer(TotalPerc_asin ~ Population + (1
 
 
 # Schmidt
-Pgm_lmers_pop$Pgm_T8_Schmidt_lmer_pop <- lmer(PgmT8 ~ Population + (1|Line:Population), data = filter(droseu$pgm2, Supervisor.PI == "Schmidt"))
+Pgm_lmers_pop$Pgm_T5_Schmidt_lmer_pop <- lmer(ScoreT5 ~ Population + (1|Line:Population), data = filter(droseu$pgm2, Supervisor.PI == "Schmidt"))
 
-Pgm_lmers_pop$Pgm_T9_Schmidt_lmer_pop <- lmer(PgmT9 ~ Population + (1|Line:Population), data = filter(droseu$pgm2, Supervisor.PI == "Schmidt"))
+Pgm_lmers_pop$Pgm_T6_Schmidt_lmer_pop <- lmer(ScoreT6 ~ Population + (1|Line:Population), data = filter(droseu$pgm2, Supervisor.PI == "Schmidt"))
 
-Pgm_lmers_pop$Pgm_T10_Schmidt_lmer_pop <- lmer(PgmT10 ~ Population + (1|Line:Population), data = filter(droseu$pgm2, Supervisor.PI == "Schmidt"))
+Pgm_lmers_pop$Pgm_T7_Schmidt_lmer_pop <- lmer(ScoreT7 ~ Population + (1|Line:Population), data = filter(droseu$pgm2, Supervisor.PI == "Schmidt"))
 
-Pgm_lmers_pop$Pgm_Total_Schmidt_lmer_pop <- lmer(TotalPgm ~ Population + (1|Line:Population), data = filter(droseu$pgm2, Supervisor.PI == "Schmidt"))
+Pgm_lmers_pop$Pgm_Total_Schmidt_lmer_pop <- lmer(TotalScore ~ Population + (1|Line:Population), data = filter(droseu$pgm2, Supervisor.PI == "Schmidt"))
 
 
 # save output list
@@ -732,6 +731,7 @@ for (i in 1:length(lmers)){
 
 ############# ouput all lmers summaries, anovas and tukeys by trait and lab ############# 
 
+lmers <- list.files(path = "LinearModelsPop", recursive = T, full.names = T, pattern = "lmers_pop.rds")
 
 for (i in 1:length(lmers)){
   f <- lmers[i]
@@ -762,8 +762,9 @@ for (i in 1:length(lmers)){
 }
 
 
-############# ouput all models estimates ############# 
+############# ouput all models estimates as a global list ############# 
 
+lmers <- list.files(path = "LinearModelsPop", recursive = T, full.names = T, pattern = "lmers_pop.rds")
 
 all_model_estimates <- list()
 for (i in 1:length(lmers)){
@@ -776,10 +777,12 @@ for (i in 1:length(lmers)){
   all_model_estimates[[i]] <- combineEst3(e)
   names(all_model_estimates)[i] <- n
 }
-saveRDS(all_model_estimates, file = "LinearModelsPop/all_model_estimates.rds")
+saveRDS(all_model_estimates, file = "LinearModelsPop/all_lmers_list_pop_estimates.rds")
 
 
-##### by trait
+############# ouput all models estimates by trait ############# 
+
+lmers <- list.files(path = "LinearModelsPop", recursive = T, full.names = T, pattern = "lmers_pop.rds")
 
 for (i in 1:length(lmers)){
   f <- lmers[i]

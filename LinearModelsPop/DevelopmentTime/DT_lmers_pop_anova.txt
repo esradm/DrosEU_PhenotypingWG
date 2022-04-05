@@ -8,7 +8,7 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 $DT_A_F_Gibert_lmer_pop
 Type III Analysis of Variance Table with Satterthwaite's method
            Sum Sq Mean Sq NumDF  DenDF F value    Pr(>F)    
-Population 2839.2  354.91     8 157.72  3.7807 0.0004402 ***
+Population 2839.4  354.93     8 157.74  3.7809 0.0004399 ***
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
@@ -41,14 +41,14 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 $DT_A_F_Zwaan_lmer_pop
 Type III Analysis of Variance Table with Satterthwaite's method
            Sum Sq Mean Sq NumDF  DenDF F value  Pr(>F)  
-Population 1778.2  222.28     8 161.19  1.9921 0.05051 .
+Population 1778.2  222.28     8 161.19  1.9922 0.05051 .
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 $DT_A_M_Gibert_lmer_pop
 Type III Analysis of Variance Table with Satterthwaite's method
            Sum Sq Mean Sq NumDF  DenDF F value   Pr(>F)   
-Population 2526.5  315.81     8 155.06  2.9618 0.004118 **
+Population 2526.4   315.8     8 155.05  2.9617 0.004119 **
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 

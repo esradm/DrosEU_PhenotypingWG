@@ -6,6 +6,7 @@ setwd("~/Work/UNIFR/GitHub/DrosEU_PhenotypingWG/Data")
 
 library(tidyverse)
 library(nortest)
+library(MetBrewer)
 
 ##### define functions
 
@@ -69,6 +70,12 @@ for (i in 1:length(droseu)) {
 
 ##### fix read.csv behavior when Sex is F only, typically in pigmentation data
 
+# female only traits: dia, pgm, pgm2, fec
+# male only traits: la
+# mixed sex traits: cet, dtp, via
+
+droseu$dia$Sex <- sub("FALSE", "F", droseu$dia$Sex)
+droseu$fec$Sex <- sub("FALSE", "F", droseu$fec$Sex)
 droseu$pgm$Sex <- sub("FALSE", "F", droseu$pgm$Sex)
 droseu$pgm2$Sex <- sub("FALSE", "F", droseu$pgm2$Sex)
 
@@ -90,9 +97,9 @@ droseu$dia <- droseu$dia %>%
  
 
 ##### define all the trait variables
-# what are PSS tergites?
 
-var_list <- c("CCRT_seconds", "ZT_hours_MESA", "ZT_hours_LSPR", "Period_MESA", "Period_LSPR", "Rhythmicity_LSPR_amplitude", "Rhythmicity_JTK_p_BH_corrected", "CSM_PropDead_ED", "Prop_Max_Stage7", "Prop_Max_Stage8", "Prop_Max_Stage9", "DT_EggAdult", "DT_EggPupa", "DW_micrograms", "NumberOfAdultsEclosed", "TimeDeath_min", "Period", "CircPhase", "AbsPhase", "ND", "Activity", "LSL_AgeAtDeath_days", "LSM_AgeAtDeath_days", "LSP_AgeAtDeath_days", "PercT4", "PercT5", "PercT6", "TotalPerc", "PgmT8", "PgmT9", "PgmT10", "TotalPgm", "AgeAtDeath_hours", "TL_micrometers", "ProportionEggtoAdultSurvival", "CentroidSizeLeft_micrometers", "CentroidSizeRight_micrometers")
+
+var_list <- c("CCRT_seconds", "ZT_hours_MESA", "ZT_hours_LSPR", "Period_MESA", "Period_LSPR", "Rhythmicity_LSPR_amplitude", "Rhythmicity_JTK_p_BH_corrected", "CSM_PropDead_ED", "Prop_Max_Stage7", "Prop_Max_Stage8", "Prop_Max_Stage9", "DT_EggAdult", "DT_EggPupa", "DW_micrograms", "NumberOfAdultsEclosed", "TimeDeath_min", "Period", "CircPhase", "AbsPhase", "ND", "Activity", "LSL_AgeAtDeath_days", "LSM_AgeAtDeath_days", "LSP_AgeAtDeath_days", "PercT4", "PercT5", "PercT6", "TotalPerc", "ScoreT5", "ScoreT6", "ScoreT7", "TotalScore", "AgeAtDeath_hours", "TL_micrometers", "ProportionEggtoAdultSurvival", "CentroidSizeLeft_micrometers", "CentroidSizeRight_micrometers")
 
 ##### turn all trait variables to numeric
 
@@ -200,13 +207,17 @@ var_list_up <- c(var_list, "CSM_PropDead_ED_asin", "Prop_Max_Stage7_asin", "Prop
 # optional, but would ensure uniform colors for populations
 # colors to be defined
 
-col_plot <- data.frame(Population = as.factor(c("AK", "GI", "KA", "MA", "MU", "RE", "UM", "VA", "YE")), Color = c("#a6cee3", "#fdbf6f", "#b2df8a", "#fb9a99", "#e31a1c", "#ff7f00", "#33a02c", "#1f78b4", "#cab2d6"))
 
-#['#d73027','#f46d43','#fdae61','#fee090','#ffffbf','#e0f3f8','#abd9e9','#74add1','#4575b4']
 
+col2hex <- function(cname) {
+  colMat <- col2rgb(cname)
+  rgb(red=colMat[1,]/255, green=colMat[2,]/255, blue=colMat[3,]/255)}
+
+
+col_plot <- data.frame(Population = as.factor(c("AK", "GI", "KA", "MA", "MU", "RE", "UM", "VA", "YE")), Color = col2hex(met.brewer("Johnson", 9)))
 
 droseu <- lapply(droseu, inner_join, col_plot)
-droseu <- lapply(droseu, arrange, Population_Lat)
+#droseu <- lapply(droseu, arrange, Population_Lat)
 
 
 ##### save the data
