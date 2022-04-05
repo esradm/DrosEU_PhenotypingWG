@@ -1,0 +1,180 @@
+$HSM_F_Parsch_lmer_pop
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: TimeDeath_min ~ Population + (1 | Line:Population) + (1 | Batch)
+   Data: filter(droseu$hsm, Censor == "0" & Supervisor.PI == "Parsch" &  
+    Sex == "F")
+
+REML criterion at convergence: 39308.5
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-4.9904 -0.5935  0.1317  0.6680  2.9181 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 2411     49.11   
+ Batch           (Intercept) 3662     60.51   
+ Residual                    6008     77.51   
+Number of obs: 3384, groups:  Line:Population, 133; Batch, 9
+
+Fixed effects:
+             Estimate Std. Error       df t value Pr(>|t|)    
+(Intercept)  394.1080    25.0877  17.5868  15.709 8.64e-12 ***
+PopulationGI -56.6034    20.0704 136.3060  -2.820 0.005515 ** 
+PopulationKA -24.4190    20.1169 136.0422  -1.214 0.226906    
+PopulationMA  27.8126    20.7791 142.1194   1.338 0.182873    
+PopulationMU   6.0355    19.9796 131.8722   0.302 0.763065    
+PopulationRE -70.8761    20.6894 149.0449  -3.426 0.000792 ***
+PopulationUM   0.9422    22.0588 180.8989   0.043 0.965978    
+PopulationVA  -9.1233    22.1012 183.0276  -0.413 0.680238    
+PopulationYE -81.9769    20.3008 140.3281  -4.038 8.83e-05 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+            (Intr) PpltGI PpltKA PpltMA PpltMU PpltRE PpltUM PpltVA
+PopulatinGI -0.428                                                 
+PopulatinKA -0.426  0.554                                          
+PopulatinMA -0.408  0.493  0.501                                   
+PopulatinMU -0.423  0.511  0.518  0.523                            
+PopulatinRE -0.445  0.519  0.518  0.498  0.515                     
+PopulatinUM -0.427  0.494  0.490  0.465  0.481  0.579              
+PopulatinVA -0.426  0.492  0.488  0.464  0.480  0.577  0.572       
+PopulatinYE -0.448  0.534  0.529  0.503  0.522  0.576  0.561  0.559
+
+$HSM_F_Vieira_lmer_pop
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: TimeDeath_min ~ Population + (1 | Line:Population) + (1 | Batch)
+   Data: filter(droseu$hsm, Censor == "0" & Supervisor.PI == "Vieira" &  
+    Sex == "F")
+
+REML criterion at convergence: 57881.5
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-6.2647 -0.5129  0.1397  0.7262  2.3668 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept)  433.75  20.827  
+ Batch           (Intercept)   17.84   4.223  
+ Residual                    3047.69  55.206  
+Number of obs: 5310, groups:  Line:Population, 168; Batch, 32
+
+Fixed effects:
+             Estimate Std. Error       df t value Pr(>|t|)    
+(Intercept)  362.7389     5.7290  72.7339  63.316  < 2e-16 ***
+PopulationGI -28.7425     8.5826 111.6207  -3.349 0.001107 ** 
+PopulationKA   1.1336     8.3189  72.8507   0.136 0.891988    
+PopulationMA   9.7117     8.1535  54.1028   1.191 0.238809    
+PopulationMU -30.8386     7.6764 111.6058  -4.017 0.000107 ***
+PopulationRE  14.4083     8.7198  49.0670   1.652 0.104847    
+PopulationUM   1.8238     8.1387  80.5808   0.224 0.823254    
+PopulationVA  -5.3199     7.9537  45.2136  -0.669 0.506985    
+PopulationYE  -0.5634     8.0726  49.4487  -0.070 0.944640    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+            (Intr) PpltGI PpltKA PpltMA PpltMU PpltRE PpltUM PpltVA
+PopulatinGI -0.649                                                 
+PopulatinKA -0.688  0.447                                          
+PopulatinMA -0.703  0.456  0.486                                   
+PopulatinMU -0.711  0.475  0.490  0.499                            
+PopulatinRE -0.657  0.427  0.456  0.462  0.467                     
+PopulatinUM -0.698  0.459  0.496  0.491  0.507  0.459              
+PopulatinVA -0.720  0.468  0.496  0.506  0.512  0.473  0.503       
+PopulatinYE -0.710  0.461  0.489  0.502  0.504  0.466  0.495  0.540
+
+$HSM_M_Parsch_lmer_pop
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: TimeDeath_min ~ Population + (1 | Line:Population) + (1 | Batch)
+   Data: filter(droseu$hsm, Censor == "0" & Supervisor.PI == "Parsch" &  
+    Sex == "M")
+
+REML criterion at convergence: 57794.9
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-5.2106 -0.6839  0.0461  0.6733  2.8035 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 4376     66.15   
+ Batch           (Intercept) 3268     57.17   
+ Residual                    4848     69.63   
+Number of obs: 5065, groups:  Line:Population, 135; Batch, 9
+
+Fixed effects:
+             Estimate Std. Error       df t value Pr(>|t|)    
+(Intercept)   382.380     25.995   25.149  14.710 7.34e-14 ***
+PopulationGI  -97.318     24.844  131.718  -3.917 0.000143 ***
+PopulationKA  -42.710     24.746  129.653  -1.726 0.086736 .  
+PopulationMA    5.031     24.687  128.410   0.204 0.838830    
+PopulationMU  -30.094     24.625  127.191  -1.222 0.223939    
+PopulationRE -119.245     25.215  139.083  -4.729 5.47e-06 ***
+PopulationUM  -13.127     25.684  149.157  -0.511 0.610032    
+PopulationVA  -29.298     25.675  148.962  -1.141 0.255655    
+PopulationYE -124.398     24.964  133.987  -4.983 1.90e-06 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+            (Intr) PpltGI PpltKA PpltMA PpltMU PpltRE PpltUM PpltVA
+PopulatinGI -0.478                                                 
+PopulatinKA -0.478  0.508                                          
+PopulatinMA -0.474  0.492  0.497                                   
+PopulatinMU -0.476  0.493  0.498  0.504                            
+PopulatinRE -0.487  0.494  0.494  0.490  0.492                     
+PopulatinUM -0.484  0.488  0.487  0.481  0.482  0.533              
+PopulatinVA -0.484  0.488  0.487  0.481  0.482  0.533  0.540       
+PopulatinYE -0.488  0.500  0.499  0.493  0.494  0.521  0.522  0.522
+
+$HSM_M_Vieira_lmer_pop
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: TimeDeath_min ~ Population + (1 | Line:Population) + (1 | Batch)
+   Data: filter(droseu$hsm, Censor == "0" & Supervisor.PI == "Vieira" &  
+    Sex == "M")
+
+REML criterion at convergence: 95195.7
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-5.8393 -0.6019  0.0454  0.6858  2.7930 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 1002.0   31.65   
+ Batch           (Intercept)  260.4   16.14   
+ Residual                    2979.0   54.58   
+Number of obs: 8743, groups:  Line:Population, 168; Batch, 32
+
+Fixed effects:
+             Estimate Std. Error      df t value Pr(>|t|)    
+(Intercept)   343.597      9.407  61.170  36.527  < 2e-16 ***
+PopulationGI  -66.412     13.504 130.651  -4.918 2.58e-06 ***
+PopulationKA  -16.810     13.520  60.216  -1.243  0.21856    
+PopulationMA  -23.992     13.906  46.304  -1.725  0.09114 .  
+PopulationMU  -37.395     11.948 145.444  -3.130  0.00211 ** 
+PopulationRE  -16.376     15.164  39.338  -1.080  0.28674    
+PopulationUM  -29.091     12.987  89.371  -2.240  0.02757 *  
+PopulationVA  -23.582     14.048  45.588  -1.679  0.10007    
+PopulationYE  -18.602     14.066  47.091  -1.322  0.19239    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+            (Intr) PpltGI PpltKA PpltMA PpltMU PpltRE PpltUM PpltVA
+PopulatinGI -0.575                                                 
+PopulatinKA -0.690  0.400                                          
+PopulatinMA -0.676  0.389  0.485                                   
+PopulatinMU -0.595  0.410  0.419  0.403                            
+PopulatinRE -0.620  0.357  0.455  0.420  0.370                     
+PopulatinUM -0.672  0.420  0.526  0.456  0.470  0.420              
+PopulatinVA -0.670  0.385  0.462  0.459  0.399  0.415  0.450       
+PopulatinYE -0.669  0.385  0.462  0.477  0.398  0.415  0.449  0.591
+

@@ -1,0 +1,318 @@
+$TL_F_Kozeretska_lmer_pop
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: 
+TL_micrometers ~ Population + (1 | Line:Population) + (1 | Batch) +  
+    (1 | ReplicateVial:Line)
+   Data: filter(droseu$tl, Supervisor.PI == "Kozeretska" & Sex == "F")
+
+REML criterion at convergence: 51045.4
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-4.4816 -0.6029  0.0635  0.6779  3.5476 
+
+Random effects:
+ Groups             Name        Variance Std.Dev.
+ ReplicateVial:Line (Intercept)  948.80  30.803  
+ Line:Population    (Intercept)  768.83  27.728  
+ Batch              (Intercept)   16.11   4.014  
+ Residual                       2100.14  45.827  
+Number of obs: 4810, groups:  
+ReplicateVial:Line, 241; Line:Population, 130; Batch, 2
+
+Fixed effects:
+             Estimate Std. Error      df t value Pr(>|t|)    
+(Intercept)   936.544      8.986  32.435 104.223   <2e-16 ***
+PopulationGI   -1.508     15.049 123.353  -0.100   0.9204    
+PopulationKA  -24.921     13.441 116.126  -1.854   0.0663 .  
+PopulationMA   27.752     12.426 123.675   2.233   0.0273 *  
+PopulationMU    6.347     12.310 120.143   0.516   0.6071    
+PopulationRE   25.851     13.643 121.381   1.895   0.0605 .  
+PopulationUM    4.918     13.538 118.603   0.363   0.7171    
+PopulationVA   21.821     11.915 118.745   1.831   0.0695 .  
+PopulationYE   13.870     13.395 123.600   1.036   0.3024    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+            (Intr) PpltGI PpltKA PpltMA PpltMU PpltRE PpltUM PpltVA
+PopulatinGI -0.537                                                 
+PopulatinKA -0.602  0.359                                          
+PopulatinMA -0.650  0.388  0.435                                   
+PopulatinMU -0.657  0.392  0.439  0.475                            
+PopulatinRE -0.593  0.354  0.396  0.428  0.433                     
+PopulatinUM -0.597  0.356  0.399  0.432  0.436  0.393              
+PopulatinVA -0.679  0.405  0.454  0.490  0.495  0.447  0.450       
+PopulatinYE -0.603  0.360  0.403  0.436  0.440  0.397  0.400  0.455
+
+$TL_F_Posnien_lmer_pop
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: 
+TL_micrometers ~ Population + (1 | Line:Population) + (1 | ReplicateVial:Line)
+   Data: filter(droseu$tl, Supervisor.PI == "Posnien" & Sex == "F")
+
+REML criterion at convergence: 2722.8
+
+Scaled residuals: 
+     Min       1Q   Median       3Q      Max 
+-2.86894 -0.60033  0.05782  0.63035  2.78455 
+
+Random effects:
+ Groups             Name        Variance Std.Dev.
+ Line:Population    (Intercept)  542.6   23.29   
+ ReplicateVial:Line (Intercept)  463.9   21.54   
+ Residual                       1537.3   39.21   
+Number of obs: 270, groups:  Line:Population, 27; ReplicateVial:Line, 27
+
+Fixed effects:
+             Estimate Std. Error      df t value Pr(>|t|)    
+(Intercept)   880.664     19.666  18.000  44.782   <2e-16 ***
+PopulationGI   63.713     27.811  18.000   2.291   0.0343 *  
+PopulationKA   47.941     27.811  18.000   1.724   0.1019    
+PopulationMA    1.333     27.811  18.000   0.048   0.9623    
+PopulationMU  -14.433     27.811  18.000  -0.519   0.6101    
+PopulationRE   22.108     27.811  18.000   0.795   0.4370    
+PopulationUM   27.766     27.811  18.000   0.998   0.3313    
+PopulationVA   17.765     27.811  18.000   0.639   0.5310    
+PopulationYE   61.181     27.811  18.000   2.200   0.0411 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+            (Intr) PpltGI PpltKA PpltMA PpltMU PpltRE PpltUM PpltVA
+PopulatinGI -0.707                                                 
+PopulatinKA -0.707  0.500                                          
+PopulatinMA -0.707  0.500  0.500                                   
+PopulatinMU -0.707  0.500  0.500  0.500                            
+PopulatinRE -0.707  0.500  0.500  0.500  0.500                     
+PopulatinUM -0.707  0.500  0.500  0.500  0.500  0.500              
+PopulatinVA -0.707  0.500  0.500  0.500  0.500  0.500  0.500       
+PopulatinYE -0.707  0.500  0.500  0.500  0.500  0.500  0.500  0.500
+optimizer (nloptwrap) convergence code: 0 (OK)
+Model is nearly unidentifiable: large eigenvalue ratio
+ - Rescale variables?
+
+
+$TL_F_Ritchie_lmer_pop
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: 
+TL_micrometers ~ Population + (1 | Line:Population) + (1 | Batch) +  
+    (1 | ReplicateVial:Line)
+   Data: filter(droseu$tl, Supervisor.PI == "Ritchie" & Sex == "F")
+
+REML criterion at convergence: 15182.8
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-2.0574 -0.1166  0.0089  0.1086 31.1526 
+
+Random effects:
+ Groups             Name        Variance Std.Dev.
+ ReplicateVial:Line (Intercept)  6554     80.96  
+ Line:Population    (Intercept)     0      0.00  
+ Batch              (Intercept)     0      0.00  
+ Residual                       72369    269.02  
+Number of obs: 1082, groups:  
+ReplicateVial:Line, 78; Line:Population, 26; Batch, 12
+
+Fixed effects:
+             Estimate Std. Error      df t value Pr(>|t|)    
+(Intercept)   1015.07      31.77   63.24  31.947   <2e-16 ***
+PopulationGI   -54.96      42.42   62.17  -1.296    0.200    
+PopulationKA   -71.43      42.39   61.82  -1.685    0.097 .  
+PopulationMA   -34.98      42.24   61.13  -0.828    0.411    
+PopulationMU   -38.91      53.99   58.91  -0.721    0.474    
+PopulationYE   -20.83      42.46   62.29  -0.491    0.625    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+            (Intr) PpltGI PpltKA PpltMA PpltMU
+PopulatinGI -0.749                            
+PopulatinKA -0.749  0.561                     
+PopulatinMA -0.752  0.563  0.564              
+PopulatinMU -0.588  0.441  0.441  0.443       
+PopulatinYE -0.748  0.560  0.561  0.563  0.440
+optimizer (nloptwrap) convergence code: 0 (OK)
+boundary (singular) fit: see ?isSingular
+
+
+$TL_F_Schmidt_lmer_pop
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: TL_micrometers ~ Population + (1 | Line:Population)
+   Data: filter(droseu$tl, Supervisor.PI == "Schmidt" & Sex == "F")
+
+REML criterion at convergence: 15278.8
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-8.8431 -0.5418  0.0956  0.6004  2.7028 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept)  436.8   20.90   
+ Residual                    1261.1   35.51   
+Number of obs: 1514, groups:  Line:Population, 157
+
+Fixed effects:
+             Estimate Std. Error      df t value Pr(>|t|)    
+(Intercept)   995.047      5.305 143.475 187.553  < 2e-16 ***
+PopulationGI   26.903      8.516 147.382   3.159  0.00192 ** 
+PopulationKA   10.337      7.599 143.310   1.360  0.17587    
+PopulationMA   19.845      7.632 145.365   2.600  0.01028 *  
+PopulationMU    9.724      7.512 144.073   1.295  0.19756    
+PopulationRE   41.671      8.349 148.572   4.991 1.66e-06 ***
+PopulationUM   16.035      8.124 144.736   1.974  0.05032 .  
+PopulationVA   17.287      7.834 143.937   2.207  0.02891 *  
+PopulationYE   14.839      7.547 146.651   1.966  0.05116 .  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+            (Intr) PpltGI PpltKA PpltMA PpltMU PpltRE PpltUM PpltVA
+PopulatinGI -0.623                                                 
+PopulatinKA -0.698  0.435                                          
+PopulatinMA -0.695  0.433  0.485                                   
+PopulatinMU -0.706  0.440  0.493  0.491                            
+PopulatinRE -0.635  0.396  0.444  0.442  0.449                     
+PopulatinUM -0.653  0.407  0.456  0.454  0.461  0.415              
+PopulatinVA -0.677  0.422  0.473  0.471  0.478  0.430  0.442       
+PopulatinYE -0.703  0.438  0.491  0.489  0.497  0.447  0.459  0.476
+
+$TL_M_Kozeretska_lmer_pop
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: 
+TL_micrometers ~ Population + (1 | Line:Population) + (1 | Batch) +  
+    (1 | ReplicateVial:Line)
+   Data: filter(droseu$tl, Supervisor.PI == "Kozeretska" & Sex == "M")
+
+REML criterion at convergence: 50338.6
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-4.8281 -0.5822  0.0434  0.6572  7.9545 
+
+Random effects:
+ Groups             Name        Variance Std.Dev.
+ ReplicateVial:Line (Intercept)  902.2   30.036  
+ Line:Population    (Intercept)  672.5   25.932  
+ Batch              (Intercept)   11.1    3.331  
+ Residual                       1819.0   42.650  
+Number of obs: 4807, groups:  
+ReplicateVial:Line, 241; Line:Population, 130; Batch, 2
+
+Fixed effects:
+             Estimate Std. Error      df t value Pr(>|t|)    
+(Intercept)   835.238      8.441  38.685  98.946   <2e-16 ***
+PopulationGI   -4.009     14.309 124.267  -0.280   0.7798    
+PopulationKA  -22.734     12.772 116.895  -1.780   0.0777 .  
+PopulationMA   27.562     11.816 124.618   2.333   0.0213 *  
+PopulationMU    2.935     11.702 120.988   0.251   0.8024    
+PopulationRE   24.606     12.970 122.246   1.897   0.0602 .  
+PopulationUM    3.491     12.868 119.418   0.271   0.7866    
+PopulationVA   23.225     11.325 119.577   2.051   0.0425 *  
+PopulationYE   10.507     12.736 124.519   0.825   0.4110    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+            (Intr) PpltGI PpltKA PpltMA PpltMU PpltRE PpltUM PpltVA
+PopulatinGI -0.543                                                 
+PopulatinKA -0.609  0.359                                          
+PopulatinMA -0.658  0.388  0.435                                   
+PopulatinMU -0.665  0.392  0.439  0.475                            
+PopulatinRE -0.600  0.354  0.397  0.428  0.433                     
+PopulatinUM -0.605  0.357  0.400  0.432  0.436  0.394              
+PopulatinVA -0.687  0.405  0.454  0.491  0.496  0.447  0.451       
+PopulatinYE -0.611  0.360  0.404  0.436  0.440  0.397  0.401  0.455
+
+$TL_M_Posnien_lmer_pop
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: TL_micrometers ~ Population + (1 | Line:Population)
+   Data: filter(droseu$tl, Supervisor.PI == "Posnien" & Sex == "M")
+
+REML criterion at convergence: 2661.8
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.7213 -0.5390 -0.0356  0.5975  3.7202 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept)  814.9   28.55   
+ Residual                    1215.1   34.86   
+Number of obs: 270, groups:  Line:Population, 27
+
+Fixed effects:
+             Estimate Std. Error      df t value Pr(>|t|)    
+(Intercept)   777.155     17.667  18.000  43.988   <2e-16 ***
+PopulationGI   64.073     24.986  18.000   2.564   0.0195 *  
+PopulationKA   46.404     24.986  18.000   1.857   0.0797 .  
+PopulationMA    8.276     24.986  18.000   0.331   0.7443    
+PopulationMU  -20.491     24.986  18.000  -0.820   0.4229    
+PopulationRE   25.437     24.986  18.000   1.018   0.3221    
+PopulationUM   44.733     24.986  18.000   1.790   0.0902 .  
+PopulationVA   19.513     24.986  18.000   0.781   0.4450    
+PopulationYE   42.405     24.986  18.000   1.697   0.1069    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+            (Intr) PpltGI PpltKA PpltMA PpltMU PpltRE PpltUM PpltVA
+PopulatinGI -0.707                                                 
+PopulatinKA -0.707  0.500                                          
+PopulatinMA -0.707  0.500  0.500                                   
+PopulatinMU -0.707  0.500  0.500  0.500                            
+PopulatinRE -0.707  0.500  0.500  0.500  0.500                     
+PopulatinUM -0.707  0.500  0.500  0.500  0.500  0.500              
+PopulatinVA -0.707  0.500  0.500  0.500  0.500  0.500  0.500       
+PopulatinYE -0.707  0.500  0.500  0.500  0.500  0.500  0.500  0.500
+
+$TL_M_Ritchie_lmer_pop
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: 
+TL_micrometers ~ Population + (1 | Line:Population) + (1 | Batch) +  
+    (1 | ReplicateVial:Line)
+   Data: filter(droseu$tl, Supervisor.PI == "Ritchie" & Sex == "M")
+
+REML criterion at convergence: 11495.3
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-8.4090 -0.4487  0.0409  0.4847 14.8983 
+
+Random effects:
+ Groups             Name        Variance Std.Dev.
+ ReplicateVial:Line (Intercept) 1326     36.41   
+ Line:Population    (Intercept)  427     20.66   
+ Batch              (Intercept) 1269     35.62   
+ Residual                       3727     61.05   
+Number of obs: 1029, groups:  
+ReplicateVial:Line, 78; Line:Population, 26; Batch, 12
+
+Fixed effects:
+             Estimate Std. Error      df t value Pr(>|t|)    
+(Intercept)   828.611     21.892  19.492  37.850   <2e-16 ***
+PopulationGI    1.859     21.276  10.484   0.087    0.932    
+PopulationKA  -12.034     29.854  19.218  -0.403    0.691    
+PopulationMA   14.273     29.858  19.229   0.478    0.638    
+PopulationMU   18.283     34.339  17.546   0.532    0.601    
+PopulationYE   17.900     23.910  13.629   0.749    0.467    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+            (Intr) PpltGI PpltKA PpltMA PpltMU
+PopulatinGI -0.564                            
+PopulatinKA -0.723  0.414                     
+PopulatinMA -0.722  0.414  0.784              
+PopulatinMU -0.582  0.363  0.549  0.549       
+PopulatinYE -0.636  0.536  0.482  0.482  0.488
+

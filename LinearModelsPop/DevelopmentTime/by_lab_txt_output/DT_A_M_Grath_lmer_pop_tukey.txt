@@ -1,0 +1,26 @@
+$contrasts
+$emmeans
+ Population emmean   SE  df asymp.LCL asymp.UCL
+ AK            318 2.26 Inf       313       322
+ MU            313 2.20 Inf       309       318
+ RE            316 4.58 Inf       307       325
+
+Degrees-of-freedom method: asymptotic 
+Confidence level used: 0.95 
+
+$contrasts
+ contrast estimate   SE  df z.ratio p.value
+ AK - MU      4.29 3.15 Inf   1.362  0.3611
+ AK - RE      1.41 5.11 Inf   0.277  0.9586
+ MU - RE     -2.88 5.08 Inf  -0.566  0.8380
+
+Degrees-of-freedom method: asymptotic 
+P value adjustment: tukey method for comparing a family of 3 estimates 
+
+
+$letters
+  Population   emmean       SE  df asymp.LCL asymp.UCL cld
+1         AK 317.5895 2.257956 Inf  313.1639  322.0150   a
+2         MU 313.2975 2.198660 Inf  308.9882  317.6067   a
+3         RE 316.1752 4.580990 Inf  307.1966  325.1538   a
+

@@ -167,11 +167,11 @@ metaAnalysisRandomModel <- function(studies.effects) {
 
 
 
-test_data_for_meta <- bind_cols(
-  Population = c(c(rep("A", 5), rep("B", 5))),
-  Study = c("Thornhill", "Kendall", "Vandamm", "Leonard", "Professor", "Jefferies", "Fremont", "Doyle", "Stella", "Thorwal"),
-  Y = c(0.110, 0.224, 0.338, 0.451, 0.480, 0.440, 0.492, 0.651, 0.710, 0.740),
-  V = c(0.01, 0.03, 0.02, 0.01, 0.01, 0.015, 0.020, 0.015, 0.025, 0.012))
+#test_data_for_meta <- bind_cols(
+#  Population = c(c(rep("A", 5), rep("B", 5))),
+#  Study = c("Thornhill", "Kendall", "Vandamm", "Leonard", "Professor", "Jefferies", "Fremont", "Doyle", "Stella", "Thorwal"),
+#  Y = c(0.110, 0.224, 0.338, 0.451, 0.480, 0.440, 0.492, 0.651, 0.710, 0.740),
+#  V = c(0.01, 0.03, 0.02, 0.01, 0.01, 0.015, 0.020, 0.015, 0.025, 0.012))
 
 
 

@@ -1,0 +1,46 @@
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: 
+CentroidSizeRight_micrometers ~ Population + (1 | Line:Population) +  
+    (1 | Batch) + (1 | ReplicateVial:Line)
+   Data: filter(droseu$wa, Supervisor.PI == "Ritchie" & Sex == "F")
+
+REML criterion at convergence: 16564.4
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-5.4488 -0.5249  0.0615  0.6440  3.1927 
+
+Random effects:
+ Groups             Name        Variance Std.Dev.
+ ReplicateVial:Line (Intercept)  6492     80.58  
+ Line:Population    (Intercept) 17468    132.17  
+ Batch              (Intercept)  1632     40.39  
+ Residual                        8763     93.61  
+Number of obs: 1367, groups:  
+ReplicateVial:Line, 132; Line:Population, 47; Batch, 15
+
+Fixed effects:
+             Estimate Std. Error      df t value Pr(>|t|)    
+(Intercept)   2777.36      73.35   27.73  37.864   <2e-16 ***
+PopulationGI  -165.69      89.72   29.22  -1.847   0.0749 .  
+PopulationKA   -45.51     103.65   27.61  -0.439   0.6640    
+PopulationMA    98.04      98.38   27.54   0.997   0.3277    
+PopulationMU    28.33      98.31   27.64   0.288   0.7753    
+PopulationRE   118.86      98.25   27.69   1.210   0.2366    
+PopulationUM   136.27      98.24   27.75   1.387   0.1764    
+PopulationVA    16.64      97.51   27.86   0.171   0.8658    
+PopulationYE    20.02      96.58   26.86   0.207   0.8374    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+            (Intr) PpltGI PpltKA PpltMA PpltMU PpltRE PpltUM PpltVA
+PopulatinGI -0.782                                                 
+PopulatinKA -0.708  0.554                                          
+PopulatinMA -0.746  0.583  0.559                                   
+PopulatinMU -0.746  0.584  0.551  0.583                            
+PopulatinRE -0.746  0.584  0.544  0.570  0.564                     
+PopulatinUM -0.745  0.584  0.528  0.557  0.563  0.576              
+PopulatinVA -0.741  0.585  0.525  0.553  0.553  0.573  0.579       
+PopulatinYE -0.735  0.602  0.521  0.549  0.555  0.550  0.561  0.552

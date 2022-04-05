@@ -1,0 +1,144 @@
+                                           95%-CI %W(random)
+YE_Gibert           223.5203 [220.6519; 226.3888]        2.1
+YE_Hoedjes          239.2042 [236.2601; 242.1484]        2.1
+YE_Schmidt          225.9375 [216.4101; 235.4649]        2.0
+YE_StamenkovicRadak 246.0427 [237.1373; 254.9482]        2.0
+YE_Zwaan            223.1141 [218.1703; 228.0580]        2.1
+RE_Gibert           228.5836 [225.4802; 231.6871]        2.1
+RE_Grath            316.1752 [307.1966; 325.1538]        2.0
+RE_Hoedjes          244.4384 [241.1713; 247.7055]        2.1
+RE_Schmidt          231.6509 [220.6048; 242.6970]        2.0
+RE_StamenkovicRadak 259.6355 [250.1820; 269.0889]        2.0
+RE_Zwaan            229.9154 [224.8531; 234.9777]        2.1
+GI_Gibert           231.8760 [228.6729; 235.0792]        2.1
+GI_Hoedjes          244.6466 [241.4014; 247.8919]        2.1
+GI_Schmidt          243.1172 [230.1853; 256.0490]        2.0
+GI_StamenkovicRadak 251.7237 [241.6027; 261.8447]        2.0
+GI_Zwaan            229.3335 [224.2074; 234.4595]        2.1
+MU_Gibert           227.8011 [224.9898; 230.6125]        2.1
+MU_Grath            313.2975 [308.9882; 317.6067]        2.1
+MU_Hoedjes          236.5314 [233.6574; 239.4054]        2.1
+MU_Schmidt          226.7164 [217.1687; 236.2641]        2.0
+MU_StamenkovicRadak 244.1239 [235.2691; 252.9788]        2.0
+MU_Zwaan            225.5452 [220.6522; 230.4381]        2.1
+MA_Gibert           225.3002 [222.4688; 228.1316]        2.1
+MA_Hoedjes          239.3674 [236.4967; 242.2382]        2.1
+MA_Schmidt          228.7412 [219.0767; 238.4056]        2.0
+MA_StamenkovicRadak 250.4676 [241.5731; 259.3622]        2.0
+MA_Zwaan            227.7554 [222.8736; 232.6372]        2.1
+UM_Gibert           229.7729 [226.8304; 232.7154]        2.1
+UM_Hoedjes          237.7624 [234.6893; 240.8354]        2.1
+UM_Schmidt          229.1047 [218.3955; 239.8140]        2.0
+UM_StamenkovicRadak 257.0830 [247.9143; 266.2516]        2.0
+UM_Zwaan            225.0653 [220.1181; 230.0124]        2.1
+KA_Gibert           227.2232 [224.4073; 230.0392]        2.1
+KA_Hoedjes          236.1528 [233.2714; 239.0341]        2.1
+KA_Schmidt          219.9134 [210.3573; 229.4695]        2.0
+KA_StamenkovicRadak 234.8250 [225.9680; 243.6821]        2.0
+KA_Zwaan            226.9689 [222.0981; 231.8397]        2.1
+VA_Gibert           228.3832 [225.5588; 231.2076]        2.1
+VA_Hoedjes          235.8261 [232.9393; 238.7130]        2.1
+VA_Schmidt          250.0485 [240.3823; 259.7146]        2.0
+VA_StamenkovicRadak 259.3841 [250.3707; 268.3976]        2.0
+VA_Zwaan            227.7893 [222.8991; 232.6795]        2.1
+AK_Gibert           226.5155 [223.7481; 229.2828]        2.1
+AK_Grath            317.5895 [313.1639; 322.0150]        2.1
+AK_Hoedjes          238.6853 [235.8118; 241.5588]        2.1
+AK_Schmidt          226.0131 [216.7171; 235.3090]        2.0
+AK_StamenkovicRadak 242.7182 [233.7341; 251.7022]        2.0
+AK_Zwaan            225.7358 [220.8599; 230.6116]        2.1
+                    Population
+YE_Gibert                   YE
+YE_Hoedjes                  YE
+YE_Schmidt                  YE
+YE_StamenkovicRadak         YE
+YE_Zwaan                    YE
+RE_Gibert                   RE
+RE_Grath                    RE
+RE_Hoedjes                  RE
+RE_Schmidt                  RE
+RE_StamenkovicRadak         RE
+RE_Zwaan                    RE
+GI_Gibert                   GI
+GI_Hoedjes                  GI
+GI_Schmidt                  GI
+GI_StamenkovicRadak         GI
+GI_Zwaan                    GI
+MU_Gibert                   MU
+MU_Grath                    MU
+MU_Hoedjes                  MU
+MU_Schmidt                  MU
+MU_StamenkovicRadak         MU
+MU_Zwaan                    MU
+MA_Gibert                   MA
+MA_Hoedjes                  MA
+MA_Schmidt                  MA
+MA_StamenkovicRadak         MA
+MA_Zwaan                    MA
+UM_Gibert                   UM
+UM_Hoedjes                  UM
+UM_Schmidt                  UM
+UM_StamenkovicRadak         UM
+UM_Zwaan                    UM
+KA_Gibert                   KA
+KA_Hoedjes                  KA
+KA_Schmidt                  KA
+KA_StamenkovicRadak         KA
+KA_Zwaan                    KA
+VA_Gibert                   VA
+VA_Hoedjes                  VA
+VA_Schmidt                  VA
+VA_StamenkovicRadak         VA
+VA_Zwaan                    VA
+AK_Gibert                   AK
+AK_Grath                    AK
+AK_Hoedjes                  AK
+AK_Schmidt                  AK
+AK_StamenkovicRadak         AK
+AK_Zwaan                    AK
+
+Number of studies combined: k = 48
+
+                                            95%-CI     z
+Random effects model 239.8814 [233.6005; 246.1623] 74.86
+                     p-value
+Random effects model       0
+
+Quantifying heterogeneity:
+ tau^2 = 481.2387 [329.6129; 759.9850]; tau = 21.9372 [18.1552; 27.5678]
+ I^2 = 98.7% [98.5%; 98.8%]; H = 8.62 [8.14; 9.13]
+
+Test of heterogeneity:
+       Q d.f. p-value
+ 3494.11   47       0
+
+Results for subgroups (random effects model):
+                  k                        95%-CI     tau^2
+Population = YE   5 231.3564 [222.3777; 240.3351]   94.7108
+Population = RE   6 251.6325 [224.7514; 278.5135] 1114.0723
+Population = GI   5 239.4042 [231.1341; 247.6743]   75.0985
+Population = MU   6 245.7172 [218.5067; 272.9276] 1146.6128
+Population = MA   5 234.0427 [225.1518; 242.9336]   92.6588
+Population = UM   5 235.4982 [224.7393; 246.2572]  138.9070
+Population = KA   5 229.4707 [224.1717; 234.7697]   27.7017
+Population = VA   5 239.7321 [227.7508; 251.7134]  176.1393
+Population = AK   6 246.2541 [217.5919; 274.9162] 1273.3737
+                    tau       Q   I^2
+Population = YE  9.7319   77.48 94.8%
+Population = RE 33.3777  369.53 98.6%
+Population = GI  8.6659   48.53 91.8%
+Population = MU 33.8617 1213.76 99.6%
+Population = MA  9.6259   66.63 94.0%
+Population = UM 11.7859   50.69 92.1%
+Population = KA  5.2632   27.59 85.5%
+Population = VA 13.2717   63.14 93.7%
+Population = AK 35.6844 1296.76 99.6%
+
+Test for subgroup differences (random effects model):
+                    Q d.f. p-value
+Between groups   8.80    8  0.3595
+
+Details on meta-analytical method:
+- Inverse variance method
+- Restricted maximum-likelihood estimator for tau^2
+- Q-profile method for confidence interval of tau^2 and tau

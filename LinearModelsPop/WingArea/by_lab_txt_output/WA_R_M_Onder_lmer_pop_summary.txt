@@ -1,0 +1,45 @@
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: 
+CentroidSizeRight_micrometers ~ Population + (1 | Line:Population) +  
+    (1 | ReplicateVial:Line)
+   Data: filter(droseu$wa, Supervisor.PI == "Onder" & Sex == "M")
+
+REML criterion at convergence: 59835.8
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-4.1288 -0.5858  0.0314  0.6120  6.0686 
+
+Random effects:
+ Groups             Name        Variance Std.Dev.
+ ReplicateVial:Line (Intercept)  903.8   30.06   
+ Line:Population    (Intercept) 2237.4   47.30   
+ Residual                       4687.4   68.46   
+Number of obs: 5230, groups:  
+ReplicateVial:Line, 518; Line:Population, 167
+
+Fixed effects:
+             Estimate Std. Error       df t value Pr(>|t|)    
+(Intercept)  2451.978     11.607  158.058 211.247  < 2e-16 ***
+PopulationGI   30.752     17.727  157.948   1.735 0.084740 .  
+PopulationKA   29.892     16.412  157.943   1.821 0.070448 .  
+PopulationMA   63.980     16.415  158.058   3.898 0.000143 ***
+PopulationMU   31.643     16.381  156.522   1.932 0.055195 .  
+PopulationRE  102.949     17.432  158.798   5.906 2.07e-08 ***
+PopulationUM   66.217     17.131  158.326   3.865 0.000162 ***
+PopulationVA   40.683     16.412  157.927   2.479 0.014229 *  
+PopulationYE   -5.917     16.631  158.102  -0.356 0.722459    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+            (Intr) PpltGI PpltKA PpltMA PpltMU PpltRE PpltUM PpltVA
+PopulatinGI -0.655                                                 
+PopulatinKA -0.707  0.463                                          
+PopulatinMA -0.707  0.463  0.500                                   
+PopulatinMU -0.709  0.464  0.501  0.501                            
+PopulatinRE -0.666  0.436  0.471  0.471  0.472                     
+PopulatinUM -0.678  0.444  0.479  0.479  0.480  0.451              
+PopulatinVA -0.707  0.463  0.500  0.500  0.501  0.471  0.479       
+PopulatinYE -0.698  0.457  0.494  0.494  0.495  0.465  0.473  0.494

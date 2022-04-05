@@ -1,0 +1,27 @@
+
+Call:
+lm(formula = ProportionEggtoAdultSurvival_asin ~ Population, 
+    data = filter(droseu$via, Supervisor.PI == "Schmidt"))
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.73241 -0.21504  0.01621  0.15661  0.83839 
+
+Coefficients:
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept)   0.92028    0.06393  14.396   <2e-16 ***
+PopulationGI -0.18787    0.09765  -1.924   0.0562 .  
+PopulationKA  0.21332    0.09041   2.360   0.0196 *  
+PopulationMA  0.01281    0.09288   0.138   0.8905    
+PopulationMU -0.03180    0.09041  -0.352   0.7255    
+PopulationRE  0.02327    0.09765   0.238   0.8120    
+PopulationUM  0.10329    0.09962   1.037   0.3015    
+PopulationVA -0.03068    0.09041  -0.339   0.7348    
+PopulationYE -0.08020    0.09041  -0.887   0.3764    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.2859 on 153 degrees of freedom
+Multiple R-squared:  0.1237,	Adjusted R-squared:  0.07789 
+F-statistic:   2.7 on 8 and 153 DF,  p-value: 0.008308
+

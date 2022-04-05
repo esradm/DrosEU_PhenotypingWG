@@ -1,0 +1,43 @@
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: CSM_PropDead_ED_asin ~ Population + (1 | Line:Population) + (1 |  
+    Batch)
+   Data: filter(droseu$csm, Supervisor.PI == "Kozeretska" & Sex == "F")
+
+REML criterion at convergence: 251.7
+
+Scaled residuals: 
+     Min       1Q   Median       3Q      Max 
+-1.98016 -0.61640 -0.09206  0.58901  2.29545 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 0.02928  0.1711  
+ Batch           (Intercept) 0.03133  0.1770  
+ Residual                    0.12353  0.3515  
+Number of obs: 244, groups:  Line:Population, 130; Batch, 2
+
+Fixed effects:
+              Estimate Std. Error        df t value Pr(>|t|)  
+(Intercept)    0.88456    0.14574   1.60370   6.069   0.0429 *
+PopulationGI  -0.07755    0.12814 120.55726  -0.605   0.5462  
+PopulationKA  -0.13366    0.11571 114.94299  -1.155   0.2505  
+PopulationMA  -0.12261    0.10605 120.05564  -1.156   0.2499  
+PopulationMU  -0.07069    0.10447 117.01418  -0.677   0.5000  
+PopulationRE  -0.10789    0.11427 108.41666  -0.944   0.3472  
+PopulationUM  -0.18809    0.11681 110.11572  -1.610   0.1102  
+PopulationVA  -0.06807    0.10038 112.54488  -0.678   0.4990  
+PopulationYE  -0.06874    0.11236 123.47720  -0.612   0.5418  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+            (Intr) PpltGI PpltKA PpltMA PpltMU PpltRE PpltUM PpltVA
+PopulatinGI -0.288                                                 
+PopulatinKA -0.329  0.362                                          
+PopulatinMA -0.337  0.386  0.425                                   
+PopulatinMU -0.341  0.392  0.430  0.477                            
+PopulatinRE -0.324  0.363  0.408  0.433  0.439                     
+PopulatinUM -0.306  0.351  0.386  0.427  0.433  0.393              
+PopulatinVA -0.349  0.406  0.441  0.498  0.507  0.454  0.452       
+PopulatinYE -0.321  0.366  0.404  0.443  0.449  0.410  0.402  0.468

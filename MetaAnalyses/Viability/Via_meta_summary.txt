@@ -1,0 +1,142 @@
+                                     95%-CI %W(random)
+YE_Gibert           0.7974 [0.7391; 0.8557]        2.3
+YE_Hoedjes          0.8466 [0.7864; 0.9068]        2.3
+YE_Schmidt          0.8401 [0.7148; 0.9654]        1.6
+YE_StamenkovicRadak 0.7771 [0.7058; 0.8484]        2.2
+YE_Zwaan            0.8138 [0.7435; 0.8842]        2.2
+RE_Gibert           0.9440 [0.8791; 1.0089]        2.2
+RE_Grath            0.9282 [0.8722; 0.9842]        2.3
+RE_Hoedjes          0.9154 [0.8459; 0.9850]        2.2
+RE_Schmidt          0.9435 [0.7989; 1.0882]        1.4
+RE_StamenkovicRadak 0.9176 [0.8399; 0.9954]        2.1
+RE_Zwaan            0.9497 [0.8732; 1.0262]        2.1
+GI_Gibert           0.9033 [0.8366; 0.9700]        2.2
+GI_Hoedjes          0.8938 [0.8243; 0.9634]        2.2
+GI_Schmidt          0.7324 [0.5877; 0.8771]        1.4
+GI_StamenkovicRadak 0.8929 [0.8081; 0.9777]        2.0
+GI_Zwaan            0.9379 [0.8582; 1.0176]        2.1
+MU_Gibert           1.0240 [0.9657; 1.0823]        2.3
+MU_Grath            0.9110 [0.8550; 0.9670]        2.3
+MU_Hoedjes          1.0460 [0.9857; 1.1062]        2.3
+MU_Schmidt          0.8885 [0.7632; 1.0138]        1.6
+MU_StamenkovicRadak 1.0010 [0.9296; 1.0723]        2.2
+MU_Zwaan            1.0189 [0.9482; 1.0896]        2.2
+MA_Gibert           0.9380 [0.8798; 0.9961]        2.3
+MA_Hoedjes          1.0073 [0.9471; 1.0675]        2.3
+MA_Schmidt          0.9331 [0.8010; 1.0652]        1.5
+MA_StamenkovicRadak 0.8436 [0.7722; 0.9151]        2.2
+MA_Zwaan            1.0265 [0.9570; 1.0961]        2.2
+UM_Gibert           1.0163 [0.9550; 1.0775]        2.3
+UM_Hoedjes          0.9868 [0.9215; 1.0521]        2.2
+UM_Schmidt          1.0236 [0.8738; 1.1733]        1.4
+UM_StamenkovicRadak 0.8802 [0.8060; 0.9545]        2.1
+UM_Zwaan            1.1054 [1.0324; 1.1783]        2.1
+KA_Gibert           1.0250 [0.9665; 1.0834]        2.3
+KA_Hoedjes          1.0291 [0.9689; 1.0893]        2.3
+KA_Schmidt          1.1336 [1.0083; 1.2589]        1.6
+KA_StamenkovicRadak 0.9431 [0.8718; 1.0144]        2.2
+KA_Zwaan            1.0788 [1.0094; 1.1483]        2.2
+VA_Gibert           0.9254 [0.8671; 0.9837]        2.3
+VA_Hoedjes          0.9804 [0.9201; 1.0406]        2.3
+VA_Schmidt          0.8896 [0.7643; 1.0149]        1.6
+VA_StamenkovicRadak 0.8490 [0.7775; 0.9204]        2.2
+VA_Zwaan            1.0523 [0.9817; 1.1228]        2.2
+AK_Gibert           1.0667 [1.0088; 1.1247]        2.3
+AK_Grath            0.9877 [0.9308; 1.0447]        2.3
+AK_Hoedjes          1.0952 [1.0350; 1.1554]        2.3
+AK_Schmidt          0.9203 [0.7950; 1.0456]        1.6
+AK_StamenkovicRadak 0.9882 [0.9168; 1.0597]        2.2
+AK_Zwaan            1.0720 [1.0031; 1.1409]        2.2
+                    Population
+YE_Gibert                   YE
+YE_Hoedjes                  YE
+YE_Schmidt                  YE
+YE_StamenkovicRadak         YE
+YE_Zwaan                    YE
+RE_Gibert                   RE
+RE_Grath                    RE
+RE_Hoedjes                  RE
+RE_Schmidt                  RE
+RE_StamenkovicRadak         RE
+RE_Zwaan                    RE
+GI_Gibert                   GI
+GI_Hoedjes                  GI
+GI_Schmidt                  GI
+GI_StamenkovicRadak         GI
+GI_Zwaan                    GI
+MU_Gibert                   MU
+MU_Grath                    MU
+MU_Hoedjes                  MU
+MU_Schmidt                  MU
+MU_StamenkovicRadak         MU
+MU_Zwaan                    MU
+MA_Gibert                   MA
+MA_Hoedjes                  MA
+MA_Schmidt                  MA
+MA_StamenkovicRadak         MA
+MA_Zwaan                    MA
+UM_Gibert                   UM
+UM_Hoedjes                  UM
+UM_Schmidt                  UM
+UM_StamenkovicRadak         UM
+UM_Zwaan                    UM
+KA_Gibert                   KA
+KA_Hoedjes                  KA
+KA_Schmidt                  KA
+KA_StamenkovicRadak         KA
+KA_Zwaan                    KA
+VA_Gibert                   VA
+VA_Hoedjes                  VA
+VA_Schmidt                  VA
+VA_StamenkovicRadak         VA
+VA_Zwaan                    VA
+AK_Gibert                   AK
+AK_Grath                    AK
+AK_Hoedjes                  AK
+AK_Schmidt                  AK
+AK_StamenkovicRadak         AK
+AK_Zwaan                    AK
+
+Number of studies combined: k = 48
+
+                                      95%-CI     z p-value
+Random effects model 0.9550 [0.9300; 0.9799] 75.04       0
+
+Quantifying heterogeneity:
+ tau^2 = 0.0062 [0.0038; 0.0107]; tau = 0.0784 [0.0618; 0.1037]
+ I^2 = 82.3% [77.2%; 86.2%]; H = 2.38 [2.09; 2.70]
+
+Test of heterogeneity:
+      Q d.f.  p-value
+ 265.23   47 < 0.0001
+
+Results for subgroups (random effects model):
+                  k                  95%-CI   tau^2    tau
+Population = YE   5 0.8125 [0.7814; 0.8436]       0      0
+Population = RE   6 0.9315 [0.9020; 0.9610]       0      0
+Population = GI   5 0.8954 [0.8594; 0.9314] <0.0001 0.0025
+Population = MU   6 0.9886 [0.9401; 1.0371]  0.0023 0.0484
+Population = MA   5 0.9518 [0.8850; 1.0187]  0.0043 0.0653
+Population = UM   5 1.0009 [0.9256; 1.0762]  0.0056 0.0746
+Population = KA   5 1.0330 [0.9799; 1.0860]  0.0022 0.0472
+Population = VA   5 0.9429 [0.8723; 1.0136]  0.0050 0.0704
+Population = AK   6 1.0313 [0.9849; 1.0776]  0.0020 0.0452
+                    Q   I^2
+Population = YE  2.62  0.0%
+Population = RE  0.73  0.0%
+Population = GI  6.03 33.6%
+Population = MU 15.51 67.8%
+Population = MA 16.72 76.1%
+Population = UM 18.54 78.4%
+Population = KA 10.25 61.0%
+Population = VA 18.30 78.1%
+Population = AK 13.59 63.2%
+
+Test for subgroup differences (random effects model):
+                      Q d.f.  p-value
+Between groups   100.39    8 < 0.0001
+
+Details on meta-analytical method:
+- Inverse variance method
+- Restricted maximum-likelihood estimator for tau^2
+- Q-profile method for confidence interval of tau^2 and tau
