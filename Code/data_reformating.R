@@ -90,9 +90,9 @@ droseu$dia <- droseu$dia %>%
  
 
 ##### define all the trait variables
-# Paul's pigmentation is not percentage, to be corrected
+# what are PSS tergites?
 
-var_list <- c("CCRT_seconds", "ZT_hours_MESA", "ZT_hours_LSPR", "Period_MESA", "Period_LSPR", "Rhythmicity_LSPR_amplitude", "Rhythmicity_JTK_p_BH_corrected", "CSM_PropDead_ED", "Prop_Max_Stage7", "Prop_Max_Stage8", "Prop_Max_Stage9", "DT_EggAdult", "DT_EggPupa", "DW_micrograms", "NumberOfAdultsEclosed", "TimeDeath_min", "Period", "CircPhase", "AbsPhase", "ND", "Activity", "LSL_AgeAtDeath_days", "LSM_AgeAtDeath_days", "LSP_AgeAtDeath_days", "PercT4", "PercT5", "PercT6", "TotalPerc", "PercT8", "PercT9", "PercT10", "AgeAtDeath_hours", "TL_micrometers", "ProportionEggtoAdultSurvival", "CentroidSizeLeft_micrometers", "CentroidSizeRight_micrometers")
+var_list <- c("CCRT_seconds", "ZT_hours_MESA", "ZT_hours_LSPR", "Period_MESA", "Period_LSPR", "Rhythmicity_LSPR_amplitude", "Rhythmicity_JTK_p_BH_corrected", "CSM_PropDead_ED", "Prop_Max_Stage7", "Prop_Max_Stage8", "Prop_Max_Stage9", "DT_EggAdult", "DT_EggPupa", "DW_micrograms", "NumberOfAdultsEclosed", "TimeDeath_min", "Period", "CircPhase", "AbsPhase", "ND", "Activity", "LSL_AgeAtDeath_days", "LSM_AgeAtDeath_days", "LSP_AgeAtDeath_days", "PercT4", "PercT5", "PercT6", "TotalPerc", "PgmT8", "PgmT9", "PgmT10", "TotalPgm", "AgeAtDeath_hours", "TL_micrometers", "ProportionEggtoAdultSurvival", "CentroidSizeLeft_micrometers", "CentroidSizeRight_micrometers")
 
 ##### turn all trait variables to numeric
 
@@ -126,6 +126,7 @@ droseu$via <- droseu$via %>%
 
 
 ##### log2 transformation of ND data
+# introduces NAs because two data points are 0
 
 droseu$la <- droseu$la %>% mutate(ND_log2 = log2(ND))
 
@@ -207,7 +208,7 @@ droseu <- lapply(droseu, arrange, Population_Lat)
 
 ##### save the data
 
-saveRDS(droseu, file = "droseu_master_list_2022-03-25.rds")
+saveRDS(droseu, file = "droseu_master_list_2022-04-05.rds")
 
 
 

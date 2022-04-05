@@ -1,6 +1,6 @@
 Linear mixed model fit by REML. t-tests use Satterthwaite's method [
 lmerModLmerTest]
-Formula: PercT8 ~ Population + (1 | Line:Population)
+Formula: PgmT8 ~ Population + (1 | Line:Population)
    Data: filter(droseu$pgm2, Supervisor.PI == "Schmidt")
 
 REML criterion at convergence: 4128.7

@@ -71,7 +71,7 @@ combineEst3 <- function(x) {
     x[[i]] <- x[[i]] %>% 
       mutate(Trait = info[1], Lab = info[length(info)-2], Sex = info[length(info)-3]) %>%
       relocate(Trait, Lab, Sex) 
-    if (!unique(x[[i]]$Sex) %in% c("F", "M")) x[[i]]$Sex <- "F" 
+    if (!unique(x[[i]]$Sex) %in% c("F", "M")) x[[i]]$Sex <- "NA" 
   } 
   bind_rows(x) }
 

@@ -27,7 +27,7 @@ source("Functions/lab_correlations_functions.R")
 source("Functions/meta_analysis_functions.R")
 
 ##### load data
-droseu <- readRDS("Data/droseu_master_list_2022-03-25.rds")
+droseu <- readRDS("Data/droseu_master_list_2022-04-05.rds")
 
 ##### create output directory
 lmer_dir <- "LinearModelsPop"
@@ -88,14 +88,8 @@ DT_lmers_pop <- list()
 # Schmidt
 DT_lmers_pop$DT_P_Schmidt_lmer_pop <- lmer(DT_EggPupa ~ Population + (1|Population:Line), data = filter(droseu$dtp, Supervisor.PI == "Schmidt"))
 
-# save output list
-#saveRDS(DT_P_lmers_pop, file = file.path(lmer_dir, out_dir, "DT_P_lmers_pop.rds"))
-
 
 ### Egg-to-Adult
-
-# initialize output list
-#DT_A_lmers_pop <- list()
 
 ## Females
 
@@ -612,13 +606,13 @@ Pgm_lmers_pop$Pgm_Total_Gibert_lmer_pop <- lmer(TotalPerc_asin ~ Population + (1
 
 
 # Schmidt
-Pgm_lmers_pop$Pgm_T8_Schmidt_lmer_pop <- lmer(PercT8 ~ Population + (1|Line:Population), data = filter(droseu$pgm2, Supervisor.PI == "Schmidt"))
+Pgm_lmers_pop$Pgm_T8_Schmidt_lmer_pop <- lmer(PgmT8 ~ Population + (1|Line:Population), data = filter(droseu$pgm2, Supervisor.PI == "Schmidt"))
 
-Pgm_lmers_pop$Pgm_T9_Schmidt_lmer_pop <- lmer(PercT9 ~ Population + (1|Line:Population), data = filter(droseu$pgm2, Supervisor.PI == "Schmidt"))
+Pgm_lmers_pop$Pgm_T9_Schmidt_lmer_pop <- lmer(PgmT9 ~ Population + (1|Line:Population), data = filter(droseu$pgm2, Supervisor.PI == "Schmidt"))
 
-Pgm_lmers_pop$Pgm_T10_Schmidt_lmer_pop <- lmer(PercT10 ~ Population + (1|Line:Population), data = filter(droseu$pgm2, Supervisor.PI == "Schmidt"))
+Pgm_lmers_pop$Pgm_T10_Schmidt_lmer_pop <- lmer(PgmT10 ~ Population + (1|Line:Population), data = filter(droseu$pgm2, Supervisor.PI == "Schmidt"))
 
-Pgm_lmers_pop$Pgm_Total_Schmidt_lmer_pop <- lmer(TotalPerc ~ Population + (1|Line:Population), data = filter(droseu$pgm2, Supervisor.PI == "Schmidt"))
+Pgm_lmers_pop$Pgm_Total_Schmidt_lmer_pop <- lmer(TotalPgm ~ Population + (1|Line:Population), data = filter(droseu$pgm2, Supervisor.PI == "Schmidt"))
 
 
 # save output list

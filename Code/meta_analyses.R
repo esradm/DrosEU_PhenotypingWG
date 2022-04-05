@@ -19,12 +19,8 @@ library(ggpubr)
 setwd("~/Work/UNIFR/GitHub/DrosEU_PhenotypingWG/")
 
 
-##### source functions
-source("Functions/lab_correlations_functions.R")
-source("Functions/meta_analysis_functions.R")
-
 ##### load data
-droseu <- readRDS("Data/droseu_master_list_2022-03-25.rds")
+droseu <- readRDS("Data/droseu_master_list_2022-04-05.rds")
 estimates <- readRDS("LinearModelsPop/all_model_estimates.rds")
 pops <- readRDS("InfoTables/DrosEU_Populations.rds")
 
@@ -35,7 +31,6 @@ dir.create(meta_dir, showWarnings = F)
 
 
 ##### define functions
-
 makeEffects <- function(x) {
   x <- mutate(x, Population = factor(Population, levels = c("YE","RE","GI","MU","MA","UM","KA","VA","AK")), Lab = as.factor(Lab), V = SE^2, Study = paste(Population, Lab, sep = "_"))
   x <- relocate(x, Trait, Population, Sex, Lab, Study) %>% arrange(Population) %>% dplyr::rename(Y = Estimate) }
@@ -54,7 +49,7 @@ dir.create(file.path(meta_dir, out_dir), showWarnings = F)
 Via_effects <- makeEffects(estimates$via)
 
 # run meta
-Via_meta <- metagen(data = filter(Via_effects, Sex == "F"), TE = Y, seTE = SE, studlab = Study, fixed = FALSE, random = TRUE)
+Via_meta <- metagen(data = filter(Via_effects, Sex == "NA"), TE = Y, seTE = SE, studlab = Study, fixed = FALSE, random = TRUE)
 # sub groups
 Via_meta <- update.meta(Via_meta, subgroup = Population, tau.common = FALSE)
 
@@ -70,7 +65,7 @@ out_dir <- "DevelopmentTime"
 dir.create(file.path(meta_dir, out_dir), showWarnings = F) 
 
 # get effects
-DT_A_effects <- makeEffects(filter(estimates$dta, Trait == "DT_A"))
+DT_A_effects <- makeEffects(filter(estimates$dt, Trait == "DT_A"))
 
 # run meta
 DT_A_F_meta <- metagen(data = filter(DT_A_effects, Sex == "F"), TE = Y, seTE = SE, studlab = Study, fixed = FALSE, random = TRUE)
@@ -103,28 +98,28 @@ dir.create(file.path(meta_dir, out_dir), showWarnings = F)
 DW_effects <- makeEffects(estimates$dw)
 
 # run meta
-DT_F_meta <- metagen(data = filter(DW_effects, Sex == "F"), TE = Y, seTE = SE, studlab = Study, fixed = FALSE, random = TRUE)
+DW_F_meta <- metagen(data = filter(DW_effects, Sex == "F"), TE = Y, seTE = SE, studlab = Study, fixed = FALSE, random = TRUE)
 # sub groups
-DT_F_meta <- update.meta(DT_F_meta, subgroup = Population, tau.common = FALSE)
+DW_F_meta <- update.meta(DW_F_meta, subgroup = Population, tau.common = FALSE)
 
 # save output
-saveRDS(DT_F_meta, file = file.path(meta_dir, out_dir, "DT_F_meta.rds"))
+saveRDS(DW_F_meta, file = file.path(meta_dir, out_dir, "DW_F_meta.rds"))
 
 
 # run meta
-DT_M_meta <- metagen(data = filter(DW_effects, Sex == "M"), TE = Y, seTE = SE, studlab = Study, fixed = FALSE, random = TRUE)
+DW_M_meta <- metagen(data = filter(DW_effects, Sex == "M"), TE = Y, seTE = SE, studlab = Study, fixed = FALSE, random = TRUE)
 # sub groups
-DT_M_meta <- update.meta(DT_M_meta, subgroup = Population, tau.common = FALSE)
+DW_M_meta <- update.meta(DW_M_meta, subgroup = Population, tau.common = FALSE)
 
 # save output
-saveRDS(DT_M_meta, file = file.path(meta_dir, out_dir, "DT_M_meta.rds"))
+saveRDS(DW_M_meta, file = file.path(meta_dir, out_dir, "DW_M_meta.rds"))
 
 
 
 
 
 
-############# DRY WEIGHT #############
+############# THORAX LENGTH #############
 
 # create output directory
 out_dir <- "ThoraxLength"
@@ -236,7 +231,7 @@ dir.create(file.path(meta_dir, out_dir), showWarnings = F)
 Fec_effects <- makeEffects(estimates$fec)
 
 # run meta
-Fec_meta <- metagen(data = filter(Fec_effects, Sex == "F"), TE = Y, seTE = SE, studlab = Study, fixed = FALSE, random = TRUE)
+Fec_meta <- metagen(data = filter(Fec_effects, Sex == "NA"), TE = Y, seTE = SE, studlab = Study, fixed = FALSE, random = TRUE)
 
 # sub groups
 Fec_meta <- update.meta(Fec_meta, subgroup = Population, tau.common = FALSE)
@@ -360,7 +355,7 @@ dir.create(file.path(meta_dir, out_dir), showWarnings = F)
 Dia_effects <- makeEffects(estimates$dia)
 
 # run meta for females
-Dia_meta <- metagen(data = filter(Dia_effects, Sex == "F"), TE = Y, seTE = SE, studlab = Study, fixed = FALSE, random = TRUE)
+Dia_meta <- metagen(data = filter(Dia_effects, Sex == "NA"), TE = Y, seTE = SE, studlab = Study, fixed = FALSE, random = TRUE)
 
 # sub groups
 Dia_meta <- update.meta(Dia_meta, subgroup = Population, tau.common = FALSE)
@@ -418,18 +413,18 @@ dir.create(file.path(meta_dir, out_dir), showWarnings = F)
 Pgm_effects <- makeEffects(estimates$pgm)
 
 # run meta for females, w/o Schmidt's data
-Pgm_meta <- metagen(data = filter(Pgm_effects, Sex == "F", Trait == "Pgm_Total",  Lab != "Schmidt"), TE = Y, seTE = SE, studlab = Study, fixed = FALSE, random = TRUE)
+Pgm_meta <- metagen(data = filter(Pgm_effects, Sex == "NA", Trait == "Pgm_Total",  Lab != "Schmidt"), TE = Y, seTE = SE, studlab = Study, fixed = FALSE, random = TRUE)
 
 # sub groups
 Pgm_meta <- update.meta(Pgm_meta, subgroup = Population, tau.common = FALSE)
 
 # save output
-saveRDS(Pgm_meta, file = file.path(meta_dir, out_dir, "SR_F_meta.rds"))
+saveRDS(Pgm_meta, file = file.path(meta_dir, out_dir, "Pgm_meta.rds"))
 
 
 
 # run meta for females, all three labs
-#Pgm_meta <- metagen(data = filter(Pgm_effects, Sex == "F", Trait == "Pgm_Total"), TE = Y, seTE = SE, studlab = Study, fixed = FALSE, random = TRUE)
+#Pgm_meta <- metagen(data = filter(Pgm_effects, Sex == "NA", Trait == "Pgm_Total"), TE = Y, seTE = SE, studlab = Study, fixed = FALSE, random = TRUE)
 
 # sub groups
 #Pgm_meta <- update.meta(Pgm_meta, subgroup = Population, tau.common = FALSE)
@@ -474,12 +469,11 @@ rdsBatchReaderToList <- function(...) {
   return(tlist)
 }
 
-metas <- rdsBatchReaderToList(path = "MetaAnalyses", recursive = T, full.names = T, pattern = "meta.rds")
+metas_list <- rdsBatchReaderToList(path = "MetaAnalyses", recursive = T, full.names = T, pattern = "meta.rds")
 
-metas_pvalues <- bind_rows(Meta = names(metas), Pvalue = lapply(metas, function(x) x$pval.Q.b.random) %>% unlist())
-metas_pvalues <- mutate(metas_pvalues, Pvalue_bonf = Pvalue * 12) %>%
-  mutate(Pvalue_bonf = ifelse(Pvalue_bonf > 1, 1, Pvalue_bonf))
+metas_pvalues <- bind_rows(Meta = names(metas_list), Q = lapply(metas_list, function(x) x$Q.b.random) %>% unlist(), P = lapply(metas_list, function(x) x$pval.Q.b.random) %>% unlist()) %>% mutate(P_bonf = P * 12) %>% mutate(P_bonf = ifelse(P_bonf > 1, 1, P_bonf))
 
+write.csv(metas_pvalues, "MetaAnalyses/all_metas_pvalues.csv", row.names = F)
 
 
 ######### plots
@@ -490,9 +484,10 @@ for (i in 1:length(metas)){
   p_out_pdf <- sub(".rds", "_summary_effect.pdf", f)
   p_out_png <- sub(".rds", "_summary_effect.png", f)
   m <- readRDS(f)
-  m <- data.frame(Population = m$bylevs, Mstar = m$TE.random.w, SEMstar = m$seTE.random.w, Q = m$Q.b.random, p = m$pval.Q.b.random, LLMstar = m$lower.random.w, ULMstar = m$upper.random.w ) %>% mutate(Q_plot = paste0("italic(Q) == ", round(Q, 2)), p_plot = ifelse(p < 0.001, "italic(p) < 0.001", paste0("italic(p) == ", round(p, 4))), Population = factor(Population, levels = pops$by_lat$Population))
-
+  m <- data.frame(Population = m$bylevs, Mstar = m$TE.random.w, SEMstar = m$seTE.random.w, Q = m$Q.b.random, p = m$pval.Q.b.random, LLMstar = m$lower.random.w, ULMstar = m$upper.random.w ) %>% mutate(Q_plot = paste0("italic(Q) == ", round(Q, 2)), P_plot = ifelse(metas_pvalues$P_bonf[i] < 0.001, "italic(p) < 0.001", paste0("italic(p) == ", round(metas_pvalues$P_bonf[i], 3))), Population = factor(Population, levels = pops$by_lat$Population))
   
+  ann <- data.frame(x = c(-Inf, -Inf), y = c(8, 9), l = c(unique(m$P_plot), unique(m$Q_plot)))
+
   p_meta_SE <- ggplot(data = m, aes(x = Mstar, y = 1:length(Population), color = Population)) +
     theme_bw() +
     geom_point(size = 4, shape = 15) +
@@ -501,8 +496,8 @@ for (i in 1:length(metas)){
     scale_y_continuous(name = "Population", breaks = 1:length(m$Population), labels = m$Population) +
     labs(x = "Summary effect", title = "Pop. summary effect with SE") +
     theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank()) + 
-    annotate("text", x = -Inf, y = Inf, label = unique(m$Q_plot), hjust=-0.2, vjust=3.7, parse = T) +
-    #annotate("text", x = -Inf, y = Inf, label = unique(m$p_plot), hjust=-0.2, vjust=4.2, parse = T) +
+    annotate("text", x = -Inf, y = Inf, label = unique(m$Q_plot), hjust=-0.2, vjust=3.2, parse = T) +
+    annotate("text", x = -Inf, y = Inf, label = unique(m$P_plot), hjust=-0.4, vjust=4.2, parse = T) +
     theme(legend.position = "none")
   
   p_meta_CI <- ggplot(data = m, aes(x = Mstar, y = 1:length(Population), color = Population)) +
@@ -513,8 +508,8 @@ for (i in 1:length(metas)){
     scale_y_continuous(name = "Population", breaks = 1:length(m$Population), labels = m$Population) +
     labs(x = "Summary effect", title = "Pop. summary effect with 95% CI") +
     theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank()) +
-    annotate("text", x = -Inf, y = Inf, label = unique(m$Q_plot), hjust=-0.2, vjust=3.7, parse = T) +
-    #annotate("text", x = -Inf, y = Inf, label = unique(m$p_plot), hjust=-0.2, vjust=4.2, parse = T) +
+    annotate("text", x = -Inf, y = Inf, label = unique(m$Q_plot), hjust=-0.2, vjust=3.2, parse = T) +
+    annotate("text", x = -Inf, y = Inf, label = unique(m$P_plot), hjust=-0.4, vjust=4.2, parse = T) +
     theme(legend.position = "none")
   
   p_meta <- ggarrange(p_meta_SE, p_meta_CI)
