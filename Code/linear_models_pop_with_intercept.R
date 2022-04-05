@@ -678,8 +678,7 @@ for (i in 1:length(lmers)){
  
 
 
-############# ouput all lmers summaries and anovas ############# 
-
+############# ouput all lmers summaries, anovas and tukeys as global lists ############# 
 
 
 compTukeyCLD <- function(x) {
@@ -689,6 +688,20 @@ compTukeyCLD <- function(x) {
     arrange(Population) %>% dplyr::rename(cld = .group)
   list(contrasts = em, letters = let)
 }
+
+
+all_lmers_pop_tukey <- lapply(all_lmers_pop, compTukeyCLD)
+saveRDS(all_lmers_pop_tukey, file = "LinearModelsPop/all_lmers_list_pop_tukey.rds")
+
+all_lmers_pop_summary <- lapply(all_lmers_pop, summary)
+saveRDS(all_lmers_pop_summary, file = "LinearModelsPop/all_lmers_list_pop_summary.rds")
+
+all_lmers_pop_anova <- lapply(all_lmers_pop, anova)
+saveRDS(all_lmers_pop_anova, file = "LinearModelsPop/all_lmers_list_pop_anova.rds")
+
+
+
+############# ouput all lmers summaries, anovas and tukeys by trait ############# 
 
 
 lmers <- list.files(path = "LinearModelsPop", recursive = T, full.names = T, pattern = "lmers_pop.rds")
@@ -717,14 +730,8 @@ for (i in 1:length(lmers)){
 
 
 
+############# ouput all lmers summaries, anovas and tukeys by trait and lab ############# 
 
-all_lmers_pop <- readRDS("LinearModelsPop/all_lmers_pop.rds")
-
-
-
-
-
-##### by trait and by lab
 
 for (i in 1:length(lmers)){
   f <- lmers[i]
