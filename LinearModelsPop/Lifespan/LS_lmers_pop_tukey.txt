@@ -1,5 +1,5 @@
-$LS_P_F_Flatt_lmer_pop
-$LS_P_F_Flatt_lmer_pop$contrasts
+$LS_F_Flatt_lmer_pop
+$LS_F_Flatt_lmer_pop$contrasts
 $emmeans
  Population emmean    SE  df asymp.LCL asymp.UCL
  AK           60.0 0.913 Inf      58.2      61.8
@@ -58,7 +58,7 @@ Degrees-of-freedom method: asymptotic
 P value adjustment: tukey method for comparing a family of 9 estimates 
 
 
-$LS_P_F_Flatt_lmer_pop$letters
+$LS_F_Flatt_lmer_pop$letters
   Population   emmean        SE  df asymp.LCL asymp.UCL    cld
 1         AK 60.03341 0.9131886 Inf  58.24359  61.82323      e
 2         GI 42.94765 0.8945495 Inf  41.19437  44.70094  a    
@@ -71,8 +71,8 @@ $LS_P_F_Flatt_lmer_pop$letters
 9         YE 49.66242 0.9010903 Inf  47.89632  51.42853   b   
 
 
-$LS_L_F_Parsch_lmer_pop
-$LS_L_F_Parsch_lmer_pop$contrasts
+$LS_F_Parsch_lmer_pop
+$LS_F_Parsch_lmer_pop$contrasts
 $emmeans
  Population emmean   SE  df asymp.LCL asymp.UCL
  AK           59.6 3.00 Inf      53.7      65.5
@@ -131,7 +131,7 @@ Degrees-of-freedom method: asymptotic
 P value adjustment: tukey method for comparing a family of 9 estimates 
 
 
-$LS_L_F_Parsch_lmer_pop$letters
+$LS_F_Parsch_lmer_pop$letters
   Population   emmean       SE  df asymp.LCL asymp.UCL   cld
 1         AK 59.62540 2.999512 Inf  53.74647  65.50434     d
 2         GI 54.90919 3.005657 Inf  49.01821  60.80017    cd
@@ -144,8 +144,8 @@ $LS_L_F_Parsch_lmer_pop$letters
 9         YE 54.59169 3.007478 Inf  48.69714  60.48624    cd
 
 
-$LS_L_F_Pasyukova_lmer_pop
-$LS_L_F_Pasyukova_lmer_pop$contrasts
+$LS_F_Pasyukova_lmer_pop
+$LS_F_Pasyukova_lmer_pop$contrasts
 $emmeans
  Population emmean   SE  df asymp.LCL asymp.UCL
  AK           44.0 1.68 Inf      40.7      47.3
@@ -204,7 +204,7 @@ Degrees-of-freedom method: asymptotic
 P value adjustment: tukey method for comparing a family of 9 estimates 
 
 
-$LS_L_F_Pasyukova_lmer_pop$letters
+$LS_F_Pasyukova_lmer_pop$letters
   Population   emmean       SE  df asymp.LCL asymp.UCL cld
 1         AK 43.97747 1.676071 Inf  40.69243  47.26251  ab
 2         GI 43.84429 1.956611 Inf  40.00941  47.67918  ab
@@ -217,8 +217,8 @@ $LS_L_F_Pasyukova_lmer_pop$letters
 9         YE 41.30497 1.719424 Inf  37.93496  44.67498  ab
 
 
-$LS_P_M_Flatt_lmer_pop
-$LS_P_M_Flatt_lmer_pop$contrasts
+$LS_M_Flatt_lmer_pop
+$LS_M_Flatt_lmer_pop$contrasts
 $emmeans
  Population emmean    SE  df asymp.LCL asymp.UCL
  AK           51.6 0.874 Inf      49.9      53.3
@@ -277,7 +277,7 @@ Degrees-of-freedom method: asymptotic
 P value adjustment: tukey method for comparing a family of 9 estimates 
 
 
-$LS_P_M_Flatt_lmer_pop$letters
+$LS_M_Flatt_lmer_pop$letters
   Population   emmean        SE  df asymp.LCL asymp.UCL  cld
 1         AK 51.61937 0.8739402 Inf  49.90648  53.33226  a  
 2         GI 50.84481 0.8507208 Inf  49.17742  52.51219  a  
@@ -290,8 +290,8 @@ $LS_P_M_Flatt_lmer_pop$letters
 9         YE 52.32832 0.8531421 Inf  50.65619  54.00045  abc
 
 
-$LS_L_M_Parsch_lmer_pop
-$LS_L_M_Parsch_lmer_pop$contrasts
+$LS_M_Parsch_lmer_pop
+$LS_M_Parsch_lmer_pop$contrasts
 $emmeans
  Population emmean   SE  df asymp.LCL asymp.UCL
  AK           60.5 2.09 Inf      56.4      64.6
@@ -350,7 +350,7 @@ Degrees-of-freedom method: asymptotic
 P value adjustment: tukey method for comparing a family of 9 estimates 
 
 
-$LS_L_M_Parsch_lmer_pop$letters
+$LS_M_Parsch_lmer_pop$letters
   Population   emmean       SE  df asymp.LCL asymp.UCL  cld
 1         AK 60.47288 2.089464 Inf  56.37760  64.56815    c
 2         GI 51.36872 2.087277 Inf  47.27774  55.45971  ab 
@@ -363,8 +363,8 @@ $LS_L_M_Parsch_lmer_pop$letters
 9         YE 51.67556 2.087812 Inf  47.58353  55.76760  ab 
 
 
-$LS_L_M_Pasyukova_lmer_pop
-$LS_L_M_Pasyukova_lmer_pop$contrasts
+$LS_M_Pasyukova_lmer_pop
+$LS_M_Pasyukova_lmer_pop$contrasts
 $emmeans
  Population emmean   SE  df asymp.LCL asymp.UCL
  AK           50.3 1.37 Inf      47.6      53.0
@@ -423,7 +423,7 @@ Degrees-of-freedom method: asymptotic
 P value adjustment: tukey method for comparing a family of 9 estimates 
 
 
-$LS_L_M_Pasyukova_lmer_pop$letters
+$LS_M_Pasyukova_lmer_pop$letters
   Population   emmean       SE  df asymp.LCL asymp.UCL  cld
 1         AK 50.28182 1.372174 Inf  47.59241  52.97123   bc
 2         GI 47.56827 1.785043 Inf  44.06965  51.06689  abc

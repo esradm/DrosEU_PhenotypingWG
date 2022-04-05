@@ -421,8 +421,7 @@ Model failed to converge with max|grad| = 0.00214903 (tol = 0.002, component 1)
 $WA_R_F_Posnien_lmer_pop
 Linear mixed model fit by REML. t-tests use Satterthwaite's method [
 lmerModLmerTest]
-Formula: 
-CentroidSizeRight_micrometers ~ Population + (1 | Line:Population)
+Formula: CentroidSizeRight_micrometers ~ Population + (1 | Line:Population)
    Data: filter(droseu$wa, Supervisor.PI == "Posnien" & Sex == "F")
 
 REML criterion at convergence: 3180
@@ -513,8 +512,7 @@ PopulatinYE -0.735  0.602  0.521  0.549  0.555  0.550  0.561  0.552
 $WA_R_F_StamenkovicRadak_lmer_pop
 Linear mixed model fit by REML. t-tests use Satterthwaite's method [
 lmerModLmerTest]
-Formula: 
-CentroidSizeRight_micrometers ~ Population + (1 | Line:Population)
+Formula: CentroidSizeRight_micrometers ~ Population + (1 | Line:Population)
    Data: filter(droseu$wa, Supervisor.PI == "StamenkovicRadak" & Sex ==  
     "F")
 
@@ -574,8 +572,7 @@ Random effects:
  ReplicateVial:Line (Intercept)  903.8   30.06   
  Line:Population    (Intercept) 2237.4   47.30   
  Residual                       4687.4   68.46   
-Number of obs: 5230, groups:  
-ReplicateVial:Line, 518; Line:Population, 167
+Number of obs: 5230, groups:  ReplicateVial:Line, 518; Line:Population, 167
 
 Fixed effects:
              Estimate Std. Error       df t value Pr(>|t|)    
@@ -605,8 +602,7 @@ PopulatinYE -0.698  0.457  0.494  0.494  0.495  0.465  0.473  0.494
 $WA_R_M_Posnien_lmer_pop
 Linear mixed model fit by REML. t-tests use Satterthwaite's method [
 lmerModLmerTest]
-Formula: 
-CentroidSizeRight_micrometers ~ Population + (1 | Line:Population)
+Formula: CentroidSizeRight_micrometers ~ Population + (1 | Line:Population)
    Data: filter(droseu$wa, Supervisor.PI == "Posnien" & Sex == "M")
 
 REML criterion at convergence: 3088.8
@@ -697,8 +693,7 @@ PopulatinYE -0.736  0.554  0.549  0.549  0.555  0.550  0.561  0.552
 $WA_R_M_StamenkovicRadak_lmer_pop
 Linear mixed model fit by REML. t-tests use Satterthwaite's method [
 lmerModLmerTest]
-Formula: 
-CentroidSizeRight_micrometers ~ Population + (1 | Line:Population)
+Formula: CentroidSizeRight_micrometers ~ Population + (1 | Line:Population)
    Data: filter(droseu$wa, Supervisor.PI == "StamenkovicRadak" & Sex ==  
     "M")
 

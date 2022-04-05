@@ -339,25 +339,25 @@ LS_lmers_pop <- list()
 ## Females
 
 # Flatt
-LS_lmers_pop$LS_P_F_Flatt_lmer_pop <- lmer(LSP_AgeAtDeath_days ~ Population + (1|Population:ReplicateCage), data = filter(droseu$lsp, Censor == "0" & Supervisor.PI == "Flatt" & Sex == "F"))
+LS_lmers_pop$LS_F_Flatt_lmer_pop <- lmer(LSP_AgeAtDeath_days ~ Population + (1|Population:ReplicateCage), data = filter(droseu$lsp, Censor == "0" & Supervisor.PI == "Flatt" & Sex == "F"))
 
 # Parsch
-LS_lmers_pop$LS_L_F_Parsch_lmer_pop <- lmer(LSL_AgeAtDeath_days ~ Population + (1|Batch) + (1|Population:Line) + (1|Line:ReplicateVial), data = filter(droseu$lsl, Censor == "0" & Supervisor.PI == "Parsch" & Sex == "F"))
+LS_lmers_pop$LS_F_Parsch_lmer_pop <- lmer(LSL_AgeAtDeath_days ~ Population + (1|Batch) + (1|Population:Line) + (1|Line:ReplicateVial), data = filter(droseu$lsl, Censor == "0" & Supervisor.PI == "Parsch" & Sex == "F"))
 
 # Pasyukova
-LS_lmers_pop$LS_L_F_Pasyukova_lmer_pop <- lmer(LSL_AgeAtDeath_days ~ Population + (1|Batch) + (1|Population:Line) + (1|Line:ReplicateVial), data = filter(droseu$lsl, Censor == "0" & Supervisor.PI == "Pasyukova" & Sex == "F"))
+LS_lmers_pop$LS_F_Pasyukova_lmer_pop <- lmer(LSL_AgeAtDeath_days ~ Population + (1|Batch) + (1|Population:Line) + (1|Line:ReplicateVial), data = filter(droseu$lsl, Censor == "0" & Supervisor.PI == "Pasyukova" & Sex == "F"))
 
 
 ## Males
 
 # Flatt
-LS_lmers_pop$LS_P_M_Flatt_lmer_pop <- lmer(LSP_AgeAtDeath_days ~ Population + (1|Population:ReplicateCage), data = filter(droseu$lsp, Censor == "0" & Supervisor.PI == "Flatt" & Sex == "M"))
+LS_lmers_pop$LS_M_Flatt_lmer_pop <- lmer(LSP_AgeAtDeath_days ~ Population + (1|Population:ReplicateCage), data = filter(droseu$lsp, Censor == "0" & Supervisor.PI == "Flatt" & Sex == "M"))
 
 # Parsch
-LS_lmers_pop$LS_L_M_Parsch_lmer_pop <- lmer(LSL_AgeAtDeath_days ~ Population + (1|Batch) + (1|Population:Line) + (1|Line:ReplicateVial), data = filter(droseu$lsl, Censor == "0" & Supervisor.PI == "Parsch" & Sex == "M"))
+LS_lmers_pop$LS_M_Parsch_lmer_pop <- lmer(LSL_AgeAtDeath_days ~ Population + (1|Batch) + (1|Population:Line) + (1|Line:ReplicateVial), data = filter(droseu$lsl, Censor == "0" & Supervisor.PI == "Parsch" & Sex == "M"))
 
 # Pasyukova, failed to coverge, removed Batch as it explains the least, same output as when does not converge
-LS_lmers_pop$LS_L_M_Pasyukova_lmer_pop <- lmer(LSL_AgeAtDeath_days ~ Population + (1|Population:Line) + (1|Line:ReplicateVial), data = filter(droseu$lsl, Censor == "0" & Supervisor.PI == "Pasyukova" & Sex == "M"))
+LS_lmers_pop$LS_M_Pasyukova_lmer_pop <- lmer(LSL_AgeAtDeath_days ~ Population + (1|Population:Line) + (1|Line:ReplicateVial), data = filter(droseu$lsl, Censor == "0" & Supervisor.PI == "Pasyukova" & Sex == "M"))
 
 
 # save output list
@@ -622,11 +622,30 @@ saveRDS(Pgm_lmers_pop, file = file.path(lmer_dir, out_dir, "Pgm_lmers_pop.rds"))
 
 
 
-############# ouput all lmers ############# 
+############# ouput all lmers as Rdata ############# 
 
 all_lmers_pop <- ls()[grep("lmers", ls())]
-saveRDS(all_lmers_pop, file = "LinearModelsPop/all_lmers_pop.rds")
+save(all_lmers_pop, file = "LinearModelsPop/all_lmers_pop.Rdata")
 
+
+
+######### combine all lmers into one list ###########
+
+rdsBatchReaderToList <- function(...) {
+  temp = list.files(...)
+  tnames <- str_split(temp, "/", simplify = T)[,3]
+  tnames <- str_replace(tnames, ".rds", "")
+  tlist <- lapply(temp, readRDS)
+  names(tlist) <- tnames
+  return(tlist)
+}
+
+all_lmers_pop <- rdsBatchReaderToList(path = "LinearModelsPop", recursive = T, full.names = T, pattern = "lmers_pop.rds")
+
+all_lmers_pop <- unlist(all_lmers_pop, recursive=FALSE)
+names(all_lmers_pop) <- str_split(names(all_lmers_pop), "\\.", simplify = T)[,2]
+
+saveRDS(all_lmers_pop, file = "LinearModelsPop/all_lmers_list_pop.rds")
 
 
 
@@ -634,8 +653,7 @@ saveRDS(all_lmers_pop, file = "LinearModelsPop/all_lmers_pop.rds")
 ############# check linear models residuals ############# 
 
 
-
-lmers <- list.files(path = "LinearModelsPop", recursive = T, full.names = T, pattern = "lmers_pop.rds")[-1]
+lmers <- list.files(path = "LinearModelsPop", recursive = T, full.names = T, pattern = "lmers_pop.rds")
 
 
 for (i in 1:length(lmers)){
@@ -660,8 +678,7 @@ for (i in 1:length(lmers)){
  
 
 
-############# ouput all lmers summaries and anovas ############# 
-
+############# ouput all lmers summaries, anovas and tukeys as global lists ############# 
 
 
 compTukeyCLD <- function(x) {
@@ -673,7 +690,21 @@ compTukeyCLD <- function(x) {
 }
 
 
-lmers <- list.files(path = "LinearModelsPop", recursive = T, full.names = T, pattern = "lmers_pop.rds")[-1]
+all_lmers_pop_tukey <- lapply(all_lmers_pop, compTukeyCLD)
+saveRDS(all_lmers_pop_tukey, file = "LinearModelsPop/all_lmers_list_pop_tukey.rds")
+
+all_lmers_pop_summary <- lapply(all_lmers_pop, summary)
+saveRDS(all_lmers_pop_summary, file = "LinearModelsPop/all_lmers_list_pop_summary.rds")
+
+all_lmers_pop_anova <- lapply(all_lmers_pop, anova)
+saveRDS(all_lmers_pop_anova, file = "LinearModelsPop/all_lmers_list_pop_anova.rds")
+
+
+
+############# ouput all lmers summaries, anovas and tukeys by trait ############# 
+
+
+lmers <- list.files(path = "LinearModelsPop", recursive = T, full.names = T, pattern = "lmers_pop.rds")
 
 
 for (i in 1:length(lmers)){
@@ -697,7 +728,10 @@ for (i in 1:length(lmers)){
 }
   
 
-##### by trait and by lab
+
+
+############# ouput all lmers summaries, anovas and tukeys by trait and lab ############# 
+
 
 for (i in 1:length(lmers)){
   f <- lmers[i]
