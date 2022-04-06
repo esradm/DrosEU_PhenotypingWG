@@ -1,0 +1,22 @@
+"Supervisor.PI","Batch","Sex","Population","Line","Mean","SD","Median","Min","Max","SE","CV","Mode"
+"Wegener","1",NA,"MU","mixed population",1.65,NA,1.65,1.65,1.65,NA,NA,1.65
+"Wegener","1",NA,"UM","mixed population",7.45,NA,7.45,7.45,7.45,NA,NA,7.45
+"Wegener","2",NA,"AK","mixed population",3.88,1.49545979551441,3.92,2.17,5.51,0.747729897757205,0.385427782349075,5.51
+"Wegener","2",NA,"GI","mixed population",4.585,1.54856385079854,4.585,3.49,5.68,1.095,0.337745659934251,3.49
+"Wegener","2",NA,"KA","mixed population",4.74,0.0989949493661164,4.74,4.67,4.81,0.0699999999999998,0.0208850104147925,4.67
+"Wegener","2",NA,"MA","mixed population",6.83333333333333,3.48086675029846,6.45,3.56,10.49,2.00967935529803,0.509395134190018,10.49
+"Wegener","2",NA,"MU","mixed population",4.98,NA,4.98,4.98,4.98,NA,NA,4.98
+"Wegener","2",NA,"RE","mixed population",3.825,0.21920310216783,3.825,3.67,3.98,0.155,0.0573080005667529,3.98
+"Wegener","2",NA,"UM","mixed population",5.52,2.30516810666815,5.52,3.89,7.15,1.63,0.417602917874664,7.15
+"Wegener","2",NA,"VA","mixed population",2.83,0.947523086789974,2.83,2.16,3.5,0.67,0.334813811586563,3.5
+"Wegener","2",NA,"YE","mixed population",4.01,NA,4.01,4.01,4.01,NA,NA,4.01
+"Wegener","3",NA,"GI","mixed population",3.835,2.14253354699524,3.835,2.32,5.35,1.515,0.55867889100267,2.32
+"Wegener","3",NA,"KA","mixed population",5.23,1.93747258045114,5.23,3.86,6.6,1.37,0.370453648269817,3.86
+"Wegener","3",NA,"MA","mixed population",3.16,NA,3.16,3.16,3.16,NA,NA,3.16
+"Wegener","3",NA,"MU","mixed population",3.15,1.15965512114594,3.15,2.33,3.97,0.82,0.368144482903472,3.97
+"Wegener","3",NA,"RE","mixed population",3.9,NA,3.9,3.9,3.9,NA,NA,3.9
+"Wegener","3",NA,"UM","mixed population",3.87,NA,3.87,3.87,3.87,NA,NA,3.87
+"Wegener","3",NA,"VA","mixed population",3.54,NA,3.54,3.54,3.54,NA,NA,3.54
+"Wegener","3",NA,"YE","mixed population",3.85,0.827224274305342,3.78,3.06,4.71,0.477598157450382,0.214863447871517,3.78
+"Wegener","4",NA,"RE","mixed population",1.8,NA,1.8,1.8,1.8,NA,NA,1.8
+"Wegener","4",NA,"VA","mixed population",2.36,NA,2.36,2.36,2.36,NA,NA,2.36
