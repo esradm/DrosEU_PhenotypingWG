@@ -1,0 +1,182 @@
+$CSM_F_Gonzalez_lmer_alt
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: CSM_PropDead_ED_asin ~ Altitude + (1 | Line:Population) + (1 |  
+    Population)
+   Data: filter(droseu$csm, Supervisor.PI == "Gonzalez" & Sex == "F")
+
+REML criterion at convergence: 25.4
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-4.1307 -0.5633 -0.0096  0.6647  2.3243 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 0.018640 0.13653 
+ Population      (Intercept) 0.002105 0.04588 
+ Residual                    0.045220 0.21265 
+Number of obs: 544, groups:  Line:Population, 160; Population, 9
+
+Fixed effects:
+             Estimate Std. Error        df t value Pr(>|t|)    
+(Intercept) 1.203e+00  3.525e-02 7.206e+00  34.138  3.1e-09 ***
+Altitude    5.451e-05  9.359e-05 6.625e+00   0.582     0.58    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+         (Intr)
+Altitude -0.804
+
+$CSM_F_Kozeretska_lmer_alt
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: CSM_PropDead_ED_asin ~ Altitude + (1 | Line:Population)
+   Data: filter(droseu$csm, Supervisor.PI == "Kozeretska" & Sex == "F")
+
+REML criterion at convergence: 259.9
+
+Scaled residuals: 
+     Min       1Q   Median       3Q      Max 
+-1.99085 -0.65978 -0.07241  0.63637  2.15016 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 0.02685  0.1639  
+ Residual                    0.13220  0.3636  
+Number of obs: 244, groups:  Line:Population, 130
+
+Fixed effects:
+              Estimate Std. Error         df t value Pr(>|t|)    
+(Intercept)  7.509e-01  4.687e-02  1.192e+02  16.023   <2e-16 ***
+Altitude    -7.117e-05  1.252e-04  1.256e+02  -0.569    0.571    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+         (Intr)
+Altitude -0.809
+
+$CSM_F_Vieira_lmer_alt
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: CSM_PropDead_ED_asin ~ Altitude + (1 | Line:Population) + (1 |  
+    Population)
+   Data: filter(droseu$csm, Supervisor.PI == "Vieira" & Sex == "F")
+
+REML criterion at convergence: -65.9
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-4.3384 -0.5681 -0.0359  0.6386  2.4279 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 0.032755 0.18098 
+ Population      (Intercept) 0.002172 0.04661 
+ Residual                    0.030059 0.17337 
+Number of obs: 504, groups:  Line:Population, 168; Population, 9
+
+Fixed effects:
+             Estimate Std. Error        df t value Pr(>|t|)    
+(Intercept) 1.271e+00  3.729e-02 7.182e+00  34.092 3.29e-09 ***
+Altitude    7.126e-06  9.970e-05 6.812e+00   0.071    0.945    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+         (Intr)
+Altitude -0.801
+
+$CSM_M_Gonzalez_lmer_alt
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: CSM_PropDead_ED_asin ~ Altitude + (1 | Line:Population) + (1 |  
+    Population)
+   Data: filter(droseu$csm, Supervisor.PI == "Gonzalez" & Sex == "M")
+
+REML criterion at convergence: 313.6
+
+Scaled residuals: 
+     Min       1Q   Median       3Q      Max 
+-2.97167 -0.64527  0.04499  0.71320  2.22996 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 0.012953 0.11381 
+ Population      (Intercept) 0.001008 0.03175 
+ Residual                    0.088593 0.29765 
+Number of obs: 544, groups:  Line:Population, 160; Population, 9
+
+Fixed effects:
+             Estimate Std. Error        df t value Pr(>|t|)    
+(Intercept) 8.750e-01  3.203e-02 7.030e+00  27.321 2.13e-08 ***
+Altitude    6.861e-05  8.431e-05 6.288e+00   0.814    0.445    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+         (Intr)
+Altitude -0.805
+
+$CSM_M_Kozeretska_lmer_alt
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: CSM_PropDead_ED_asin ~ Altitude + (1 | Line:Population)
+   Data: filter(droseu$csm, Supervisor.PI == "Kozeretska" & Sex == "M")
+
+REML criterion at convergence: 252.5
+
+Scaled residuals: 
+     Min       1Q   Median       3Q      Max 
+-2.54625 -0.71881  0.05231  0.76153  1.54313 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 0.01242  0.1115  
+ Residual                    0.14007  0.3743  
+Number of obs: 244, groups:  Line:Population, 130
+
+Fixed effects:
+             Estimate Std. Error        df t value Pr(>|t|)    
+(Intercept) 1.001e+00  4.422e-02 1.192e+02  22.647   <2e-16 ***
+Altitude    1.458e-05  1.184e-04 1.264e+02   0.123    0.902    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+         (Intr)
+Altitude -0.809
+
+$CSM_M_Vieira_lmer_alt
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: CSM_PropDead_ED_asin ~ Altitude + (1 | Line:Population) + (1 |  
+    Population)
+   Data: filter(droseu$csm, Supervisor.PI == "Vieira" & Sex == "M")
+
+REML criterion at convergence: 91.2
+
+Scaled residuals: 
+     Min       1Q   Median       3Q      Max 
+-3.05492 -0.49165 -0.01965  0.59597  2.07592 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 0.059160 0.24323 
+ Population      (Intercept) 0.003557 0.05964 
+ Residual                    0.037213 0.19291 
+Number of obs: 504, groups:  Line:Population, 168; Population, 9
+
+Fixed effects:
+             Estimate Std. Error        df t value Pr(>|t|)    
+(Intercept) 1.0488601  0.0479843 7.4260834   21.86 5.19e-08 ***
+Altitude    0.0002732  0.0001283 7.0404889    2.13   0.0705 .  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+         (Intr)
+Altitude -0.801
+

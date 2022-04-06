@@ -1,0 +1,184 @@
+$DW_F_Colinet_lmer_alt
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: 
+DW_micrograms ~ Altitude + (1 | Population) + (1 | Population:Line)
+   Data: filter(droseu$dw, Supervisor.PI == "Colinet" & Sex == "F")
+
+REML criterion at convergence: -11723.4
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-4.2012 -0.6101  0.0251  0.6290  4.1318 
+
+Random effects:
+ Groups          Name        Variance  Std.Dev.
+ Population:Line (Intercept) 0.0014538 0.03813 
+ Population      (Intercept) 0.0001723 0.01313 
+ Residual                    0.0026883 0.05185 
+Number of obs: 3958, groups:  Population:Line, 165; Population, 9
+
+Fixed effects:
+              Estimate Std. Error         df t value Pr(>|t|)    
+(Intercept)  4.954e-01  8.930e-03  6.820e+00  55.468  2.6e-10 ***
+Altitude    -9.567e-06  2.406e-05  6.629e+00  -0.398    0.703    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+         (Intr)
+Altitude -0.800
+
+$DW_F_Hoedjes_lmer_alt
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: 
+DW_micrograms ~ Altitude + (1 | Population) + (1 | Population:Line)
+   Data: filter(droseu$dw, Supervisor.PI == "Hoedjes" & Sex == "F")
+
+REML criterion at convergence: -12549.1
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-4.6679 -0.6188 -0.0085  0.6387  3.4309 
+
+Random effects:
+ Groups          Name        Variance  Std.Dev.
+ Population:Line (Intercept) 1.296e-03 0.035998
+ Population      (Intercept) 7.987e-05 0.008937
+ Residual                    2.260e-03 0.047534
+Number of obs: 4004, groups:  Population:Line, 167; Population, 9
+
+Fixed effects:
+              Estimate Std. Error         df t value Pr(>|t|)    
+(Intercept)  4.579e-01  6.935e-03  7.183e+00  66.030 2.89e-11 ***
+Altitude    -1.723e-05  1.855e-05  6.806e+00  -0.929    0.385    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+         (Intr)
+Altitude -0.801
+
+$DW_F_Onder_lmer_alt
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: 
+DW_micrograms ~ Altitude + (1 | Population) + (1 | Population:Line)
+   Data: filter(droseu$dw, Supervisor.PI == "Onder" & Sex == "F")
+
+REML criterion at convergence: -12226.6
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-4.8007 -0.5873  0.0586  0.6295  3.5938 
+
+Random effects:
+ Groups          Name        Variance  Std.Dev.
+ Population:Line (Intercept) 0.0012283 0.03505 
+ Population      (Intercept) 0.0003303 0.01817 
+ Residual                    0.0026591 0.05157 
+Number of obs: 4102, groups:  Population:Line, 166; Population, 9
+
+Fixed effects:
+              Estimate Std. Error         df t value Pr(>|t|)    
+(Intercept)  4.563e-01  1.117e-02  7.021e+00  40.850 1.31e-09 ***
+Altitude    -1.168e-05  3.024e-05  6.949e+00  -0.386    0.711    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+         (Intr)
+Altitude -0.800
+
+$DW_M_Colinet_lmer_alt
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: 
+DW_micrograms ~ Altitude + (1 | Population) + (1 | Population:Line)
+   Data: filter(droseu$dw, Supervisor.PI == "Colinet" & Sex == "M")
+
+REML criterion at convergence: -16932.3
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.6379 -0.5820 -0.0263  0.5764  7.4043 
+
+Random effects:
+ Groups          Name        Variance  Std.Dev.
+ Population:Line (Intercept) 3.459e-04 0.018599
+ Population      (Intercept) 7.231e-05 0.008504
+ Residual                    7.176e-04 0.026788
+Number of obs: 3951, groups:  Population:Line, 165; Population, 9
+
+Fixed effects:
+              Estimate Std. Error         df t value Pr(>|t|)    
+(Intercept)  2.728e-01  5.360e-03  7.022e+00  50.907  2.8e-10 ***
+Altitude    -1.668e-05  1.447e-05  6.884e+00  -1.152    0.288    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+         (Intr)
+Altitude -0.800
+
+$DW_M_Hoedjes_lmer_alt
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: DW_micrograms ~ Altitude + (1 | Population:Line)
+   Data: filter(droseu$dw, Supervisor.PI == "Hoedjes" & Sex == "M")
+
+REML criterion at convergence: -17298.9
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-4.1065 -0.6232 -0.0300  0.6145  5.1476 
+
+Random effects:
+ Groups          Name        Variance  Std.Dev.
+ Population:Line (Intercept) 0.0003894 0.01973 
+ Residual                    0.0006854 0.02618 
+Number of obs: 3997, groups:  Population:Line, 167
+
+Fixed effects:
+              Estimate Std. Error         df t value Pr(>|t|)    
+(Intercept)  2.726e-01  2.643e-03  1.650e+02 103.139   <2e-16 ***
+Altitude    -7.524e-06  6.973e-06  1.649e+02  -1.079    0.282    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+         (Intr)
+Altitude -0.801
+
+$DW_M_Onder_lmer_alt
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: 
+DW_micrograms ~ Altitude + (1 | Population) + (1 | Population:Line)
+   Data: filter(droseu$dw, Supervisor.PI == "Onder" & Sex == "M")
+
+REML criterion at convergence: -16580.8
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-4.2470 -0.6102 -0.0058  0.6469  3.9680 
+
+Random effects:
+ Groups          Name        Variance  Std.Dev.
+ Population:Line (Intercept) 4.383e-04 0.020935
+ Population      (Intercept) 4.281e-05 0.006543
+ Residual                    9.185e-04 0.030307
+Number of obs: 4101, groups:  Population:Line, 166; Population, 9
+
+Fixed effects:
+              Estimate Std. Error         df t value Pr(>|t|)    
+(Intercept)  2.613e-01  4.611e-03  6.789e+00  56.662 2.44e-10 ***
+Altitude    -2.292e-06  1.245e-05  6.656e+00  -0.184    0.859    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+         (Intr)
+Altitude -0.800
+

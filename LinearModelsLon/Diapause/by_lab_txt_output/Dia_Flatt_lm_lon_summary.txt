@@ -1,0 +1,20 @@
+
+Call:
+lm(formula = Prop_Max_Stage9_asin ~ Longitude, data = filter(droseu$dia, 
+    Supervisor.PI == "Flatt"))
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-0.7185 -0.1390  0.1071  0.1102  0.1124 
+
+Coefficients:
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  1.466033   0.024339  60.234   <2e-16 ***
+Longitude   -0.000231   0.001106  -0.209    0.835    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.1845 on 161 degrees of freedom
+Multiple R-squared:  0.000271,	Adjusted R-squared:  -0.005939 
+F-statistic: 0.04364 on 1 and 161 DF,  p-value: 0.8348
+

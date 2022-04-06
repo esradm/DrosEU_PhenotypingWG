@@ -1,0 +1,20 @@
+$Dia_Bergland_lmer_lon
+Type III Analysis of Variance Table with Satterthwaite's method
+           Sum Sq Mean Sq NumDF  DenDF F value  Pr(>F)  
+Longitude 0.42016 0.42016     1 7.5238  6.1696 0.03968 *
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+$Dia_Flatt_lm_lon
+Analysis of Variance Table
+
+Response: Prop_Max_Stage9_asin
+           Df Sum Sq  Mean Sq F value Pr(>F)
+Longitude   1 0.0015 0.001485  0.0436 0.8348
+Residuals 161 5.4795 0.034034               
+
+$Dia_Schlotterer_lmer_lon
+Type III Analysis of Variance Table with Satterthwaite's method
+            Sum Sq  Mean Sq NumDF  DenDF F value Pr(>F)
+Longitude 0.015966 0.015966     1 7.5501   0.295 0.6027
+

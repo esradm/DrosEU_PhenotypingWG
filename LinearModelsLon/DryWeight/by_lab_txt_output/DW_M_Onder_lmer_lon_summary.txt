@@ -1,0 +1,29 @@
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: 
+DW_micrograms ~ Longitude + (1 | Population) + (1 | Population:Line)
+   Data: filter(droseu$dw, Supervisor.PI == "Onder" & Sex == "M")
+
+REML criterion at convergence: -16586.4
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-4.2472 -0.6098 -0.0051  0.6480  3.9690 
+
+Random effects:
+ Groups          Name        Variance  Std.Dev.
+ Population:Line (Intercept) 4.384e-04 0.020938
+ Population      (Intercept) 4.261e-05 0.006528
+ Residual                    9.185e-04 0.030307
+Number of obs: 4101, groups:  Population:Line, 166; Population, 9
+
+Fixed effects:
+             Estimate Std. Error        df t value Pr(>|t|)    
+(Intercept) 2.601e-01  4.396e-03 7.314e+00  59.173 4.48e-11 ***
+Longitude   2.787e-05  2.035e-04 7.206e+00   0.137    0.895    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+          (Intr)
+Longitude -0.778

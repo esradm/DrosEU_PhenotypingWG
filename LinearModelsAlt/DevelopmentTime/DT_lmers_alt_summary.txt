@@ -1,0 +1,392 @@
+$DT_P_Schmidt_lmer_alt
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: DT_EggPupa ~ Altitude + (1 | Population) + (1 | Line:Population)
+   Data: filter(droseu$dtp, Supervisor.PI == "Schmidt")
+
+REML criterion at convergence: 26362.4
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-2.9650 -0.6106 -0.0863  0.3973  4.7764 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 157.71   12.558  
+ Population      (Intercept)  18.53    4.304  
+ Residual                    119.06   10.911  
+Number of obs: 3391, groups:  Line:Population, 161; Population, 9
+
+Fixed effects:
+             Estimate Std. Error        df t value Pr(>|t|)    
+(Intercept) 1.323e+02  2.942e+00 6.807e+00  44.983 1.12e-09 ***
+Altitude    2.589e-03  7.869e-03 6.456e+00   0.329    0.753    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+         (Intr)
+Altitude -0.800
+
+$DT_A_F_Gibert_lmer_alt
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: DT_EggAdult ~ Altitude + (1 | Population) + (1 | Line:Population)
+   Data: filter(droseu$dta, Supervisor.PI == "Gibert" & Sex == "F")
+
+REML criterion at convergence: 51024.4
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.6069 -0.5807 -0.1494  0.4430  5.9926 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 37.789   6.147   
+ Population      (Intercept)  3.586   1.894   
+ Residual                    97.156   9.857   
+Number of obs: 6817, groups:  Line:Population, 169; Population, 9
+
+Fixed effects:
+              Estimate Std. Error         df t value Pr(>|t|)    
+(Intercept) 225.728740   1.334609   6.866254 169.135  1.1e-13 ***
+Altitude     -0.007237   0.003593   6.661668  -2.014   0.0859 .  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+         (Intr)
+Altitude -0.800
+
+$DT_A_F_Grath_lmer_alt
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: DT_EggAdult ~ Altitude + (1 | Population) + (1 | Line:Population)
+   Data: filter(droseu$dta, Supervisor.PI == "Grath" & Sex == "F")
+
+REML criterion at convergence: 7679.8
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-2.0699 -0.7465  0.0910  0.5987  4.2121 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept)  21.63    4.651  
+ Population      (Intercept)  87.92    9.376  
+ Residual                    314.33   17.729  
+Number of obs: 890, groups:  Line:Population, 23; Population, 3
+
+Fixed effects:
+             Estimate Std. Error        df t value Pr(>|t|)  
+(Intercept) 317.00122    9.60682   0.92746  32.998   0.0246 *
+Altitude     -0.01910    0.02961   0.88974  -0.645   0.6457  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+         (Intr)
+Altitude -0.813
+
+$DT_A_F_Hoedjes_lmer_alt
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: DT_EggAdult ~ Altitude + (1 | Population) + (1 | Line:Population)
+   Data: filter(droseu$dta, Supervisor.PI == "Hoedjes" & Sex == "F")
+
+REML criterion at convergence: 55049.5
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-2.6910 -0.5705 -0.2066  0.4172 12.9210 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept)  24.341   4.934  
+ Population      (Intercept)   8.851   2.975  
+ Residual                    155.134  12.455  
+Number of obs: 6939, groups:  Line:Population, 167; Population, 9
+
+Fixed effects:
+              Estimate Std. Error         df t value Pr(>|t|)    
+(Intercept) 233.275874   1.792995   6.770430 130.104 9.27e-13 ***
+Altitude     -0.001427   0.004847   6.661736  -0.294    0.777    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+         (Intr)
+Altitude -0.800
+
+$DT_A_F_Schmidt_lmer_alt
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: DT_EggAdult ~ Altitude + (1 | Population) + (1 | Line:Population)
+   Data: filter(droseu$dta, Supervisor.PI == "Schmidt" & Sex == "F")
+
+REML criterion at convergence: 14133.5
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.5396 -0.4715 -0.0809  0.3334  9.1933 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 380.03   19.494  
+ Population      (Intercept)  59.98    7.745  
+ Residual                    216.83   14.725  
+Number of obs: 1664, groups:  Line:Population, 159; Population, 9
+
+Fixed effects:
+              Estimate Std. Error         df t value Pr(>|t|)    
+(Intercept) 226.512428   5.096408   7.402492  44.446 2.93e-10 ***
+Altitude     -0.003162   0.013646   7.046302  -0.232    0.823    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+         (Intr)
+Altitude -0.801
+
+$DT_A_F_StamenkovicRadak_lmer_alt
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: DT_EggAdult ~ Altitude + (1 | Population) + (1 | Line:Population)
+   Data: filter(droseu$dta, Supervisor.PI == "StamenkovicRadak" & Sex ==  
+    "F")
+
+REML criterion at convergence: 55273
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.3253 -0.5948 -0.1263  0.4264  6.1004 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 245.68   15.674  
+ Population      (Intercept)  68.48    8.275  
+ Residual                    399.72   19.993  
+Number of obs: 6200, groups:  Line:Population, 165; Population, 9
+
+Fixed effects:
+             Estimate Std. Error        df t value Pr(>|t|)    
+(Intercept) 2.435e+02  5.061e+00 7.069e+00  48.113  3.7e-10 ***
+Altitude    1.691e-03  1.365e-02 6.905e+00   0.124    0.905    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+         (Intr)
+Altitude -0.801
+
+$DT_A_F_Zwaan_lmer_alt
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: DT_EggAdult ~ Altitude + (1 | Population) + (1 | Line:Population)
+   Data: filter(droseu$dta, Supervisor.PI == "Zwaan" & Sex == "F")
+
+REML criterion at convergence: 56154.3
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.1721 -0.5278 -0.2238  0.2715  6.5401 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept)  31.997   5.657  
+ Population      (Intercept)   2.255   1.502  
+ Residual                    117.204  10.826  
+Number of obs: 7330, groups:  Line:Population, 169; Population, 9
+
+Fixed effects:
+              Estimate Std. Error         df t value Pr(>|t|)    
+(Intercept) 224.141858   1.131345   6.830297 198.120 4.26e-14 ***
+Altitude     -0.001836   0.003051   6.674862  -0.602    0.567    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+         (Intr)
+Altitude -0.800
+
+$DT_A_M_Gibert_lmer_alt
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: DT_EggAdult ~ Altitude + (1 | Population) + (1 | Line:Population)
+   Data: filter(droseu$dta, Supervisor.PI == "Gibert" & Sex == "M")
+
+REML criterion at convergence: 49881.9
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.4534 -0.6149 -0.1432  0.4477  5.0562 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept)  32.601   5.710  
+ Population      (Intercept)   2.296   1.515  
+ Residual                    109.203  10.450  
+Number of obs: 6566, groups:  Line:Population, 169; Population, 9
+
+Fixed effects:
+              Estimate Std. Error         df t value Pr(>|t|)    
+(Intercept) 229.359652   1.141110   6.700814 200.997 6.41e-14 ***
+Altitude     -0.005793   0.003071   6.492081  -1.886    0.104    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+         (Intr)
+Altitude -0.800
+
+$DT_A_M_Grath_lmer_alt
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: DT_EggAdult ~ Altitude + (1 | Population) + (1 | Line:Population)
+   Data: filter(droseu$dta, Supervisor.PI == "Grath" & Sex == "M")
+
+REML criterion at convergence: 7576.6
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-2.4780 -0.5692 -0.0937  0.6018  4.2632 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept)  46.85    6.845  
+ Population      (Intercept)  22.69    4.763  
+ Residual                    300.99   17.349  
+Number of obs: 881, groups:  Line:Population, 23; Population, 3
+
+Fixed effects:
+             Estimate Std. Error        df t value Pr(>|t|)  
+(Intercept) 321.98485    5.56235   0.70792  57.886   0.0351 *
+Altitude     -0.01752    0.01664   0.62544  -1.053   0.5539  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+         (Intr)
+Altitude -0.812
+
+$DT_A_M_Hoedjes_lmer_alt
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: DT_EggAdult ~ Altitude + (1 | Population) + (1 | Line:Population)
+   Data: filter(droseu$dta, Supervisor.PI == "Hoedjes" & Sex == "M")
+
+REML criterion at convergence: 54660.7
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-6.8396 -0.5904 -0.0895  0.3746 10.9866 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept)  27.40    5.235  
+ Population      (Intercept)  10.27    3.205  
+ Residual                    207.29   14.398  
+Number of obs: 6649, groups:  Line:Population, 167; Population, 9
+
+Fixed effects:
+              Estimate Std. Error         df t value Pr(>|t|)    
+(Intercept)  2.394e+02  1.932e+00  6.754e+00  123.92 1.36e-12 ***
+Altitude    -9.929e-04  5.223e-03  6.646e+00   -0.19    0.855    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+         (Intr)
+Altitude -0.800
+
+$DT_A_M_Schmidt_lmer_alt
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: DT_EggAdult ~ Altitude + (1 | Population) + (1 | Line:Population)
+   Data: filter(droseu$dta, Supervisor.PI == "Schmidt" & Sex == "M")
+
+REML criterion at convergence: 12899.1
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-2.8644 -0.4873 -0.1218  0.3036  7.0097 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 414.54   20.360  
+ Population      (Intercept)  73.36    8.565  
+ Residual                    297.16   17.238  
+Number of obs: 1464, groups:  Line:Population, 157; Population, 9
+
+Fixed effects:
+              Estimate Std. Error         df t value Pr(>|t|)    
+(Intercept) 232.396048   5.569134   7.009833  41.729 1.16e-09 ***
+Altitude     -0.004648   0.014933   6.707800  -0.311    0.765    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+         (Intr)
+Altitude -0.800
+
+$DT_A_M_StamenkovicRadak_lmer_alt
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: DT_EggAdult ~ Altitude + (1 | Population) + (1 | Line:Population)
+   Data: filter(droseu$dta, Supervisor.PI == "StamenkovicRadak" & Sex ==  
+    "M")
+
+REML criterion at convergence: 52227.9
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.3464 -0.5922 -0.1224  0.4291  6.0546 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 239.90   15.489  
+ Population      (Intercept)  65.99    8.124  
+ Residual                    426.58   20.654  
+Number of obs: 5815, groups:  Line:Population, 165; Population, 9
+
+Fixed effects:
+             Estimate Std. Error        df t value Pr(>|t|)    
+(Intercept) 2.488e+02  4.977e+00 7.086e+00  49.991 2.71e-10 ***
+Altitude    2.139e-03  1.343e-02 6.916e+00   0.159    0.878    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+         (Intr)
+Altitude -0.801
+
+$DT_A_M_Zwaan_lmer_alt
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: DT_EggAdult ~ Altitude + (1 | Population) + (1 | Line:Population)
+   Data: filter(droseu$dta, Supervisor.PI == "Zwaan" & Sex == "M")
+
+REML criterion at convergence: 49594.3
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.0780 -0.5257 -0.2254  0.2470  6.0984 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept)  36.200   6.017  
+ Population      (Intercept)   2.385   1.544  
+ Residual                    128.145  11.320  
+Number of obs: 6394, groups:  Line:Population, 169; Population, 9
+
+Fixed effects:
+              Estimate Std. Error         df t value Pr(>|t|)    
+(Intercept) 228.210980   1.183529   6.568385 192.823 1.42e-13 ***
+Altitude     -0.004153   0.003190   6.405077  -1.302    0.238    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+         (Intr)
+Altitude -0.800
+

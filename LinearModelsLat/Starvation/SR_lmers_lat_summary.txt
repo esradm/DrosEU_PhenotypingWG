@@ -1,0 +1,184 @@
+$SR_F_Gonzalez_lmer_lat
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: 
+AgeAtDeath_hours ~ Latitude + (1 | Population) + (1 | Line:Population)
+   Data: filter(droseu$sr, Supervisor.PI == "Gonzalez" & Sex == "F")
+
+REML criterion at convergence: 43956.5
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.9653 -0.6558 -0.0699  0.6041  4.9231 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 159.1    12.61   
+ Population      (Intercept)  12.6     3.55   
+ Residual                    427.1    20.67   
+Number of obs: 4900, groups:  Line:Population, 140; Population, 9
+
+Fixed effects:
+            Estimate Std. Error      df t value Pr(>|t|)   
+(Intercept)  52.0091    11.2496  7.5951   4.623  0.00195 **
+Latitude      0.5943     0.2245  7.4076   2.647  0.03145 * 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+         (Intr)
+Latitude -0.989
+
+$SR_F_Onder_lmer_lat
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: 
+AgeAtDeath_hours ~ Latitude + (1 | Population) + (1 | Line:Population)
+   Data: filter(droseu$sr, Supervisor.PI == "Onder" & Sex == "F")
+
+REML criterion at convergence: 149543.1
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-4.9735 -0.6175 -0.0452  0.6222  4.0094 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 169.0    13.001  
+ Population      (Intercept)  26.3     5.128  
+ Residual                    322.5    17.958  
+Number of obs: 17282, groups:  Line:Population, 168; Population, 9
+
+Fixed effects:
+            Estimate Std. Error      df t value Pr(>|t|)   
+(Intercept)  63.1029    13.7423  7.3076   4.592  0.00224 **
+Latitude      0.6088     0.2754  7.2393   2.211  0.06147 . 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+         (Intr)
+Latitude -0.989
+
+$SR_F_Pasyukova_lmer_lat
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: 
+AgeAtDeath_hours ~ Latitude + (1 | Population) + (1 | Line:Population)
+   Data: filter(droseu$sr, Supervisor.PI == "Pasyukova" & Sex == "F")
+
+REML criterion at convergence: 151797.2
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-5.3129 -0.6095  0.0226  0.6400  3.9573 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 125.31   11.194  
+ Population      (Intercept)  27.59    5.253  
+ Residual                    480.70   21.925  
+Number of obs: 16779, groups:  Line:Population, 169; Population, 9
+
+Fixed effects:
+            Estimate Std. Error      df t value Pr(>|t|)    
+(Intercept)  89.2550    13.5557  6.9627   6.584 0.000316 ***
+Latitude      0.3662     0.2715  6.8839   1.349 0.220005    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+         (Intr)
+Latitude -0.989
+
+$SR_M_Gonzalez_lmer_lat
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: 
+AgeAtDeath_hours ~ Latitude + (1 | Population) + (1 | Line:Population)
+   Data: filter(droseu$sr, Supervisor.PI == "Gonzalez" & Sex == "M")
+
+REML criterion at convergence: 44639.5
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-4.1327 -0.6160 -0.1221  0.4773  6.3359 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 102.84   10.141  
+ Population      (Intercept)  98.57    9.928  
+ Residual                    249.10   15.783  
+Number of obs: 5290, groups:  Line:Population, 155; Population, 9
+
+Fixed effects:
+            Estimate Std. Error      df t value Pr(>|t|)
+(Intercept)  36.7833    23.5610  7.1012   1.561    0.162
+Latitude      0.4032     0.4731  7.0892   0.852    0.422
+
+Correlation of Fixed Effects:
+         (Intr)
+Latitude -0.989
+
+$SR_M_Onder_lmer_lat
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: 
+AgeAtDeath_hours ~ Latitude + (1 | Population) + (1 | Line:Population)
+   Data: filter(droseu$sr, Supervisor.PI == "Onder" & Sex == "M")
+
+REML criterion at convergence: 139935.7
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-4.4648 -0.6550 -0.0429  0.5977  5.6316 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept)  97.43    9.870  
+ Population      (Intercept)  10.38    3.222  
+ Residual                    196.17   14.006  
+Number of obs: 17158, groups:  Line:Population, 168; Population, 9
+
+Fixed effects:
+            Estimate Std. Error      df t value Pr(>|t|)    
+(Intercept)  55.6266     9.1434  7.3191   6.084 0.000419 ***
+Latitude      0.3615     0.1831  7.2317   1.974 0.087587 .  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+         (Intr)
+Latitude -0.989
+
+$SR_M_Pasyukova_lmer_lat
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: 
+AgeAtDeath_hours ~ Latitude + (1 | Population) + (1 | Line:Population)
+   Data: filter(droseu$sr, Supervisor.PI == "Pasyukova" & Sex == "M")
+
+REML criterion at convergence: 143582.9
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-4.4112 -0.6001 -0.0241  0.6313  5.6374 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept)  67.49    8.215  
+ Population      (Intercept)  17.05    4.129  
+ Residual                    282.85   16.818  
+Number of obs: 16861, groups:  Line:Population, 169; Population, 9
+
+Fixed effects:
+            Estimate Std. Error      df t value Pr(>|t|)   
+(Intercept)  54.3338    10.5169  7.2362   5.166  0.00117 **
+Latitude      0.3332     0.2107  7.1623   1.582  0.15679   
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+         (Intr)
+Latitude -0.989
+
