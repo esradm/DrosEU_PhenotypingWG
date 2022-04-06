@@ -8,12 +8,12 @@ Germany,Muenster,Fricke,Fecundity,51.96,7.6
 France,Lyon,Gibert,Development time,45.8,4.8
 Spain,Barcelona,Gonzalez,Cold-shock mortality,41.4,2.2
 Germany,Munich,Grath,Development time,47.1,11.6
-The Netherlands,Lausanne,Hoedjes,Development time,46.5,6.6
+Switzerland,Lausanne,Hoedjes,Development time,46.5,6.6
 Ukraine,Kyiv,Kozeretska,Cold-shock mortality,50.5,30.5
 Turkey,Ankara,Onder,Wing area,39.9,32.9
 Germany,Munich,Parsch,Lifespan,47.1,11.6
 Germany,Göttingen,Posnien,Thorax length,51.5,9.9
-UK,St Andrews,Ritchie,Wing patterning ,56.3398,-2.7967
+UK,St Andrews,Ritchie,Wing patterning ,56.34,-2.9
 Austria,Vienna,Schlötterer,Diapause,48.2,16.4
 USA,Philadelphia,Schmidt,Viability,39.9,-75.2
 Serbia,Belgrade,Stamenkovic-Radak,Wing area,44.8,20.5
@@ -22,4 +22,5 @@ Portugal,Porto,Vieira,Heat-shock mortality,41.2,-8.6
 Germany,Würzburg,Wegener,Circadian eclosion timing,49.8,9.9
 The Netherlands,Wageningen,Zwaan,Viability,51.9,5.7
 Argentina,Buenos Aires,Mensch,Chill-coma recovery time,-34.6,-58.4
-Portugal,Lisbon,Sucena,Fly husbandry,38.7223,-9.1393
+Portugal,Lisbon,Sucena,Fly husbandry,38.7,-9.14
+Czech Republic,Ceske Budejovice,Hrcek,Parasitoid resistance,49,14.5
