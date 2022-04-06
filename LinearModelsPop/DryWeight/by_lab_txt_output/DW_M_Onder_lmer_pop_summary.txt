@@ -1,5 +1,4 @@
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: DW_micrograms ~ Population + (1 | Population:Line) + (1 | Batch)
    Data: filter(droseu$dw, Supervisor.PI == "Onder" & Sex == "M")
 
