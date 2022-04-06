@@ -1,70 +1,60 @@
                                     95%-CI %W(random) Population
-YE_Gonzalez   69.7376 [ 62.4494;  77.0258]        3.7         YE
+YE_Gonzalez   69.5342 [ 62.1837;  76.8848]        3.7         YE
 YE_Onder      80.1389 [ 74.3846;  85.8933]        3.9         YE
 YE_Pasyukova  88.4767 [ 79.3028;  97.6506]        3.5         YE
-RE_Gonzalez   78.8916 [ 70.9787;  86.8046]        3.7         RE
+RE_Gonzalez   79.7543 [ 72.0975;  87.4110]        3.7         RE
 RE_Onder      88.7745 [ 82.3428;  95.2062]        3.8         RE
 RE_Pasyukova 103.5285 [ 94.0151; 113.0419]        3.5         RE
-GI_Gonzalez   74.8926 [ 67.2695;  82.5157]        3.7         GI
+GI_Gonzalez   74.6981 [ 67.0264;  82.3699]        3.7         GI
 GI_Onder      88.1749 [ 81.5302;  94.8197]        3.8         GI
 GI_Pasyukova 108.2652 [ 98.4136; 118.1168]        3.4         GI
-MU_Gonzalez   88.9286 [ 82.3556;  95.5016]        3.8         MU
+MU_Gonzalez   88.6017 [ 81.9612;  95.2422]        3.8         MU
 MU_Onder     102.7801 [ 97.0284; 108.5317]        3.9         MU
 MU_Pasyukova 105.8200 [ 96.6317; 115.0084]        3.5         MU
-MA_Gonzalez   79.9911 [ 73.6549;  86.3274]        3.8         MA
+MA_Gonzalez   79.7314 [ 73.3374;  86.1254]        3.8         MA
 MA_Onder      92.3733 [ 86.6188;  98.1278]        3.9         MA
 MA_Pasyukova 101.3192 [ 92.1323; 110.5061]        3.5         MA
-UM_Gonzalez   81.9832 [ 73.7926;  90.1739]        3.6         UM
+UM_Gonzalez   81.7173 [ 73.4787;  89.9558]        3.6         UM
 UM_Onder      93.0814 [ 86.8388;  99.3241]        3.9         UM
 UM_Pasyukova 103.9415 [ 94.6061; 113.2769]        3.5         UM
-KA_Gonzalez   80.8715 [ 73.5022;  88.2407]        3.7         KA
+KA_Gonzalez   80.8317 [ 73.4368;  88.2267]        3.7         KA
 KA_Onder      97.2424 [ 91.4881; 102.9967]        3.9         KA
 KA_Pasyukova 105.1140 [ 95.9436; 114.2844]        3.5         KA
-VA_Gonzalez   88.4470 [ 81.4214;  95.4725]        3.8         VA
+VA_Gonzalez   88.3981 [ 81.3098;  95.4865]        3.8         VA
 VA_Onder     102.6021 [ 96.8494; 108.3547]        3.9         VA
 VA_Pasyukova 110.6826 [101.4952; 119.8700]        3.5         VA
-AK_Gonzalez   85.4276 [ 79.0511;  91.8041]        3.8         AK
+AK_Gonzalez   85.1620 [ 78.7166;  91.6074]        3.8         AK
 AK_Onder      92.6510 [ 86.8967;  98.4054]        3.9         AK
 AK_Pasyukova 103.1625 [ 94.0959; 112.2291]        3.5         AK
 
 Number of studies combined: k = 27
 
                                          95%-CI     z p-value
-Random effects model 92.2644 [88.0900; 96.4388] 43.32       0
+Random effects model 92.2381 [88.0547; 96.4215] 43.21       0
 
 Quantifying heterogeneity:
- tau^2 = 107.6043 [61.5849; 220.4085]; tau = 10.3732 [7.8476; 14.8462]
- I^2 = 87.8% [83.4%; 91.0%]; H = 2.86 [2.45; 3.33]
+ tau^2 = 108.1073 [61.8848; 221.3518]; tau = 10.3975 [7.8667; 14.8779]
+ I^2 = 87.8% [83.4%; 91.0%]; H = 2.86 [2.46; 3.34]
 
 Test of heterogeneity:
       Q d.f.  p-value
- 212.64   26 < 0.0001
+ 213.12   26 < 0.0001
 
 Results for subgroups (random effects model):
-                  k                       95%-CI    tau^2     tau     Q
-Population = YE   3  79.1939 [68.9303;  89.4575]  67.8379  8.2364 10.41
-Population = RE   3  90.1691 [76.4727; 103.8656] 129.8112 11.3935 15.23
-Population = GI   3  90.2197 [71.4506; 108.9889] 257.9424 16.0606 27.60
-Population = MU   3  98.9457 [88.7575; 109.1339]  67.5112  8.2165 12.71
-Population = MA   3  90.9014 [78.9873; 102.8156]  97.4774  9.8731 15.96
-Population = UM   3  92.8461 [80.7864; 104.9058]  97.0494  9.8514 12.13
-Population = KA   3  94.2679 [80.4638; 108.0720] 134.1285 11.5814 19.05
-Population = VA   3 100.3634 [87.8336; 112.8933] 108.3778 10.4105 16.32
-Population = AK   3  93.3031 [83.6396; 102.9667]  59.8049  7.7334  9.95
-                  I^2
-Population = YE 80.8%
-Population = RE 86.9%
-Population = GI 92.8%
-Population = MU 84.3%
-Population = MA 87.5%
-Population = UM 83.5%
-Population = KA 89.5%
-Population = VA 87.7%
-Population = AK 79.9%
+                  k                       95%-CI    tau^2     tau     Q   I^2
+Population = YE   3  79.1400 [68.7553;  89.5247]  69.7027  8.3488 10.57 81.1%
+Population = RE   3  90.4153 [77.1777; 103.6529] 120.5227 10.9783 14.56 86.3%
+Population = GI   3  90.1604 [71.2880; 109.0329] 260.9112 16.1527 27.79 92.8%
+Population = MU   3  98.8515 [88.4583; 109.2447]  70.7105  8.4090 13.10 84.7%
+Population = MA   3  90.8270 [78.7556; 102.8983] 100.3476 10.0174 16.27 87.7%
+Population = UM   3  92.7681 [80.5537; 104.9825]  99.9080  9.9954 12.37 83.8%
+Population = KA   3  94.2580 [80.4311; 108.0849] 134.5866 11.6011 19.04 89.5%
+Population = VA   3 100.3553 [87.8007; 112.9099] 108.7824 10.4299 16.23 87.7%
+Population = AK   3  93.2325 [83.4173; 103.0477]  62.0182  7.8752 10.19 80.4%
 
 Test for subgroup differences (random effects model):
                     Q d.f. p-value
-Between groups   9.80    8  0.2792
+Between groups   9.57    8  0.2968
 
 Details on meta-analytical method:
 - Inverse variance method

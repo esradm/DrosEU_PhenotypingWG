@@ -1,8 +1,6 @@
 $DW_F_Colinet_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-lmerModLmerTest]
-Formula: 
-DW_micrograms ~ Longitude + (1 | Population) + (1 | Population:Line)
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Formula: DW_micrograms ~ Longitude + (1 | Population) + (1 | Population:Line)
    Data: filter(droseu$dw, Supervisor.PI == "Colinet" & Sex == "F")
 
 REML criterion at convergence: -11729.8
@@ -30,10 +28,8 @@ Correlation of Fixed Effects:
 Longitude -0.781
 
 $DW_F_Hoedjes_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-lmerModLmerTest]
-Formula: 
-DW_micrograms ~ Longitude + (1 | Population) + (1 | Population:Line)
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Formula: DW_micrograms ~ Longitude + (1 | Population) + (1 | Population:Line)
    Data: filter(droseu$dw, Supervisor.PI == "Hoedjes" & Sex == "F")
 
 REML criterion at convergence: -12554.2
@@ -61,10 +57,8 @@ Correlation of Fixed Effects:
 Longitude -0.784
 
 $DW_F_Onder_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-lmerModLmerTest]
-Formula: 
-DW_micrograms ~ Longitude + (1 | Population) + (1 | Population:Line)
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Formula: DW_micrograms ~ Longitude + (1 | Population) + (1 | Population:Line)
    Data: filter(droseu$dw, Supervisor.PI == "Onder" & Sex == "F")
 
 REML criterion at convergence: -12232.1
@@ -92,10 +86,8 @@ Correlation of Fixed Effects:
 Longitude -0.773
 
 $DW_M_Colinet_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-lmerModLmerTest]
-Formula: 
-DW_micrograms ~ Longitude + (1 | Population) + (1 | Population:Line)
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Formula: DW_micrograms ~ Longitude + (1 | Population) + (1 | Population:Line)
    Data: filter(droseu$dw, Supervisor.PI == "Colinet" & Sex == "M")
 
 REML criterion at convergence: -16937.8
@@ -123,8 +115,7 @@ Correlation of Fixed Effects:
 Longitude -0.776
 
 $DW_M_Hoedjes_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: DW_micrograms ~ Longitude + (1 | Population:Line)
    Data: filter(droseu$dw, Supervisor.PI == "Hoedjes" & Sex == "M")
 
@@ -152,10 +143,8 @@ Correlation of Fixed Effects:
 Longitude -0.799
 
 $DW_M_Onder_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-lmerModLmerTest]
-Formula: 
-DW_micrograms ~ Longitude + (1 | Population) + (1 | Population:Line)
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Formula: DW_micrograms ~ Longitude + (1 | Population) + (1 | Population:Line)
    Data: filter(droseu$dw, Supervisor.PI == "Onder" & Sex == "M")
 
 REML criterion at convergence: -16586.4

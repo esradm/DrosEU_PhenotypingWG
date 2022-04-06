@@ -1,6 +1,5 @@
 $DT_P_Schmidt_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: DT_EggPupa ~ Altitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$dtp, Supervisor.PI == "Schmidt")
 
@@ -29,8 +28,7 @@ Correlation of Fixed Effects:
 Altitude -0.800
 
 $DT_A_F_Gibert_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: DT_EggAdult ~ Altitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$dta, Supervisor.PI == "Gibert" & Sex == "F")
 
@@ -59,8 +57,7 @@ Correlation of Fixed Effects:
 Altitude -0.800
 
 $DT_A_F_Grath_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: DT_EggAdult ~ Altitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$dta, Supervisor.PI == "Grath" & Sex == "F")
 
@@ -89,8 +86,7 @@ Correlation of Fixed Effects:
 Altitude -0.813
 
 $DT_A_F_Hoedjes_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: DT_EggAdult ~ Altitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$dta, Supervisor.PI == "Hoedjes" & Sex == "F")
 
@@ -119,8 +115,7 @@ Correlation of Fixed Effects:
 Altitude -0.800
 
 $DT_A_F_Schmidt_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: DT_EggAdult ~ Altitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$dta, Supervisor.PI == "Schmidt" & Sex == "F")
 
@@ -149,11 +144,9 @@ Correlation of Fixed Effects:
 Altitude -0.801
 
 $DT_A_F_StamenkovicRadak_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: DT_EggAdult ~ Altitude + (1 | Population) + (1 | Line:Population)
-   Data: filter(droseu$dta, Supervisor.PI == "StamenkovicRadak" & Sex ==  
-    "F")
+   Data: filter(droseu$dta, Supervisor.PI == "StamenkovicRadak" & Sex ==      "F")
 
 REML criterion at convergence: 55273
 
@@ -180,8 +173,7 @@ Correlation of Fixed Effects:
 Altitude -0.801
 
 $DT_A_F_Zwaan_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: DT_EggAdult ~ Altitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$dta, Supervisor.PI == "Zwaan" & Sex == "F")
 
@@ -210,8 +202,7 @@ Correlation of Fixed Effects:
 Altitude -0.800
 
 $DT_A_M_Gibert_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: DT_EggAdult ~ Altitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$dta, Supervisor.PI == "Gibert" & Sex == "M")
 
@@ -240,8 +231,7 @@ Correlation of Fixed Effects:
 Altitude -0.800
 
 $DT_A_M_Grath_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: DT_EggAdult ~ Altitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$dta, Supervisor.PI == "Grath" & Sex == "M")
 
@@ -270,8 +260,7 @@ Correlation of Fixed Effects:
 Altitude -0.812
 
 $DT_A_M_Hoedjes_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: DT_EggAdult ~ Altitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$dta, Supervisor.PI == "Hoedjes" & Sex == "M")
 
@@ -300,8 +289,7 @@ Correlation of Fixed Effects:
 Altitude -0.800
 
 $DT_A_M_Schmidt_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: DT_EggAdult ~ Altitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$dta, Supervisor.PI == "Schmidt" & Sex == "M")
 
@@ -330,11 +318,9 @@ Correlation of Fixed Effects:
 Altitude -0.800
 
 $DT_A_M_StamenkovicRadak_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: DT_EggAdult ~ Altitude + (1 | Population) + (1 | Line:Population)
-   Data: filter(droseu$dta, Supervisor.PI == "StamenkovicRadak" & Sex ==  
-    "M")
+   Data: filter(droseu$dta, Supervisor.PI == "StamenkovicRadak" & Sex ==      "M")
 
 REML criterion at convergence: 52227.9
 
@@ -361,8 +347,7 @@ Correlation of Fixed Effects:
 Altitude -0.801
 
 $DT_A_M_Zwaan_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: DT_EggAdult ~ Altitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$dta, Supervisor.PI == "Zwaan" & Sex == "M")
 

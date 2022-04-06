@@ -1,6 +1,5 @@
 $WA_L_F_Onder_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: CentroidSizeLeft_micrometers ~ Altitude + (1 | Population) +  
     (1 | Line:Population)
    Data: filter(droseu$wa, Supervisor.PI == "Onder" & Sex == "F")
@@ -30,8 +29,7 @@ Correlation of Fixed Effects:
 Altitude -0.800
 
 $WA_L_F_Posnien_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: CentroidSizeLeft_micrometers ~ Altitude + (1 | Population) +  
     (1 | Line:Population)
    Data: filter(droseu$wa, Supervisor.PI == "Posnien" & Sex == "F")
@@ -61,8 +59,7 @@ Correlation of Fixed Effects:
 Altitude -0.800
 
 $WA_L_F_Ritchie_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: CentroidSizeLeft_micrometers ~ Altitude + (1 | Population) +  
     (1 | Line:Population)
    Data: filter(droseu$wa, Supervisor.PI == "Ritchie" & Sex == "F")
@@ -92,12 +89,10 @@ Correlation of Fixed Effects:
 Altitude -0.805
 
 $WA_L_F_StamenkovicRadak_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: CentroidSizeLeft_micrometers ~ Altitude + (1 | Population) +  
     (1 | Line:Population)
-   Data: filter(droseu$wa, Supervisor.PI == "StamenkovicRadak" & Sex ==  
-    "F")
+   Data: filter(droseu$wa, Supervisor.PI == "StamenkovicRadak" & Sex ==      "F")
 
 REML criterion at convergence: 44965.4
 
@@ -124,8 +119,7 @@ Correlation of Fixed Effects:
 Altitude -0.800
 
 $WA_L_M_Onder_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: CentroidSizeLeft_micrometers ~ Altitude + (1 | Population) +  
     (1 | Line:Population)
    Data: filter(droseu$wa, Supervisor.PI == "Onder" & Sex == "M")
@@ -155,8 +149,7 @@ Correlation of Fixed Effects:
 Altitude -0.800
 
 $WA_L_M_Posnien_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: CentroidSizeLeft_micrometers ~ Altitude + (1 | Line:Population)
    Data: filter(droseu$wa, Supervisor.PI == "Posnien" & Sex == "M")
 
@@ -184,8 +177,7 @@ Correlation of Fixed Effects:
 Altitude -0.800
 
 $WA_L_M_Ritchie_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: CentroidSizeLeft_micrometers ~ Altitude + (1 | Population) +  
     (1 | Line:Population)
    Data: filter(droseu$wa, Supervisor.PI == "Ritchie" & Sex == "M")
@@ -215,12 +207,10 @@ Correlation of Fixed Effects:
 Altitude -0.804
 
 $WA_L_M_StamenkovicRadak_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: CentroidSizeLeft_micrometers ~ Altitude + (1 | Population) +  
     (1 | Line:Population)
-   Data: filter(droseu$wa, Supervisor.PI == "StamenkovicRadak" & Sex ==  
-    "M")
+   Data: filter(droseu$wa, Supervisor.PI == "StamenkovicRadak" & Sex ==      "M")
 
 REML criterion at convergence: 42542.3
 
@@ -247,8 +237,7 @@ Correlation of Fixed Effects:
 Altitude -0.800
 
 $WA_R_F_Onder_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: CentroidSizeRight_micrometers ~ Altitude + (1 | Population) +  
     (1 | Line:Population)
    Data: filter(droseu$wa, Supervisor.PI == "Onder" & Sex == "F")
@@ -278,8 +267,7 @@ Correlation of Fixed Effects:
 Altitude -0.800
 
 $WA_R_F_Posnien_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: CentroidSizeRight_micrometers ~ Altitude + (1 | Population) +  
     (1 | Line:Population)
    Data: filter(droseu$wa, Supervisor.PI == "Posnien" & Sex == "F")
@@ -309,8 +297,7 @@ Correlation of Fixed Effects:
 Altitude -0.800
 
 $WA_R_F_Ritchie_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: CentroidSizeRight_micrometers ~ Altitude + (1 | Population) +  
     (1 | Line:Population)
    Data: filter(droseu$wa, Supervisor.PI == "Ritchie" & Sex == "F")
@@ -340,12 +327,10 @@ Correlation of Fixed Effects:
 Altitude -0.805
 
 $WA_R_F_StamenkovicRadak_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: CentroidSizeRight_micrometers ~ Altitude + (1 | Population) +  
     (1 | Line:Population)
-   Data: filter(droseu$wa, Supervisor.PI == "StamenkovicRadak" & Sex ==  
-    "F")
+   Data: filter(droseu$wa, Supervisor.PI == "StamenkovicRadak" & Sex ==      "F")
 
 REML criterion at convergence: 44951.3
 
@@ -372,8 +357,7 @@ Correlation of Fixed Effects:
 Altitude -0.800
 
 $WA_R_M_Onder_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: CentroidSizeRight_micrometers ~ Altitude + (1 | Population) +  
     (1 | Line:Population)
    Data: filter(droseu$wa, Supervisor.PI == "Onder" & Sex == "M")
@@ -403,8 +387,7 @@ Correlation of Fixed Effects:
 Altitude -0.800
 
 $WA_R_M_Posnien_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: CentroidSizeRight_micrometers ~ Altitude + (1 | Line:Population)
    Data: filter(droseu$wa, Supervisor.PI == "Posnien" & Sex == "M")
 
@@ -432,8 +415,7 @@ Correlation of Fixed Effects:
 Altitude -0.800
 
 $WA_R_M_Ritchie_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: CentroidSizeRight_micrometers ~ Altitude + (1 | Population) +  
     (1 | Line:Population)
    Data: filter(droseu$wa, Supervisor.PI == "Ritchie" & Sex == "M")
@@ -463,12 +445,10 @@ Correlation of Fixed Effects:
 Altitude -0.804
 
 $WA_R_M_StamenkovicRadak_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: CentroidSizeRight_micrometers ~ Altitude + (1 | Population) +  
     (1 | Line:Population)
-   Data: filter(droseu$wa, Supervisor.PI == "StamenkovicRadak" & Sex ==  
-    "M")
+   Data: filter(droseu$wa, Supervisor.PI == "StamenkovicRadak" & Sex ==      "M")
 
 REML criterion at convergence: 42481.9
 

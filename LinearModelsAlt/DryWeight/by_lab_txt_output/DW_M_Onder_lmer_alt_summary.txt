@@ -1,7 +1,5 @@
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-lmerModLmerTest]
-Formula: 
-DW_micrograms ~ Altitude + (1 | Population) + (1 | Population:Line)
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Formula: DW_micrograms ~ Altitude + (1 | Population) + (1 | Population:Line)
    Data: filter(droseu$dw, Supervisor.PI == "Onder" & Sex == "M")
 
 REML criterion at convergence: -16580.8

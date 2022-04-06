@@ -1,5 +1,4 @@
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: ND_log2 ~ Longitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$la, ND_log2 != -Inf)
 
