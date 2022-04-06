@@ -1,0 +1,27 @@
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: TL_micrometers ~ Altitude + (1 | Line:Population)
+   Data: filter(droseu$tl, Supervisor.PI == "Ritchie" & Sex == "M")
+
+REML criterion at convergence: 11601.6
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-7.8394 -0.4704  0.0471  0.4850 14.1901 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 1840     42.90   
+ Residual                    4500     67.08   
+Number of obs: 1025, groups:  Line:Population, 26
+
+Fixed effects:
+             Estimate Std. Error        df t value Pr(>|t|)    
+(Intercept) 818.34583   13.84551  24.05550  59.105   <2e-16 ***
+Altitude      0.04839    0.03268  24.09270   1.481    0.152    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+         (Intr)
+Altitude -0.780

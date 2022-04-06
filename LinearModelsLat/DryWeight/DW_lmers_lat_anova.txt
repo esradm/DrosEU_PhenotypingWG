@@ -1,0 +1,30 @@
+$DW_F_Colinet_lmer_lat
+Type III Analysis of Variance Table with Satterthwaite's method
+            Sum Sq   Mean Sq NumDF  DenDF F value Pr(>F)
+Latitude 0.0010307 0.0010307     1 6.8301  0.3834 0.5559
+
+$DW_F_Hoedjes_lmer_lat
+Type III Analysis of Variance Table with Satterthwaite's method
+             Sum Sq    Mean Sq NumDF  DenDF F value Pr(>F)
+Latitude 0.00056396 0.00056396     1 165.15  0.2496  0.618
+
+$DW_F_Onder_lmer_lat
+Type III Analysis of Variance Table with Satterthwaite's method
+             Sum Sq    Mean Sq NumDF  DenDF F value Pr(>F)
+Latitude 5.1001e-05 5.1001e-05     1 7.0236  0.0192 0.8937
+
+$DW_M_Colinet_lmer_lat
+Type III Analysis of Variance Table with Satterthwaite's method
+             Sum Sq    Mean Sq NumDF  DenDF F value Pr(>F)
+Latitude 0.00021826 0.00021826     1 7.0265  0.3042 0.5984
+
+$DW_M_Hoedjes_lmer_lat
+Type III Analysis of Variance Table with Satterthwaite's method
+             Sum Sq    Mean Sq NumDF  DenDF F value Pr(>F)
+Latitude 0.00035052 0.00035052     1 164.94  0.5114 0.4755
+
+$DW_M_Onder_lmer_lat
+Type III Analysis of Variance Table with Satterthwaite's method
+            Sum Sq   Mean Sq NumDF DenDF F value Pr(>F)
+Latitude 0.0001985 0.0001985     1 6.873  0.2161 0.6564
+

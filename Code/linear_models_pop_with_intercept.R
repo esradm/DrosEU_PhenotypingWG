@@ -377,25 +377,25 @@ CSM_lmers_pop <- list()
 ## Females
 
 # Gonzalez
-CSM_lmers_pop$CSM_F_Gonzalez_lmer_pop <- lmer(CSM_PropDead_ED_asin ~ Population + (1|Line: Population) + (1|Batch), data = filter(droseu$csm, Supervisor.PI == "Gonzalez" & Sex == "F"))
+CSM_lmers_pop$CSM_F_Gonzalez_lmer_pop <- lmer(CSM_PropDead_ED_asin ~ Population + (1|Line:Population) + (1|Batch), data = filter(droseu$csm, Supervisor.PI == "Gonzalez" & Sex == "F"))
 
 # Kozeretska
-CSM_lmers_pop$CSM_F_Kozeretska_lmer_pop <- lmer(CSM_PropDead_ED_asin ~ Population + (1|Line: Population) + (1|Batch), data = filter(droseu$csm, Supervisor.PI == "Kozeretska" & Sex == "F"))
+CSM_lmers_pop$CSM_F_Kozeretska_lmer_pop <- lmer(CSM_PropDead_ED_asin ~ Population + (1|Line:Population) + (1|Batch), data = filter(droseu$csm, Supervisor.PI == "Kozeretska" & Sex == "F"))
 
 # Vieira
-CSM_lmers_pop$CSM_F_Vieira_lmer_pop <- lmer(CSM_PropDead_ED_asin ~ Population + (1|Line: Population) + (1|Batch), data = filter(droseu$csm, Supervisor.PI == "Vieira" & Sex == "F"))
+CSM_lmers_pop$CSM_F_Vieira_lmer_pop <- lmer(CSM_PropDead_ED_asin ~ Population + (1|Line:Population) + (1|Batch), data = filter(droseu$csm, Supervisor.PI == "Vieira" & Sex == "F"))
 
 
 ## Males
 
 # Gonzalez
-CSM_lmers_pop$CSM_M_Gonzalez_lmer_pop <- lmer(CSM_PropDead_ED_asin ~ Population + (1|Line: Population) + (1|Batch), data = filter(droseu$csm, Supervisor.PI == "Gonzalez" & Sex == "M"))
+CSM_lmers_pop$CSM_M_Gonzalez_lmer_pop <- lmer(CSM_PropDead_ED_asin ~ Population + (1|Line:Population) + (1|Batch), data = filter(droseu$csm, Supervisor.PI == "Gonzalez" & Sex == "M"))
 
 # Kozeretska
-CSM_lmers_pop$CSM_M_Kozeretska_lmer_pop <- lmer(CSM_PropDead_ED_asin ~ Population + (1|Line: Population) + (1|Batch), data = filter(droseu$csm, Supervisor.PI == "Kozeretska" & Sex == "M"))
+CSM_lmers_pop$CSM_M_Kozeretska_lmer_pop <- lmer(CSM_PropDead_ED_asin ~ Population + (1|Line:Population) + (1|Batch), data = filter(droseu$csm, Supervisor.PI == "Kozeretska" & Sex == "M"))
 
 # Vieira
-CSM_lmers_pop$CSM_M_Vieira_lmer_pop <- lmer(CSM_PropDead_ED_asin ~ Population + (1|Line: Population) + (1|Batch), data = filter(droseu$csm, Supervisor.PI == "Vieira" & Sex == "M"))
+CSM_lmers_pop$CSM_M_Vieira_lmer_pop <- lmer(CSM_PropDead_ED_asin ~ Population + (1|Line:Population) + (1|Batch), data = filter(droseu$csm, Supervisor.PI == "Vieira" & Sex == "M"))
 
 
 # save output list
@@ -621,7 +621,7 @@ saveRDS(Pgm_lmers_pop, file = file.path(lmer_dir, out_dir, "Pgm_lmers_pop.rds"))
 
 
 
-############# ouput all lmers as Rdata ############# 
+############# output all lmers as Rdata ############# 
 
 all_lmers_pop <- ls()[grep("lmers", ls())]
 save(all_lmers_pop, file = "LinearModelsPop/all_lmers_pop.Rdata")
@@ -677,7 +677,7 @@ for (i in 1:length(lmers)){
  
 
 
-############# ouput all lmers summaries, anovas and tukeys as global lists ############# 
+############# output all lmers summaries, anovas and tukeys as global lists ############# 
 
 
 compTukeyCLD <- function(x) {
@@ -700,7 +700,7 @@ saveRDS(all_lmers_pop_anova, file = "LinearModelsPop/all_lmers_list_pop_anova.rd
 
 
 
-############# ouput all lmers summaries, anovas and tukeys by trait ############# 
+############# output all lmers summaries, anovas and tukeys by trait ############# 
 
 
 lmers <- list.files(path = "LinearModelsPop", recursive = T, full.names = T, pattern = "lmers_pop.rds")
@@ -729,7 +729,7 @@ for (i in 1:length(lmers)){
 
 
 
-############# ouput all lmers summaries, anovas and tukeys by trait and lab ############# 
+############# output all lmers summaries, anovas and tukeys by trait and lab ############# 
 
 lmers <- list.files(path = "LinearModelsPop", recursive = T, full.names = T, pattern = "lmers_pop.rds")
 
@@ -762,7 +762,7 @@ for (i in 1:length(lmers)){
 }
 
 
-############# ouput all models estimates as a global list ############# 
+############# output all models estimates as a global list ############# 
 
 lmers <- list.files(path = "LinearModelsPop", recursive = T, full.names = T, pattern = "lmers_pop.rds")
 
@@ -780,7 +780,7 @@ for (i in 1:length(lmers)){
 saveRDS(all_model_estimates, file = "LinearModelsPop/all_lmers_list_pop_estimates.rds")
 
 
-############# ouput all models estimates by trait ############# 
+############# output all models estimates by trait ############# 
 
 lmers <- list.files(path = "LinearModelsPop", recursive = T, full.names = T, pattern = "lmers_pop.rds")
 

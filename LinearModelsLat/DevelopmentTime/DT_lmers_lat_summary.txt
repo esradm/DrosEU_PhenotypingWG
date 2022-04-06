@@ -1,0 +1,392 @@
+$DT_P_Schmidt_lmer_lat
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: DT_EggPupa ~ Latitude + (1 | Population) + (1 | Line:Population)
+   Data: filter(droseu$dtp, Supervisor.PI == "Schmidt")
+
+REML criterion at convergence: 26354.4
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-2.9615 -0.6107 -0.0861  0.3998  4.7768 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 157.65   12.556  
+ Population      (Intercept)  14.99    3.872  
+ Residual                    119.05   10.911  
+Number of obs: 3391, groups:  Line:Population, 161; Population, 9
+
+Fixed effects:
+            Estimate Std. Error       df t value Pr(>|t|)    
+(Intercept) 145.6589    11.4038   7.1333  12.773 3.57e-06 ***
+Latitude     -0.2541     0.2278   6.9929  -1.115    0.302    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+         (Intr)
+Latitude -0.989
+
+$DT_A_F_Gibert_lmer_lat
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: DT_EggAdult ~ Latitude + (1 | Population) + (1 | Line:Population)
+   Data: filter(droseu$dta, Supervisor.PI == "Gibert" & Sex == "F")
+
+REML criterion at convergence: 51020.8
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.6073 -0.5767 -0.1500  0.4454  5.9968 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 37.810   6.149   
+ Population      (Intercept)  6.869   2.621   
+ Residual                    97.155   9.857   
+Number of obs: 6817, groups:  Line:Population, 169; Population, 9
+
+Fixed effects:
+             Estimate Std. Error        df t value Pr(>|t|)    
+(Intercept) 225.14832    6.93620   6.94466  32.460 7.65e-09 ***
+Latitude     -0.03127    0.13897   6.87573  -0.225    0.829    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+         (Intr)
+Latitude -0.989
+
+$DT_A_F_Grath_lmer_lat
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: DT_EggAdult ~ Latitude + (1 | Population) + (1 | Line:Population)
+   Data: filter(droseu$dta, Supervisor.PI == "Grath" & Sex == "F")
+
+REML criterion at convergence: 7673.5
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-2.0661 -0.7447  0.0874  0.5951  4.2159 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept)  21.84    4.674  
+ Population      (Intercept)  83.50    9.138  
+ Residual                    314.28   17.728  
+Number of obs: 890, groups:  Line:Population, 23; Population, 3
+
+Fixed effects:
+            Estimate Std. Error       df t value Pr(>|t|)  
+(Intercept) 335.2979    33.9299   1.0392   9.882   0.0591 .
+Latitude     -0.4626     0.6636   1.0154  -0.697   0.6110  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+         (Intr)
+Latitude -0.987
+
+$DT_A_F_Hoedjes_lmer_lat
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: DT_EggAdult ~ Latitude + (1 | Population) + (1 | Line:Population)
+   Data: filter(droseu$dta, Supervisor.PI == "Hoedjes" & Sex == "F")
+
+REML criterion at convergence: 55038
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-2.6891 -0.5719 -0.2044  0.4164 12.9094 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept)  24.354   4.935  
+ Population      (Intercept)   3.774   1.943  
+ Residual                    155.131  12.455  
+Number of obs: 6939, groups:  Line:Population, 167; Population, 9
+
+Fixed effects:
+            Estimate Std. Error       df t value Pr(>|t|)    
+(Intercept) 246.4733     5.3180   6.9103  46.347 7.08e-10 ***
+Latitude     -0.2764     0.1064   6.8151  -2.597   0.0364 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+         (Intr)
+Latitude -0.990
+
+$DT_A_F_Schmidt_lmer_lat
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: DT_EggAdult ~ Latitude + (1 | Population) + (1 | Line:Population)
+   Data: filter(droseu$dta, Supervisor.PI == "Schmidt" & Sex == "F")
+
+REML criterion at convergence: 14126.6
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.5403 -0.4717 -0.0809  0.3331  9.1929 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 380.10   19.496  
+ Population      (Intercept)  59.54    7.716  
+ Residual                    216.83   14.725  
+Number of obs: 1664, groups:  Line:Population, 159; Population, 9
+
+Fixed effects:
+            Estimate Std. Error       df t value Pr(>|t|)    
+(Intercept) 220.5874    21.0709   7.4613  10.469    1e-05 ***
+Latitude      0.1006     0.4212   7.3289   0.239    0.818    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+         (Intr)
+Latitude -0.990
+
+$DT_A_F_StamenkovicRadak_lmer_lat
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: DT_EggAdult ~ Latitude + (1 | Population) + (1 | Line:Population)
+   Data: filter(droseu$dta, Supervisor.PI == "StamenkovicRadak" & Sex ==  
+    "F")
+
+REML criterion at convergence: 55265.3
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.3235 -0.5947 -0.1265  0.4266  6.0996 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 245.66   15.67   
+ Population      (Intercept)  59.44    7.71   
+ Residual                    399.72   19.99   
+Number of obs: 6200, groups:  Line:Population, 165; Population, 9
+
+Fixed effects:
+            Estimate Std. Error       df t value Pr(>|t|)    
+(Intercept) 262.3997    19.7998   7.1909  13.253 2.59e-06 ***
+Latitude     -0.3734     0.3970   7.1388  -0.941    0.378    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+         (Intr)
+Latitude -0.990
+
+$DT_A_F_Zwaan_lmer_lat
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: DT_EggAdult ~ Latitude + (1 | Population) + (1 | Line:Population)
+   Data: filter(droseu$dta, Supervisor.PI == "Zwaan" & Sex == "F")
+
+REML criterion at convergence: 56147
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.1732 -0.5245 -0.2257  0.2715  6.5401 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept)  31.988   5.656  
+ Population      (Intercept)   1.988   1.410  
+ Residual                    117.205  10.826  
+Number of obs: 7330, groups:  Line:Population, 169; Population, 9
+
+Fixed effects:
+             Estimate Std. Error        df t value Pr(>|t|)    
+(Intercept) 227.79677    4.55595   7.07108  50.000  2.8e-10 ***
+Latitude     -0.08487    0.09104   6.93152  -0.932    0.383    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+         (Intr)
+Latitude -0.990
+
+$DT_A_M_Gibert_lmer_lat
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: DT_EggAdult ~ Latitude + (1 | Population) + (1 | Line:Population)
+   Data: filter(droseu$dta, Supervisor.PI == "Gibert" & Sex == "M")
+
+REML criterion at convergence: 49877.9
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.4489 -0.6162 -0.1446  0.4424  5.0521 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept)  32.607   5.710  
+ Population      (Intercept)   4.444   2.108  
+ Residual                    109.203  10.450  
+Number of obs: 6566, groups:  Line:Population, 169; Population, 9
+
+Fixed effects:
+             Estimate Std. Error        df t value Pr(>|t|)    
+(Intercept) 228.51830    5.81923   6.84286  39.270 2.59e-09 ***
+Latitude     -0.01737    0.11653   6.76079  -0.149    0.886    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+         (Intr)
+Latitude -0.990
+
+$DT_A_M_Grath_lmer_lat
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: DT_EggAdult ~ Latitude + (1 | Population) + (1 | Line:Population)
+   Data: filter(droseu$dta, Supervisor.PI == "Grath" & Sex == "M")
+
+REML criterion at convergence: 7570.9
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-2.4714 -0.5718 -0.0886  0.5983  4.2712 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept)  47.2     6.870  
+ Population      (Intercept)  52.6     7.253  
+ Residual                    300.9    17.348  
+Number of obs: 881, groups:  Line:Population, 23; Population, 3
+
+Fixed effects:
+            Estimate Std. Error       df t value Pr(>|t|)  
+(Intercept) 327.8785    28.5690   1.0773  11.477   0.0466 *
+Latitude     -0.2030     0.5556   1.0316  -0.365   0.7755  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+         (Intr)
+Latitude -0.987
+
+$DT_A_M_Hoedjes_lmer_lat
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: DT_EggAdult ~ Latitude + (1 | Population) + (1 | Line:Population)
+   Data: filter(droseu$dta, Supervisor.PI == "Hoedjes" & Sex == "M")
+
+REML criterion at convergence: 54649.6
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-6.8393 -0.5886 -0.0902  0.3804 10.9815 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept)  27.402   5.235  
+ Population      (Intercept)   4.819   2.195  
+ Residual                    207.294  14.398  
+Number of obs: 6649, groups:  Line:Population, 167; Population, 9
+
+Fixed effects:
+            Estimate Std. Error       df t value Pr(>|t|)    
+(Intercept) 253.1902     5.9333   6.8975   42.67 1.29e-09 ***
+Latitude     -0.2850     0.1188   6.8075   -2.40   0.0485 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+         (Intr)
+Latitude -0.990
+
+$DT_A_M_Schmidt_lmer_lat
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: DT_EggAdult ~ Latitude + (1 | Population) + (1 | Line:Population)
+   Data: filter(droseu$dta, Supervisor.PI == "Schmidt" & Sex == "M")
+
+REML criterion at convergence: 12892.3
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-2.8654 -0.4871 -0.1207  0.3042  7.0108 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 414.62   20.362  
+ Population      (Intercept)  74.18    8.612  
+ Residual                    297.16   17.238  
+Number of obs: 1464, groups:  Line:Population, 157; Population, 9
+
+Fixed effects:
+             Estimate Std. Error        df t value Pr(>|t|)    
+(Intercept) 2.307e+02  2.319e+01 7.051e+00   9.950 2.11e-05 ***
+Latitude    5.548e-03  4.636e-01 6.931e+00   0.012    0.991    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+         (Intr)
+Latitude -0.989
+
+$DT_A_M_StamenkovicRadak_lmer_lat
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: DT_EggAdult ~ Latitude + (1 | Population) + (1 | Line:Population)
+   Data: filter(droseu$dta, Supervisor.PI == "StamenkovicRadak" & Sex ==  
+    "M")
+
+REML criterion at convergence: 52220.4
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.3442 -0.5932 -0.1210  0.4292  6.0535 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 239.88   15.488  
+ Population      (Intercept)  58.82    7.669  
+ Residual                    426.58   20.654  
+Number of obs: 5815, groups:  Line:Population, 165; Population, 9
+
+Fixed effects:
+            Estimate Std. Error       df t value Pr(>|t|)    
+(Intercept) 266.0309    19.6841   7.2045  13.515 2.22e-06 ***
+Latitude     -0.3361     0.3946   7.1523  -0.852    0.422    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+         (Intr)
+Latitude -0.990
+
+$DT_A_M_Zwaan_lmer_lat
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: DT_EggAdult ~ Latitude + (1 | Population) + (1 | Line:Population)
+   Data: filter(droseu$dta, Supervisor.PI == "Zwaan" & Sex == "M")
+
+REML criterion at convergence: 49588.8
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.0805 -0.5242 -0.2229  0.2500  6.0948 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept)  36.175   6.015  
+ Population      (Intercept)   3.353   1.831  
+ Residual                    128.148  11.320  
+Number of obs: 6394, groups:  Line:Population, 169; Population, 9
+
+Fixed effects:
+             Estimate Std. Error        df t value Pr(>|t|)    
+(Intercept) 229.25602    5.42531   6.76881  42.257 1.87e-09 ***
+Latitude     -0.04582    0.10851   6.65720  -0.422    0.686    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+         (Intr)
+Latitude -0.990
+

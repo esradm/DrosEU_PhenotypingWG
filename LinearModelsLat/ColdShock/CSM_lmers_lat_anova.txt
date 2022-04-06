@@ -1,0 +1,30 @@
+$CSM_F_Gonzalez_lmer_lat
+Type III Analysis of Variance Table with Satterthwaite's method
+           Sum Sq  Mean Sq NumDF  DenDF F value Pr(>F)
+Latitude 0.066037 0.066037     1 6.6147  1.4592 0.2685
+
+$CSM_F_Kozeretska_lmer_lat
+Type III Analysis of Variance Table with Satterthwaite's method
+           Sum Sq  Mean Sq NumDF  DenDF F value Pr(>F)
+Latitude 0.037639 0.037639     1 121.44  0.2851 0.5944
+
+$CSM_F_Vieira_lmer_lat
+Type III Analysis of Variance Table with Satterthwaite's method
+           Sum Sq  Mean Sq NumDF  DenDF F value Pr(>F)
+Latitude 0.039207 0.039207     1 7.3591  1.3043 0.2892
+
+$CSM_M_Gonzalez_lmer_lat
+Type III Analysis of Variance Table with Satterthwaite's method
+           Sum Sq  Mean Sq NumDF  DenDF F value Pr(>F)
+Latitude 0.091607 0.091607     1 6.2138  1.0344 0.3471
+
+$CSM_M_Kozeretska_lmer_lat
+Type III Analysis of Variance Table with Satterthwaite's method
+           Sum Sq  Mean Sq NumDF  DenDF F value Pr(>F)
+Latitude 0.049653 0.049653     1 120.96  0.3545 0.5527
+
+$CSM_M_Vieira_lmer_lat
+Type III Analysis of Variance Table with Satterthwaite's method
+           Sum Sq  Mean Sq NumDF  DenDF F value Pr(>F)
+Latitude 0.037822 0.037822     1 7.1265  1.0164 0.3464
+

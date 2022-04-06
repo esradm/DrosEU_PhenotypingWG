@@ -1,0 +1,32 @@
+$SR_F_Gonzalez_lmer_alt
+Type III Analysis of Variance Table with Satterthwaite's method
+         Sum Sq Mean Sq NumDF  DenDF F value Pr(>F)
+Altitude 286.24  286.24     1 6.9319  0.6701 0.4402
+
+$SR_F_Onder_lmer_alt
+Type III Analysis of Variance Table with Satterthwaite's method
+         Sum Sq Mean Sq NumDF  DenDF F value Pr(>F)
+Altitude 189.75  189.75     1 6.9417  0.5884 0.4683
+
+$SR_F_Pasyukova_lmer_alt
+Type III Analysis of Variance Table with Satterthwaite's method
+         Sum Sq Mean Sq NumDF  DenDF F value  Pr(>F)  
+Altitude 2203.2  2203.2     1 6.9956  4.5833 0.06957 .
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+$SR_M_Gonzalez_lmer_alt
+Type III Analysis of Variance Table with Satterthwaite's method
+         Sum Sq Mean Sq NumDF  DenDF F value Pr(>F)
+Altitude 122.06  122.06     1 7.0428    0.49 0.5064
+
+$SR_M_Onder_lmer_alt
+Type III Analysis of Variance Table with Satterthwaite's method
+         Sum Sq Mean Sq NumDF  DenDF F value Pr(>F)
+Altitude 104.15  104.15     1 6.8734  0.5309 0.4903
+
+$SR_M_Pasyukova_lmer_alt
+Type III Analysis of Variance Table with Satterthwaite's method
+         Sum Sq Mean Sq NumDF  DenDF F value Pr(>F)
+Altitude 436.78  436.78     1 6.9885  1.5442 0.2541
+

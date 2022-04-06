@@ -1,0 +1,6 @@
+Analysis of Variance Table
+
+Response: Prop_Max_Stage9_asin
+           Df Sum Sq  Mean Sq F value Pr(>F)
+Latitude    1 0.0063 0.006334  0.1863 0.6666
+Residuals 161 5.4747 0.034004               
