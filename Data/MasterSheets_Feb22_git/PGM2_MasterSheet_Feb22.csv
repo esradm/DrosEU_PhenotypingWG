@@ -1,4 +1,4 @@
-Supervisor.PI,Diet,Batch,Population,Line,Sex,Individual,PgmT8,PgmT9,PgmT10,TotalPgm,Country,Latitude,Longitude,Altitude
+Supervisor.PI,Diet,Batch,Population,Line,Sex,Individual,ScoreT5,ScoreT6,ScoreT7,TotalScore,Country,Latitude,Longitude,Altitude
 Schmidt,NS,1,AK,AK1,F,2,4,8,6,18,Finland,61.100,23.520,88
 Schmidt,NS,1,AK,AK1,F,9,3,7,3,13,Finland,61.100,23.520,88
 Schmidt,NS,1,AK,AK1,F,1,2,6,3,11,Finland,61.100,23.520,88

@@ -14,22 +14,22 @@ Random effects:
  Groups             Name        Variance Std.Dev.
  ReplicateVial:Line (Intercept)   8.246   2.872  
  Line:Population    (Intercept)  25.504   5.050  
- Batch              (Intercept)   6.709   2.590  
+ Batch              (Intercept)   6.708   2.590  
  Residual                       111.578  10.563  
 Number of obs: 7330, groups:  
 ReplicateVial:Line, 521; Line:Population, 169; Batch, 2
 
 Fixed effects:
              Estimate Std. Error       df t value Pr(>|t|)    
-(Intercept)  220.7481     2.2135   2.0033  99.730 9.92e-05 ***
-PopulationGI   4.1186     1.9094 158.6183   2.157  0.03251 *  
-PopulationKA   2.5714     1.7615 157.0940   1.460  0.14634    
-PopulationMA   3.4714     1.7605 157.1007   1.972  0.05038 .  
-PopulationMU   1.3777     1.7767 161.8961   0.775  0.43921    
-PopulationRE   5.5128     1.8672 156.8343   2.952  0.00364 ** 
-PopulationUM   1.6009     1.8048 155.7333   0.887  0.37642    
-PopulationVA   4.2001     1.7671 159.0334   2.377  0.01865 *  
-PopulationYE   0.5322     1.8015 167.9848   0.295  0.76803    
+(Intercept)  220.7481     2.2133   2.0039  99.735  9.9e-05 ***
+PopulationGI   4.1186     1.9094 158.6186   2.157  0.03251 *  
+PopulationKA   2.5714     1.7615 157.0943   1.460  0.14634    
+PopulationMA   3.4714     1.7605 157.1010   1.972  0.05038 .  
+PopulationMU   1.3777     1.7767 161.8964   0.775  0.43921    
+PopulationRE   5.5128     1.8672 156.8347   2.952  0.00364 ** 
+PopulationUM   1.6009     1.8048 155.7336   0.887  0.37641    
+PopulationVA   4.2001     1.7671 159.0337   2.377  0.01865 *  
+PopulationYE   0.5322     1.8015 167.9852   0.295  0.76803    
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 

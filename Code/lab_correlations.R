@@ -20,8 +20,7 @@ source("Functions/lab_correlations_functions.R")
 
 
 ##### load data
-droseu <- readRDS("Data/droseu_master_list_2022-03-25.rds")
-estimates <- readRDS("LinearModelsPop/all_model_estimates.rds")
+estimates <- readRDS("LinearModelsPop/all_lmers_list_pop_estimates.rds")
 
 
 ##### create output directory

@@ -14,15 +14,15 @@ Scaled residuals:
 Random effects:
  Groups             Name        Variance Std.Dev.
  ReplicateVial:Line (Intercept)  948.80  30.803  
- Line:Population    (Intercept)  768.83  27.728  
- Batch              (Intercept)   16.11   4.014  
+ Line:Population    (Intercept)  768.84  27.728  
+ Batch              (Intercept)   16.12   4.015  
  Residual                       2100.14  45.827  
 Number of obs: 4810, groups:  
 ReplicateVial:Line, 241; Line:Population, 130; Batch, 2
 
 Fixed effects:
              Estimate Std. Error      df t value Pr(>|t|)    
-(Intercept)   936.544      8.986  32.435 104.223   <2e-16 ***
+(Intercept)   936.544      8.986  32.422 104.222   <2e-16 ***
 PopulationGI   -1.508     15.049 123.353  -0.100   0.9204    
 PopulationKA  -24.921     13.441 116.126  -1.854   0.0663 .  
 PopulationMA   27.752     12.426 123.675   2.233   0.0273 *  

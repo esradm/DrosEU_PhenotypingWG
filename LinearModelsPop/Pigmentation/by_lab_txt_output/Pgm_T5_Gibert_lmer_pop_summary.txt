@@ -18,7 +18,7 @@ Number of obs: 1741, groups:  Line:Population, 167
 Fixed effects:
                Estimate Std. Error         df t value Pr(>|t|)    
 (Intercept)    0.600762   0.016706 156.968338  35.962   <2e-16 ***
-PopulationGI  -0.036561   0.025494 156.347588  -1.434   0.1535    
+PopulationGI  -0.036561   0.025494 156.347589  -1.434   0.1535    
 PopulationKA  -0.033777   0.023618 156.786296  -1.430   0.1547    
 PopulationMA   0.041870   0.023966 157.669699   1.747   0.0826 .  
 PopulationMU   0.023212   0.023625 156.968338   0.983   0.3274    

@@ -15,15 +15,15 @@ Scaled residuals:
 Random effects:
  Groups             Name        Variance Std.Dev.
  ReplicateVial:Line (Intercept)  948.80  30.803  
- Line:Population    (Intercept)  768.83  27.728  
- Batch              (Intercept)   16.11   4.014  
+ Line:Population    (Intercept)  768.84  27.728  
+ Batch              (Intercept)   16.12   4.015  
  Residual                       2100.14  45.827  
 Number of obs: 4810, groups:  
 ReplicateVial:Line, 241; Line:Population, 130; Batch, 2
 
 Fixed effects:
              Estimate Std. Error      df t value Pr(>|t|)    
-(Intercept)   936.544      8.986  32.435 104.223   <2e-16 ***
+(Intercept)   936.544      8.986  32.422 104.222   <2e-16 ***
 PopulationGI   -1.508     15.049 123.353  -0.100   0.9204    
 PopulationKA  -24.921     13.441 116.126  -1.854   0.0663 .  
 PopulationMA   27.752     12.426 123.675   2.233   0.0273 *  
@@ -49,8 +49,7 @@ PopulatinYE -0.603  0.360  0.403  0.436  0.440  0.397  0.400  0.455
 $TL_F_Posnien_lmer_pop
 Linear mixed model fit by REML. t-tests use Satterthwaite's method [
 lmerModLmerTest]
-Formula: 
-TL_micrometers ~ Population + (1 | Line:Population) + (1 | ReplicateVial:Line)
+Formula: TL_micrometers ~ Population + (1 | Line:Population)
    Data: filter(droseu$tl, Supervisor.PI == "Posnien" & Sex == "F")
 
 REML criterion at convergence: 2722.8
@@ -60,11 +59,10 @@ Scaled residuals:
 -2.86894 -0.60033  0.05782  0.63035  2.78455 
 
 Random effects:
- Groups             Name        Variance Std.Dev.
- Line:Population    (Intercept)  542.6   23.29   
- ReplicateVial:Line (Intercept)  463.9   21.54   
- Residual                       1537.3   39.21   
-Number of obs: 270, groups:  Line:Population, 27; ReplicateVial:Line, 27
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 1006     31.72   
+ Residual                    1537     39.21   
+Number of obs: 270, groups:  Line:Population, 27
 
 Fixed effects:
              Estimate Std. Error      df t value Pr(>|t|)    
@@ -90,10 +88,6 @@ PopulatinRE -0.707  0.500  0.500  0.500  0.500
 PopulatinUM -0.707  0.500  0.500  0.500  0.500  0.500              
 PopulatinVA -0.707  0.500  0.500  0.500  0.500  0.500  0.500       
 PopulatinYE -0.707  0.500  0.500  0.500  0.500  0.500  0.500  0.500
-optimizer (nloptwrap) convergence code: 0 (OK)
-Model is nearly unidentifiable: large eigenvalue ratio
- - Rescale variables?
-
 
 $TL_F_Ritchie_lmer_pop
 Linear mixed model fit by REML. t-tests use Satterthwaite's method [
@@ -103,42 +97,39 @@ TL_micrometers ~ Population + (1 | Line:Population) + (1 | Batch) +
     (1 | ReplicateVial:Line)
    Data: filter(droseu$tl, Supervisor.PI == "Ritchie" & Sex == "F")
 
-REML criterion at convergence: 15182.8
+REML criterion at convergence: 11130.8
 
 Scaled residuals: 
     Min      1Q  Median      3Q     Max 
--2.0574 -0.1166  0.0089  0.1086 31.1526 
+-4.0011 -0.5752  0.0524  0.6433  6.1648 
 
 Random effects:
  Groups             Name        Variance Std.Dev.
- ReplicateVial:Line (Intercept)  6554     80.96  
- Line:Population    (Intercept)     0      0.00  
- Batch              (Intercept)     0      0.00  
- Residual                       72369    269.02  
-Number of obs: 1082, groups:  
+ ReplicateVial:Line (Intercept) 1687.0   41.07   
+ Line:Population    (Intercept)  198.2   14.08   
+ Batch              (Intercept) 1302.0   36.08   
+ Residual                       1823.1   42.70   
+Number of obs: 1059, groups:  
 ReplicateVial:Line, 78; Line:Population, 26; Batch, 12
 
 Fixed effects:
              Estimate Std. Error      df t value Pr(>|t|)    
-(Intercept)   1015.07      31.77   63.24  31.947   <2e-16 ***
-PopulationGI   -54.96      42.42   62.17  -1.296    0.200    
-PopulationKA   -71.43      42.39   61.82  -1.685    0.097 .  
-PopulationMA   -34.98      42.24   61.13  -0.828    0.411    
-PopulationMU   -38.91      53.99   58.91  -0.721    0.474    
-PopulationYE   -20.83      42.46   62.29  -0.491    0.625    
+(Intercept)   960.090     20.942  18.949  45.845   <2e-16 ***
+PopulationGI    6.035     19.511  10.041   0.309    0.763    
+PopulationKA  -11.827     28.649  19.001  -0.413    0.684    
+PopulationMA   15.401     28.570  18.795   0.539    0.596    
+PopulationMU    8.401     32.104  16.850   0.262    0.797    
+PopulationYE   28.661     22.100  12.800   1.297    0.218    
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 Correlation of Fixed Effects:
             (Intr) PpltGI PpltKA PpltMA PpltMU
-PopulatinGI -0.749                            
-PopulatinKA -0.749  0.561                     
-PopulatinMA -0.752  0.563  0.564              
-PopulatinMU -0.588  0.441  0.441  0.443       
-PopulatinYE -0.748  0.560  0.561  0.563  0.440
-optimizer (nloptwrap) convergence code: 0 (OK)
-boundary (singular) fit: see ?isSingular
-
+PopulatinGI -0.542                            
+PopulatinKA -0.715  0.397                     
+PopulatinMA -0.717  0.398  0.801              
+PopulatinMU -0.583  0.358  0.565  0.566       
+PopulatinYE -0.621  0.534  0.474  0.475  0.493
 
 $TL_F_Schmidt_lmer_pop
 Linear mixed model fit by REML. t-tests use Satterthwaite's method [
@@ -199,24 +190,24 @@ Scaled residuals:
 
 Random effects:
  Groups             Name        Variance Std.Dev.
- ReplicateVial:Line (Intercept)  902.2   30.036  
- Line:Population    (Intercept)  672.5   25.932  
- Batch              (Intercept)   11.1    3.331  
- Residual                       1819.0   42.650  
+ ReplicateVial:Line (Intercept)  902.20  30.037  
+ Line:Population    (Intercept)  672.48  25.932  
+ Batch              (Intercept)   11.11   3.334  
+ Residual                       1819.04  42.650  
 Number of obs: 4807, groups:  
 ReplicateVial:Line, 241; Line:Population, 130; Batch, 2
 
 Fixed effects:
              Estimate Std. Error      df t value Pr(>|t|)    
-(Intercept)   835.238      8.441  38.685  98.946   <2e-16 ***
-PopulationGI   -4.009     14.309 124.267  -0.280   0.7798    
-PopulationKA  -22.734     12.772 116.895  -1.780   0.0777 .  
-PopulationMA   27.562     11.816 124.618   2.333   0.0213 *  
-PopulationMU    2.935     11.702 120.988   0.251   0.8024    
-PopulationRE   24.606     12.970 122.246   1.897   0.0602 .  
-PopulationUM    3.491     12.868 119.418   0.271   0.7866    
-PopulationVA   23.225     11.325 119.577   2.051   0.0425 *  
-PopulationYE   10.507     12.736 124.519   0.825   0.4110    
+(Intercept)   835.238      8.442  38.619  98.939   <2e-16 ***
+PopulationGI   -4.009     14.310 124.263  -0.280   0.7798    
+PopulationKA  -22.734     12.772 116.891  -1.780   0.0777 .  
+PopulationMA   27.562     11.816 124.614   2.333   0.0213 *  
+PopulationMU    2.936     11.702 120.985   0.251   0.8023    
+PopulationRE   24.606     12.970 122.242   1.897   0.0602 .  
+PopulationUM    3.492     12.868 119.414   0.271   0.7866    
+PopulationVA   23.225     11.325 119.574   2.051   0.0425 *  
+PopulationYE   10.507     12.737 124.516   0.825   0.4110    
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
@@ -282,37 +273,37 @@ TL_micrometers ~ Population + (1 | Line:Population) + (1 | Batch) +
     (1 | ReplicateVial:Line)
    Data: filter(droseu$tl, Supervisor.PI == "Ritchie" & Sex == "M")
 
-REML criterion at convergence: 11495.3
+REML criterion at convergence: 11420
 
 Scaled residuals: 
     Min      1Q  Median      3Q     Max 
--8.4090 -0.4487  0.0409  0.4847 14.8983 
+-8.5406 -0.4551  0.0465  0.4926 15.1355 
 
 Random effects:
  Groups             Name        Variance Std.Dev.
- ReplicateVial:Line (Intercept) 1326     36.41   
- Line:Population    (Intercept)  427     20.66   
- Batch              (Intercept) 1269     35.62   
- Residual                       3727     61.05   
-Number of obs: 1029, groups:  
+ ReplicateVial:Line (Intercept) 1335.5   36.54   
+ Line:Population    (Intercept)  386.3   19.65   
+ Batch              (Intercept) 1258.7   35.48   
+ Residual                       3610.0   60.08   
+Number of obs: 1025, groups:  
 ReplicateVial:Line, 78; Line:Population, 26; Batch, 12
 
 Fixed effects:
-             Estimate Std. Error      df t value Pr(>|t|)    
-(Intercept)   828.611     21.892  19.492  37.850   <2e-16 ***
-PopulationGI    1.859     21.276  10.484   0.087    0.932    
-PopulationKA  -12.034     29.854  19.218  -0.403    0.691    
-PopulationMA   14.273     29.858  19.229   0.478    0.638    
-PopulationMU   18.283     34.339  17.546   0.532    0.601    
-PopulationYE   17.900     23.910  13.629   0.749    0.467    
+              Estimate Std. Error        df t value Pr(>|t|)    
+(Intercept)  828.77540   21.58641  19.45143  38.393   <2e-16 ***
+PopulationGI  -0.09056   20.83210  10.45410  -0.004    0.997    
+PopulationKA -12.70737   29.44520  19.20349  -0.432    0.671    
+PopulationMA  13.05680   29.45094  19.22024   0.443    0.662    
+PopulationMU  17.84413   33.74115  17.47700   0.529    0.604    
+PopulationYE  17.97213   23.44734  13.54011   0.766    0.457    
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 Correlation of Fixed Effects:
             (Intr) PpltGI PpltKA PpltMA PpltMU
-PopulatinGI -0.564                            
-PopulatinKA -0.723  0.414                     
-PopulatinMA -0.722  0.414  0.784              
-PopulatinMU -0.582  0.363  0.549  0.549       
-PopulatinYE -0.636  0.536  0.482  0.482  0.488
+PopulatinGI -0.560                            
+PopulatinKA -0.722  0.411                     
+PopulatinMA -0.722  0.411  0.787              
+PopulatinMU -0.582  0.362  0.552  0.552       
+PopulatinYE -0.634  0.535  0.481  0.481  0.489
 

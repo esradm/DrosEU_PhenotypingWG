@@ -11,22 +11,22 @@ Scaled residuals:
 
 Random effects:
  Groups          Name        Variance  Std.Dev.
- Population:Line (Intercept) 4.358e-04 0.020877
- Batch           (Intercept) 9.034e-05 0.009505
+ Population:Line (Intercept) 4.359e-04 0.020877
+ Batch           (Intercept) 9.033e-05 0.009504
  Residual                    9.103e-04 0.030171
 Number of obs: 4101, groups:  Population:Line, 166; Batch, 5
 
 Fixed effects:
                Estimate Std. Error         df t value Pr(>|t|)    
-(Intercept)    0.255121   0.006505  16.361131  39.219   <2e-16 ***
-PopulationGI  -0.003951   0.007512 148.444083  -0.526   0.5997    
-PopulationKA   0.007906   0.006995 150.349821   1.130   0.2602    
-PopulationMA   0.016584   0.006883 146.068178   2.409   0.0172 *  
-PopulationMU   0.006807   0.006883 145.771074   0.989   0.3243    
-PopulationRE   0.009746   0.007372 148.373939   1.322   0.1882    
-PopulationUM   0.012761   0.007291 150.562670   1.750   0.0821 .  
-PopulationVA   0.011227   0.006898 146.527813   1.628   0.1057    
-PopulationYE  -0.002872   0.007079 146.342376  -0.406   0.6855    
+(Intercept)    0.255121   0.006505  16.364942  39.220   <2e-16 ***
+PopulationGI  -0.003951   0.007512 148.441698  -0.526   0.5997    
+PopulationKA   0.007906   0.006996 150.347382   1.130   0.2602    
+PopulationMA   0.016584   0.006883 146.065835   2.409   0.0172 *  
+PopulationMU   0.006807   0.006883 145.768741   0.989   0.3243    
+PopulationRE   0.009746   0.007372 148.371553   1.322   0.1882    
+PopulationUM   0.012761   0.007291 150.560217   1.750   0.0821 .  
+PopulationVA   0.011227   0.006898 146.525460   1.628   0.1057    
+PopulationYE  -0.002872   0.007079 146.340028  -0.406   0.6855    
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 

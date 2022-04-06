@@ -1,66 +1,36 @@
-                                 95%-CI %W(random)
-YE_Flatt     52.3283 [50.6562; 54.0004]        4.1
-YE_Parsch    51.6756 [47.5835; 55.7676]        3.3
-YE_Pasyukova 44.2814 [41.4608; 47.1021]        3.8
-RE_Flatt     50.4210 [48.7531; 52.0889]        4.1
-RE_Parsch    49.2207 [45.1411; 53.3002]        3.3
-RE_Pasyukova 48.1125 [44.9589; 51.2661]        3.6
-GI_Flatt     50.8448 [49.1774; 52.5122]        4.1
-GI_Parsch    51.3687 [47.2777; 55.4597]        3.3
-GI_Pasyukova 47.5683 [44.0696; 51.0669]        3.5
-MU_Flatt     55.6448 [53.9460; 57.3436]        4.1
-MU_Parsch    58.6014 [54.5248; 62.6780]        3.3
-MU_Pasyukova 50.4100 [47.5893; 53.2307]        3.8
-MA_Flatt     53.0393 [51.3729; 54.7056]        4.1
-MA_Parsch    50.9583 [46.8636; 55.0529]        3.3
-MA_Pasyukova 47.3650 [44.5443; 50.1857]        3.8
-UM_Flatt     52.3560 [50.6830; 54.0290]        4.1
-UM_Parsch    56.8730 [52.7789; 60.9671]        3.3
-UM_Pasyukova 43.4201 [40.4469; 46.3934]        3.7
-KA_Flatt     56.0643 [54.3900; 57.7387]        4.1
-KA_Parsch    56.7948 [52.7043; 60.8852]        3.3
-KA_Pasyukova 53.3150 [50.4943; 56.1357]        3.8
-VA_Flatt     52.0358 [50.3119; 53.7596]        4.1
-VA_Parsch    59.7414 [55.6536; 63.8292]        3.3
-VA_Pasyukova 49.0888 [46.2681; 51.9094]        3.8
-AK_Flatt     51.6194 [49.9065; 53.3323]        4.1
-AK_Parsch    60.4729 [56.3776; 64.5682]        3.3
-AK_Pasyukova 50.2818 [47.5924; 52.9712]        3.8
-             Population
-YE_Flatt             YE
-YE_Parsch            YE
-YE_Pasyukova         YE
-RE_Flatt             RE
-RE_Parsch            RE
-RE_Pasyukova         RE
-GI_Flatt             GI
-GI_Parsch            GI
-GI_Pasyukova         GI
-MU_Flatt             MU
-MU_Parsch            MU
-MU_Pasyukova         MU
-MA_Flatt             MA
-MA_Parsch            MA
-MA_Pasyukova         MA
-UM_Flatt             UM
-UM_Parsch            UM
-UM_Pasyukova         UM
-KA_Flatt             KA
-KA_Parsch            KA
-KA_Pasyukova         KA
-VA_Flatt             VA
-VA_Parsch            VA
-VA_Pasyukova         VA
-AK_Flatt             AK
-AK_Parsch            AK
-AK_Pasyukova         AK
+                                 95%-CI %W(random) Population
+YE_Flatt     52.3283 [50.6562; 54.0004]        4.1         YE
+YE_Parsch    51.6756 [47.5835; 55.7676]        3.3         YE
+YE_Pasyukova 44.2814 [41.4608; 47.1021]        3.8         YE
+RE_Flatt     50.4210 [48.7531; 52.0889]        4.1         RE
+RE_Parsch    49.2207 [45.1411; 53.3002]        3.3         RE
+RE_Pasyukova 48.1125 [44.9589; 51.2661]        3.6         RE
+GI_Flatt     50.8448 [49.1774; 52.5122]        4.1         GI
+GI_Parsch    51.3687 [47.2777; 55.4597]        3.3         GI
+GI_Pasyukova 47.5683 [44.0696; 51.0669]        3.5         GI
+MU_Flatt     55.6448 [53.9460; 57.3436]        4.1         MU
+MU_Parsch    58.6014 [54.5248; 62.6780]        3.3         MU
+MU_Pasyukova 50.4100 [47.5893; 53.2307]        3.8         MU
+MA_Flatt     53.0393 [51.3729; 54.7056]        4.1         MA
+MA_Parsch    50.9583 [46.8636; 55.0529]        3.3         MA
+MA_Pasyukova 47.3650 [44.5443; 50.1857]        3.8         MA
+UM_Flatt     52.3560 [50.6830; 54.0290]        4.1         UM
+UM_Parsch    56.8730 [52.7789; 60.9671]        3.3         UM
+UM_Pasyukova 43.4201 [40.4469; 46.3934]        3.7         UM
+KA_Flatt     56.0643 [54.3900; 57.7387]        4.1         KA
+KA_Parsch    56.7948 [52.7043; 60.8852]        3.3         KA
+KA_Pasyukova 53.3150 [50.4943; 56.1357]        3.8         KA
+VA_Flatt     52.0358 [50.3119; 53.7596]        4.1         VA
+VA_Parsch    59.7414 [55.6536; 63.8292]        3.3         VA
+VA_Pasyukova 49.0887 [46.2681; 51.9094]        3.8         VA
+AK_Flatt     51.6194 [49.9065; 53.3323]        4.1         AK
+AK_Parsch    60.4729 [56.3776; 64.5682]        3.3         AK
+AK_Pasyukova 50.2818 [47.5924; 52.9712]        3.8         AK
 
 Number of studies combined: k = 27
 
-                                         95%-CI     z
-Random effects model 51.9088 [50.3715; 53.4461] 66.18
-                     p-value
-Random effects model       0
+                                         95%-CI     z p-value
+Random effects model 51.9088 [50.3715; 53.4461] 66.18       0
 
 Quantifying heterogeneity:
  tau^2 = 14.2937 [8.1873; 30.9129]; tau = 3.7807 [2.8613; 5.5599]
@@ -68,29 +38,19 @@ Quantifying heterogeneity:
 
 Test of heterogeneity:
       Q d.f.  p-value
- 191.62   26 < 0.0001
+ 191.61   26 < 0.0001
 
 Results for subgroups (random effects model):
-                  k                     95%-CI   tau^2
-Population = YE   3 49.4210 [44.2886; 54.5534] 18.2919
-Population = RE   3 49.7517 [48.2085; 51.2949]  0.2370
-Population = GI   3 50.1556 [48.1726; 52.1385]  1.0695
-Population = MU   3 54.7524 [50.2265; 59.2782] 13.7456
-Population = MA   3 50.5648 [47.0561; 54.0735]  7.4495
-Population = UM   3 50.8140 [43.1673; 58.4606] 43.2474
-Population = KA   3 55.3627 [53.4442; 57.2813]  1.1035
-Population = VA   3 53.4399 [47.4471; 59.4327] 25.7249
-Population = AK   3 53.9149 [47.8857; 59.9440] 26.1283
-                   tau     Q   I^2
-Population = YE 4.2769 23.56 91.5%
-Population = RE 0.4869  1.71  0.0%
-Population = GI 1.0342  3.00 33.4%
-Population = MU 3.7075 13.59 85.3%
-Population = MA 2.7294 11.60 82.8%
-Population = UM 6.5763 35.39 94.3%
-Population = KA 1.0505  3.13 36.0%
-Population = VA 5.0720 17.78 88.8%
-Population = AK 5.1116 18.07 88.9%
+                  k                     95%-CI   tau^2    tau     Q   I^2
+Population = YE   3 49.4210 [44.2886; 54.5534] 18.2919 4.2769 23.56 91.5%
+Population = RE   3 49.7517 [48.2085; 51.2949]  0.2370 0.4869  1.71  0.0%
+Population = GI   3 50.1556 [48.1726; 52.1385]  1.0695 1.0342  3.00 33.4%
+Population = MU   3 54.7524 [50.2265; 59.2782] 13.7456 3.7075 13.59 85.3%
+Population = MA   3 50.5648 [47.0561; 54.0735]  7.4495 2.7294 11.60 82.8%
+Population = UM   3 50.8140 [43.1673; 58.4606] 43.2474 6.5763 35.39 94.3%
+Population = KA   3 55.3627 [53.4442; 57.2813]  1.1035 1.0505  3.13 36.0%
+Population = VA   3 53.4399 [47.4471; 59.4327] 25.7248 5.0720 17.78 88.8%
+Population = AK   3 53.9149 [47.8857; 59.9440] 26.1283 5.1116 18.07 88.9%
 
 Test for subgroup differences (random effects model):
                      Q d.f. p-value

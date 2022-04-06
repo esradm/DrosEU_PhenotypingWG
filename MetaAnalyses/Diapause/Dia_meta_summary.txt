@@ -41,26 +41,16 @@ Test of heterogeneity:
  429.34   26 < 0.0001
 
 Results for subgroups (random effects model):
-                  k                  95%-CI  tau^2    tau
-Population = YE   3 1.1649 [0.8656; 1.4642] 0.0657 0.2563
-Population = RE   3 1.1199 [0.7716; 1.4683] 0.0889 0.2982
-Population = GI   3 1.0870 [0.7243; 1.4497] 0.0971 0.3116
-Population = MU   3 1.2020 [0.8902; 1.5138] 0.0716 0.2676
-Population = MA   3 1.1725 [0.9034; 1.4416] 0.0521 0.2283
-Population = UM   3 1.3154 [1.0854; 1.5455] 0.0360 0.1898
-Population = KA   3 1.1502 [0.7971; 1.5032] 0.0931 0.3052
-Population = VA   3 1.2149 [0.9958; 1.4340] 0.0328 0.1811
-Population = AK   3 1.0295 [0.6267; 1.4324] 0.1221 0.3495
-                    Q   I^2
-Population = YE 44.86 95.5%
-Population = RE 44.12 95.5%
-Population = GI 49.98 96.0%
-Population = MU 48.92 95.9%
-Population = MA 34.65 94.2%
-Population = UM 20.87 90.4%
-Population = KA 66.34 97.0%
-Population = VA 20.84 90.4%
-Population = AK 78.44 97.5%
+                  k                  95%-CI  tau^2    tau     Q   I^2
+Population = YE   3 1.1649 [0.8656; 1.4642] 0.0657 0.2563 44.86 95.5%
+Population = RE   3 1.1199 [0.7716; 1.4683] 0.0889 0.2982 44.12 95.5%
+Population = GI   3 1.0870 [0.7243; 1.4497] 0.0971 0.3116 49.98 96.0%
+Population = MU   3 1.2020 [0.8902; 1.5138] 0.0716 0.2676 48.92 95.9%
+Population = MA   3 1.1725 [0.9034; 1.4416] 0.0521 0.2283 34.65 94.2%
+Population = UM   3 1.3154 [1.0854; 1.5455] 0.0360 0.1898 20.87 90.4%
+Population = KA   3 1.1502 [0.7971; 1.5032] 0.0931 0.3052 66.34 97.0%
+Population = VA   3 1.2149 [0.9958; 1.4340] 0.0328 0.1811 20.84 90.4%
+Population = AK   3 1.0295 [0.6267; 1.4324] 0.1221 0.3495 78.44 97.5%
 
 Test for subgroup differences (random effects model):
                     Q d.f. p-value

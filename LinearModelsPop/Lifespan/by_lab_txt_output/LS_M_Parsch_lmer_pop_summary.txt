@@ -23,7 +23,7 @@ Line:ReplicateVial, 679; Population:Line, 135; Batch, 2
 
 Fixed effects:
              Estimate Std. Error       df t value Pr(>|t|)    
-(Intercept)   60.4729     2.0895  11.2357  28.942 6.57e-12 ***
+(Intercept)   60.4729     2.0895  11.2354  28.942 6.58e-12 ***
 PopulationGI  -9.1042     2.5261 127.0376  -3.604 0.000448 ***
 PopulationKA  -3.6781     2.5280 127.3877  -1.455 0.148142    
 PopulationMA  -9.5146     2.5298 127.6972  -3.761 0.000257 ***
