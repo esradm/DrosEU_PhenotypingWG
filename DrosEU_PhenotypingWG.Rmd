@@ -14,6 +14,7 @@ output:
 
 # Phenotyping effort
 
+
 **Collaborative phenotyping effort of European _Drosophila melanogaster_ populations**  
 
 Genomic analyses (Kapun et al. 2020) showed that there is longitudinal population structure, continent-wide sweeps, candidate genes for local climate adaptation by using 48 pooled population samples from 32 locations.
@@ -58,7 +59,7 @@ library(survival)
 library(survminer)
 ```
 
-Nine sampling locations were chosen based on genomic data and cover a wide range of latitude (~20°) and longitude (~40°) across the continent  (see table below). From each location, 15 to 20 isofemale lines were established in corresponding labs at the sampling location and the isofemale lines were centrally maintained by Élio Sucena  at Instituto Gulbenkian de Ciência (IGC), Lisbon, Portugal. A total of 173 isofemale lines were used in this study. 
+Nine sampling locations were chosen based on genomic data and these locations covered a wide range of latitude (~20°) and longitude (~40°) across the continent (see table below). From each location, 15 to 20 isofemale lines were established in corresponding labs at the sampling location and the isofemale lines were centrally maintained by Élio Sucena  at Instituto Gulbenkian de Ciência (IGC), Lisbon, Portugal. A total of 173 isofemale lines were used in this study. 
 
 
 ```{r droseu_coord, echo=FALSE, message=FALSE}
@@ -150,13 +151,13 @@ globe_labs + map_theme
 Esra Durmaz (all), Envel Kerdaffrec (all), Katja Hoedjes (Via, DT, DW), Banu Onder (SR, WA), Marija Tanaskovic (WA), Chris Wegener (CET), Eran Tauber (LA), Rudolf Rohr (UniFr), coordination-team
 
 
-# Phenotyping 
-
-## Overview 
-
 # Methods
 
-## Wolbachia
+## Wolbachia _work in progress_
+
+Sucena, Pasyukova, Kapun, Viera and Kozeretska Labs have genotyped the isofemale lines for Wolbachia using different methods and some discrepancies were observed, mainly due to the sensitivity differences in protocols -- we are working on it. 
+
+Tables below were made using Sucena Lab's results. 
 
 ```{r wolbachia-data, echo=FALSE, message=FALSE}
 droseu_wol <- data.frame(read.csv("InfoTables/DrosEU_wolbachia_2021.csv"))
@@ -201,7 +202,6 @@ wolbachia_pop_freqs # Wolbachia frequency by country and population abbreviation
 
 ## Diets
 
-
 ```{r droseu_diets, echo=FALSE, message=FALSE}
 droseu_diets <- data.frame(read.csv("InfoTables/DrosEU_Diets_Feb22.csv"))
 ```
@@ -211,7 +211,8 @@ DT::datatable(droseu_diets, options = list(pageLength = 10))
 ```
 
 
-## Inversion Frequencies
+## Inversion Frequencies _work in progress_
+_need to do a few more PCRs, will add them here soon_
 
 ## Traits 
 
@@ -223,15 +224,13 @@ _Contributors and methods for experiments_
 
 3-5 day old adults (at least 25 pairs) are allowed to lay eggs en masse. Yeast is provided to stimulate egg laying (for at least 2 hours). Eggs are collected, and 40 are placed in each vial[^1]. Viability is calculated per vial, as the percentage of individuals that emerged from the 40 eggs.
 
-Please see below number of 
 
-[^1]: @ Schmidt lab, females were allowed to lay eggs for Xh, and viability is calculated as the percentage of individuals that emerged from total number of eggs, per vial.
+[^1]: @ Schmidt lab, females were allowed to lay eggs in vials and total number of eggs were recorded. Viability is calculated as the percentage of individuals that emerged from total number of eggs, per vial.
 
 ### Developmental time
 
 #### Egg-to-pupa developmental time
 ##### Schmidt Lab
-
 
 
 #### Egg-to-adult developmental time
@@ -330,8 +329,6 @@ The eclosion rhythmicity has been measured in outcrossed Munich, Akaa, Gimenells
 
 4) DD 18°C after LD14:10 entrainment, flies raised at 18°C
 
-
-
 ### Locomotor activity
 ##### Tauber Lab
 
@@ -344,17 +341,23 @@ The locomotor activity of the flies (males only) was measured using the DAM2 Dro
 Batches of 10 sexed flies are transferred to glass vials filled with 5 mL of 2% agar for starvation 3-7 days after eclosion. The age at death will be scored every 8 hours.
 
 ### Pigmentation
-##### Abbott, Gibert and Schmidt
+##### Abbott, Gibert and Schmidt Labs
 
-For each line, 10 females, 13-15 days old, either alive or stored in 95% ethanol, are air dried and placed on their left side, and pictures taken using a dissecting microscope. Images are then analysed in ImageJ 1.46r, using the Area Fraction measurement in the Analyze menu. Area Fraction measures the percentage of pixels in a selected area that have been highlighted in red using the Threshold tool. This gives an estimate of the percentage of dark pigmentation on the three terminal tergites of the abdomen (4, 5 and 6). 
+Abbott and Gibert Labs : For each line, 10 females, 13-15 days old, either alive or stored in 95% ethanol, are air dried and placed on their left side, and pictures taken using a dissecting microscope. Images are then analysed in ImageJ 1.46r, using the Area Fraction measurement in the Analyze menu. Area Fraction measures the percentage of pixels in a selected area that have been highlighted in red using the Threshold tool. This gives an estimate of the percentage of dark pigmentation on the three terminal tergites of the abdomen (4, 5 and 6). 
 
+Schmidt Lab : The last three tergites were scored according to David et al. 1990.  
+
+### Parasitoid resistance 
+##### Hrcek Lab
+
+The resistance of the lines to parasitoids will be measured using _Leptopilina boulard_. 
 
 ## Data reformatting 
 
 MasterSheets 
 
 
-All data files are reformatted as so called _Master Sheets _, in which the data structure is the same for all the sub-data sets and all details/edits logged in a README sheet. 
+All data files are reformatted as so called _Master Sheets_, in which the data structure is the same for all the sub-data sets and all details/edits logged in a README sheet. 
 
 ```{r README_example, echo=FALSE}
 headers <- c("Supervisor/PI", "Diet", "Batch", "Population", "Line", "Sex", "ReplicateVial", "TraitValue") 
@@ -368,8 +371,9 @@ README_example <- data.table(Headers =  headers, Descriptions = descriptions)
 knitr::kable(README_example, align = "ll", caption = 'Table X. Filling in the data spreadsheet and header description')
 ```
 
+
 ```{r MS_example, echo=FALSE}
-MS_example <- data.table(read.csv("MasterSheets_Oct21_git/TL_MasterSheet_Feb22.csv"))
+MS_example <- data.table(read.csv("Data/MasterSheets_Feb22_git/VIA_MasterSheet_Feb22.csv"))
 ```
 
 ```{r, echo=FALSE}
@@ -379,14 +383,10 @@ DT::datatable(MS_example, options = list(pageLength = 10))
 
 ## Data check
 
-For each trait, sex and lab, we run counts for population, line and replicate vial (if applicable).
-
-> insert count table
+For each trait and lab, we ran counts for sex, population, line and replicate vial (if applicable). If we could spot anything suspicious or unusual (typos, shifts, etc.), I have contacted you already. Please let me know if there is anything that you have spotted and we missed. Thanks! 
 
 
 # Results I : Linear Models  {#anchor}
-
-> text BLA BLA BLA 
 
 ## Examples & Directories & Legends 
 
@@ -417,7 +417,6 @@ table_Via_Line_wbatch <- read.csv("Viability/table_Via_Line_wbatch.csv") #file n
 
 Tables for descriptive statistics at population and line levels can be found in the trait directory, under the file name **__table_TraitAbbreviation_Level_BatchInfo.csv__**  (_i.e. Viability/table_Via_Line_wobatch.csv_)
 
-
 ### Figures
 
 Data range is calculated with `#r min()` and `#r max()` functions for each trait.
@@ -425,17 +424,15 @@ Data range is calculated with `#r min()` and `#r max()` functions for each trait
 y-axis on the figures is scaled by the minimum (`#r min_trait`) and maximum (`#r max_trait`) values in the full data set for a given trait. 
 
 The very same ggplot theme has been used all across the document, called _droseu_theme_
+
 ```{r droseu_theme, eval=FALSE, echo=TRUE}
 droseu_theme <- theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), panel.background = element_blank(), axis.line = element_line(colour = "black",),  axis.title.x = element_text(size = 16), axis.text.x = element_text(size = 16),axis.text.y = element_text(size = 16),axis.title.y = element_text(size = 16))
 
 p_TraitAbbreviation_Lab + ylim(c(min_trait, max_triat)) + droseu_theme 
-
 ```
 
 ```{r, echo=FALSE}
-
 ## Need to run this in the background
-
 droseu_theme <- theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), panel.background = element_blank(), axis.line = element_line(colour = "black",),  axis.title.x = element_text(size = 16), axis.text.x = element_text(size = 16),axis.text.y = element_text(size = 16),axis.title.y = element_text(size = 16))
 ```
 
@@ -444,8 +441,9 @@ Here is an example code for figures (egg-to-adult viabiliy, Gibert Lab). The ver
 
 ```{r plot_example, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE}
 
-p_Via_Gibert <- ggplot(data = (subset(d_Via,Supervisor.PI=='Gibert')), #subsets for supervisor
-                       aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Batch)) + #define x- and y-axis
+p_Via_Gibert <- ggplot(data = (subset(d_Via,Supervisor.PI=='Gibert')), 
+                       #subsets for supervisor
+                       aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Batch)) +#define x- and y-axis
                        geom_boxplot(outlier.shape = NA, notch=FALSE) +  #boxplot
                        labs(title="p_Via_Gibert", x="Population", y = "ProportionEggtoAdultSurvival") + 
                       ylim(c(min_Via, max_Via)) + 
@@ -462,16 +460,26 @@ invisible(dev.off())
 
 ### Linear Models
 
-Here is an example code for linear models (egg-to-adult development time, males, Gibert Lab). The very same code is used for other contributing labs and traits by filtering the data at supervisor level (for females and males separately, if applicable), adding or removing factors if they cause convergence problems or singularity (i.e. if only one replicate vial has been phenotyped per line and/or population and/or batch, the lowest level [ _replicate_vial_  in this examplstae] has been dropped from given model). 
+Here is an example code for linear models (egg-to-adult development time, males, Gibert Lab). The very same code is used for other contributing labs and traits by filtering the data at supervisor level (for females and males separately, if applicable), adding or removing factors if they cause convergence problems or singularity (i.e. if only one replicate vial has been phenotyped per line and/or population and/or batch, the lowest level [ _replicate_vial_  in this example] has been dropped from given model). 
 
 ```{r lmer_example, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE}
-DT_A_M_lmer_Gibert <- lmer(DT_EggAdult ~ Population + (1|Line:Population) + #Line (random) is nested in Population (fixed)
-                             (1|Batch) + #Batch is a random effect 
-                             (1|ReplicateVial : Line), #Replicate vial (random) is nested in Line (random)
-                           data = d_DT_A_M[d_DT_A_M$Supervisor.PI == "Gibert",]) #Filter by Lab in development time, males data 
+DT_A_M_lmer_Gibert <- lmer(DT_EggAdult ~ Population + 
+                             #Population (fixed)
+                             (1|Line:Population) + 
+                             #Line (random) is nested in Population (fixed)
+                             (1|Batch) +
+                             #Batch is a random effect 
+                             (1|ReplicateVial : Line),
+                            #Replicate vial (random) is nested in Line (random)
+                           data = d_DT_A_M[d_DT_A_M$Supervisor.PI == "Gibert",]) 
+                            #Filter by Lab in development time, males data 
 capture.output(summary(DT_A_M_lmer_Gibert),file = "DevelopmentTime/DT_A_M_lmer_Gibert_sum.txt") #save output summary 
 capture.output(anova(DT_A_M_lmer_Gibert),file = "DevelopmentTime/DT_A_M_lmer_Gibert.txt") #save anova output 
-capture.output(emmeans(DT_A_M_lmer_Gibert, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file =  "DevelopmentTime/DT_A_M_lmer_Gibert_tk.txt") #run and save post-hoc test (tukey) output 
+
+```
+
+```{r tukey_example, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE}
+#need to put in tukey example here 
 ```
 
 ```{r anova_example, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE}
@@ -491,6 +499,7 @@ capture.output(summary(DW_M_lmer_Alt_Onder),file = "DryWeight/DW_M_lmer_Alt_Onde
 capture.output(anova(DW_M_lmer_Alt_Onder),file = "DryWeight/DW_M_lmer_Alt_Onder.txt")
 ```
 
+
 ### Survival Models
 
 Here is an example code for survival analyses (starvation resistance, females, Gonzalez Lab). The very same code is used for other contributing labs and traits by filtering the data at supervisor level and sex. Please note that the level "replicate_vial" has been dropped from all survival analyses, as it clogs the models due to the volume of data.
@@ -502,8 +511,7 @@ capture.output(anova(SR_F_coxme_Gonzalez), file = "Starvation/SR_F_coxme_Gonzale
 
 ```
 
-
-Analyses outputs can be found in the trait directory, under the file name **__TraitAbbreviation_Sex_Function_LabIdentifier.txt__**  (_i.e. DevelopmentTime/DT_A_M_lmer_Gibert.txt_)
+All analyses outputs can be found in the trait directory (Analyses/Trait), under the file names  **__TraitAbbreviation_Function_Output.txt__** . The analyses at the lab level can be found in the same trait directory, under _by_lab_ folders (_i.e. LinearModelsPop/DevelopmentTime/by_lab_txt_output/DT_A_M_Gibert_lmer_pop_anova.txt_)
 
 
 ```{r source_correlation_meta_Rs, include=FALSE}
@@ -513,29 +521,20 @@ source("Functions/survival_functions.R")
 ```
 
 
-
 **_Please note that "Plots and Linear Models by Lab" are presented in alphabetical order._** 
-
-```{r, echo=FALSE}
-local_directory <- "DrosEU_PhenotypingWG/" #if you want to run the code, you need to specify the path here
-```
 
 
 ## Viability
-
 
 ```{r include=FALSE}
 dir.create(file.path("Viability"), showWarnings = FALSE)
 ```
 
-
-
-
 _For a detailed description of tables, plots, linear models and outputs, please refer [here](#anchor) _
 
 ### Contributors  
 
-Gibert Lab :Cristina Vieira, Laurence Mouton, Natacha Kremer, Sonia Martinez, Patricia Gibert
+Gibert Lab : Cristina Vieira, Laurence Mouton, Natacha Kremer, Sonia Martinez, Patricia Gibert
 
 Grath Lab : Ingo Müller, Sonja Grath
 
@@ -581,7 +580,6 @@ d_Via$Altitude <- as.numeric(d_Via$Altitude)
 ```{r}
 str(d_Via)
 
-# Voila! 
 ```
 
 
