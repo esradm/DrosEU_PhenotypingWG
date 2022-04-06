@@ -38,26 +38,16 @@ Test of heterogeneity:
  79.75   23 < 0.0001
 
 Results for subgroups (random effects model):
-                  k                        95%-CI     tau^2     tau     Q
-Population = YE   3 840.5587 [824.8959; 856.2215]         0       0  1.78
-Population = RE   2 833.0005 [777.0041; 888.9968] 1428.7469 37.7988  7.80
-Population = GI   3 833.2562 [815.8201; 850.6924]         0       0  0.28
-Population = MU   3 812.9877 [756.7399; 869.2355] 2119.7273 46.0405 17.82
-Population = MA   3 831.4631 [785.3727; 877.5534] 1402.0764 37.4443 15.34
-Population = UM   2 834.4762 [817.0742; 851.8783]         0       0  0.68
-Population = KA   3 815.3755 [799.5409; 831.2102]         0       0  0.30
-Population = VA   2 829.5396 [769.1055; 889.9737] 1719.1662 41.4628 10.04
-Population = AK   3 815.0758 [778.7867; 851.3649]  771.6492 27.7786  8.83
-                  I^2
-Population = YE  0.0%
-Population = RE 87.2%
-Population = GI  0.0%
-Population = MU 88.8%
-Population = MA 87.0%
-Population = UM  0.0%
-Population = KA  0.0%
-Population = VA 90.0%
-Population = AK 77.4%
+                  k                        95%-CI     tau^2     tau     Q   I^2
+Population = YE   3 840.5587 [824.8959; 856.2215]         0       0  1.78  0.0%
+Population = RE   2 833.0005 [777.0041; 888.9968] 1428.7469 37.7988  7.80 87.2%
+Population = GI   3 833.2562 [815.8201; 850.6924]         0       0  0.28  0.0%
+Population = MU   3 812.9877 [756.7399; 869.2355] 2119.7273 46.0405 17.82 88.8%
+Population = MA   3 831.4631 [785.3727; 877.5534] 1402.0764 37.4443 15.34 87.0%
+Population = UM   2 834.4762 [817.0742; 851.8783]         0       0  0.68  0.0%
+Population = KA   3 815.3755 [799.5409; 831.2102]         0       0  0.30  0.0%
+Population = VA   2 829.5396 [769.1055; 889.9737] 1719.1662 41.4628 10.04 90.0%
+Population = AK   3 815.0758 [778.7867; 851.3649]  771.6492 27.7786  8.83 77.4%
 
 Test for subgroup differences (random effects model):
                     Q d.f. p-value

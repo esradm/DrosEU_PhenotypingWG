@@ -1,8 +1,6 @@
 $CCRT_F_Vieira_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-lmerModLmerTest]
-Formula: 
-CCRT_seconds ~ Longitude + (1 | Population) + (1 | Population:Line)
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Formula: CCRT_seconds ~ Longitude + (1 | Population) + (1 | Population:Line)
    Data: filter(droseu$ccrt, Censor == "0" & Supervisor.PI == "Vieira" &  
     Sex == "F")
 
@@ -31,10 +29,8 @@ Correlation of Fixed Effects:
 Longitude -0.776
 
 $CCRT_M_Vieira_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-lmerModLmerTest]
-Formula: 
-CCRT_seconds ~ Longitude + (1 | Population) + (1 | Population:Line)
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Formula: CCRT_seconds ~ Longitude + (1 | Population) + (1 | Population:Line)
    Data: filter(droseu$ccrt, Censor == "0" & Supervisor.PI == "Vieira" &  
     Sex == "M")
 

@@ -1,7 +1,7 @@
 $SR_F_Gonzalez_lmer_lat
 Type III Analysis of Variance Table with Satterthwaite's method
          Sum Sq Mean Sq NumDF  DenDF F value  Pr(>F)  
-Latitude 2992.3  2992.3     1 7.4076  7.0057 0.03145 *
+Latitude 2767.2  2767.2     1 7.2849  6.4834 0.03707 *
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
@@ -19,8 +19,10 @@ Latitude 874.85  874.85     1 6.8839    1.82   0.22
 
 $SR_M_Gonzalez_lmer_lat
 Type III Analysis of Variance Table with Satterthwaite's method
-         Sum Sq Mean Sq NumDF  DenDF F value Pr(>F)
-Latitude    181     181     1 7.0892  0.7266 0.4218
+         Sum Sq Mean Sq NumDF  DenDF F value  Pr(>F)  
+Latitude 1281.4  1281.4     1 7.2192  5.8942 0.04453 *
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 $SR_M_Onder_lmer_lat
 Type III Analysis of Variance Table with Satterthwaite's method
