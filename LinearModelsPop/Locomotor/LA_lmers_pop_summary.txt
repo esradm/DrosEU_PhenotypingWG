@@ -1,5 +1,5 @@
 $LA_NDlog2_Tauber_lmer_pop
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
 Formula: ND_log2 ~ Population + (1 | Line:Population)
    Data: filter(droseu$la, ND_log2 != -Inf)
 
@@ -40,45 +40,158 @@ PopulatinUM -0.717  0.504  0.528  0.528  0.492  0.483
 PopulatinVA -0.714  0.501  0.525  0.526  0.490  0.481  0.512       
 PopulatinYE -0.805  0.565  0.592  0.593  0.553  0.542  0.577  0.574
 
-$LA_ND_Tauber_lmer_pop
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
-Formula: ND ~ Population + (1 | Line:Population)
+$LA_Period_Tauber_lmer_pop
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Formula: Period ~ Population + (1 | Line:Population)
    Data: droseu$la
 
-REML criterion at convergence: 703.3
+REML criterion at convergence: 2583.9
 
 Scaled residuals: 
     Min      1Q  Median      3Q     Max 
--2.1922 -0.4257 -0.0668  0.2481 11.4146 
+-3.3016 -0.4534 -0.0232  0.3421  4.6066 
 
 Random effects:
  Groups          Name        Variance Std.Dev.
- Line:Population (Intercept) 0.03972  0.1993  
- Residual                    0.14794  0.3846  
+ Line:Population (Intercept) 0.02296  0.1515  
+ Residual                    3.31017  1.8194  
 Number of obs: 639, groups:  Line:Population, 92
 
 Fixed effects:
-              Estimate Std. Error        df t value Pr(>|t|)    
-(Intercept)   0.861094   0.084088 63.100668  10.240 4.83e-15 ***
-PopulationGI -0.009471   0.120185 69.060774  -0.079   0.9374    
-PopulationKA  0.162499   0.114413 64.976313   1.420   0.1603    
-PopulationMA  0.096859   0.114246 65.055928   0.848   0.3996    
-PopulationMU  0.004680   0.121199 77.617131   0.039   0.9693    
-PopulationRE  0.019979   0.125667 74.005936   0.159   0.8741    
-PopulationUM -0.056987   0.117565 66.316830  -0.485   0.6295    
-PopulationVA  0.049266   0.117991 64.717257   0.418   0.6777    
-PopulationYE  0.227801   0.105199 73.461284   2.165   0.0336 *  
+               Estimate Std. Error         df t value Pr(>|t|)    
+(Intercept)   24.324012   0.222555  77.124836 109.295   <2e-16 ***
+PopulationGI  -0.724291   0.326950  84.273549  -2.215   0.0294 *  
+PopulationKA   0.319080   0.300711  66.408993   1.061   0.2925    
+PopulationMA  -0.009432   0.303351  74.317673  -0.031   0.9753    
+PopulationMU  -0.511523   0.346420 111.285698  -1.477   0.1426    
+PopulationRE  -0.214883   0.349630  90.117530  -0.615   0.5404    
+PopulationUM   0.271379   0.314809  76.563567   0.862   0.3914    
+PopulationVA  -0.327952   0.309282  67.183546  -1.060   0.2928    
+PopulationYE  -0.229786   0.295072 100.523128  -0.779   0.4380    
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 Correlation of Fixed Effects:
             (Intr) PpltGI PpltKA PpltMA PpltMU PpltRE PpltUM PpltVA
-PopulatinGI -0.700                                                 
-PopulatinKA -0.735  0.514                                          
-PopulatinMA -0.736  0.515  0.541                                   
-PopulatinMU -0.694  0.485  0.510  0.511                            
-PopulatinRE -0.669  0.468  0.492  0.493  0.464                     
-PopulatinUM -0.715  0.500  0.526  0.526  0.496  0.479              
-PopulatinVA -0.713  0.499  0.524  0.525  0.494  0.477  0.510       
-PopulatinYE -0.799  0.559  0.587  0.588  0.555  0.535  0.572  0.570
+PopulatinGI -0.681                                                 
+PopulatinKA -0.740  0.504                                          
+PopulatinMA -0.734  0.499  0.543                                   
+PopulatinMU -0.642  0.437  0.475  0.471                            
+PopulatinRE -0.637  0.433  0.471  0.467  0.409                     
+PopulatinUM -0.707  0.481  0.523  0.519  0.454  0.450              
+PopulatinVA -0.720  0.490  0.533  0.528  0.462  0.458  0.509       
+PopulatinYE -0.754  0.513  0.558  0.553  0.485  0.480  0.533  0.543
+
+$LA_CircPhase_Tauber_lmer_pop
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Formula: CircPhase ~ Population + (1 | Line:Population)
+   Data: droseu$la
+
+REML criterion at convergence: 4248.8
+
+Scaled residuals: 
+     Min       1Q   Median       3Q      Max 
+-2.04075 -0.59699 -0.07819  0.87048  1.86876 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept)  0.1163  0.341   
+ Residual                    46.6900  6.833   
+Number of obs: 639, groups:  Line:Population, 92
+
+Fixed effects:
+             Estimate Std. Error     df t value Pr(>|t|)    
+(Intercept)     9.213      0.820 53.186  11.236 1.16e-15 ***
+PopulationGI    4.011      1.206 58.233   3.327  0.00153 ** 
+PopulationKA    4.769      1.106 44.688   4.311 8.82e-05 ***
+PopulationMA    3.652      1.117 50.823   3.269  0.00194 ** 
+PopulationMU    3.049      1.281 78.877   2.380  0.01971 *  
+PopulationRE    3.689      1.290 62.147   2.860  0.00576 ** 
+PopulationUM    1.752      1.160 52.314   1.511  0.13679    
+PopulationVA    3.660      1.138 45.458   3.217  0.00239 ** 
+PopulationYE    3.614      1.090 70.536   3.316  0.00145 ** 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+            (Intr) PpltGI PpltKA PpltMA PpltMU PpltRE PpltUM PpltVA
+PopulatinGI -0.680                                                 
+PopulatinKA -0.741  0.504                                          
+PopulatinMA -0.734  0.499  0.544                                   
+PopulatinMU -0.640  0.435  0.475  0.470                            
+PopulatinRE -0.636  0.432  0.471  0.467  0.407                     
+PopulatinUM -0.707  0.481  0.524  0.519  0.453  0.449              
+PopulatinVA -0.721  0.490  0.534  0.529  0.461  0.458  0.510       
+PopulatinYE -0.752  0.512  0.558  0.552  0.482  0.478  0.532  0.542
+
+$LA_AbsPhase_Tauber_lm_pop
+
+Call:
+lm(formula = AbsPhase ~ Population, data = droseu$la)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-13.8239  -1.1732   0.1276   0.8049  15.2688 
+
+Coefficients:
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  11.99329    0.55246  21.709   <2e-16 ***
+PopulationGI  0.86971    0.81320   1.069   0.2853    
+PopulationKA -0.55912    0.74803  -0.747   0.4551    
+PopulationMA -0.29816    0.75217  -0.396   0.6919    
+PopulationMU  1.49246    0.87166   1.712   0.0874 .  
+PopulationRE  1.73796    0.86621   2.006   0.0453 *  
+PopulationUM  0.03855    0.77854   0.050   0.9605    
+PopulationVA  1.83066    0.77854   2.351   0.0190 *  
+PopulationYE  0.61098    0.73842   0.827   0.4083    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 4.622 on 613 degrees of freedom
+  (17 observations deleted due to missingness)
+Multiple R-squared:  0.03206,	Adjusted R-squared:  0.01943 
+F-statistic: 2.538 on 8 and 613 DF,  p-value: 0.01007
+
+
+$LA_Activity_Tauber_lmer_pop
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Formula: Activity ~ Population + (1 | Line:Population)
+   Data: droseu$la
+
+REML criterion at convergence: 4642.8
+
+Scaled residuals: 
+     Min       1Q   Median       3Q      Max 
+-3.11945 -0.54113  0.09702  0.71284  2.13768 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 39.91    6.317   
+ Residual                    72.09    8.490   
+Number of obs: 639, groups:  Line:Population, 92
+
+Fixed effects:
+             Estimate Std. Error     df t value Pr(>|t|)    
+(Intercept)    30.457      2.453 62.981  12.417  < 2e-16 ***
+PopulationGI    3.798      3.467 67.863   1.096  0.27713    
+PopulationKA    5.309      3.324 64.877   1.597  0.11503    
+PopulationMA    6.725      3.319 64.686   2.026  0.04690 *  
+PopulationMU   -5.619      3.453 73.287  -1.627  0.10800    
+PopulationRE    9.602      3.598 70.994   2.668  0.00944 ** 
+PopulationUM   -4.267      3.409 65.397  -1.252  0.21517    
+PopulationVA   -1.464      3.426 65.376  -0.427  0.67068    
+PopulationYE    4.300      3.017 70.015   1.425  0.15847    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+            (Intr) PpltGI PpltKA PpltMA PpltMU PpltRE PpltUM PpltVA
+PopulatinGI -0.707                                                 
+PopulatinKA -0.738  0.522                                          
+PopulatinMA -0.739  0.523  0.545                                   
+PopulatinMU -0.710  0.503  0.524  0.525                            
+PopulatinRE -0.682  0.482  0.503  0.504  0.484                     
+PopulatinUM -0.720  0.509  0.531  0.532  0.511  0.490              
+PopulatinVA -0.716  0.506  0.528  0.529  0.508  0.488  0.515       
+PopulatinYE -0.813  0.575  0.600  0.601  0.578  0.554  0.585  0.582
 

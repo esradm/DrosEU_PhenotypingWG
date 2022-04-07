@@ -1,0 +1,27 @@
+
+Call:
+lm(formula = AbsPhase ~ Population, data = droseu$la)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-13.8239  -1.1732   0.1276   0.8049  15.2688 
+
+Coefficients:
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  11.99329    0.55246  21.709   <2e-16 ***
+PopulationGI  0.86971    0.81320   1.069   0.2853    
+PopulationKA -0.55912    0.74803  -0.747   0.4551    
+PopulationMA -0.29816    0.75217  -0.396   0.6919    
+PopulationMU  1.49246    0.87166   1.712   0.0874 .  
+PopulationRE  1.73796    0.86621   2.006   0.0453 *  
+PopulationUM  0.03855    0.77854   0.050   0.9605    
+PopulationVA  1.83066    0.77854   2.351   0.0190 *  
+PopulationYE  0.61098    0.73842   0.827   0.4083    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 4.622 on 613 degrees of freedom
+  (17 observations deleted due to missingness)
+Multiple R-squared:  0.03206,	Adjusted R-squared:  0.01943 
+F-statistic: 2.538 on 8 and 613 DF,  p-value: 0.01007
+

@@ -1,5 +1,5 @@
 $DW_F_Colinet_lmer_lat
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
 Formula: DW_micrograms ~ Latitude + (1 | Population) + (1 | Population:Line)
    Data: filter(droseu$dw, Supervisor.PI == "Colinet" & Sex == "F")
 
@@ -28,7 +28,7 @@ Correlation of Fixed Effects:
 Latitude -0.989
 
 $DW_F_Hoedjes_lmer_lat
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
 Formula: DW_micrograms ~ Latitude + (1 | Population:Line)
    Data: filter(droseu$dw, Supervisor.PI == "Hoedjes" & Sex == "F")
 
@@ -56,7 +56,7 @@ Correlation of Fixed Effects:
 Latitude -0.990
 
 $DW_F_Onder_lmer_lat
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
 Formula: DW_micrograms ~ Latitude + (1 | Population) + (1 | Population:Line)
    Data: filter(droseu$dw, Supervisor.PI == "Onder" & Sex == "F")
 
@@ -85,7 +85,7 @@ Correlation of Fixed Effects:
 Latitude -0.989
 
 $DW_M_Colinet_lmer_lat
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
 Formula: DW_micrograms ~ Latitude + (1 | Population) + (1 | Population:Line)
    Data: filter(droseu$dw, Supervisor.PI == "Colinet" & Sex == "M")
 
@@ -114,7 +114,7 @@ Correlation of Fixed Effects:
 Latitude -0.989
 
 $DW_M_Hoedjes_lmer_lat
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
 Formula: DW_micrograms ~ Latitude + (1 | Population:Line)
    Data: filter(droseu$dw, Supervisor.PI == "Hoedjes" & Sex == "M")
 
@@ -142,7 +142,7 @@ Correlation of Fixed Effects:
 Latitude -0.990
 
 $DW_M_Onder_lmer_lat
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
 Formula: DW_micrograms ~ Latitude + (1 | Population) + (1 | Population:Line)
    Data: filter(droseu$dw, Supervisor.PI == "Onder" & Sex == "M")
 

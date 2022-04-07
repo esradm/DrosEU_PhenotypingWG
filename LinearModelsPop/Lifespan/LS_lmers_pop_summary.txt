@@ -1,8 +1,7 @@
 $LS_F_Flatt_lmer_pop
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
 Formula: LSP_AgeAtDeath_days ~ Population + (1 | Population:ReplicateCage)
-   Data: filter(droseu$lsp, Censor == "0" & Supervisor.PI == "Flatt" &  
-    Sex == "F")
+   Data: filter(droseu$lsp, Censor == "0" & Supervisor.PI == "Flatt" &      Sex == "F")
 
 REML criterion at convergence: 36116.1
 
@@ -42,11 +41,10 @@ PopulatinVA -0.708  0.506  0.505  0.502  0.501  0.503  0.499
 PopulatinYE -0.712  0.508  0.508  0.505  0.504  0.506  0.501  0.504
 
 $LS_F_Parsch_lmer_pop
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
 Formula: LSL_AgeAtDeath_days ~ Population + (1 | Batch) + (1 | Population:Line) +  
     (1 | Line:ReplicateVial)
-   Data: filter(droseu$lsl, Censor == "0" & Supervisor.PI == "Parsch" &  
-    Sex == "F")
+   Data: filter(droseu$lsl, Censor == "0" & Supervisor.PI == "Parsch" &      Sex == "F")
 
 REML criterion at convergence: 42206.7
 
@@ -60,8 +58,7 @@ Random effects:
  Population:Line    (Intercept)  21.52    4.639  
  Batch              (Intercept)  12.92    3.594  
  Residual                       267.37   16.351  
-Number of obs: 4934, groups:  
-Line:ReplicateVial, 679; Population:Line, 135; Batch, 2
+Number of obs: 4934, groups:  Line:ReplicateVial, 679; Population:Line, 135; Batch, 2
 
 Fixed effects:
              Estimate Std. Error      df t value Pr(>|t|)    
@@ -89,11 +86,10 @@ PopulatinVA -0.376  0.498  0.500  0.498  0.500  0.501  0.500
 PopulatinYE -0.374  0.495  0.497  0.495  0.497  0.498  0.497  0.499
 
 $LS_F_Pasyukova_lmer_pop
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
 Formula: LSL_AgeAtDeath_days ~ Population + (1 | Population:Line) + (1 |  
     Line:ReplicateVial)
-   Data: filter(droseu$lsl, Censor == "0" & Supervisor.PI == "Pasyukova" &  
-    Sex == "F")
+   Data: filter(droseu$lsl, Censor == "0" & Supervisor.PI == "Pasyukova" &      Sex == "F")
 
 REML criterion at convergence: 112329.8
 
@@ -134,10 +130,9 @@ PopulatinVA -0.690  0.421  0.476  0.476  0.476  0.448  0.463
 PopulatinYE -0.690  0.421  0.476  0.476  0.476  0.448  0.463  0.476
 
 $LS_M_Flatt_lmer_pop
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
 Formula: LSP_AgeAtDeath_days ~ Population + (1 | Population:ReplicateCage)
-   Data: filter(droseu$lsp, Censor == "0" & Supervisor.PI == "Flatt" &  
-    Sex == "M")
+   Data: filter(droseu$lsp, Censor == "0" & Supervisor.PI == "Flatt" &      Sex == "M")
 
 REML criterion at convergence: 35650
 
@@ -177,11 +172,10 @@ PopulatinVA -0.705  0.505  0.504  0.505  0.500  0.505  0.504
 PopulatinYE -0.716  0.513  0.512  0.513  0.508  0.513  0.512  0.504
 
 $LS_M_Parsch_lmer_pop
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
 Formula: LSL_AgeAtDeath_days ~ Population + (1 | Batch) + (1 | Population:Line) +  
     (1 | Line:ReplicateVial)
-   Data: filter(droseu$lsl, Censor == "0" & Supervisor.PI == "Parsch" &  
-    Sex == "M")
+   Data: filter(droseu$lsl, Censor == "0" & Supervisor.PI == "Parsch" &      Sex == "M")
 
 REML criterion at convergence: 42301.4
 
@@ -195,8 +189,7 @@ Random effects:
  Population:Line    (Intercept)  34.973   5.914  
  Batch              (Intercept)   2.336   1.528  
  Residual                       355.597  18.857  
-Number of obs: 4821, groups:  
-Line:ReplicateVial, 679; Population:Line, 135; Batch, 2
+Number of obs: 4821, groups:  Line:ReplicateVial, 679; Population:Line, 135; Batch, 2
 
 Fixed effects:
              Estimate Std. Error       df t value Pr(>|t|)    
@@ -224,11 +217,10 @@ PopulatinVA -0.606  0.501  0.501  0.501  0.502  0.502  0.501
 PopulatinYE -0.606  0.500  0.501  0.501  0.502  0.502  0.501  0.501
 
 $LS_M_Pasyukova_lmer_pop
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
 Formula: LSL_AgeAtDeath_days ~ Population + (1 | Population:Line) + (1 |  
     Line:ReplicateVial)
-   Data: filter(droseu$lsl, Censor == "0" & Supervisor.PI == "Pasyukova" &  
-    Sex == "M")
+   Data: filter(droseu$lsl, Censor == "0" & Supervisor.PI == "Pasyukova" &      Sex == "M")
 
 REML criterion at convergence: 116101.4
 

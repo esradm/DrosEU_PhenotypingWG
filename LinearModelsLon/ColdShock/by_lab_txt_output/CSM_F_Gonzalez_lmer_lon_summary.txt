@@ -1,6 +1,5 @@
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
-Formula: CSM_PropDead_ED_asin ~ Longitude + (1 | Line:Population) + (1 |  
-    Population)
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Formula: CSM_PropDead_ED_asin ~ Longitude + (1 | Line:Population) + (1 |      Population)
    Data: filter(droseu$csm, Supervisor.PI == "Gonzalez" & Sex == "F")
 
 REML criterion at convergence: 20
