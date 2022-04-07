@@ -1,5 +1,5 @@
 $Fec_Billeter_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
 Formula: NumberOfAdultsEclosed ~ Altitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$fec, Supervisor.PI == "Billeter")
 
@@ -28,7 +28,7 @@ Correlation of Fixed Effects:
 Altitude -0.799
 
 $Fec_Fricke_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
 Formula: NumberOfAdultsEclosed ~ Altitude + (1 | Line:Population)
    Data: filter(droseu$fec, Supervisor.PI == "Fricke")
 

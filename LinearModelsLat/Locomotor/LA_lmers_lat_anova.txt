@@ -3,8 +3,23 @@ Type III Analysis of Variance Table with Satterthwaite's method
           Sum Sq Mean Sq NumDF  DenDF F value Pr(>F)
 Latitude 0.20732 0.20732     1 7.3387  0.8963 0.3739
 
-$LA_ND_Tauber_lmer_lat
+$LA_Period_Tauber_lmer_lat
 Type III Analysis of Variance Table with Satterthwaite's method
-           Sum Sq  Mean Sq NumDF  DenDF F value Pr(>F)
-Latitude 0.037349 0.037349     1 7.9016  0.2526  0.629
+         Sum Sq Mean Sq NumDF  DenDF F value Pr(>F)
+Latitude 5.1894  5.1894     1 6.5899  1.5717 0.2526
+
+$LA_CircPhase_Tauber_lmer_lat
+Type III Analysis of Variance Table with Satterthwaite's method
+         Sum Sq Mean Sq NumDF  DenDF F value Pr(>F)
+Latitude 61.725  61.725     1 7.2616  1.3242 0.2863
+
+$LA_AbsPhase_Tauber_lmer_lat
+Type III Analysis of Variance Table with Satterthwaite's method
+         Sum Sq Mean Sq NumDF DenDF F value Pr(>F)
+Latitude 10.912  10.912     1 6.879  0.5108 0.4983
+
+$LA_Activity_Tauber_lmer_lat
+Type III Analysis of Variance Table with Satterthwaite's method
+         Sum Sq Mean Sq NumDF DenDF F value Pr(>F)
+Latitude 85.098  85.098     1 6.779  1.1785 0.3148
 

@@ -540,7 +540,18 @@ LA_lmers_lat <- list()
 LA_lmers_lat$LA_NDlog2_Tauber_lmer_lat <- lmer(ND_log2 ~ Latitude + (1|Population) + (1|Line:Population), data = filter(droseu$la, ND_log2 != -Inf)) # log2 transformation creates -Inf values (2 cases), should they be removed?
 
 #### Tauber Lab, untransformed ND
-LA_lmers_lat$LA_ND_Tauber_lmer_lat <- lmer(ND ~ Latitude + (1|Population) + (1|Line:Population), data = droseu$la)
+#LA_lmers_lat$LA_ND_Tauber_lmer_lat <- lmer(ND ~ Latitude + (1|Population) + (1|Line:Population), data = droseu$la)
+
+LA_lmers_lat$LA_Period_Tauber_lmer_lat <- lmer(Period ~ Latitude + (1|Population) + (1|Line:Population), data = droseu$la)
+
+LA_lmers_lat$LA_CircPhase_Tauber_lmer_lat <- lmer(CircPhase ~ Latitude + (1|Population) + (1|Line:Population), data = droseu$la)
+
+# singular fit, removed Line
+LA_lmers_lat$LA_AbsPhase_Tauber_lmer_lat <- lmer(AbsPhase ~ Latitude + (1|Population), data = droseu$la)
+
+LA_lmers_lat$LA_Activity_Tauber_lmer_lat <- lmer(Activity ~ Latitude + (1|Population) + (1|Line:Population), data = droseu$la)
+
+
 
 # save output list
 saveRDS(LA_lmers_lat, file = file.path(lmer_dir, out_dir, "LA_lmers_lat.rds"))
@@ -619,11 +630,11 @@ Pgm_lmers_lat$Pgm_T6_Gibert_lmer_lat <- lmer(PercT6_asin ~ Latitude + (1|Populat
 Pgm_lmers_lat$Pgm_Total_Gibert_lmer_lat <- lmer(TotalPerc_asin ~ Latitude + (1|Line:Population), data = filter(droseu$pgm, Supervisor.PI == "Gibert"))
 
 #### Schmidt Lab
+Pgm_lmers_lat$Pgm_T4_Schmidt_lmer_lat <- lmer(ScoreT4 ~ Latitude + (1|Population) + (1|Line:Population), data = filter(droseu$pgm2, Supervisor.PI == "Schmidt"))
+
 Pgm_lmers_lat$Pgm_T5_Schmidt_lmer_lat <- lmer(ScoreT5 ~ Latitude + (1|Population) + (1|Line:Population), data = filter(droseu$pgm2, Supervisor.PI == "Schmidt"))
 
 Pgm_lmers_lat$Pgm_T6_Schmidt_lmer_lat <- lmer(ScoreT6 ~ Latitude + (1|Population) + (1|Line:Population), data = filter(droseu$pgm2, Supervisor.PI == "Schmidt"))
-
-Pgm_lmers_lat$Pgm_T7_Schmidt_lmer_lat <- lmer(ScoreT7 ~ Latitude + (1|Population) + (1|Line:Population), data = filter(droseu$pgm2, Supervisor.PI == "Schmidt"))
 
 Pgm_lmers_lat$Pgm_Total_Schmidt_lmer_lat <- lmer(TotalScore ~ Latitude + (1|Population) + (1|Line:Population), data = filter(droseu$pgm2, Supervisor.PI == "Schmidt"))
 
@@ -760,11 +771,13 @@ for (i in 1:length(lmers)){
 
 ############ get all lmers pvalues
 
-l
+
 all_lmers_lat_anova <- readRDS("LinearModelsLat/all_lmers_list_lat_anova.rds")
 
 lat_pvalues <- bind_rows(Trait = names(all_lmers_lat_anova), P_lat = lapply(all_lmers_lat_anova, function(x) x$P[1]) %>% unlist())
 lat_pvalues$Trait <- sub("_lmer_lat", "", lat_pvalues$Trait)
+lat_pvalues$Trait <- sub("_lm_lat", "", lat_pvalues$Trait)
+
 
 write.csv(lat_pvalues, "LinearModelsLat/all_lmers_lat_pvalues.csv", row.names = F)
 

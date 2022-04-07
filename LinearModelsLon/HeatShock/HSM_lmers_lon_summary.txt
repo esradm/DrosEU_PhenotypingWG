@@ -1,8 +1,7 @@
 $HSM_F_Parsch_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
 Formula: TimeDeath_min ~ Longitude + (1 | Population) + (1 | Line:Population)
-   Data: filter(droseu$hsm, Censor == "0" & Supervisor.PI == "Parsch" &  
-    Sex == "F")
+   Data: filter(droseu$hsm, Censor == "0" & Supervisor.PI == "Parsch" &      Sex == "F")
 
 REML criterion at convergence: 39646.2
 
@@ -29,10 +28,9 @@ Correlation of Fixed Effects:
 Longitude -0.766
 
 $HSM_F_Vieira_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
 Formula: TimeDeath_min ~ Longitude + (1 | Population) + (1 | Line:Population)
-   Data: filter(droseu$hsm, Censor == "0" & Supervisor.PI == "Vieira" &  
-    Sex == "F")
+   Data: filter(droseu$hsm, Censor == "0" & Supervisor.PI == "Vieira" &      Sex == "F")
 
 REML criterion at convergence: 57950.5
 
@@ -59,10 +57,9 @@ Correlation of Fixed Effects:
 Longitude -0.773
 
 $HSM_M_Parsch_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
 Formula: TimeDeath_min ~ Longitude + (1 | Population) + (1 | Line:Population)
-   Data: filter(droseu$hsm, Censor == "0" & Supervisor.PI == "Parsch" &  
-    Sex == "M")
+   Data: filter(droseu$hsm, Censor == "0" & Supervisor.PI == "Parsch" &      Sex == "M")
 
 REML criterion at convergence: 58292.1
 
@@ -89,10 +86,9 @@ Correlation of Fixed Effects:
 Longitude -0.769
 
 $HSM_M_Vieira_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
 Formula: TimeDeath_min ~ Longitude + (1 | Population) + (1 | Line:Population)
-   Data: filter(droseu$hsm, Censor == "0" & Supervisor.PI == "Vieira" &  
-    Sex == "M")
+   Data: filter(droseu$hsm, Censor == "0" & Supervisor.PI == "Vieira" &      Sex == "M")
 
 REML criterion at convergence: 95275.8
 

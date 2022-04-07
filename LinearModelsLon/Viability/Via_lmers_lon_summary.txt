@@ -1,5 +1,5 @@
 $Via_Gibert_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
 Formula: ProportionEggtoAdultSurvival ~ Longitude + (1 | Population) +  
     (1 | Line:Population)
    Data: filter(droseu$via, Supervisor.PI == "Gibert")
@@ -29,7 +29,7 @@ Correlation of Fixed Effects:
 Longitude -0.772
 
 $Via_Grath_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
 Formula: ProportionEggtoAdultSurvival ~ Longitude + (1 | Population) +  
     (1 | Line:Population)
    Data: filter(droseu$via, Supervisor.PI == "Grath")
@@ -59,7 +59,7 @@ Correlation of Fixed Effects:
 Longitude -0.558
 
 $Via_Hoedjes_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
 Formula: ProportionEggtoAdultSurvival ~ Longitude + (1 | Population) +  
     (1 | Line:Population)
    Data: filter(droseu$via, Supervisor.PI == "Hoedjes")
@@ -89,7 +89,7 @@ Correlation of Fixed Effects:
 Longitude -0.774
 
 $Via_Schmidt_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
 Formula: ProportionEggtoAdultSurvival ~ Longitude + (1 | Population)
    Data: filter(droseu$via, Supervisor.PI == "Schmidt")
 
@@ -117,7 +117,7 @@ Correlation of Fixed Effects:
 Longitude -0.778
 
 $Via_StamenkovicRadak_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
 Formula: ProportionEggtoAdultSurvival ~ Longitude + (1 | Population) +  
     (1 | Line:Population)
    Data: filter(droseu$via, Supervisor.PI == "StamenkovicRadak")
@@ -147,7 +147,7 @@ Correlation of Fixed Effects:
 Longitude -0.777
 
 $Via_Zwaan_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
 Formula: ProportionEggtoAdultSurvival ~ Longitude + (1 | Population) +  
     (1 | Line:Population)
    Data: filter(droseu$via, Supervisor.PI == "Zwaan")

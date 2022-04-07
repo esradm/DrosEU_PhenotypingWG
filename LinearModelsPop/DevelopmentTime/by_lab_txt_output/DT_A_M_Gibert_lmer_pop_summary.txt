@@ -1,4 +1,4 @@
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
 Formula: DT_EggAdult ~ Population + (1 | Line:Population) + (1 | Batch) +  
     (1 | ReplicateVial:Line)
    Data: filter(droseu$dta, Supervisor.PI == "Gibert" & Sex == "M")
@@ -15,8 +15,7 @@ Random effects:
  Line:Population    (Intercept)  31.0297  5.5704 
  Batch              (Intercept)   0.6211  0.7881 
  Residual                       106.6292 10.3261 
-Number of obs: 6566, groups:  
-ReplicateVial:Line, 533; Line:Population, 169; Batch, 3
+Number of obs: 6566, groups:  ReplicateVial:Line, 533; Line:Population, 169; Batch, 3
 
 Fixed effects:
              Estimate Std. Error       df t value Pr(>|t|)    

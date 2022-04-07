@@ -1,5 +1,5 @@
 $SR_F_Gonzalez_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
 Formula: AgeAtDeath_hours ~ Longitude + (1 | Line:Population)
    Data: filter(droseu$sr, Supervisor.PI == "Gonzalez" & Sex == "F")
 
@@ -27,7 +27,7 @@ Correlation of Fixed Effects:
 Longitude -0.795
 
 $SR_F_Onder_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
 Formula: AgeAtDeath_hours ~ Longitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$sr, Supervisor.PI == "Onder" & Sex == "F")
 
@@ -56,7 +56,7 @@ Correlation of Fixed Effects:
 Longitude -0.773
 
 $SR_F_Pasyukova_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
 Formula: AgeAtDeath_hours ~ Longitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$sr, Supervisor.PI == "Pasyukova" & Sex == "F")
 
@@ -85,7 +85,7 @@ Correlation of Fixed Effects:
 Longitude -0.776
 
 $SR_M_Gonzalez_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
 Formula: AgeAtDeath_hours ~ Longitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$sr, Supervisor.PI == "Gonzalez" & Sex == "M")
 
@@ -114,7 +114,7 @@ Correlation of Fixed Effects:
 Longitude -0.773
 
 $SR_M_Onder_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
 Formula: AgeAtDeath_hours ~ Longitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$sr, Supervisor.PI == "Onder" & Sex == "M")
 
@@ -143,7 +143,7 @@ Correlation of Fixed Effects:
 Longitude -0.775
 
 $SR_M_Pasyukova_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
 Formula: AgeAtDeath_hours ~ Longitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$sr, Supervisor.PI == "Pasyukova" & Sex == "M")
 

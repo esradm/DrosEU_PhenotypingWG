@@ -1,5 +1,5 @@
 $SR_F_Gonzalez_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
 Formula: AgeAtDeath_hours ~ Altitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$sr, Supervisor.PI == "Gonzalez" & Sex == "F")
 
@@ -28,7 +28,7 @@ Correlation of Fixed Effects:
 Altitude -0.803
 
 $SR_F_Onder_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
 Formula: AgeAtDeath_hours ~ Altitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$sr, Supervisor.PI == "Onder" & Sex == "F")
 
@@ -57,7 +57,7 @@ Correlation of Fixed Effects:
 Altitude -0.801
 
 $SR_F_Pasyukova_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
 Formula: AgeAtDeath_hours ~ Altitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$sr, Supervisor.PI == "Pasyukova" & Sex == "F")
 
@@ -86,7 +86,7 @@ Correlation of Fixed Effects:
 Altitude -0.800
 
 $SR_M_Gonzalez_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
 Formula: AgeAtDeath_hours ~ Altitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$sr, Supervisor.PI == "Gonzalez" & Sex == "M")
 
@@ -115,7 +115,7 @@ Correlation of Fixed Effects:
 Altitude -0.803
 
 $SR_M_Onder_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
 Formula: AgeAtDeath_hours ~ Altitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$sr, Supervisor.PI == "Onder" & Sex == "M")
 
@@ -144,7 +144,7 @@ Correlation of Fixed Effects:
 Altitude -0.801
 
 $SR_M_Pasyukova_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
 Formula: AgeAtDeath_hours ~ Altitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$sr, Supervisor.PI == "Pasyukova" & Sex == "M")
 
