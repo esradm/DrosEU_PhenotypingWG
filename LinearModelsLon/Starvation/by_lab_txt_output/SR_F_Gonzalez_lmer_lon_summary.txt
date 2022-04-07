@@ -1,30 +1,26 @@
 Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
-Formula: AgeAtDeath_hours ~ Longitude + (1 | Population) + (1 | Line:Population)
+Formula: AgeAtDeath_hours ~ Longitude + (1 | Line:Population)
    Data: filter(droseu$sr, Supervisor.PI == "Gonzalez" & Sex == "F")
 
-REML criterion at convergence: 43961.3
+REML criterion at convergence: 43971.9
 
 Scaled residuals: 
     Min      1Q  Median      3Q     Max 
--3.9653 -0.6552 -0.0677  0.6031  4.9329 
+-3.9519 -0.6448 -0.0652  0.5999  4.9430 
 
 Random effects:
  Groups          Name        Variance Std.Dev.
- Line:Population (Intercept) 159.68   12.636  
- Population      (Intercept)  34.04    5.834  
- Residual                    426.82   20.660  
-Number of obs: 4900, groups:  Line:Population, 141; Population, 9
+ Line:Population (Intercept) 186.8    13.67   
+ Residual                    426.8    20.66   
+Number of obs: 4900, groups:  Line:Population, 141
 
 Fixed effects:
-            Estimate Std. Error       df t value Pr(>|t|)    
-(Intercept) 80.58335    3.55223  7.49887  22.685 3.49e-08 ***
-Longitude    0.05258    0.16546  7.55469   0.318    0.759    
+             Estimate Std. Error        df t value Pr(>|t|)    
+(Intercept)  80.97913    1.96174 139.39594  41.279   <2e-16 ***
+Longitude     0.04972    0.09193 139.24460   0.541    0.589    
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 Correlation of Fixed Effects:
           (Intr)
-Longitude -0.775
-optimizer (nloptwrap) convergence code: 0 (OK)
-Model failed to converge with max|grad| = 0.00313532 (tol = 0.002, component 1)
-
+Longitude -0.795
