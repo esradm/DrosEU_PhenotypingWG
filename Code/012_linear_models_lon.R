@@ -562,8 +562,8 @@ SR_lmers_lon <- list()
 
 ## Females
 
-#### Gonzalez Lab
-SR_lmers_lon$SR_F_Gonzalez_lmer_lon <- lmer(AgeAtDeath_hours ~ Longitude + (1|Population) + (1|Line:Population), data = filter(droseu$sr, Supervisor.PI == "Gonzalez" & Sex == "F"))
+#### Gonzalez Lab, not converging, removed Population
+SR_lmers_lon$SR_F_Gonzalez_lmer_lon <- lmer(AgeAtDeath_hours ~ Longitude + (1|Line:Population), data = filter(droseu$sr, Supervisor.PI == "Gonzalez" & Sex == "F"))
 
 #### Onder Lab
 SR_lmers_lon$SR_F_Onder_lmer_lon <- lmer(AgeAtDeath_hours ~ Longitude + (1|Population) + (1|Line:Population), data = filter(droseu$sr, Supervisor.PI == "Onder" & Sex == "F"))

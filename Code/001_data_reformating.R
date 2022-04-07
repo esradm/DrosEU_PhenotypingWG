@@ -133,7 +133,7 @@ droseu$via <- droseu$via %>%
 
 
 ##### log2 transformation of ND data
-# introduces NAs because two data points are 0
+# introduces -Inf values because two data points are 0
 
 droseu$la <- droseu$la %>% mutate(ND_log2 = log2(ND))
 
