@@ -1,7 +1,6 @@
 $CSM_F_Gonzalez_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
-Formula: CSM_PropDead_ED_asin ~ Longitude + (1 | Line:Population) + (1 |  
-    Population)
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Formula: CSM_PropDead_ED_asin ~ Longitude + (1 | Line:Population) + (1 |      Population)
    Data: filter(droseu$csm, Supervisor.PI == "Gonzalez" & Sex == "F")
 
 REML criterion at convergence: 20
@@ -29,7 +28,7 @@ Correlation of Fixed Effects:
 Longitude -0.779
 
 $CSM_F_Kozeretska_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
 Formula: CSM_PropDead_ED_asin ~ Longitude + (1 | Line:Population)
    Data: filter(droseu$csm, Supervisor.PI == "Kozeretska" & Sex == "F")
 
@@ -57,9 +56,8 @@ Correlation of Fixed Effects:
 Longitude -0.809
 
 $CSM_F_Vieira_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
-Formula: CSM_PropDead_ED_asin ~ Longitude + (1 | Line:Population) + (1 |  
-    Population)
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Formula: CSM_PropDead_ED_asin ~ Longitude + (1 | Line:Population) + (1 |      Population)
    Data: filter(droseu$csm, Supervisor.PI == "Vieira" & Sex == "F")
 
 REML criterion at convergence: -71.7
@@ -87,9 +85,8 @@ Correlation of Fixed Effects:
 Longitude -0.788
 
 $CSM_M_Gonzalez_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
-Formula: CSM_PropDead_ED_asin ~ Longitude + (1 | Line:Population) + (1 |  
-    Population)
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Formula: CSM_PropDead_ED_asin ~ Longitude + (1 | Line:Population) + (1 |      Population)
    Data: filter(droseu$csm, Supervisor.PI == "Gonzalez" & Sex == "M")
 
 REML criterion at convergence: 308.6
@@ -117,7 +114,7 @@ Correlation of Fixed Effects:
 Longitude -0.783
 
 $CSM_M_Kozeretska_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
 Formula: CSM_PropDead_ED_asin ~ Longitude + (1 | Line:Population)
    Data: filter(droseu$csm, Supervisor.PI == "Kozeretska" & Sex == "M")
 
@@ -145,9 +142,8 @@ Correlation of Fixed Effects:
 Longitude -0.808
 
 $CSM_M_Vieira_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
-Formula: CSM_PropDead_ED_asin ~ Longitude + (1 | Line:Population) + (1 |  
-    Population)
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Formula: CSM_PropDead_ED_asin ~ Longitude + (1 | Line:Population) + (1 |      Population)
    Data: filter(droseu$csm, Supervisor.PI == "Vieira" & Sex == "M")
 
 REML criterion at convergence: 88.9

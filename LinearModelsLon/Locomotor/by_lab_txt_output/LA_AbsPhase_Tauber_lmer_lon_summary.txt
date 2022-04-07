@@ -1,0 +1,26 @@
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Formula: AbsPhase ~ Latitude + (1 | Population)
+   Data: droseu$la
+
+REML criterion at convergence: 3681.6
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-2.8750 -0.1706  0.0033  0.1240  3.3909 
+
+Random effects:
+ Groups     Name        Variance Std.Dev.
+ Population (Intercept)  0.544   0.7376  
+ Residual               21.363   4.6220  
+Number of obs: 622, groups:  Population, 9
+
+Fixed effects:
+            Estimate Std. Error       df t value Pr(>|t|)    
+(Intercept) 14.08930    2.13252  6.95374   6.607 0.000311 ***
+Latitude    -0.03051    0.04270  6.87899  -0.715 0.498324    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+         (Intr)
+Latitude -0.989

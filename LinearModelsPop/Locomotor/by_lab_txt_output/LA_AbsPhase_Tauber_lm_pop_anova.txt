@@ -1,0 +1,8 @@
+Analysis of Variance Table
+
+Response: AbsPhase
+            Df  Sum Sq Mean Sq F value  Pr(>F)  
+Population   8   433.8  54.222  2.5379 0.01007 *
+Residuals  613 13096.7  21.365                  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1

@@ -540,7 +540,17 @@ LA_lmers_alt <- list()
 LA_lmers_alt$LA_NDlog2_Tauber_lmer_alt <- lmer(ND_log2 ~ Altitude + (1|Population) + (1|Line:Population), data = filter(droseu$la, ND_log2 != -Inf)) # log2 transformation creates -Inf values (2 cases), should they be removed?
 
 #### Tauber Lab, untransformed ND
-LA_lmers_alt$LA_ND_Tauber_lmer_alt <- lmer(ND ~ Altitude + (1|Population) + (1|Line:Population), data = droseu$la)
+#LA_lmers_alt$LA_ND_Tauber_lmer_alt <- lmer(ND ~ Altitude + (1|Population) + (1|Line:Population), data = droseu$la)
+
+
+LA_lmers_alt$LA_Period_Tauber_lmer_alt <- lmer(Period ~ Latitude + (1|Population) + (1|Line:Population), data = droseu$la)
+
+LA_lmers_alt$LA_CircPhase_Tauber_lmer_alt <- lmer(CircPhase ~ Latitude + (1|Population) + (1|Line:Population), data = droseu$la)
+
+# singular fit, removed Line
+LA_lmers_alt$LA_AbsPhase_Tauber_lmer_alt <- lmer(AbsPhase ~ Latitude + (1|Population), data = droseu$la)
+
+LA_lmers_alt$LA_Activity_Tauber_lmer_alt <- lmer(Activity ~ Latitude + (1|Population) + (1|Line:Population), data = droseu$la)
 
 # save output list
 saveRDS(LA_lmers_alt, file = file.path(lmer_dir, out_dir, "LA_lmers_alt.rds"))
@@ -619,11 +629,11 @@ Pgm_lmers_alt$Pgm_T6_Gibert_lmer_alt <- lmer(PercT6_asin ~ Altitude + (1|Populat
 Pgm_lmers_alt$Pgm_Total_Gibert_lmer_alt <- lmer(TotalPerc_asin ~ Altitude + (1|Line:Population), data = filter(droseu$pgm, Supervisor.PI == "Gibert"))
 
 #### Schmidt Lab
+Pgm_lmers_alt$Pgm_T4_Schmidt_lmer_alt <- lmer(ScoreT4 ~ Altitude + (1|Population) + (1|Line:Population), data = filter(droseu$pgm2, Supervisor.PI == "Schmidt"))
+
 Pgm_lmers_alt$Pgm_T5_Schmidt_lmer_alt <- lmer(ScoreT5 ~ Altitude + (1|Population) + (1|Line:Population), data = filter(droseu$pgm2, Supervisor.PI == "Schmidt"))
 
 Pgm_lmers_alt$Pgm_T6_Schmidt_lmer_alt <- lmer(ScoreT6 ~ Altitude + (1|Population) + (1|Line:Population), data = filter(droseu$pgm2, Supervisor.PI == "Schmidt"))
-
-Pgm_lmers_alt$Pgm_T7_Schmidt_lmer_alt <- lmer(ScoreT7 ~ Altitude + (1|Population) + (1|Line:Population), data = filter(droseu$pgm2, Supervisor.PI == "Schmidt"))
 
 Pgm_lmers_alt$Pgm_Total_Schmidt_lmer_alt <- lmer(TotalScore ~ Altitude + (1|Population) + (1|Line:Population), data = filter(droseu$pgm2, Supervisor.PI == "Schmidt"))
 
@@ -766,6 +776,8 @@ all_lmers_alt_anova <- readRDS("LinearModelsAlt/all_lmers_list_alt_anova.rds")
 
 alt_pvalues <- bind_rows(Trait = names(all_lmers_alt_anova), P_alt = lapply(all_lmers_alt_anova, function(x) x$P[1]) %>% unlist())
 alt_pvalues$Trait <- sub("_lmer_alt", "", alt_pvalues$Trait)
+alt_pvalues$Trait <- sub("_lm_alt", "", alt_pvalues$Trait)
+
 
 write.csv(alt_pvalues, "LinearModelsAlt/all_lmers_alt_pvalues.csv", row.names = F)
 

@@ -523,10 +523,20 @@ LA_lmers_pop <- list()
 # Tauber
 #LA_lmers_pop$LA_ND_Tauber_lmer_pop <- lmer(ND_log2 ~ Population + (1|Line:Population) + (1|Batch), data = droseu$la) # log2 transformation creates NA values, should they be removed?
 # removed "-Inf", not converging, removed Batch that explains the least
-LA_lmers_pop$LA_NDlog2_Tauber_lmer_pop <- lmer(ND_log2 ~ Population + (1|Line:Population), data = filter(droseu$la, ND_log2 != -Inf)) # log2 transformation creates -Inf values (2 cases), should they be removed?
+LA_lmers_pop$LA_NDlog2_Tauber_lmer_pop <- lmer(ND_log2 ~ Population + (1|Line:Population), data = filter(droseu$la, ND_log2 != -Inf)) # log2 transformation creates -Inf values (2 cases), should they be removed? Removed for the time being
 
 # untransformed, not converging, removed Batch that explains the least
-LA_lmers_pop$LA_ND_Tauber_lmer_pop <- lmer(ND ~ Population + (1|Line:Population), data = droseu$la)
+#LA_lmers_pop$LA_ND_Tauber_lmer_pop <- lmer(ND ~ Population + (1|Line:Population), data = droseu$la)
+
+LA_lmers_pop$LA_Period_Tauber_lmer_pop <- lmer(Period ~ Population + (1|Line:Population), data = droseu$la)
+
+LA_lmers_pop$LA_CircPhase_Tauber_lmer_pop <- lmer(CircPhase ~ Population + (1|Line:Population), data = droseu$la)
+
+# singular fit, removed Line
+LA_lmers_pop$LA_AbsPhase_Tauber_lm_pop <- lm(AbsPhase ~ Population, data = droseu$la)
+
+LA_lmers_pop$LA_Activity_Tauber_lmer_pop <- lmer(Activity ~ Population + (1|Line:Population), data = droseu$la)
+
 
 # save output list
 saveRDS(LA_lmers_pop, file = file.path(lmer_dir, out_dir, "LA_lmers_pop.rds"))
@@ -605,11 +615,11 @@ Pgm_lmers_pop$Pgm_Total_Gibert_lmer_pop <- lmer(TotalPerc_asin ~ Population + (1
 
 
 # Schmidt
+Pgm_lmers_pop$Pgm_T4_Schmidt_lmer_pop <- lmer(ScoreT4 ~ Population + (1|Line:Population), data = filter(droseu$pgm2, Supervisor.PI == "Schmidt"))
+
 Pgm_lmers_pop$Pgm_T5_Schmidt_lmer_pop <- lmer(ScoreT5 ~ Population + (1|Line:Population), data = filter(droseu$pgm2, Supervisor.PI == "Schmidt"))
 
 Pgm_lmers_pop$Pgm_T6_Schmidt_lmer_pop <- lmer(ScoreT6 ~ Population + (1|Line:Population), data = filter(droseu$pgm2, Supervisor.PI == "Schmidt"))
-
-Pgm_lmers_pop$Pgm_T7_Schmidt_lmer_pop <- lmer(ScoreT7 ~ Population + (1|Line:Population), data = filter(droseu$pgm2, Supervisor.PI == "Schmidt"))
 
 Pgm_lmers_pop$Pgm_Total_Schmidt_lmer_pop <- lmer(TotalScore ~ Population + (1|Line:Population), data = filter(droseu$pgm2, Supervisor.PI == "Schmidt"))
 
@@ -802,6 +812,7 @@ all_lmers_pop_anova <- readRDS("LinearModelsPop/all_lmers_list_pop_anova.rds")
 
 pop_pvalues <- bind_rows(Trait = names(all_lmers_pop_anova), P_pop = lapply(all_lmers_pop_anova, function(x) x$P[1]) %>% unlist())
 pop_pvalues$Trait <- sub("_lmer_pop", "", pop_pvalues$Trait)
+pop_pvalues$Trait <- sub("_lm_pop", "", pop_pvalues$Trait)
 
 write.csv(pop_pvalues, "LinearModelsPop/all_lmers_pop_pvalues.csv", row.names = F)
 

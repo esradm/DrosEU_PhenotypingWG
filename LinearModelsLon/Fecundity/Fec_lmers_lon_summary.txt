@@ -1,7 +1,6 @@
 $Fec_Billeter_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
-Formula: 
-NumberOfAdultsEclosed ~ Longitude + (1 | Population) + (1 | Line:Population)
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Formula: NumberOfAdultsEclosed ~ Longitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$fec, Supervisor.PI == "Billeter")
 
 REML criterion at convergence: 8842.5
@@ -29,7 +28,7 @@ Correlation of Fixed Effects:
 Longitude -0.779
 
 $Fec_Fricke_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
 Formula: NumberOfAdultsEclosed ~ Longitude + (1 | Line:Population)
    Data: filter(droseu$fec, Supervisor.PI == "Fricke")
 

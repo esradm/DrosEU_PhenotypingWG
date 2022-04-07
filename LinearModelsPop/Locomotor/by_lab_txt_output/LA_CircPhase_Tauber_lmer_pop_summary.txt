@@ -1,0 +1,40 @@
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Formula: CircPhase ~ Population + (1 | Line:Population)
+   Data: droseu$la
+
+REML criterion at convergence: 4248.8
+
+Scaled residuals: 
+     Min       1Q   Median       3Q      Max 
+-2.04075 -0.59699 -0.07819  0.87048  1.86876 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept)  0.1163  0.341   
+ Residual                    46.6900  6.833   
+Number of obs: 639, groups:  Line:Population, 92
+
+Fixed effects:
+             Estimate Std. Error     df t value Pr(>|t|)    
+(Intercept)     9.213      0.820 53.186  11.236 1.16e-15 ***
+PopulationGI    4.011      1.206 58.233   3.327  0.00153 ** 
+PopulationKA    4.769      1.106 44.688   4.311 8.82e-05 ***
+PopulationMA    3.652      1.117 50.823   3.269  0.00194 ** 
+PopulationMU    3.049      1.281 78.877   2.380  0.01971 *  
+PopulationRE    3.689      1.290 62.147   2.860  0.00576 ** 
+PopulationUM    1.752      1.160 52.314   1.511  0.13679    
+PopulationVA    3.660      1.138 45.458   3.217  0.00239 ** 
+PopulationYE    3.614      1.090 70.536   3.316  0.00145 ** 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+            (Intr) PpltGI PpltKA PpltMA PpltMU PpltRE PpltUM PpltVA
+PopulatinGI -0.680                                                 
+PopulatinKA -0.741  0.504                                          
+PopulatinMA -0.734  0.499  0.544                                   
+PopulatinMU -0.640  0.435  0.475  0.470                            
+PopulatinRE -0.636  0.432  0.471  0.467  0.407                     
+PopulatinUM -0.707  0.481  0.524  0.519  0.453  0.449              
+PopulatinVA -0.721  0.490  0.534  0.529  0.461  0.458  0.510       
+PopulatinYE -0.752  0.512  0.558  0.552  0.482  0.478  0.532  0.542
