@@ -796,6 +796,16 @@ for (i in 1:length(lmers)){
 }
 
 
+############ get all lmers pvalues
+
+all_lmers_pop_anova <- readRDS("LinearModelsPop/all_lmers_list_pop_anova.rds")
+
+pop_pvalues <- bind_rows(Trait = names(all_lmers_pop_anova), P_pop = lapply(all_lmers_pop_anova, function(x) x$P[1]) %>% unlist())
+pop_pvalues$Trait <- sub("_lmer_pop", "", pop_pvalues$Trait)
+
+write.csv(pop_pvalues, "LinearModelsPop/all_lmers_pop_pvalues.csv", row.names = F)
+
+
 
 
 

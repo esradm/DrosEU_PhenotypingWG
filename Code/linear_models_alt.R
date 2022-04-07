@@ -757,3 +757,25 @@ for (i in 1:length(lmers)){
 }
 
 
+
+
+
+############ get all lmers pvalues
+
+all_lmers_alt_anova <- readRDS("LinearModelsAlt/all_lmers_list_alt_anova.rds")
+
+alt_pvalues <- bind_rows(Trait = names(all_lmers_alt_anova), P_alt = lapply(all_lmers_alt_anova, function(x) x$P[1]) %>% unlist())
+alt_pvalues$Trait <- sub("_lmer_alt", "", alt_pvalues$Trait)
+
+write.csv(alt_pvalues, "LinearModelsAlt/all_lmers_alt_pvalues.csv", row.names = F)
+
+
+
+
+
+
+
+
+
+
+

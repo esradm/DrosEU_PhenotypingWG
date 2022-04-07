@@ -1,4 +1,4 @@
-Supervisor.PI,Diet,Batch,Population,Line,condition,TotalNumberOfFlies,ZT_hours_MESA,ZT_hours_LSPR,Period_MESA,Period_LSPR,Rhythmicity_LSPR_amplitude,Rhythmicity_JTK_p_BH_corrected,Country,Latitude,Longitude,Altitude
+Supervisor.PI,Diet,Batch,Population,Line,Condition,TotalNumberOfFlies,ZT_hours_MESA,ZT_hours_LSPR,Period_MESA,Period_LSPR,Rhythmicity_LSPR_amplitude,Rhythmicity_JTK_p_BH_corrected,Country,Latitude,Longitude,Altitude
 Wegener,NS,2,AK,mixed population,18_LD_DD,1897,6.16,5.51,24.22,24.44,11.66,5.26E-24,Finland,61.1,23.52,88
 Wegener,NS,2,GI,mixed population,18_LD_DD,793,3.49,3.49,24.82,24.82,6.55,6.27E-22,Spain,41.618,0.62,173
 Wegener,NS,2,KA,mixed population,18_LD_DD,1938,7.01,4.67,24.06,24.76,9.75,6.76E-14,Denmark,55.945,10.213,15
