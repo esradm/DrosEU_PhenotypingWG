@@ -757,3 +757,31 @@ for (i in 1:length(lmers)){
 }
 
 
+
+############ get all lmers pvalues
+
+l
+all_lmers_lat_anova <- readRDS("LinearModelsLat/all_lmers_list_lat_anova.rds")
+
+lat_pvalues <- bind_rows(Trait = names(all_lmers_lat_anova), P_lat = lapply(all_lmers_lat_anova, function(x) x$P[1]) %>% unlist())
+lat_pvalues$Trait <- sub("_lmer_lat", "", lat_pvalues$Trait)
+
+write.csv(lat_pvalues, "LinearModelsLat/all_lmers_lat_pvalues.csv", row.names = F)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
