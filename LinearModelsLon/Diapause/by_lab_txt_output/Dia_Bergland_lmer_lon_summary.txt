@@ -1,4 +1,5 @@
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest
+]
 Formula: 
 Prop_Max_Stage9_asin ~ Longitude + (1 | Population) + (1 | Population:Line)
    Data: filter(droseu$dia, Supervisor.PI == "Bergland")

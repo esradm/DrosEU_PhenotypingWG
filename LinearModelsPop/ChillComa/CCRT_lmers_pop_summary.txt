@@ -1,5 +1,6 @@
 $CCRT_F_Vieira_lmer_pop
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest
+]
 Formula: CCRT_seconds ~ Population + (1 | Population:Line) + (1 | Batch) +  
     (1 | ReplicateVial:Line)
    Data: filter(droseu$ccrt, Censor == "0" & Supervisor.PI == "Vieira" &  
@@ -46,7 +47,8 @@ PopulatinVA -0.703  0.403  0.501  0.493  0.483  0.461  0.491
 PopulatinYE -0.713  0.408  0.508  0.499  0.489  0.468  0.498  0.573
 
 $CCRT_M_Vieira_lmer_pop
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest
+]
 Formula: 
 CCRT_seconds ~ Population + (1 | Population:Line) + (1 | ReplicateVial:Line)
    Data: filter(droseu$ccrt, Censor == "0" & Supervisor.PI == "Vieira" &  

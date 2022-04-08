@@ -1,4 +1,5 @@
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest
+]
 Formula: TimeDeath_min ~ Population + (1 | Line:Population) + (1 | Batch)
    Data: filter(droseu$hsm, Censor == "0" & Supervisor.PI == "Parsch" &  
     Sex == "M")

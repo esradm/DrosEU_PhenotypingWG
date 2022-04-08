@@ -1,5 +1,6 @@
 $DT_P_Schmidt_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest
+]
 Formula: DT_EggPupa ~ Longitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$dtp, Supervisor.PI == "Schmidt")
 
@@ -28,7 +29,8 @@ Correlation of Fixed Effects:
 Longitude -0.782
 
 $DT_A_F_Gibert_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest
+]
 Formula: DT_EggAdult ~ Longitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$dta, Supervisor.PI == "Gibert" & Sex == "F")
 
@@ -57,7 +59,8 @@ Correlation of Fixed Effects:
 Longitude -0.781
 
 $DT_A_F_Grath_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest
+]
 Formula: DT_EggAdult ~ Longitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$dta, Supervisor.PI == "Grath" & Sex == "F")
 
@@ -86,7 +89,8 @@ Correlation of Fixed Effects:
 Longitude -0.615
 
 $DT_A_F_Hoedjes_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest
+]
 Formula: DT_EggAdult ~ Longitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$dta, Supervisor.PI == "Hoedjes" & Sex == "F")
 
@@ -115,7 +119,8 @@ Correlation of Fixed Effects:
 Longitude -0.778
 
 $DT_A_F_Schmidt_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest
+]
 Formula: DT_EggAdult ~ Longitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$dta, Supervisor.PI == "Schmidt" & Sex == "F")
 
@@ -144,7 +149,8 @@ Correlation of Fixed Effects:
 Longitude -0.782
 
 $DT_A_F_StamenkovicRadak_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest
+]
 Formula: DT_EggAdult ~ Longitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$dta, Supervisor.PI == "StamenkovicRadak" & Sex ==      "F")
 
@@ -173,7 +179,8 @@ Correlation of Fixed Effects:
 Longitude -0.774
 
 $DT_A_F_Zwaan_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest
+]
 Formula: DT_EggAdult ~ Longitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$dta, Supervisor.PI == "Zwaan" & Sex == "F")
 
@@ -202,7 +209,8 @@ Correlation of Fixed Effects:
 Longitude -0.786
 
 $DT_A_M_Gibert_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest
+]
 Formula: DT_EggAdult ~ Longitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$dta, Supervisor.PI == "Gibert" & Sex == "M")
 
@@ -231,7 +239,8 @@ Correlation of Fixed Effects:
 Longitude -0.779
 
 $DT_A_M_Grath_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest
+]
 Formula: DT_EggAdult ~ Longitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$dta, Supervisor.PI == "Grath" & Sex == "M")
 
@@ -260,7 +269,8 @@ Correlation of Fixed Effects:
 Longitude -0.641
 
 $DT_A_M_Hoedjes_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest
+]
 Formula: DT_EggAdult ~ Longitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$dta, Supervisor.PI == "Hoedjes" & Sex == "M")
 
@@ -289,7 +299,8 @@ Correlation of Fixed Effects:
 Longitude -0.778
 
 $DT_A_M_Schmidt_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest
+]
 Formula: DT_EggAdult ~ Longitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$dta, Supervisor.PI == "Schmidt" & Sex == "M")
 
@@ -318,7 +329,8 @@ Correlation of Fixed Effects:
 Longitude -0.781
 
 $DT_A_M_StamenkovicRadak_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest
+]
 Formula: DT_EggAdult ~ Longitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$dta, Supervisor.PI == "StamenkovicRadak" & Sex ==      "M")
 
@@ -347,7 +359,8 @@ Correlation of Fixed Effects:
 Longitude -0.775
 
 $DT_A_M_Zwaan_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest
+]
 Formula: DT_EggAdult ~ Longitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$dta, Supervisor.PI == "Zwaan" & Sex == "M")
 

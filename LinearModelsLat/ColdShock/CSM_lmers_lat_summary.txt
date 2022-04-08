@@ -1,5 +1,6 @@
 $CSM_F_Gonzalez_lmer_lat
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest
+]
 Formula: CSM_PropDead_ED_asin ~ Latitude + (1 | Line:Population) + (1 |  
     Population)
    Data: filter(droseu$csm, Supervisor.PI == "Gonzalez" & Sex == "F")
@@ -29,7 +30,8 @@ Correlation of Fixed Effects:
 Latitude -0.989
 
 $CSM_F_Kozeretska_lmer_lat
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest
+]
 Formula: CSM_PropDead_ED_asin ~ Latitude + (1 | Line:Population)
    Data: filter(droseu$csm, Supervisor.PI == "Kozeretska" & Sex == "F")
 
@@ -57,7 +59,8 @@ Correlation of Fixed Effects:
 Latitude -0.990
 
 $CSM_F_Vieira_lmer_lat
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest
+]
 Formula: CSM_PropDead_ED_asin ~ Latitude + (1 | Line:Population) + (1 |  
     Population)
    Data: filter(droseu$csm, Supervisor.PI == "Vieira" & Sex == "F")
@@ -87,7 +90,8 @@ Correlation of Fixed Effects:
 Latitude -0.990
 
 $CSM_M_Gonzalez_lmer_lat
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest
+]
 Formula: CSM_PropDead_ED_asin ~ Latitude + (1 | Line:Population) + (1 |  
     Population)
    Data: filter(droseu$csm, Supervisor.PI == "Gonzalez" & Sex == "M")
@@ -117,7 +121,8 @@ Correlation of Fixed Effects:
 Latitude -0.989
 
 $CSM_M_Kozeretska_lmer_lat
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest
+]
 Formula: CSM_PropDead_ED_asin ~ Latitude + (1 | Line:Population)
    Data: filter(droseu$csm, Supervisor.PI == "Kozeretska" & Sex == "M")
 
@@ -145,7 +150,8 @@ Correlation of Fixed Effects:
 Latitude -0.990
 
 $CSM_M_Vieira_lmer_lat
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest
+]
 Formula: CSM_PropDead_ED_asin ~ Latitude + (1 | Line:Population) + (1 |  
     Population)
    Data: filter(droseu$csm, Supervisor.PI == "Vieira" & Sex == "M")

@@ -59,7 +59,7 @@ P value adjustment: tukey method for comparing a family of 9 estimates
 
 $letters
   Population    emmean       SE  df asymp.LCL asymp.UCL  cld
-1         AK  995.0465 5.305413 Inf  984.6481  1005.445  a  
+1         AK  995.0466 5.305413 Inf  984.6481  1005.445  a  
 2         GI 1021.9497 6.661209 Inf 1008.8939  1035.005   bc
 3         KA 1005.3833 5.440264 Inf  994.7206  1016.046  ab 
 4         MA 1014.8919 5.486739 Inf 1004.1381  1025.646  abc
