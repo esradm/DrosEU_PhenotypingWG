@@ -1,6 +1,6 @@
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: PercT5_asin ~ Population + (1 | Line:Population)
-   Data: filter(droseu$pgm2, Supervisor.PI == "Schmidt")
+   Data: filter(droseu$pgm, Supervisor.PI == "Schmidt")
 
 REML criterion at convergence: -214
 
@@ -24,7 +24,7 @@ PopulationMU   0.03938    0.07458 147.25869   0.528   0.5983
 PopulationRE   0.11276    0.08242 148.90060   1.368   0.1733    
 PopulationUM   0.20368    0.08060 147.52483   2.527   0.0126 *  
 PopulationVA   0.03476    0.07780 147.20956   0.447   0.6557    
-PopulationYE   0.01039    0.07469 148.12841   0.139   0.8895    
+PopulationYE   0.01039    0.07469 148.12840   0.139   0.8895    
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 

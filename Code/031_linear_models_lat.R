@@ -630,13 +630,13 @@ Pgm_lmers_lat$Pgm_T6_Gibert_lmer_lat <- lmer(PercT6_asin ~ Latitude + (1|Populat
 Pgm_lmers_lat$Pgm_Total_Gibert_lmer_lat <- lmer(TotalPerc_asin ~ Latitude + (1|Line:Population), data = filter(droseu$pgm, Supervisor.PI == "Gibert"))
 
 #### Schmidt Lab
-Pgm_lmers_lat$Pgm_T4_Schmidt_lmer_lat <- lmer(PercT4_asin ~ Latitude + (1|Population) + (1|Line:Population), data = filter(droseu$pgm2, Supervisor.PI == "Schmidt"))
+Pgm_lmers_lat$Pgm_T4_Schmidt_lmer_lat <- lmer(PercT4_asin ~ Latitude + (1|Population) + (1|Line:Population), data = filter(droseu$pgm, Supervisor.PI == "Schmidt"))
 
-Pgm_lmers_lat$Pgm_T5_Schmidt_lmer_lat <- lmer(PercT5_asin ~ Latitude + (1|Population) + (1|Line:Population), data = filter(droseu$pgm2, Supervisor.PI == "Schmidt"))
+Pgm_lmers_lat$Pgm_T5_Schmidt_lmer_lat <- lmer(PercT5_asin ~ Latitude + (1|Population) + (1|Line:Population), data = filter(droseu$pgm, Supervisor.PI == "Schmidt"))
 
-Pgm_lmers_lat$Pgm_T6_Schmidt_lmer_lat <- lmer(PercT6_asin ~ Latitude + (1|Population) + (1|Line:Population), data = filter(droseu$pgm2, Supervisor.PI == "Schmidt"))
+Pgm_lmers_lat$Pgm_T6_Schmidt_lmer_lat <- lmer(PercT6_asin ~ Latitude + (1|Population) + (1|Line:Population), data = filter(droseu$pgm, Supervisor.PI == "Schmidt"))
 
-Pgm_lmers_lat$Pgm_Total_Schmidt_lmer_lat <- lmer(TotalPerc_asin ~ Latitude + (1|Population) + (1|Line:Population), data = filter(droseu$pgm2, Supervisor.PI == "Schmidt"))
+Pgm_lmers_lat$Pgm_Total_Schmidt_lmer_lat <- lmer(TotalPerc_asin ~ Latitude + (1|Population) + (1|Line:Population), data = filter(droseu$pgm, Supervisor.PI == "Schmidt"))
 
 
 # save output list

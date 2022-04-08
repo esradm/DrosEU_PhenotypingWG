@@ -1,6 +1,7 @@
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: LSP_AgeAtDeath_days ~ Latitude + (1 | Population)
-   Data: filter(droseu$lsp, Censor == "0" & Supervisor.PI == "Flatt" &      Sex == "M")
+   Data: filter(droseu$lsp, Censor == "0" & Supervisor.PI == "Flatt" &  
+    Sex == "M")
 
 REML criterion at convergence: 35715
 

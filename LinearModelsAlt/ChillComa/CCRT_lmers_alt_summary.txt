@@ -1,7 +1,8 @@
 $CCRT_F_Vieira_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: CCRT_seconds ~ Altitude + (1 | Population) + (1 | Population:Line)
-   Data: filter(droseu$ccrt, Censor == "0" & Supervisor.PI == "Vieira" &      Sex == "F")
+   Data: filter(droseu$ccrt, Censor == "0" & Supervisor.PI == "Vieira" &  
+    Sex == "F")
 
 REML criterion at convergence: 14979.7
 
@@ -28,9 +29,10 @@ Correlation of Fixed Effects:
 Altitude -0.801
 
 $CCRT_M_Vieira_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: CCRT_seconds ~ Altitude + (1 | Population) + (1 | Population:Line)
-   Data: filter(droseu$ccrt, Censor == "0" & Supervisor.PI == "Vieira" &      Sex == "M")
+   Data: filter(droseu$ccrt, Censor == "0" & Supervisor.PI == "Vieira" &  
+    Sex == "M")
 
 REML criterion at convergence: 14874
 

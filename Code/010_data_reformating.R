@@ -154,6 +154,15 @@ droseu$via <- droseu$via %>%
   mutate(ProportionEggtoAdultSurvival_asin = asin(sqrt(ProportionEggtoAdultSurvival)))
 
 
+#### combine Pgm and Pgm2 datasets
+
+pgm_var <- c("Supervisor.PI", "Diet", "Batch", "Population", "Line", "Sex", "Individual", "PercT4", "PercT5", "PercT6", "TotalPerc", "PercT4_asin", "PercT5_asin", "PercT6_asin", "TotalPerc_asin", "Country", "Latitude", "Longitude", "Altitude", "Population_Lat", "Population_Lon", "Population_Alt")
+
+droseu$pgm <- bind_rows(dplyr::select(droseu$pgm, pgm_var), dplyr::select(droseu$pgm2, pgm_var))
+
+droseu <- droseu[names(droseu) != "pgm2"]
+
+
 ##### log2 transformation of ND data
 # introduces -Inf values because two data points are 0
 

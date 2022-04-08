@@ -1,5 +1,6 @@
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: Prop_Max_Stage9_asin ~ Population + (1 | Population:Line) + (1 |      Batch)
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Formula: Prop_Max_Stage9_asin ~ Population + (1 | Population:Line) + (1 |  
+    Batch)
    Data: filter(droseu$dia, Supervisor.PI == "Schlotterer")
 
 REML criterion at convergence: 122.5

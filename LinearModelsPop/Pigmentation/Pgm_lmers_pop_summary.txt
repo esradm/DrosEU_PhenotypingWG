@@ -1,5 +1,5 @@
 $Pgm_T4_Abbott_lmer_pop
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: PercT4_asin ~ Population + (1 | Line:Population)
    Data: filter(droseu$pgm, Supervisor.PI == "Abbott")
 
@@ -41,7 +41,7 @@ PopulatinVA -0.698  0.446  0.486  0.479  0.472  0.464  0.479
 PopulatinYE -0.706  0.452  0.491  0.484  0.478  0.469  0.485  0.492
 
 $Pgm_T5_Abbott_lmer_pop
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: PercT5_asin ~ Population + (1 | Line:Population)
    Data: filter(droseu$pgm, Supervisor.PI == "Abbott")
 
@@ -83,7 +83,7 @@ PopulatinVA -0.698  0.446  0.486  0.479  0.472  0.464  0.479
 PopulatinYE -0.705  0.451  0.491  0.484  0.477  0.469  0.484  0.492
 
 $Pgm_T6_Abbott_lmer_pop
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: PercT6_asin ~ Population + (1 | Line:Population)
    Data: filter(droseu$pgm, Supervisor.PI == "Abbott")
 
@@ -125,7 +125,7 @@ PopulatinVA -0.698  0.447  0.486  0.479  0.472  0.464  0.480
 PopulatinYE -0.706  0.452  0.492  0.485  0.478  0.470  0.485  0.493
 
 $Pgm_Total_Abbott_lmer_pop
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: TotalPerc_asin ~ Population + (1 | Line:Population)
    Data: filter(droseu$pgm, Supervisor.PI == "Abbott")
 
@@ -167,7 +167,7 @@ PopulatinVA -0.698  0.447  0.486  0.479  0.472  0.464  0.480
 PopulatinYE -0.706  0.452  0.492  0.485  0.478  0.470  0.485  0.492
 
 $Pgm_T4_Gibert_lmer_pop
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: PercT4_asin ~ Population + (1 | Line:Population)
    Data: filter(droseu$pgm, Supervisor.PI == "Gibert")
 
@@ -209,7 +209,7 @@ PopulatinVA -0.698  0.458  0.494  0.487  0.494  0.466  0.481
 PopulatinYE -0.702  0.460  0.497  0.489  0.496  0.469  0.484  0.490
 
 $Pgm_T5_Gibert_lmer_pop
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: PercT5_asin ~ Population + (1 | Line:Population)
    Data: filter(droseu$pgm, Supervisor.PI == "Gibert")
 
@@ -251,7 +251,7 @@ PopulatinVA -0.698  0.458  0.494  0.487  0.494  0.466  0.481
 PopulatinYE -0.703  0.461  0.498  0.490  0.497  0.469  0.484  0.491
 
 $Pgm_T6_Gibert_lmer_pop
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: PercT6_asin ~ Population + (1 | Line:Population)
    Data: filter(droseu$pgm, Supervisor.PI == "Gibert")
 
@@ -293,7 +293,7 @@ PopulatinVA -0.698  0.457  0.494  0.487  0.494  0.466  0.481
 PopulatinYE -0.705  0.462  0.499  0.492  0.499  0.470  0.485  0.492
 
 $Pgm_Total_Gibert_lmer_pop
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: TotalPerc_asin ~ Population + (1 | Line:Population)
    Data: filter(droseu$pgm, Supervisor.PI == "Gibert")
 
@@ -335,9 +335,9 @@ PopulatinVA -0.698  0.457  0.494  0.487  0.494  0.466  0.481
 PopulatinYE -0.704  0.461  0.498  0.491  0.498  0.470  0.485  0.492
 
 $Pgm_T4_Schmidt_lmer_pop
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: PercT4_asin ~ Population + (1 | Line:Population)
-   Data: filter(droseu$pgm2, Supervisor.PI == "Schmidt")
+   Data: filter(droseu$pgm, Supervisor.PI == "Schmidt")
 
 REML criterion at convergence: -2112.7
 
@@ -377,9 +377,9 @@ PopulatinVA -0.677  0.423  0.473  0.472  0.479  0.432  0.443
 PopulatinYE -0.705  0.440  0.492  0.491  0.498  0.450  0.461  0.477
 
 $Pgm_T5_Schmidt_lmer_pop
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: PercT5_asin ~ Population + (1 | Line:Population)
-   Data: filter(droseu$pgm2, Supervisor.PI == "Schmidt")
+   Data: filter(droseu$pgm, Supervisor.PI == "Schmidt")
 
 REML criterion at convergence: -214
 
@@ -403,7 +403,7 @@ PopulationMU   0.03938    0.07458 147.25869   0.528   0.5983
 PopulationRE   0.11276    0.08242 148.90060   1.368   0.1733    
 PopulationUM   0.20368    0.08060 147.52483   2.527   0.0126 *  
 PopulationVA   0.03476    0.07780 147.20956   0.447   0.6557    
-PopulationYE   0.01039    0.07469 148.12841   0.139   0.8895    
+PopulationYE   0.01039    0.07469 148.12840   0.139   0.8895    
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
@@ -419,9 +419,9 @@ PopulatinVA -0.678  0.424  0.473  0.472  0.479  0.433  0.443
 PopulatinYE -0.706  0.442  0.493  0.492  0.499  0.451  0.462  0.478
 
 $Pgm_T6_Schmidt_lmer_pop
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: PercT6_asin ~ Population + (1 | Line:Population)
-   Data: filter(droseu$pgm2, Supervisor.PI == "Schmidt")
+   Data: filter(droseu$pgm, Supervisor.PI == "Schmidt")
 
 REML criterion at convergence: 840.7
 
@@ -461,9 +461,9 @@ PopulatinVA -0.678  0.424  0.473  0.472  0.479  0.433  0.443
 PopulatinYE -0.705  0.441  0.492  0.491  0.499  0.451  0.461  0.478
 
 $Pgm_Total_Schmidt_lmer_pop
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: TotalPerc_asin ~ Population + (1 | Line:Population)
-   Data: filter(droseu$pgm2, Supervisor.PI == "Schmidt")
+   Data: filter(droseu$pgm, Supervisor.PI == "Schmidt")
 
 REML criterion at convergence: -1246.2
 
@@ -485,8 +485,8 @@ PopulationKA   0.07217    0.05306 146.88979   1.360  0.17586
 PopulationMA   0.11439    0.05313 147.64063   2.153  0.03295 *  
 PopulationMU   0.04254    0.05239 147.09797   0.812  0.41816    
 PopulationRE   0.06930    0.05791 148.77310   1.197  0.23329    
-PopulationUM   0.17851    0.05662 147.36931   3.153  0.00196 ** 
-PopulationVA   0.03881    0.05465 147.04791   0.710  0.47871    
+PopulationUM   0.17851    0.05662 147.36930   3.153  0.00196 ** 
+PopulationVA   0.03881    0.05465 147.04790   0.710  0.47871    
 PopulationYE   0.04935    0.05247 147.98608   0.940  0.34854    
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
