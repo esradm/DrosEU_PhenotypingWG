@@ -629,13 +629,13 @@ Pgm_lmers_lon$Pgm_T6_Gibert_lmer_lon <- lmer(PercT6_asin ~ Longitude + (1|Popula
 Pgm_lmers_lon$Pgm_Total_Gibert_lmer_lon <- lmer(TotalPerc_asin ~ Longitude + (1|Line:Population), data = filter(droseu$pgm, Supervisor.PI == "Gibert"))
 
 #### Schmidt Lab
-Pgm_lmers_lon$Pgm_T4_Schmidt_lmer_lon <- lmer(ScoreT4 ~ Longitude + (1|Population) + (1|Line:Population), data = filter(droseu$pgm2, Supervisor.PI == "Schmidt"))
+Pgm_lmers_lon$Pgm_T4_Schmidt_lmer_lon <- lmer(PercT4_asin ~ Longitude + (1|Population) + (1|Line:Population), data = filter(droseu$pgm2, Supervisor.PI == "Schmidt"))
 
-Pgm_lmers_lon$Pgm_T5_Schmidt_lmer_lon <- lmer(ScoreT5 ~ Longitude + (1|Population) + (1|Line:Population), data = filter(droseu$pgm2, Supervisor.PI == "Schmidt"))
+Pgm_lmers_lon$Pgm_T5_Schmidt_lmer_lon <- lmer(PercT5_asin ~ Longitude + (1|Population) + (1|Line:Population), data = filter(droseu$pgm2, Supervisor.PI == "Schmidt"))
 
-Pgm_lmers_lon$Pgm_T6_Schmidt_lmer_lon <- lmer(ScoreT6 ~ Longitude + (1|Population) + (1|Line:Population), data = filter(droseu$pgm2, Supervisor.PI == "Schmidt"))
+Pgm_lmers_lon$Pgm_T6_Schmidt_lmer_lon <- lmer(PercT6_asin ~ Longitude + (1|Population) + (1|Line:Population), data = filter(droseu$pgm2, Supervisor.PI == "Schmidt"))
 
-Pgm_lmers_lon$Pgm_Total_Schmidt_lmer_lon <- lmer(TotalScore ~ Longitude + (1|Population) + (1|Line:Population), data = filter(droseu$pgm2, Supervisor.PI == "Schmidt"))
+Pgm_lmers_lon$Pgm_Total_Schmidt_lmer_lon <- lmer(TotalPerc_asin ~ Longitude + (1|Population) + (1|Line:Population), data = filter(droseu$pgm2, Supervisor.PI == "Schmidt"))
 
 
 # save output list

@@ -1,7 +1,6 @@
 $Via_Gibert_lmer_alt
 Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: ProportionEggtoAdultSurvival ~ Altitude + (1 | Population) +  
-    (1 | Line:Population)
+Formula: ProportionEggtoAdultSurvival ~ Altitude + (1 | Population) +      (1 | Line:Population)
    Data: filter(droseu$via, Supervisor.PI == "Gibert")
 
 REML criterion at convergence: -690.1
@@ -30,8 +29,7 @@ Altitude -0.801
 
 $Via_Grath_lmer_alt
 Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: ProportionEggtoAdultSurvival ~ Altitude + (1 | Population) +  
-    (1 | Line:Population)
+Formula: ProportionEggtoAdultSurvival ~ Altitude + (1 | Population) +      (1 | Line:Population)
    Data: filter(droseu$via, Supervisor.PI == "Grath")
 
 REML criterion at convergence: -147.1
@@ -116,8 +114,7 @@ Altitude -0.799
 
 $Via_StamenkovicRadak_lmer_alt
 Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: ProportionEggtoAdultSurvival ~ Altitude + (1 | Population) +  
-    (1 | Line:Population)
+Formula: ProportionEggtoAdultSurvival ~ Altitude + (1 | Population) +      (1 | Line:Population)
    Data: filter(droseu$via, Supervisor.PI == "StamenkovicRadak")
 
 REML criterion at convergence: -588.9
@@ -146,8 +143,7 @@ Altitude -0.801
 
 $Via_Zwaan_lmer_alt
 Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: ProportionEggtoAdultSurvival ~ Altitude + (1 | Population) +  
-    (1 | Line:Population)
+Formula: ProportionEggtoAdultSurvival ~ Altitude + (1 | Population) +      (1 | Line:Population)
    Data: filter(droseu$via, Supervisor.PI == "Zwaan")
 
 REML criterion at convergence: -330.7

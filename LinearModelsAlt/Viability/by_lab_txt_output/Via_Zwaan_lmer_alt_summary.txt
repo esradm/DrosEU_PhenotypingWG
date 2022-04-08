@@ -1,6 +1,5 @@
 Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: ProportionEggtoAdultSurvival ~ Altitude + (1 | Population) +  
-    (1 | Line:Population)
+Formula: ProportionEggtoAdultSurvival ~ Altitude + (1 | Population) +      (1 | Line:Population)
    Data: filter(droseu$via, Supervisor.PI == "Zwaan")
 
 REML criterion at convergence: -330.7

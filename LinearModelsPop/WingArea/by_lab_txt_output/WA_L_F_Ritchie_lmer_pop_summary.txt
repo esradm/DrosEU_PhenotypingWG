@@ -15,8 +15,7 @@ Random effects:
  Line:Population               (Intercept) 17974    134.07  
  Batch                         (Intercept)  1663     40.79  
  Residual                                   8778     93.69  
-Number of obs: 1367, groups:  
-ReplicateVial:Line:Population, 132; Line:Population, 47; Batch, 15
+Number of obs: 1367, groups:  ReplicateVial:Line:Population, 132; Line:Population, 47; Batch, 15
 
 Fixed effects:
              Estimate Std. Error      df t value Pr(>|t|)    

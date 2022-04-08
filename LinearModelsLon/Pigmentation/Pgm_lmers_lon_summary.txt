@@ -231,55 +231,55 @@ Longitude -0.793
 
 $Pgm_T4_Schmidt_lmer_lon
 Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: ScoreT4 ~ Longitude + (1 | Population) + (1 | Line:Population)
+Formula: PercT4_asin ~ Longitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$pgm2, Supervisor.PI == "Schmidt")
 
-REML criterion at convergence: 4145.4
+REML criterion at convergence: -2125
 
 Scaled residuals: 
     Min      1Q  Median      3Q     Max 
--3.3210 -0.6158 -0.0665  0.5303  7.2924 
+-4.9448 -0.5584 -0.0015  0.5316  8.3179 
 
 Random effects:
  Groups          Name        Variance Std.Dev.
- Line:Population (Intercept) 0.5293   0.7276  
- Population      (Intercept) 0.1218   0.3490  
- Residual                    0.7188   0.8478  
+ Line:Population (Intercept) 0.007748 0.08802 
+ Population      (Intercept) 0.001982 0.04452 
+ Residual                    0.011447 0.10699 
 Number of obs: 1514, groups:  Line:Population, 157; Population, 9
 
 Fixed effects:
              Estimate Std. Error        df t value Pr(>|t|)    
-(Intercept)  2.407629   0.210214  7.339525  11.453 6.05e-06 ***
-Longitude   -0.002568   0.009733  7.226507  -0.264    0.799    
+(Intercept)  0.500790   0.026510  7.318721  18.891 1.77e-07 ***
+Longitude   -0.000333   0.001228  7.212616  -0.271    0.794    
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 Correlation of Fixed Effects:
           (Intr)
-Longitude -0.778
+Longitude -0.777
 
 $Pgm_T5_Schmidt_lmer_lon
 Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: ScoreT5 ~ Longitude + (1 | Population) + (1 | Line:Population)
+Formula: PercT5_asin ~ Longitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$pgm2, Supervisor.PI == "Schmidt")
 
-REML criterion at convergence: 6146.9
+REML criterion at convergence: -220.2
 
 Scaled residuals: 
     Min      1Q  Median      3Q     Max 
--3.1910 -0.6494 -0.0802  0.5899  3.6074 
+-3.7955 -0.5687 -0.0613  0.5676  4.3306 
 
 Random effects:
  Groups          Name        Variance Std.Dev.
- Line:Population (Intercept) 3.6853   1.9197  
- Population      (Intercept) 0.1617   0.4021  
- Residual                    2.5484   1.5964  
+ Line:Population (Intercept) 0.05200  0.2280  
+ Population      (Intercept) 0.00248  0.0498  
+ Residual                    0.03799  0.1949  
 Number of obs: 1514, groups:  Line:Population, 157; Population, 9
 
 Fixed effects:
-            Estimate Std. Error       df t value Pr(>|t|)    
-(Intercept) 4.982665   0.339937 7.158502  14.658 1.34e-06 ***
-Longitude   0.004101   0.015658 6.936389   0.262    0.801    
+             Estimate Std. Error        df t value Pr(>|t|)    
+(Intercept) 0.7859728  0.0410980 7.0728956  19.124 2.38e-07 ***
+Longitude   0.0004456  0.0018935 6.8575892   0.235    0.821    
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
@@ -289,55 +289,55 @@ Longitude -0.790
 
 $Pgm_T6_Schmidt_lmer_lon
 Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: ScoreT6 ~ Longitude + (1 | Population) + (1 | Line:Population)
+Formula: PercT6_asin ~ Longitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$pgm2, Supervisor.PI == "Schmidt")
 
-REML criterion at convergence: 6858.1
+REML criterion at convergence: 839.1
 
 Scaled residuals: 
     Min      1Q  Median      3Q     Max 
--2.7155 -0.6414 -0.1588  0.6334  3.2414 
+-2.9156 -0.6142 -0.0598  0.6289  3.6204 
 
 Random effects:
  Groups          Name        Variance Std.Dev.
- Line:Population (Intercept) 4.1839   2.0455  
- Population      (Intercept) 0.3315   0.5757  
- Residual                    4.2214   2.0546  
+ Line:Population (Intercept) 0.078745 0.2806  
+ Population      (Intercept) 0.006658 0.0816  
+ Residual                    0.078734 0.2806  
 Number of obs: 1514, groups:  Line:Population, 157; Population, 9
 
 Fixed effects:
-            Estimate Std. Error      df t value Pr(>|t|)    
-(Intercept)  2.90271    0.41752 7.99469   6.952 0.000119 ***
-Longitude    0.02344    0.01927 7.78625   1.216 0.259427    
+            Estimate Std. Error       df t value Pr(>|t|)    
+(Intercept) 0.488180   0.058260 7.846535   8.379  3.5e-05 ***
+Longitude   0.003402   0.002689 7.646992   1.265    0.243    
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 Correlation of Fixed Effects:
           (Intr)
-Longitude -0.786
+Longitude -0.785
 
 $Pgm_Total_Schmidt_lmer_lon
 Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: TotalScore ~ Longitude + (1 | Population) + (1 | Line:Population)
+Formula: TotalPerc_asin ~ Longitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$pgm2, Supervisor.PI == "Schmidt")
 
-REML criterion at convergence: 8666.8
+REML criterion at convergence: -1255.6
 
 Scaled residuals: 
     Min      1Q  Median      3Q     Max 
--2.7694 -0.6333 -0.1174  0.6139  4.0663 
+-3.9327 -0.6202 -0.0642  0.6218  4.0563 
 
 Random effects:
  Groups          Name        Variance Std.Dev.
- Line:Population (Intercept) 18.153   4.261   
- Population      (Intercept)  1.533   1.238   
- Residual                    13.572   3.684   
+ Line:Population (Intercept) 0.025561 0.1599  
+ Population      (Intercept) 0.002107 0.0459  
+ Residual                    0.019176 0.1385  
 Number of obs: 1514, groups:  Line:Population, 157; Population, 9
 
 Fixed effects:
-            Estimate Std. Error       df t value Pr(>|t|)    
-(Intercept) 10.29171    0.87902  7.46743  11.708 4.52e-06 ***
-Longitude    0.02535    0.04058  7.27977   0.625    0.551    
+             Estimate Std. Error        df t value Pr(>|t|)    
+(Intercept) 0.6103962  0.0327762 7.4103344  18.623 1.71e-07 ***
+Longitude   0.0009606  0.0015129 7.2222136   0.635    0.545    
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
