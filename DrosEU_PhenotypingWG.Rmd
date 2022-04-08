@@ -746,7 +746,7 @@ invisible(dev.off())
 ```
 
 ```{r include=FALSE}
-p_Via_pop_Schmidt <- ggplot(data = filter(droseu$via, Supervisor.PI=='Schmidt'), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Population)) +geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_Via_pop_Schmidt", x="Population", y = "ProportionEggtoAdultSurvival") + ylim(c(min_Via, max_Via))+   geom_text(data = lmers_tukey$Via_Schmidt_lm_pop$letters, aes(x = Population, label = cld), y = max_Via, vjust = 1) + droseu_theme
+p_Via_pop_Schmidt <- ggplot(data = filter(droseu$via, Supervisor.PI=='Schmidt'), aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Population)) +geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_Via_pop_Schmidt", x="Population", y = "ProportionEggtoAdultSurvival") + ylim(c(min_Via, max_Via))+   geom_text(data = lmers_tukey$Via_Schmidt_lm_pop$letters, aes(x = Population, label = cld), y = Inf, vjust = 1) + droseu_theme
 ```
 
 ```{r}
@@ -1401,7 +1401,7 @@ invisible(dev.off())
 ```{r p_DT_A_M_pop_Schmidt, include=FALSE}
 p_DT_A_M_pop_Schmidt <- ggplot(data = filter(droseu$dta,Supervisor.PI=="Schmidt" & Sex == "M"), aes(x=Population_Lat, y=DT_EggAdult, fill=Population)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-        labs(title="p_DT_A_M_pop_Schmidt", x="Population", y = "DT_EggAdult") + ylim(c(min_DT_A, max_DT_A))+geom_text(data = lmers_tukey$DT_A_M_Schmidt_lmer_pop$letters, aes(x = Population, label = cld), y=max_DT_A, vjust = 1) +  droseu_theme
+        labs(title="p_DT_A_M_pop_Schmidt", x="Population", y = "DT_EggAdult") + ylim(c(min_DT_A, max_DT_A))+geom_text(data = lmers_tukey$DT_A_M_Schmidt_lmer_pop$letters, aes(x = Population, label = cld), y=Inf, vjust = 1) +  droseu_theme
 
 ```
 
@@ -1453,7 +1453,7 @@ invisible(dev.off())
 ```{r p_DT_A_F_pop_StamenkovicRadak,  include=FALSE}
 p_DT_A_F_pop_StamenkovicRadak <- ggplot(data = filter(droseu$dta,Supervisor.PI=="StamenkovicRadak" & Sex == "F"),  aes(x=Population_Lat, y=DT_EggAdult, fill=Population)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-        labs(title="p_DT_A_F_pop_StamenkovicRadak", x="Population", y = "DT_EggAdult") + ylim(c(min_DT_A, max_DT_A))+ geom_text(data = lmers_tukey$DT_A_F_StamenkovicRadak_lmer_pop$letters, aes(x = Population, label = cld), y=max_DT_A, vjust = 1) + droseu_theme
+        labs(title="p_DT_A_F_pop_StamenkovicRadak", x="Population", y = "DT_EggAdult") + ylim(c(min_DT_A, max_DT_A))+ geom_text(data = lmers_tukey$DT_A_F_StamenkovicRadak_lmer_pop$letters, aes(x = Population, label = cld), y=Inf, vjust = 1) + droseu_theme
 ```
 
 ```{r echo=FALSE}
@@ -1486,7 +1486,7 @@ invisible(dev.off())
 ```{r p_DT_A_M_pop_StamenkovicRadak,  include=FALSE}
 p_DT_A_M_pop_StamenkovicRadak <- ggplot(data = filter(droseu$dta,Supervisor.PI=="StamenkovicRadak" & Sex == "M"),  aes(x=Population_Lat, y=DT_EggAdult, fill=Population)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-        labs(title="p_DT_A_M_pop_StamenkovicRadak", x="Population", y = "DT_EggAdult")+ ylim(c(min_DT_A, max_DT_A))+ geom_text(data = lmers_tukey$DT_A_M_StamenkovicRadak_lmer_pop$letters, aes(x = Population, label = cld), y=max_DT_A, vjust = 1) + droseu_theme
+        labs(title="p_DT_A_M_pop_StamenkovicRadak", x="Population", y = "DT_EggAdult")+ ylim(c(min_DT_A, max_DT_A))+ geom_text(data = lmers_tukey$DT_A_M_StamenkovicRadak_lmer_pop$letters, aes(x = Population, label = cld), y=Inf, vjust = 1) + droseu_theme
 ```
 
 ```{r echo=FALSE}
@@ -1537,7 +1537,7 @@ invisible(dev.off())
 ```{r p_DT_A_F_pop_Zwaan,  include=FALSE}
 p_DT_A_F_pop_Zwaan <- ggplot(data = filter(droseu$dta,Supervisor.PI=="Zwaan" & Sex == "F"), aes(x=Population_Lat, y=DT_EggAdult, fill=Population)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-        labs(title="p_DT_A_F_pop_Zwaan", x="Population", y = "DT_EggAdult")+ ylim(c(min_DT_A, max_DT_A))+geom_text(data = lmers_tukey$DT_A_F_Zwaan_lmer_pop$letters, aes(x = Population, label = cld), y=max_DT_A, vjust = 1) +  droseu_theme
+        labs(title="p_DT_A_F_pop_Zwaan", x="Population", y = "DT_EggAdult")+ ylim(c(min_DT_A, max_DT_A))+geom_text(data = lmers_tukey$DT_A_F_Zwaan_lmer_pop$letters, aes(x = Population, label = cld), y=Inf, vjust = 1) +  droseu_theme
 ```
 
 ```{r echo=FALSE}
@@ -1569,7 +1569,7 @@ invisible(dev.off())
 ```{r p_DT_A_M_pop_Zwaan,  include=FALSE}
 p_DT_A_M_pop_Zwaan <- ggplot(data = filter(droseu$dta,Supervisor.PI=="Zwaan" & Sex == "M"), aes(x=Population_Lat, y=DT_EggAdult, fill=Population)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-        labs(title="p_DT_A_M_pop_Zwaan", x="Population", y = "DT_EggAdult") + ylim(c(min_DT_A, max_DT_A))+geom_text(data = lmers_tukey$DT_A_M_Zwaan_lmer_pop$letters, aes(x = Population, label = cld), y=max_DT_A, vjust = 1) +  droseu_theme
+        labs(title="p_DT_A_M_pop_Zwaan", x="Population", y = "DT_EggAdult") + ylim(c(min_DT_A, max_DT_A))+geom_text(data = lmers_tukey$DT_A_M_Zwaan_lmer_pop$letters, aes(x = Population, label = cld), y=Inf, vjust = 1) +  droseu_theme
 ```
 
 ```{r echo=FALSE}
@@ -1853,7 +1853,7 @@ invisible(dev.off())
 ```{r p_DW_F_pop_Colinet, include=FALSE}
 p_DW_F_pop_Colinet <- ggplot(data = filter(droseu$dw, Supervisor.PI=="Colinet" & Sex == "F"), aes(x=Population_Lat, y=DW_micrograms, fill=Population)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-        labs(title="p_DW_F_pop_Colinet", x="Population", y = "DW_micrograms") + ylim(c(min_DW, max_DW))+geom_text(data = lmers_tukey$DW_F_Colinet_lmer_pop$letters, aes(x = Population, label = cld), y = max_DW, vjust = 1) + droseu_theme
+        labs(title="p_DW_F_pop_Colinet", x="Population", y = "DW_micrograms") + ylim(c(min_DW, max_DW))+geom_text(data = lmers_tukey$DW_F_Colinet_lmer_pop$letters, aes(x = Population, label = cld), y = Inf, vjust = 1) + droseu_theme
 ```
 
 ```{r echo=FALSE}
@@ -1885,7 +1885,7 @@ invisible(dev.off())
 ```{r p_DW_M_pop_Colinet, include=FALSE}
 p_DW_M_pop_Colinet <- ggplot(data = filter(droseu$dw,Supervisor.PI=="Colinet" & Sex == "M"), aes(x=Population_Lat, y=DW_micrograms, fill=Population)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-        labs(title="p_DW_M_pop_Colinet", x="Population", y = "DW_micrograms") + ylim(c(min_DW, max_DW))+geom_text(data = lmers_tukey$DW_M_Colinet_lmer_pop$letters, aes(x = Population, label = cld), y = max_DW, vjust = 1) +  droseu_theme
+        labs(title="p_DW_M_pop_Colinet", x="Population", y = "DW_micrograms") + ylim(c(min_DW, max_DW))+geom_text(data = lmers_tukey$DW_M_Colinet_lmer_pop$letters, aes(x = Population, label = cld), y = Inf, vjust = 1) +  droseu_theme
 ```
 
 ```{r echo=FALSE}
@@ -1936,7 +1936,7 @@ invisible(dev.off())
 ```{r p_DW_F_pop_Hoedjes, include=FALSE}
 p_DW_F_pop_Hoedjes <- ggplot(data = filter(droseu$dw, Supervisor.PI=="Hoedjes" & Sex == "F"), aes(x=Population_Lat, y=DW_micrograms, fill=Population)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-        labs(title="p_DW_F_pop_Hoedjes", x="Population", y = "DW_micrograms") + ylim(c(min_DW, max_DW))+geom_text(data = lmers_tukey$DW_F_Hoedjes_lmer_pop$letters, aes(x = Population, label = cld), y = max_DW, vjust = 1) +  droseu_theme
+        labs(title="p_DW_F_pop_Hoedjes", x="Population", y = "DW_micrograms") + ylim(c(min_DW, max_DW))+geom_text(data = lmers_tukey$DW_F_Hoedjes_lmer_pop$letters, aes(x = Population, label = cld), y = Inf, vjust = 1) +  droseu_theme
 ```
 
 ```{r echo=FALSE}
@@ -1968,7 +1968,7 @@ invisible(dev.off())
 ```{r p_DW_M_pop_Hoedjes, include=FALSE}
 p_DW_M_pop_Hoedjes <- ggplot(data = filter(droseu$dw, Supervisor.PI=="Hoedjes" & Sex == "M"), aes(x=Population_Lat, y=DW_micrograms, fill=Population)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-        labs(title="p_DW_M_pop_Hoedjes", x="Population", y = "DW_micrograms") + ylim(c(min_DW, max_DW))+geom_text(data = model_means_DW_F_Hoedjes_cld, aes(x = Population, label = cld), y = max_DW, vjust = 1) +  droseu_theme
+        labs(title="p_DW_M_pop_Hoedjes", x="Population", y = "DW_micrograms") + ylim(c(min_DW, max_DW))+geom_text(data = model_means_DW_F_Hoedjes_cld, aes(x = Population, label = cld), y = Inf, vjust = 1) +  droseu_theme
 ```
 
 ```{r echo=FALSE}
@@ -2020,7 +2020,7 @@ invisible(dev.off())
 ```{r p_DW_F_pop_Onder, include=FALSE}
 p_DW_F_pop_Onder <- ggplot(data = filter(droseu$dw, Supervisor.PI=="Onder" & Sex == "F"), aes(x=Population_Lat, y=DW_micrograms, fill=Population)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-        labs(title="p_DW_F_pop_Onder", x="Population", y = "DW_micrograms") + ylim(c(min_DW, max_DW))+geom_text(data = lmers_tukey$DW_F_Onder_lmer_pop$letters, aes(x = Population, label = cld), y = max_DW, vjust = 1) +  droseu_theme
+        labs(title="p_DW_F_pop_Onder", x="Population", y = "DW_micrograms") + ylim(c(min_DW, max_DW))+geom_text(data = lmers_tukey$DW_F_Onder_lmer_pop$letters, aes(x = Population, label = cld), y = Inf, vjust = 1) +  droseu_theme
 ```
 
 ```{r echo=FALSE}
@@ -2052,7 +2052,7 @@ invisible(dev.off())
 ```{r p_DW_M_pop_Onder, include=FALSE}
 p_DW_M_pop_Onder <- ggplot(data =  filter(droseu$dw, Supervisor.PI=="Onder" & Sex == "M"),aes(x=Population_Lat, y=DW_micrograms, fill=Population)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-        labs(title="p_DW_M_pop_Onder", x="Population", y = "DW_micrograms")+ ylim(c(min_DW, max_DW))+geom_text(data = lmers_tukey$DW_M_Onder_lmer_pop$letters, aes(x = Population, label = cld), y = max_DW, vjust = 1) +  droseu_theme
+        labs(title="p_DW_M_pop_Onder", x="Population", y = "DW_micrograms")+ ylim(c(min_DW, max_DW))+geom_text(data = lmers_tukey$DW_M_Onder_lmer_pop$letters, aes(x = Population, label = cld), y = Inf, vjust = 1) +  droseu_theme
 ```
 
 ```{r echo=FALSE}
@@ -2283,7 +2283,7 @@ invisible(dev.off())
 ```{r p_TL_F_pop_Kozeretska, echo=FALSE}
 p_TL_F_pop_Kozeretska <- ggplot(data = filter(droseu$tl,Supervisor.PI=="Kozeretska" & Sex == "F"), aes(x=Population_Lat, y=TL_micrometers, fill=Population)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-  labs(title="p_TL_F_pop_Kozeretska", x="Population", y = "TL_micrometers") + ylim(c(min_TL, max_TL))+ geom_text(data = lmers_tukey$TL_F_Kozeretska_lmer_pop$letters, aes(x = Population, label = cld), y = max_TL, vjust = 1) + droseu_theme
+  labs(title="p_TL_F_pop_Kozeretska", x="Population", y = "TL_micrometers") + ylim(c(min_TL, max_TL))+ geom_text(data = lmers_tukey$TL_F_Kozeretska_lmer_pop$letters, aes(x = Population, label = cld), y = Inf, vjust = 1) + droseu_theme
 ```
 
 ```{r echo=FALSE}
@@ -2315,7 +2315,7 @@ invisible(dev.off())
 ```{r p_TL_M_pop_Kozeretska, include=FALSE}
 p_TL_M_pop_Kozeretska <- ggplot(data = filter(droseu$tl,Supervisor.PI=="Kozeretska" & Sex == "M"), aes(x=Population_Lat, y=TL_micrometers, fill=Population)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-  labs(title="p_TL_M_pop_Kozeretska", x="Population", y = "TL_micrometers") + ylim(c(min_TL, max_TL))+geom_text(data = lmers_tukey$TL_M_Kozeretska_lmer_pop$letters, aes(x = Population, label = cld), y = max_TL, vjust = 1)+ droseu_theme
+  labs(title="p_TL_M_pop_Kozeretska", x="Population", y = "TL_micrometers") + ylim(c(min_TL, max_TL))+geom_text(data = lmers_tukey$TL_M_Kozeretska_lmer_pop$letters, aes(x = Population, label = cld), y = Inf, vjust = 1)+ droseu_theme
 ```
 
 ```{r echo=FALSE}
@@ -2365,7 +2365,7 @@ invisible(dev.off())
 ```{r p_TL_F_pop_Posnien, echo=FALSE}
 p_TL_F_pop_Posnien <- ggplot(data = filter(droseu$tl,Supervisor.PI=="Posnien" & Sex == "F"), aes(x=Population_Lat, y=TL_micrometers, fill=Population)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-  labs(title="p_TL_F_pop_Posnien", x="Population", y = "TL_micrometers")+ ylim(c(min_TL, max_TL))+ geom_text(data = lmers_tukey$TL_F_Posnien_lmer_pop$letters, aes(x = Population, label = cld), y = max_TL, vjust = 1) + droseu_theme
+  labs(title="p_TL_F_pop_Posnien", x="Population", y = "TL_micrometers")+ ylim(c(min_TL, max_TL))+ geom_text(data = lmers_tukey$TL_F_Posnien_lmer_pop$letters, aes(x = Population, label = cld), y = Inf, vjust = 1) + droseu_theme
 ```
 
 ```{r echo=FALSE}
@@ -2397,7 +2397,7 @@ invisible(dev.off())
 ```{r p_TL_M_pop_Posnien, echo=FALSE}
 p_TL_M_pop_Posnien <- ggplot(data = filter(droseu$tl,Supervisor.PI=="Posnien" & Sex == "M"), aes(x=Population_Lat, y=TL_micrometers, fill=Population)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-  labs(title="p_TL_M_pop_Posnien", x="Population", y = "TL_micrometers") + ylim(c(min_TL, max_TL))+ geom_text(data = lmers_tukey$TL_M_Posnien_lmer_pop$letters, aes(x = Population, label = cld), y = max_TL, vjust = 1) +droseu_theme
+  labs(title="p_TL_M_pop_Posnien", x="Population", y = "TL_micrometers") + ylim(c(min_TL, max_TL))+ geom_text(data = lmers_tukey$TL_M_Posnien_lmer_pop$letters, aes(x = Population, label = cld), y = Inf, vjust = 1) +droseu_theme
 ```
 
 ```{r echo=FALSE}
@@ -2445,7 +2445,7 @@ invisible(dev.off())
 ```
 
 ```{r p_TL_F_pop_Ritchie, echo=FALSE}
-p_TL_F_pop_Ritchie <- ggplot(data = filter(droseu$tl,Supervisor.PI=="Ritchie" & Sex == "F"), aes(x=Population_Lat, y=TL_micrometers, fill=Population)) + geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_TL_F_pop_Ritchie", x="Population", y = "TL_micrometers") + coord_cartesian(ylim =c(min_TL, max_TL))+ geom_text(data = lmers_tukey$TL_F_Ritchie_lmer_pop$letters, aes(x = Population, label = cld), y = max_TL, vjust = 1)+ droseu_theme
+p_TL_F_pop_Ritchie <- ggplot(data = filter(droseu$tl,Supervisor.PI=="Ritchie" & Sex == "F"), aes(x=Population_Lat, y=TL_micrometers, fill=Population)) + geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_TL_F_pop_Ritchie", x="Population", y = "TL_micrometers") + coord_cartesian(ylim =c(min_TL, max_TL))+ geom_text(data = lmers_tukey$TL_F_Ritchie_lmer_pop$letters, aes(x = Population, label = cld), y = Inf, vjust = 1)+ droseu_theme
 invisible(dev.off())
 ```
 
@@ -2478,7 +2478,7 @@ invisible(dev.off())
 ```{r p_TL_M_pop_Ritchie, echo=FALSE}
 p_TL_M_pop_Ritchie <- ggplot(data = filter(droseu$tl,Supervisor.PI=="Ritchie" & Sex == "M"), aes(x=Population_Lat, y=TL_micrometers, fill=Population)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-  labs(title="p_TL_M_pop_Ritchie", x="Population", y = "TL_micrometers")+ ylim(c(min_TL, max_TL))+ geom_text(data = lmers_tukey$TL_M_Posnien_lmer_pop$letters, aes(x = Population, label = cld), y = max_TL, vjust = 1) + droseu_theme
+  labs(title="p_TL_M_pop_Ritchie", x="Population", y = "TL_micrometers")+ ylim(c(min_TL, max_TL))+ geom_text(data = lmers_tukey$TL_M_Posnien_lmer_pop$letters, aes(x = Population, label = cld), y = Inf, vjust = 1) + droseu_theme
 ```
 
 ```{r echo=FALSE}
@@ -2520,7 +2520,7 @@ invisible(dev.off())
 ```{r p_TL_F_pop_Schmidt, echo=FALSE}
 p_TL_F_pop_Schmidt <- ggplot(data = filter(droseu$tl,Supervisor.PI=="Schmidt" & Sex == "F"), aes(x=Population_Lat, y=TL_micrometers, fill=Population)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-  labs(title="p_TL_F_pop_Schmidt", x="Population", y = "TL_micrometers") + ylim(c(min_TL, max_TL))+ geom_text(data = lmers_tukey$TL_F_Schmidt_lmer_pop$letters, aes(x = Population, label = cld), y = max_TL, vjust = 1) + droseu_theme
+  labs(title="p_TL_F_pop_Schmidt", x="Population", y = "TL_micrometers") + ylim(c(min_TL, max_TL))+ geom_text(data = lmers_tukey$TL_F_Schmidt_lmer_pop$letters, aes(x = Population, label = cld), y = Inf, vjust = 1) + droseu_theme
 ```
 
 ```{r echo=FALSE}
@@ -2685,7 +2685,6 @@ Descriptive statistics at the population level, without batch information :
 DT::datatable(table_pop_wobatch$WA_Left, options = list(pageLength = 10))  %>% formatRound(5:12, 3)
 ```
 
-
 ### Plots and Linear Models by Lab  
 
 #### Overview 
@@ -2699,15 +2698,11 @@ max_WAL <- max(droseu$wa$CentroidSizeLeft_micrometers)
 
 y-axis is scaled by the minimum (`r min_WAL`) and maximum (`r max_WAL`) values in the full data set. 
 
-
 ```{r p_WA_F_L, echo=FALSE}
-
 p_WA_F_L <- ggplot(data = filter(droseu$wa, Sex == "F"), aes(x=Population_Lat, y=CentroidSizeLeft_micrometers, fill=Supervisor.PI)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) + 
   labs(title="p_WA_F_L", x="Population", y = "CentroidSizeLeft_micrometers") + ylim(c(min_WAL, max_WAL))+ droseu_theme
-
 ```
-
 
 ```{r echo=FALSE}
 p_WA_F_L
@@ -2720,11 +2715,9 @@ invisible(dev.off())
 ```
 
 ```{r p_WA_M_L, echo=FALSE}
-
 p_WA_M_L <- ggplot(data = filter(droseu$wa, Sex == "M"), aes(x=Population_Lat, y=CentroidSizeLeft_micrometers, fill=Supervisor.PI)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) + 
   labs(title="p_WA_M_L", x="Population", y = "CentroidSizeLeft_micrometers")+ ylim(c(min_WAL, max_WAL))+ droseu_theme
-
 ```
 
 ```{r echo=FALSE}
@@ -2736,7 +2729,6 @@ pdf(file="WingArea/p_WA_M_L.pdf",width=8, height=5)
 p_WA_M_L
 invisible(dev.off())
 ```
-
 
 #### Onder Lab
 
@@ -2757,11 +2749,9 @@ lmers_sum$WA_L_M_Onder_lmer_pop
 ```
 
 ```{r p_WA_F_L_Onder, echo=FALSE}
-
 p_WA_F_L_Onder <- ggplot(data = filter(droseu$wa, Supervisor.PI=="Onder" & Sex == "F"), aes(x=Population_Lat, y=CentroidSizeLeft_micrometers, fill=Batch)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) + 
   labs(title="p_WA_F_Onder_L", x="Population", y = "CentroidSizeLeft_micrometers") + ylim(c(min_WAL, max_WAL))+ droseu_theme
-
 ```
 
 ```{r echo=FALSE}
@@ -2775,12 +2765,10 @@ invisible(dev.off())
 ```
 
 ```{r p_WA_F_L_pop_Onder, echo=FALSE}
-
 p_WA_F_L_pop_Onder <- ggplot(data = filter(droseu$wa, Supervisor.PI=="Onder" & Sex == "F"), aes(x=Population_Lat, y=CentroidSizeLeft_micrometers, fill=Population)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-  labs(title="p_WA_F_L_pop_Onder", x="Population", y = "CentroidSizeLeft_micrometers") + ylim(c(min_WAL, max_WAL))+ geom_text(data = lmers_tukey$WA_L_F_Onder_lmer_pop$letters, aes(x = Population, label = cld), y = max_WAL, vjust = 1) +
+  labs(title="p_WA_F_L_pop_Onder", x="Population", y = "CentroidSizeLeft_micrometers") + ylim(c(min_WAL, max_WAL))+ geom_text(data = lmers_tukey$WA_L_F_Onder_lmer_pop$letters, aes(x = Population, label = cld), y = Inf, vjust = 1) +
 droseu_theme
-
 ```
 
 ```{r echo=FALSE}
@@ -2793,15 +2781,11 @@ p_WA_F_L_pop_Onder
 invisible(dev.off())
 ```
 
-
-
 ```{r p_WA_M_L_Onder, echo=FALSE}
 p_WA_M_L_Onder <- ggplot(data = filter(droseu$wa, Supervisor.PI=="Onder" & Sex == "M"), aes(x=Population_Lat, y=CentroidSizeLeft_micrometers, fill=Batch)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) + 
   labs(title="p_WA_M_Onder_L", x="Population", y = "CentroidSizeLeft_micrometers")+ ylim(c(min_WAL, max_WAL))+ droseu_theme
-
 ```
-
 
 ```{r echo=FALSE}
 p_WA_M_L_Onder
@@ -2814,11 +2798,9 @@ invisible(dev.off())
 ```
 
 ```{r p_WA_M_L_pop_Onder, echo=FALSE}
-
 p_WA_M_L_pop_Onder <- ggplot(data = filter(droseu$wa, Supervisor.PI=="Onder" & Sex == "M"), aes(x=Population_Lat, y=CentroidSizeLeft_micrometers, fill=Population)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-  labs(title="p_WA_M_L_pop_Onder", x="Population", y = "CentroidSizeLeft_micrometers") + ylim(c(min_WAL, max_WAL))+ geom_text(data = lmers_tukey$WA_L_F_Onder_lmer_pop$letters, aes(x = Population, label = cld), y = max_WAL, vjust = 1) +droseu_theme
-
+  labs(title="p_WA_M_L_pop_Onder", x="Population", y = "CentroidSizeLeft_micrometers") + ylim(c(min_WAL, max_WAL))+ geom_text(data = lmers_tukey$WA_L_F_Onder_lmer_pop$letters, aes(x = Population, label = cld), y = Inf, vjust = 1) +droseu_theme
 ```
 
 ```{r echo=FALSE}
@@ -2849,15 +2831,12 @@ lmers_anova$WA_L_M_Posnien_lmer_pop
 lmers_sum$WA_L_M_Posnien_lmer_pop
 ```
 
-
 ```{r p_WA_F_L_Posnien, echo=FALSE}
 
 p_WA_F_L_Posnien <- ggplot(data = filter(droseu$wa, Supervisor.PI=="Posnien" & Sex == "F"), aes(x=Population_Lat, y=CentroidSizeLeft_micrometers, fill=Batch)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) + 
   labs(title="p_WA_F_L_Posnien", x="Population", y = "CentroidSizeLeft_micrometers") + ylim(c(min_WAL, max_WAL))+ droseu_theme
-
 ```
-
 
 ```{r echo=FALSE}
 p_WA_F_L_Posnien
@@ -2869,15 +2848,11 @@ p_WA_F_L_Posnien
 invisible(dev.off())
 ```
 
-
 ```{r p_WA_F_L_pop_Posnien, echo=FALSE}
-
 p_WA_F_L_pop_Posnien <- ggplot(data =  filter(droseu$wa, Supervisor.PI=="Posnien" & Sex == "F"), aes(x=Population_Lat, y=CentroidSizeLeft_micrometers, fill=Population)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-  labs(title="p_WA_F_L_pop_Posnien", x="Population", y = "CentroidSizeLeft_micrometers")+ ylim(c(min_WAL, max_WAL))+ geom_text(data = lmers_tukey$WA_L_F_Posnien_lmer_pop$letters, aes(x = Population, label = cld), y = max_WAL, vjust = 1) +droseu_theme
-
+  labs(title="p_WA_F_L_pop_Posnien", x="Population", y = "CentroidSizeLeft_micrometers")+ ylim(c(min_WAL, max_WAL))+ geom_text(data = lmers_tukey$WA_L_F_Posnien_lmer_pop$letters, aes(x = Population, label = cld), y = Inf, vjust = 1) +droseu_theme
 ```
-
 
 ```{r echo=FALSE}
 p_WA_F_L_pop_Posnien
@@ -2890,11 +2865,9 @@ invisible(dev.off())
 ```
 
 ```{r p_WA_M_L_Posnien, echo=FALSE}
-
 p_WA_M_L_Posnien <- ggplot(data = filter(droseu$wa, Supervisor.PI=="Posnien" & Sex == "M"), aes(x=Population_Lat, y=CentroidSizeLeft_micrometers, fill=Batch)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) + 
   labs(title="p_WA_M_L_Posnien", x="Population", y = "CentroidSizeLeft_micrometers")+ ylim(c(min_WAL, max_WAL))+ droseu_theme
-
 ```
 
 ```{r echo=FALSE}
@@ -2907,14 +2880,11 @@ p_WA_M_L_Posnien
 invisible(dev.off())
 ```
 
-
 ```{r p_WA_M_L_pop_Posnien, echo=FALSE}
 p_WA_M_L_pop_Posnien <- ggplot(data =  filter(droseu$wa, Supervisor.PI=="Posnien" & Sex == "M"), aes(x=Population_Lat, y=CentroidSizeLeft_micrometers, fill=Population)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-  labs(title="p_WA_M_L_pop_Posnien", x="Population", y = "CentroidSizeLeft_micrometers")+ ylim(c(min_WAL, max_WAL))+ geom_text(data = lmers_tukey$WA_L_M_Posnien_lmer_pop$letters, aes(x = Population, label = cld), y = max_WAL, vjust = 1) +droseu_theme
-
+  labs(title="p_WA_M_L_pop_Posnien", x="Population", y = "CentroidSizeLeft_micrometers")+ ylim(c(min_WAL, max_WAL))+ geom_text(data = lmers_tukey$WA_L_M_Posnien_lmer_pop$letters, aes(x = Population, label = cld), y = Inf, vjust = 1) +droseu_theme
 ```
-
 
 ```{r echo=FALSE}
 p_WA_M_L_pop_Posnien
@@ -2925,7 +2895,6 @@ pdf(file="WingArea/p_WA_M_L_pop_Posnien.pdf",width=8, height=5)
 p_WA_M_L_pop_Posnien
 invisible(dev.off())
 ```
-
 
 #### Ritchie Lab
 
@@ -2945,13 +2914,10 @@ lmers_anova$WA_L_M_Ritchie_lmer_pop
 lmers_sum$WA_L_M_Ritchie_lmer_pop
 ```
 
-
 ```{r p_WA_F_L_Ritchie, echo=FALSE}
-
 p_WA_F_L_Ritchie <- ggplot(data =  filter(droseu$wa, Supervisor.PI=="Ritchie" & Sex == "F"),  aes(x=Population_Lat, y=CentroidSizeLeft_micrometers, fill=Batch)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) + 
   labs(title="p_WA_F_L_Ritchie", x="Population", y = "CentroidSizeLeft_micrometers")+ ylim(c(min_WAL, max_WAL))+ droseu_theme
-
 ```
 
 ```{r echo=FALSE}
@@ -2964,13 +2930,11 @@ p_WA_F_L_Ritchie
 invisible(dev.off())
 ```
 
-
-
 ```{r p_WA_F_L_pop_Ritchie, echo=FALSE}
 
 p_WA_F_L_pop_Ritchie <- ggplot(data = filter(droseu$wa, Supervisor.PI=="Ritchie" & Sex == "F"),  aes(x=Population_Lat, y=CentroidSizeLeft_micrometers, fill=Population)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-  labs(title="p_WA_F_L_pop_Ritchie", x="Population", y = "CentroidSizeLeft_micrometers")+ ylim(c(min_WAL, max_WAL))+ geom_text(data = lmers_tukey$WA_L_F_Ritchie_lmer_pop$letters, aes(x = Population, label = cld), y = max_WAL, vjust = 1) +droseu_theme
+  labs(title="p_WA_F_L_pop_Ritchie", x="Population", y = "CentroidSizeLeft_micrometers")+ ylim(c(min_WAL, max_WAL))+ geom_text(data = lmers_tukey$WA_L_F_Ritchie_lmer_pop$letters, aes(x = Population, label = cld), y = Inf, vjust = 1) +droseu_theme
 
 ```
 
@@ -2984,14 +2948,10 @@ p_WA_F_L_pop_Ritchie
 invisible(dev.off())
 ```
 
-
-
 ```{r p_WA_M_L_Ritchie, echo=FALSE}
-
 p_WA_M_L_Ritchie <- ggplot(data = filter(droseu$wa, Supervisor.PI=="Ritchie" & Sex == "M"), aes(x=Population_Lat, y=CentroidSizeLeft_micrometers, fill=Batch)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) + 
   labs(title="p_WA_M_L_Ritchie", x="Population", y = "CentroidSizeLeft_micrometers") + ylim(c(min_WAL, max_WAL))+ droseu_theme
-
 ```
 
 ```{r echo=FALSE}
@@ -3008,7 +2968,6 @@ invisible(dev.off())
 p_WA_M_L_pop_Ritchie <- ggplot(data = filter(droseu$wa, Supervisor.PI=="Ritchie" & Sex == "M"),  aes(x=Population_Lat, y=CentroidSizeLeft_micrometers, fill=Population)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) + 
   labs(title="p_WA_M_L_pop_Ritchie", x="Population", y = "CentroidSizeLeft_micrometers") + ylim(c(min_WAL, max_WAL))+ geom_text(data = lmers_tukey$WA_L_M_Ritchie_lmer_pop$letters, aes(x = Population, label = cld), y = max_WAL, vjust = 1) +droseu_theme
-
 ```
 
 ```{r echo=FALSE}
@@ -3039,15 +2998,11 @@ lmers_anova$WA_L_M_StamenkovicRadak_lmer_pop
 lmers_sum$WA_L_M_StamenkovicRadak_lmer_pop
 ```
 
-
 ```{r p_WA_F_L_StamenkovicRadak, echo=FALSE}
-
 p_WA_F_L_StamenkovicRadak <- ggplot(data = (subset(d_WA_F,Supervisor.PI=='StamenkovicRadak')), aes(x=Population_Lat, y=CentroidSizeLeft_micrometers, fill=Batch)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) + 
   labs(title="p_WA_F_L_StamenkovicRadak", x="Population", y = "CentroidSizeLeft_micrometers")+ ylim(c(min_WAL, max_WAL))+ droseu_theme
-
 ```
-
 
 ```{r echo=FALSE}
 p_WA_F_L_StamenkovicRadak
@@ -3059,15 +3014,11 @@ p_WA_F_L_StamenkovicRadak
 invisible(dev.off())
 ```
 
-
 ```{r p_WA_F_L_pop_StamenkovicRadak,echo=FALSE}
-
 p_WA_F_L_pop_StamenkovicRadak <- ggplot(data = filter(droseu$wa, Supervisor.PI=="StamenkovicRadak" & Sex == "F"),  aes(x=Population_Lat, y=CentroidSizeLeft_micrometers, fill=Population)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-  labs(title="p_WA_F_L_pop_StamenkovicRadak", x="Population", y = "CentroidSizeLeft_micrometers")+ ylim(c(min_WAL, max_WAL))+ geom_text(data = model_means_WA_F_L_StamenkovicRadak_cld, aes(x = Population, label = cld), y = max_WAL, vjust = 1) +droseu_theme
-
+  labs(title="p_WA_F_L_pop_StamenkovicRadak", x="Population", y = "CentroidSizeLeft_micrometers")+ ylim(c(min_WAL, max_WAL))+ geom_text(data = model_means_WA_F_L_StamenkovicRadak_cld, aes(x = Population, label = cld), y = Inf, vjust = 1) +droseu_theme
 ```
-
 
 ```{r echo=FALSE}
 p_WA_F_L_pop_StamenkovicRadak
@@ -3083,7 +3034,6 @@ invisible(dev.off())
 p_WA_M_L_StamenkovicRadak <- ggplot(data = filter(droseu$wa, Supervisor.PI=="StamenkovicRadak" & Sex == "M"),  aes(x=Population_Lat, y=CentroidSizeLeft_micrometers, fill=Batch)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) + 
   labs(title="p_WA_M_L_StamenkovicRadak", x="Population", y = "CentroidSizeLeft_micrometers") + ylim(c(min_WAL, max_WAL))+ droseu_theme
-
 ```
 
 ```{r echo=FALSE}
@@ -3099,10 +3049,8 @@ invisible(dev.off())
 ```{r p_WA_M_L_pop_StamenkovicRadak, echo=FALSE}
 p_WA_M_L_pop_StamenkovicRadak <- ggplot(data = filter(droseu$wa, Supervisor.PI=="StamenkovicRadak" & Sex == "M"), aes(x=Population_Lat, y=CentroidSizeLeft_micrometers, fill=Population)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-  labs(title="p_WA_M_L_pop_StamenkovicRadak", x="Population", y = "CentroidSizeLeft_micrometers") + ylim(c(min_WAL, max_WAL))+ geom_text(data = lmers_tukey$WA_L_M_StamenkovicRadak_lmer_pop$letters, aes(x = Population, label = cld), y = max_WAL, vjust = 1) +droseu_theme
-
+  labs(title="p_WA_M_L_pop_StamenkovicRadak", x="Population", y = "CentroidSizeLeft_micrometers") + ylim(c(min_WAL, max_WAL))+ geom_text(data = lmers_tukey$WA_L_M_StamenkovicRadak_lmer_pop$letters, aes(x = Population, label = cld), y = Inf, vjust = 1) +droseu_theme
 ```
-
 
 ```{r echo=FALSE}
 p_WA_M_L_pop_StamenkovicRadak
@@ -3143,19 +3091,14 @@ DT::datatable(table_pop_wobatch$WA_Right, options = list(pageLength = 10))  %>% 
 #### Overview 
 
 ```{r}
-
 min_WAR <- min(droseu$wa$CentroidSizeRight_micrometers)
 max_WAR <- max(droseu$wa$CentroidSizeRight_micrometers)
-
 ```
 
-
 ```{r p_WA_F_R, echo=FALSE}
-
 p_WA_F_R <- ggplot(data = filter(droseu$wa, Sex == "F"), aes(x=Population_Lat, y=CentroidSizeRight_micrometers, fill=Supervisor.PI)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) + 
   labs(title="p_WA_F_R", x="Population", y = "CentroidSizeRight_micrometers") + ylim(c(min_WAL, max_WAL))+ droseu_theme
-
 ```
 
 ```{r echo=FALSE}
@@ -3168,15 +3111,11 @@ p_WA_F_R
 invisible(dev.off())
 ```
 
-
 ```{r p_WA_M_R, echo=FALSE}
-
 p_WA_M_R <- ggplot(data = filter(droseu$wa, Sex == "M"),  aes(x=Population_Lat, y=CentroidSizeRight_micrometers, fill=Supervisor.PI)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) + 
   labs(title="p_WA_M_R", x="Population", y = "CentroidSizeRight_micrometers")+ ylim(c(min_WAL, max_WAL))+ droseu_theme
-
 ```
-
 
 ```{r echo=FALSE}
 p_WA_M_R
@@ -3197,7 +3136,6 @@ for (i in dev.list()[1]:dev.list()[length(dev.list())]) {
 # crashed bc tries to save lots -- need to remove some 
 ```
 
-
 ```{r}
 lmers_anova$WA_R_F_Onder_lmer_pop
 ```
@@ -3214,15 +3152,11 @@ lmers_anova$WA_R_M_Onder_lmer_pop
 lmers_sum$WA_R_M_Onder_lmer_pop
 ```
 
-
 ```{r p_WA_F_R_Onder, echo=FALSE}
-
 p_WA_F_R_Onder <- ggplot(data = filter(droseu$wa, Supervisor.PI=="Onder" & Sex == "F"), aes(x=Population_Lat, y=CentroidSizeRight_micrometers, fill=Batch)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) + 
   labs(title="p_WA_F_Onder_R", x="Population", y = "CentroidSizeRight_micrometers")+ ylim(c(min_WAR, max_WAR))+ droseu_theme
-
 ```
-
 
 ```{r echo=FALSE}
 p_WA_F_R_Onder
@@ -3235,14 +3169,11 @@ invisible(dev.off())
 ```
 
 ```{r p_WA_F_R_pop_Onder, echo=FALSE}
-
 p_WA_F_R_pop_Onder <- ggplot(data = filter(droseu$wa, Supervisor.PI=="Onder" & Sex == "F"), aes(x=Population_Lat, y=CentroidSizeRight_micrometers, fill=Population)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-  labs(title="p_WA_F_R_pop_Onder", x="Population", y = "CentroidSizeRight_micrometers") + geom_text(data = lmers_tukey$WA_R_F_Onder_lmer_pop$letters, aes(x = Population, label = cld), y = max_WAR, vjust = 1) +
+  labs(title="p_WA_F_R_pop_Onder", x="Population", y = "CentroidSizeRight_micrometers") + geom_text(data = lmers_tukey$WA_R_F_Onder_lmer_pop$letters, aes(x = Population, label = cld), y = Inf, vjust = 1) +
 ylim(c(min_WAR, max_WAR))+ droseu_theme
-
 ```
-
 
 ```{r echo=FALSE}
 p_WA_F_R_pop_Onder
@@ -3254,15 +3185,11 @@ p_WA_F_R_pop_Onder
 invisible(dev.off())
 ```
 
-
 ```{r p_WA_M_R_Onder, echo=FALSE}
-
 p_WA_M_R_Onder <- ggplot(data = filter(droseu$wa, Supervisor.PI=="Onder" & Sex == "M"), aes(x=Population_Lat, y=CentroidSizeRight_micrometers, fill=Batch)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) + 
   labs(title="p_WA_M_R_Onder", x="Population", y = "CentroidSizeRight_micrometers") + ylim(c(min_WAR, max_WAR))+ droseu_theme
-
 ```
-
 
 ```{r echo=FALSE}
 p_WA_M_R_Onder
@@ -3275,11 +3202,9 @@ invisible(dev.off())
 ```
 
 ```{r p_WA_M_R_pop_Onder, echo=FALSE}
-
 p_WA_M_R_pop_Onder <- ggplot(data = filter(droseu$wa, Supervisor.PI=="Onder" & Sex == "M"), aes(x=Population_Lat, y=CentroidSizeRight_micrometers, fill=Population)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-  labs(title="p_WA_M_R_pop_Onder", x="Population", y = "CentroidSizeRight_micrometers") + ylim(c(min_WAR, max_WAR))+ geom_text(data = lmers_tukey$WA_R_M_Onder_lmer_pop$letters, aes(x = Population, label = cld), y = max_WAR, vjust = 1) +droseu_theme
-
+  labs(title="p_WA_M_R_pop_Onder", x="Population", y = "CentroidSizeRight_micrometers") + ylim(c(min_WAR, max_WAR))+ geom_text(data = lmers_tukey$WA_R_M_Onder_lmer_pop$letters, aes(x = Population, label = cld), y = Inf, vjust = 1) +droseu_theme
 ```
 
 ```{r echo=FALSE}
@@ -3292,9 +3217,7 @@ p_WA_M_R_pop_Onder
 invisible(dev.off())
 ```
 
-
 #### Posnien Lab 
-
 
 ```{r}
 lmers_anova$WA_R_F_Posnien_lmer_pop
@@ -3313,13 +3236,10 @@ lmers_sum$WA_R_M_Posnien_lmer_pop
 ```
 
 ```{r p_WA_F_R_Posnien, echo=FALSE}
-
 p_WA_F_R_Posnien <- ggplot(data = filter(droseu$wa, Supervisor.PI=="Posnien" & Sex == "F"), aes(x=Population_Lat, y=CentroidSizeRight_micrometers, fill=Batch)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) + 
   labs(title="p_WA_F_R_Posnien", x="Population", y = "CentroidSizeRight_micrometers") + ylim(c(min_WAR, max_WAR))+ droseu_theme
-
 ```
-
 
 ```{r echo=FALSE}
 p_WA_F_R_Posnien
@@ -3331,13 +3251,10 @@ p_WA_F_R_Posnien
 invisible(dev.off())
 ```
 
-
 ```{r p_WA_F_R_pop_Posnien, echo=FALSE}
-
 p_WA_F_R_pop_Posnien <- ggplot(data = filter(droseu$wa, Supervisor.PI=="Posnien" & Sex == "F"), aes(x=Population_Lat, y=CentroidSizeRight_micrometers, fill=Population)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-  labs(title="p_WA_F_R_pop_Posnien", x="Population", y = "CentroidSizeRight_micrometers")+ ylim(c(min_WAR, max_WAR))+ geom_text(data = lmers_tukey$WA_R_F_Posnien_lmer_pop$letters, aes(x = Population, label = cld), y = max_WAR, vjust = 1) +droseu_theme
-
+  labs(title="p_WA_F_R_pop_Posnien", x="Population", y = "CentroidSizeRight_micrometers")+ ylim(c(min_WAR, max_WAR))+ geom_text(data = lmers_tukey$WA_R_F_Posnien_lmer_pop$letters, aes(x = Population, label = cld), y = Inf, vjust = 1) +droseu_theme
 ```
 
 ```{r echo=FALSE}
@@ -3351,11 +3268,9 @@ invisible(dev.off())
 ```
 
 ```{r p_WA_M_R_Posnien, echo=FALSE}
-
 p_WA_M_R_Posnien <- ggplot(data = filter(droseu$wa, Supervisor.PI=="Posnien" & Sex == "M"), aes(x=Population_Lat, y=CentroidSizeRight_micrometers, fill=Batch)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) + 
   labs(title="p_WA_M_R_Posnien", x="Population", y = "CentroidSizeRight_micrometers") + ylim(c(min_WAR, max_WAR))+ droseu_theme
-
 ```
 
 ```{r echo=FALSE}
@@ -3368,27 +3283,21 @@ p_WA_M_R_Posnien
 invisible(dev.off())
 ```
 
-
 ```{r p_WA_M_R_pop_Posnien, echo=FALSE}
-
 p_WA_M_R_pop_Posnien <- ggplot(data = filter(droseu$wa, Supervisor.PI=="Posnien" & Sex == "M"), aes(x=Population_Lat, y=CentroidSizeRight_micrometers, fill=Population)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-  labs(title="p_WA_M_R_pop_Posnien", x="Population", y = "CentroidSizeRight_micrometers") + ylim(c(min_WAR, max_WAR))+ geom_text(data = lmers_tukey$WA_R_M_Posnien_lmer_pop$letters, aes(x = Population, label = cld), y = max_WAR, vjust = 1) +droseu_theme
-
+  labs(title="p_WA_M_R_pop_Posnien", x="Population", y = "CentroidSizeRight_micrometers") + ylim(c(min_WAR, max_WAR))+ geom_text(data = lmers_tukey$WA_R_M_Posnien_lmer_pop$letters, aes(x = Population, label = cld), y = Inf, vjust = 1) +droseu_theme
 ```
-
 
 ```{r echo=FALSE}
 p_WA_M_R_pop_Posnien
 ```
 
 ```{r echo=FALSE}
-
 pdf(file="WingArea/p_WA_M_R_pop_Posnien.pdf",width=8, height=5)
 p_WA_M_R_pop_Posnien
 invisible(dev.off())
 ```
-
 
 #### Ritchie Lab
 
@@ -3424,12 +3333,10 @@ p_WA_F_R_Ritchie
 invisible(dev.off())
 ```
 
-
 ```{r p_WA_F_R_pop_Ritchie, echo=FALSE}
 p_WA_F_R_pop_Ritchie <- ggplot(data = filter(droseu$wa, Supervisor.PI=="Ritchie" & Sex == "F"), aes(x=Population_Lat, y=CentroidSizeRight_micrometers, fill=Population)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-  labs(title="p_WA_F_R_pop_Ritchie", x="Population", y = "CentroidSizeRight_micrometers") + ylim(c(min_WAR, max_WAR))+ geom_text(data = lmers_tukey$WA_R_F_Ritchie_lmer_pop$letters, aes(x = Population, label = cld), y = max_WAR, vjust = 1) + droseu_theme
-
+  labs(title="p_WA_F_R_pop_Ritchie", x="Population", y = "CentroidSizeRight_micrometers") + ylim(c(min_WAR, max_WAR))+ geom_text(data = lmers_tukey$WA_R_F_Ritchie_lmer_pop$letters, aes(x = Population, label = cld), y = Inf, vjust = 1) + droseu_theme
 ```
 
 ```{r echo=FALSE}
@@ -3446,9 +3353,7 @@ invisible(dev.off())
 p_WA_M_R_Ritchie <- ggplot(data = filter(droseu$wa, Supervisor.PI=="Ritchie" & Sex == "M"), aes(x=Population_Lat, y=CentroidSizeRight_micrometers, fill=Batch)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) + 
   labs(title="p_WA_M_R_Ritchie", x="Population", y = "CentroidSizeRight_micrometers") + ylim(c(min_WAR, max_WAR))+ droseu_theme
-
 ```
-
 
 ```{r echo=FALSE}
 p_WA_M_R_Ritchie
@@ -3460,13 +3365,10 @@ p_WA_M_R_Ritchie
 invisible(dev.off())
 ```
 
-
 ```{r p_WA_M_R_pop_Ritchie, echo=FALSE}
-
 p_WA_M_R_pop_Ritchie <- ggplot(data = filter(droseu$wa, Supervisor.PI=="Ritchie" & Sex == "M"), aes(x=Population_Lat, y=CentroidSizeRight_micrometers, fill=Population)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) + 
   labs(title="p_WA_M_R_pop_Ritchie", x="Population", y = "CentroidSizeRight_micrometers")+ ylim(c(min_WAR, max_WAR))+ geom_text(data = lmers_tukey$WA_R_M_Ritchie_lmer_pop$letters, aes(x = Population, label = cld), y = max_WAR, vjust = 1) +droseu_theme
-
 ```
 
 ```{r echo=FALSE}
@@ -3478,8 +3380,6 @@ pdf(file="WingArea/p_WA_M_R_pop_Ritchie.pdf",width=8, height=5)
 p_WA_M_R_pop_Ritchie
 invisible(dev.off())
 ```
-
-
 
 #### Stamenkovic-Radak Lab
 
@@ -3500,11 +3400,9 @@ lmers_sum$WA_R_M_StamenkovicRadak_lmer_pop
 ```
 
 ```{r p_WA_F_R_StamenkovicRadak, echo=FALSE}
-
 p_WA_F_R_StamenkovicRadak <- ggplot(data = filter(droseu$wa, Supervisor.PI=="StamenkovicRadak" & Sex == "F"), aes(x=Population_Lat, y=CentroidSizeRight_micrometers, fill=Batch)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) + 
   labs(title="p_WA_F_R_StamenkovicRadak", x="Population", y = "CentroidSizeRight_micrometers")+ ylim(c(min_WAR, max_WAR))+ droseu_theme
-
 ```
 
 
@@ -3518,15 +3416,11 @@ p_WA_F_R_StamenkovicRadak
 invisible(dev.off())
 ```
 
-
 ```{r p_WA_F_R_pop_StamenkovicRadak, echo=FALSE}
-
 p_WA_F_R_pop_StamenkovicRadak <- ggplot(data = filter(droseu$wa, Supervisor.PI=="StamenkovicRadak" & Sex == "F"), aes(x=Population_Lat, y=CentroidSizeRight_micrometers, fill=Population)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) + 
   labs(title="p_WA_F_R_pop_StamenkovicRadak", x="Population", y = "CentroidSizeRight_micrometers") + ylim(c(min_WAR, max_WAR))+ geom_text(data = lmers_tukey$WA_R_F_StamenkovicRadak_lmer_pop$letters, aes(x = Population, label = cld), y = max_WAR, vjust = 1) +droseu_theme
-
 ```
-
 
 ```{r echo=FALSE}
 p_WA_F_R_pop_StamenkovicRadak
@@ -3542,9 +3436,7 @@ invisible(dev.off())
 p_WA_M_R_StamenkovicRadak <- ggplot(data = filter(droseu$wa, Supervisor.PI=="StamenkovicRadak" & Sex == "M"), aes(x=Population_Lat, y=CentroidSizeRight_micrometers, fill=Batch)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) + 
   labs(title="p_WA_M_R_StamenkovicRadak", x="Population", y = "CentroidSizeRight_micrometers")+ ylim(c(min_WAR, max_WAR)) +droseu_theme
-
 ```
-
 
 ```{r echo=FALSE}
 p_WA_M_R_StamenkovicRadak
@@ -3559,8 +3451,7 @@ invisible(dev.off())
 ```{r p_WA_M_R_pop_StamenkovicRadak, echo=FALSE}
 p_WA_M_R_pop_StamenkovicRadak <- ggplot(data = filter(droseu$wa, Supervisor.PI=="StamenkovicRadak" & Sex == "M"), aes(x=Population_Lat, y=CentroidSizeRight_micrometers, fill=Population)) + 
   geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-  labs(title="p_WA_M_R_pop_StamenkovicRadak", x="Population", y = "CentroidSizeRight_micrometers") + ylim(c(min_WAR, max_WAR))+ geom_text(data = lmers_tukey$WA_R_M_StamenkovicRadak_lmer_pop$letters, aes(x = Population, label = cld), y = max_WAR, vjust = 1)+ droseu_theme
-
+  labs(title="p_WA_M_R_pop_StamenkovicRadak", x="Population", y = "CentroidSizeRight_micrometers") + ylim(c(min_WAR, max_WAR))+ geom_text(data = lmers_tukey$WA_R_M_StamenkovicRadak_lmer_pop$letters, aes(x = Population, label = cld), y = Inf, vjust = 1)+ droseu_theme
 ```
 
 ```{r echo=FALSE}
@@ -3649,7 +3540,6 @@ knitr::include_graphics("LinearModelsPop/WingArea/by_lab_lmer_residuals/WA_L_F_S
 
 ### Linear Models / Residuals (Right)
 
-
 #### Onder Lab
 
 ```{r}
@@ -3724,7 +3614,6 @@ knitr::include_graphics("LinearModelsPop/WingArea/by_lab_lmer_residuals/WA_R_M_S
 
 ### Lab correlations
 
-
 ```{r intesect_WA, echo=FALSE}
 intersect_Line_WA  <- Reduce(intersect, list(droseu$wa$Line[droseu$wa$Supervisor.PI == "Onder"],
                                           droseu$wa$Line[droseu$wa$Supervisor.PI == "Posnien"],
@@ -3740,11 +3629,7 @@ write(intersect_Pop_WA, file ="WingArea/intersect_Pop_WA_F.txt", sep = "\t")
 
 ```
 
-
 There are `r length(intersect_Pop_WA) ` populations and `r length(intersect_Line_WA) ` isofemale lines have been phenotyped across the labs. Please refer to tables named intersect_Trait_level (i.e. intersect_Via_pop) for details. 
-
-
-
 
 ### _Left_
 
@@ -3766,7 +3651,6 @@ knitr::include_graphics("LabCorrelations/WingArea/WA_R_F_lab_correlations.png")
 knitr::include_graphics("LabCorrelations/WingArea/WA_R_M_lab_correlations.png")
 ```
 
-
 ```{r echo=FALSE}
 for (i in dev.list()[1]:dev.list()[length(dev.list())]) {
    invisible(dev.off())
@@ -3774,16 +3658,13 @@ for (i in dev.list()[1]:dev.list()[length(dev.list())]) {
 # crashed bc tries to save lots -- need to remove some sometimes
 ```
 
-
 ## Fecundity
-
 
 ```{r include=FALSE}
 dir.create(file.path("Fecundity"), showWarnings = FALSE)
 ```
 
 _For a detailed description of tables, plots, linear models and outputs, please refer [here](#anchor) _
-
 
 ```{r}
 #Note that the trait has been phenotyped only in females.
@@ -3802,8 +3683,6 @@ str(droseu$fec)
 ```
 
 ### Descriptive Statistics
-
-
 
 Descriptive statistics at the line level, with batch information : 
 ```{r, echo=FALSE}
@@ -3825,12 +3704,9 @@ Descriptive statistics at the population level, without batch information :
 DT::datatable(table_pop_wobatch$Fec, options = list(pageLength = 10)) %>% formatRound(4:11, 3)
 ```
 
-
 ### Plots and Linear Models by Lab  
 
 #### Overview 
-
-
 
 ```{r echo=TRUE}
 min_Fec <- min(droseu$fec$NumberOfAdultsEclosed)
@@ -3840,11 +3716,9 @@ max_Fec <- max(droseu$fec$NumberOfAdultsEclosed)
 y-axis is scaled by the minimum (`r min_Fec`) and maximum (`r max_Fec`) values in the full data set. 
 
 ```{r p_Fec_all, echo=FALSE}
-
 p_Fec_all <- ggplot(data = droseu$fec, aes(x=Population_Lat, y=NumberOfAdultsEclosed, fill=Supervisor.PI)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
         labs(title="p_Fec_all", x="Population", y = "DW_micrograms") + ylim(c(min_Fec, max_Fec))+ droseu_theme
-
 ```
 
 ```{r echo=FALSE}
@@ -3857,9 +3731,7 @@ p_Fec_all
 invisible(dev.off())
 ```
 
-
 #### Billeter Lab
-
 
 ```{r}
 lmers_anova$Fec_Billeter_lmer_pop
@@ -3884,7 +3756,7 @@ invisible(dev.off())
 ```
 
 ```{r p_Fec_pop_Billeter, echo=FALSE}
-p_Fec_pop_Billeter <- ggplot(data = filter(droseu$fec, Supervisor.PI=="Billeter"), aes(x=Population_Lat, y=NumberOfAdultsEclosed, fill=Population)) + geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_Fec_pop_Billeter", x="Population", y = "NumberOfAdultsEclosed") + ylim(c(min_Fec, max_Fec))+geom_text(data = lmers_tukey$Fec_Billeter_lmer_pop$letters, aes(x = Population, label = cld), y = max_Fec, vjust = 1) +  droseu_theme
+p_Fec_pop_Billeter <- ggplot(data = filter(droseu$fec, Supervisor.PI=="Billeter"), aes(x=Population_Lat, y=NumberOfAdultsEclosed, fill=Population)) + geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_Fec_pop_Billeter", x="Population", y = "NumberOfAdultsEclosed") + ylim(c(min_Fec, max_Fec))+geom_text(data = lmers_tukey$Fec_Billeter_lmer_pop$letters, aes(x = Population, label = cld), y = Inf, vjust = 1) +  droseu_theme
 ```
 
 ```{r echo=FALSE}
@@ -3897,7 +3769,6 @@ p_Fec_pop_Billeter
 invisible(dev.off())
 ```
 
-
 #### Fricke Lab 
 
 ```{r}
@@ -3909,7 +3780,6 @@ lmers_sum$Fec_Fricke_lmer_pop
 ```
 
 ```{r p_Fec_Fricke, echo=FALSE, message=FALSE, warning=FALSE}
-
 p_Fec_Fricke <- ggplot(data = filter(droseu$fec, Supervisor.PI=="Fricke"), aes(x=Population_Lat, y=NumberOfAdultsEclosed, fill=Batch)) + geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_Fec_Fricke", x="Population", y = "NumberOfAdultsEclosed") + ylim(c(min_Fec, max_Fec))+ droseu_theme
 ```
 
@@ -3923,10 +3793,8 @@ p_Fec_Fricke
 invisible(dev.off())
 ```
 
-
 ```{r p_Fec_pop_Fricke, echo=FALSE}
-
-p_Fec_pop_Fricke <- ggplot(data = filter(droseu$fec, Supervisor.PI=="Fricke"), aes(x=Population_Lat, y=NumberOfAdultsEclosed, fill=Population)) + geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_Fec_pop_Fricke", x="Population", y = "NumberOfAdultsEclosed") + ylim(c(min_Fec, max_Fec))+ geom_text(data = lmers_tukey$Fec_Fricke_lmer_pop$letters, aes(x = Population, label = cld), y = max_Fec, vjust = 1) + droseu_theme
+p_Fec_pop_Fricke <- ggplot(data = filter(droseu$fec, Supervisor.PI=="Fricke"), aes(x=Population_Lat, y=NumberOfAdultsEclosed, fill=Population)) + geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_Fec_pop_Fricke", x="Population", y = "NumberOfAdultsEclosed") + ylim(c(min_Fec, max_Fec))+ geom_text(data = lmers_tukey$Fec_Fricke_lmer_pop$letters, aes(x = Population, label = cld), y = Inf, vjust = 1) + droseu_theme
 ```
 
 ```{r echo=FALSE}
@@ -3940,7 +3808,6 @@ invisible(dev.off())
 ```
 
 ### Linear Models / Residuals
-
 
 #### Billeter Lab
 
@@ -3979,12 +3846,9 @@ write(intersect_Pop_Fec, file ="Fecundity/intersect_Pop_Fec.txt", sep = "\t")
 
 There are `r length(intersect_Pop_Fec) ` populations and `r length(intersect_Line_Fec) ` isofemale lines that have been phenotyped across the labs. Please refer to tables named intersect_Trait_level (i.e. intersect_Via_pop) for details. 
 
-
-
 ```{r echo=FALSE}
 knitr::include_graphics("LabCorrelations/Fecundity/Fec_F_lab_correlations.png")
 ```
-
 
 ## Lifespan
 
@@ -4000,7 +3864,6 @@ for (i in dev.list()[1]:dev.list()[length(dev.list())]) {
 }
 # crashed bc tries to save lots -- need to remove some 
 ```
-
 
 ### Contributors  
 
@@ -4029,7 +3892,6 @@ str(droseu$lsp)
 str(droseu$lsm)
 ```
 
-
 ### Descriptive Statistics
 
 Descriptive statistics at the line level, with batch information :
@@ -4054,11 +3916,9 @@ Descriptive statistics at the population level, without batch information :
 DT::datatable(table_pop_wobatch$LS_M, options = list(pageLength = 10)) %>% formatRound(5:12, 3)
 ```
 
-
 ### Plots and Linear Models by Lab  
 
 #### Overview 
-
 
 ```{r}
 min_LS <- min(droseu$lsm$LSM_AgeAtDeath_days)
@@ -4068,9 +3928,7 @@ max_LS <- max(droseu$lsm$LSM_AgeAtDeath_days)
 y-axis is scaled by the minimum (`r min_LS`) and maximum (`r max_LS`) values in the full data set.
 
 ```{r p_LS_F, echo=FALSE, message=FALSE, warning=FALSE}
-
 p_LS_F <- ggplot(data = filter(droseu$lsm, Sex == "F"), aes(x=Population_Lat, y=LSM_AgeAtDeath_days, fill=Supervisor.PI)) + geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_LS_F", x="Population", y = "LSM_AgeAtDeath_days") + ylim(c(min_LS, max_LS))+ droseu_theme
-
 ```
 
 ```{r echo=FALSE}
@@ -4083,11 +3941,8 @@ p_LS_F
 invisible(dev.off())
 ```
 
-
 ```{r p_LS_M, echo=FALSE, message=FALSE, warning=FALSE}
-
 p_LS_M <- ggplot(data = filter(droseu$lsm, Sex == "M"), aes(x=Population_Lat, y=LSM_AgeAtDeath_days, fill=Supervisor.PI)) + geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_LS_M", x="Population", y = "LSM_AgeAtDeath_days") + ylim(c(min_LS, max_LS))+ droseu_theme
-
 ```
 
 ```{r echo=FALSE}
@@ -4099,7 +3954,6 @@ pdf(file="Lifespan/p_LS_M.pdf",width=8, height=5)
 p_LS_M
 invisible(dev.off())
 ```
-
 
 #### Flatt Lab
 
@@ -4120,9 +3974,7 @@ lmers_sum$LS_M_Flatt_lmer_pop
 ```
 
 ```{r p_LS_F_Flatt, echo=FALSE, message=FALSE, warning=FALSE}
-
-p_LS_F_Flatt <- ggplot(data = filter(droseu$lsp, Censor == "0" & Sex == "F" & Supervisor.PI == "Flatt"), aes(x=Population_Lat, y=LSM_AgeAtDeath_days, fill=Population)) + geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_LS_F_Flatt", x="Population", y = "LSM_AgeAtDeath_days") + ylim(c(min_LS, max_LS))+ geom_text(data = lmers_tukey$LS_F_Flatt_lmer_pop$letters, aes(x = Population, label = cld), y = max_LS, vjust = 1) + droseu_theme
-
+p_LS_F_Flatt <- ggplot(data = filter(droseu$lsp, Censor == "0" & Sex == "F" & Supervisor.PI == "Flatt"), aes(x=Population_Lat, y=LSM_AgeAtDeath_days, fill=Population)) + geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_LS_F_Flatt", x="Population", y = "LSM_AgeAtDeath_days") + ylim(c(min_LS, max_LS))+ geom_text(data = lmers_tukey$LS_F_Flatt_lmer_pop$letters, aes(x = Population, label = cld), y = Inf, vjust = 1) + droseu_theme
 ```
 
 ```{r echo=FALSE}
@@ -4135,11 +3987,8 @@ p_LS_F_Flatt
 invisible(dev.off())
 ```
 
-
 ```{r p_LS_M_Flatt, echo=FALSE, message=FALSE, warning=FALSE}
-
-p_LS_M_Flatt <- ggplot(data = filter(droseu$lsp, Censor == "0" & Sex == "M" & Supervisor.PI == "Flatt"), aes(x=Population_Lat, y=LSM_AgeAtDeath_days, fill=Population)) + geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_LS_M_Flatt", x="Population", y = "LSM_AgeAtDeath_days") + ylim(c(min_LS, max_LS))+ geom_text(data = lmers_tukey$LS_M_Flatt_lmer_pop$letters, aes(x = Population, label = cld), y = max_LS, vjust = 1) + droseu_theme
-
+p_LS_M_Flatt <- ggplot(data = filter(droseu$lsp, Censor == "0" & Sex == "M" & Supervisor.PI == "Flatt"), aes(x=Population_Lat, y=LSM_AgeAtDeath_days, fill=Population)) + geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_LS_M_Flatt", x="Population", y = "LSM_AgeAtDeath_days") + ylim(c(min_LS, max_LS))+ geom_text(data = lmers_tukey$LS_M_Flatt_lmer_pop$letters, aes(x = Population, label = cld), y = Inf, vjust = 1) + droseu_theme
 ```
 
 ```{r echo=FALSE}
@@ -4153,7 +4002,6 @@ invisible(dev.off())
 ```
 
 #### Parsch Lab 
-
 
 ```{r}
 lmers_anova$LS_F_Parsch_lmer_pop
@@ -4171,11 +4019,8 @@ lmers_anova$LS_M_Parsch_lmer_pop
 lmers_sum$LS_M_Parsch_lmer_pop
 ```
 
-
 ```{r p_LS_F_Parsch, echo=FALSE, message=FALSE, warning=FALSE}
-
 p_LS_F_Parsch <- ggplot(data = filter(droseu$lsl, Censor == "0" & Sex == "F" & Supervisor.PI == "Parsch"), aes(x=Population_Lat, y=LSM_AgeAtDeath_days, fill=Batch)) + geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_LS_F_Parsch", x="Population", y = "LSM_AgeAtDeath_days") + ylim(c(min_LS, max_LS))+ droseu_theme
-
 ```
 
 ```{r echo=FALSE}
@@ -4189,10 +4034,8 @@ invisible(dev.off())
 ```
 
 ```{r p_LS_F_pop_Parsch, echo=FALSE, message=FALSE, warning=FALSE}
-
 p_LS_F_pop_Parsch <- ggplot(data =  filter(droseu$lsl, Censor == "0" & Sex == "F" & Supervisor.PI == "Parsch"), aes(x=Population_Lat, y=LSM_AgeAtDeath_days, fill=Population)) + geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_LS_F_pop_Parsch", x="Population", y = "LSM_AgeAtDeath_days") + ylim(c(min_LS, max_LS))+ 
 geom_text(data = lmers_tukey$LS_F_Parsch_lmer_pop$letters, aes(x = Population, label = cld), y = max_LS, vjust = 1) +droseu_theme
-
 ```
 
 ```{r echo=FALSE}
@@ -4205,12 +4048,8 @@ p_LS_F_pop_Parsch
 invisible(dev.off())
 ```
 
-
-
 ```{r p_LS_M_Parsch, echo=FALSE, message=FALSE, warning=FALSE}
-
 p_LS_M_Parsch <- ggplot(data =  filter(droseu$lsl, Censor == "0" & Sex == "M" & Supervisor.PI == "Parsch"), aes(x=Population_Lat, y=LSM_AgeAtDeath_days, fill=Batch)) + geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_LS_M_Parsch", x="Population", y = "LSM_AgeAtDeath_days") + ylim(c(min_LS, max_LS))+ droseu_theme
-
 ```
 
 ```{r echo=FALSE}
@@ -4224,9 +4063,7 @@ invisible(dev.off())
 ```
 
 ```{r p_LS_M_pop_Parsch, echo=FALSE, message=FALSE, warning=FALSE}
-
-p_LS_M_pop_Parsch <- ggplot(data =  filter(droseu$lsl, Censor == "0" & Sex == "M" & Supervisor.PI == "Parsch"), aes(x=Population_Lat, y=LSM_AgeAtDeath_days, fill=Population)) + geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_LS_M_pop_Parsch", x="Population", y = "LSM_AgeAtDeath_days") + ylim(c(min_LS, max_LS))+ geom_text(data = lmers_tukey$LS_M_Parsch_lmer_pop$letters, aes(x = Population, label = cld), y = max_LS, vjust = 1) + droseu_theme
-
+p_LS_M_pop_Parsch <- ggplot(data =  filter(droseu$lsl, Censor == "0" & Sex == "M" & Supervisor.PI == "Parsch"), aes(x=Population_Lat, y=LSM_AgeAtDeath_days, fill=Population)) + geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_LS_M_pop_Parsch", x="Population", y = "LSM_AgeAtDeath_days") + ylim(c(min_LS, max_LS))+ geom_text(data = lmers_tukey$LS_M_Parsch_lmer_pop$letters, aes(x = Population, label = cld), y = Inf, vjust = 1) + droseu_theme
 ```
 
 ```{r echo=FALSE}
@@ -4257,11 +4094,8 @@ lmers_anova$LS_M_Pasyukova_lmer_pop
 lmers_sum$LS_M_Pasyukova_lmer_pop
 ```
 
-
 ```{r p_LS_F_Pasyukova, echo=FALSE, message=FALSE, warning=FALSE}
-
 p_LS_F_Pasyukova <- ggplot(data = filter(droseu$lsl, Censor == "0" & Sex == "F" & Supervisor.PI == "Pasyukova"), aes(x=Population_Lat, y=LSM_AgeAtDeath_days, fill=Batch)) + geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_LS_F_Pasyukova", x="Population", y = "LSM_AgeAtDeath_days") + ylim(c(min_LS, max_LS))+ droseu_theme
-
 ```
 
 ```{r echo=FALSE}
@@ -4275,10 +4109,8 @@ invisible(dev.off())
 ```
 
 ```{r p_LS_F_pop_Pasyukova, echo=FALSE, message=FALSE, warning=FALSE}
-
 p_LS_F_pop_Pasyukova <- ggplot(data = filter(droseu$lsl, Censor == "0" & Sex == "F" & Supervisor.PI == "Pasyukova"), aes(x=Population_Lat, y=LSM_AgeAtDeath_days, fill=Population)) + geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_LS_F_pop_Pasyukova", x="Population", y = "LSM_AgeAtDeath_days") + ylim(c(min_LS, max_LS))+ 
-geom_text(data = lmers_tukey$LS_F_Pasyukova_lmer_pop$letters, aes(x = Population, label = cld), y = max_LS, vjust = 1) +droseu_theme
-
+geom_text(data = lmers_tukey$LS_F_Pasyukova_lmer_pop$letters, aes(x = Population, label = cld), y = Inf, vjust = 1) +droseu_theme
 ```
 
 ```{r echo=FALSE}
@@ -4291,12 +4123,8 @@ p_LS_F_pop_Pasyukova
 invisible(dev.off())
 ```
 
-
-
 ```{r p_LS_M_Pasyukova, echo=FALSE, message=FALSE, warning=FALSE}
-
 p_LS_M_Pasyukova <- ggplot(data = filter(droseu$lsl, Censor == "0" & Sex == "M" & Supervisor.PI == "Pasyukova"), aes(x=Population_Lat, y=LSM_AgeAtDeath_days, fill=Batch)) + geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_LS_M_Pasyukova", x="Population", y = "LSM_AgeAtDeath_days") + ylim(c(min_LS, max_LS))+ droseu_theme
-
 ```
 
 ```{r echo=FALSE}
@@ -4310,9 +4138,7 @@ invisible(dev.off())
 ```
 
 ```{r p_LS_M_pop_Pasyukova, echo=FALSE, message=FALSE, warning=FALSE}
-
-p_LS_M_pop_Pasyukova <- ggplot(data = filter(droseu$lsl, Censor == "0" & Sex == "M" & Supervisor.PI == "Pasyukova"), aes(x=Population_Lat, y=LSM_AgeAtDeath_days, fill=Population)) + geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_LS_M_pop_Pasyukova", x="Population", y = "LSM_AgeAtDeath_days") + ylim(c(min_LS, max_LS))+  geom_text(data = lmers_tukey$LS_M_Pasyukova_lmer_pop$letters, aes(x = Population, label = cld), y = max_LS, vjust = 1) + droseu_theme
-
+p_LS_M_pop_Pasyukova <- ggplot(data = filter(droseu$lsl, Censor == "0" & Sex == "M" & Supervisor.PI == "Pasyukova"), aes(x=Population_Lat, y=LSM_AgeAtDeath_days, fill=Population)) + geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_LS_M_pop_Pasyukova", x="Population", y = "LSM_AgeAtDeath_days") + ylim(c(min_LS, max_LS))+  geom_text(data = lmers_tukey$LS_M_Pasyukova_lmer_pop$letters, aes(x = Population, label = cld), y = Inf, vjust = 1) + droseu_theme
 ```
 
 ```{r echo=FALSE}
@@ -4326,16 +4152,6 @@ invisible(dev.off())
 ```
 
 ### Survival Analyses
-
-```{r d_LS_M_prop, eval=FALSE, message=FALSE, include=FALSE}
-d_LS_prop_pop <- d_LS_M %>%
-  filter(Censor != 1) %>%
-  rename(AgeAtDeath = LSM_AgeAtDeath_days) %>%
-  group_split(Supervisor.PI, Population, Sex) %>%
-  lapply(., survProp, cuts = seq(0, 120, 5)) %>%
-  bind_rows()
-```
-
 
 #### Flatt Lab
 
@@ -4359,11 +4175,9 @@ knitr::include_graphics("SurvivalAnalyses/Lifespan/p_LS_M_Parsch_survival_curves
 
 #### Pasyukova Lab
 
-
 ```{r}
 knitr::include_graphics("SurvivalAnalyses/Lifespan/p_LS_F_Pasyukova_survival_curves.pdf")
 ```
-
 
 ```{r}
 knitr::include_graphics("SurvivalAnalyses/Lifespan/p_LS_F_Pasyukova_survival_curves.pdf")
@@ -4407,7 +4221,6 @@ knitr::include_graphics("LinearModelsPop/Lifespan/by_lab_lmer_residuals/LS_F_Pas
 knitr::include_graphics("LinearModelsPop/Lifespan/by_lab_lmer_residuals/LS_M_Pasyukova_lmer_pop_qq_plot_residuals.png")
 ```
 
-
 ### Lab correlations
 
 ```{r intersect_LS, echo=FALSE}
@@ -4422,21 +4235,17 @@ intersect_Pop_LS <- Reduce(intersect, list(droseu$lsm$Population[droseu$lsm$Supe
 
 write(intersect_Pop_LS, file ="Lifespan/intersect_Pop_LS", sep = "\t")
 
-
 ```
 
 There are `r length(intersect_Pop_LS) ` populations and `r length(intersect_Line_LS) ` isofemale lines that have been phenotyped across the labs. Please refer to tables named intersect_Trait_level (i.e. intersect_Via_pop) for details. 
-
 
 ```{r}
 knitr::include_graphics("LabCorrelations/Lifespan/LS_F_lab_correlations.png")
 ```
 
-
 ```{r}
 knitr::include_graphics("LabCorrelations/Lifespan/LS_M_lab_correlations.png")
 ```
-
 
 ## Cold-shock mortality
 
@@ -4484,7 +4293,6 @@ Descriptive statistics at the population level, without batch information :
 DT::datatable(table_pop_wobatch$CSM, options = list(pageLength = 10)) %>% formatRound(5:12, 3)
 ```
 
-
 ### Plots and Linear Models by Lab  
 
 #### Overview 
@@ -4495,7 +4303,6 @@ max_CSM <- max(droseu$csm$CSM_PropDead_ED)
 ```
 
 y-axis is scaled by the minimum (`r min_CSM`) and maximum (`r max_CSM`) values in the full data set.
-
 
 ```{r p_CSM_F, echo=FALSE}
 p_CSM_F <- ggplot(data = filter(droseu$csm, Sex == "F"), aes(x=Population_Lat, y=CSM_PropDead_ED, fill=Supervisor.PI)) + 
@@ -4513,7 +4320,6 @@ p_CSM_F
 invisible(dev.off())
 ```
 
-
 ```{r p_CSM_M, echo=FALSE}
 p_CSM_M <- ggplot(data = filter(droseu$csm, Sex == "M"), aes(x=Population_Lat, y=CSM_PropDead_ED, fill=Supervisor.PI)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
@@ -4530,9 +4336,7 @@ p_CSM_M
 invisible(dev.off())
 ```
 
-
 #### Gonzalez Lab
-
 
 ```{r}
 lmers_anova$CSM_F_Gonzalez_lmer_pop
@@ -4566,11 +4370,10 @@ p_CSM_F_Gonzalez
 invisible(dev.off())
 ```
 
-
 ```{r p_CSM_F_pop_Gonzalez, echo=FALSE}
 p_CSM_F_pop_Gonzalez <- ggplot(data = filter(droseu$csm, Sex == "F" & Supervisor.PI == "Gonzalez"), aes(x=Population_Lat, y=CSM_PropDead_ED, fill=Population)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-        labs(title="p_CSM_F_pop_Gonzalez", x="Population", y = "CSM (PropSur)") +  ylim(c(min_CSM, max_CSM))+ geom_text(data = lmers_tukey$CSM_F_Gonzalez_lmer_pop$letters, aes(x = Population, label = cld), y = max_CSM, vjust = 1) +droseu_theme
+        labs(title="p_CSM_F_pop_Gonzalez", x="Population", y = "CSM (PropSur)") +  ylim(c(min_CSM, max_CSM))+ geom_text(data = lmers_tukey$CSM_F_Gonzalez_lmer_pop$letters, aes(x = Population, label = cld), y = Inf, vjust = 1) +droseu_theme
 ```
 
 ```{r echo=FALSE}
@@ -4602,8 +4405,7 @@ invisible(dev.off())
 ```{r p_CSM_M_pop_Gonzalez, echo=FALSE}
 p_CSM_M_pop_Gonzalez <- ggplot(data = filter(droseu$csm, Sex == "M" & Supervisor.PI == "Gonzalez"), aes(x=Population_Lat, y=CSM_PropDead_ED, fill=Population)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-        labs(title="p_CSM_M_pop_Gonzalez", x="Population", y = "CSM (PropSur)") + ylim(c(min_CSM, max_CSM))+ geom_text(data = lmers_tukey$CSM_M_Gonzalez_lmer_pop$letters, aes(x = Population, label = cld), y = max_CSM, vjust = 1) + droseu_theme
-
+        labs(title="p_CSM_M_pop_Gonzalez", x="Population", y = "CSM (PropSur)") + ylim(c(min_CSM, max_CSM))+ geom_text(data = lmers_tukey$CSM_M_Gonzalez_lmer_pop$letters, aes(x = Population, label = cld), y = Inf, vjust = 1) + droseu_theme
 ```
 
 ```{r echo=FALSE}
@@ -4635,11 +4437,9 @@ lmers_sum$CSM_M_Kozeretska_lmer_pop
 ```
 
 ```{r p_CSM_F_Kozeretska, echo=FALSE}
-
 p_CSM_F_Kozeretska <- ggplot(data = filter(droseu$csm, Sex == "F" & Supervisor.PI == "Kozeretska"), aes(x=Population_Lat, y=CSM_PropDead_ED, fill=Batch)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
         labs(title="p_CSM_F_Kozeretska", x="Population", y = "CSM (PropSur)") + ylim(c(min_CSM, max_CSM))+ droseu_theme
-
 ```
 
 ```{r echo=FALSE}
@@ -4652,14 +4452,11 @@ p_CSM_F_Kozeretska
 invisible(dev.off())
 ```
 
-
 ```{r p_CSM_F_pop_Kozeretska, echo=FALSE}
-
 p_CSM_F_pop_Kozeretska <- ggplot(data = filter(droseu$csm, Sex == "F" & Supervisor.PI == "Kozeretska"), aes(x=Population_Lat, y=CSM_PropDead_ED, fill=Population)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
         labs(title="p_CSM_F_pop_Kozeretska", x="Population", y = "CSM (PropSur)") +  ylim(c(min_CSM, max_CSM))+ 
-geom_text(data = lmers_tukey$CSM_F_Kozeretska_lmer_pop$letters, aes(x = Population, label = cld), y = max_CSM, vjust = 1) +droseu_theme
-
+geom_text(data = lmers_tukey$CSM_F_Kozeretska_lmer_pop$letters, aes(x = Population, label = cld), y = Inf, vjust = 1) +droseu_theme
 ```
 
 ```{r echo=FALSE}
@@ -4672,13 +4469,10 @@ p_CSM_F_pop_Kozeretska
 invisible(dev.off())
 ```
 
-
-
 ```{r p_CSM_M_Kozeretska, echo=FALSE}
 p_CSM_M_Kozeretska <- ggplot(data = filter(droseu$csm, Sex == "M" & Supervisor.PI == "Kozeretska"), aes(x=Population_Lat, y=CSM_PropDead_ED, fill=Batch)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
         labs(title="p_CSM_M_Kozeretska", x="Population", y = "CSM (PropSur)")  +  ylim(c(min_CSM, max_CSM))+ droseu_theme
-
 ```
 
 ```{r echo=FALSE}
@@ -4691,12 +4485,10 @@ p_CSM_M_Kozeretska
 invisible(dev.off())
 ```
 
-
 ```{r p_CSM_M_pop_Kozeretska, echo=FALSE}
 p_CSM_M_pop_Kozeretska <- ggplot(data = filter(droseu$csm, Sex == "M" & Supervisor.PI == "Kozeretska"), aes(x=Population_Lat, y=CSM_PropDead_ED, fill=Population)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
         labs(title="p_CSM_M_pop_Kozeretska", x="Population", y = "CSM (PropSur)")  +  ylim(c(min_CSM, max_CSM))+ geom_text(data = lmers_tukey$CSM_M_Kozeretska_lmer_pop$letters, aes(x = Population, label = cld), y = max_CSM, vjust = 1) + droseu_theme
-
 ```
 
 ```{r echo=FALSE}
@@ -4708,7 +4500,6 @@ pdf(file="ColdShock/p_CSM_M_pop_Kozeretska.pdf",width=8, height=5)
 p_CSM_M_pop_Kozeretska
 invisible(dev.off())
 ```
-
 
 #### Vieira Lab
 
@@ -4732,7 +4523,6 @@ lmers_sum$CSM_M_Vieira_lmer_pop
 p_CSM_F_Vieira <- ggplot(data = filter(droseu$csm, Sex == "F" & Supervisor.PI == "Vieira"), aes(x=Population_Lat, y=CSM_PropDead_ED, fill=Batch)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
         labs(title="p_CSM_F_Vieira", x="Population", y = "CSM (PropSur)") +  ylim(c(min_CSM, max_CSM))+ droseu_theme
-
 ```
 
 ```{r echo=FALSE}
@@ -4745,12 +4535,10 @@ p_CSM_F_Vieira
 invisible(dev.off())
 ```
 
-
 ```{r p_CSM_F_pop_Vieira, echo=FALSE}
 p_CSM_F_pop_Vieira <- ggplot(data = filter(droseu$csm, Sex == "F" & Supervisor.PI == "Vieira"), aes(x=Population_Lat, y=CSM_PropDead_ED, fill=Population)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-        labs(title="p_CSM_F_pop_Vieira", x="Population", y = "CSM (PropSur)") +  ylim(c(min_CSM, max_CSM))+ geom_text(data = lmers_tukey$CSM_F_Vieira_lmer_pop$letters, aes(x = Population, label = cld), y = max_CSM, vjust = 1) +droseu_theme
-
+        labs(title="p_CSM_F_pop_Vieira", x="Population", y = "CSM (PropSur)") +  ylim(c(min_CSM, max_CSM))+ geom_text(data = lmers_tukey$CSM_F_Vieira_lmer_pop$letters, aes(x = Population, label = cld), y = Inf, vjust = 1) +droseu_theme
 ```
 
 ```{r echo=FALSE}
@@ -4763,13 +4551,10 @@ p_CSM_F_pop_Vieira
 invisible(dev.off())
 ```
 
-
-
 ```{r p_CSM_M_Vieira, echo=FALSE}
 p_CSM_M_Vieira <- ggplot(data = filter(droseu$csm, Sex == "M" & Supervisor.PI == "Vieira"), aes(x=Population_Lat, y=CSM_PropDead_ED, fill=Batch)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
         labs(title="p_CSM_M_Vieira", x="Population", y = "CSM (PropSur)") +  ylim(c(min_CSM, max_CSM))+ droseu_theme
-
 ```
 
 ```{r echo=FALSE}
@@ -4782,14 +4567,10 @@ p_CSM_M_Vieira
 invisible(dev.off())
 ```
 
-
 ```{r p_CSM_M_pop_Vieira, echo=FALSE}
-
-
 p_CSM_M_pop_Vieira <- ggplot(data = filter(droseu$csm, Sex == "M" & Supervisor.PI == "Vieira"), aes(x=Population_Lat, y=CSM_PropDead_ED, fill=Population)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-        labs(title="p_CSM_M_pop_Vieira", x="Population", y = "CSM (PropSur)") +  ylim(c(min_CSM, max_CSM))+ geom_text(data = lmers_tukey$CSM_M_Vieira_lmer_pop$letters, aes(x = Population, label = cld), y = max_CSM, vjust = 1) + droseu_theme
-
+        labs(title="p_CSM_M_pop_Vieira", x="Population", y = "CSM (PropSur)") +  ylim(c(min_CSM, max_CSM))+ geom_text(data = lmers_tukey$CSM_M_Vieira_lmer_pop$letters, aes(x = Population, label = cld), y = Inf, vjust = 1) + droseu_theme
 ```
 
 ```{r echo=FALSE}
@@ -4839,7 +4620,6 @@ knitr::include_graphics("LinearModelsPop/ColdShock/by_lab_lmer_residuals/CSM_M_K
 knitr::include_graphics("LinearModelsPop/ColdShock/by_lab_lmer_residuals/CSM_M_Kozeretska_lmer_pop_qq_plot_residuals.png")
 ```
 
-
 #### Vieira Lab
 ```{r}
 knitr::include_graphics("LinearModelsPop/ColdShock/by_lab_lmer_residuals/CSM_F_Vieira_lmer_pop_hist_residuals.png")
@@ -4856,7 +4636,6 @@ knitr::include_graphics("LinearModelsPop/ColdShock/by_lab_lmer_residuals/CSM_M_V
 ```{r}
 knitr::include_graphics("LinearModelsPop/ColdShock/by_lab_lmer_residuals/CSM_M_Vieira_lmer_pop_qq_plot_residuals.png")
 ```
-
 
 ### Lab correlations
 
@@ -4882,15 +4661,12 @@ knitr::include_graphics("LabCorrelations/ColdShock/CSM_F_lab_correlations.png")
 knitr::include_graphics("LabCorrelations/ColdShock/CSM_M_lab_correlations.png")
 ```
 
-
 ```{r echo=FALSE}
 for (i in dev.list()[1]:dev.list()[length(dev.list())]) {
    invisible(dev.off())
 }
 # crashed bc tries to save lots -- need to remove some sometimes
 ```
-
-
 
 ## Chill-coma recovery time
 
@@ -4936,13 +4712,9 @@ Descriptive statistics at the population level, without batch information :
 DT::datatable(table_pop_wobatch$CCRT, options = list(pageLength = 10)) %>% formatRound(5:12, 3)
 ```
 
-
-
 ### Plots and Linear Models by Lab  
 
-
 #### Overview 
-
 
 ```{r min_max_CCRT, echo=TRUE}
 min_CCRT <- min(droseu$ccrt$CCRT_seconds)
@@ -4963,7 +4735,6 @@ lmers_anova$CCRT_F_Vieira_lmer_pop
 lmers_sum$CCRT_F_Vieira_lmer_pop
 ```
 
-
 ```{r}
 lmers_anova$CCRT_M_Vieira_lmer_pop
 ```
@@ -4972,12 +4743,10 @@ lmers_anova$CCRT_M_Vieira_lmer_pop
 lmers_sum$CCRT_M_Vieira_lmer_pop
 ```
 
-
 ```{r p_CCRT_F_Vieira, echo=FALSE}
 p_CCRT_F_Vieira <- ggplot(data = filter(droseu$ccrt, Censor == "0" & Supervisor.PI == "Vieira" & Sex == "F"), aes(x=Population_Lat, y=CCRT_seconds, fill=Batch)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
         labs(title="p_CCRT_F_Vieira", x="Population", y = "CCRT_seconds") + ylim(c(min_CCRT, max_CCRT))+ droseu_theme
-
 ```
 
 ```{r echo=FALSE}
@@ -4990,15 +4759,10 @@ p_CCRT_F_Vieira
 invisible(dev.off())
 ```
 
-
-
 ```{r p_CCRT_F_pop_Vieira, echo=FALSE}
-
 p_CCRT_F_pop_Vieira <- ggplot(data = filter(droseu$ccrt, Censor == "0" & Supervisor.PI == "Vieira" & Sex == "F"), aes(x=Population_Lat, y=CCRT_seconds, fill=Population)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-        labs(title="p_CCRT_F_pop_Vieira", x="Population", y = "CCRT_seconds")+ ylim(c(min_CCRT, max_CCRT))+ geom_text(data = lmers_tukey$CCRT_F_Vieira_lmer_pop$letters, aes(x = Population, label = cld), y = max_CCRT, vjust = 1) + droseu_theme
-
-
+        labs(title="p_CCRT_F_pop_Vieira", x="Population", y = "CCRT_seconds")+ ylim(c(min_CCRT, max_CCRT))+ geom_text(data = lmers_tukey$CCRT_F_Vieira_lmer_pop$letters, aes(x = Population, label = cld), y = Inf, vjust = 1) + droseu_theme
 ```
 
 ```{r echo=FALSE}
@@ -5011,13 +4775,10 @@ p_CCRT_F_pop_Vieira
 invisible(dev.off())
 ```
 
-
-
 ```{r echo=FALSE}
 p_CCRT_M_Vieira <- ggplot(data = filter(droseu$ccrt, Censor == "0" & Supervisor.PI == "Vieira" & Sex == "M"), aes(x=Population_Lat, y=CCRT_seconds, fill=Batch)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
         labs(title="p_CCRT_M", x="Population", y = "CCRT_seconds") + ylim(c(min_CCRT, max_CCRT))+ droseu_theme
-
 ```
 
 ```{r echo=FALSE}
@@ -5030,12 +4791,10 @@ p_CCRT_M_Vieira
 invisible(dev.off())
 ```
 
-
 ```{r p_CCRT_M_pop_Vieira, echo=FALSE}
 p_CCRT_M_pop_Vieira <- ggplot(data = filter(droseu$ccrt, Censor == "0" & Supervisor.PI == "Vieira" & Sex == "M"), aes(x=Population_Lat, y=CCRT_seconds, fill=Population)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-        labs(title="p_CCRT_M_pop_Vieira", x="Population", y = "CCRT_seconds") + ylim(c(min_CCRT, max_CCRT))+ geom_text(data = lmers_tukey$CCRT_M_Vieira_lmer_pop$letters, aes(x = Population, label = cld), y = max_CCRT, vjust = 1) + droseu_theme
-
+        labs(title="p_CCRT_M_pop_Vieira", x="Population", y = "CCRT_seconds") + ylim(c(min_CCRT, max_CCRT))+ geom_text(data = lmers_tukey$CCRT_M_Vieira_lmer_pop$letters, aes(x = Population, label = cld), y = Inf, vjust = 1) + droseu_theme
 ```
 
 ```{r echo=FALSE}
@@ -5047,8 +4806,6 @@ pdf(file="ChillComa/p_CCRT_M_pop_Vieira.pdf",width=8, height=5)
 p_CCRT_M_pop_Vieira
 invisible(dev.off())
 ```
-
-
 
 ### Survival Analyses
 
@@ -5097,7 +4854,6 @@ knitr::include_graphics("LinearModelsPop/ChillComa/by_lab_lmer_residuals/CCRT_M_
 #waiting for Mensh Lab's data 
 ```
 
-
 ## Heat-shock mortality
 
 ```{r include=FALSE}
@@ -5106,7 +4862,6 @@ dir.create(file.path("HeatShock"), showWarnings = FALSE)
 
 _For a detailed description of tables, plots, linear models and outputs, please refer [here](#anchor) _
 
-
 ### Contributors  
 
 Parsch Lab : Eliza Argyridou, Amanda Glaser-Schmitt, John Parsch
@@ -5114,7 +4869,6 @@ Parsch Lab : Eliza Argyridou, Amanda Glaser-Schmitt, John Parsch
 Vieira Lab : Jorge Vieira, Cristina P. Vieira, Pedro Duque, Tânia Dias
 
 ### Data Reformatting
-
 
 ```{r}
 str(droseu$hsm)
@@ -5141,7 +4895,6 @@ Descriptive statistics at the population level, without batch information :
 ```{r, echo=FALSE}
 DT::datatable(table_pop_wobatch$HSM, options = list(pageLength = 10)) %>% formatRound(5:12, 3)
 ```
-
 
 ### Plots and Linear Models by Lab  
 
@@ -5170,9 +4923,7 @@ p_HSM_F
 invisible(dev.off())
 ```
 
-
 ```{r p_HSM_M, echo=FALSE}
-
 p_HSM_M <- ggplot(data = filter(droseu$hsm, Censor == "0" & Sex == "M"), aes(x=Population_Lat, y=TimeDeath_min, fill=Supervisor.PI)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
         labs(title="p_HSM_M", x="Population", y = "TimeDeath(min)")  + ylim(c(min_HSM, max_HSM))+ droseu_theme
@@ -5222,11 +4973,10 @@ p_HSM_F_Parsch
 invisible(dev.off())
 ```
 
-
 ```{r p_HSM_F_pop_Parsch, echo=FALSE}
 p_HSM_F_pop_Parsch <- ggplot(data = filter(droseu$hsm, Censor == "0" & Sex == "F" & Supervisor.PI == "Parsch"), aes(x=Population_Lat, y=TimeDeath_min, fill=Population)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-        labs(title="p_HSM_F_pop_Parsch", x="Population", y = "TimeDeath_min") + ylim(c(min_HSM, max_HSM))+  geom_text(data = lmers_tukey$HSM_F_Parsch_lmer_pop$letters, aes(x = Population, label = cld), y = max_HSM, vjust = 1) +droseu_theme
+        labs(title="p_HSM_F_pop_Parsch", x="Population", y = "TimeDeath_min") + ylim(c(min_HSM, max_HSM))+  geom_text(data = lmers_tukey$HSM_F_Parsch_lmer_pop$letters, aes(x = Population, label = cld), y = Inf, vjust = 1) +droseu_theme
 ```
 
 ```{r echo=FALSE}
@@ -5238,7 +4988,6 @@ pdf(file="HeatShock/p_HSM_F_pop_Parsch.pdf",width=8, height=5)
 p_HSM_F_pop_Parsch
 invisible(dev.off())
 ```
-
 
 ```{r p_HSM_M_Parsch}
 p_HSM_M_Parsch <- ggplot(data = filter(droseu$hsm, Censor == "0" & Sex == "M" & Supervisor.PI == "Parsch"), aes(x=Population_Lat, y=TimeDeath_min, fill=Batch)) + 
@@ -5256,11 +5005,10 @@ p_HSM_M_Parsch
 invisible(dev.off())
 ```
 
-
 ```{r p_HSM_M_pop_Parsch, echo=FALSE}
 p_HSM_M_pop_Parsch <- ggplot(data = filter(droseu$hsm, Censor == "0" & Sex == "M" & Supervisor.PI == "Parsch"), aes(x=Population_Lat, y=TimeDeath_min, fill=Population)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-        labs(title="p_HSM_M_pop_Parsch", x="Population", y = "TimeDeath_min") + ylim(c(min_HSM, max_HSM))+ geom_text(data = lmers_tukey$HSM_M_Parsch_lmer_pop$letters, aes(x = Population, label = cld), y = max_HSM, vjust = 1) + droseu_theme
+        labs(title="p_HSM_M_pop_Parsch", x="Population", y = "TimeDeath_min") + ylim(c(min_HSM, max_HSM))+ geom_text(data = lmers_tukey$HSM_M_Parsch_lmer_pop$letters, aes(x = Population, label = cld), y = Inf, vjust = 1) + droseu_theme
 ```
 
 ```{r echo=FALSE}
@@ -5272,8 +5020,6 @@ pdf(file="HeatShock/p_HSM_M_pop_Parsch.pdf",width=8, height=5)
 p_HSM_M_pop_Parsch
 invisible(dev.off())
 ```
-
-
 
 #### Vieira Lab 
 
@@ -5293,7 +5039,6 @@ lmers_anova$HSM_M_Vieira_lmer_pop
 lmers_sum$HSM_M_Vieira_lmer_pop
 ```
 
-
 ```{r p_HSM_F_Vieira, echo=FALSE}
 p_HSM_F_Vieira <- ggplot(data = filter(droseu$hsm, Censor == "0" & Sex == "F" & Supervisor.PI == "Vieira"), aes(x=Population_Lat, y=TimeDeath_min, fill=Batch)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
@@ -5310,11 +5055,10 @@ p_HSM_F_Vieira
 invisible(dev.off())
 ```
 
-
 ```{r p_HSM_F_pop_Vieira, echo=FALSE}
 p_HSM_F_pop_Vieira <- ggplot(data = filter(droseu$hsm, Censor == "0" & Sex == "F" & Supervisor.PI == "Vieira"), aes(x=Population_Lat, y=TimeDeath_min, fill=Population)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-        labs(title="p_HSM_F_pop_Vieira", x="Population", y = "TimeDeath_min") + ylim(c(min_HSM, max_HSM))+  geom_text(data = lmers_tukey$HSM_F_Vieira_lmer_pop$letters, aes(x = Population, label = cld), y = max_HSM, vjust = 1) +droseu_theme
+        labs(title="p_HSM_F_pop_Vieira", x="Population", y = "TimeDeath_min") + ylim(c(min_HSM, max_HSM))+  geom_text(data = lmers_tukey$HSM_F_Vieira_lmer_pop$letters, aes(x = Population, label = cld), y = Inf, vjust = 1) +droseu_theme
 ```
 
 ```{r echo=FALSE}
@@ -5326,7 +5070,6 @@ pdf(file="HeatShock/p_HSM_F_pop_Vieira.pdf",width=8, height=5)
 p_HSM_F_pop_Vieira
 invisible(dev.off())
 ```
-
 
 ```{r p_HSM_M_Vieira, echo=FALSE}
 p_HSM_M_Vieira <- ggplot(data = filter(droseu$hsm, Censor == "0" & Sex == "M" & Supervisor.PI == "Vieira"), aes(x=Population_Lat, y=TimeDeath_min, fill=Batch)) + 
@@ -5344,11 +5087,10 @@ p_HSM_M_Vieira
 invisible(dev.off())
 ```
 
-
 ```{r p_HSM_M_pop_Vieira, echo=FALSE}
 p_HSM_M_pop_Vieira <- ggplot(data = filter(droseu$hsm, Censor == "0" & Sex == "M" & Supervisor.PI == "Vieira"), aes(x=Population_Lat, y=TimeDeath_min, fill=Population)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-        labs(title="p_HSM_M_pop_Vieira", x="Population", y = "TimeDeath_min") + ylim(c(min_HSM, max_HSM))+ geom_text(data = lmers_tukey$HSM_M_Vieira_lmer_pop$letters, aes(x = Population, label = cld), y = max_HSM, vjust = 1) + droseu_theme
+        labs(title="p_HSM_M_pop_Vieira", x="Population", y = "TimeDeath_min") + ylim(c(min_HSM, max_HSM))+ geom_text(data = lmers_tukey$HSM_M_Vieira_lmer_pop$letters, aes(x = Population, label = cld), y = Inf, vjust = 1) + droseu_theme
 ```
 
 ```{r echo=FALSE}
@@ -5360,7 +5102,6 @@ pdf(file="HeatShock/p_HSM_M_pop_Vieira.pdf",width=8, height=5)
 p_HSM_M_pop_Vieira
 invisible(dev.off())
 ```
-
 
 ### Survival Analyses
 
@@ -5386,7 +5127,6 @@ knitr::include_graphics("SurvivalAnalyses/HeatShock/p_HSM_M_Vieira_survival_curv
 
 #### coxme
 
-
 ```{r}
 #Please refer to "_SurvivalAnalyses_" folder
 ```
@@ -5411,7 +5151,6 @@ knitr::include_graphics("LinearModelsPop/HeatShock/by_lab_lmer_residuals/HSM_M_P
 knitr::include_graphics("LinearModelsPop/HeatShock/by_lab_lmer_residuals/HSM_M_Parsch_lmer_pop_qq_plot_residuals.png")
 ```
 
-
 #### Vieria Lab
 ```{r, echo=FALSE}
 knitr::include_graphics("LinearModelsPop/HeatShock/by_lab_lmer_residuals/HSM_F_Vieira_lmer_pop_hist_residuals.png")
@@ -5429,11 +5168,9 @@ knitr::include_graphics("LinearModelsPop/HeatShock/by_lab_lmer_residuals/HSM_M_V
 knitr::include_graphics("LinearModelsPop/HeatShock/by_lab_lmer_residuals/HSM_M_Vieira_lmer_pop_qq_plot_residuals.png")
 ```
 
-
 ### Lab correlations
 
 ```{r intersect_HSM, echo=FALSE}
-
 intersect_Line_HSM  <- Reduce(intersect, list(droseu$hsm$Line[droseu$hsm$Supervisor.PI == "Parsch"],
                                          droseu$hsm$Line[droseu$hsm$Supervisor.PI == "Vieira"]))
 write(intersect_Line_HSM, file ="HeatShock/intersect_Line_HSM.txt", sep = "\t")
@@ -5441,7 +5178,6 @@ write(intersect_Line_HSM, file ="HeatShock/intersect_Line_HSM.txt", sep = "\t")
 intersect_Pop_HSM  <- Reduce(intersect, list(droseu$hsm$Population[droseu$hsm$Supervisor.PI == "Parsch"],
                                          droseu$hsm$Population[droseu$hsm$Supervisor.PI == "Vieira"]))
 write(intersect_Pop_HSM, file ="HeatShock/intersect_Pop_HSM.txt", sep = "\t")
-
 ```
 
 There are `r length(intersect_Pop_HSM) ` populations and `r length(intersect_Line_HSM) ` isofemale lines that have been phenotyped across the labs. Please refer to tables named intersect_Trait_level (i.e. intersect_Via_pop) for details. 
@@ -5454,14 +5190,11 @@ knitr::include_graphics("LabCorrelations/HeatShock/HSM_F_lab_correlations.png")
 knitr::include_graphics("LabCorrelations/HeatShock/HSM_M_lab_correlations.png")
 ```
 
-
 ## Diapause
-
 
 ```{r include=FALSE}
 dir.create(file.path("Diapause"), showWarnings = FALSE)
 ```
-
 
 _For a detailed description of tables, plots, linear models and outputs, please refer [here](#anchor) _
 
@@ -5478,7 +5211,6 @@ Schlotterer Lab : Manolis Lyrakis, Christian Schlötterer
 ```{r}
 str(droseu$dia)
 ```
-
 
 ### Descriptive Statistics
 
@@ -5501,7 +5233,6 @@ Descriptive statistics at the population level, without batch information :
 ```{r echo=FALSE}
 DT::datatable(table_pop_wobatch$Dia_Prop_Max_Stage9, options = list(pageLength = 10)) %>% formatRound(3:10, 3)
 ```
-
 
 ### Plots and Linear Models by Lab
 
@@ -5540,7 +5271,7 @@ p_Dia_Pop_Bergland_wobatch <- d_Dia_Line_wobatch %>%
   inner_join(model_means_Bergland_cld) %>%
   ggplot(aes(x = Population_Lat, y = Max_Stage9_Prop, fill = Population)) + 
   geom_boxplot(outlier.shape = NA, notch = FALSE) +  
-  geom_text(data = model_means_Bergland_cld, aes(x = Population, label = cld), y = max_Dia, vjust = -1) +
+  geom_text(data = model_means_Bergland_cld, aes(x = Population, label = cld), y = Inf, vjust = -1) +
   labs(title = "p_Dia_Bergland", x = "Population", y = "Max_Stage9_Prop") +
   droseu_theme +
   ylim(c(min_Dia, max_Dia))
@@ -5584,7 +5315,7 @@ p_Dia_Pop_Flatt_wobatch <- d_Dia_Line_wobatch %>%
   filter(Supervisor.PI == 'Flatt') %>%
   ggplot(aes(x = Population_Lat, y = Max_Stage9_Prop, fill = Population)) + 
   geom_boxplot(outlier.shape = NA, notch = FALSE) +  
-  geom_text(data = model_means_Flatt_cld, aes(x = Population, label = cld), y = max_Dia, vjust = -1) +
+  geom_text(data = model_means_Flatt_cld, aes(x = Population, label = cld), y = Inf, vjust = -1) +
   labs(title = "p_Dia_Flatt", x = "Population", y = "Max_Stage9_Prop") +
   droseu_theme +
   ylim(c(min_Dia, max_Dia))
@@ -5597,11 +5328,7 @@ p_Dia_Pop_Flatt_wobatch
 invisible(dev.off())
 ```
 
-
-
-
 #### Schlotterer Lab
-
 
 ```{r}
 lmers_anova$Dia_Schlotterer_lmer_pop
@@ -5635,7 +5362,7 @@ p_Dia_Pop_Schlotterer_wobatch <- d_Dia_Line_wobatch %>%
   filter(Supervisor.PI == 'Schlotterer') %>%
   ggplot(aes(x = Population_Lat, y = Max_Stage9_Prop, fill = Population)) + 
   geom_boxplot(outlier.shape = NA, notch = FALSE) +  
-  geom_text(data = model_means_Schlotterer_cld, aes(x = Population, label = cld), y = max_Dia, vjust = -0.7) +
+  geom_text(data = model_means_Schlotterer_cld, aes(x = Population, label = cld), y = Inf, vjust = -0.7) +
   labs(title = "p_Dia_Schlotterer", x = "Population", y = "Max_Stage9_Prop") +
   droseu_theme +
   ylim(c(min_Dia, max_Dia))
@@ -5648,7 +5375,6 @@ p_Dia_Pop_Schlotterer_wobatch
 invisible(dev.off())
 ```
 
-
 ### Linear Models / Residuals
 
 #### Bergland Lab
@@ -5660,7 +5386,6 @@ knitr::include_graphics("LinearModelsPop/Diapause/by_lab_lmer_residuals/Dia_Berg
 ```{r}
 knitr::include_graphics("LinearModelsPop/Diapause/by_lab_lmer_residuals/Dia_Bergland_lmer_pop_qq_plot_residuals.png")
 ```
-
 
 #### Flatt Lab
 
@@ -5684,7 +5409,6 @@ knitr::include_graphics("LinearModelsPop/Diapause/by_lab_lmer_residuals/Dia_Schl
 
 ### Lab correlations
 
-
 ```{r intersect_Dia, echo=FALSE}
 intersect_Line_Dia  <- Reduce(intersect, list(droseu$dia$Line[droseu$dia$Supervisor.PI == "Flatt"],
                                          droseu$dia$Line[droseu$dia$Supervisor.PI == "Bergland"],
@@ -5706,15 +5430,11 @@ There are `r length(intersect_Pop_Dia) ` populations and `r length(intersect_Lin
 knitr::include_graphics("LabCorrelations/Diapause/Dia_F_lab_correlations.png")
 ```
 
-
 ## Circadian eclosion timing
-
 
 ```{r include=FALSE}
 dir.create(file.path("CircadianEclosion"), showWarnings = FALSE)
 ```
-
-
 
 _For a detailed description of tables, plots, linear models and outputs, please refer [here](#anchor) _
 
@@ -5737,263 +5457,95 @@ str(droseu$cets)
 #### 18_LD_DD
 
 Descriptive statistics for CET_hours_MESA :
-```{r table_CET_18LDDD_CET_MESA, echo=FALSE}
-table_CET_18LDDD_CET_MESA <- write.csv(d_CET_18_LD_DD %>% group_by(Supervisor.PI, Condition, Population) %>% 
-                                    summarise_at(vars(CET_hours_MESA), 
-                                                 list(Mean = mean)), 
-                            file = "CircadianEclosion/table_CET_18LDDD_CET_MESA.csv", row.names = T)
-table_CET_18LDDD_CET_MESA <- read.csv("CircadianEclosion/table_CET_18LDDD_CET_MESA.csv")
-
-```
-
 ```{r echo=FALSE}
 DT::datatable(table_CET_18LDDD_CET_MESA, options = list(pageLength = 10)) %>% formatRound(5:5, 3)
 ```
 
 Descriptive statistics for CET_hours_LSPR :
-```{r table_CET_18LDDD_CET_LSPR, echo=FALSE}
-table_CET_18LDDD_CET_LSPR <- write.csv(d_CET_18_LD_DD %>% group_by(Supervisor.PI, Condition, Population) %>% 
-                                    summarise_at(vars(CET_hours_LSPR), 
-                                                 list(Mean = mean)), 
-                            file = "CircadianEclosion/table_CET_18LDDD_CET_LSPR.csv", row.names = T)
-table_CET_18LDDD_CET_LSPR <- read.csv("CircadianEclosion/table_CET_18LDDD_CET_LSPR.csv")
-
-```
-
 ```{r echo=FALSE}
 DT::datatable(table_CET_18LDDD_CET_LSPR, options = list(pageLength = 10)) %>% formatRound(5:5, 3)
 ```
 
-
-
 Descriptive statistics for Period_MESA :
-```{r table_CET_18LDDD_Period_MESA, echo=FALSE}
-table_CET_18LDDD_Period_MESA <- write.csv(d_CET_18_LD_DD %>% group_by(Supervisor.PI, Condition, Population) %>% 
-                                    summarise_at(vars(Period_MESA), 
-                                                 list(Mean = mean)), 
-                            file = "CircadianEclosion/table_CET_18LDDD_Period_MESA.csv", row.names = T)
-table_CET_18LDDD_Period_MESA <- read.csv("CircadianEclosion/table_CET_18LDDD_Period_MESA.csv")
-
-```
-
 ```{r echo=FALSE}
 DT::datatable(table_CET_18LDDD_Period_MESA, options = list(pageLength = 10)) %>% formatRound(5:5, 3)
 ```
 
-
 Descriptive statistics for Period_LSPR :
-```{r table_CET_18LDDD_Period_LSPR, echo=FALSE}
-table_CET_18LDDD_Period_LSPR <- write.csv(d_CET_18_LD_DD %>% group_by(Supervisor.PI, Condition, Population) %>% 
-                                    summarise_at(vars(Period_LSPR), 
-                                                 list(Mean = mean)), 
-                            file = "CircadianEclosion/table_CET_18LDDD_Period_LSPR.csv", row.names = T)
-table_CET_18LDDD_Period_LSPR <- read.csv("CircadianEclosion/table_CET_18LDDD_Period_LSPR.csv")
-
-```
-
 ```{r echo=FALSE}
 DT::datatable(table_CET_18LDDD_Period_LSPR, options = list(pageLength = 10)) %>% formatRound(5:5, 3)
 ```
 
-
 Descriptive statistics for Rhythmicity_LSPR_amplitude :
-```{r table_CET_18LDDD_Rhy_LSPR, echo=FALSE}
-table_CET_18LDDD_Rhy_LSPR <- write.csv(d_CET_18_LD_DD %>% group_by(Supervisor.PI, Condition, Population) %>% 
-                                    summarise_at(vars(Rhythmicity_LSPR_amplitude), 
-                                                 list(Mean = mean)), 
-                            file = "CircadianEclosion/table_CET_18LDDD_Rhy_LSPR.csv", row.names = T)
-table_CET_18LDDD_Rhy_LSPR <- read.csv("CircadianEclosion/table_CET_18LDDD_Rhy_LSPR.csv")
-
-```
-
 ```{r echo=FALSE}
 DT::datatable(table_CET_18LDDD_Rhy_LSPR, options = list(pageLength = 10)) %>% formatRound(5:5, 3)
 ```
 
 Descriptive statistics for Rhythmicity_JTK_p_BH_corrected :
-```{r table_CET_18LDDD_Rhy_JTK, echo=FALSE}
-table_CET_18LDDD_Rhy_JTK <- write.csv(d_CET_18_LD_DD %>% group_by(Supervisor.PI, Condition, Population) %>% 
-                                    summarise_at(vars(Rhythmicity_JTK_p_BH_corrected), 
-                                                 list(Mean = mean)), 
-                            file = "CircadianEclosion/table_CET_18LDDD_Rhy_JTK.csv", row.names = T)
-table_CET_18LDDD_Rhy_JTK <- read.csv("CircadianEclosion/table_CET_18LDDD_Rhy_JTK.csv")
-
-```
-
 ```{r echo=FALSE}
 DT::datatable(table_CET_18LDDD_Rhy_JTK, options = list(pageLength = 10)) %>% formatRound(5:5, 3)
 ```
 
-
 #### 18_LD_LD
 
 Descriptive statistics for CET_hours_MESA :
-```{r table_CET_18LDLD_CET_MESA, echo=FALSE}
-table_CET_18LDLD_CET_MESA <- write.csv(d_CET_18_LD_LD %>% group_by(Supervisor.PI, Condition, Population) %>% 
-                                         summarise_at(vars(CET_hours_MESA), 
-                                                      list(Mean = mean)), 
-                                       file = "CircadianEclosion/table_CET_18LDLD_CET_MESA.csv", row.names = T)
-table_CET_18LDLD_CET_MESA <- read.csv("CircadianEclosion/table_CET_18LDLD_CET_MESA.csv")
-
-```
-
 ```{r echo=FALSE}
 DT::datatable(table_CET_18LDLD_CET_MESA, options = list(pageLength = 10)) %>% formatRound(5:5, 3)
 ```
 
 Descriptive statistics for CET_hours_LSPR :
-```{r table_CET_18LDLD_CET_LSPR, echo=FALSE}
-table_CET_18LDLD_CET_LSPR <- write.csv(d_CET_18_LD_LD %>% group_by(Supervisor.PI, Condition, Population) %>% 
-                                         summarise_at(vars(CET_hours_LSPR), 
-                                                      list(Mean = mean)), 
-                                       file = "CircadianEclosion/table_CET_18LDLD_CET_LSPR.csv", row.names = T)
-table_CET_18LDLD_CET_LSPR <- read.csv("CircadianEclosion/table_CET_18LDLD_CET_LSPR.csv")
-
-```
-
 ```{r echo=FALSE}
 DT::datatable(table_CET_18LDLD_CET_LSPR, options = list(pageLength = 10)) %>% formatRound(5:5, 3)
 ```
 
 Descriptive statistics for Period_MESA :
-```{r table_CET_18LDLD_Period_MESA, echo=FALSE}
-table_CET_18LDLD_Period_MESA <- write.csv(d_CET_18_LD_LD %>% group_by(Supervisor.PI, Condition, Population) %>% 
-                                            summarise_at(vars(Period_MESA), 
-                                                         list(Mean = mean)), 
-                                          file = "CircadianEclosion/table_CET_18LDLD_Period_MESA.csv", row.names = T)
-table_CET_18LDLD_Period_MESA <- read.csv("CircadianEclosion/table_CET_18LDLD_Period_MESA.csv")
-
-```
-
 ```{r echo=FALSE}
 DT::datatable(table_CET_18LDLD_Period_MESA, options = list(pageLength = 10)) %>% formatRound(5:5, 3)
 ```
 
 Descriptive statistics for Period_LSPR :
-```{r table_CET_18LDLD_Period_LSPR, echo=FALSE}
-table_CET_18LDLD_Period_LSPR <- write.csv(d_CET_18_LD_LD %>% group_by(Supervisor.PI, Condition, Population) %>% 
-                                            summarise_at(vars(Period_LSPR), 
-                                                         list(Mean = mean)), 
-                                          file = "CircadianEclosion/table_CET_18LDLD_Period_LSPR.csv", row.names = T)
-table_CET_18LDLD_Period_LSPR <- read.csv("CircadianEclosion/table_CET_18LDLD_Period_LSPR.csv")
-
-```
-
 ```{r echo=FALSE}
 DT::datatable(table_CET_18LDLD_Period_LSPR, options = list(pageLength = 10)) %>% formatRound(5:5, 3)
 ```
 
 Descriptive statistics for Rhythmicity_LSPR_amplitude :
-```{r table_CET_18LDLD_Rhy_LSPR, echo=FALSE}
-table_CET_18LDLD_Rhy_LSPR <- write.csv(d_CET_18_LD_LD %>% group_by(Supervisor.PI, Condition, Population) %>% 
-                                         summarise_at(vars(Rhythmicity_LSPR_amplitude), 
-                                                      list(Mean = mean)), 
-                                       file = "CircadianEclosion/table_CET_18LDLD_Rhy_LSPR.csv", row.names = T)
-table_CET_18LDLD_Rhy_LSPR <- read.csv("CircadianEclosion/table_CET_18LDLD_Rhy_LSPR.csv")
-
-```
-
 ```{r echo=FALSE}
 DT::datatable(table_CET_18LDLD_Rhy_LSPR, options = list(pageLength = 10)) %>% formatRound(5:5, 3)
 ```
 
 Descriptive statistics for Rhythmicity_JTK_p_BH_corrected :
-```{r table_CET_18LDLD_Rhy_JTK, echo=FALSE}
-table_CET_18LDLD_Rhy_JTK <- write.csv(d_CET_18_LD_LD %>% group_by(Supervisor.PI, Condition, Population) %>% 
-                                        summarise_at(vars(Rhythmicity_JTK_p_BH_corrected), 
-                                                     list(Mean = mean)), 
-                                      file = "CircadianEclosion/table_CET_18LDLD_Rhy_JTK.csv", row.names = T)
-table_CET_18LDLD_Rhy_JTK <- read.csv("CircadianEclosion/table_CET_18LDLD_Rhy_JTK.csv")
-
-```
-
 ```{r, echo=FALSE}
 DT::datatable(table_CET_18LDLD_Rhy_JTK, options = list(pageLength = 10)) %>% formatRound(5:5, 3)
 ```
 
-
 #### 29_LD_DD
 
 Descriptive statistics for CET_hours_MESA :
-```{r table_CET_29LDDD_CET_MESA, echo=FALSE}
-table_CET_29LDDD_CET_MESA <- write.csv(d_CET_29_LD_DD %>% group_by(Supervisor.PI, Condition, Population) %>% 
-                                         summarise_at(vars(CET_hours_MESA), 
-                                                      list(Mean = mean)), 
-                                       file = "CircadianEclosion/table_CET_29LDDD_CET_MESA.csv", row.names = T)
-table_CET_29LDDD_CET_MESA <- read.csv("CircadianEclosion/table_CET_29LDDD_CET_MESA.csv")
-
-```
-
 ```{r echo=FALSE}
 DT::datatable(table_CET_29LDDD_CET_MESA, options = list(pageLength = 10)) %>% formatRound(5:5, 3)
 ```
 
 Descriptive statistics for CET_hours_LSPR :
-```{r table_CET_29LDDD_CET_LSPR, echo=FALSE}
-table_CET_29LDDD_CET_LSPR <- write.csv(d_CET_29_LD_DD %>% group_by(Supervisor.PI, Condition, Population) %>% 
-                                         summarise_at(vars(CET_hours_LSPR), 
-                                                      list(Mean = mean)), 
-                                       file = "CircadianEclosion/table_CET_29LDDD_CET_LSPR.csv", row.names = T)
-table_CET_29LDDD_CET_LSPR <- read.csv("CircadianEclosion/table_CET_29LDDD_CET_LSPR.csv")
-
-```
-
 ```{r echo=FALSE}
 DT::datatable(table_CET_29LDDD_CET_LSPR, options = list(pageLength = 10)) %>% formatRound(5:5, 3)
 ```
 
 Descriptive statistics for Period_MESA :
-```{r table_CET_29LDDD_Period_MESA, echo=FALSE}
-table_CET_29LDDD_Period_MESA <- write.csv(d_CET_29_LD_DD %>% group_by(Supervisor.PI, Condition, Population) %>% 
-                                            summarise_at(vars(Period_MESA), 
-                                                         list(Mean = mean)), 
-                                          file = "CircadianEclosion/table_CET_29LDDD_Period_MESA.csv", row.names = T)
-table_CET_29LDDD_Period_MESA <- read.csv("CircadianEclosion/table_CET_29LDDD_Period_MESA.csv")
-
-```
-
 ```{r echo=FALSE}
 DT::datatable(table_CET_29LDDD_Period_MESA, options = list(pageLength = 10)) %>% formatRound(5:5, 3)
 ```
 
 Descriptive statistics for Period_LSPR :
-```{r table_CET_29LDDD_Period_LSPR, echo=FALSE}
-table_CET_29LDDD_Period_LSPR <- write.csv(d_CET_29_LD_DD %>% group_by(Supervisor.PI, Condition, Population) %>% 
-                                            summarise_at(vars(Period_LSPR), 
-                                                         list(Mean = mean)), 
-                                          file = "CircadianEclosion/table_CET_29LDDD_Period_LSPR.csv", row.names = T)
-table_CET_29LDDD_Period_LSPR <- read.csv("CircadianEclosion/table_CET_29LDDD_Period_LSPR.csv")
-
-```
-
 ```{r echo=FALSE}
 DT::datatable(table_CET_29LDDD_Period_LSPR, options = list(pageLength = 10)) %>% formatRound(5:5, 3)
 ```
 
 Descriptive statistics for Rhythmicity_LSPR_amplitude :
-```{r table_CET_29LDDD_Rhy_LSPR, echo=FALSE}
-table_CET_29LDDD_Rhy_LSPR <- write.csv(d_CET_29_LD_DD %>% group_by(Supervisor.PI, Condition, Population) %>% 
-                                         summarise_at(vars(Rhythmicity_LSPR_amplitude), 
-                                                      list(Mean = mean)), 
-                                       file = "CircadianEclosion/table_CET_29LDDD_Rhy_LSPR.csv", row.names = T)
-table_CET_29LDDD_Rhy_LSPR <- read.csv("CircadianEclosion/table_CET_29LDDD_Rhy_LSPR.csv")
-
-```
-
 ```{r echo=FALSE}
 DT::datatable(table_CET_29LDDD_Rhy_LSPR, options = list(pageLength = 10)) %>% formatRound(5:5, 3)
 ```
 
 Descriptive statistics for Rhythmicity_JTK_p_BH_corrected :
-```{r table_CET_29LDDD_Rhy_JTK}
-table_CET_29LDDD_Rhy_JTK <- write.csv(d_CET_29_LD_DD %>% group_by(Supervisor.PI, Condition, Population) %>% 
-                                        summarise_at(vars(Rhythmicity_JTK_p_BH_corrected), 
-                                                     list(Mean = mean)), 
-                                      file = "CircadianEclosion/table_CET_29LDDD_Rhy_JTK.csv", row.names = T)
-table_CET_29LDDD_Rhy_JTK <- read.csv("CircadianEclosion/table_CET_29LDDD_Rhy_JTK.csv")
-
-```
-
 ```{r}
 DT::datatable(table_CET_29LDDD_Rhy_JTK, options = list(pageLength = 10)) %>% formatRound(5:5, 3)
 ```
@@ -6001,89 +5553,34 @@ DT::datatable(table_CET_29LDDD_Rhy_JTK, options = list(pageLength = 10)) %>% for
 #### 29_LD_LD
 
 Descriptive statistics for CET_hours_MESA :
-```{r table_CET_29LDLD_CET_MESA, echo=FALSE}
-table_CET_29LDLD_CET_MESA <- write.csv(d_CET_29_LD_LD %>% group_by(Supervisor.PI, Condition, Population) %>% 
-                                         summarise_at(vars(CET_hours_MESA), 
-                                                      list(Mean = mean)), 
-                                       file = "CircadianEclosion/table_CET_29LDLD_CET_MESA.csv", row.names = T)
-table_CET_29LDLD_CET_MESA <- read.csv("CircadianEclosion/table_CET_29LDLD_CET_MESA.csv")
-
-```
-
 ```{r echo=FALSE}
 DT::datatable(table_CET_29LDLD_CET_MESA, options = list(pageLength = 10)) %>% formatRound(5:5, 3)
 ```
 
 Descriptive statistics for CET_hours_LSPR :
-```{r table_CET_29LDLD_CET_LSPR, echo=FALSE}
-table_CET_29LDLD_CET_LSPR <- write.csv(d_CET_29_LD_LD %>% group_by(Supervisor.PI, Condition, Population) %>% 
-                                         summarise_at(vars(CET_hours_LSPR), 
-                                                      list(Mean = mean)), 
-                                       file = "CircadianEclosion/table_CET_29LDLD_CET_LSPR.csv", row.names = T)
-table_CET_29LDLD_CET_LSPR <- read.csv("CircadianEclosion/table_CET_29LDLD_CET_LSPR.csv")
-
-```
-
 ```{r echo=FALSE}
 DT::datatable(table_CET_29LDLD_CET_LSPR, options = list(pageLength = 10)) %>% formatRound(5:5, 3)
 ```
 
 Descriptive statistics for Period_MESA :
-```{r table_CET_29LDLD_Period_MESA, echo=FALSE}
-table_CET_29LDLD_Period_MESA <- write.csv(d_CET_29_LD_LD %>% group_by(Supervisor.PI, Condition, Population) %>% 
-                                            summarise_at(vars(Period_MESA), 
-                                                         list(Mean = mean)), 
-                                          file = "CircadianEclosion/table_CET_29LDLD_Period_MESA.csv", row.names = T)
-table_CET_29LDLD_Period_MESA <- read.csv("CircadianEclosion/table_CET_29LDLD_Period_MESA.csv")
-
-```
-
 ```{r echo=FALSE}
 DT::datatable(table_CET_29LDLD_Period_MESA, options = list(pageLength = 10)) %>% formatRound(5:5, 3)
 ```
 
 Descriptive statistics for Period_LSPR :
-```{r table_CET_29LDLD_Period_LSPR, echo=FALSE}
-table_CET_29LDLD_Period_LSPR <- write.csv(d_CET_29_LD_LD %>% group_by(Supervisor.PI, Condition, Population) %>% 
-                                            summarise_at(vars(Period_LSPR), 
-                                                         list(Mean = mean)), 
-                                          file = "CircadianEclosion/table_CET_29LDLD_Period_LSPR.csv", row.names = T)
-table_CET_29LDLD_Period_LSPR <- read.csv("CircadianEclosion/table_CET_29LDLD_Period_LSPR.csv")
-
-```
-
 ```{r echo=FALSE}
 DT::datatable(table_CET_29LDLD_Period_LSPR, options = list(pageLength = 10)) %>% formatRound(5:5, 3)
 ```
 
 Descriptive statistics for Rhythmicity_LSPR_amplitude :
-```{r table_CET_29LDLD_Rhy_LSPR, echo=FALSE}
-table_CET_29LDLD_Rhy_LSPR <- write.csv(d_CET_29_LD_LD %>% group_by(Supervisor.PI, Condition, Population) %>% 
-                                         summarise_at(vars(Rhythmicity_LSPR_amplitude), 
-                                                      list(Mean = mean)), 
-                                       file = "CircadianEclosion/table_CET_29LDLD_Rhy_LSPR.csv", row.names = T)
-table_CET_29LDLD_Rhy_LSPR <- read.csv("CircadianEclosion/table_CET_29LDLD_Rhy_LSPR.csv")
-
-```
-
 ```{r echo=FALSE}
 DT::datatable(table_CET_29LDLD_Rhy_LSPR, options = list(pageLength = 10)) %>% formatRound(5:5, 3)
 ```
 
 Descriptive statistics for Rhythmicity_JTK_p_BH_corrected :
-```{r table_CET_29LDLD_Rhy_JTK, echo=FALSE}
-table_CET_29LDLD_Rhy_JTK <- write.csv(d_CET_29_LD_LD %>% group_by(Supervisor.PI, Condition, Population) %>% 
-                                        summarise_at(vars(Rhythmicity_JTK_p_BH_corrected), 
-                                                     list(Mean = mean)), 
-                                      file = "CircadianEclosion/table_CET_29LDLD_Rhy_JTK.csv", row.names = T)
-table_CET_29LDLD_Rhy_JTK <- read.csv("CircadianEclosion/table_CET_29LDLD_Rhy_JTK.csv")
-
-```
-
 ```{r echo=FALSE}
 DT::datatable(table_CET_29LDLD_Rhy_JTK, options = list(pageLength = 10)) %>% formatRound(5:5, 3)
 ```
-
 
 ### Plots and Linear Models by Lab  
 
@@ -6097,21 +5594,17 @@ From Chris :
 knitr::include_graphics("CircadianEclosion/FromChris/Graphs_plate_MESA.png")
 ```
 
-
 ```{r echo=FALSE}
 knitr::include_graphics("CircadianEclosion/FromChris/Graphs_DrosEU_eclosion/Slide1.png")
 ```
-
 
 ```{r echo=FALSE}
 knitr::include_graphics("CircadianEclosion/FromChris/Graphs_DrosEU_eclosion/Slide2.png")
 ```
 
-
 ```{r echo=FALSE}
 knitr::include_graphics("CircadianEclosion/FromChris/Graphs_DrosEU_eclosion/Slide3.png")
 ```
-
 
 From Eran :
 
@@ -6136,103 +5629,35 @@ _For a detailed description of tables, plots, linear models and outputs, please 
 #Note that the trait has been phenotyped only in males.
 ```
 
-
 ### Contributors  
 
 Tauber Lab : Bettina Fishman, Eran Tauber
 
 ### Data Reformatting
 
-```{r d_LA}
-d_LA <- read.csv("MasterSheets_Oct21_git/LA_MasterSheet_Oct21.csv")
-```
-
-
 ```{r}
-str(d_LA)
+str(droseu$la)
 ```
-
-
-```{r}
-d_LA$Supervisor.PI <- as.factor(d_LA$Supervisor.PI)
-d_LA$Diet <- as.factor(d_LA$Diet)
-d_LA$Batch <- as.factor(d_LA$Batch)
-d_LA$Population_Lat <- factor(d_LA$Population, levels= c("YE","RE","GI","MU","MA","UM","KA","VA","AK"))
-d_LA$Population_Lon <- factor(d_LA$Population, levels= c("RE","GI","KA","MU","MA","AK","UM","YE","VA"))
-d_LA$Population_Alt <- factor(d_LA$Population, levels= c("KA","AK","GI","RE","UM","VA","MU","MA","YE"))
-d_LA$Line <- as.factor(d_LA$Line)
-d_LA$ReplicateChamber <- as.factor(d_LA$ReplicateChamber)
-d_LA$Period <- as.numeric(d_LA$Period)
-d_LA$CircPhase <- as.numeric(d_LA$CircPhase)
-d_LA$AbsPhase <- as.numeric(d_LA$AbsPhase)
-d_LA$Experiment <- as.numeric(d_LA$Experiment)
-d_LA$ND <- as.numeric(d_LA$ND)
-d_LA$Activity <- as.numeric(d_LA$Activity)
-```
-
-
-```{r}
-str(d_LA)
-```
-
 ### Descriptive Statistics
 
 #### LA - Activity
 
 Descriptive statistics at the line level, with batch information :
-```{r table_LA_Act_Line_wbatch, echo=FALSE}
-table_LA_Act_Line_wbatch <- write.csv(d_LA %>% group_by(Supervisor.PI, Batch, Sex, Population, Line) %>% 
-                                    summarise_at(vars(Activity), 
-                                                 list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
-                                                      SE = std_err, CV = coef_var, Mode = estimate_mode)), 
-                            file = "Locomotor/table_LA_Act_Line_wbatch.csv", row.names = T)
-table_LA_Act_Line_wbatch <- read.csv("Locomotor/table_LA_Act_Line_wbatch.csv")
-
-```
-
 ```{r, echo=FALSE}
 DT::datatable(table_LA_Act_Line_wbatch, options = list(pageLength = 10)) %>% formatRound(7:14, 3)
 ```
 
 Descriptive statistics at the line level, without batch information :
-```{r table_LA_Act_Line_wobatch, echo=FALSE}
-table_LA_Act_Line_wobatch <- write.csv(d_LA %>% group_by(Supervisor.PI, Sex, Population, Line) %>% 
-                                    summarise_at(vars(Activity), 
-                                                 list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
-                                                      SE = std_err, CV = coef_var, Mode = estimate_mode)), 
-                            file = "Locomotor/table_LA_Act_Line_wobatch.csv", row.names = T)
-table_LA_Act_Line_wobatch <- read.csv("Locomotor/table_LA_Act_Line_wobatch.csv")
-
-```
-
 ```{r, echo=FALSE}
 DT::datatable(table_LA_Act_Line_wobatch, options = list(pageLength = 10)) %>% formatRound(6:13, 3)
 ```
 
 Descriptive statistics at the population level, with batch information :
-```{r table_LA_Act_Pop_wbatch, echo=FALSE}
-table_LA_Act_Pop_wbatch <- write.csv(d_LA %>% group_by(Supervisor.PI, Batch, Sex, Population) %>% 
-                                   summarise_at(vars(Activity), 
-                                                list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
-                                                     SE = std_err, CV = coef_var, Mode = estimate_mode)), 
-                           file = "Locomotor/table_LA_Act_Pop_wbatch.csv", row.names = T)
-table_LA_Act_Pop_wbatch <- read.csv("Locomotor/table_LA_Act_Pop_wbatch.csv")
-```
-
 ```{r, echo=FALSE}
 DT::datatable(table_LA_Act_Pop_wbatch, options = list(pageLength = 10)) %>% formatRound(6:13, 3)
 ```
 
 Descriptive statistics at the population level, without batch information :
-```{r table_LA_Act_Pop_wobatch, echo=FALSE}
-table_LA_Act_Pop_wobatch <- write.csv(d_LA %>% group_by(Supervisor.PI, Sex, Population) %>% 
-                                   summarise_at(vars(Activity), 
-                                                list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
-                                                     SE = std_err, CV = coef_var, Mode = estimate_mode)), 
-                           file = "Locomotor/table_LA_Act_Pop_wobatch.csv", row.names = T)
-table_LA_Act_Pop_wobatch <- read.csv("Locomotor/table_LA_Act_Pop_wobatch.csv")
-```
-
 ```{r, echo=FALSE}
 DT::datatable(table_LA_Act_Pop_wobatch, options = list(pageLength = 10)) %>% formatRound(5:12, 3)
 ```
@@ -6240,124 +5665,46 @@ DT::datatable(table_LA_Act_Pop_wobatch, options = list(pageLength = 10)) %>% for
 #### LA - ND ratio
 
 Descriptive statistics at the line level, with batch information :
-```{r table_LA_ND_Line_wbatch, echo=FALSE}
-table_LA_ND_Line_wbatch <- write.csv(d_LA %>% group_by(Supervisor.PI, Batch, Sex, Population, Line) %>% 
-                                        summarise_at(vars(ND), 
-                                                     list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
-                                                          SE = std_err, CV = coef_var, Mode = estimate_mode)), 
-                                      file = "Locomotor/table_LA_ND_Line_wbatch.csv", row.names = T)
-table_LA_ND_Line_wbatch <- read.csv("Locomotor/table_LA_ND_Line_wbatch.csv")
-
-```
-
 ```{r, echo=FALSE}
 DT::datatable(table_LA_ND_Line_wbatch, options = list(pageLength = 10)) %>% formatRound(7:14, 3)
 ```
 
 Descriptive statistics at the line level, without batch information :
-```{r table_LA_ND_Line_wobatch, echo=FALSE}
-table_LA_ND_Line_wobatch <- write.csv(d_LA %>% group_by(Supervisor.PI, Sex, Population, Line) %>% 
-                                         summarise_at(vars(ND), 
-                                                      list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
-                                                           SE = std_err, CV = coef_var, Mode = estimate_mode)), 
-                                       file = "Locomotor/table_LA_ND_Line_wobatch.csv", row.names = T)
-table_LA_ND_Line_wobatch <- read.csv("Locomotor/table_LA_ND_Line_wobatch.csv")
-
-```
-
 ```{r, echo=FALSE}
 DT::datatable(table_LA_ND_Line_wobatch, options = list(pageLength = 10)) %>% formatRound(6:13, 3)
 ```
 
 Descriptive statistics at the population level, with batch information :
-```{r table_LA_ND_Pop_wbatch, echo=FALSE}
-table_LA_ND_Pop_wbatch <- write.csv(d_LA %>% group_by(Supervisor.PI, Batch, Sex, Population) %>% 
-                                       summarise_at(vars(ND), 
-                                                    list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
-                                                         SE = std_err, CV = coef_var, Mode = estimate_mode)), 
-                                     file = "Locomotor/table_LA_ND_Pop_wbatch.csv", row.names = T)
-table_LA_ND_Pop_wbatch <- read.csv("Locomotor/table_LA_ND_Pop_wbatch.csv")
-```
-
 ```{r, echo=FALSE}
 DT::datatable(table_LA_ND_Pop_wbatch, options = list(pageLength = 10)) %>% formatRound(6:13, 3)
 ```
 
 Descriptive statistics at the population level, without batch information :
-```{r table_LA_ND_Pop_wobatch}
-table_LA_ND_Pop_wobatch <- write.csv(d_LA %>% group_by(Supervisor.PI, Sex, Population) %>% 
-                                        summarise_at(vars(ND), 
-                                                     list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
-                                                          SE = std_err, CV = coef_var, Mode = estimate_mode)), 
-                                      file = "Locomotor/table_LA_ND_Pop_wobatch.csv", row.names = T)
-table_LA_ND_Pop_wobatch <- read.csv("Locomotor/table_LA_ND_Pop_wobatch.csv")
-```
-
 ```{r, echo=FALSE}
 DT::datatable(table_LA_ND_Pop_wobatch, options = list(pageLength = 10)) %>% formatRound(5:12, 3)
 ```
 
-
 #### LA - Circadian Phase
 
 Descriptive statistics at the line level, with batch information :
-```{r table_LA_CircPhase_Line_wbatch, echo=FALSE}
-table_LA_CircPhase_Line_wbatch <- write.csv(d_LA %>% group_by(Supervisor.PI, Batch, Sex, Population, Line) %>% 
-                                        summarise_at(vars(CircPhase), 
-                                                     list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
-                                                          SE = std_err, CV = coef_var, Mode = estimate_mode)), 
-                                      file = "Locomotor/table_LA_CircPhase_Line_wbatch.csv", row.names = T)
-table_LA_CircPhase_Line_wbatch <- read.csv("Locomotor/table_LA_CircPhase_Line_wbatch.csv")
-
-```
-
 ```{r, echo=FALSE}
 DT::datatable(table_LA_CircPhase_Line_wbatch, options = list(pageLength = 10)) %>% formatRound(7:14, 3)
 ```
 
 Descriptive statistics at the line level, without batch information :
-```{r table_LA_CircPhase_Line_wobatch, echo=FALSE}
-table_LA_CircPhase_Line_wobatch <- write.csv(d_LA %>% group_by(Supervisor.PI, Sex, Population, Line) %>% 
-                                         summarise_at(vars(CircPhase), 
-                                                      list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
-                                                           SE = std_err, CV = coef_var, Mode = estimate_mode)), 
-                                       file = "Locomotor/table_LA_CircPhase_Line_wobatch.csv", row.names = T)
-table_LA_CircPhase_Line_wobatch <- read.csv("Locomotor/table_LA_CircPhase_Line_wobatch.csv")
-
-```
-
 ```{r, echo=FALSE}
 DT::datatable(table_LA_CircPhase_Line_wobatch, options = list(pageLength = 10)) %>% formatRound(6:13, 3)
 ```
 
 Descriptive statistics at the population level, with batch information :
-```{r table_LA_CircPhase_Pop_wbatch, echo=FALSE}
-table_LA_CircPhase_Pop_wbatch <- write.csv(d_LA %>% group_by(Supervisor.PI, Batch, Sex, Population) %>% 
-                                       summarise_at(vars(CircPhase), 
-                                                    list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
-                                                         SE = std_err, CV = coef_var, Mode = estimate_mode)), 
-                                     file = "Locomotor/table_LA_CircPhase_Pop_wbatch.csv", row.names = T)
-table_LA_CircPhase_Pop_wbatch <- read.csv("Locomotor/table_LA_CircPhase_Pop_wbatch.csv")
-```
-
 ```{r, echo=FALSE}
 DT::datatable(table_LA_CircPhase_Pop_wbatch, options = list(pageLength = 10)) %>% formatRound(6:13, 3)
 ```
 
 Descriptive statistics at the population level, without batch information :
-```{r table_LA_CircPhase_Pop_wobatch, echo=FALSE}
-table_LA_CircPhase_Pop_wobatch <- write.csv(d_LA %>% group_by(Supervisor.PI, Sex, Population) %>% 
-                                        summarise_at(vars(CircPhase), 
-                                                     list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
-                                                          SE = std_err, CV = coef_var, Mode = estimate_mode)), 
-                                      file = "Locomotor/table_LA_CircPhase_Pop_wobatch.csv", row.names = T)
-table_LA_CircPhase_Pop_wobatch <- read.csv("Locomotor/table_LA_CircPhase_Pop_wobatch.csv")
-```
-
 ```{r, echo=FALSE}
 DT::datatable(table_LA_CircPhase_Pop_wobatch, options = list(pageLength = 10)) %>% formatRound(5:12, 3)
 ```
-
 
 ### Plots and Linear Models by Lab  
 
@@ -6365,18 +5712,7 @@ DT::datatable(table_LA_CircPhase_Pop_wobatch, options = list(pageLength = 10)) %
 
 #### Tauber Lab
 
-```{r, echo=FALSE}
-d_LA_trans <- d_LA %>% mutate(ND = log2(ND))
-```
-
-```{r LA_lmer_ND_Tauber, echo=FALSE} 
-LA_lmer_ND_Tauber <- lmer(ND ~ Population  + (1|Line:Population) +
-                          (1|Batch), data = d_LA)
-capture.output(summary(LA_lmer_ND_Tauber),file = "Locomotor/LA_lmer_ND_Tauber_sum.txt")
-capture.output(anova(LA_lmer_ND_Tauber),file = "Locomotor/LA_lmer_ND_Tauber.txt")
-capture.output(emmeans(LA_lmer_ND_Tauber, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "Locomotor/LA_lmer_ND_Tauber_tk.txt")
-```
-
+_ND_
 ```{r}
 anova(LA_lmer_ND_Tauber)
 ```
@@ -6385,16 +5721,7 @@ anova(LA_lmer_ND_Tauber)
 summary(LA_lmer_ND_Tauber)
 ```
 
-
 _CircPhase_
-
-```{r LA_lmer_CircPhase_Tauber, echo=FALSE}
-LA_lmer_CircPhase_Tauber <- lmer(CircPhase ~ Population  + (1|Line:Population) +
-                          (1|Batch) , data = (d_LA))
-capture.output(summary(LA_lmer_CircPhase_Tauber),file = "Locomotor/LA_lmer_CircPhase_Tauber_sum.txt")
-capture.output(anova(LA_lmer_CircPhase_Tauber),file = "Locomotor/LA_lmer_CircPhase_Tauber.txt")
-capture.output(emmeans(LA_lmer_CircPhase_Tauber, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "Locomotor/LA_lmer_CircPhase_Tauber_tk.txt")
-```
 
 ```{r}
 anova(LA_lmer_CircPhase_Tauber)
@@ -6404,16 +5731,7 @@ anova(LA_lmer_CircPhase_Tauber)
 summary(LA_lmer_CircPhase_Tauber)
 ```
 
-
 _Activity_
-
-```{r LA_lmer_Activity_Tauber, echo=FALSE}
-LA_lmer_Activity_Tauber <- lmer(Activity ~ Population  + (1|Line:Population) +
-                          (1|Batch), data = (d_LA))
-capture.output(summary(LA_lmer_Activity_Tauber),file = "Locomotor/LA_lmer_Activity_Tauber_sum.txt")
-capture.output(anova(LA_lmer_Activity_Tauber),file = "Locomotor/LA_lmer_Activity_Tauber.txt")
-capture.output(emmeans(LA_lmer_Activity_Tauber, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "Locomotor/LA_lmer_Activity_Tauber_tk.txt")
-```
 
 ```{r}
 anova(LA_lmer_Activity_Tauber)
@@ -6422,7 +5740,6 @@ anova(LA_lmer_Activity_Tauber)
 ```{r}
 summary(LA_lmer_Activity_Tauber)
 ```
-
 
 From Eran :
 
@@ -6452,17 +5769,13 @@ Oriana 3 (Stacked circular).
 knitr::include_graphics("Locomotor/FromEran/pheno2022_Page_5.png")
 ```
 
-
 ## Starvation resistance
-
 
 ```{r include=FALSE}
 dir.create(file.path("Starvation"), showWarnings = FALSE)
 ```
 
-
 _For a detailed description of tables, plots, linear models and outputs, please refer [here](#anchor) _
-
 
 ### Contributors  
 
@@ -6501,11 +5814,9 @@ Descriptive statistics at the population level, without batch information :
 DT::datatable(table_pop_wobatch$SR, options = list(pageLength = 10)) %>% formatRound(5:12, 3)
 ```
 
-
 ### Plots and Linear Models by Lab  
 
 #### Overview 
-
 
 ```{r}
 min_SR <- min(droseu$sr$AgeAtDeath_hours)
@@ -6513,12 +5824,9 @@ max_SR <- max(droseu$sr$AgeAtDeath_hours)
 ```
 
 ```{r p_SR_F, echo=FALSE}
-
 p_SR_F <- ggplot(data = filter(droseu$sr, Sex == "F"), aes(x=Population_Lat, y=AgeAtDeath_hours, fill=Supervisor.PI)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_SR_F", x="Population", y = "AgeAtDeath_hours") + ylim(c(min_SR, max_SR))+ droseu_theme
-
 ```
-
 
 ```{r echo=FALSE}
 p_SR_F
@@ -6531,10 +5839,8 @@ invisible(dev.off())
 ```
 
 ```{r p_SR_M, echo=FALSE}
-
 p_SR_M <- ggplot(data = filter(droseu$sr, Sex == "M"), aes(x=Population_Lat, y=AgeAtDeath_hours, fill=Supervisor.PI)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_SR_M", x="Population", y = "AgeAtDeath_hours") + ylim(c(min_SR, max_SR))+ droseu_theme
-
 ```
 
 ```{r echo=FALSE}
@@ -6547,10 +5853,7 @@ p_SR_M
 invisible(dev.off())
 ```
 
-
-
 #### Gonzalez Lab
-
 
 ```{r}
 lmers_anova$SR_F_Gonzalez_lmer_pop
@@ -6568,9 +5871,7 @@ lmers_anova$SR_M_Gonzalez_lmer_pop
 lmers_sum$SR_M_Gonzalez_lmer_pop
 ```
 
-
 ```{r p_SR_F_Gonzalez, echo=FALSE}
-
 p_SR_F_Gonzalez <- ggplot(data = filter(droseu$sr, Sex == "F" & Supervisor.PI=='Gonzalez'), aes(x=Population_Lat, y=AgeAtDeath_hours, fill=Batch)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
         labs(title="p_SR_F_Gonzalez", x="Population", y = "AgeAtDeath_hours") + ylim(c(min_SR, max_SR))+ droseu_theme
@@ -6587,11 +5888,9 @@ invisible(dev.off())
 ```
 
 ```{r p_SR_F_pop_Gonzalez, echo=FALSE}
-
 p_SR_F_pop_Gonzalez <- ggplot(data = filter(droseu$sr, Sex == "F" & Supervisor.PI=='Gonzalez'), aes(x=Population_Lat, y=AgeAtDeath_hours, fill=Population)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-        labs(title="p_SR_F_pop_Gonzalez", x="Population", y = "AgeAtDeath_hours") + ylim(c(min_SR, max_SR))+ geom_text(data = lmers_tukey$SR_F_Gonzalez_lmer_pop$letters, aes(x = Population, label = cld), y = max_SR, vjust = 1) +droseu_theme
-
+        labs(title="p_SR_F_pop_Gonzalez", x="Population", y = "AgeAtDeath_hours") + ylim(c(min_SR, max_SR))+ geom_text(data = lmers_tukey$SR_F_Gonzalez_lmer_pop$letters, aes(x = Population, label = cld), y = Inf, vjust = 1) +droseu_theme
 ```
 
 ```{r echo=FALSE}
@@ -6604,13 +5903,10 @@ p_SR_F_pop_Gonzalez
 invisible(dev.off())
 ```
 
-
 ```{r p_SR_M_Gonzalez, echo=FALSE}
-
 p_SR_M_Gonzalez <- ggplot(data = filter(droseu$sr, Sex == "M" & Supervisor.PI=='Gonzalez'), aes(x=Population_Lat, y=AgeAtDeath_hours, fill=Batch)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
         labs(title="p_SR_M_Gonzalez", x="Population", y = "AgeAtDeath_hours") + ylim(c(min_SR, max_SR))+ droseu_theme
-
 ```
 
 ```{r echo=FALSE}
@@ -6624,11 +5920,9 @@ invisible(dev.off())
 ```
 
 ```{r p_SR_M_pop_Gonzalez, echo=FALSE}
-
 p_SR_M_pop_Gonzalez <- ggplot(data = filter(droseu$sr, Sex == "M" & Supervisor.PI=='Gonzalez'), aes(x=Population_Lat, y=AgeAtDeath_hours, fill=Population)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-        labs(title="p_SR_M_pop_Gonzalez", x="Population", y = "AgeAtDeath_hours") + ylim(c(min_SR, max_SR))+ geom_text(data = lmers_tukey$SR_M_Gonzalez_lmer_pop$letters, aes(x = Population, label = cld), y = max_SR, vjust = 1) + droseu_theme
-
+        labs(title="p_SR_M_pop_Gonzalez", x="Population", y = "AgeAtDeath_hours") + ylim(c(min_SR, max_SR))+ geom_text(data = lmers_tukey$SR_M_Gonzalez_lmer_pop$letters, aes(x = Population, label = cld), y = Inf, vjust = 1) + droseu_theme
 ```
 
 ```{r echo=FALSE}
@@ -6641,9 +5935,7 @@ p_SR_M_pop_Gonzalez
 invisible(dev.off())
 ```
 
-
 #### Onder Lab 
-
 
 ```{r}
 lmers_anova$SR_F_Onder_lmer_pop
@@ -6662,11 +5954,9 @@ lmers_sum$SR_M_Onder_lmer_pop
 ```
 
 ```{r p_SR_F_Onder, echo=FALSE}
-
 p_SR_F_Onder <- ggplot(data = filter(droseu$sr, Sex == "F" & Supervisor.PI=="Onder"),  aes(x=Population_Lat, y=AgeAtDeath_hours, fill=Batch)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
         labs(title="p_SR_F_Onder", x="Population", y = "AgeAtDeath_hours") + ylim(c(min_SR, max_SR))+ droseu_theme
-
 ```
 
 ```{r echo=FALSE}
@@ -6680,13 +5970,10 @@ invisible(dev.off())
 ```
 
 ```{r p_SR_F_pop_Onder, echo=FALSE}
-
 p_SR_F_pop_Onder <- ggplot(data = filter(droseu$sr, Sex == "F" & Supervisor.PI=="Onder"), aes(x=Population_Lat, y=AgeAtDeath_hours, fill=Population)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-        labs(title="p_SR_F_pop_Onder", x="Population", y = "AgeAtDeath_hours") + ylim(c(min_SR, max_SR))+ geom_text(data = lmers_tukey$SR_F_Onder_lmer_pop$letters, aes(x = Population, label = cld), y = max_SR, vjust = 1) + droseu_theme
-
+        labs(title="p_SR_F_pop_Onder", x="Population", y = "AgeAtDeath_hours") + ylim(c(min_SR, max_SR))+ geom_text(data = lmers_tukey$SR_F_Onder_lmer_pop$letters, aes(x = Population, label = cld), y = Inf, vjust = 1) + droseu_theme
 ```
-
 
 ```{r echo=FALSE}
 p_SR_F_pop_Onder
@@ -6699,11 +5986,9 @@ invisible(dev.off())
 ```
 
 ```{r p_SR_M_Onder, echo=FALSE}
-
 p_SR_M_Onder <- ggplot(data = filter(droseu$sr, Sex == "M" & Supervisor.PI=="Onder"),  aes(x=Population_Lat, y=AgeAtDeath_hours, fill=Batch)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
         labs(title="p_SR_M_Onder", x="Population", y = "AgeAtDeath_hours") + ylim(c(min_SR, max_SR))+ droseu_theme
-
 ```
 
 ```{r echo=FALSE}
@@ -6717,11 +6002,9 @@ invisible(dev.off())
 ```
 
 ```{r p_SR_M_pop_Onder, echo=FALSE}
-
 p_SR_M_pop_Onder <- ggplot(data = filter(droseu$sr, Sex == "M" & Supervisor.PI=="Onder"),  aes(x=Population_Lat, y=AgeAtDeath_hours, fill=Population)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-        labs(title="p_SR_M_pop_Onder", x="Population", y = "AgeAtDeath_hours") + ylim(c(min_SR, max_SR))+ geom_text(data = lmers_tukey$SR_M_Onder_lmer_pop$letters, aes(x = Population, label = cld), y = max_SR, vjust = 1) + droseu_theme
-
+        labs(title="p_SR_M_pop_Onder", x="Population", y = "AgeAtDeath_hours") + ylim(c(min_SR, max_SR))+ geom_text(data = lmers_tukey$SR_M_Onder_lmer_pop$letters, aes(x = Population, label = cld), y = Inf, vjust = 1) + droseu_theme
 ```
 
 ```{r echo=FALSE}
@@ -6752,13 +6035,10 @@ lmers_anova$SR_M_Pasyukova_lmer_pop
 lmers_sum$SR_M_Pasyukova_lmer_pop
 ```
 
-
 ```{r p_SR_F_Pasyukova, echo=FALSE}
-
 p_SR_F_Pasyukova <- ggplot(data = filter(droseu$sr, Sex == "F" & Supervisor.PI=="Pasyukova"),  aes(x=Population_Lat, y=AgeAtDeath_hours, fill=Batch)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
         labs(title="p_SR_F_Pasyukova", x="Population", y = "AgeAtDeath_hours") + ylim(c(min_SR, max_SR))+ droseu_theme
-
 ```
 
 ```{r echo=FALSE}
@@ -6771,15 +6051,11 @@ p_SR_F_Pasyukova
 invisible(dev.off())
 ```
 
-
 ```{r p_SR_F_pop_Pasyukova, echo=FALSE}
-
 p_SR_F_pop_Pasyukova <- ggplot(data = filter(droseu$sr, Sex == "F" & Supervisor.PI=="Pasyukova"),  aes(x=Population_Lat, y=AgeAtDeath_hours, fill=Population)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-        labs(title="p_SR_F_pop_Pasyukova", x="Population", y = "AgeAtDeath_hours") + ylim(c(min_SR, max_SR))+ geom_text(data = lmers_tukey$SR_F_Pasyukova_lmer_pop$letters, aes(x = Population, label = cld), y = max_SR, vjust = 1) + droseu_theme
-
+        labs(title="p_SR_F_pop_Pasyukova", x="Population", y = "AgeAtDeath_hours") + ylim(c(min_SR, max_SR))+ geom_text(data = lmers_tukey$SR_F_Pasyukova_lmer_pop$letters, aes(x = Population, label = cld), y = Inf, vjust = 1) + droseu_theme
 ```
-
 
 ```{r echo=FALSE}
 p_SR_F_pop_Pasyukova
@@ -6792,7 +6068,6 @@ invisible(dev.off())
 ```
 
 ```{r p_SR_M_Pasyukova, echo=FALSE}
-
 p_SR_M_Pasyukova <- ggplot(data = filter(droseu$sr, Sex == "M" & Supervisor.PI=="Pasyukova"),  aes(x=Population_Lat, y=AgeAtDeath_hours, fill=Batch)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
         labs(title="p_SR_M_Pasyukova", x="Population", y = "AgeAtDeath_hours") + ylim(c(min_SR, max_SR)) +droseu_theme
@@ -6809,11 +6084,9 @@ invisible(dev.off())
 ```
 
 ```{r p_SR_M_pop_Pasyukova, echo=FALSE}
-
 p_SR_M_pop_Pasyukova <- ggplot(data = filter(droseu$sr, Sex == "M" & Supervisor.PI=="Pasyukova"),  aes(x=Population_Lat, y=AgeAtDeath_hours, fill=Population)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-        labs(title="p_SR_M_pop_Pasyukova", x="Population", y = "AgeAtDeath_hours") + ylim(c(min_SR, max_SR))+ geom_text(data = lmers_tukey$SR_M_Pasyukova_lmer_pop$letters, aes(x = Population, label = cld), y = max_SR, vjust = 1) + droseu_theme
-
+        labs(title="p_SR_M_pop_Pasyukova", x="Population", y = "AgeAtDeath_hours") + ylim(c(min_SR, max_SR))+ geom_text(data = lmers_tukey$SR_M_Pasyukova_lmer_pop$letters, aes(x = Population, label = cld), y = Inf, vjust = 1) + droseu_theme
 ```
 
 ```{r echo=FALSE}
@@ -6826,10 +6099,7 @@ p_SR_M_pop_Pasyukova
 invisible(dev.off())
 ```
 
-
-
 ### Survival Analyses
-
 
 #### Gonzalez Lab
 
@@ -6863,14 +6133,11 @@ knitr::include_graphics("SurvivalAnalyses/Starvation/p_SR_M_Pasyukova_survival_c
 
 #### coxme
 
-
 ```{r}
 #Please refer to "_SurvivalAnalyses_" folder
 ```
 
 ### Linear Models / Residuals
-
-
 
 #### Gonzalez Lab
 
@@ -6944,7 +6211,6 @@ write(intersect_Pop_SR, file ="Starvation/intersect_Pop_SR.txt", sep = "\t")
 
 There are `r length(intersect_Pop_SR) ` populations and `r length(intersect_Line_SR) ` isofemale lines that have been phenotyped across the labs. Please refer to tables named intersect_Trait_level (i.e. intersect_Via_pop) for details. 
 
-
 ```{r echo=FALSE}
 knitr::include_graphics("LabCorrelations/Starvation/SR_F_lab_correlations.png")
 ```
@@ -6953,8 +6219,6 @@ knitr::include_graphics("LabCorrelations/Starvation/SR_F_lab_correlations.png")
 knitr::include_graphics("LabCorrelations/Starvation/SR_M_lab_correlations.png")
 ```
 
-
-
 ## Pigmentation
 
 ```{r include=FALSE}
@@ -6962,7 +6226,6 @@ dir.create(file.path("Pigmentation"), showWarnings = FALSE)
 ```
 
 _For a detailed description of tables, plots, linear models and outputs, please refer [here](#anchor) _
-
 
 ### Contributors  
 
@@ -6974,174 +6237,55 @@ Schmidt Lab : Amy Goldfischer, Paul Schmidt
 
 ### Data Reformatting
 
-```{r d_Pgm}
-d_Pgm <- read.csv("MasterSheets_Oct21_git/PGM_MasterSheet_Jan22.csv")
+```{r}
+str(droseu$pgm)
 ```
 
 ```{r}
-str(d_Pgm)
-```
-
-
-```{r}
-d_Pgm$Supervisor.PI <- as.factor(d_Pgm$Supervisor.PI)
-d_Pgm$Diet <- as.factor(d_Pgm$Diet)
-d_Pgm$Batch <- as.factor(d_Pgm$Batch)
-d_Pgm$Population_Lat <- factor(d_Pgm$Population, levels= c("YE","RE","GI","MU","MA","UM","KA","VA","AK"))
-d_Pgm$Population_Lon <- factor(d_Pgm$Population, levels= c("RE","GI","KA","MU","MA","AK","UM","YE","VA"))
-d_Pgm$Population_Alt <- factor(d_Pgm$Population, levels= c("KA","AK","GI","RE","UM","VA","MU","MA","YE"))
-d_Pgm$Line <- as.factor(d_Pgm$Line)
-d_Pgm$AreaT4 <- as.numeric(d_Pgm$AreaT4)
-d_Pgm$AreaT5 <- as.numeric(d_Pgm$AreaT5)
-d_Pgm$AreaT6 <- as.numeric(d_Pgm$AreaT6)
-d_Pgm$PercT4 <- as.numeric(d_Pgm$PercT4)
-d_Pgm$PercT5 <- as.numeric(d_Pgm$PercT5)
-d_Pgm$PercT6 <- as.numeric(d_Pgm$PercT6)
-d_Pgm$TotalArea <- as.numeric(d_Pgm$TotalArea)
-d_Pgm$TotalBlack <- as.numeric(d_Pgm$TotalBlack)
-d_Pgm$Latitude <- as.numeric(d_Pgm$Latitude)
-d_Pgm$Longitude <- as.numeric(d_Pgm$Latitude)
-d_Pgm$Altitude <- as.numeric(d_Pgm$Altitude)
-```
-
-```{r}
-str(d_Pgm)
-```
-
-```{r d_Pgm2}
-d_Pgm2 <- read.csv("MasterSheets_Oct21_git/PGM2_MasterSheet_Oct21.csv")
-```
-
-```{r}
-str(d_Pgm2)
-```
-
-```{r}
-d_Pgm2$Supervisor.PI <- as.factor(d_Pgm2$Supervisor.PI)
-d_Pgm2$Diet <- as.factor(d_Pgm2$Diet)
-d_Pgm2$Batch <- as.factor(d_Pgm2$Batch)
-d_Pgm2$Population_Lat <- factor(d_Pgm2$Population, levels= c("YE","RE","GI","MU","MA","UM","KA","VA","AK"))
-d_Pgm2$Population_Lon <- factor(d_Pgm2$Population, levels= c("RE","GI","KA","MU","MA","AK","UM","YE","VA"))
-d_Pgm2$Population_Alt <- factor(d_Pgm2$Population, levels= c("KA","AK","GI","RE","UM","VA","MU","MA","YE"))
-d_Pgm2$Line <- as.factor(d_Pgm2$Line)
-d_Pgm2$Tergite8 <- as.numeric(d_Pgm2$Tergite8)
-d_Pgm2$Tergite9 <- as.numeric(d_Pgm2$Tergite9)
-d_Pgm2$Tergite10 <- as.numeric(d_Pgm2$Tergite10)
-d_Pgm2$Total <- as.numeric(d_Pgm2$Total)
-```
-
-
-```{r}
-str(d_Pgm2)
+str(droseu$pgm2)
 ```
 
 ### Descriptive Statistics
 
-
 ### _T4_
-
-
 Descriptive statistics at the line level, with batch information :
-```{r table_Pgm_Line_PercT4_wbatch, echo=FALSE}
-table_Pgm_Line_PercT4_wbatch <- write.csv(d_Pgm %>% group_by(Supervisor.PI, Batch, Population, Line) %>% summarise_at(vars(PercT4), list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, SE = std_err, CV = coef_var, Mode = estimate_mode)), file = "Pigmentation/table_Pgm_Line_PercT4_wbatch.csv", row.names = T)
-
-table_Pgm_Line_PercT4_wbatch <- read.csv("Pigmentation/table_Pgm_Line_PercT4_wbatch.csv")
-```
-
 ```{r, echo=FALSE}
 DT::datatable(table_Pgm_Line_PercT4_wbatch, options = list(pageLength = 10)) %>% formatRound(6:13, 3)
 ```
 
 Descriptive statistics at the line level, without batch information :
-```{r, echo=FALSE}
-table_Pgm_Line_PercT4_wobatch <- write.csv(d_Pgm %>% group_by(Supervisor.PI, Population, Line) %>% summarise_at(vars(PercT4), list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, SE = std_err, CV = coef_var, Mode = estimate_mode)), file = "Pigmentation/table_Pgm_Line_PercT4_wobatch.csv", row.names = T)
-table_Pgm_Line_PercT4_wobatch <- read.csv("Pigmentation/table_Pgm_Line_PercT4_wobatch.csv")
-```
-
 ```{r table_Pgm_Line_PercT4_wobatch, echo=FALSE}
 DT::datatable(table_Pgm_Line_PercT4_wobatch, options = list(pageLength = 10)) %>% formatRound(5:12, 3)
 ```
 
 Descriptive statistics at the population level, with batch information :
-```{r, echo=FALSE}
-table_Pgm_Pop_PercT4_wbatch <- write.csv(d_Pgm %>% group_by(Supervisor.PI, Batch, Population) %>% 
-                                   summarise_at(vars(PercT4), 
-                                                list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
-                                                     SE = std_err, CV = coef_var, Mode = estimate_mode)), 
-                           file = "Pigmentation/table_Pgm_Pop_PercT4_wbatch.csv", row.names = T)
-
-table_Pgm_Pop_PercT4_wbatch <- read.csv("Pigmentation/table_Pgm_Pop_PercT4_wbatch.csv")
-```
-
 ```{r table_Pgm_Pop_PercT4_wbatch, echo=FALSE}
 DT::datatable(table_Pgm_Pop_PercT4_wbatch, options = list(pageLength = 10)) %>% formatRound(5:12, 3)
 ```
 
 Descriptive statistics at the population level, without batch information :
-```{r, echo=FALSE}
-table_Pgm_Pop_PercT4_wobatch <- write.csv(d_Pgm %>% group_by(Supervisor.PI, Population) %>% 
-                                   summarise_at(vars(PercT4), 
-                                                list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
-                                                     SE = std_err, CV = coef_var, Mode = estimate_mode)), 
-                           file = "Pigmentation/table_Pgm_Pop_PercT4_wobatch.csv", row.names = T)
-
-table_Pgm_Pop_PercT4_wobatch <- read.csv("Pigmentation/table_Pgm_Pop_PercT4_wobatch.csv")
-```
-
 ```{r table_Pgm_Pop_PercT4_wobatch, echo=FALSE}
 DT::datatable(table_Pgm_Pop_PercT4_wobatch, options = list(pageLength = 10))%>% formatRound(4:11, 3)
 ```
 
-
 ### _T5_
 
 Descriptive statistics at the line level, with batch information :
-```{r table_Pgm_Line_PercT5_wbatch, echo=FALSE}
-table_Pgm_Line_PercT5_wbatch <- write.csv(d_Pgm %>% group_by(Supervisor.PI, Batch, Population, Line) %>% summarise_at(vars(PercT5), list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, SE = std_err, CV = coef_var, Mode = estimate_mode)), file = "Pigmentation/table_Pgm_Line_PercT5_wbatch.csv", row.names = T)
-
-table_Pgm_Line_PercT5_wbatch <- read.csv("Pigmentation/table_Pgm_Line_PercT5_wbatch.csv")
-```
-
 ```{r, echo=FALSE}
 DT::datatable(table_Pgm_Line_PercT5_wbatch, options = list(pageLength = 10)) %>% formatRound(6:13, 3)
 ```
 
 Descriptive statistics at the line level, without batch information :
-```{r, echo=FALSE}
-table_Pgm_Line_PercT5_wobatch <- write.csv(d_Pgm %>% group_by(Supervisor.PI, Population, Line) %>% summarise_at(vars(PercT5), list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, SE = std_err, CV = coef_var, Mode = estimate_mode)), file = "Pigmentation/table_Pgm_Line_PercT5_wobatch.csv", row.names = T)
-table_Pgm_Line_PercT5_wobatch <- read.csv("Pigmentation/table_Pgm_Line_PercT5_wobatch.csv")
-```
-
 ```{r table_Pgm_Line_PercT5_wobatch, echo=FALSE}
 DT::datatable(table_Pgm_Line_PercT5_wobatch, options = list(pageLength = 10)) %>% formatRound(5:12, 3)
 ```
 
 Descriptive statistics at the population level, with batch information :
-```{r, echo=FALSE}
-table_Pgm_Pop_PercT5_wbatch <- write.csv(d_Pgm %>% group_by(Supervisor.PI, Batch, Population) %>% 
-                                   summarise_at(vars(PercT5), 
-                                                list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
-                                                     SE = std_err, CV = coef_var, Mode = estimate_mode)), 
-                           file = "Pigmentation/table_Pgm_Pop_PercT5_wbatch.csv", row.names = T)
-
-table_Pgm_Pop_PercT5_wbatch <- read.csv("Pigmentation/table_Pgm_Pop_PercT5_wbatch.csv")
-```
-
 ```{r table_Pgm_Pop_PercT5_wbatch, echo=FALSE}
 DT::datatable(table_Pgm_Pop_PercT5_wbatch, options = list(pageLength = 10)) %>% formatRound(5:12, 3)
 ```
 
 Descriptive statistics at the population level, without batch information :
-```{r, echo=FALSE}
-table_Pgm_Pop_PercT5_wobatch <- write.csv(d_Pgm %>% group_by(Supervisor.PI, Population) %>% 
-                                   summarise_at(vars(PercT5), 
-                                                list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
-                                                     SE = std_err, CV = coef_var, Mode = estimate_mode)), 
-                           file = "Pigmentation/table_Pgm_Pop_PercT5_wobatch.csv", row.names = T)
-
-table_Pgm_Pop_PercT5_wobatch <- read.csv("Pigmentation/table_Pgm_Pop_PercT5_wobatch.csv")
-```
-
 ```{r table_Pgm_Pop_PercT5_wobatch, echo=FALSE}
 DT::datatable(table_Pgm_Pop_PercT5_wobatch, options = list(pageLength = 10))%>% formatRound(4:11, 3)
 ```
@@ -7149,52 +6293,21 @@ DT::datatable(table_Pgm_Pop_PercT5_wobatch, options = list(pageLength = 10))%>% 
 ### _T6_
 
 Descriptive statistics at the line level, with batch information :
-```{r table_Pgm_Line_PercT6_wbatch, echo=FALSE}
-table_Pgm_Line_PercT6_wbatch <- write.csv(d_Pgm %>% group_by(Supervisor.PI, Batch, Population, Line) %>% summarise_at(vars(PercT6), list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, SE = std_err, CV = coef_var, Mode = estimate_mode)), file = "Pigmentation/table_Pgm_Line_PercT6_wbatch.csv", row.names = T)
-
-table_Pgm_Line_PercT6_wbatch <- read.csv("Pigmentation/table_Pgm_Line_PercT6_wbatch.csv")
-```
-
 ```{r, echo=FALSE}
 DT::datatable(table_Pgm_Line_PercT6_wbatch, options = list(pageLength = 10)) %>% formatRound(6:13, 3)
 ```
 
 Descriptive statistics at the line level, without batch information :
-```{r, echo=FALSE}
-table_Pgm_Line_PercT6_wobatch <- write.csv(d_Pgm %>% group_by(Supervisor.PI, Population, Line) %>% summarise_at(vars(PercT6), list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, SE = std_err, CV = coef_var, Mode = estimate_mode)), file = "Pigmentation/table_Pgm_Line_PercT6_wobatch.csv", row.names = T)
-table_Pgm_Line_PercT6_wobatch <- read.csv("Pigmentation/table_Pgm_Line_PercT6_wobatch.csv")
-```
-
 ```{r table_Pgm_Line_PercT6_wobatch}
 DT::datatable(table_Pgm_Line_PercT6_wobatch, options = list(pageLength = 10)) %>% formatRound(5:12, 3)
 ```
 
 Descriptive statistics at the population level, with batch information :
-```{r, echo=FALSE}
-table_Pgm_Pop_PercT6_wbatch <- write.csv(d_Pgm %>% group_by(Supervisor.PI, Batch, Population) %>% 
-                                   summarise_at(vars(PercT6), 
-                                                list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
-                                                     SE = std_err, CV = coef_var, Mode = estimate_mode)), 
-                           file = "Pigmentation/table_Pgm_Pop_PercT6_wbatch.csv", row.names = T)
-
-table_Pgm_Pop_PercT6_wbatch <- read.csv("Pigmentation/table_Pgm_Pop_PercT6_wbatch.csv")
-```
-
 ```{r table_Pgm_Pop_PercT6_wbatch, echo=FALSE}
 DT::datatable(table_Pgm_Pop_PercT6_wbatch, options = list(pageLength = 10)) %>% formatRound(5:12, 3)
 ```
 
 Descriptive statistics at the population level, without batch information :
-```{r, echo=FALSE}
-table_Pgm_Pop_PercT6_wobatch <- write.csv(d_Pgm %>% group_by(Supervisor.PI, Population) %>% 
-                                   summarise_at(vars(PercT6), 
-                                                list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
-                                                     SE = std_err, CV = coef_var, Mode = estimate_mode)), 
-                           file = "Pigmentation/table_Pgm_Pop_PercT6_wobatch.csv", row.names = T)
-
-table_Pgm_Pop_PercT6_wobatch <- read.csv("Pigmentation/table_Pgm_Pop_PercT6_wobatch.csv")
-```
-
 ```{r table_Pgm_Pop_PercT6_wobatch, echo=FALSE}
 DT::datatable(table_Pgm_Pop_PercT6_wobatch, options = list(pageLength = 10))%>% formatRound(4:11, 3)
 ```
@@ -7202,52 +6315,21 @@ DT::datatable(table_Pgm_Pop_PercT6_wobatch, options = list(pageLength = 10))%>% 
 ### _Total_
 
 Descriptive statistics at the line level, with batch information :
-```{r table_Pgm_Line_TotalPerc_wbatch, echo=FALSE}
-table_Pgm_Line_TotalPerc_wbatch <- write.csv(d_Pgm %>% group_by(Supervisor.PI, Batch, Population, Line) %>% summarise_at(vars(TotalPerc), list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, SE = std_err, CV = coef_var, Mode = estimate_mode)), file = "Pigmentation/table_Pgm_Line_TotalPerc_wbatch.csv", row.names = T)
-
-table_Pgm_Line_TotalPerc_wbatch <- read.csv("Pigmentation/table_Pgm_Line_TotalPerc_wbatch.csv")
-```
-
 ```{r, echo=FALSE}
 DT::datatable(table_Pgm_Line_TotalPerc_wbatch, options = list(pageLength = 10)) %>% formatRound(6:13, 3)
 ```
 
 Descriptive statistics at the line level, without batch information :
-```{r, echo=FALSE}
-table_Pgm_Line_TotalPerc_wobatch <- write.csv(d_Pgm %>% group_by(Supervisor.PI, Population, Line) %>% summarise_at(vars(TotalPerc), list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, SE = std_err, CV = coef_var, Mode = estimate_mode)), file = "Pigmentation/table_Pgm_Line_TotalPerc_wobatch.csv", row.names = T)
-table_Pgm_Line_TotalPerc_wobatch <- read.csv("Pigmentation/table_Pgm_Line_TotalPerc_wobatch.csv")
-```
-
 ```{r table_Pgm_Line_TotalPerc_wobatch, echo=FALSE}
 DT::datatable(table_Pgm_Line_TotalPerc_wobatch, options = list(pageLength = 10)) %>% formatRound(5:12, 3)
 ```
 
 Descriptive statistics at the population level, with batch information :
-```{r, echo=FALSE}
-table_Pgm_Pop_TotalPerc_wbatch <- write.csv(d_Pgm %>% group_by(Supervisor.PI, Batch, Population) %>% 
-                                   summarise_at(vars(TotalPerc), 
-                                                list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
-                                                     SE = std_err, CV = coef_var, Mode = estimate_mode)), 
-                           file = "Pigmentation/table_Pgm_Pop_TotalPerc_wbatch.csv", row.names = T)
-
-table_Pgm_Pop_TotalPerc_wbatch <- read.csv("Pigmentation/table_Pgm_Pop_TotalPerc_wbatch.csv")
-```
-
 ```{r table_Pgm_Pop_TotalPerc_wbatch, echo=FALSE}
 DT::datatable(table_Pgm_Pop_TotalPerc_wbatch, options = list(pageLength = 10)) %>% formatRound(5:12, 3)
 ```
 
 Descriptive statistics at the population level, without batch information :
-```{r, echo=FALSE}
-table_Pgm_Pop_TotalPerc_wobatch <- write.csv(d_Pgm %>% group_by(Supervisor.PI, Population) %>% 
-                                   summarise_at(vars(TotalPerc), 
-                                                list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
-                                                     SE = std_err, CV = coef_var, Mode = estimate_mode)), 
-                           file = "Pigmentation/table_Pgm_Pop_TotalPerc_wobatch.csv", row.names = T)
-
-table_Pgm_Pop_TotalPerc_wobatch <- read.csv("Pigmentation/table_Pgm_Pop_TotalPerc_wobatch.csv")
-```
-
 ```{r table_Pgm_Pop_TotalPerc_wobatch, echo=FALSE}
 DT::datatable(table_Pgm_Pop_TotalPerc_wobatch, options = list(pageLength = 10))%>% formatRound(4:11, 3)
 ```
@@ -7255,52 +6337,21 @@ DT::datatable(table_Pgm_Pop_TotalPerc_wobatch, options = list(pageLength = 10))%
 ### _T8_
 
 Descriptive statistics at the line level, with batch information :
-```{r table_Pgm_Line_Tergite8_wbatch, echo=FALSE}
-table_Pgm_Line_Tergite8_wbatch <- write.csv(d_Pgm2 %>% group_by(Supervisor.PI, Batch, Population, Line) %>% summarise_at(vars(Tergite8), list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, SE = std_err, CV = coef_var, Mode = estimate_mode)), file = "Pigmentation/table_Pgm_Line_Tergite8_wbatch.csv", row.names = T)
-
-table_Pgm_Line_Tergite8_wbatch <- read.csv("Pigmentation/table_Pgm_Line_Tergite8_wbatch.csv")
-```
-
 ```{r, echo=FALSE}
 DT::datatable(table_Pgm_Line_Tergite8_wbatch, options = list(pageLength = 10)) %>% formatRound(6:13, 3)
 ```
 
 Descriptive statistics at the line level, without batch information :
-```{r, echo=FALSE}
-table_Pgm_Line_Tergite8_wobatch <- write.csv(d_Pgm2 %>% group_by(Supervisor.PI, Population, Line) %>% summarise_at(vars(Tergite8), list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, SE = std_err, CV = coef_var, Mode = estimate_mode)), file = "Pigmentation/table_Pgm_Line_Tergite8_wobatch.csv", row.names = T)
-table_Pgm_Line_Tergite8_wobatch <- read.csv("Pigmentation/table_Pgm_Line_Tergite8_wobatch.csv")
-```
-
 ```{r table_Pgm_Line_Tergite8_wobatch, echo=FALSE}
 DT::datatable(table_Pgm_Line_Tergite8_wobatch, options = list(pageLength = 10)) %>% formatRound(5:12, 3)
 ```
 
 Descriptive statistics at the population level, with batch information :
-```{r, echo=FALSE}
-table_Pgm_Pop_Tergite8_wbatch <- write.csv(d_Pgm2 %>% group_by(Supervisor.PI, Batch, Population) %>% 
-                                   summarise_at(vars(Tergite8), 
-                                                list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
-                                                     SE = std_err, CV = coef_var, Mode = estimate_mode)), 
-                           file = "Pigmentation/table_Pgm_Pop_Tergite8_wbatch.csv", row.names = T)
-
-table_Pgm_Pop_Tergite8_wbatch <- read.csv("Pigmentation/table_Pgm_Pop_Tergite8_wbatch.csv")
-```
-
 ```{r table_Pgm_Pop_Tergite8_wbatch, echo=FALSE}
 DT::datatable(table_Pgm_Pop_Tergite8_wbatch, options = list(pageLength = 10)) %>% formatRound(5:12, 3)
 ```
 
 Descriptive statistics at the population level, without batch information :
-```{r, echo=FALSE}
-table_Pgm_Pop_Tergite8_wobatch <- write.csv(d_Pgm2 %>% group_by(Supervisor.PI, Population) %>% 
-                                   summarise_at(vars(Tergite8), 
-                                                list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
-                                                     SE = std_err, CV = coef_var, Mode = estimate_mode)), 
-                           file = "Pigmentation/table_Pgm_Pop_Tergite8_wobatch.csv", row.names = T)
-
-table_Pgm_Pop_Tergite8_wobatch <- read.csv("Pigmentation/table_Pgm_Pop_Tergite8_wobatch.csv")
-```
-
 ```{r table_Pgm_Pop_Tergite8_wobatch, echo=FALSE}
 DT::datatable(table_Pgm_Pop_Tergite8_wobatch, options = list(pageLength = 10))%>% formatRound(4:11, 3)
 ```
@@ -7308,160 +6359,65 @@ DT::datatable(table_Pgm_Pop_Tergite8_wobatch, options = list(pageLength = 10))%>
 ### _T9_
 
 Descriptive statistics at the line level, with batch information :
-```{r table_Pgm_Line_Tergite9_wbatch, echo=FALSE}
-table_Pgm_Line_Tergite9_wbatch <- write.csv(d_Pgm2 %>% group_by(Supervisor.PI, Batch, Population, Line) %>% summarise_at(vars(Tergite9), list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, SE = std_err, CV = coef_var, Mode = estimate_mode)), file = "Pigmentation/table_Pgm_Line_Tergite9_wbatch.csv", row.names = T)
-
-table_Pgm_Line_Tergite9_wbatch <- read.csv("Pigmentation/table_Pgm_Line_Tergite9_wbatch.csv")
-```
-
 ```{r}
 DT::datatable(table_Pgm_Line_Tergite9_wbatch, options = list(pageLength = 10)) %>% formatRound(6:13, 3)
 ```
 
 Descriptive statistics at the line level, without batch information :
-```{r}
-table_Pgm_Line_Tergite9_wobatch <- write.csv(d_Pgm2 %>% group_by(Supervisor.PI, Population, Line) %>% summarise_at(vars(Tergite9), list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, SE = std_err, CV = coef_var, Mode = estimate_mode)), file = "Pigmentation/table_Pgm_Line_Tergite9_wobatch.csv", row.names = T)
-table_Pgm_Line_Tergite9_wobatch <- read.csv("Pigmentation/table_Pgm_Line_Tergite9_wobatch.csv")
-```
-
 ```{r table_Pgm_Line_Tergite9_wobatch, echo=FALSE}
 DT::datatable(table_Pgm_Line_Tergite9_wobatch, options = list(pageLength = 10)) %>% formatRound(5:12, 3)
 ```
 
 Descriptive statistics at the population level, with batch information :
-```{r, echo=FALSE}
-table_Pgm_Pop_Tergite9_wbatch <- write.csv(d_Pgm2 %>% group_by(Supervisor.PI, Batch, Population) %>% 
-                                   summarise_at(vars(Tergite9), 
-                                                list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
-                                                     SE = std_err, CV = coef_var, Mode = estimate_mode)), 
-                           file = "Pigmentation/table_Pgm_Pop_Tergite9_wbatch.csv", row.names = T)
-
-table_Pgm_Pop_Tergite9_wbatch <- read.csv("Pigmentation/table_Pgm_Pop_Tergite9_wbatch.csv")
-```
-
 ```{r table_Pgm_Pop_Tergite9_wbatch, echo=FALSE}
 DT::datatable(table_Pgm_Pop_Tergite9_wbatch, options = list(pageLength = 10)) %>% formatRound(5:12, 3)
 ```
 
 Descriptive statistics at the population level, without batch information :
-```{r, echo=FALSE}
-table_Pgm_Pop_Tergite9_wobatch <- write.csv(d_Pgm2 %>% group_by(Supervisor.PI, Population) %>% 
-                                   summarise_at(vars(Tergite9), 
-                                                list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
-                                                     SE = std_err, CV = coef_var, Mode = estimate_mode)), 
-                           file = "Pigmentation/table_Pgm_Pop_Tergite9_wobatch.csv", row.names = T)
-
-table_Pgm_Pop_Tergite9_wobatch <- read.csv("Pigmentation/table_Pgm_Pop_Tergite9_wobatch.csv")
-```
-
 ```{r table_Pgm_Pop_Tergite9_wobatch, echo=FALSE}
 DT::datatable(table_Pgm_Pop_Tergite9_wobatch, options = list(pageLength = 10))%>% formatRound(4:11, 3)
 ```
 
 ### _T10_
 
-
 Descriptive statistics at the line level, with batch information :
-```{r table_Pgm_Line_Tergite10_wbatch, echo=FALSE}
-table_Pgm_Line_Tergite10_wbatch <- write.csv(d_Pgm2 %>% group_by(Supervisor.PI, Batch, Population, Line) %>% summarise_at(vars(Tergite10), list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, SE = std_err, CV = coef_var, Mode = estimate_mode)), file = "Pigmentation/table_Pgm_Line_Tergite10_wbatch.csv", row.names = T)
-
-table_Pgm_Line_Tergite10_wbatch <- read.csv("Pigmentation/table_Pgm_Line_Tergite10_wbatch.csv")
-```
-
 ```{r, echo=FALSE}
 DT::datatable(table_Pgm_Line_Tergite10_wbatch, options = list(pageLength = 10)) %>% formatRound(6:13, 3)
 ```
 
 Descriptive statistics at the line level, without batch information :
-```{r, echo=FALSE}
-table_Pgm_Line_Tergite10_wobatch <- write.csv(d_Pgm2 %>% group_by(Supervisor.PI, Population, Line) %>% summarise_at(vars(Tergite10), list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, SE = std_err, CV = coef_var, Mode = estimate_mode)), file = "Pigmentation/table_Pgm_Line_Tergite10_wobatch.csv", row.names = T)
-table_Pgm_Line_Tergite10_wobatch <- read.csv("Pigmentation/table_Pgm_Line_Tergite10_wobatch.csv")
-```
-
 ```{r table_Pgm_Line_Tergite10_wobatch, echo=FALSE}
 DT::datatable(table_Pgm_Line_Tergite10_wobatch, options = list(pageLength = 10)) %>% formatRound(5:12, 3)
 ```
 
 Descriptive statistics at the population level, with batch information :
-```{r, echo=FALSE}
-table_Pgm_Pop_Tergite10_wbatch <- write.csv(d_Pgm2 %>% group_by(Supervisor.PI, Batch, Population) %>% 
-                                   summarise_at(vars(Tergite10), 
-                                                list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
-                                                     SE = std_err, CV = coef_var, Mode = estimate_mode)), 
-                           file = "Pigmentation/table_Pgm_Pop_Tergite10_wbatch.csv", row.names = T)
-
-table_Pgm_Pop_Tergite10_wbatch <- read.csv("Pigmentation/table_Pgm_Pop_Tergite10_wbatch.csv")
-```
-
 ```{r table_Pgm_Pop_Tergite10_wbatch, echo=FALSE}
 DT::datatable(table_Pgm_Pop_Tergite10_wbatch, options = list(pageLength = 10)) %>% formatRound(5:12, 3)
 ```
 
 Descriptive statistics at the population level, without batch information :
-```{r, echo=FALSE}
-table_Pgm_Pop_Tergite10_wobatch <- write.csv(d_Pgm2 %>% group_by(Supervisor.PI, Population) %>% 
-                                   summarise_at(vars(Tergite10), 
-                                                list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
-                                                     SE = std_err, CV = coef_var, Mode = estimate_mode)), 
-                           file = "Pigmentation/table_Pgm_Pop_Tergite10_wobatch.csv", row.names = T)
-
-table_Pgm_Pop_Tergite10_wobatch <- read.csv("Pigmentation/table_Pgm_Pop_Tergite10_wobatch.csv")
-```
-
 ```{r table_Pgm_Pop_Tergite10_wobatch, echo=FALSE}
 DT::datatable(table_Pgm_Pop_Tergite10_wobatch, options = list(pageLength = 10))%>% formatRound(4:11, 3)
 ```
 
 ### _Total2_
 
-
 Descriptive statistics at the line level, with batch information :
-```{r table_Pgm_Line_Total_wbatch, echo=FALSE}
-table_Pgm_Line_Total_wbatch <- write.csv(d_Pgm2 %>% group_by(Supervisor.PI, Batch, Population, Line) %>% summarise_at(vars(Total), list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, SE = std_err, CV = coef_var, Mode = estimate_mode)), file = "Pigmentation/table_Pgm_Line_Total_wbatch.csv", row.names = T)
-
-table_Pgm_Line_Total_wbatch <- read.csv("Pigmentation/table_Pgm_Line_Total_wbatch.csv")
-```
-
 ```{r, echo=FALSE}
 DT::datatable(table_Pgm_Line_Total_wbatch, options = list(pageLength = 10)) %>% formatRound(6:13, 3)
 ```
 
 Descriptive statistics at the line level, without batch information :
-```{r, echo=FALSE}
-table_Pgm_Line_Total_wobatch <- write.csv(d_Pgm2 %>% group_by(Supervisor.PI, Population, Line) %>% summarise_at(vars(Total), list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, SE = std_err, CV = coef_var, Mode = estimate_mode)), file = "Pigmentation/table_Pgm_Line_Total_wobatch.csv", row.names = T)
-table_Pgm_Line_Total_wobatch <- read.csv("Pigmentation/table_Pgm_Line_Total_wobatch.csv")
-```
-
 ```{r table_Pgm_Line_Total_wobatch, echo=FALSE}
 DT::datatable(table_Pgm_Line_Total_wobatch, options = list(pageLength = 10)) %>% formatRound(5:12, 3)
 ```
 
 Descriptive statistics at the population level, with batch information :
-```{r, echo=FALSE}
-table_Pgm_Pop_Total_wbatch <- write.csv(d_Pgm2 %>% group_by(Supervisor.PI, Batch, Population) %>% 
-                                   summarise_at(vars(Total), 
-                                                list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
-                                                     SE = std_err, CV = coef_var, Mode = estimate_mode)), 
-                           file = "Pigmentation/table_Pgm_Pop_Total_wbatch.csv", row.names = T)
-
-table_Pgm_Pop_Total_wbatch <- read.csv("Pigmentation/table_Pgm_Pop_Total_wbatch.csv")
-```
-
 ```{r table_Pgm_Pop_Total_wbatch, echo=FALSE}
 DT::datatable(table_Pgm_Pop_Total_wbatch, options = list(pageLength = 10)) %>% formatRound(5:12, 3)
 ```
 
 Descriptive statistics at the population level, without batch information :
-```{r, echo=FALSE}
-table_Pgm_Pop_Total_wobatch <- write.csv(d_Pgm2 %>% group_by(Supervisor.PI, Population) %>% 
-                                   summarise_at(vars(Total), 
-                                                list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, 
-                                                     SE = std_err, CV = coef_var, Mode = estimate_mode)), 
-                           file = "Pigmentation/table_Pgm_Pop_Total_wobatch.csv", row.names = T)
-
-table_Pgm_Pop_Total_wobatch <- read.csv("Pigmentation/table_Pgm_Pop_Total_wobatch.csv")
-```
-
 ```{r table_Pgm_Pop_Total_wobatch, echo=FALSE}
 DT::datatable(table_Pgm_Pop_Total_wobatch, options = list(pageLength = 10))%>% formatRound(4:11, 3)
 ```
@@ -7474,22 +6430,6 @@ DT::datatable(table_Pgm_Pop_Total_wobatch, options = list(pageLength = 10))%>% f
 
 _PercT4_
 
-```{r Pgm_lmer_Abbott_PercT4, echo=FALSE}
-Pgm_lmer_Abbott_PercT4 <- lmer(PercT4 ~ Population + (1|Line:Population), 
-                               data = (subset(d_Pgm,Supervisor.PI=='Abbott')))
-capture.output(summary(Pgm_lmer_Abbott_PercT4),file = "Pigmentation/Pgm_lmer_Abbott_PercT4_sum.txt")
-capture.output(anova(Pgm_lmer_Abbott_PercT4),file = "Pigmentation/Pgm_lmer_Abbott_PercT4.txt")
-capture.output(emmeans(Pgm_lmer_Abbott_PercT4, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "Pigmentation/Pgm_lmer_Abbott_PercT4_tk.txt")
-```
-
-
-
-```{r include=FALSE}
-model_means_Pgm_PercT4_Abbott <- emmeans(object = Pgm_lmer_Abbott_PercT4, specs = ~ Population)
-model_means_Pgm_PercT4_Abbott_cld <- cld(object = model_means_Pgm_PercT4_Abbott, adjust = "Tukey", Letters = letters, alpha = 0.05) %>% as.data.frame %>% mutate(Population = factor(Population, levels = c("YE","RE","GI","MU","MA","UM","KA","VA","AK"))) %>% arrange(Population) %>% dplyr::rename(cld = .group)
-```
-
-
 ```{r}
 anova(Pgm_lmer_Abbott_PercT4)
 ```
@@ -7497,7 +6437,6 @@ anova(Pgm_lmer_Abbott_PercT4)
 ```{r}
 summary(Pgm_lmer_Abbott_PercT4)
 ```
-
 
 ```{r p_Pgm_Abbott_PercT4, echo=FALSE}
 
@@ -7516,12 +6455,10 @@ p_Pgm_Abbott_PercT4
 invisible(dev.off())
 ```
 
-
 ```{r p_Pgm_pop_Abbott_PercT4, echo=FALSE}
-
 p_Pgm_pop_Abbott_PercT4 <- ggplot(data = (subset(d_Pgm,Supervisor.PI=='Abbott')), aes(x=Population_Lat, y=PercT4, fill=Population)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-        labs(title="p_Pgm_pop_Abbott_PercT4", x="Population", y = "PercT4") + ylim(c(min(d_Pgm$PercT4) , max(d_Pgm$PercT4)))+ geom_text(data = model_means_Pgm_PercT4_Abbott_cld, aes(x = Population, label = cld), y = max(d_Pgm$PercT4), vjust = 1) +droseu_theme
+        labs(title="p_Pgm_pop_Abbott_PercT4", x="Population", y = "PercT4") + ylim(c(min(d_Pgm$PercT4) , max(d_Pgm$PercT4)))+ geom_text(data = model_means_Pgm_PercT4_Abbott_cld, aes(x = Population, label = cld), y = Inf, vjust = 1) +droseu_theme
 ```
 
 ```{r echo=FALSE}
@@ -7534,23 +6471,7 @@ p_Pgm_pop_Abbott_PercT4
 invisible(dev.off())
 ```
 
-
-
 _PercT5_
-
-```{r Pgm_lmer_Abbott_PercT5, echo=FALSE}
-Pgm_lmer_Abbott_PercT5 <- lmer(PercT5 ~ Population  + (1|Line:Population) , data = (subset(d_Pgm,Supervisor.PI=='Abbott')))
-capture.output(summary(Pgm_lmer_Abbott_PercT5),file = "Pigmentation/Pgm_lmer_Abbott_PercT5_sum.txt")
-capture.output(anova(Pgm_lmer_Abbott_PercT5),file = "Pigmentation/Pgm_lmer_Abbott_PercT5.txt")
-capture.output(emmeans(Pgm_lmer_Abbott_PercT5, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "Pigmentation/Pgm_lmer_Abbott_PercT5_tk.txt")
-```
-
-```{r include=FALSE}
-model_means_Pgm_PercT5_Abbott <- emmeans(object = Pgm_lmer_Abbott_PercT5, specs = ~ Population)
-model_means_Pgm_PercT5_Abbott_cld <- cld(object = model_means_Pgm_PercT5_Abbott, adjust = "Tukey", Letters = letters, alpha = 0.05) %>% as.data.frame %>% mutate(Population = factor(Population, levels = c("YE","RE","GI","MU","MA","UM","KA","VA","AK"))) %>% arrange(Population) %>% dplyr::rename(cld = .group)
-```
-
-
 
 ```{r}
 anova(Pgm_lmer_Abbott_PercT5)
@@ -7560,9 +6481,7 @@ anova(Pgm_lmer_Abbott_PercT5)
 summary(Pgm_lmer_Abbott_PercT5)
 ```
 
-
 ```{r p_Pgm_Abbott_PercT5, echo=FALSE}
-
 p_Pgm_Abbott_PercT5 <- ggplot(data = (subset(d_Pgm,Supervisor.PI=='Abbott')), aes(x=Population_Lat, y=PercT5, fill=Batch)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
         labs(title="p_Pgm_Abbott_PercT5", x="Population", y = "PercT5") + ylim(c(min(d_Pgm$PercT5) , max(d_Pgm$PercT5)))+ droseu_theme
@@ -7578,12 +6497,10 @@ p_Pgm_Abbott_PercT5
 invisible(dev.off())
 ```
 
-
 ```{r p_Pgm_pop_Abbott_PercT5, echo=FALSE}
-
 p_Pgm_pop_Abbott_PercT5 <- ggplot(data = (subset(d_Pgm,Supervisor.PI=='Abbott')), aes(x=Population_Lat, y=PercT5, fill=Population)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-        labs(title="p_Pgm_pop_Abbott_PercT5", x="Population", y = "PercT5") + ylim(c(min(d_Pgm$PercT5) , max(d_Pgm$PercT5)))+ geom_text(data = model_means_Pgm_PercT5_Abbott_cld, aes(x = Population, label = cld), y = max(d_Pgm$PercT5), vjust = 1) +droseu_theme
+        labs(title="p_Pgm_pop_Abbott_PercT5", x="Population", y = "PercT5") + ylim(c(min(d_Pgm$PercT5) , max(d_Pgm$PercT5)))+ geom_text(data = model_means_Pgm_PercT5_Abbott_cld, aes(x = Population, label = cld), y = Inf, vjust = 1) +droseu_theme
 ```
 
 ```{r echo=FALSE}
@@ -7596,22 +6513,7 @@ p_Pgm_pop_Abbott_PercT5
 invisible(dev.off())
 ```
 
-
 _PercT6_
-
-```{r Pgm_lmer_Abbott_PercT6, echo=FALSE}
-Pgm_lmer_Abbott_PercT6 <- lmer(PercT6 ~ Population  + (1|Line:Population) , data = (subset(d_Pgm,Supervisor.PI=='Abbott')))
-capture.output(summary(Pgm_lmer_Abbott_PercT6),file = "Pigmentation/Pgm_lmer_Abbott_PercT6_sum.txt")
-capture.output(anova(Pgm_lmer_Abbott_PercT6),file = "Pigmentation/Pgm_lmer_Abbott_PercT6.txt")
-capture.output(emmeans(Pgm_lmer_Abbott_PercT6, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "Pigmentation/Pgm_lmer_Abbott_PercT6_tk.txt")
-```
-
-
-```{r include=FALSE}
-model_means_Pgm_PercT6_Abbott <- emmeans(object = Pgm_lmer_Abbott_PercT6, specs = ~ Population)
-model_means_Pgm_PercT6_Abbott_cld <- cld(object = model_means_Pgm_PercT6_Abbott, adjust = "Tukey", Letters = letters, alpha = 0.05) %>% as.data.frame %>% mutate(Population = factor(Population, levels = c("YE","RE","GI","MU","MA","UM","KA","VA","AK"))) %>% arrange(Population) %>% dplyr::rename(cld = .group)
-```
-
 
 ```{r}
 anova(Pgm_lmer_Abbott_PercT6)
@@ -7621,9 +6523,7 @@ anova(Pgm_lmer_Abbott_PercT6)
 summary(Pgm_lmer_Abbott_PercT6)
 ```
 
-
 ```{r p_Pgm_Abbott_PercT6, echo=FALSE}
-
 p_Pgm_Abbott_PercT6 <- ggplot(data = (subset(d_Pgm,Supervisor.PI=='Abbott')), aes(x=Population_Lat, y=PercT6, fill=Batch)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
         labs(title="p_Pgm_Abbott_PercT6", x="Population", y = "PercT6") + ylim(c(min(d_Pgm$PercT6) , max(d_Pgm$PercT6)))+ droseu_theme
@@ -7639,12 +6539,10 @@ p_Pgm_Abbott_PercT6
 invisible(dev.off())
 ```
 
-
 ```{r p_Pgm_pop_Abbott_PercT6, echo=FALSE}
-
 p_Pgm_pop_Abbott_PercT6 <- ggplot(data = (subset(d_Pgm,Supervisor.PI=='Abbott')), aes(x=Population_Lat, y=PercT6, fill=Population)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-        labs(title="p_Pgm_pop_Abbott_PercT6", x="Population", y = "PercT6") + ylim(c(min(d_Pgm$PercT6) , max(d_Pgm$PercT6)))+ geom_text(data = model_means_Pgm_PercT6_Abbott_cld, aes(x = Population, label = cld), y = max(d_Pgm$PercT6), vjust = 1) +droseu_theme
+        labs(title="p_Pgm_pop_Abbott_PercT6", x="Population", y = "PercT6") + ylim(c(min(d_Pgm$PercT6) , max(d_Pgm$PercT6)))+ geom_text(data = model_means_Pgm_PercT6_Abbott_cld, aes(x = Population, label = cld), y = Inf, vjust = 1) +droseu_theme
 ```
 
 ```{r echo=FALSE}
@@ -7657,23 +6555,7 @@ p_Pgm_pop_Abbott_PercT6
 invisible(dev.off())
 ```
 
-
 _TotalPerc_
-
-```{r Pgm_lmer_Abbott_TotalPerc, echo=FALSE}
-Pgm_lmer_Abbott_TotalPerc <- lmer(TotalPerc ~ Population  + (1|Line:Population)  , data = (subset(d_Pgm,Supervisor.PI=='Abbott')))
-capture.output(summary(Pgm_lmer_Abbott_TotalPerc),file = "Pigmentation/Pgm_lmer_Abbott_TotalPerc_sum.txt")
-capture.output(anova(Pgm_lmer_Abbott_TotalPerc),file = "Pigmentation/Pgm_lmer_Abbott_TotalPerc.txt")
-capture.output(emmeans(Pgm_lmer_Abbott_TotalPerc, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "Pigmentation/Pgm_lmer_Abbott_TotalPerc_tk.txt")
-```
-
-
-```{r include=FALSE}
-model_means_Pgm_TotalPerc_Abbott <- emmeans(object = Pgm_lmer_Abbott_TotalPerc, specs = ~ Population)
-model_means_Pgm_TotalPerc_Abbott_cld <- cld(object = model_means_Pgm_TotalPerc_Abbott, adjust = "Tukey", Letters = letters, alpha = 0.05) %>% as.data.frame %>% mutate(Population = factor(Population, levels = c("YE","RE","GI","MU","MA","UM","KA","VA","AK"))) %>% arrange(Population) %>% dplyr::rename(cld = .group)
-```
-
-
 
 ```{r}
 anova(Pgm_lmer_Abbott_TotalPerc)
@@ -7683,9 +6565,7 @@ anova(Pgm_lmer_Abbott_TotalPerc)
 summary(Pgm_lmer_Abbott_TotalPerc)
 ```
 
-
 ```{r p_Pgm_Abbott_TotalPerc, echo=FALSE}
-
 p_Pgm_Abbott_TotalPerc <- ggplot(data = (subset(d_Pgm,Supervisor.PI=='Abbott')), aes(x=Population_Lat, y=TotalPerc, fill=Batch)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
         labs(title="p_Pgm_Abbott_TotalPerc", x="Population", y = "TotalPerc") + ylim(c(min(d_Pgm$TotalPerc) , max(d_Pgm$TotalPerc)))+ droseu_theme
@@ -7701,12 +6581,10 @@ p_Pgm_Abbott_TotalPerc
 invisible(dev.off())
 ```
 
-
 ```{r p_Pgm_pop_Abbott_TotalPerc, echo=FALSE}
-
 p_Pgm_pop_Abbott_TotalPerc <- ggplot(data = (subset(d_Pgm,Supervisor.PI=='Abbott')), aes(x=Population_Lat, y=TotalPerc, fill=Population)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-        labs(title="p_Pgm_pop_Abbott_TotalPerc", x="Population", y = "TotalPerc") + ylim(c(min(d_Pgm$TotalPerc) , max(d_Pgm$TotalPerc)))+ geom_text(data = model_means_Pgm_TotalPerc_Abbott_cld, aes(x = Population, label = cld), y = max(d_Pgm$TotalPerc), vjust = 1) +droseu_theme
+        labs(title="p_Pgm_pop_Abbott_TotalPerc", x="Population", y = "TotalPerc") + ylim(c(min(d_Pgm$TotalPerc) , max(d_Pgm$TotalPerc)))+ geom_text(data = model_means_Pgm_TotalPerc_Abbott_cld, aes(x = Population, label = cld), y = Inf, vjust = 1) +droseu_theme
 ```
 
 ```{r echo=FALSE}
@@ -7719,27 +6597,9 @@ p_Pgm_pop_Abbott_TotalPerc
 invisible(dev.off())
 ```
 
-
 #### Gibert Lab 
 
-
 _PercT4_
-
-```{r Pgm_lmer_Gibert_PercT4, echo=FALSE}
-Pgm_lmer_Gibert_PercT4 <- lmer(PercT4 ~ Population  + (1|Line:Population) +
-                                    (1|Batch), data = (subset(d_Pgm,Supervisor.PI=='Gibert')))
-capture.output(summary(Pgm_lmer_Gibert_PercT4),file = "Pigmentation/Pgm_lmer_Gibert_PercT4_sum.txt")
-capture.output(anova(Pgm_lmer_Gibert_PercT4),file = "Pigmentation/Pgm_lmer_Gibert_PercT4.txt")
-capture.output(emmeans(Pgm_lmer_Gibert_PercT4, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "Pigmentation/Pgm_lmer_Gibert_PercT4_tk.txt")
-```
-
-
-```{r include=FALSE}
-model_means_Pgm_PercT4_Gibert <- emmeans(object = Pgm_lmer_Gibert_PercT4, specs = ~ Population)
-model_means_Pgm_PercT4_Gibert_cld <- cld(object = model_means_Pgm_PercT4_Gibert, adjust = "Tukey", Letters = letters, alpha = 0.05) %>% as.data.frame %>% mutate(Population = factor(Population, levels = c("YE","RE","GI","MU","MA","UM","KA","VA","AK"))) %>% arrange(Population) %>% dplyr::rename(cld = .group)
-```
-
-
 
 ```{r}
 anova(Pgm_lmer_Gibert_PercT4)
@@ -7749,9 +6609,7 @@ anova(Pgm_lmer_Gibert_PercT4)
 summary(Pgm_lmer_Gibert_PercT4)
 ```
 
-
 ```{r p_Pgm_Gibert_PercT4, echo=FALSE}
-
 p_Pgm_Gibert_PercT4 <- ggplot(data = (subset(d_Pgm,Supervisor.PI=='Gibert')), aes(x=Population_Lat, y=PercT4, fill=Batch)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
         labs(title="p_Pgm_Gibert_PercT4", x="Population", y = "PercT4") + ylim(c(min(d_Pgm$PercT4) , max(d_Pgm$PercT4)))+ droseu_theme
@@ -7767,12 +6625,10 @@ p_Pgm_Gibert_PercT4
 invisible(dev.off())
 ```
 
-
 ```{r p_Pgm_pop_Gibert_PercT4, echo=FALSE}
-
 p_Pgm_pop_Gibert_PercT4 <- ggplot(data = (subset(d_Pgm,Supervisor.PI=='Gibert')), aes(x=Population_Lat, y=PercT4, fill=Population)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-        labs(title="p_Pgm_pop_Gibert_PercT4", x="Population", y = "PercT4") + ylim(c(min(d_Pgm$PercT4) , max(d_Pgm$PercT4)))+ geom_text(data = model_means_Pgm_PercT4_Gibert_cld, aes(x = Population, label = cld), y = max(d_Pgm$PercT4), vjust = 1) +droseu_theme
+        labs(title="p_Pgm_pop_Gibert_PercT4", x="Population", y = "PercT4") + ylim(c(min(d_Pgm$PercT4) , max(d_Pgm$PercT4)))+ geom_text(data = model_means_Pgm_PercT4_Gibert_cld, aes(x = Population, label = cld), y = Inf, vjust = 1) +droseu_theme
 ```
 
 ```{r echo=FALSE}
@@ -7785,22 +6641,7 @@ p_Pgm_pop_Gibert_PercT4
 invisible(dev.off())
 ```
 
-
-
 _PercT5_
-
-```{r Pgm_lmer_Gibert_PercT5, echo=FALSE}
-Pgm_lmer_Gibert_PercT5 <- lmer(PercT5 ~ Population  + (1|Line:Population), data = (subset(d_Pgm,Supervisor.PI=='Gibert')))
-capture.output(summary(Pgm_lmer_Gibert_PercT5),file = "Pigmentation/Pgm_lmer_Gibert_PercT5_sum.txt")
-capture.output(anova(Pgm_lmer_Gibert_PercT5),file = "Pigmentation/Pgm_lmer_Gibert_PercT5.txt")
-capture.output(emmeans(Pgm_lmer_Gibert_PercT5, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "Pigmentation/Pgm_lmer_Gibert_PercT5_tk.txt")
-```
-
-```{r include=FALSE}
-model_means_Pgm_PercT5_Gibert <- emmeans(object = Pgm_lmer_Gibert_PercT5, specs = ~ Population)
-model_means_Pgm_PercT5_Gibert_cld <- cld(object = model_means_Pgm_PercT5_Gibert, adjust = "Tukey", Letters = letters, alpha = 0.05) %>% as.data.frame %>% mutate(Population = factor(Population, levels = c("YE","RE","GI","MU","MA","UM","KA","VA","AK"))) %>% arrange(Population) %>% dplyr::rename(cld = .group)
-```
-
 
 ```{r}
 anova(Pgm_lmer_Gibert_PercT5)
@@ -7810,9 +6651,7 @@ anova(Pgm_lmer_Gibert_PercT5)
 summary(Pgm_lmer_Gibert_PercT5)
 ```
 
-
 ```{r p_Pgm_Gibert_PercT5, echo=FALSE}
-
 p_Pgm_Gibert_PercT5 <- ggplot(data = (subset(d_Pgm,Supervisor.PI=='Gibert')), aes(x=Population_Lat, y=PercT5, fill=Batch)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
         labs(title="p_Pgm_Gibert_PercT5", x="Population", y = "PercT5") + ylim(c(min(d_Pgm$PercT5) , max(d_Pgm$PercT5)))+ droseu_theme
@@ -7828,12 +6667,10 @@ p_Pgm_Gibert_PercT5
 invisible(dev.off())
 ```
 
-
 ```{r p_Pgm_pop_Gibert_PercT5, echo=FALSE}
-
 p_Pgm_pop_Gibert_PercT5 <- ggplot(data = (subset(d_Pgm,Supervisor.PI=='Gibert')), aes(x=Population_Lat, y=PercT5, fill=Population)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-        labs(title="p_Pgm_pop_Gibert_PercT5", x="Population", y = "PercT5") + ylim(c(min(d_Pgm$PercT5) , max(d_Pgm$PercT5)))+ geom_text(data = model_means_Pgm_PercT5_Gibert_cld, aes(x = Population, label = cld), y = max(d_Pgm$PercT5), vjust = 1) +droseu_theme
+        labs(title="p_Pgm_pop_Gibert_PercT5", x="Population", y = "PercT5") + ylim(c(min(d_Pgm$PercT5) , max(d_Pgm$PercT5)))+ geom_text(data = model_means_Pgm_PercT5_Gibert_cld, aes(x = Population, label = cld), y = Inf, vjust = 1) +droseu_theme
 ```
 
 ```{r echo=FALSE}
@@ -7846,24 +6683,7 @@ p_Pgm_pop_Gibert_PercT5
 invisible(dev.off())
 ```
 
-
 _PercT6_
-
-```{r Pgm_lmer_Gibert_PercT6, echo=FALSE}
-Pgm_lmer_Gibert_PercT6 <- lmer(PercT6 ~ Population  + (1|Line:Population) +
-                                    (1|Batch), data = (subset(d_Pgm,Supervisor.PI=='Gibert')))
-capture.output(summary(Pgm_lmer_Gibert_PercT6),file = "Pigmentation/Pgm_lmer_Gibert_PercT6_sum.txt")
-capture.output(anova(Pgm_lmer_Gibert_PercT6),file = "Pigmentation/Pgm_lmer_Gibert_PercT6.txt")
-capture.output(emmeans(Pgm_lmer_Gibert_PercT6, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "Pigmentation/Pgm_lmer_Gibert_PercT6_tk.txt")
-```
-
-
-```{r include=FALSE}
-model_means_Pgm_PercT6_Gibert <- emmeans(object = Pgm_lmer_Gibert_PercT6, specs = ~ Population)
-model_means_Pgm_PercT6_Gibert_cld <- cld(object = model_means_Pgm_PercT6_Gibert, adjust = "Tukey", Letters = letters, alpha = 0.05) %>% as.data.frame %>% mutate(Population = factor(Population, levels = c("YE","RE","GI","MU","MA","UM","KA","VA","AK"))) %>% arrange(Population) %>% dplyr::rename(cld = .group)
-```
-
-
 
 ```{r}
 anova(Pgm_lmer_Gibert_PercT6)
@@ -7872,7 +6692,6 @@ anova(Pgm_lmer_Gibert_PercT6)
 ```{r}
 summary(Pgm_lmer_Gibert_PercT6)
 ```
-
 
 ```{r p_Pgm_Gibert_PercT6, echo=FALSE}
 
@@ -7891,12 +6710,10 @@ p_Pgm_Gibert_PercT6
 invisible(dev.off())
 ```
 
-
 ```{r p_Pgm_pop_Gibert_PercT6, echo=FALSE}
-
 p_Pgm_pop_Gibert_PercT6 <- ggplot(data = (subset(d_Pgm,Supervisor.PI=='Gibert')), aes(x=Population_Lat, y=PercT6, fill=Population)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-        labs(title="p_Pgm_pop_Gibert_PercT6", x="Population", y = "PercT6") + ylim(c(min(d_Pgm$PercT6) , max(d_Pgm$PercT6)))+ geom_text(data = model_means_Pgm_PercT6_Gibert_cld, aes(x = Population, label = cld), y = max(d_Pgm$PercT6), vjust = 1) +droseu_theme
+        labs(title="p_Pgm_pop_Gibert_PercT6", x="Population", y = "PercT6") + ylim(c(min(d_Pgm$PercT6) , max(d_Pgm$PercT6)))+ geom_text(data = model_means_Pgm_PercT6_Gibert_cld, aes(x = Population, label = cld), y = Inf, vjust = 1) +droseu_theme
 ```
 
 ```{r echo=FALSE}
@@ -7909,24 +6726,7 @@ p_Pgm_pop_Gibert_PercT6
 invisible(dev.off())
 ```
 
-
 _TotalPerc_
-
-```{r Pgm_lmer_Gibert_TotalPerc, echo=FALSE}
-Pgm_lmer_Gibert_TotalPerc <- lmer(TotalPerc ~ Population  + (1|Line:Population) +
-                                    (1|Batch), data = (subset(d_Pgm,Supervisor.PI=='Gibert')))
-capture.output(summary(Pgm_lmer_Gibert_TotalPerc),file = "Pigmentation/Pgm_lmer_Gibert_TotalPerc_sum.txt")
-capture.output(anova(Pgm_lmer_Gibert_TotalPerc),file = "Pigmentation/Pgm_lmer_Gibert_TotalPerc.txt")
-capture.output(emmeans(Pgm_lmer_Gibert_TotalPerc, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "Pigmentation/Pgm_lmer_Gibert_TotalPerc_tk.txt")
-```
-
-```{r include=FALSE}
-model_means_Pgm_TotalPerc_Gibert <- emmeans(object = Pgm_lmer_Gibert_TotalPerc, specs = ~ Population)
-model_means_Pgm_TotalPerc_Gibert_cld <- cld(object = model_means_Pgm_TotalPerc_Gibert, adjust = "Tukey", Letters = letters, alpha = 0.05) %>% as.data.frame %>% mutate(Population = factor(Population, levels = c("YE","RE","GI","MU","MA","UM","KA","VA","AK"))) %>% arrange(Population) %>% dplyr::rename(cld = .group)
-```
-
-
-
 
 ```{r}
 anova(Pgm_lmer_Gibert_TotalPerc)
@@ -7936,9 +6736,7 @@ anova(Pgm_lmer_Gibert_TotalPerc)
 summary(Pgm_lmer_Gibert_TotalPerc)
 ```
 
-
 ```{r p_Pgm_Gibert_TotalPerc, echo=FALSE}
-
 p_Pgm_Gibert_TotalPerc <- ggplot(data = (subset(d_Pgm,Supervisor.PI=='Gibert')), aes(x=Population_Lat, y=TotalPerc, fill=Batch)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
         labs(title="p_Pgm_Gibert_TotalPerc", x="Population", y = "TotalPerc") + ylim(c(min(d_Pgm$TotalPerc) , max(d_Pgm$TotalPerc)))+ droseu_theme
@@ -7954,12 +6752,10 @@ p_Pgm_Gibert_TotalPerc
 invisible(dev.off())
 ```
 
-
 ```{r p_Pgm_pop_Gibert_TotalPerc, echo=FALSE}
-
 p_Pgm_pop_Gibert_TotalPerc <- ggplot(data = (subset(d_Pgm,Supervisor.PI=='Gibert')), aes(x=Population_Lat, y=TotalPerc, fill=Population)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-        labs(title="p_Pgm_pop_Gibert_TotalPerc", x="Population", y = "TotalPerc") + ylim(c(min(d_Pgm$TotalPerc) , max(d_Pgm$TotalPerc)))+ geom_text(data = model_means_Pgm_TotalPerc_Gibert_cld, aes(x = Population, label = cld), y = max(d_Pgm$TotalPerc), vjust = 1) +droseu_theme
+        labs(title="p_Pgm_pop_Gibert_TotalPerc", x="Population", y = "TotalPerc") + ylim(c(min(d_Pgm$TotalPerc) , max(d_Pgm$TotalPerc)))+ geom_text(data = model_means_Pgm_TotalPerc_Gibert_cld, aes(x = Population, label = cld), y = Inf, vjust = 1) +droseu_theme
 ```
 
 ```{r echo=FALSE}
@@ -7972,24 +6768,9 @@ p_Pgm_pop_Gibert_TotalPerc
 invisible(dev.off())
 ```
 
-
 #### Schmidt Lab
 
-
 _Tergite8_
-
-```{r Pgm2_lmer_Schmidt_Tergite8, echo=FALSE}
-Pgm2_lmer_Schmidt_Tergite8 <- lmer(Tergite8 ~ Population  + (1|Line:Population), data = (subset(d_Pgm2,Supervisor.PI=='Schmidt')))
-capture.output(summary(Pgm2_lmer_Schmidt_Tergite8),file = "Pigmentation/Pgm2_lmer_Schmidt_Tergite8_sum.txt")
-capture.output(anova(Pgm2_lmer_Schmidt_Tergite8),file = "Pigmentation/Pgm2_lmer_Schmidt_Tergite8.txt")
-capture.output(emmeans(Pgm2_lmer_Schmidt_Tergite8, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "Pigmentation/Pgm2_lmer_Schmidt_Tergite8_tk.txt")
-```
-
-```{r include=FALSE}
-model_means_Pgm2_Tergite8_Schmidt <- emmeans(object = Pgm2_lmer_Schmidt_Tergite8, specs = ~ Population)
-model_means_Pgm2_Tergite8_Schmidt_cld <- cld(object = model_means_Pgm2_Tergite8_Schmidt, adjust = "Tukey", Letters = letters, alpha = 0.05) %>% as.data.frame %>% mutate(Population = factor(Population, levels = c("YE","RE","GI","MU","MA","UM","KA","VA","AK"))) %>% arrange(Population) %>% dplyr::rename(cld = .group)
-```
-
 
 ```{r}
 anova(Pgm2_lmer_Schmidt_Tergite8)
@@ -7999,9 +6780,7 @@ anova(Pgm2_lmer_Schmidt_Tergite8)
 summary(Pgm2_lmer_Schmidt_Tergite8)
 ```
 
-
 ```{r p_Pgm2_Schmidt_Tergite8, echo=FALSE}
-
 p_Pgm2_Schmidt_Tergite8 <- ggplot(data = (subset(d_Pgm2,Supervisor.PI=='Schmidt')), aes(x=Population_Lat, y=Tergite8, fill=Batch)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
         labs(title="p_Pgm2_Schmidt_Tergite8", x="Population", y = "Tergite8") + ylim(c(min(d_Pgm2$Tergite8) , max(d_Pgm2$Tergite8)))+ droseu_theme
@@ -8017,12 +6796,10 @@ p_Pgm2_Schmidt_Tergite8
 invisible(dev.off())
 ```
 
-
 ```{r p_Pgm2_pop_Schmidt_Tergite8, echo=FALSE}
-
 p_Pgm2_pop_Schmidt_Tergite8 <- ggplot(data = (subset(d_Pgm2,Supervisor.PI=='Schmidt')), aes(x=Population_Lat, y=Tergite8, fill=Population)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-        labs(title="p_Pgm2_pop_Schmidt_Tergite8", x="Population", y = "Tergite8") + ylim(c(min(d_Pgm2$Tergite8) , max(d_Pgm2$Tergite8)))+ geom_text(data = model_means_Pgm2_Tergite8_Schmidt_cld, aes(x = Population, label = cld), y = max(d_Pgm2$Tergite8), vjust = 1) +droseu_theme
+        labs(title="p_Pgm2_pop_Schmidt_Tergite8", x="Population", y = "Tergite8") + ylim(c(min(d_Pgm2$Tergite8) , max(d_Pgm2$Tergite8)))+ geom_text(data = model_means_Pgm2_Tergite8_Schmidt_cld, aes(x = Population, label = cld), y = maxInf, vjust = 1) +droseu_theme
 ```
 
 ```{r echo=FALSE}
@@ -8035,23 +6812,7 @@ p_Pgm2_pop_Schmidt_Tergite8
 invisible(dev.off())
 ```
 
-
-
 _Tergite9_
-
-```{r Pgm2_lmer_Schmidt_Tergite9, echo=FALSE}
-Pgm2_lmer_Schmidt_Tergite9 <- lmer(Tergite9 ~ Population  + (1|Line:Population) , data = (subset(d_Pgm2,Supervisor.PI=='Schmidt')))
-capture.output(summary(Pgm2_lmer_Schmidt_Tergite9),file = "Pigmentation/Pgm2_lmer_Schmidt_Tergite9_sum.txt")
-capture.output(anova(Pgm2_lmer_Schmidt_Tergite9),file = "Pigmentation/Pgm2_lmer_Schmidt_Tergite9.txt")
-capture.output(emmeans(Pgm2_lmer_Schmidt_Tergite9, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "Pigmentation/Pgm2_lmer_Schmidt_Tergite9_tk.txt")
-```
-
-
-```{r include=FALSE}
-model_means_Pgm2_Tergite9_Schmidt <- emmeans(object = Pgm2_lmer_Schmidt_Tergite9, specs = ~ Population)
-model_means_Pgm2_Tergite9_Schmidt_cld <- cld(object = model_means_Pgm2_Tergite9_Schmidt, adjust = "Tukey", Letters = letters, alpha = 0.05) %>% as.data.frame %>% mutate(Population = factor(Population, levels = c("YE","RE","GI","MU","MA","UM","KA","VA","AK"))) %>% arrange(Population) %>% dplyr::rename(cld = .group)
-```
-
 
 ```{r}
 anova(Pgm2_lmer_Schmidt_Tergite9)
@@ -8061,9 +6822,7 @@ anova(Pgm2_lmer_Schmidt_Tergite9)
 summary(Pgm2_lmer_Schmidt_Tergite9)
 ```
 
-
 ```{r p_Pgm2_Schmidt_Tergite9, echo=FALSE}
-
 p_Pgm2_Schmidt_Tergite9 <- ggplot(data = (subset(d_Pgm2,Supervisor.PI=='Schmidt')), aes(x=Population_Lat, y=Tergite9, fill=Batch)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
         labs(title="p_Pgm2_Schmidt_Tergite9", x="Population", y = "Tergite9") + ylim(c(min(d_Pgm2$Tergite9) , max(d_Pgm2$Tergite9)))+ droseu_theme
@@ -8079,12 +6838,10 @@ p_Pgm2_Schmidt_Tergite9
 invisible(dev.off())
 ```
 
-
 ```{r p_Pgm2_pop_Schmidt_Tergite9, echo=FALSE}
-
 p_Pgm2_pop_Schmidt_Tergite9 <- ggplot(data = (subset(d_Pgm2,Supervisor.PI=='Schmidt')), aes(x=Population_Lat, y=Tergite9, fill=Population)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-        labs(title="p_Pgm2_pop_Schmidt_Tergite9", x="Population", y = "Tergite9") + ylim(c(min(d_Pgm2$Tergite9) , max(d_Pgm2$Tergite9)))+ geom_text(data = model_means_Pgm2_Tergite9_Schmidt_cld, aes(x = Population, label = cld), y = max(d_Pgm2$Tergite9), vjust = 1) +droseu_theme
+        labs(title="p_Pgm2_pop_Schmidt_Tergite9", x="Population", y = "Tergite9") + ylim(c(min(d_Pgm2$Tergite9) , max(d_Pgm2$Tergite9)))+ geom_text(data = model_means_Pgm2_Tergite9_Schmidt_cld, aes(x = Population, label = cld), y = Inf, vjust = 1) +droseu_theme
 ```
 
 ```{r echo=FALSE}
@@ -8097,21 +6854,7 @@ p_Pgm2_pop_Schmidt_Tergite9
 invisible(dev.off())
 ```
 
-
 _Tergite10_
-
-```{r Pgm2_lmer_Schmidt_Tergite10, echo=FALSE}
-Pgm2_lmer_Schmidt_Tergite10 <- lmer(Tergite10 ~ Population  + (1|Line:Population), data = (subset(d_Pgm2,Supervisor.PI=='Schmidt')))
-capture.output(summary(Pgm2_lmer_Schmidt_Tergite10),file = "Pigmentation/Pgm2_lmer_Schmidt_Tergite10_sum.txt")
-capture.output(anova(Pgm2_lmer_Schmidt_Tergite10),file = "Pigmentation/Pgm2_lmer_Schmidt_Tergite10.txt")
-capture.output(emmeans(Pgm2_lmer_Schmidt_Tergite10, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "Pigmentation/Pgm2_lmer_Schmidt_Tergite10_tk.txt")
-```
-
-```{r include=FALSE}
-model_means_Pgm2_Tergite10_Schmidt <- emmeans(object = Pgm2_lmer_Schmidt_Tergite10, specs = ~ Population)
-model_means_Pgm2_Tergite10_Schmidt_cld <- cld(object = model_means_Pgm2_Tergite10_Schmidt, adjust = "Tukey", Letters = letters, alpha = 0.05) %>% as.data.frame %>% mutate(Population = factor(Population, levels = c("YE","RE","GI","MU","MA","UM","KA","VA","AK"))) %>% arrange(Population) %>% dplyr::rename(cld = .group)
-```
-
 
 ```{r}
 anova(Pgm2_lmer_Schmidt_Tergite10)
@@ -8121,9 +6864,7 @@ anova(Pgm2_lmer_Schmidt_Tergite10)
 summary(Pgm2_lmer_Schmidt_Tergite10)
 ```
 
-
 ```{r p_Pgm2_Schmidt_Tergite10, echo=FALSE}
-
 p_Pgm2_Schmidt_Tergite10 <- ggplot(data = (subset(d_Pgm2,Supervisor.PI=='Schmidt')), aes(x=Population_Lat, y=Tergite10, fill=Batch)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
         labs(title="p_Pgm2_Schmidt_Tergite10", x="Population", y = "Tergite10") + ylim(c(min(d_Pgm2$Tergite10) , max(d_Pgm2$Tergite10)))+ droseu_theme
@@ -8139,12 +6880,10 @@ p_Pgm2_Schmidt_Tergite10
 invisible(dev.off())
 ```
 
-
 ```{r p_Pgm2_pop_Schmidt_Tergite10, echo=FALSE}
-
 p_Pgm2_pop_Schmidt_Tergite10 <- ggplot(data = (subset(d_Pgm2,Supervisor.PI=='Schmidt')), aes(x=Population_Lat, y=Tergite10, fill=Population)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-        labs(title="p_Pgm2_pop_Schmidt_Tergite10", x="Population", y = "Tergite10") + ylim(c(min(d_Pgm2$Tergite10) , max(d_Pgm2$Tergite10)))+ geom_text(data = model_means_Pgm2_Tergite10_Schmidt_cld, aes(x = Population, label = cld), y = max(d_Pgm2$Tergite10), vjust = 1) + droseu_theme
+        labs(title="p_Pgm2_pop_Schmidt_Tergite10", x="Population", y = "Tergite10") + ylim(c(min(d_Pgm2$Tergite10) , max(d_Pgm2$Tergite10)))+ geom_text(data = model_means_Pgm2_Tergite10_Schmidt_cld, aes(x = Population, label = cld), y = Inf, vjust = 1) + droseu_theme
 ```
 
 ```{r echo=FALSE}
@@ -8157,15 +6896,7 @@ p_Pgm2_pop_Schmidt_Tergite10
 invisible(dev.off())
 ```
 
-
 _Total_
-
-```{r Pgm2_lmer_Schmidt_Total, echo=FALSE}
-Pgm2_lmer_Schmidt_Total <- lmer(Total ~ Population  + (1|Line:Population), data = (subset(d_Pgm2,Supervisor.PI=='Schmidt')))
-capture.output(summary(Pgm2_lmer_Schmidt_Total),file = "Pigmentation/Pgm2_lmer_Schmidt_Total_sum.txt")
-capture.output(anova(Pgm2_lmer_Schmidt_Total),file = "Pigmentation/Pgm2_lmer_Schmidt_Total.txt")
-capture.output(emmeans(Pgm2_lmer_Schmidt_Total, list(pairwise ~ Population), adjust = "tukey", mode = "asymp"),file = "Pigmentation/Pgm2_lmer_Schmidt_Total_tk.txt")
-```
 
 ```{r}
 anova(Pgm2_lmer_Schmidt_Total)
@@ -8175,19 +6906,12 @@ anova(Pgm2_lmer_Schmidt_Total)
 summary(Pgm2_lmer_Schmidt_Total)
 ```
 
-
 ```{r p_Pgm2_Schmidt_Total, echo=FALSE}
 
 p_Pgm2_Schmidt_Total <- ggplot(data = (subset(d_Pgm2,Supervisor.PI=='Schmidt')), aes(x=Population_Lat, y=Total, fill=Batch)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
         labs(title="p_Pgm2_Schmidt_Total", x="Population", y = "Total") + ylim(c(min(d_Pgm2$Total) , max(d_Pgm2$Total)))+ droseu_theme
 ```
-
-```{r include=FALSE}
-model_means_Pgm2_Total_Schmidt <- emmeans(object = Pgm2_lmer_Schmidt_Total, specs = ~ Population)
-model_means_Pgm2_Total_Schmidt_cld <- cld(object = model_means_Pgm2_Total_Schmidt, adjust = "Tukey", Letters = letters, alpha = 0.05) %>% as.data.frame %>% mutate(Population = factor(Population, levels = c("YE","RE","GI","MU","MA","UM","KA","VA","AK"))) %>% arrange(Population) %>% dplyr::rename(cld = .group)
-```
-
 
 ```{r echo=FALSE}
 p_Pgm2_Schmidt_Total
@@ -8199,12 +6923,10 @@ p_Pgm2_Schmidt_Total
 invisible(dev.off())
 ```
 
-
 ```{r p_Pgm2_pop_Schmidt_Total, echo=FALSE}
-
 p_Pgm2_pop_Schmidt_Total <- ggplot(data = (subset(d_Pgm2,Supervisor.PI=='Schmidt')), aes(x=Population_Lat, y=Total, fill=Population)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-        labs(title="p_Pgm2_pop_Schmidt_Total", x="Population", y = "Total") + ylim(c(min(d_Pgm2$Total) , max(d_Pgm2$Total)))+ geom_text(data = model_means_Pgm2_Total_Schmidt_cld, aes(x = Population, label = cld), y = max(d_Pgm2$Total), vjust = 1) +droseu_theme
+        labs(title="p_Pgm2_pop_Schmidt_Total", x="Population", y = "Total") + ylim(c(min(d_Pgm2$Total) , max(d_Pgm2$Total)))+ geom_text(data = model_means_Pgm2_Total_Schmidt_cld, aes(x = Population, label = cld), y = Inf, vjust = 1) +droseu_theme
 ```
 
 ```{r echo=FALSE}
@@ -8252,7 +6974,6 @@ knitr::include_graphics("LinearModelsPop/Pigmentation/by_lab_lmer_residuals/Pgm_
 knitr::include_graphics("LinearModelsPop/Pigmentation/by_lab_lmer_residuals/Pgm_Total_Abbott_lmer_pop_qq_plot_residuals.png")
 ```
 
-
 #### Gibert Lab
 
 ```{r}
@@ -8286,7 +7007,6 @@ knitr::include_graphics("LinearModelsPop/Pigmentation/by_lab_lmer_residuals/Pgm_
 ```{r}
 knitr::include_graphics("LinearModelsPop/Pigmentation/by_lab_lmer_residuals/Pgm_Total_Gibert_lmer_pop_qq_plot_residuals.png")
 ```
-
 
 #### Schmidt Lab
 
@@ -8343,26 +7063,21 @@ write(intersect_Pop_Pgm, file ="Pigmentation/intersect_Pop_Pgm", sep = "\t")
 
 There are `r length(intersect_Pop_Pgm) ` populations and `r length(intersect_Line_Pgm) ` isofemale lines that have been phenotyped across the labs. Please refer to tables named intersect_Trait_level (i.e. intersect_Via_pop) for details. 
 
-
 ```{r}
 knitr::include_graphics("LabCorrelations/Pigmentation/Pgm_T4_F_lab_correlations.png")
 ```
-
 
 ```{r}
 knitr::include_graphics("LabCorrelations/Pigmentation/Pgm_T5_F_lab_correlations.png")
 ```
 
-
 ```{r}
 knitr::include_graphics("LabCorrelations/Pigmentation/Pgm_T6_F_lab_correlations.png")
 ```
 
-
 ```{r}
 knitr::include_graphics("LabCorrelations/Pigmentation/Pgm_Total_F_lab_correlations.png")
 ```
-
 
 # Results II : Meta-Analyses
 
@@ -8385,7 +7100,6 @@ _Males_
 ```{r echo=FALSE}
 knitr::include_graphics("MetaAnalyses/DevelopmentTime/DT_A_M_meta_summary_effect.png")
 ```
-
 
 ## Dry weight
 
@@ -8492,7 +7206,6 @@ knitr::include_graphics("MetaAnalyses/HeatShock/HSM_M_meta_summary_effect.png")
 
 ## Diapause
 
-
 ```{r echo=FALSE}
 knitr::include_graphics("MetaAnalyses/Diapause/Dia_meta_summary_effect.png")
 ```
@@ -8516,7 +7229,6 @@ knitr::include_graphics("MetaAnalyses/Starvation/SR_M_meta_summary_effect.png")
 ```{r echo=FALSE}
 knitr::include_graphics("MetaAnalyses/Pigmentation/Pgm_Total_meta_summary_effect.png")
 ```
-
 
 # Results III : Environmental Variables  
 
@@ -8545,40 +7257,38 @@ lmers_lat$Via_Grath_lmer_lat
 #### Hoedjes Lab
 
 ```{r}
-anova(Via_lmer_Lat_Hoedjes)
+lmers_lat$Via_Hoedjes_lmer_lat
 ```
 
 #### Schmidt Lab
 
 ```{r}
-anova(Via_lmer_Lat_Schmidt) 
+lmers_lat$Via_Schmidt_lmer_lat
 ```
 
 #### Stamenkovic-Radak Lab
 
 ```{r}
-anova(Via_lmer_Lat_StamenkovicRadak)
+lmers_lat$Via_StamenkovicRadak_lmer_lat
 ```
 
 #### Zwaan Lab
 
 ```{r}
-anova(Via_lmer_Lat_Zwaan)
+lmers_lat$Via_Zwaan_lmer_lat
 ```
 
 ### Developmental time
-
 
 ### Egg-to-pupa developmental time
 
 ##### Schmidt Lab
 
 ```{r}
-anova(DT_P_lmer_Lat)
+lmers_lat$DT_P_Schmidt_lmer_lat
 ```
 
 ### Egg-to-adult developmental time
-
 
 ##### Gibert Lab
 
