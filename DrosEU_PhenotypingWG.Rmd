@@ -17,8 +17,6 @@ output:
 
 **Collaborative phenotyping effort of European _Drosophila melanogaster_ populations**  
 
-Genomic analyses (Kapun et al. 2020) showed that there is longitudinal population structure, continent-wide sweeps, candidate genes for local climate adaptation by using 48 pooled population samples from 32 locations.
-
 In 2017, DrosEU consortium has decided to make a collaborative phenotyping effort of European _Drosophila melanogaster_ populations at the Groningen meeting. 
 
 The call was made with approximate numbers of populations, lines, etc. and under predefined criteria (finish within a year, reps, blocks, etc) and participating labs have indicated which traits they are willing to phenotype. 
@@ -29,7 +27,6 @@ The call was made with approximate numbers of populations, lines, etc. and under
 
 library(tidyverse)
 library(ggpubr)
-library(multcompView)
 library(hrbrthemes)
 library(rworldmap)
 library(maps)
@@ -39,11 +36,6 @@ library(rgeos)
 library(qwraps2)
 library(afex)
 library(Hmisc)
-library(lme4)
-library(nlme)
-library(multcomp)
-library(emmeans)
-library(coxme)
 library(knitr)
 library(sf)
 library(rnaturalearthdata)
@@ -53,19 +45,13 @@ library(ggrepel)
 library(ggspatial)
 library(DT)
 library(data.table)
-library(meta)
-library(metafor)
-library(survival)
-library(survminer)
 library(MetBrewer)
 ```
 
 Nine sampling locations were chosen based on genomic data and these locations covered a wide range of latitude (~20°) and longitude (~40°) across the continent (see table below). From each location, 15 to 20 isofemale lines were established in corresponding labs at the sampling location and the isofemale lines were centrally maintained by Élio Sucena  at Instituto Gulbenkian de Ciência (IGC), Lisbon, Portugal. A total of 173 isofemale lines were used in this study. 
 
-
 ```{r droseu_coord, echo=FALSE, message=FALSE}
 droseu_coord <- read.csv("InfoTables/DrosEU_Coordinates.csv")
-
 droseu_coord <- data.frame(droseu_coord %>%
   add_column(Collector = c("Jorge Vieira", "Josefa Gonzalez", "Mads Schou", "Amanda Glaser-Schmitt","Andrea Betancourt","Maaria Kankare","Iryna Kozeretska","Banu Onder","Elena Pasyukova")))
 ```
@@ -126,7 +112,6 @@ droseu_labs <- data.frame(read.csv("InfoTables/DrosEU_Labs.csv"))
 
 Contributed labs are `r unique(droseu_labs$PI)` and detailed list below :
 
-
 ```{r echo=FALSE}
 knitr::kable(droseu_labs, allign = "llll", caption = "Table X. Contributed labs and traits, sorted by PI") 
 ```
@@ -135,16 +120,12 @@ knitr::kable(droseu_labs, allign = "llll", caption = "Table X. Contributed labs 
 cities <- read.csv("InfoTables/DrosEU_cities.csv")
 ```
 
-
 ```{r research_groups_map, echo=FALSE, message=TRUE}
-
 globe_labs <- ggplot(data = world) + geom_sf() + xlab("Latitude") + ylab("Longitude") +
   coord_sf(xlim = c(-80.15, 40.12), ylim = c(-45, 60), expand = TRUE) +
   ggtitle("Contributed labs", subtitle = paste0("(", length(unique(droseu_labs$Country)), " countries", ", ", length(unique(droseu_labs$PI)), " research groups", ")")) +
   annotate(geom = "point", x = cities$Long, y = cities$Lat, colour = "red", size = 2) 
-  
 globe_labs + map_theme 
-
 ```
 
 ## Contributers (analyses)
@@ -217,7 +198,7 @@ _need to do a few more PCRs, will add them here soon_
 
 ## Traits 
 
-_Contributors and methods for experiments_
+_Contributers and methods for experiments_
 
 ### Viability
 ##### Gibert, Grath, Hoedjes, Schmidt, Stamenkovic-Radak and Zwaan Labs
@@ -370,7 +351,6 @@ README_example <- data.table(Headers =  headers, Descriptions = descriptions)
 knitr::kable(README_example, align = "ll", caption = 'Table X. Filling in the data spreadsheet and header description')
 ```
 
-
 ```{r MS_example, echo=FALSE}
 MS_example <- data.table(read.csv("Data/MasterSheets_Feb22_git/VIA_MasterSheet_Feb22.csv"))
 ```
@@ -411,7 +391,6 @@ estimate_mode <- function(v) {
 
 table_Via_Line_wbatch <- write.csv(d_Via %>% group_by(Supervisor.PI, Batch, Population, Line) %>% summarise_at(vars(ProportionEggtoAdultSurvival), list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, SE = std_err, CV = coef_var, Mode = estimate_mode)), file = "Viability/table_Via_Line_wbatch.csv", row.names = T)
 
-table_Via_Line_wbatch <- read.csv("Viability/table_Via_Line_wbatch.csv") #file name is here 
 ```
 
 Tables for descriptive statistics at population and line levels can be found in the trait directory, under the file name **__table_TraitAbbreviation_Level_BatchInfo.csv__**  (_i.e. Viability/table_Via_Line_wobatch.csv_)
@@ -427,7 +406,7 @@ The very same ggplot theme has been used all across the document, called _droseu
 ```{r droseu_theme, eval=FALSE, echo=TRUE}
 myColors <- met.brewer("Johnson", 9)
 names(myColors) <- as.factor(c("AK", "GI", "KA", "MA", "MU", "RE", "UM", "VA", "YE"))
-colScale <- scale_colour_manual(name = "Population_Lat", values = myColors)
+colScale <- scale_fill_manual(name = "Population", values = myColors)
 
 droseu_theme <- theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), panel.background = element_blank(), axis.line = element_line(colour = "black",),  axis.title.x = element_text(size = 16), axis.text.x = element_text(size = 16),axis.text.y = element_text(size = 16),axis.title.y = element_text(size = 16), colScale)
 
@@ -438,7 +417,7 @@ p_TraitAbbreviation_Lab + ylim(c(min_trait, max_trait)) + droseu_theme + colScal
 ## Need to run this in the background
 myColors <- met.brewer("Johnson", 9)
 names(myColors) <- as.factor(c("AK", "GI", "KA", "MA", "MU", "RE", "UM", "VA", "YE"))
-colScale <- scale_colour_manual(name = "Population", values = myColors)
+colScale <- scale_fill_manual(name = "Population", values = myColors)
 
 droseu_theme <- theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), panel.background = element_blank(), axis.line = element_line(colour = "black",),  axis.title.x = element_text(size = 16), axis.text.x = element_text(size = 16),axis.text.y = element_text(size = 16),axis.title.y = element_text(size = 16))
 ```
@@ -449,7 +428,8 @@ Here is an example code for figures (egg-to-adult viabiliy, Gibert Lab). The ver
 
 p_Via_Gibert <- ggplot(data = filter(droseu$via, Supervisor.PI=='Gibert')), 
                        #subsets for supervisor
-                       aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Batch)) +#define x- and y-axis
+                       aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Batch)) +
+                        #define x- and y-axis and fill
                        geom_boxplot(outlier.shape = NA, notch=FALSE) +  #boxplot
                        labs(title="p_Via_Gibert", x="Population", y = "ProportionEggtoAdultSurvival") + 
                       ylim(c(min_Via, max_Via)) + 
@@ -511,7 +491,7 @@ capture.output(anova(DW_M_lmer_Alt_Onder),file = "DryWeight/DW_M_lmer_Alt_Onder.
 Here is an example code for survival analyses (starvation resistance, females, Gonzalez Lab). The very same code is used for other contributing labs and traits by filtering the data at supervisor level and sex. Please note that the level "replicate_vial" has been dropped from all survival analyses, as it clogs the models due to the volume of data.
 
 ```{r coxme_example, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE}
-SR_F_coxme_Gonzalez <- coxme(Surv(AgeAtDeath_hours, Censor) ~ Population + (1|Batch) + (1|Population/Line) , data = filter(d_SR_surv, Supervisor.PI == "Gonzalez", Sex == "F"))
+SR_F_coxme_Gonzalez <- coxme(Surv(AgeAtDeath_hours, Censor) ~ Population + (1|Population/Line) , data = filter(d_SR_surv, Supervisor.PI == "Gonzalez", Sex == "F"))
 capture.output(summary(SR_F_coxme_Gonzalez), file = "Starvation/SR_F_coxme_Gonzalez_sum.txt")
 capture.output(anova(SR_F_coxme_Gonzalez), file = "Starvation/SR_F_coxme_Gonzalez.txt")
 
@@ -556,7 +536,7 @@ dir.create(file.path("Viability"), showWarnings = FALSE)
 
 _For a detailed description of tables, plots, linear models and outputs, please refer [here](#anchor) _
 
-### Contributors  
+### Contributers  
 
 Gibert Lab : Cristina Vieira, Laurence Mouton, Natacha Kremer, Sonia Martinez, Patricia Gibert
 
@@ -951,7 +931,7 @@ dir.create(file.path("DevelopmentTime"), showWarnings = FALSE)
 
 _For a detailed description of tables, plots, linear models and outputs, please refer [here](#anchor) _
 
-#### Contributors  
+#### Contributers  
 
 Schmidt Lab : Paul Schmidt
 
@@ -1016,7 +996,7 @@ invisible(dev.off())
 
 _For a detailed description of tables, plots, linear models and outputs, please refer [here](#anchor) _
 
-#### Contributors  
+#### Contributers  
 
 Gibert Lab : Cristina Vieira, Laurence Mouton, Natacha Kremer, Sonia Martinez, Patricia Gibert
 
@@ -1761,7 +1741,7 @@ dir.create(file.path("DryWeight"), showWarnings = FALSE)
 
 _For a detailed description of tables, plots, linear models and outputs, please refer [here](#anchor) _
 
-### Contributors  
+### Contributers  
 
 Colinet Lab : Sapho-Lou Marti , Hervé Colinet
 
@@ -2009,19 +1989,19 @@ invisible(dev.off())
 #### Onder Lab
 
 ```{r}
-lmers_anova$DW_F_Colinet_lmer_pop
+lmers_anova$DW_F_Onder_lmer_pop
 ```
 
 ```{r}
-lmers_sum$DW_F_Colinet_lmer_pop
+lmers_sum$DW_F_Onder_lmer_pop
 ```
 
 ```{r}
-lmers_anova$DW_M_Colinet_lmer_pop
+lmers_anova$DW_M_Onder_lmer_pop
 ```
 
 ```{r}
-lmers_sum$DW_M_Colinet_lmer_pop
+lmers_sum$DW_M_Onder_lmer_pop
 ```
 
 
@@ -2196,7 +2176,7 @@ dir.create(file.path("ThoraxLength"), showWarnings = FALSE)
 
 _For a detailed description of tables, plots, linear models and outputs, please refer [here](#anchor) _
 
-### Contributors  
+### Contributers  
 
 Kozeretska Lab : Svitlana Serga, Alexandra Protsenko, Oleksandr Maistrenko, Iryna Kozeretska
 
@@ -2682,7 +2662,7 @@ dir.create(file.path("WingArea"), showWarnings = FALSE)
 
 _For a detailed description of tables, plots, linear models and outputs, please refer [here](#anchor) _
 
-### Contributors  
+### Contributers  
 
 Onder Lab : Cansu Aksoy, Ekin Demir, Ezgi Cobanoglu, Banu Sebnem Onder
 
@@ -3737,7 +3717,7 @@ _For a detailed description of tables, plots, linear models and outputs, please 
 #Note that the trait has been phenotyped only in females.
 ```
 
-### Contributors  
+### Contributers  
 
 Billeter Lab : Xiaocui Wang, Tiphaine Bailly, Mario Mira, Jean-Christophe Billeter
 
@@ -3932,7 +3912,7 @@ for (i in dev.list()[1]:dev.list()[length(dev.list())]) {
 # crashed bc tries to save lots -- need to remove some 
 ```
 
-### Contributors  
+### Contributers  
 
 Flatt Lab : Esra Durmaz, Envel Kerdaffrec, Thibault Schowing, Virginie Thieu, Marisa Rodrigues, Thomas Flatt
 
@@ -4096,7 +4076,7 @@ invisible(dev.off())
 ```
 
 ```{r p_LS_F_pop_Parsch, echo=FALSE, message=FALSE, warning=FALSE}
-p_LS_F_pop_Parsch <- ggplot(data =  filter(droseu$lsl, Censor == "0" & Sex == "F" & Supervisor.PI == "Parsch"), aes(x=Population_Lat, y=LSL_AgeAtDeath_days, fill=Population)) + geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_LS_F_pop_Parsch", x="Population", y = "LSL_AgeAtDeath_days") + ylim(c(min_LS, max_LS))+ 
+p_LS_F_pop_Parsch <- ggplot(data = filter(droseu$lsl, Censor == "0" & Sex == "F" & Supervisor.PI == "Parsch"), aes(x=Population_Lat, y=LSL_AgeAtDeath_days, fill=Population)) + geom_boxplot(outlier.shape = NA, notch=FALSE) + labs(title="p_LS_F_pop_Parsch", x="Population", y = "LSL_AgeAtDeath_days") + ylim(c(min_LS, max_LS))+ 
 geom_text(data = lmers_tukey$LS_F_Parsch_lmer_pop$letters, aes(x = Population, label = cld), y = max_LS,  vjust = 1) + droseu_theme + colScale
 ```
 
@@ -4400,7 +4380,7 @@ dir.create(file.path("ColdShock"), showWarnings = FALSE)
 
 _For a detailed description of tables, plots, linear models and outputs, please refer [here](#anchor) _
 
-### Contributors  
+### Contributers  
 
 Gonzalez Lab : Llewellyn Green, Josefa Gonzalez, Miriam Merenciano
 
@@ -4832,7 +4812,7 @@ dir.create(file.path("ChillComa"), showWarnings = FALSE)
 _For a detailed description of tables, plots, linear models and outputs, please refer [here](#anchor) _
 
 
-### Contributors  
+### Contributers  
 
 Mensh Lab : Florencia Putero, Lucas Kreiman, Julian Mensh
 
@@ -5020,10 +5000,6 @@ knitr::include_graphics("LinearModelsPop/ChillComa/by_lab_lmer_residuals/CCRT_M_
 
 ### Lab correlations
 
-```{r}
-#waiting for Mensh Lab's data 
-```
-
 ## Heat-shock mortality
 
 ```{r include=FALSE}
@@ -5032,7 +5008,7 @@ dir.create(file.path("HeatShock"), showWarnings = FALSE)
 
 _For a detailed description of tables, plots, linear models and outputs, please refer [here](#anchor) _
 
-### Contributors  
+### Contributers  
 
 Parsch Lab : Eliza Argyridou, Amanda Glaser-Schmitt, John Parsch
 
@@ -5405,7 +5381,7 @@ dir.create(file.path("Diapause"), showWarnings = FALSE)
 
 _For a detailed description of tables, plots, linear models and outputs, please refer [here](#anchor) _
 
-### Contributors  
+### Contributers  
 
 Bergland Lab : Liam Miller, Alan Bergland, Priscilla Erickson
 
@@ -5634,7 +5610,7 @@ _For a detailed description of tables, plots, linear models and outputs, please 
 #Note that the trait has been phenotyped as mixed sex. 
 ```
 
-### Contributors  
+### Contributers  
 
 Wegener Lab : Susanne Klühspies, Christian Wegener
 
@@ -5820,7 +5796,7 @@ _For a detailed description of tables, plots, linear models and outputs, please 
 #Note that the trait has been phenotyped only in males.
 ```
 
-### Contributors  
+### Contributers  
 
 Tauber Lab : Bettina Fishman, Eran Tauber
 
@@ -5995,7 +5971,7 @@ dir.create(file.path("Starvation"), showWarnings = FALSE)
 
 _For a detailed description of tables, plots, linear models and outputs, please refer [here](#anchor) _
 
-### Contributors  
+### Contributers  
 
 Gonzalez Lab : Llewellyn Green, Josefa Gonzalez, Miriam Merenciano
 
@@ -6504,7 +6480,7 @@ dir.create(file.path("Pigmentation"), showWarnings = FALSE)
 
 _For a detailed description of tables, plots, linear models and outputs, please refer [here](#anchor) _
 
-### Contributors  
+### Contributers  
 
 Abbott Lab : Jessica Abbott, Qinyang Li, Shahzad Khan
 
@@ -7273,7 +7249,7 @@ dir.create(file.path("ParasitoidResistance"), showWarnings = FALSE)
 
 _For a detailed description of tables, plots, linear models and outputs, please refer [here](#anchor) _
 
-### Contributors  
+### Contributers  
 
 Hrcek Lab : Vincent Montbel, Somayeh Rasouli Dogaheh, Jan Hrcek
 
@@ -7842,21 +7818,25 @@ lmers_lat$Dia_Schlotterer_lmer_lat
 
 #### Tauber Lab
 
+```{r include=FALSE}
+lmers_lat_la <- readRDS("LinearModelsLat/Locomotor/LA_lmers_lat_anova.rds")
+```
+
 _ND_
 ```{r}
-lmers_lat$LA_NDlog2_Tauber_lmer_lat
+lmers_lat_la$LA_NDlog2_Tauber_lmer_lat
 ```
 
 _CircPhase_
 
 ```{r}
-
+lmers_lat_la$LA_CircPhase_Tauber_lmer_lat
 ```
 
 _Activity_
 
 ```{r}
-
+lmers_lat_la$LA_Activity_Tauber_lmer_lat
 ```
 
 ### Starvation resistance
@@ -8374,21 +8354,26 @@ lmers_lon$Dia_Schlotterer_lmer_lon
 
 #### Tauber Lab
 
+
+```{r include=FALSE}
+lmers_lon_la <- readRDS("LinearModelsLon/Locomotor/LA_lmers_lon_anova.rds")
+```
+
 _ND_
 ```{r}
-lmers_lon$LA_NDlog2_Tauber_lmer_lon
+lmers_lon_la$LA_NDlog2_Tauber_lmer_lon
 ```
 
 _CircPhase_
 
 ```{r}
-
+lmers_lon_la$LA_CircPhase_Tauber_lmer_lon
 ```
 
 _Activity_
 
 ```{r}
-
+lmers_lon_la$LA_Activity_Tauber_lmer_lon
 ```
 
 ### Starvation resistance
@@ -8907,21 +8892,23 @@ lmers_alt$Dia_Schlotterer_lmer_alt
 
 #### Tauber Lab
 
+```{r include=FALSE}
+lmers_alt_la <- readRDS("LinearModelsAlt/Locomotor/LA_lmers_alt_anova.rds")
+```
+
 _ND_
 ```{r}
-lmers_alt$LA_NDlog2_Tauber_lmer_alt
+lmers_alt_la$LA_NDlog2_Tauber_lmer_alt
 ```
 
 _CircPhase_
-
 ```{r}
-
+lmers_alt_la$LA_CircPhase_Tauber_lmer_alt
 ```
 
 _Activity_
-
 ```{r}
-
+lmers_alt_la$LA_Activity_Tauber_lmer_alt
 ```
 
 ### Starvation resistance

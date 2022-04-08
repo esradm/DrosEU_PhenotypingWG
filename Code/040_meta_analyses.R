@@ -518,7 +518,7 @@ rdsBatchReaderToList <- function(...) {
 metas_list <- rdsBatchReaderToList(path = "MetaAnalyses", recursive = T, full.names = T, pattern = "meta.rds")
 
 
-n_traits <- 28
+n_traits <- 20
 
 metas_pvalues <- bind_rows(Meta = names(metas_list), Q = lapply(metas_list, function(x) x$Q.b.random) %>% unlist(), P = lapply(metas_list, function(x) x$pval.Q.b.random) %>% unlist()) %>% mutate(P_bonf = P * n_traits) %>% mutate(P_bonf = ifelse(P_bonf > 1, 1, P_bonf))
 
