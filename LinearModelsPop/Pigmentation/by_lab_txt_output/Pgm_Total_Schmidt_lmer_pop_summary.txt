@@ -1,30 +1,30 @@
 Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: TotalScore ~ Population + (1 | Line:Population)
+Formula: TotalPerc_asin ~ Population + (1 | Line:Population)
    Data: filter(droseu$pgm2, Supervisor.PI == "Schmidt")
 
-REML criterion at convergence: 8630.2
+REML criterion at convergence: -1246.2
 
 Scaled residuals: 
     Min      1Q  Median      3Q     Max 
--2.7804 -0.6403 -0.1225  0.6108  4.0733 
+-3.9278 -0.6141 -0.0667  0.6291  4.0640 
 
 Random effects:
  Groups          Name        Variance Std.Dev.
- Line:Population (Intercept) 18.12    4.257   
- Residual                    13.57    3.684   
+ Line:Population (Intercept) 0.02551  0.1597  
+ Residual                    0.01918  0.1385  
 Number of obs: 1514, groups:  Line:Population, 157
 
 Fixed effects:
-             Estimate Std. Error       df t value Pr(>|t|)    
-(Intercept)    8.9600     0.9869 146.8837   9.079 6.73e-16 ***
-PopulationGI  -0.5480     1.5763 148.3022  -0.348  0.72860    
-PopulationKA   2.1400     1.4140 146.8837   1.513  0.13231    
-PopulationMA   3.1858     1.4159 147.6323   2.250  0.02593 *  
-PopulationMU   1.1931     1.3962 147.0911   0.855  0.39420    
-PopulationRE   2.0855     1.5431 148.7609   1.351  0.17859    
-PopulationUM   4.9263     1.5088 147.3616   3.265  0.00136 ** 
-PopulationVA   1.2988     1.4564 147.0412   0.892  0.37398    
-PopulationYE   1.5982     1.3984 147.9763   1.143  0.25492    
+              Estimate Std. Error        df t value Pr(>|t|)    
+(Intercept)    0.56729    0.03703 146.88979  15.318  < 2e-16 ***
+PopulationGI  -0.03062    0.05915 148.31295  -0.518  0.60552    
+PopulationKA   0.07217    0.05306 146.88979   1.360  0.17586    
+PopulationMA   0.11439    0.05313 147.64063   2.153  0.03295 *  
+PopulationMU   0.04254    0.05239 147.09797   0.812  0.41816    
+PopulationRE   0.06930    0.05791 148.77310   1.197  0.23329    
+PopulationUM   0.17851    0.05662 147.36931   3.153  0.00196 ** 
+PopulationVA   0.03881    0.05465 147.04791   0.710  0.47871    
+PopulationYE   0.04935    0.05247 147.98608   0.940  0.34854    
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 

@@ -52,27 +52,27 @@ Population 0.058312 0.007289     8 157.99  0.8553 0.5557
 
 $Pgm_T4_Schmidt_lmer_pop
 Type III Analysis of Variance Table with Satterthwaite's method
-           Sum Sq Mean Sq NumDF  DenDF F value    Pr(>F)    
-Population 22.509  2.8137     8 147.42  3.9144 0.0003221 ***
+            Sum Sq  Mean Sq NumDF  DenDF F value    Pr(>F)    
+Population 0.38588 0.048234     8 147.49  4.2138 0.0001426 ***
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 $Pgm_T5_Schmidt_lmer_pop
 Type III Analysis of Variance Table with Satterthwaite's method
-           Sum Sq Mean Sq NumDF DenDF F value Pr(>F)
-Population 31.677  3.9597     8 148.1  1.5538 0.1436
+            Sum Sq  Mean Sq NumDF  DenDF F value Pr(>F)
+Population 0.48643 0.060804     8 148.23  1.6006 0.1292
 
 $Pgm_T6_Schmidt_lmer_pop
 Type III Analysis of Variance Table with Satterthwaite's method
            Sum Sq Mean Sq NumDF  DenDF F value  Pr(>F)  
-Population 78.149  9.7686     8 148.36  2.3141 0.02283 *
+Population 1.5281 0.19101     8 148.29   2.426 0.01714 *
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 $Pgm_Total_Schmidt_lmer_pop
 Type III Analysis of Variance Table with Satterthwaite's method
-           Sum Sq Mean Sq NumDF  DenDF F value  Pr(>F)  
-Population 232.51  29.064     8 148.08  2.1415 0.03533 *
+            Sum Sq Mean Sq NumDF  DenDF F value  Pr(>F)  
+Population 0.32416 0.04052     8 148.09   2.113 0.03794 *
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 

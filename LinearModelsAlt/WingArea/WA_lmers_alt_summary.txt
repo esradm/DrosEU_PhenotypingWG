@@ -1,7 +1,6 @@
 $WA_L_F_Onder_lmer_alt
 Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: CentroidSizeLeft_micrometers ~ Altitude + (1 | Population) +  
-    (1 | Line:Population)
+Formula: CentroidSizeLeft_micrometers ~ Altitude + (1 | Population) +      (1 | Line:Population)
    Data: filter(droseu$wa, Supervisor.PI == "Onder" & Sex == "F")
 
 REML criterion at convergence: 61408
@@ -30,8 +29,7 @@ Altitude -0.800
 
 $WA_L_F_Posnien_lmer_alt
 Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: CentroidSizeLeft_micrometers ~ Altitude + (1 | Population) +  
-    (1 | Line:Population)
+Formula: CentroidSizeLeft_micrometers ~ Altitude + (1 | Population) +      (1 | Line:Population)
    Data: filter(droseu$wa, Supervisor.PI == "Posnien" & Sex == "F")
 
 REML criterion at convergence: 3264.1
@@ -60,8 +58,7 @@ Altitude -0.800
 
 $WA_L_F_Ritchie_lmer_alt
 Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: CentroidSizeLeft_micrometers ~ Altitude + (1 | Population) +  
-    (1 | Line:Population)
+Formula: CentroidSizeLeft_micrometers ~ Altitude + (1 | Population) +      (1 | Line:Population)
    Data: filter(droseu$wa, Supervisor.PI == "Ritchie" & Sex == "F")
 
 REML criterion at convergence: 16995.3
@@ -90,8 +87,7 @@ Altitude -0.805
 
 $WA_L_F_StamenkovicRadak_lmer_alt
 Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: CentroidSizeLeft_micrometers ~ Altitude + (1 | Population) +  
-    (1 | Line:Population)
+Formula: CentroidSizeLeft_micrometers ~ Altitude + (1 | Population) +      (1 | Line:Population)
    Data: filter(droseu$wa, Supervisor.PI == "StamenkovicRadak" & Sex ==      "F")
 
 REML criterion at convergence: 44965.4
@@ -120,8 +116,7 @@ Altitude -0.800
 
 $WA_L_M_Onder_lmer_alt
 Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: CentroidSizeLeft_micrometers ~ Altitude + (1 | Population) +  
-    (1 | Line:Population)
+Formula: CentroidSizeLeft_micrometers ~ Altitude + (1 | Population) +      (1 | Line:Population)
    Data: filter(droseu$wa, Supervisor.PI == "Onder" & Sex == "M")
 
 REML criterion at convergence: 60121.6
@@ -178,8 +173,7 @@ Altitude -0.800
 
 $WA_L_M_Ritchie_lmer_alt
 Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: CentroidSizeLeft_micrometers ~ Altitude + (1 | Population) +  
-    (1 | Line:Population)
+Formula: CentroidSizeLeft_micrometers ~ Altitude + (1 | Population) +      (1 | Line:Population)
    Data: filter(droseu$wa, Supervisor.PI == "Ritchie" & Sex == "M")
 
 REML criterion at convergence: 16597.6
@@ -208,8 +202,7 @@ Altitude -0.804
 
 $WA_L_M_StamenkovicRadak_lmer_alt
 Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: CentroidSizeLeft_micrometers ~ Altitude + (1 | Population) +  
-    (1 | Line:Population)
+Formula: CentroidSizeLeft_micrometers ~ Altitude + (1 | Population) +      (1 | Line:Population)
    Data: filter(droseu$wa, Supervisor.PI == "StamenkovicRadak" & Sex ==      "M")
 
 REML criterion at convergence: 42542.3
@@ -238,8 +231,7 @@ Altitude -0.800
 
 $WA_R_F_Onder_lmer_alt
 Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: CentroidSizeRight_micrometers ~ Altitude + (1 | Population) +  
-    (1 | Line:Population)
+Formula: CentroidSizeRight_micrometers ~ Altitude + (1 | Population) +      (1 | Line:Population)
    Data: filter(droseu$wa, Supervisor.PI == "Onder" & Sex == "F")
 
 REML criterion at convergence: 61412.8
@@ -268,8 +260,7 @@ Altitude -0.800
 
 $WA_R_F_Posnien_lmer_alt
 Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: CentroidSizeRight_micrometers ~ Altitude + (1 | Population) +  
-    (1 | Line:Population)
+Formula: CentroidSizeRight_micrometers ~ Altitude + (1 | Population) +      (1 | Line:Population)
    Data: filter(droseu$wa, Supervisor.PI == "Posnien" & Sex == "F")
 
 REML criterion at convergence: 3274
@@ -298,8 +289,7 @@ Altitude -0.800
 
 $WA_R_F_Ritchie_lmer_alt
 Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: CentroidSizeRight_micrometers ~ Altitude + (1 | Population) +  
-    (1 | Line:Population)
+Formula: CentroidSizeRight_micrometers ~ Altitude + (1 | Population) +      (1 | Line:Population)
    Data: filter(droseu$wa, Supervisor.PI == "Ritchie" & Sex == "F")
 
 REML criterion at convergence: 17012.2
@@ -328,8 +318,7 @@ Altitude -0.805
 
 $WA_R_F_StamenkovicRadak_lmer_alt
 Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: CentroidSizeRight_micrometers ~ Altitude + (1 | Population) +  
-    (1 | Line:Population)
+Formula: CentroidSizeRight_micrometers ~ Altitude + (1 | Population) +      (1 | Line:Population)
    Data: filter(droseu$wa, Supervisor.PI == "StamenkovicRadak" & Sex ==      "F")
 
 REML criterion at convergence: 44951.3
@@ -358,8 +347,7 @@ Altitude -0.800
 
 $WA_R_M_Onder_lmer_alt
 Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: CentroidSizeRight_micrometers ~ Altitude + (1 | Population) +  
-    (1 | Line:Population)
+Formula: CentroidSizeRight_micrometers ~ Altitude + (1 | Population) +      (1 | Line:Population)
    Data: filter(droseu$wa, Supervisor.PI == "Onder" & Sex == "M")
 
 REML criterion at convergence: 60183.2
@@ -416,8 +404,7 @@ Altitude -0.800
 
 $WA_R_M_Ritchie_lmer_alt
 Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: CentroidSizeRight_micrometers ~ Altitude + (1 | Population) +  
-    (1 | Line:Population)
+Formula: CentroidSizeRight_micrometers ~ Altitude + (1 | Population) +      (1 | Line:Population)
    Data: filter(droseu$wa, Supervisor.PI == "Ritchie" & Sex == "M")
 
 REML criterion at convergence: 16579.3
@@ -446,8 +433,7 @@ Altitude -0.804
 
 $WA_R_M_StamenkovicRadak_lmer_alt
 Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: CentroidSizeRight_micrometers ~ Altitude + (1 | Population) +  
-    (1 | Line:Population)
+Formula: CentroidSizeRight_micrometers ~ Altitude + (1 | Population) +      (1 | Line:Population)
    Data: filter(droseu$wa, Supervisor.PI == "StamenkovicRadak" & Sex ==      "M")
 
 REML criterion at convergence: 42481.9
