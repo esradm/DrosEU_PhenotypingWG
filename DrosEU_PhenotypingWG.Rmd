@@ -3116,22 +3116,22 @@ invisible(dev.off())
 
 Descriptive statistics at the line level, with batch information : 
 ```{r, echo=FALSE}
-DT::datatable(table_line_wbatch$WA_Right, options = list(pageLength = 10)) %>% formatRound(7:14, 3)
+DT::datatable(table_line_wbatch$WA_Right, options = list(pageLength = 10)) %>% formatRound(6:13, 3)
 ```
 
 Descriptive statistics at the line level, without batch information : 
 ```{r, echo=FALSE}
-DT::datatable(table_line_wobatch$WA_Right, options = list(pageLength = 10)) %>% formatRound(6:13, 3)
+DT::datatable(table_line_wobatch$WA_Right, options = list(pageLength = 10)) %>% formatRound(5:12, 3)
 ```
 
 Descriptive statistics at the population level, with batch information : 
 ```{r, echo=FALSE}
-DT::datatable(table_pop_wbatch$WA_Right, options = list(pageLength = 10))  %>% formatRound(6:13, 3)
+DT::datatable(table_pop_wbatch$WA_Right, options = list(pageLength = 10))  %>% formatRound(5:12, 3)
 ```
 
 Descriptive statistics at the population level, without batch information : 
 ```{r, echo=FALSE}
-DT::datatable(table_pop_wobatch$WA_Right, options = list(pageLength = 10))  %>% formatRound(5:12, 3)
+DT::datatable(table_pop_wobatch$WA_Right, options = list(pageLength = 10))  %>% formatRound(4:11, 3)
 ```
 
 ### Plots and Linear Models by Lab  
@@ -3752,7 +3752,7 @@ str(droseu$fec)
 ### Descriptive Statistics
 
 Descriptive statistics at the line level, with batch information : 
-```{r, echo=FALSE}
+```{r tables_fec, echo=FALSE}
 DT::datatable(table_line_wbatch$Fec, options = list(pageLength = 10)) %>% formatRound(6:13, 3)
 ```
 
@@ -3958,7 +3958,7 @@ str(droseu$lsm)
 
 Descriptive statistics at the line level, with batch information :
 
-```{r, echo=FALSE}
+```{r tbales_ls, echo=FALSE}
 DT::datatable(table_line_wbatch$LS_L, options = list(pageLength = 10)) %>% formatRound(6:13, 3)
 ```
 
@@ -5421,24 +5421,14 @@ str(droseu$dia)
 
 ### Descriptive Statistics
 
-Descriptive statistics at the line level for Max Stage 9, with batch information :
-```{r echo=FALSE}
-DT::datatable(table_line_wbatch$Dia_Prop_Max_Stage9, options = list(pageLength = 10)) %>% formatRound(5, 3)
-```
-
-Descriptive statistics at the line level for Max Stage 9, without batch information :
-```{r echo=FALSE}
-DT::datatable(table_line_wobatch$Dia_Prop_Max_Stage9, options = list(pageLength = 10)) %>% formatRound(4, 3)
-```
-
 Descriptive statistics at the population level, with batch information :
 ```{r echo=FALSE}
-DT::datatable(table_pop_wbatch$Dia_Prop_Max_Stage9, options = list(pageLength = 10)) %>% formatRound(4:11, 3)
+DT::datatable(table_pop_wbatch$Dia_Prop_Max_Stage9, options = list(pageLength = 10)) %>% formatRound(5:12, 3)
 ```
 
 Descriptive statistics at the population level, without batch information :
 ```{r echo=FALSE}
-DT::datatable(table_pop_wobatch$Dia_Prop_Max_Stage9, options = list(pageLength = 10)) %>% formatRound(3:10, 3)
+DT::datatable(table_pop_wobatch$Dia_Prop_Max_Stage9, options = list(pageLength = 10)) %>% formatRound(4:11, 3)
 ```
 
 ### Plots and Linear Models by Lab
@@ -5867,44 +5857,44 @@ DT::datatable(table_pop_wbatch$LA_Activity, options = list(pageLength = 10)) %>%
 
 Descriptive statistics at the line level, with batch information :
 ```{r, echo=FALSE}
-DT::datatable(table_line_wbatch$LA_ND, options = list(pageLength = 10)) %>% formatRound(7:14, 3)
+DT::datatable(table_line_wbatch$LA_ND, options = list(pageLength = 10)) %>% formatRound(6:13, 3)
 ```
 
 Descriptive statistics at the line level, without batch information :
 ```{r, echo=FALSE}
-DT::datatable(table_line_wobatch$LA_ND, options = list(pageLength = 10)) %>% formatRound(6:13, 3)
+DT::datatable(table_line_wobatch$LA_ND, options = list(pageLength = 10)) %>% formatRound(5:12, 3)
 ```
 
 Descriptive statistics at the population level, with batch information :
 ```{r, echo=FALSE}
-DT::datatable(table_pop_wbatch$LA_ND, options = list(pageLength = 10)) %>% formatRound(6:13, 3)
+DT::datatable(table_pop_wbatch$LA_ND, options = list(pageLength = 10)) %>% formatRound(5:12, 3)
 ```
 
 Descriptive statistics at the population level, without batch information :
 ```{r, echo=FALSE}
-DT::datatable(table_pop_wobatch$LA_ND, options = list(pageLength = 10)) %>% formatRound(5:12, 3)
+DT::datatable(table_pop_wobatch$LA_ND, options = list(pageLength = 10)) %>% formatRound(4:11, 3)
 ```
 
 #### LA - Circadian Phase
 
 Descriptive statistics at the line level, with batch information :
 ```{r, echo=FALSE}
-DT::datatable(table_line_wbatch$LA_CircPhase, options = list(pageLength = 10)) %>% formatRound(7:14, 3)
+DT::datatable(table_line_wbatch$LA_CircPhase, options = list(pageLength = 10)) %>% formatRound(6:13, 3)
 ```
 
 Descriptive statistics at the line level, without batch information :
 ```{r, echo=FALSE}
-DT::datatable(table_line_wobatch$LA_CircPhase, options = list(pageLength = 10)) %>% formatRound(6:13, 3)
+DT::datatable(table_line_wobatch$LA_CircPhase, options = list(pageLength = 10)) %>% formatRound(5:12, 3)
 ```
 
 Descriptive statistics at the population level, with batch information :
 ```{r, echo=FALSE}
-DT::datatable(table_pop_wbatch$LA_CircPhase, options = list(pageLength = 10)) %>% formatRound(6:13, 3)
+DT::datatable(table_pop_wbatch$LA_CircPhase, options = list(pageLength = 10)) %>% formatRound(5:12, 3)
 ```
 
 Descriptive statistics at the population level, without batch information :
 ```{r, echo=FALSE}
-DT::datatable(table_pop_wobatch$LA_CircPhase, options = list(pageLength = 10)) %>% formatRound(5:12, 3)
+DT::datatable(table_pop_wobatch$LA_CircPhase, options = list(pageLength = 10)) %>% formatRound(4:11, 3)
 ```
 
 ### Plots and Linear Models by Lab  
