@@ -187,6 +187,17 @@ saveRDS(all_coxmes_pop, file = file.path(surv_dir, "all_coxmes_list_pop.rds"))
 
 
 
+############# output all lmers summaries and anovas as global lists ############# 
+
+
+all_coxmes_pop_summary <- lapply(all_coxmes_pop, summary)
+saveRDS(all_coxmes_pop_summary, file = file.path(surv_dir, "all_coxmes_list_pop_summary.rds"))
+
+all_coxmes_pop_anova <- lapply(all_coxmes_pop, anova)
+saveRDS(all_coxmes_pop_anova, file = file.path(surv_dir, "all_coxmes_list_pop_anova.rds"))
+
+
+
 
 
 
