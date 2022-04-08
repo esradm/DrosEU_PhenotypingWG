@@ -23,7 +23,7 @@ p_alt <- read.csv("LinearModelsAlt/all_lmers_alt_pvalues.csv")
 p_metas <- read.csv("MetaAnalyses/all_metas_pvalues.csv")
 
 ##### create output directory
-sum_dir <- "SummaryLmerMeta"
+sum_dir <- "InfoTables"
 dir.create(sum_dir, showWarnings = F) 
 
 
