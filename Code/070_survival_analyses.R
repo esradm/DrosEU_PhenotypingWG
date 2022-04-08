@@ -186,33 +186,6 @@ saveRDS(all_coxmes_pop, file = file.path(surv_dir, "all_coxmes_list_pop.rds"))
 
 
 
-############# check linear models residuals ############# 
-
-
-coxmes <- list.files(path = surv_dir, recursive = T, full.names = T, pattern = "coxme_pop.rds")
-
-
-for (i in 1:length(coxmes)){
-  f <- coxmes[i]
-  p <- str_match(f, '(.*[^/]+)(?:/[^/]+){1}$')[,2]
-  dir.create(file.path(p, "by_lab_coxme_residuals"), showWarnings = F) 
-  m <- readRDS(f)
-  n <- names(m)
-  f_out <- file.path(p, "by_lab_coxme_residuals", n)
-  qq_out_png <- paste0(f_out, "_qq_plot_residuals.png")
-  hist_out_png <- paste0(f_out, "_hist_residuals.png")
-  for (j in 1:length(n)){
-    png(filename = qq_out_png[j], height = 2100, width = 2100, res = 300)
-    qqnorm(resid(m[[j]]), main = n[j])
-    qqline(resid(m[[j]]))
-    dev.off()
-    png(filename = hist_out_png[j], height = 2100, width = 2100, res = 300)
-    hist(resid(m[[j]]), main = n[j], xlab = "Residuals")
-    dev.off()
-  } 
-}
-
-
 
 
 
