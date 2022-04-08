@@ -114,18 +114,10 @@ for (i in 1:length(droseu)) {
 ##### turn Paul's data into proportion
 
 droseu$pgm2 <- droseu$pgm2 %>%
-  mutate(PercT4 =  ScoreT4 * 0.1,
-         PercT5 =  ScoreT5 * 0.1,
-         PercT6 =  ScoreT6 * 0.1,
-         TotalPerc = ((ScoreT4 + ScoreT5 + ScoreT6)/3)*0.1)
-
-
-droseu$pgm2 <- droseu$pgm2 %>%
-  mutate(PercT4_asin =  asin(sqrt(ScoreT4 * 0.1)),
-         PercT5_asin =  asin(sqrt(ScoreT5 * 0.1)),
-         PercT6_asin =  asin(sqrt(ScoreT6 * 0.1)),
-         TotalPerc_asin = asin(sqrt(((ScoreT4 + ScoreT5 + ScoreT6)/3)*0.1)))
-
+  mutate(PercT4 =  ScoreT4 * 10,
+         PercT5 =  ScoreT5 * 10,
+         PercT6 =  ScoreT6 * 10,
+         TotalPerc = ((ScoreT4 + ScoreT5 + ScoreT6)/3)*10)
 
 
 ##### arcsin transformation of other proportion data
@@ -145,10 +137,10 @@ droseu$pgm <- droseu$pgm %>%
          TotalPerc_asin = asin(sqrt(TotalPerc/100)))
 
 droseu$pgm2 <- droseu$pgm2 %>%
-  mutate(PercT4_asin =  asin(sqrt(PercT4)),
-         PercT5_asin =  asin(sqrt(PercT5)),
-         PercT6_asin =  asin(sqrt(PercT6)),
-         TotalPerc_asin = asin(sqrt(TotalPerc)))
+  mutate(PercT4_asin =  asin(sqrt(PercT4/100)),
+         PercT5_asin =  asin(sqrt(PercT5/100)),
+         PercT6_asin =  asin(sqrt(PercT6/100)),
+         TotalPerc_asin = asin(sqrt(TotalPerc/100)))
 
 droseu$via <- droseu$via %>% 
   mutate(ProportionEggtoAdultSurvival_asin = asin(sqrt(ProportionEggtoAdultSurvival)))
