@@ -1585,7 +1585,7 @@ dev.off
 #### Linear Models / Residuals
 
 ##### Gibert Lab
-
+_Females_
 ```{r echo=FALSE}
 knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_lmer_residuals/DT_A_F_Gibert_lmer_pop_hist_residuals.png")
 ```
@@ -1594,16 +1594,18 @@ knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_lmer_residuals/D
 knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_lmer_residuals/DT_A_F_Gibert_lmer_pop_qq_plot_residuals.png")
 ```
 
+_Males_
 ```{r echo=FALSE}
-knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_lmer_residuals/DT_A_F_Gibert_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_lmer_residuals/DT_A_M_Gibert_lmer_pop_hist_residuals.png")
 ```
 
 ```{r echo=FALSE}
-knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_lmer_residuals/DT_A_F_Gibert_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_lmer_residuals/DT_A_M_Gibert_lmer_pop_qq_plot_residuals.png")
 ```
 
 ##### Grath Lab
 
+_Females_
 ```{r echo=FALSE}
 knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_lmer_residuals/DT_A_F_Grath_lmer_pop_hist_residuals.png")
 ```
@@ -1612,16 +1614,18 @@ knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_lmer_residuals/D
 knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_lmer_residuals/DT_A_F_Grath_lmer_pop_qq_plot_residuals.png")
 ```
 
+_Males_
 ```{r echo=FALSE}
-knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_lmer_residuals/DT_A_F_Grath_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_lmer_residuals/DT_A_M_Grath_lmer_pop_hist_residuals.png")
 ```
 
 ```{r echo=FALSE}
-knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_lmer_residuals/DT_A_F_Grath_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_lmer_residuals/DT_A_M_Grath_lmer_pop_qq_plot_residuals.png")
 ```
 
-#### Hoedjes Lab
+##### Hoedjes Lab
 
+_Females_
 ```{r echo=FALSE}
 knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_lmer_residuals/DT_A_F_Hoedjes_lmer_pop_hist_residuals.png")
 ```
@@ -1630,16 +1634,18 @@ knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_lmer_residuals/D
 knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_lmer_residuals/DT_A_F_Hoedjes_lmer_pop_qq_plot_residuals.png")
 ```
 
+_Males_
 ```{r echo=FALSE}
-knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_lmer_residuals/DT_A_F_Hoedjes_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_lmer_residuals/DT_A_M_Hoedjes_lmer_pop_hist_residuals.png")
 ```
 
 ```{r echo=FALSE}
-knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_lmer_residuals/DT_A_F_Hoedjes_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_lmer_residuals/DT_A_M_Hoedjes_lmer_pop_qq_plot_residuals.png")
 ```
 
 #### Schmidt Lab
 
+_Females_
 ```{r echo=FALSE}
 knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_lmer_residuals/DT_A_F_Schmidt_lmer_pop_hist_residuals.png")
 ```
@@ -1648,16 +1654,18 @@ knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_lmer_residuals/D
 knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_lmer_residuals/DT_A_F_Schmidt_lmer_pop_qq_plot_residuals.png")
 ```
 
+_Males_
 ```{r echo=FALSE}
-knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_lmer_residuals/DT_A_F_Schmidt_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_lmer_residuals/DT_A_M_Schmidt_lmer_pop_hist_residuals.png")
 ```
 
 ```{r echo=FALSE}
-knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_lmer_residuals/DT_A_F_Schmidt_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_lmer_residuals/DT_A_M_Schmidt_lmer_pop_qq_plot_residuals.png")
 ```
 
 #### Stamenkovic-Radak Lab
 
+_Females_
 ```{r echo=FALSE}
 knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_lmer_residuals/DT_A_F_StamenkovicRadak_lmer_pop_hist_residuals.png")
 ```
@@ -1666,16 +1674,18 @@ knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_lmer_residuals/D
 knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_lmer_residuals/DT_A_F_StamenkovicRadak_lmer_pop_qq_plot_residuals.png")
 ```
 
+_Males_
 ```{r echo=FALSE}
-knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_lmer_residuals/DT_A_F_StamenkovicRadak_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_lmer_residuals/DT_A_M_StamenkovicRadak_lmer_pop_hist_residuals.png")
 ```
 
 ```{r echo=FALSE}
-knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_lmer_residuals/DT_A_F_StamenkovicRadak_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_lmer_residuals/DT_A_M_StamenkovicRadak_lmer_pop_qq_plot_residuals.png")
 ```
 
 #### Zwaan Lab
 
+_Females_
 ```{r echo=FALSE}
 knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_lmer_residuals/DT_A_F_Zwaan_lmer_pop_hist_residuals.png")
 ```
@@ -1684,12 +1694,13 @@ knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_lmer_residuals/D
 knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_lmer_residuals/DT_A_F_Zwaan_lmer_pop_qq_plot_residuals.png")
 ```
 
+_Males_
 ```{r echo=FALSE}
-knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_lmer_residuals/DT_A_F_Zwaan_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_lmer_residuals/DT_A_M_Zwaan_lmer_pop_hist_residuals.png")
 ```
 
 ```{r echo=FALSE}
-knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_lmer_residuals/DT_A_F_Zwaan_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_lmer_residuals/DT_A_M_Zwaan_lmer_pop_qq_plot_residuals.png")
 ```
 
 #### Lab correlations
@@ -2069,6 +2080,7 @@ invisible(dev.off())
 
 #### Colinet Lab
 
+_Females_
 ```{r}
 knitr::include_graphics("LinearModelsPop/DryWeight/by_lab_lmer_residuals/DW_F_Colinet_lmer_pop_hist_residuals.png")
 ```
@@ -2077,6 +2089,7 @@ knitr::include_graphics("LinearModelsPop/DryWeight/by_lab_lmer_residuals/DW_F_Co
 knitr::include_graphics("LinearModelsPop/DryWeight/by_lab_lmer_residuals/DW_F_Colinet_lmer_pop_qq_plot_residuals.png")
 ```
 
+_Males_
 ```{r}
 knitr::include_graphics("LinearModelsPop/DryWeight/by_lab_lmer_residuals/DW_M_Colinet_lmer_pop_hist_residuals.png")
 ```
@@ -2087,6 +2100,7 @@ knitr::include_graphics("LinearModelsPop/DryWeight/by_lab_lmer_residuals/DW_M_Co
 
 #### Hoedjes Lab
 
+_Females_
 ```{r}
 knitr::include_graphics("LinearModelsPop/DryWeight/by_lab_lmer_residuals/DW_F_Hoedjes_lmer_pop_hist_residuals.png")
 ```
@@ -2095,6 +2109,7 @@ knitr::include_graphics("LinearModelsPop/DryWeight/by_lab_lmer_residuals/DW_F_Ho
 knitr::include_graphics("LinearModelsPop/DryWeight/by_lab_lmer_residuals/DW_F_Hoedjes_lmer_pop_qq_plot_residuals.png")
 ```
 
+_Males_
 ```{r}
 knitr::include_graphics("LinearModelsPop/DryWeight/by_lab_lmer_residuals/DW_M_Hoedjes_lmer_pop_hist_residuals.png")
 ```
@@ -2105,6 +2120,7 @@ knitr::include_graphics("LinearModelsPop/DryWeight/by_lab_lmer_residuals/DW_M_Ho
 
 #### Onder Lab
 
+_Females_
 ```{r}
 knitr::include_graphics("LinearModelsPop/DryWeight/by_lab_lmer_residuals/DW_F_Onder_lmer_pop_hist_residuals.png")
 ```
@@ -2113,6 +2129,7 @@ knitr::include_graphics("LinearModelsPop/DryWeight/by_lab_lmer_residuals/DW_F_On
 knitr::include_graphics("LinearModelsPop/DryWeight/by_lab_lmer_residuals/DW_F_Onder_lmer_pop_qq_plot_residuals.png")
 ```
 
+_Males_
 ```{r}
 knitr::include_graphics("LinearModelsPop/DryWeight/by_lab_lmer_residuals/DW_M_Onder_lmer_pop_hist_residuals.png")
 ```
@@ -2156,7 +2173,6 @@ for (i in dev.list()[1]:dev.list()[length(dev.list())]) {
 }
 # crashed bc tries to save lots -- need to remove some sometimes
 ```
-
 
 ## Thorax length
 
@@ -2537,6 +2553,7 @@ invisible(dev.off())
 
 #### Kozeretska Lab
 
+_Females_
 ```{r}
 knitr::include_graphics("LinearModelsPop/ThoraxLength/by_lab_lmer_residuals/TL_F_Kozeretska_lmer_pop_hist_residuals.png")
 ```
@@ -2545,6 +2562,7 @@ knitr::include_graphics("LinearModelsPop/ThoraxLength/by_lab_lmer_residuals/TL_F
 knitr::include_graphics("LinearModelsPop/ThoraxLength/by_lab_lmer_residuals/TL_F_Kozeretska_lmer_pop_qq_plot_residuals.png")
 ```
 
+_Males_
 ```{r}
 knitr::include_graphics("LinearModelsPop/ThoraxLength/by_lab_lmer_residuals/TL_M_Kozeretska_lmer_pop_hist_residuals.png")
 ```
@@ -2555,6 +2573,7 @@ knitr::include_graphics("LinearModelsPop/ThoraxLength/by_lab_lmer_residuals/TL_M
 
 #### Posnien Lab
 
+_Females_
 ```{r}
 knitr::include_graphics("LinearModelsPop/ThoraxLength/by_lab_lmer_residuals/TL_F_Posnien_lmer_pop_hist_residuals.png")
 ```
@@ -2563,6 +2582,7 @@ knitr::include_graphics("LinearModelsPop/ThoraxLength/by_lab_lmer_residuals/TL_F
 knitr::include_graphics("LinearModelsPop/ThoraxLength/by_lab_lmer_residuals/TL_F_Posnien_lmer_pop_qq_plot_residuals.png")
 ```
 
+_Males_
 ```{r}
 knitr::include_graphics("LinearModelsPop/ThoraxLength/by_lab_lmer_residuals/TL_M_Posnien_lmer_pop_hist_residuals.png")
 ```
@@ -2573,6 +2593,7 @@ knitr::include_graphics("LinearModelsPop/ThoraxLength/by_lab_lmer_residuals/TL_M
 
 #### Ritchie Lab
 
+_Females_
 ```{r}
 knitr::include_graphics("LinearModelsPop/ThoraxLength/by_lab_lmer_residuals/TL_F_Ritchie_lmer_pop_hist_residuals.png")
 ```
@@ -2581,6 +2602,7 @@ knitr::include_graphics("LinearModelsPop/ThoraxLength/by_lab_lmer_residuals/TL_F
 knitr::include_graphics("LinearModelsPop/ThoraxLength/by_lab_lmer_residuals/TL_F_Ritchie_lmer_pop_qq_plot_residuals.png")
 ```
 
+_Males_
 ```{r}
 knitr::include_graphics("LinearModelsPop/ThoraxLength/by_lab_lmer_residuals/TL_M_Ritchie_lmer_pop_hist_residuals.png")
 ```
@@ -2591,6 +2613,7 @@ knitr::include_graphics("LinearModelsPop/ThoraxLength/by_lab_lmer_residuals/TL_M
 
 #### Schmidt Lab
 
+_Females_
 ```{r}
 knitr::include_graphics("LinearModelsPop/ThoraxLength/by_lab_lmer_residuals/TL_F_Schmidt_lmer_pop_hist_residuals.png")
 ```
@@ -3468,6 +3491,7 @@ invisible(dev.off())
 
 #### Onder Lab
 
+_Females_
 ```{r}
 knitr::include_graphics("LinearModelsPop/WingArea/by_lab_lmer_residuals/WA_L_F_Onder_lmer_pop_hist_residuals.png")
 ```
@@ -3476,6 +3500,7 @@ knitr::include_graphics("LinearModelsPop/WingArea/by_lab_lmer_residuals/WA_L_F_O
 knitr::include_graphics("LinearModelsPop/WingArea/by_lab_lmer_residuals/WA_L_F_Onder_lmer_pop_qq_plot_residuals.png")
 ```
 
+_Males_
 ```{r}
 knitr::include_graphics("LinearModelsPop/WingArea/by_lab_lmer_residuals/WA_L_M_Onder_lmer_pop_hist_residuals.png")
 ```
@@ -3486,6 +3511,7 @@ knitr::include_graphics("LinearModelsPop/WingArea/by_lab_lmer_residuals/WA_L_M_O
 
 #### Posnien Lab
 
+_Females_
 ```{r}
 knitr::include_graphics("LinearModelsPop/WingArea/by_lab_lmer_residuals/WA_L_F_Posnien_lmer_pop_hist_residuals.png")
 ```
@@ -3494,6 +3520,7 @@ knitr::include_graphics("LinearModelsPop/WingArea/by_lab_lmer_residuals/WA_L_F_P
 knitr::include_graphics("LinearModelsPop/WingArea/by_lab_lmer_residuals/WA_L_F_Posnien_lmer_pop_qq_plot_residuals.png")
 ```
 
+_Males_
 ```{r}
 knitr::include_graphics("LinearModelsPop/WingArea/by_lab_lmer_residuals/WA_L_M_Posnien_lmer_pop_hist_residuals.png")
 ```
@@ -3504,6 +3531,7 @@ knitr::include_graphics("LinearModelsPop/WingArea/by_lab_lmer_residuals/WA_L_M_P
 
 #### Ritchie Lab
 
+_Females_
 ```{r}
 knitr::include_graphics("LinearModelsPop/WingArea/by_lab_lmer_residuals/WA_L_F_Ritchie_lmer_pop_hist_residuals.png")
 ```
@@ -3512,6 +3540,7 @@ knitr::include_graphics("LinearModelsPop/WingArea/by_lab_lmer_residuals/WA_L_F_R
 knitr::include_graphics("LinearModelsPop/WingArea/by_lab_lmer_residuals/WA_L_F_Ritchie_lmer_pop_qq_plot_residuals.png")
 ```
 
+_Males_
 ```{r}
 knitr::include_graphics("LinearModelsPop/WingArea/by_lab_lmer_residuals/WA_L_M_Ritchie_lmer_pop_hist_residuals.png")
 ```
@@ -3522,6 +3551,7 @@ knitr::include_graphics("LinearModelsPop/WingArea/by_lab_lmer_residuals/WA_L_M_R
 
 #### Stamenkovic-Radak Lab
 
+_Females_
 ```{r}
 knitr::include_graphics("LinearModelsPop/WingArea/by_lab_lmer_residuals/WA_L_F_StamenkovicRadak_lmer_pop_hist_residuals.png")
 ```
@@ -3530,18 +3560,20 @@ knitr::include_graphics("LinearModelsPop/WingArea/by_lab_lmer_residuals/WA_L_F_S
 knitr::include_graphics("LinearModelsPop/WingArea/by_lab_lmer_residuals/WA_L_F_StamenkovicRadak_lmer_pop_qq_plot_residuals.png")
 ```
 
+_Males_
 ```{r}
 knitr::include_graphics("LinearModelsPop/WingArea/by_lab_lmer_residuals/WA_L_M_StamenkovicRadak_lmer_pop_hist_residuals.png")
 ```
 
 ```{r}
-knitr::include_graphics("LinearModelsPop/WingArea/by_lab_lmer_residuals/WA_L_F_StamenkovicRadak_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/WingArea/by_lab_lmer_residuals/WA_L_M_StamenkovicRadak_lmer_pop_qq_plot_residuals.png")
 ```
 
 ### Linear Models / Residuals (Right)
 
 #### Onder Lab
 
+_Females_
 ```{r}
 knitr::include_graphics("LinearModelsPop/WingArea/by_lab_lmer_residuals/WA_R_F_Onder_lmer_pop_hist_residuals.png")
 ```
@@ -3550,6 +3582,7 @@ knitr::include_graphics("LinearModelsPop/WingArea/by_lab_lmer_residuals/WA_R_F_O
 knitr::include_graphics("LinearModelsPop/WingArea/by_lab_lmer_residuals/WA_R_F_Onder_lmer_pop_qq_plot_residuals.png")
 ```
 
+_Males_
 ```{r}
 knitr::include_graphics("LinearModelsPop/WingArea/by_lab_lmer_residuals/WA_R_M_Onder_lmer_pop_hist_residuals.png")
 ```
@@ -3560,6 +3593,7 @@ knitr::include_graphics("LinearModelsPop/WingArea/by_lab_lmer_residuals/WA_R_M_O
 
 #### Posnien Lab
 
+_Females_
 ```{r}
 knitr::include_graphics("LinearModelsPop/WingArea/by_lab_lmer_residuals/WA_R_F_Posnien_lmer_pop_hist_residuals.png")
 ```
@@ -3568,6 +3602,7 @@ knitr::include_graphics("LinearModelsPop/WingArea/by_lab_lmer_residuals/WA_R_F_P
 knitr::include_graphics("LinearModelsPop/WingArea/by_lab_lmer_residuals/WA_R_F_Posnien_lmer_pop_qq_plot_residuals.png")
 ```
 
+_Males_
 ```{r}
 knitr::include_graphics("LinearModelsPop/WingArea/by_lab_lmer_residuals/WA_R_M_Posnien_lmer_pop_hist_residuals.png")
 ```
@@ -3578,6 +3613,7 @@ knitr::include_graphics("LinearModelsPop/WingArea/by_lab_lmer_residuals/WA_R_M_P
 
 #### Ritchie Lab
 
+_Females_
 ```{r}
 knitr::include_graphics("LinearModelsPop/WingArea/by_lab_lmer_residuals/WA_R_F_Ritchie_lmer_pop_hist_residuals.png")
 ```
@@ -3586,6 +3622,7 @@ knitr::include_graphics("LinearModelsPop/WingArea/by_lab_lmer_residuals/WA_R_F_R
 knitr::include_graphics("LinearModelsPop/WingArea/by_lab_lmer_residuals/WA_R_F_Ritchie_lmer_pop_qq_plot_residuals.png")
 ```
 
+_Males_
 ```{r}
 knitr::include_graphics("LinearModelsPop/WingArea/by_lab_lmer_residuals/WA_R_M_Ritchie_lmer_pop_hist_residuals.png")
 ```
@@ -3596,6 +3633,7 @@ knitr::include_graphics("LinearModelsPop/WingArea/by_lab_lmer_residuals/WA_R_M_R
 
 #### Stamenkovic-Radak Lab
 
+_Females_
 ```{r}
 knitr::include_graphics("LinearModelsPop/WingArea/by_lab_lmer_residuals/WA_R_F_StamenkovicRadak_lmer_pop_hist_residuals.png")
 ```
@@ -3604,6 +3642,7 @@ knitr::include_graphics("LinearModelsPop/WingArea/by_lab_lmer_residuals/WA_R_F_S
 knitr::include_graphics("LinearModelsPop/WingArea/by_lab_lmer_residuals/WA_R_F_StamenkovicRadak_lmer_pop_qq_plot_residuals.png")
 ```
 
+_Males_
 ```{r}
 knitr::include_graphics("LinearModelsPop/WingArea/by_lab_lmer_residuals/WA_R_M_StamenkovicRadak_lmer_pop_hist_residuals.png")
 ```
@@ -3633,20 +3672,24 @@ There are `r length(intersect_Pop_WA) ` populations and `r length(intersect_Line
 
 ### _Left_
 
+_Females_
 ```{r echo=FALSE}
 knitr::include_graphics("LabCorrelations/WingArea/WA_L_F_lab_correlations.png")
 ```
 
+_Males_
 ```{r echo=FALSE}
 knitr::include_graphics("LabCorrelations/WingArea/WA_L_M_lab_correlations.png")
 ```
 
 ### _Right_
 
+_Females_
 ```{r echo=FALSE}
 knitr::include_graphics("LabCorrelations/WingArea/WA_R_F_lab_correlations.png")
 ```
 
+_Males_
 ```{r echo=FALSE}
 knitr::include_graphics("LabCorrelations/WingArea/WA_R_M_lab_correlations.png")
 ```
@@ -3872,7 +3915,6 @@ Flatt Lab : Esra Durmaz, Envel Kerdaffrec, Thibault Schowing, Virginie Thieu, Ma
 Parsch Lab : Amanda Glaser-Schmitt, Eliza Argyridou, John Parsch
 
 Pasyukova Lab : Natalia Roshina, Alexander Symonenko, Mikhail Trostnikov, Evgenia Tsybul'ko, Ekaterina Veselkina, Olga Rybina, Elena Pasyukova
-
 
 ### Data Reformatting
 
@@ -4193,6 +4235,7 @@ knitr::include_graphics("SurvivalAnalyses/Lifespan/p_LS_F_Pasyukova_survival_cur
 
 #### Flatt Lab
 
+_Females_
 ```{r}
 knitr::include_graphics("LinearModelsPop/Lifespan/by_lab_lmer_residuals/LS_F_Flatt_lmer_pop_hist_residuals.png")
 ```
@@ -4201,25 +4244,55 @@ knitr::include_graphics("LinearModelsPop/Lifespan/by_lab_lmer_residuals/LS_F_Fla
 knitr::include_graphics("LinearModelsPop/Lifespan/by_lab_lmer_residuals/LS_F_Flatt_lmer_pop_qq_plot_residuals.png")
 ```
 
-#### Parsch Lab
+_Males_
+```{r}
+knitr::include_graphics("LinearModelsPop/Lifespan/by_lab_lmer_residuals/LS_M_Flatt_lmer_pop_hist_residuals.png")
+```
 
+```{r}
+knitr::include_graphics("LinearModelsPop/Lifespan/by_lab_lmer_residuals/LS_M_Flatt_lmer_pop_qq_plot_residuals.png")
+```
+
+#### Parsch Lab
+_Females_
 ```{r}
 knitr::include_graphics("LinearModelsPop/Lifespan/by_lab_lmer_residuals/LS_F_Parsch_lmer_pop_hist_residuals.png")
 ```
 
 ```{r}
+knitr::include_graphics("LinearModelsPop/Lifespan/by_lab_lmer_residuals/LS_F_Parsch_lmer_pop_qq_plot_residuals.png")
+```
+
+_Males_
+
+```{r}
 knitr::include_graphics("LinearModelsPop/Lifespan/by_lab_lmer_residuals/LS_M_Parsch_lmer_pop_hist_residuals.png")
+```
+
+```{r}
+knitr::include_graphics("LinearModelsPop/Lifespan/by_lab_lmer_residuals/LS_M_Parsch_lmer_pop_qq_plot_residuals.png")
 ```
 
 #### Pasyukova Lab
 
+_Females_
 ```{r}
 knitr::include_graphics("LinearModelsPop/Lifespan/by_lab_lmer_residuals/LS_F_Pasyukova_lmer_pop_hist_residuals.png")
 ```
 
 ```{r}
+knitr::include_graphics("LinearModelsPop/Lifespan/by_lab_lmer_residuals/LS_F_Pasyukova_lmer_pop_qq_plot_residuals.png")
+```
+
+_Males_
+```{r}
+knitr::include_graphics("LinearModelsPop/Lifespan/by_lab_lmer_residuals/LS_M_Pasyukova_lmer_pop_hist_residuals.png")
+```
+
+```{r}
 knitr::include_graphics("LinearModelsPop/Lifespan/by_lab_lmer_residuals/LS_M_Pasyukova_lmer_pop_qq_plot_residuals.png")
 ```
+
 
 ### Lab correlations
 
@@ -4239,10 +4312,12 @@ write(intersect_Pop_LS, file ="Lifespan/intersect_Pop_LS", sep = "\t")
 
 There are `r length(intersect_Pop_LS) ` populations and `r length(intersect_Line_LS) ` isofemale lines that have been phenotyped across the labs. Please refer to tables named intersect_Trait_level (i.e. intersect_Via_pop) for details. 
 
+_Females_
 ```{r}
 knitr::include_graphics("LabCorrelations/Lifespan/LS_F_lab_correlations.png")
 ```
 
+_Males_
 ```{r}
 knitr::include_graphics("LabCorrelations/Lifespan/LS_M_lab_correlations.png")
 ```
@@ -4586,6 +4661,8 @@ invisible(dev.off())
 ### Linear Models / Residuals
 
 #### Gonzalez Lab
+
+_Females_
 ```{r}
 knitr::include_graphics("LinearModelsPop/ColdShock/by_lab_lmer_residuals/CSM_F_Gonzalez_lmer_pop_hist_residuals.png")
 ```
@@ -4594,6 +4671,7 @@ knitr::include_graphics("LinearModelsPop/ColdShock/by_lab_lmer_residuals/CSM_F_G
 knitr::include_graphics("LinearModelsPop/ColdShock/by_lab_lmer_residuals/CSM_F_Gonzalez_lmer_pop_qq_plot_residuals.png")
 ```
 
+_Males_
 ```{r}
 knitr::include_graphics("LinearModelsPop/ColdShock/by_lab_lmer_residuals/CSM_M_Gonzalez_lmer_pop_hist_residuals.png")
 ```
@@ -4604,6 +4682,7 @@ knitr::include_graphics("LinearModelsPop/ColdShock/by_lab_lmer_residuals/CSM_M_G
 
 #### Kozeretska Lab
 
+_Females_
 ```{r}
 knitr::include_graphics("LinearModelsPop/ColdShock/by_lab_lmer_residuals/CSM_F_Kozeretska_lmer_pop_hist_residuals.png")
 ```
@@ -4612,6 +4691,7 @@ knitr::include_graphics("LinearModelsPop/ColdShock/by_lab_lmer_residuals/CSM_F_K
 knitr::include_graphics("LinearModelsPop/ColdShock/by_lab_lmer_residuals/CSM_F_Kozeretska_lmer_pop_qq_plot_residuals.png")
 ```
 
+_Males_
 ```{r}
 knitr::include_graphics("LinearModelsPop/ColdShock/by_lab_lmer_residuals/CSM_M_Kozeretska_lmer_pop_hist_residuals.png")
 ```
@@ -4621,6 +4701,8 @@ knitr::include_graphics("LinearModelsPop/ColdShock/by_lab_lmer_residuals/CSM_M_K
 ```
 
 #### Vieira Lab
+
+_Females_
 ```{r}
 knitr::include_graphics("LinearModelsPop/ColdShock/by_lab_lmer_residuals/CSM_F_Vieira_lmer_pop_hist_residuals.png")
 ```
@@ -4629,6 +4711,7 @@ knitr::include_graphics("LinearModelsPop/ColdShock/by_lab_lmer_residuals/CSM_F_V
 knitr::include_graphics("LinearModelsPop/ColdShock/by_lab_lmer_residuals/CSM_F_Vieira_lmer_pop_qq_plot_residuals.png")
 ```
 
+_Males_
 ```{r}
 knitr::include_graphics("LinearModelsPop/ColdShock/by_lab_lmer_residuals/CSM_M_Vieira_lmer_pop_hist_residuals.png")
 ```
@@ -4653,10 +4736,12 @@ write(intersect_Pop_CSM, file ="ColdShock/intersect_Pop_CSM.txt", sep = "\t")
 
 There are `r length(intersect_Pop_CSM) ` populations and `r length(intersect_Line_CSM) ` isofemale lines that have been phenotyped across the labs. Please refer to tables named intersect_Trait_level (i.e. intersect_Via_pop) for details. 
 
+_Females_
 ```{r}
 knitr::include_graphics("LabCorrelations/ColdShock/CSM_F_lab_correlations.png")
 ```
 
+_Males_
 ```{r}
 knitr::include_graphics("LabCorrelations/ColdShock/CSM_M_lab_correlations.png")
 ```
@@ -4832,6 +4917,8 @@ knitr::include_graphics("SurvivalAnalyses/ChillComa/p_CCRT_M_Vieira_survival_cur
 #### Mensh Lab
 
 #### Vieira Lab
+
+_Females_
 ```{r, echo=FALSE}
 knitr::include_graphics("LinearModelsPop/ChillComa/by_lab_lmer_residuals/CCRT_F_Vieira_lmer_pop_hist_residuals.png")
 ```
@@ -4840,6 +4927,7 @@ knitr::include_graphics("LinearModelsPop/ChillComa/by_lab_lmer_residuals/CCRT_F_
 knitr::include_graphics("LinearModelsPop/ChillComa/by_lab_lmer_residuals/CCRT_F_Vieira_lmer_pop_qq_plot_residuals.png")
 ```
 
+_Males_
 ```{r, echo=FALSE}
 knitr::include_graphics("LinearModelsPop/ChillComa/by_lab_lmer_residuals/CCRT_M_Vieira_lmer_pop_hist_residuals.png")
 ```
@@ -5135,6 +5223,7 @@ knitr::include_graphics("SurvivalAnalyses/HeatShock/p_HSM_M_Vieira_survival_curv
 
 #### Parsch Lab
 
+_Females_
 ```{r, echo=FALSE}
 knitr::include_graphics("LinearModelsPop/HeatShock/by_lab_lmer_residuals/HSM_F_Parsch_lmer_pop_hist_residuals.png")
 ```
@@ -5143,6 +5232,7 @@ knitr::include_graphics("LinearModelsPop/HeatShock/by_lab_lmer_residuals/HSM_F_P
 knitr::include_graphics("LinearModelsPop/HeatShock/by_lab_lmer_residuals/HSM_F_Parsch_lmer_pop_qq_plot_residuals.png")
 ```
 
+_Males_
 ```{r, echo=FALSE}
 knitr::include_graphics("LinearModelsPop/HeatShock/by_lab_lmer_residuals/HSM_M_Parsch_lmer_pop_hist_residuals.png")
 ```
@@ -5152,6 +5242,8 @@ knitr::include_graphics("LinearModelsPop/HeatShock/by_lab_lmer_residuals/HSM_M_P
 ```
 
 #### Vieria Lab
+
+_Females_
 ```{r, echo=FALSE}
 knitr::include_graphics("LinearModelsPop/HeatShock/by_lab_lmer_residuals/HSM_F_Vieira_lmer_pop_hist_residuals.png")
 ```
@@ -5160,6 +5252,7 @@ knitr::include_graphics("LinearModelsPop/HeatShock/by_lab_lmer_residuals/HSM_F_V
 knitr::include_graphics("LinearModelsPop/HeatShock/by_lab_lmer_residuals/HSM_F_Vieira_lmer_pop_qq_plot_residuals.png")
 ```
 
+_Males_
 ```{r, echo=FALSE}
 knitr::include_graphics("LinearModelsPop/HeatShock/by_lab_lmer_residuals/HSM_M_Vieira_lmer_pop_hist_residuals.png")
 ```
@@ -5182,10 +5275,12 @@ write(intersect_Pop_HSM, file ="HeatShock/intersect_Pop_HSM.txt", sep = "\t")
 
 There are `r length(intersect_Pop_HSM) ` populations and `r length(intersect_Line_HSM) ` isofemale lines that have been phenotyped across the labs. Please refer to tables named intersect_Trait_level (i.e. intersect_Via_pop) for details. 
 
+_Females_
 ```{r, echo=FALSE}
 knitr::include_graphics("LabCorrelations/HeatShock/HSM_F_lab_correlations.png")
 ```
 
+_Males_
 ```{r, echo=FALSE}
 knitr::include_graphics("LabCorrelations/HeatShock/HSM_M_lab_correlations.png")
 ```
@@ -5769,6 +5864,9 @@ Oriana 3 (Stacked circular).
 knitr::include_graphics("Locomotor/FromEran/pheno2022_Page_5.png")
 ```
 
+### Linear Models / Residuals 
+
+
 ## Starvation resistance
 
 ```{r include=FALSE}
@@ -6141,6 +6239,7 @@ knitr::include_graphics("SurvivalAnalyses/Starvation/p_SR_M_Pasyukova_survival_c
 
 #### Gonzalez Lab
 
+_Females_
 ```{r echo=FALSE}
 knitr::include_graphics("LinearModelsPop/Starvation/by_lab_lmer_residuals/SR_F_Gonzalez_lmer_pop_hist_residuals.png")
 ```
@@ -6149,6 +6248,7 @@ knitr::include_graphics("LinearModelsPop/Starvation/by_lab_lmer_residuals/SR_F_G
 knitr::include_graphics("LinearModelsPop/Starvation/by_lab_lmer_residuals/SR_F_Gonzalez_lmer_pop_qq_plot_residuals.png")
 ```
 
+_Males_
 ```{r echo=FALSE}
 knitr::include_graphics("LinearModelsPop/Starvation/by_lab_lmer_residuals/SR_M_Gonzalez_lmer_pop_hist_residuals.png")
 ```
@@ -6159,6 +6259,7 @@ knitr::include_graphics("LinearModelsPop/Starvation/by_lab_lmer_residuals/SR_M_G
 
 #### Onder Lab
 
+_Females_
 ```{r echo=FALSE}
 knitr::include_graphics("LinearModelsPop/Starvation/by_lab_lmer_residuals/SR_F_Onder_lmer_pop_hist_residuals.png")
 ```
@@ -6167,6 +6268,7 @@ knitr::include_graphics("LinearModelsPop/Starvation/by_lab_lmer_residuals/SR_F_O
 knitr::include_graphics("LinearModelsPop/Starvation/by_lab_lmer_residuals/SR_F_Onder_lmer_pop_qq_plot_residuals.png")
 ```
 
+_Males_
 ```{r echo=FALSE}
 knitr::include_graphics("LinearModelsPop/Starvation/by_lab_lmer_residuals/SR_M_Onder_lmer_pop_hist_residuals.png")
 ```
@@ -6177,6 +6279,7 @@ knitr::include_graphics("LinearModelsPop/Starvation/by_lab_lmer_residuals/SR_M_O
 
 #### Pasyukova Lab
 
+_Females_
 ```{r echo=FALSE}
 knitr::include_graphics("LinearModelsPop/Starvation/by_lab_lmer_residuals/SR_F_Pasyukova_lmer_pop_hist_residuals.png")
 ```
@@ -6185,6 +6288,7 @@ knitr::include_graphics("LinearModelsPop/Starvation/by_lab_lmer_residuals/SR_F_P
 knitr::include_graphics("LinearModelsPop/Starvation/by_lab_lmer_residuals/SR_F_Pasyukova_lmer_pop_qq_plot_residuals.png")
 ```
 
+_Males_
 ```{r echo=FALSE}
 knitr::include_graphics("LinearModelsPop/Starvation/by_lab_lmer_residuals/SR_M_Pasyukova_lmer_pop_hist_residuals.png")
 ```
@@ -6211,10 +6315,12 @@ write(intersect_Pop_SR, file ="Starvation/intersect_Pop_SR.txt", sep = "\t")
 
 There are `r length(intersect_Pop_SR) ` populations and `r length(intersect_Line_SR) ` isofemale lines that have been phenotyped across the labs. Please refer to tables named intersect_Trait_level (i.e. intersect_Via_pop) for details. 
 
+_Females_
 ```{r echo=FALSE}
 knitr::include_graphics("LabCorrelations/Starvation/SR_F_lab_correlations.png")
 ```
 
+_Males_
 ```{r echo=FALSE}
 knitr::include_graphics("LabCorrelations/Starvation/SR_M_lab_correlations.png")
 ```
@@ -7078,6 +7184,18 @@ knitr::include_graphics("LabCorrelations/Pigmentation/Pgm_T6_F_lab_correlations.
 ```{r}
 knitr::include_graphics("LabCorrelations/Pigmentation/Pgm_Total_F_lab_correlations.png")
 ```
+
+## Parasitoid resistance
+
+```{r include=FALSE}
+dir.create(file.path("ParasitoidResistance"), showWarnings = FALSE)
+```
+
+_For a detailed description of tables, plots, linear models and outputs, please refer [here](#anchor) _
+
+### Contributors  
+
+Hrcek Lab : Vincent Montbel, Somaye, Jan Hrcek
 
 # Results II : Meta-Analyses
 
