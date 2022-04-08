@@ -7293,65 +7293,61 @@ lmers_lat$DT_P_Schmidt_lmer_lat
 ##### Gibert Lab
 
 ```{r}
-anova(DT_A_F_lmer_Lat_Gibert)
+lmers_lat$DT_A_F_Gibert_lmer_lat
 ```
 
 ```{r}
-anova(DT_A_M_lmer_Lat_Gibert)
+lmers_lat$DT_A_M_Gibert_lmer_lat
 ```
 
 ##### Grath Lab
 
-
 ```{r}
-anova(DT_A_F_lmer_Lat_Grath)
+lmers_lat$DT_A_F_Grath_lmer_lat
 ```
 
 ```{r}
-anova(DT_A_M_lmer_Lat_Grath)
+lmers_lat$DT_A_M_Gibert_lmer_lat
 ```
 
 ##### Hoedjes Lab
 
 ```{r}
-anova(DT_A_F_lmer_Lat_Hoedjes)
+lmers_lat$DT_A_F_Hoedjes_lmer_lat
 ```
 
 ```{r}
-anova(DT_A_M_lmer_Lat_Hoedjes)
+lmers_lat$DT_A_M_Hoedjes_lmer_lat
 ```
 
 ##### Schmidt Lab
 
 ```{r}
-anova(DT_A_F_lmer_Lat_Schmidt)
+lmers_lat$DT_A_F_Schmidt_lmer_lat
 ```
 
-
 ```{r}
-anova(DT_A_M_lmer_Lat_Schmidt)
+lmers_lat$DT_A_M_Schmidt_lmer_lat
 ```
 
 ##### Stamenkovic-Radak Lab
 
 ```{r}
-anova(DT_A_F_lmer_Lat_StamenkovicRadak)
+lmers_lat$DT_A_F_StamenkovicRadak_lmer_lat
 ```
 
 ```{r}
-anova(DT_A_M_lmer_Lat_StamenkovicRadak)
+lmers_lat$DT_A_M_StamenkovicRadak_lmer_lat
 ```
-
 
 ##### Zwaan Lab
 
 ```{r}
-anova(DT_A_F_lmer_Lat_Zwaan)
+lmers_lat$DT_A_F_Zwaan_lmer_lat
 ```
 
-
 ```{r}
-anova(DT_A_M_lmer_Lat_Zwaan)
+lmers_lat$DT_A_M_Zwaan_lmer_lat
 ```
 
 ### Dry weight
@@ -7359,31 +7355,30 @@ anova(DT_A_M_lmer_Lat_Zwaan)
 #### Colinet Lab
 
 ```{r}
-anova(DW_F_lmer_Lat_Colinet)
+lmers_lat$DW_F_Colinet_lmer_lat
 ```
 
 ```{r}
-anova(DW_M_lmer_Lat_Colinet)
+lmers_lat$DW_M_Colinet_lmer_lat
 ```
 
 #### Hoedjes Lab 
 ```{r}
-anova(DW_F_lmer_Lat_Hoedjes)
+lmers_lat$DW_F_Hoedjes_lmer_lat
 ```
 
 ```{r}
-anova(DW_M_lmer_Lat_Hoedjes)
+lmers_lat$DW_M_Hoedjes_lmer_lat
 ```
 
 #### Onder Lab
 
-
 ```{r}
-anova(DW_F_lmer_Lat_Onder)
+lmers_lat$DW_F_Onder_lmer_lat
 ```
 
 ```{r}
-anova(DW_M_lmer_Lat_Onder)
+lmers_lat$DW_M_Onder_lmer_lat
 ```
 
 ### Thorax length
@@ -7391,38 +7386,37 @@ anova(DW_M_lmer_Lat_Onder)
 #### Kozeretska Lab
 
 ```{r}
-anova(TL_F_lmer_Lat_Kozeretska)
+lmers_lat$TL_F_Kozeretska_lmer_lat
 ```
 
 ```{r}
-anova(TL_M_lmer_Lat_Kozeretska)
+lmers_lat$TL_M_Kozeretska_lmer_lat
 ```
 
 #### Posnien Lab 
 
 ```{r}
-anova(TL_F_lmer_Lat_Posnien)
+lmers_lat$TL_F_Posnien_lmer_lat
 ```
 
 ```{r}
-anova(TL_M_lmer_Lat_Posnien)
+lmers_lat$TL_M_Posnien_lmer_lat
 ```
 
 #### Ritchie Lab
 
 ```{r}
-anova(TL_F_lmer_Lat_Ritchie)
+lmers_lat$TL_F_Ritchie_lmer_lat
 ```
 
 ```{r}
-anova(TL_M_lmer_Lat_Ritchie)
+lmers_lat$TL_M_Ritchie_lmer_lat
 ```
 
 #### Schmidt Lab
 
-
 ```{r}
-anova(TL_F_lmer_Lat_Schmidt)
+lmers_lat$TL_F_Schmidt_lmer_lat
 ```
 
 ### Wing area
@@ -7432,43 +7426,41 @@ anova(TL_F_lmer_Lat_Schmidt)
 #### Onder Lab
 
 ```{r}
-anova(WA_Lat_F_L_Onder_lmer)
+lmers_lat$WA_L_F_Onder_lmer_lat
 ```
 
 ```{r}
-anova(WA_Lat_M_L_Onder_lmer)
+lmers_lat$WA_L_M_Onder_lmer_lat
 ```
 
 #### Posnien Lab 
 
 ```{r}
-anova(WA_Lat_F_L_Posnien_lmer)
+lmers_lat$WA_L_F_Posnien_lmer_lat
 ```
 
 ```{r}
-anova(WA_Lat_M_L_Posnien_lmer)
+lmers_lat$WA_L_M_Posnien_lmer_lat
 ```
 
 #### Ritchie Lab
 
-
 ```{r}
-anova(WA_Lat_F_L_Ritchie_lmer)
+lmers_lat$WA_L_F_Ritchie_lmer_lat
 ```
 
 ```{r}
-anova(WA_Lat_M_L_Ritchie_lmer)
+lmers_lat$WA_L_M_Ritchie_lmer_lat
 ```
 
 #### Stamenkovic-Radak Lab
 
-
 ```{r}
-anova(WA_Lat_F_L_StamenkovicRadak_lmer)
+lmers_lat$WA_L_F_StamenkovicRadak_lmer_lat
 ```
 
 ```{r}
-anova(WA_Lat_M_L_StamenkovicRadak_lmer)
+lmers_lat$WA_L_M_StamenkovicRadak_lmer_lat
 ```
 
 ### _Right_
@@ -7476,60 +7468,55 @@ anova(WA_Lat_M_L_StamenkovicRadak_lmer)
 #### Onder Lab
 
 ```{r}
-anova(WA_Lat_F_R_Onder_lmer)
+lmers_lat$WA_R_F_Onder_lmer_lat
 ```
 
-
 ```{r}
-anova(WA_Lat_M_R_Onder_lmer)
+lmers_lat$WA_R_M_Onder_lmer_lat
 ```
 
 #### Posnien Lab 
 
 ```{r}
-anova(WA_Lat_F_R_Posnien_lmer)
+lmers_lat$WA_R_F_Posnien_lmer_lat
 ```
 
-
 ```{r}
-anova(WA_Lat_M_R_Posnien_lmer)
+lmers_lat$WA_R_M_Posnien_lmer_lat
 ```
 
 #### Ritchie Lab
 
 ```{r}
-anova(WA_Lat_F_R_Ritchie_lmer)
+lmers_lat$WA_R_F_Ritchie_lmer_lat
 ```
 
 ```{r}
-anova(WA_Lat_M_R_Ritchie_lmer)
+lmers_lat$WA_R_M_Ritchie_lmer_lat
 ```
 
 #### Stamenkovic-Radak Lab
 
 ```{r}
-anova(WA_Lat_F_R_StamenkovicRadak_lmer)
+lmers_lat$WA_R_F_StamenkovicRadak_lmer_lat
 ```
 
 ```{r}
-anova(WA_Lat_M_R_StamenkovicRadak_lmer)
+lmers_lat$WA_R_M_StamenkovicRadak_lmer_lat
 ```
-
 
 ### Fecundity
 
-
 #### Billeter Lab
 
-
 ```{r}
-anova(Fec_lmer_Lat_Billeter)
+lmers_lat$Fec_Billeter_lmer_lat
 ```
 
 #### Fricke Lab 
 
 ```{r}
-anova(Fec_lmer_Lat_Fricke)
+lmers_lat$Fec_Fricke_lmer_lat
 ```
 
 ### Lifespan
@@ -7537,192 +7524,173 @@ anova(Fec_lmer_Lat_Fricke)
 #### Flatt Lab
 
 ```{r}
-anova(LS_Lat_P_F_Flatt_lmer)
+lmers_lat$LS_F_Flatt_lmer_lat
 ```
 
-
 ```{r}
-anova(LS_Lat_P_M_Flatt_lmer)
+lmers_lat$LS_M_Flatt_lmer_lat
 ```
 
 #### Parsch Lab 
 
 ```{r}
-anova(LS_Lat_L_F_Parsch_lmer)
+lmers_lat$LS_F_Parsch_lmer_lat
 ```
 
 ```{r}
-anova(LS_Lat_L_M_Parsch_lmer)
+lmers_lat$LS_M_Parsch_lmer_lat
 ```
 
 #### Pasyukova Lab
 
 ```{r}
-anova(LS_Lat_L_F_Pasyukova_lmer)
+lmers_lat$LS_F_Pasyukova_lmer_lat
 ```
-
 
 ```{r}
-anova(LS_Lat_L_M_Pasyukova_lmer)
+lmers_lat$LS_M_Pasyukova_lmer_lat
 ```
-
 
 ### Cold-shock mortality
 
 #### Gonzalez Lab
 
 ```{r}
-anova(CSM_F_lmer_Lat_Gonzalez)
+lmers_lat$CSM_F_Gonzalez_lmer_lat
 ```
 
 ```{r}
-anova(CSM_M_lmer_Lat_Gonzalez)
+lmers_lat$CSM_M_Gonzalez_lmer_lat
 ```
 
 #### Kozeretska Lab 
 
 ```{r}
-anova(CSM_F_lmer_Lat_Kozeretska)
+lmers_lat$CSM_F_Kozeretska_lmer_lat
 ```
 
-
 ```{r}
-anova(CSM_M_lmer_Lat_Kozeretska)
+lmers_lat$CSM_M_Kozeretska_lmer_lat
 ```
 
 #### Vieira Lab
 
-
 ```{r}
-anova(CSM_F_lmer_Lat_Vieira)
+lmers_lat$CSM_F_Vieira_lmer_lat
 ```
 
-
 ```{r}
-anova(CSM_M_lmer_Lat_Vieira)
+lmers_lat$CSM_M_Vieira_lmer_lat
 ```
 
 ### Chill-coma recovery time
 
-```{r}
-anova(CCRT_F_lmer_Lat_Vieira)
-```
-
-```{r}
-anova(CCRT_M_lmer_Lat_Vieira)
-```
-
 #### Mensh Lab 
 
+#### Vieira Lab
+
+```{r}
+lmers_lat$CCRT_F_Vieira_lmer_lat
+```
+
+```{r}
+lmers_lat$CCRT_M_Vieira_lmer_lat
+```
 
 ### Heat-shock mortality
 
 #### Parsch Lab
 
-
 ```{r}
-anova(HSM_F_lmer_Lat_Parsch)
+lmers_lat$HSM_F_Parsch_lmer_lat
 ```
 
-
 ```{r}
-anova(HSM_M_lmer_Lat_Parsch)
+lmers_lat$HSM_M_Parsch_lmer_lat
 ```
 
 #### Vieira Lab 
 
-
 ```{r}
-anova(HSM_F_lmer_Lat_Vieira)
+lmers_lat$HSM_F_Vieira_lmer_lat
 ```
-``
 
 ```{r}
-anova(HSM_M_lmer_Lat_Vieira)
+lmers_lat$HSM_M_Vieira_lmer_lat
 ```
 
 ### Diapause
 
-
 #### Bergland Lab
 ```{r}
-anova(Dia_lmer_Lat_Bergland)
+lmers_lat$Dia_Bergland_lmer_lat
 ```
 
 #### Flatt Lab 
 
 ```{r}
-anova(Dia_lmer_Lat_Flatt)
+lmers_lat$Dia_Flatt_lm_lat
 ```
 
 #### Schlotterer Lab
 
 ```{r}
-anova(Dia_lmer_Lat_Schlotterer)
+lmers_lat$Dia_Schlotterer_lmer_lat
 ```
 
 ### Circadian eclosion timing
-
 
 ### Locomotor activity
 
 #### Tauber Lab
 
+_ND_
 ```{r}
-anova(LA_lmer_Lat_ND_Tauber)
+lmers_lat$LA_NDlog2_Tauber_lmer_lat
 ```
 
 _CircPhase_
 
-
 ```{r}
-anova(LA_lmer_Lat_CircPhase_Tauber)
+
 ```
 
 _Activity_
 
-
 ```{r}
-anova(LA_lmer_Lat_Activity_Tauber)
+
 ```
 
 ### Starvation resistance
 
-
-
 #### Gonzalez Lab
 
-
 ```{r}
-anova(SR_F_lmer_Lat_Gonzalez)
+lmers_lat$SR_F_Gonzalez_lmer_lat
 ```
 
-
 ```{r}
-anova(SR_M_lmer_Lat_Gonzalez)
+lmers_lat$SR_M_Gonzalez_lmer_lat
 ```
 
 #### Onder Lab 
 
-
 ```{r}
-anova(SR_F_lmer_Lat_Onder)
+lmers_lat$SR_F_Onder_lmer_lat
 ```
 
-
 ```{r}
-anova(SR_M_lmer_Lat_Onder)
+lmers_lat$SR_M_Onder_lmer_lat
 ```
 
 #### Pasyukova Lab
 
-
 ```{r}
-anova(SR_F_lmer_Lat_Pasyukova)
+lmers_lat$SR_F_Pasyukova_lmer_lat
 ```
 
 ```{r}
-anova(SR_M_lmer_Lat_Pasyukova)
+lmers_lat$SR_M_Pasyukova_lmer_lat
 ```
 
 ### Pigmentation
@@ -7730,29 +7698,26 @@ anova(SR_M_lmer_Lat_Pasyukova)
 #### Abbott Lab
 _PercT4_
 
-
 ```{r}
-anova(Pgm_lmer_Lat_Abbott_PercT4)
+lmers_lat$Pgm_T4_Abbott_lmer_lat
 ```
 
 _PercT5_
 
 ```{r}
-anova(Pgm_lmer_Lat_Abbott_PercT5)
+lmers_lat$Pgm_T5_Abbott_lmer_lat
 ```
 
 _PercT6_
 
-
 ```{r}
-anova(Pgm_lmer_Lat_Abbott_PercT6)
+lmers_lat$Pgm_T6_Abbott_lmer_lat
 ```
 
 _TotalPerc_
 
-
 ```{r}
-anova(Pgm_lmer_Lat_Abbott_TotalPerc)
+lmers_lat$Pgm_Total_Abbott_lmer_lat
 ```
 
 #### Gibert Lab 
@@ -7760,7 +7725,7 @@ anova(Pgm_lmer_Lat_Abbott_TotalPerc)
 _PercT4_
 
 ```{r}
-anova(Pgm_lmer_Lat_Gibert_PercT4)
+lmers_lat$Pgm_T4_Gibert_lmer_lat
 ```
 
 _PercT5_
@@ -7772,44 +7737,35 @@ anova(Pgm_lmer_Lat_Gibert_PercT5)
 
 _PercT6_
 
-
 ```{r}
-anova(Pgm_lmer_Lat_Gibert_PercT6)
+lmers_lat$Pgm_T5_Gibert_lmer_lat
 ```
 
 _TotalPerc_
 
 ```{r}
-anova(Pgm_lmer_Lat_Gibert_TotalPerc)
+lmers_lat$Pgm_Total_Gibert_lmer_lat
 ```
 
 #### Schmidt Lab
 
-_Tergite8_
-
+_Tergite5_
 
 ```{r}
-anova(Pgm2_lmer_Lat_Schmidt_Tergite8)
+lmers_lat$Pgm_T5_Schmidt_lmer_lat
 ```
 
-_Tergite9_
+_Tergite6_
 
 ```{r}
-anova(Pgm2_lmer_Lat_Schmidt_Tergite9)
-```
-
-_Tergite10_
-
-```{r}
-anova(Pgm2_lmer_Lat_Schmidt_Tergite10)
+lmers_lat$Pgm_T6_Schmidt_lmer_lat
 ```
 
 _Total_
 
 ```{r}
-anova(Pgm2_lmer_Lat_Schmidt_Total)
+lmers_lat$Pgm_Total_Schmidt_lmer_lat
 ```
-
 
 ## Geography - Longitude
 
@@ -7818,118 +7774,109 @@ anova(Pgm2_lmer_Lat_Schmidt_Total)
 #### Gibert Lab
 
 ```{r}
-anova(Via_lmer_Long_Gibert)
+lmers_lon$Via_Gibert_lmer_lon
 ```
 
 #### Grath Lab
 
-
 ```{r}
-anova(Via_lmer_Long_Grath)
+lmers_lon$Via_Grath_lmer_lon
 ```
 
 #### Hoedjes Lab
 
 ```{r}
-anova(Via_lmer_Long_Hoedjes)
+lmers_lon$Via_Hoedjes_lmer_lon
 ```
 
 #### Schmidt Lab
 
 ```{r}
-anova(Via_lmer_Long_Schmidt) 
+lmers_lon$Via_Schmidt_lmer_lon
 ```
 
 #### Stamenkovic-Radak Lab
 
 ```{r}
-anova(Via_lmer_Long_StamenkovicRadak)
+lmers_lon$Via_StamenkovicRadak_lmer_lon
 ```
 
 #### Zwaan Lab
 
 ```{r}
-anova(Via_lmer_Long_Zwaan)
+lmers_lon$Via_Zwaan_lmer_lon
 ```
 
 ### Developmental time
 
-#### Egg-to-pupa developmental time
+### Egg-to-pupa developmental time
 
 ##### Schmidt Lab
 
-
 ```{r}
-anova(DT_P_lmer_Long)
+lmers_lon$DT_P_Schmidt_lmer_lon
 ```
 
-#### Egg-to-adult developmental time
+### Egg-to-adult developmental time
 
 ##### Gibert Lab
 
 ```{r}
-anova(DT_A_F_lmer_Long_Gibert)
+lmers_lon$DT_A_F_Gibert_lmer_lon
 ```
 
 ```{r}
-anova(DT_A_M_lmer_Long_Gibert)
+lmers_lon$DT_A_M_Gibert_lmer_lon
 ```
 
 ##### Grath Lab
 
 ```{r}
-anova(DT_A_F_lmer_Long_Grath)
+lmers_lon$DT_A_F_Grath_lmer_lon
 ```
 
-
 ```{r}
-anova(DT_A_M_lmer_Long_Grath)
+lmers_lon$DT_A_M_Gibert_lmer_lon
 ```
 
 ##### Hoedjes Lab
 
-
 ```{r}
-anova(DT_A_F_lmer_Long_Hoedjes)
+lmers_lon$DT_A_F_Hoedjes_lmer_lon
 ```
 
-
 ```{r}
-anova(DT_A_M_lmer_Long_Hoedjes)
+lmers_lon$DT_A_M_Hoedjes_lmer_lon
 ```
 
 ##### Schmidt Lab
 
 ```{r}
-anova(DT_A_F_lmer_Long_Schmidt)
+lmers_lon$DT_A_F_Schmidt_lmer_lon
 ```
 
-
 ```{r}
-anova(DT_A_M_lmer_Long_Schmidt)
+lmers_lon$DT_A_M_Schmidt_lmer_lon
 ```
 
 ##### Stamenkovic-Radak Lab
 
-
 ```{r}
-anova(DT_A_F_lmer_Long_StamenkovicRadak)
+lmers_lon$DT_A_F_StamenkovicRadak_lmer_lon
 ```
 
 ```{r}
-anova(DT_A_M_lmer_Long_StamenkovicRadak)
+lmers_lon$DT_A_M_StamenkovicRadak_lmer_lon
 ```
-
 
 ##### Zwaan Lab
 
-
 ```{r}
-anova(DT_A_F_lmer_Long_Zwaan)
+lmers_lon$DT_A_F_Zwaan_lmer_lon
 ```
 
 ```{r}
-anova(DT_A_M_lmer_Long_Zwaan)
+lmers_lon$DT_A_M_Zwaan_lmer_lon
 ```
 
 ### Dry weight
@@ -7937,33 +7884,30 @@ anova(DT_A_M_lmer_Long_Zwaan)
 #### Colinet Lab
 
 ```{r}
-anova(DW_F_lmer_Long_Colinet)
+lmers_lon$DW_F_Colinet_lmer_lon
 ```
 
-
 ```{r}
-anova(DW_M_lmer_Long_Colinet)
+lmers_lon$DW_M_Colinet_lmer_lon
 ```
 
 #### Hoedjes Lab 
-
 ```{r}
-anova(DW_F_lmer_Long_Hoedjes)
+lmers_lon$DW_F_Hoedjes_lmer_lon
 ```
 
 ```{r}
-anova(DW_M_lmer_Long_Hoedjes)
+lmers_lon$DW_M_Hoedjes_lmer_lon
 ```
 
 #### Onder Lab
 
 ```{r}
-anova(DW_F_lmer_Long_Onder)
+lmers_lon$DW_F_Onder_lmer_lon
 ```
 
-
 ```{r}
-anova(DW_M_lmer_Long_Onder)
+lmers_lon$DW_M_Onder_lmer_lon
 ```
 
 ### Thorax length
@@ -7971,38 +7915,37 @@ anova(DW_M_lmer_Long_Onder)
 #### Kozeretska Lab
 
 ```{r}
-anova(TL_F_lmer_Long_Kozeretska)
+lmers_lon$TL_F_Kozeretska_lmer_lon
 ```
 
-
 ```{r}
-anova(TL_M_lmer_Long_Kozeretska)
+lmers_lon$TL_M_Kozeretska_lmer_lon
 ```
 
 #### Posnien Lab 
 
 ```{r}
-anova(TL_F_lmer_Long_Posnien)
+lmers_lon$TL_F_Posnien_lmer_lon
 ```
 
 ```{r}
-anova(TL_M_lmer_Long_Posnien)
+lmers_lon$TL_M_Posnien_lmer_lon
 ```
 
 #### Ritchie Lab
 
 ```{r}
-anova(TL_F_lmer_Long_Ritchie)
+lmers_lon$TL_F_Ritchie_lmer_lon
 ```
 
 ```{r}
-anova(TL_M_lmer_Long_Ritchie)
+lmers_lon$TL_M_Ritchie_lmer_lon
 ```
 
 #### Schmidt Lab
 
 ```{r}
-anova(TL_F_lmer_Long_Schmidt)
+lmers_lon$TL_F_Schmidt_lmer_lon
 ```
 
 ### Wing area
@@ -8012,143 +7955,129 @@ anova(TL_F_lmer_Long_Schmidt)
 #### Onder Lab
 
 ```{r}
-anova(WA_Long_F_L_Onder_lmer)
+lmers_lon$WA_L_F_Onder_lmer_lon
 ```
 
-
 ```{r}
-anova(WA_Long_M_L_Onder_lmer)
+lmers_lon$WA_L_M_Onder_lmer_lon
 ```
 
 #### Posnien Lab 
 
-
 ```{r}
-anova(WA_Long_F_L_Posnien_lmer)
+lmers_lon$WA_L_F_Posnien_lmer_lon
 ```
 
-
 ```{r}
-anova(WA_Long_M_L_Posnien_lmer)
+lmers_lon$WA_L_M_Posnien_lmer_lon
 ```
 
 #### Ritchie Lab
 
 ```{r}
-anova(WA_Long_F_L_Ritchie_lmer)
+lmers_lon$WA_L_F_Ritchie_lmer_lon
 ```
 
-
 ```{r}
-anova(WA_Long_M_L_Ritchie_lmer)
+lmers_lon$WA_L_M_Ritchie_lmer_lon
 ```
 
 #### Stamenkovic-Radak Lab
 
 ```{r}
-anova(WA_Long_F_L_StamenkovicRadak_lmer)
+lmers_lon$WA_L_F_StamenkovicRadak_lmer_lon
 ```
 
-
 ```{r}
-anova(WA_Long_M_L_StamenkovicRadak_lmer)
+lmers_lon$WA_L_M_StamenkovicRadak_lmer_lon
 ```
 
 ### _Right_
 
+#### Onder Lab
 
 ```{r}
-anova(WA_Long_F_R_Onder_lmer)
+lmers_lon$WA_R_F_Onder_lmer_lon
 ```
 
-
 ```{r}
-anova(WA_Long_M_R_Onder_lmer)
+lmers_lon$WA_R_M_Onder_lmer_lon
 ```
 
 #### Posnien Lab 
 
-
 ```{r}
-anova(WA_Long_F_R_Posnien_lmer)
+lmers_lon$WA_R_F_Posnien_lmer_lon
 ```
 
-
 ```{r}
-anova(WA_Long_M_R_Posnien_lmer)
+lmers_lon$WA_R_M_Posnien_lmer_lon
 ```
 
 #### Ritchie Lab
 
-
 ```{r}
-anova(WA_Long_F_R_Ritchie_lmer)
+lmers_lon$WA_R_F_Ritchie_lmer_lon
 ```
 
 ```{r}
-anova(WA_Long_M_R_Ritchie_lmer)
+lmers_lon$WA_R_M_Ritchie_lmer_lon
 ```
 
 #### Stamenkovic-Radak Lab
 
-
 ```{r}
-anova(WA_Long_F_R_StamenkovicRadak_lmer)
+lmers_lon$WA_R_F_StamenkovicRadak_lmer_lon
 ```
 
-
 ```{r}
-anova(WA_Long_M_R_StamenkovicRadak_lmer)
+lmers_lon$WA_R_M_StamenkovicRadak_lmer_lon
 ```
-
 
 ### Fecundity
 
 #### Billeter Lab
 
 ```{r}
-anova(Fec_lmer_Long_Billeter)
+lmers_lon$Fec_Billeter_lmer_lon
 ```
 
 #### Fricke Lab 
 
 ```{r}
-anova(Fec_lmer_Long_Fricke)
+lmers_lon$Fec_Fricke_lmer_lon
 ```
 
 ### Lifespan
 
 #### Flatt Lab
 
-
 ```{r}
-anova(LS_Long_P_F_Flatt_lmer)
+lmers_lon$LS_F_Flatt_lmer_lon
 ```
 
 ```{r}
-anova(LS_Long_P_M_Flatt_lmer)
+lmers_lon$LS_M_Flatt_lmer_lon
 ```
 
 #### Parsch Lab 
 
-
 ```{r}
-anova(LS_Long_L_F_Parsch_lmer)
+lmers_lon$LS_F_Parsch_lmer_lon
 ```
 
 ```{r}
-anova(LS_Long_L_M_Parsch_lmer)
+lmers_lon$LS_M_Parsch_lmer_lon
 ```
 
 #### Pasyukova Lab
 
 ```{r}
-anova(LS_Long_L_F_Pasyukova_lmer)
+lmers_lon$LS_F_Pasyukova_lmer_lon
 ```
 
-
 ```{r}
-anova(LS_Long_L_M_Pasyukova_lmer)
+lmers_lon$LS_M_Pasyukova_lmer_lon
 ```
 
 ### Cold-shock mortality
@@ -8156,33 +8085,31 @@ anova(LS_Long_L_M_Pasyukova_lmer)
 #### Gonzalez Lab
 
 ```{r}
-anova(CSM_F_lmer_Long_Gonzalez)
+lmers_lon$CSM_F_Gonzalez_lmer_lon
 ```
 
-
 ```{r}
-anova(CSM_M_lmer_Long_Gonzalez)
+lmers_lon$CSM_M_Gonzalez_lmer_lon
 ```
 
 #### Kozeretska Lab 
 
 ```{r}
-anova(CSM_F_lmer_Long_Kozeretska)
+lmers_lon$CSM_F_Kozeretska_lmer_lon
 ```
 
 ```{r}
-anova(CSM_M_lmer_Long_Kozeretska)
+lmers_lon$CSM_M_Kozeretska_lmer_lon
 ```
 
 #### Vieira Lab
 
 ```{r}
-anova(CSM_F_lmer_Long_Vieira)
+lmers_lon$CSM_F_Vieira_lmer_lon
 ```
 
-
 ```{r}
-anova(CSM_M_lmer_Long_Vieira)
+lmers_lon$CSM_M_Vieira_lmer_lon
 ```
 
 ### Chill-coma recovery time
@@ -8192,57 +8119,52 @@ anova(CSM_M_lmer_Long_Vieira)
 #### Vieira Lab
 
 ```{r}
-anova(CCRT_F_lmer_Long_Vieira)
+lmers_lon$CCRT_F_Vieira_lmer_lon
 ```
-
 
 ```{r}
-anova(CCRT_M_lmer_Long_Vieira)
+lmers_lon$CCRT_M_Vieira_lmer_lon
 ```
 
-
 ### Heat-shock mortality
-
 
 #### Parsch Lab
 
 ```{r}
-anova(HSM_F_lmer_Long_Parsch)
+lmers_lon$HSM_F_Parsch_lmer_lon
 ```
 
 ```{r}
-anova(HSM_M_lmer_Long_Parsch)
+lmers_lon$HSM_M_Parsch_lmer_lon
 ```
 
 #### Vieira Lab 
 
 ```{r}
-anova(HSM_F_lmer_Long_Vieira)
+lmers_lon$HSM_F_Vieira_lmer_lon
 ```
 
-
 ```{r}
-anova(HSM_M_lmer_Long_Vieira)
+lmers_lon$HSM_M_Vieira_lmer_lon
 ```
 
 ### Diapause
 
 #### Bergland Lab
-
-```{r eval=FALSE}
-anova(Dia_lmer_Long_Bergland)
+```{r}
+lmers_lon$Dia_Bergland_lmer_lon
 ```
 
 #### Flatt Lab 
 
-```{r eval=FALSE}
-anova(Dia_lmer_Long_Flatt)
+```{r}
+lmers_lon$Dia_Flatt_lm_lat
 ```
 
 #### Schlotterer Lab
 
-```{r eval=FALSE}
-anova(Dia_lmer_Long_Schlotterer)
+```{r}
+lmers_lon$Dia_Schlotterer_lmer_lon
 ```
 
 ### Circadian eclosion timing
@@ -8252,55 +8174,52 @@ anova(Dia_lmer_Long_Schlotterer)
 #### Tauber Lab
 
 _ND_
-
 ```{r}
-anova(LA_lmer_Long_ND_Tauber)
+lmers_lon$LA_NDlog2_Tauber_lmer_lon
 ```
 
 _CircPhase_
 
 ```{r}
-anova(LA_lmer_Long_CircPhase_Tauber)
+
 ```
 
 _Activity_
 
 ```{r}
-anova(LA_lmer_Long_Activity_Tauber)
+
 ```
 
 ### Starvation resistance
 
 #### Gonzalez Lab
+
 ```{r}
-anova(SR_F_lmer_Long_Gonzalez)
+lmers_lon$SR_F_Gonzalez_lmer_lon
 ```
 
-
 ```{r}
-anova(SR_M_lmer_Long_Gonzalez)
+lmers_lon$SR_M_Gonzalez_lmer_lon
 ```
 
 #### Onder Lab 
 
 ```{r}
-anova(SR_F_lmer_Long_Onder)
+lmers_lon$SR_F_Onder_lmer_lon
 ```
 
-
 ```{r}
-anova(SR_M_lmer_Long_Onder)
+lmers_lon$SR_M_Onder_lmer_lon
 ```
 
 #### Pasyukova Lab
 
 ```{r}
-anova(SR_F_lmer_Long_Pasyukova)
+lmers_lon$SR_F_Pasyukova_lmer_lon
 ```
 
-
 ```{r}
-anova(SR_M_lmer_Long_Pasyukova)
+lmers_lon$SR_M_Pasyukova_lmer_lon
 ```
 
 ### Pigmentation
@@ -8309,25 +8228,25 @@ anova(SR_M_lmer_Long_Pasyukova)
 _PercT4_
 
 ```{r}
-anova(Pgm_lmer_Long_Abbott_PercT4)
+lmers_lon$Pgm_T4_Abbott_lmer_lon
 ```
 
 _PercT5_
 
 ```{r}
-anova(Pgm_lmer_Long_Abbott_PercT5)
+lmers_lon$Pgm_T5_Abbott_lmer_lon
 ```
 
 _PercT6_
 
 ```{r}
-anova(Pgm_lmer_Long_Abbott_PercT6)
+lmers_lon$Pgm_T6_Abbott_lmer_lon
 ```
 
 _TotalPerc_
 
 ```{r}
-anova(Pgm_lmer_Long_Abbott_TotalPerc)
+lmers_lon$Pgm_Total_Abbott_lmer_lon
 ```
 
 #### Gibert Lab 
@@ -8335,56 +8254,47 @@ anova(Pgm_lmer_Long_Abbott_TotalPerc)
 _PercT4_
 
 ```{r}
-anova(Pgm_lmer_Long_Gibert_PercT4)
+lmers_lon$Pgm_T4_Gibert_lmer_lon
 ```
 
 _PercT5_
 
+
 ```{r}
-anova(Pgm_lmer_Long_Gibert_PercT5)
+anova(Pgm_lmer_lon_Gibert_PercT5)
 ```
 
 _PercT6_
 
 ```{r}
-anova(Pgm_lmer_Long_Gibert_PercT6)
+lmers_lon$Pgm_T5_Gibert_lmer_lon
 ```
 
 _TotalPerc_
 
-
 ```{r}
-anova(Pgm_lmer_Long_Gibert_TotalPerc)
+lmers_lon$Pgm_Total_Gibert_lmer_lon
 ```
 
 #### Schmidt Lab
 
-_Tergite8_
-
+_Tergite5_
 
 ```{r}
-anova(Pgm2_lmer_Long_Schmidt_Tergite8)
+lmers_lon$Pgm_T5_Schmidt_lmer_lon
 ```
 
-_Tergite9_
-
-
-```{r}
-anova(Pgm2_lmer_Long_Schmidt_Tergite9)
-```
-
-_Tergite10_
+_Tergite6_
 
 ```{r}
-anova(Pgm2_lmer_Long_Schmidt_Tergite10)
+lmers_lon$Pgm_T6_Schmidt_lmer_lon
 ```
 
 _Total_
 
 ```{r}
-anova(Pgm2_lmer_Long_Schmidt_Total)
+lmers_lon$Pgm_Total_Schmidt_lmer_lon
 ```
-
 
 
 ## Geography - Altitude
@@ -8394,302 +8304,278 @@ anova(Pgm2_lmer_Long_Schmidt_Total)
 #### Gibert Lab
 
 ```{r}
-anova(Via_lmer_Alt_Gibert)
+lmers_alt$Via_Gibert_lmer_alt
 ```
 
 #### Grath Lab
 
 ```{r}
-anova(Via_lmer_Alt_Grath)
+lmers_alt$Via_Grath_lmer_alt
 ```
 
 #### Hoedjes Lab
 
 ```{r}
-anova(Via_lmer_Alt_Hoedjes)
+lmers_alt$Via_Hoedjes_lmer_alt
 ```
 
 #### Schmidt Lab
 
 ```{r}
-anova(Via_lmer_Alt_Schmidt) 
+lmers_alt$Via_Schmidt_lmer_alt
 ```
 
 #### Stamenkovic-Radak Lab
 
 ```{r}
-anova(Via_lmer_Alt_StamenkovicRadak)
+lmers_alt$Via_StamenkovicRadak_lmer_alt
 ```
 
 #### Zwaan Lab
 
 ```{r}
-anova(Via_lmer_Alt_Zwaan)
+lmers_alt$Via_Zwaan_lmer_alt
 ```
 
 ### Developmental time
 
-#### Egg-to-pupa developmental time
+### Egg-to-pupa developmental time
 
 ##### Schmidt Lab
 
 ```{r}
-anova(DT_P_lmer_Alt)
+lmers_alt$DT_P_Schmidt_lmer_alt
 ```
 
-#### Egg-to-adult developmental time
+### Egg-to-adult developmental time
 
 ##### Gibert Lab
 
 ```{r}
-anova(DT_A_F_lmer_Alt_Gibert)
+lmers_alt$DT_A_F_Gibert_lmer_alt
 ```
 
 ```{r}
-anova(DT_A_M_lmer_Alt_Gibert)
+lmers_alt$DT_A_M_Gibert_lmer_alt
 ```
 
 ##### Grath Lab
 
 ```{r}
-anova(DT_A_F_lmer_Alt_Grath)
+lmers_alt$DT_A_F_Grath_lmer_alt
 ```
 
-
 ```{r}
-anova(DT_A_M_lmer_Alt_Grath)
+lmers_alt$DT_A_M_Gibert_lmer_alt
 ```
 
 ##### Hoedjes Lab
 
 ```{r}
-anova(DT_A_F_lmer_Alt_Hoedjes)
+lmers_alt$DT_A_F_Hoedjes_lmer_alt
 ```
 
 ```{r}
-anova(DT_A_M_lmer_Alt_Hoedjes)
+lmers_alt$DT_A_M_Hoedjes_lmer_alt
 ```
 
 ##### Schmidt Lab
 
 ```{r}
-anova(DT_A_F_lmer_Alt_Schmidt)
+lmers_alt$DT_A_F_Schmidt_lmer_alt
 ```
 
 ```{r}
-anova(DT_A_M_lmer_Alt_Schmidt)
+lmers_alt$DT_A_M_Schmidt_lmer_alt
 ```
 
 ##### Stamenkovic-Radak Lab
 
 ```{r}
-anova(DT_A_F_lmer_Alt_StamenkovicRadak)
+lmers_alt$DT_A_F_StamenkovicRadak_lmer_alt
 ```
 
 ```{r}
-anova(DT_A_M_lmer_Alt_StamenkovicRadak)
+lmers_alt$DT_A_M_StamenkovicRadak_lmer_alt
 ```
-
 
 ##### Zwaan Lab
 
 ```{r}
-anova(DT_A_F_lmer_Alt_Zwaan)
+lmers_alt$DT_A_F_Zwaan_lmer_alt
 ```
 
 ```{r}
-anova(DT_A_M_lmer_Alt_Zwaan)
+lmers_alt$DT_A_M_Zwaan_lmer_alt
 ```
 
 ### Dry weight
 
-
 #### Colinet Lab
 
 ```{r}
-anova(DW_F_lmer_Alt_Colinet)
+lmers_alt$DW_F_Colinet_lmer_alt
 ```
 
-
 ```{r}
-anova(DW_M_lmer_Alt_Colinet)
+lmers_alt$DW_M_Colinet_lmer_alt
 ```
 
 #### Hoedjes Lab 
-
 ```{r}
-anova(DW_F_lmer_Alt_Hoedjes)
+lmers_alt$DW_F_Hoedjes_lmer_alt
 ```
 
 ```{r}
-anova(DW_M_lmer_Alt_Hoedjes)
+lmers_alt$DW_M_Hoedjes_lmer_alt
 ```
 
 #### Onder Lab
 
-
-
 ```{r}
-anova(DW_F_lmer_Alt_Onder)
+lmers_alt$DW_F_Onder_lmer_alt
 ```
 
-
 ```{r}
-anova(DW_M_lmer_Alt_Onder)
+lmers_alt$DW_M_Onder_lmer_alt
 ```
 
 ### Thorax length
 
-
-
 #### Kozeretska Lab
 
-
 ```{r}
-anova(TL_F_lmer_Alt_Kozeretska)
+lmers_alt$TL_F_Kozeretska_lmer_alt
 ```
 
-
 ```{r}
-anova(TL_M_lmer_Alt_Kozeretska)
+lmers_alt$TL_M_Kozeretska_lmer_alt
 ```
 
 #### Posnien Lab 
 
 ```{r}
-anova(TL_F_lmer_Alt_Posnien)
+lmers_alt$TL_F_Posnien_lmer_alt
 ```
 
 ```{r}
-anova(TL_M_lmer_Alt_Posnien)
+lmers_alt$TL_M_Posnien_lmer_alt
 ```
 
 #### Ritchie Lab
 
-
 ```{r}
-anova(TL_F_lmer_Alt_Ritchie)
+lmers_alt$TL_F_Ritchie_lmer_alt
 ```
 
-
 ```{r}
-anova(TL_M_lmer_Alt_Ritchie)
+lmers_alt$TL_M_Ritchie_lmer_alt
 ```
 
 #### Schmidt Lab
 
 ```{r}
-anova(TL_F_lmer_Alt_Schmidt)
+lmers_alt$TL_F_Schmidt_lmer_alt
 ```
 
 ### Wing area
-
 
 ### _Left_
 
 #### Onder Lab
 
 ```{r}
-anova(WA_Alt_F_L_Onder_lmer)
+lmers_alt$WA_L_F_Onder_lmer_alt
 ```
 
-
 ```{r}
-anova(WA_Alt_M_L_Onder_lmer)
+lmers_alt$WA_L_M_Onder_lmer_alt
 ```
 
 #### Posnien Lab 
 
 ```{r}
-anova(WA_Alt_F_L_Posnien_lmer)
+lmers_alt$WA_L_F_Posnien_lmer_alt
 ```
 
-
 ```{r}
-anova(WA_Alt_M_L_Posnien_lmer)
+lmers_alt$WA_L_M_Posnien_lmer_alt
 ```
 
 #### Ritchie Lab
 
 ```{r}
-anova(WA_Alt_F_L_Ritchie_lmer)
+lmers_alt$WA_L_F_Ritchie_lmer_alt
 ```
 
 ```{r}
-anova(WA_Alt_M_L_Ritchie_lmer)
+lmers_alt$WA_L_M_Ritchie_lmer_alt
 ```
 
 #### Stamenkovic-Radak Lab
 
-
 ```{r}
-anova(WA_Alt_F_L_StamenkovicRadak_lmer)
+lmers_alt$WA_L_F_StamenkovicRadak_lmer_alt
 ```
 
-
 ```{r}
-anova(WA_Alt_M_L_StamenkovicRadak_lmer)
+lmers_alt$WA_L_M_StamenkovicRadak_lmer_alt
 ```
 
 ### _Right_
 
-```{r wing-area-right}
-```
-
+#### Onder Lab
 
 ```{r}
-anova(WA_Alt_F_R_Onder_lmer)
+lmers_alt$WA_R_F_Onder_lmer_alt
 ```
 
 ```{r}
-anova(WA_Alt_M_R_Onder_lmer)
+lmers_alt$WA_R_M_Onder_lmer_alt
 ```
 
 #### Posnien Lab 
 
 ```{r}
-anova(WA_Alt_F_R_Posnien_lmer)
+lmers_alt$WA_R_F_Posnien_lmer_alt
 ```
 
 ```{r}
-anova(WA_Alt_M_R_Posnien_lmer)
+lmers_alt$WA_R_M_Posnien_lmer_alt
 ```
 
 #### Ritchie Lab
 
-
 ```{r}
-anova(WA_Alt_F_R_Ritchie_lmer)
+lmers_alt$WA_R_F_Ritchie_lmer_alt
 ```
 
 ```{r}
-anova(WA_Alt_M_R_Ritchie_lmer)
+lmers_alt$WA_R_M_Ritchie_lmer_alt
 ```
 
 #### Stamenkovic-Radak Lab
 
 ```{r}
-anova(WA_Alt_F_R_StamenkovicRadak_lmer)
+lmers_alt$WA_R_F_StamenkovicRadak_lmer_alt
 ```
-
 
 ```{r}
-anova(WA_Alt_M_R_StamenkovicRadak_lmer)
+lmers_alt$WA_R_M_StamenkovicRadak_lmer_alt
 ```
-
 
 ### Fecundity
 
 #### Billeter Lab
 
 ```{r}
-anova(Fec_lmer_Alt_Billeter)
+lmers_alt$Fec_Billeter_lmer_alt
 ```
 
 #### Fricke Lab 
 
 ```{r}
-anova(Fec_lmer_Alt_Fricke)
+lmers_alt$Fec_Fricke_lmer_alt
 ```
 
 ### Lifespan
@@ -8697,159 +8583,141 @@ anova(Fec_lmer_Alt_Fricke)
 #### Flatt Lab
 
 ```{r}
-anova(LS_Alt_P_F_Flatt_lmer)
+lmers_alt$LS_F_Flatt_lmer_alt
 ```
 
 ```{r}
-anova(LS_Alt_P_M_Flatt_lmer)
+lmers_alt$LS_M_Flatt_lmer_alt
 ```
 
 #### Parsch Lab 
 
-
 ```{r}
-anova(LS_Alt_L_F_Parsch_lmer)
+lmers_alt$LS_F_Parsch_lmer_alt
 ```
 
-
 ```{r}
-anova(LS_Alt_L_M_Parsch_lmer)
+lmers_alt$LS_M_Parsch_lmer_alt
 ```
 
 #### Pasyukova Lab
 
 ```{r}
-anova(LS_Alt_L_F_Pasyukova_lmer)
+lmers_alt$LS_F_Pasyukova_lmer_alt
 ```
 
 ```{r}
-anova(LS_Alt_L_M_Pasyukova_lmer)
+lmers_alt$LS_M_Pasyukova_lmer_alt
 ```
 
 ### Cold-shock mortality
 
-
 #### Gonzalez Lab
 
 ```{r}
-anova(CSM_F_lmer_Alt_Gonzalez)
+lmers_alt$CSM_F_Gonzalez_lmer_alt
 ```
 
-
-
 ```{r}
-anova(CSM_M_lmer_Alt_Gonzalez)
+lmers_alt$CSM_M_Gonzalez_lmer_alt
 ```
 
 #### Kozeretska Lab 
 
-
 ```{r}
-anova(CSM_F_lmer_Alt_Kozeretska)
+lmers_alt$CSM_F_Kozeretska_lmer_alt
 ```
 
 ```{r}
-anova(CSM_M_lmer_Alt_Kozeretska)
+lmers_alt$CSM_M_Kozeretska_lmer_alt
 ```
 
 #### Vieira Lab
 
 ```{r}
-anova(CSM_F_lmer_Alt_Vieira)
+lmers_alt$CSM_F_Vieira_lmer_alt
 ```
 
 ```{r}
-anova(CSM_M_lmer_Alt_Vieira)
+lmers_alt$CSM_M_Vieira_lmer_alt
 ```
 
 ### Chill-coma recovery time
 
+#### Mensh Lab 
 
 #### Vieira Lab
 
 ```{r}
-anova(CCRT_F_lmer_Alt_Vieira)
+lmers_alt$CCRT_F_Vieira_lmer_alt
 ```
-
 
 ```{r}
-anova(CCRT_M_lmer_Alt_Vieira)
+lmers_alt$CCRT_M_Vieira_lmer_alt
 ```
 
-#### Mensh Lab 
-
-
 ### Heat-shock mortality
-
 
 #### Parsch Lab
 
 ```{r}
-anova(HSM_F_lmer_Alt_Parsch)
+lmers_alt$HSM_F_Parsch_lmer_alt
 ```
 
 ```{r}
-anova(HSM_M_lmer_Alt_Parsch)
+lmers_alt$HSM_M_Parsch_lmer_alt
 ```
 
 #### Vieira Lab 
 
-
 ```{r}
-anova(HSM_F_lmer_Alt_Vieira)
+lmers_alt$HSM_F_Vieira_lmer_alt
 ```
 
-
 ```{r}
-anova(HSM_M_lmer_Alt_Vieira)
+lmers_alt$HSM_M_Vieira_lmer_alt
 ```
 
 ### Diapause
 
-
 #### Bergland Lab
-
-```{r eval=FALSE}
-anova(Dia_lmer_Alt_Bergland)
+```{r}
+lmers_alt$Dia_Bergland_lmer_alt
 ```
 
 #### Flatt Lab 
 
-```{r eval=FALSE}
-anova(Dia_lmer_Alt_Flatt)
+```{r}
+lmers_alt$Dia_Flatt_lm_lat
 ```
-
 
 #### Schlotterer Lab
 
-```{r eval=FALSE}
-anova(Dia_lmer_Alt_Schlotterer)
+```{r}
+lmers_alt$Dia_Schlotterer_lmer_alt
 ```
 
 ### Circadian eclosion timing
 
 ### Locomotor activity
 
-
 #### Tauber Lab
 
 _ND_
-
 ```{r}
-anova(LA_lmer_Alt_ND_Tauber)
+lmers_alt$LA_NDlog2_Tauber_lmer_alt
 ```
 
 _CircPhase_
 
 ```{r}
-anova(LA_lmer_Alt_CircPhase_Tauber)
+
 ```
 
 _Activity_
 
-
 ```{r}
-anova(LA_lmer_Alt_Activity_Tauber)
+
 ```
 
 ### Starvation resistance
@@ -8857,117 +8725,105 @@ anova(LA_lmer_Alt_Activity_Tauber)
 #### Gonzalez Lab
 
 ```{r}
-anova(SR_F_lmer_Alt_Gonzalez)
+lmers_alt$SR_F_Gonzalez_lmer_alt
 ```
 
-
 ```{r}
-anova(SR_M_lmer_Alt_Gonzalez)
+lmers_alt$SR_M_Gonzalez_lmer_alt
 ```
 
 #### Onder Lab 
 
 ```{r}
-anova(SR_F_lmer_Alt_Onder)
+lmers_alt$SR_F_Onder_lmer_alt
 ```
 
 ```{r}
-anova(SR_M_lmer_Alt_Onder)
+lmers_alt$SR_M_Onder_lmer_alt
 ```
 
 #### Pasyukova Lab
 
 ```{r}
-anova(SR_F_lmer_Alt_Pasyukova)
+lmers_alt$SR_F_Pasyukova_lmer_alt
 ```
 
 ```{r}
-anova(SR_M_lmer_Alt_Pasyukova)
+lmers_alt$SR_M_Pasyukova_lmer_alt
 ```
 
 ### Pigmentation
-
 
 #### Abbott Lab
 _PercT4_
 
 ```{r}
-anova(Pgm_lmer_Alt_Abbott_PercT4)
+lmers_alt$Pgm_T4_Abbott_lmer_alt
 ```
 
 _PercT5_
 
 ```{r}
-anova(Pgm_lmer_Alt_Abbott_PercT5)
+lmers_alt$Pgm_T5_Abbott_lmer_alt
 ```
 
 _PercT6_
 
 ```{r}
-anova(Pgm_lmer_Alt_Abbott_PercT6)
+lmers_alt$Pgm_T6_Abbott_lmer_alt
 ```
 
 _TotalPerc_
 
 ```{r}
-anova(Pgm_lmer_Alt_Abbott_TotalPerc)
+lmers_alt$Pgm_Total_Abbott_lmer_alt
 ```
 
 #### Gibert Lab 
 
 _PercT4_
 
-
 ```{r}
-anova(Pgm_lmer_Alt_Gibert_PercT4)
+lmers_alt$Pgm_T4_Gibert_lmer_alt
 ```
 
 _PercT5_
 
+
 ```{r}
-anova(Pgm_lmer_Alt_Gibert_PercT5)
+anova(Pgm_lmer_alt_Gibert_PercT5)
 ```
 
 _PercT6_
 
 ```{r}
-anova(Pgm_lmer_Alt_Gibert_PercT6)
+lmers_alt$Pgm_T5_Gibert_lmer_alt
 ```
 
 _TotalPerc_
 
-
 ```{r}
-anova(Pgm_lmer_Alt_Gibert_TotalPerc)
+lmers_alt$Pgm_Total_Gibert_lmer_alt
 ```
 
 #### Schmidt Lab
 
-_Tergite4_
-
-
-```{r}
-anova(Pgm2_lmer_Alt_Schmidt_Tergite8)
-```
-
 _Tergite5_
 
-
 ```{r}
-anova(Pgm2_lmer_Alt_Schmidt_Tergite9)
+lmers_alt$Pgm_T5_Schmidt_lmer_alt
 ```
 
 _Tergite6_
 
-
 ```{r}
-anova(Pgm2_lmer_Alt_Schmidt_Tergite10)
+lmers_alt$Pgm_T6_Schmidt_lmer_alt
 ```
 
 _Total_
 
 ```{r}
-anova(Pgm2_lmer_Alt_Schmidt_Total)
+lmers_alt$Pgm_Total_Schmidt_lmer_alt
 ```
 
 # Results IV : Trait Correlations _tbd_
