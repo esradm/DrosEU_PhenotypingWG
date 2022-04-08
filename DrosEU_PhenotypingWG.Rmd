@@ -7481,7 +7481,7 @@ lmers_lat$DT_A_F_Grath_lmer_lat
 ```
 
 ```{r}
-lmers_lat$DT_A_M_Gibert_lmer_lat
+lmers_lat$DT_A_M_Grath_lmer_lat
 ```
 
 ##### Hoedjes Lab
@@ -8877,7 +8877,7 @@ lmers_alt$Dia_Bergland_lmer_alt
 #### Flatt Lab 
 
 ```{r}
-lmers_alt$Dia_Flatt_lm_lat
+lmers_alt$Dia_Flatt_lm_alt
 ```
 
 #### Schlotterer Lab
