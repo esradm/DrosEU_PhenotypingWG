@@ -44,6 +44,7 @@ estimate_mode <- function(v) {
 
 
 removeXtraCols <- function(x) {
+  if (unique(x$Trait) == "CETS") x <- subset(x, select = -c(SD, Median, Min, Max, SE, CV, Mode))
   x <- x[,!colnames(x) %in% c("Trait", "Trait_name")]
   x <- relocate(x, Condition, .after = Supervisor.PI)
   if (is.na(unique(x$Condition))) x <- subset(x, select = -c(Condition))
