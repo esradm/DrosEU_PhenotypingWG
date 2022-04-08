@@ -222,10 +222,9 @@ _Contributors and methods for experiments_
 ##### Gibert, Grath, Hoedjes, Schmidt, Stamenkovic-Radak and Zwaan Labs
 
 
-3-5 day old adults (at least 25 pairs) are allowed to lay eggs en masse. Yeast is provided to stimulate egg laying (for at least 2 hours). Eggs are collected, and 40 are placed in each vial[^1]. Viability is calculated per vial, as the percentage of individuals that emerged from the 40 eggs.
+3-5 day old adults (at least 25 pairs) are allowed to lay eggs en masse. Yeast is provided to stimulate egg laying (for at least 2 hours). Eggs are collected, and 40 are placed in each vial. Viability is calculated per vial, as the percentage of individuals that emerged from the 40 eggs.
 
-
-[^1]: @ Schmidt lab, females were allowed to lay eggs in vials and total number of eggs were recorded. Viability is calculated as the percentage of individuals that emerged from total number of eggs, per vial.
+Schmidt Lab : Females were allowed to lay eggs in vials and total number of eggs were recorded. Viability is calculated as the percentage of individuals that emerged from total number of eggs, per vial.
 
 ### Developmental time
 
@@ -356,7 +355,6 @@ The resistance of the lines to parasitoids will be measured using _Leptopilina b
 
 MasterSheets 
 
-
 All data files are reformatted as so called _Master Sheets_, in which the data structure is the same for all the sub-data sets and all details/edits logged in a README sheet. 
 
 ```{r README_example, echo=FALSE}
@@ -380,11 +378,11 @@ MS_example <- data.table(read.csv("Data/MasterSheets_Feb22_git/VIA_MasterSheet_F
 DT::datatable(MS_example, options = list(pageLength = 10)) 
 ```
 
+All proportion data has been arcsin transformed prior to the analyses. For others, please see the residual plots after linear models and let us know if you think the trait data set need transformation. 
 
 ## Data check
 
 For each trait and lab, we ran counts for sex, population, line and replicate vial (if applicable). If we could spot anything suspicious or unusual (typos, shifts, etc.), I have contacted you already. Please let me know if there is anything that you have spotted and we missed. Thanks! 
-
 
 # Results I : Linear Models  {#anchor}
 
@@ -4197,32 +4195,38 @@ invisible(dev.off())
 
 #### Flatt Lab
 
+_Females_
 ```{r}
 knitr::include_graphics("SurvivalAnalyses/Lifespan/p_LS_F_Flatt_survival_curves.pdf")
 ```
 
+_Males_
 ```{r}
 knitr::include_graphics("SurvivalAnalyses/Lifespan/p_LS_M_Flatt_survival_curves.pdf")
 ```
 
 #### Parsch Lab
 
+_Females_
 ```{r}
 knitr::include_graphics("SurvivalAnalyses/Lifespan/p_LS_F_Parsch_survival_curves.pdf")
 ```
 
+_Males_
 ```{r}
 knitr::include_graphics("SurvivalAnalyses/Lifespan/p_LS_M_Parsch_survival_curves.pdf")
 ```
 
 #### Pasyukova Lab
 
+_Females_
 ```{r}
 knitr::include_graphics("SurvivalAnalyses/Lifespan/p_LS_F_Pasyukova_survival_curves.pdf")
 ```
 
+_Males_
 ```{r}
-knitr::include_graphics("SurvivalAnalyses/Lifespan/p_LS_F_Pasyukova_survival_curves.pdf")
+knitr::include_graphics("SurvivalAnalyses/Lifespan/p_LS_M_Pasyukova_survival_curves.pdf")
 ```
 
 ##### coxme outputs
@@ -4898,10 +4902,12 @@ invisible(dev.off())
 
 #### Vieira Lab
 
+_Females_
 ```{r, echo=FALSE}
 knitr::include_graphics("SurvivalAnalyses/ChillComa/p_CCRT_F_Vieira_survival_curves.pdf")
 ```
 
+_Males_
 ```{r, echo=FALSE}
 knitr::include_graphics("SurvivalAnalyses/ChillComa/p_CCRT_M_Vieira_survival_curves.pdf")
 ```
@@ -5195,20 +5201,24 @@ invisible(dev.off())
 
 #### Parsch Lab
 
+_Females_
 ```{r, echo=FALSE}
 knitr::include_graphics("SurvivalAnalyses/HeatShock/p_HSM_F_Parsch_survival_curves.pdf")
 ```
 
+_Males_
 ```{r, echo=FALSE}
 knitr::include_graphics("SurvivalAnalyses/HeatShock/p_HSM_M_Parsch_survival_curves.pdf")
 ```
 
 #### Vieira Lab
 
+_Females_
 ```{r, echo=FALSE}
 knitr::include_graphics("SurvivalAnalyses/HeatShock/p_HSM_F_Vieira_survival_curves.pdf")
 ```
 
+_Males_
 ```{r, echo=FALSE}
 knitr::include_graphics("SurvivalAnalyses/HeatShock/p_HSM_M_Vieira_survival_curves.pdf")
 ```
@@ -6201,30 +6211,36 @@ invisible(dev.off())
 
 #### Gonzalez Lab
 
+_Females_
 ```{r echo=FALSE}
 knitr::include_graphics("SurvivalAnalyses/Starvation/p_SR_F_Gonzalez_survival_curves.pdf")
 ```
 
+_Males_
 ```{r echo=FALSE}
 knitr::include_graphics("SurvivalAnalyses/Starvation/p_SR_M_Gonzalez_survival_curves.pdf")
 ```
 
 #### Onder Lab
 
+_Females_
 ```{r echo=FALSE}
 knitr::include_graphics("SurvivalAnalyses/Starvation/p_SR_F_Onder_survival_curves.pdf")
 ```
 
+_Males_
 ```{r echo=FALSE}
 knitr::include_graphics("SurvivalAnalyses/Starvation/p_SR_M_Onder_survival_curves.pdf")
 ```
 
 #### Pasyukova Lab
 
+_Females_
 ```{r echo=FALSE}
 knitr::include_graphics("SurvivalAnalyses/Starvation/p_SR_F_Pasyukova_survival_curves.pdf")
 ```
 
+_Males_
 ```{r echo=FALSE}
 knitr::include_graphics("SurvivalAnalyses/Starvation/p_SR_M_Pasyukova_survival_curves.pdf")
 ```
