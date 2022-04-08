@@ -1,4 +1,4 @@
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: AgeAtDeath_hours ~ Population + (1 | Line:Population) + (1 |  
     ReplicateVial:Line:Population)
    Data: filter(droseu$sr, Supervisor.PI == "Onder" & Sex == "F")
@@ -14,7 +14,8 @@ Random effects:
  ReplicateVial:Line:Population (Intercept)   9.722   3.118  
  Line:Population               (Intercept) 168.273  12.972  
  Residual                                  313.603  17.709  
-Number of obs: 17282, groups:  ReplicateVial:Line:Population, 1737; Line:Population, 168
+Number of obs: 17282, groups:  
+ReplicateVial:Line:Population, 1737; Line:Population, 168
 
 Fixed effects:
              Estimate Std. Error       df t value Pr(>|t|)    

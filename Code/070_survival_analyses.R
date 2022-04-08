@@ -1,7 +1,20 @@
 
+###############################################################
+###################### SURVIVAL ANALYSES ######################
+###############################################################
+
+
+
 # Running survival analyses takes too long and clogs the computer / knitting. 
 # Thus, all were done externally and output files are shown in .Rmd file. 
 
+
+
+
+##### clean workspace
+rm(list = ls())
+
+##### libraries
 library(tidyverse)
 library(ggpubr)
 library(coxme)
@@ -9,25 +22,30 @@ library(survival)
 library(survminer)
 
 
+
+
+##### set working directory
+setwd("~/Work/UNIFR/GitHub/DrosEU_PhenotypingWG/")
+
+
+##### load data
+droseu <- readRDS("Data/droseu_master_list_2022-04-05.rds")
+
+##### create output directory
+surv_dir <- "SurvivalAnalyses"
+dir.create(surv_dir, showWarnings = F) 
+
+
+
 ### STARVATION ###
-d_SR <- read.csv("SR_MasterSheet_Nov21.csv")
-
-d_SR$Supervisor.PI <- as.factor(d_SR$Supervisor.PI)
-d_SR$Diet <- as.factor(d_SR$Diet)
-d_SR$Batch <- as.factor(d_SR$Batch)
-d_SR$Population_Lat <- factor(d_SR$Population, levels= c("YE","RE","GI","MU","MA","UM","KA","VA","AK"))
-d_SR$Population_Lon <- factor(d_SR$Population, levels= c("RE","GI","KA","MU","MA","AK","UM","YE","VA"))
-d_SR$Population_Alt <- factor(d_SR$Population, levels= c("KA","AK","GI","RE","UM","VA","MU","MA","YE"))
-d_SR$Line <- as.factor(d_SR$Line)
-d_SR$Sex <- as.factor(d_SR$Sex)
-d_SR$ReplicateVial <- as.factor(d_SR$ReplicateVial)
-d_SR$AgeAtDeath_hours <- as.numeric(d_SR$AgeAtDeath_hours)
-
-d_SR_surv <- d_SR %>% mutate(Censor = 1)
 
 ####
 
 SR_F_coxme_Gonzalez <- coxme(Surv(AgeAtDeath_hours, Censor) ~ Population + (1|Batch) + (1|Population/Line) , data = filter(d_SR_surv, Supervisor.PI == "Gonzalez", Sex == "F"))
+
+
+
+
 capture.output(summary(SR_F_coxme_Gonzalez), file = "SR_F_coxme_Gonzalez_sum.txt")
 capture.output(anova(SR_F_coxme_Gonzalez), file = "SR_F_coxme_Gonzalez.txt")
 

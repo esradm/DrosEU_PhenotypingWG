@@ -1,6 +1,7 @@
 $WA_L_F_Onder_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: CentroidSizeLeft_micrometers ~ Longitude + (1 | Population) +      (1 | Line:Population)
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Formula: CentroidSizeLeft_micrometers ~ Longitude + (1 | Population) +  
+    (1 | Line:Population)
    Data: filter(droseu$wa, Supervisor.PI == "Onder" & Sex == "F")
 
 REML criterion at convergence: 61399.8
@@ -28,8 +29,9 @@ Correlation of Fixed Effects:
 Longitude -0.772
 
 $WA_L_F_Posnien_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: CentroidSizeLeft_micrometers ~ Longitude + (1 | Population) +      (1 | Line:Population)
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Formula: CentroidSizeLeft_micrometers ~ Longitude + (1 | Population) +  
+    (1 | Line:Population)
    Data: filter(droseu$wa, Supervisor.PI == "Posnien" & Sex == "F")
 
 REML criterion at convergence: 3255.5
@@ -57,8 +59,9 @@ Correlation of Fixed Effects:
 Longitude -0.769
 
 $WA_L_F_Ritchie_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: CentroidSizeLeft_micrometers ~ Longitude + (1 | Population) +      (1 | Line:Population)
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Formula: CentroidSizeLeft_micrometers ~ Longitude + (1 | Population) +  
+    (1 | Line:Population)
    Data: filter(droseu$wa, Supervisor.PI == "Ritchie" & Sex == "F")
 
 REML criterion at convergence: 16989.8
@@ -86,8 +89,9 @@ Correlation of Fixed Effects:
 Longitude -0.761
 
 $WA_L_F_StamenkovicRadak_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: CentroidSizeLeft_micrometers ~ Longitude + (1 | Population) +      (1 | Line:Population)
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Formula: CentroidSizeLeft_micrometers ~ Longitude + (1 | Population) +  
+    (1 | Line:Population)
    Data: filter(droseu$wa, Supervisor.PI == "StamenkovicRadak" & Sex ==      "F")
 
 REML criterion at convergence: 44958.4
@@ -115,8 +119,9 @@ Correlation of Fixed Effects:
 Longitude -0.771
 
 $WA_L_M_Onder_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: CentroidSizeLeft_micrometers ~ Longitude + (1 | Population) +      (1 | Line:Population)
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Formula: CentroidSizeLeft_micrometers ~ Longitude + (1 | Population) +  
+    (1 | Line:Population)
    Data: filter(droseu$wa, Supervisor.PI == "Onder" & Sex == "M")
 
 REML criterion at convergence: 60114.3
@@ -144,7 +149,7 @@ Correlation of Fixed Effects:
 Longitude -0.773
 
 $WA_L_M_Posnien_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: CentroidSizeLeft_micrometers ~ Longitude + (1 | Line:Population)
    Data: filter(droseu$wa, Supervisor.PI == "Posnien" & Sex == "M")
 
@@ -172,8 +177,9 @@ Correlation of Fixed Effects:
 Longitude -0.769
 
 $WA_L_M_Ritchie_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: CentroidSizeLeft_micrometers ~ Longitude + (1 | Population) +      (1 | Line:Population)
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Formula: CentroidSizeLeft_micrometers ~ Longitude + (1 | Population) +  
+    (1 | Line:Population)
    Data: filter(droseu$wa, Supervisor.PI == "Ritchie" & Sex == "M")
 
 REML criterion at convergence: 16592
@@ -201,8 +207,9 @@ Correlation of Fixed Effects:
 Longitude -0.763
 
 $WA_L_M_StamenkovicRadak_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: CentroidSizeLeft_micrometers ~ Longitude + (1 | Population) +      (1 | Line:Population)
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Formula: CentroidSizeLeft_micrometers ~ Longitude + (1 | Population) +  
+    (1 | Line:Population)
    Data: filter(droseu$wa, Supervisor.PI == "StamenkovicRadak" & Sex ==      "M")
 
 REML criterion at convergence: 42535.4
@@ -230,8 +237,9 @@ Correlation of Fixed Effects:
 Longitude -0.772
 
 $WA_R_F_Onder_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: CentroidSizeRight_micrometers ~ Longitude + (1 | Population) +      (1 | Line:Population)
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Formula: CentroidSizeRight_micrometers ~ Longitude + (1 | Population) +  
+    (1 | Line:Population)
    Data: filter(droseu$wa, Supervisor.PI == "Onder" & Sex == "F")
 
 REML criterion at convergence: 61404.6
@@ -259,8 +267,9 @@ Correlation of Fixed Effects:
 Longitude -0.772
 
 $WA_R_F_Posnien_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: CentroidSizeRight_micrometers ~ Longitude + (1 | Population) +      (1 | Line:Population)
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Formula: CentroidSizeRight_micrometers ~ Longitude + (1 | Population) +  
+    (1 | Line:Population)
    Data: filter(droseu$wa, Supervisor.PI == "Posnien" & Sex == "F")
 
 REML criterion at convergence: 3265.6
@@ -288,8 +297,9 @@ Correlation of Fixed Effects:
 Longitude -0.769
 
 $WA_R_F_Ritchie_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: CentroidSizeRight_micrometers ~ Longitude + (1 | Population) +      (1 | Line:Population)
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Formula: CentroidSizeRight_micrometers ~ Longitude + (1 | Population) +  
+    (1 | Line:Population)
    Data: filter(droseu$wa, Supervisor.PI == "Ritchie" & Sex == "F")
 
 REML criterion at convergence: 17006.7
@@ -317,8 +327,9 @@ Correlation of Fixed Effects:
 Longitude -0.761
 
 $WA_R_F_StamenkovicRadak_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: CentroidSizeRight_micrometers ~ Longitude + (1 | Population) +      (1 | Line:Population)
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Formula: CentroidSizeRight_micrometers ~ Longitude + (1 | Population) +  
+    (1 | Line:Population)
    Data: filter(droseu$wa, Supervisor.PI == "StamenkovicRadak" & Sex ==      "F")
 
 REML criterion at convergence: 44944.4
@@ -346,8 +357,9 @@ Correlation of Fixed Effects:
 Longitude -0.771
 
 $WA_R_M_Onder_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: CentroidSizeRight_micrometers ~ Longitude + (1 | Population) +      (1 | Line:Population)
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Formula: CentroidSizeRight_micrometers ~ Longitude + (1 | Population) +  
+    (1 | Line:Population)
    Data: filter(droseu$wa, Supervisor.PI == "Onder" & Sex == "M")
 
 REML criterion at convergence: 60175.8
@@ -375,7 +387,7 @@ Correlation of Fixed Effects:
 Longitude -0.773
 
 $WA_R_M_Posnien_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: CentroidSizeRight_micrometers ~ Longitude + (1 | Line:Population)
    Data: filter(droseu$wa, Supervisor.PI == "Posnien" & Sex == "M")
 
@@ -403,8 +415,9 @@ Correlation of Fixed Effects:
 Longitude -0.769
 
 $WA_R_M_Ritchie_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: CentroidSizeRight_micrometers ~ Longitude + (1 | Population) +      (1 | Line:Population)
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Formula: CentroidSizeRight_micrometers ~ Longitude + (1 | Population) +  
+    (1 | Line:Population)
    Data: filter(droseu$wa, Supervisor.PI == "Ritchie" & Sex == "M")
 
 REML criterion at convergence: 16573.7
@@ -432,8 +445,9 @@ Correlation of Fixed Effects:
 Longitude -0.764
 
 $WA_R_M_StamenkovicRadak_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: CentroidSizeRight_micrometers ~ Longitude + (1 | Population) +      (1 | Line:Population)
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Formula: CentroidSizeRight_micrometers ~ Longitude + (1 | Population) +  
+    (1 | Line:Population)
    Data: filter(droseu$wa, Supervisor.PI == "StamenkovicRadak" & Sex ==      "M")
 
 REML criterion at convergence: 42475.1

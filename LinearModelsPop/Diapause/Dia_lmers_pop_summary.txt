@@ -1,5 +1,5 @@
 $Dia_Bergland_lmer_pop
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: Prop_Max_Stage9_asin ~ Population + (1 | Population:Line)
    Data: filter(droseu$dia, Supervisor.PI == "Bergland")
 
@@ -70,8 +70,9 @@ F-statistic: 0.7367 on 8 and 154 DF,  p-value: 0.659
 
 
 $Dia_Schlotterer_lmer_pop
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: Prop_Max_Stage9_asin ~ Population + (1 | Population:Line) + (1 |      Batch)
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Formula: Prop_Max_Stage9_asin ~ Population + (1 | Population:Line) + (1 |  
+    Batch)
    Data: filter(droseu$dia, Supervisor.PI == "Schlotterer")
 
 REML criterion at convergence: 122.5

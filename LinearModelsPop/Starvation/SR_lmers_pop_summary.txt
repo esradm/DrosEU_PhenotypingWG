@@ -1,5 +1,5 @@
 $SR_F_Gonzalez_lmer_pop
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: AgeAtDeath_hours ~ Population + (1 | Line:Population) + (1 |  
     Batch) + (1 | ReplicateVial:Line:Population)
    Data: filter(droseu$sr, Supervisor.PI == "Gonzalez" & Sex == "F")
@@ -16,7 +16,8 @@ Random effects:
  Line:Population               (Intercept) 126.21   11.235  
  Batch                         (Intercept)  11.46    3.385  
  Residual                                  338.01   18.385  
-Number of obs: 4900, groups:  ReplicateVial:Line:Population, 436; Line:Population, 141; Batch, 7
+Number of obs: 4900, groups:  
+ReplicateVial:Line:Population, 436; Line:Population, 141; Batch, 7
 
 Fixed effects:
              Estimate Std. Error      df t value Pr(>|t|)    
@@ -44,7 +45,7 @@ PopulatinVA -0.594  0.416  0.424  0.469  0.465  0.414  0.398
 PopulatinYE -0.578  0.406  0.413  0.459  0.455  0.404  0.390  0.436
 
 $SR_F_Onder_lmer_pop
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: AgeAtDeath_hours ~ Population + (1 | Line:Population) + (1 |  
     ReplicateVial:Line:Population)
    Data: filter(droseu$sr, Supervisor.PI == "Onder" & Sex == "F")
@@ -60,7 +61,8 @@ Random effects:
  ReplicateVial:Line:Population (Intercept)   9.722   3.118  
  Line:Population               (Intercept) 168.273  12.972  
  Residual                                  313.603  17.709  
-Number of obs: 17282, groups:  ReplicateVial:Line:Population, 1737; Line:Population, 168
+Number of obs: 17282, groups:  
+ReplicateVial:Line:Population, 1737; Line:Population, 168
 
 Fixed effects:
              Estimate Std. Error       df t value Pr(>|t|)    
@@ -88,7 +90,7 @@ PopulatinVA -0.707  0.463  0.500  0.500  0.500  0.472  0.479
 PopulatinYE -0.707  0.463  0.500  0.500  0.500  0.471  0.479  0.500
 
 $SR_F_Pasyukova_lmer_pop
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: AgeAtDeath_hours ~ Population + (1 | Line:Population) + (1 |  
     Batch) + (1 | ReplicateVial:Line:Population)
    Data: filter(droseu$sr, Supervisor.PI == "Pasyukova" & Sex == "F")
@@ -105,7 +107,8 @@ Random effects:
  Line:Population               (Intercept) 113.34   10.646  
  Batch                         (Intercept)  73.72    8.586  
  Residual                                  372.62   19.303  
-Number of obs: 16779, groups:  ReplicateVial:Line:Population, 1681; Line:Population, 169; Batch, 5
+Number of obs: 16779, groups:  
+ReplicateVial:Line:Population, 1681; Line:Population, 169; Batch, 5
 
 Fixed effects:
              Estimate Std. Error      df t value Pr(>|t|)    
@@ -133,7 +136,7 @@ PopulatinVA -0.359  0.421  0.476  0.476  0.476  0.448  0.463
 PopulatinYE -0.361  0.421  0.476  0.476  0.476  0.447  0.463  0.476
 
 $SR_M_Gonzalez_lmer_pop
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: AgeAtDeath_hours ~ Population + (1 | Line:Population) + (1 |  
     Batch) + (1 | ReplicateVial:Line:Population)
    Data: filter(droseu$sr, Supervisor.PI == "Gonzalez" & Sex == "M")
@@ -150,7 +153,8 @@ Random effects:
  Line:Population               (Intercept)  60.30    7.766  
  Batch                         (Intercept)  79.31    8.905  
  Residual                                  149.42   12.224  
-Number of obs: 5335, groups:  ReplicateVial:Line:Population, 481; Line:Population, 156; Batch, 7
+Number of obs: 5335, groups:  
+ReplicateVial:Line:Population, 481; Line:Population, 156; Batch, 7
 
 Fixed effects:
              Estimate Std. Error       df t value Pr(>|t|)    
@@ -178,7 +182,7 @@ PopulatinVA -0.378  0.477  0.478  0.515  0.504  0.477  0.458
 PopulatinYE -0.381  0.477  0.479  0.515  0.502  0.481  0.457  0.515
 
 $SR_M_Onder_lmer_pop
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: AgeAtDeath_hours ~ Population + (1 | Line:Population) + (1 |  
     ReplicateVial:Line:Population)
    Data: filter(droseu$sr, Supervisor.PI == "Onder" & Sex == "M")
@@ -194,7 +198,8 @@ Random effects:
  ReplicateVial:Line:Population (Intercept)  10.59    3.254  
  Line:Population               (Intercept)  96.55    9.826  
  Residual                                  186.52   13.657  
-Number of obs: 17158, groups:  ReplicateVial:Line:Population, 1732; Line:Population, 168
+Number of obs: 17158, groups:  
+ReplicateVial:Line:Population, 1732; Line:Population, 168
 
 Fixed effects:
              Estimate Std. Error      df t value Pr(>|t|)    
@@ -222,7 +227,7 @@ PopulatinVA -0.707  0.463  0.500  0.500  0.500  0.472  0.479
 PopulatinYE -0.707  0.463  0.500  0.500  0.500  0.472  0.479  0.500
 
 $SR_M_Pasyukova_lmer_pop
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: AgeAtDeath_hours ~ Population + (1 | Line:Population) + (1 |  
     Batch) + (1 | ReplicateVial:Line:Population)
    Data: filter(droseu$sr, Supervisor.PI == "Pasyukova" & Sex == "M")
@@ -239,7 +244,8 @@ Random effects:
  Line:Population               (Intercept)  63.87    7.992  
  Batch                         (Intercept)  11.53    3.395  
  Residual                                  229.56   15.151  
-Number of obs: 16861, groups:  ReplicateVial:Line:Population, 1687; Line:Population, 169; Batch, 5
+Number of obs: 16861, groups:  
+ReplicateVial:Line:Population, 1687; Line:Population, 169; Batch, 5
 
 Fixed effects:
               Estimate Std. Error        df t value Pr(>|t|)    

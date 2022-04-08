@@ -60,7 +60,6 @@ names(droseu) <- toupper(names(droseu))
 names(droseu)[names(droseu) == "DIA"] <- "Dia"
 names(droseu)[names(droseu) == "FEC"] <- "Fec"
 names(droseu)[names(droseu) == "PGM"] <- "Pgm"
-names(droseu)[names(droseu) == "PGM2"] <- "Pgm2"
 names(droseu)[names(droseu) == "VIA"] <- "Via"
 
 

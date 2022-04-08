@@ -1,5 +1,5 @@
 $Pgm_T4_Abbott_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: PercT4_asin ~ Altitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$pgm, Supervisor.PI == "Abbott")
 
@@ -28,7 +28,7 @@ Correlation of Fixed Effects:
 Altitude -0.800
 
 $Pgm_T5_Abbott_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: PercT5_asin ~ Altitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$pgm, Supervisor.PI == "Abbott")
 
@@ -57,7 +57,7 @@ Correlation of Fixed Effects:
 Altitude -0.800
 
 $Pgm_T6_Abbott_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: PercT6_asin ~ Altitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$pgm, Supervisor.PI == "Abbott")
 
@@ -86,7 +86,7 @@ Correlation of Fixed Effects:
 Altitude -0.800
 
 $Pgm_Total_Abbott_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: TotalPerc_asin ~ Altitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$pgm, Supervisor.PI == "Abbott")
 
@@ -115,7 +115,7 @@ Correlation of Fixed Effects:
 Altitude -0.800
 
 $Pgm_T4_Gibert_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: PercT4_asin ~ Altitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$pgm, Supervisor.PI == "Gibert")
 
@@ -144,7 +144,7 @@ Correlation of Fixed Effects:
 Altitude -0.800
 
 $Pgm_T5_Gibert_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: PercT5_asin ~ Altitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$pgm, Supervisor.PI == "Gibert")
 
@@ -173,7 +173,7 @@ Correlation of Fixed Effects:
 Altitude -0.799
 
 $Pgm_T6_Gibert_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: PercT6_asin ~ Altitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$pgm, Supervisor.PI == "Gibert")
 
@@ -202,7 +202,7 @@ Correlation of Fixed Effects:
 Altitude -0.800
 
 $Pgm_Total_Gibert_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: TotalPerc_asin ~ Altitude + (1 | Line:Population)
    Data: filter(droseu$pgm, Supervisor.PI == "Gibert")
 
@@ -230,9 +230,9 @@ Correlation of Fixed Effects:
 Altitude -0.799
 
 $Pgm_T4_Schmidt_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: PercT4_asin ~ Altitude + (1 | Population) + (1 | Line:Population)
-   Data: filter(droseu$pgm2, Supervisor.PI == "Schmidt")
+   Data: filter(droseu$pgm, Supervisor.PI == "Schmidt")
 
 REML criterion at convergence: -2119.8
 
@@ -259,9 +259,9 @@ Correlation of Fixed Effects:
 Altitude -0.800
 
 $Pgm_T5_Schmidt_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: PercT5_asin ~ Altitude + (1 | Population) + (1 | Line:Population)
-   Data: filter(droseu$pgm2, Supervisor.PI == "Schmidt")
+   Data: filter(droseu$pgm, Supervisor.PI == "Schmidt")
 
 REML criterion at convergence: -214.4
 
@@ -288,9 +288,9 @@ Correlation of Fixed Effects:
 Altitude -0.801
 
 $Pgm_T6_Schmidt_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: PercT6_asin ~ Altitude + (1 | Population) + (1 | Line:Population)
-   Data: filter(droseu$pgm2, Supervisor.PI == "Schmidt")
+   Data: filter(droseu$pgm, Supervisor.PI == "Schmidt")
 
 REML criterion at convergence: 846.1
 
@@ -317,9 +317,9 @@ Correlation of Fixed Effects:
 Altitude -0.801
 
 $Pgm_Total_Schmidt_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: TotalPerc_asin ~ Altitude + (1 | Population) + (1 | Line:Population)
-   Data: filter(droseu$pgm2, Supervisor.PI == "Schmidt")
+   Data: filter(droseu$pgm, Supervisor.PI == "Schmidt")
 
 REML criterion at convergence: -1249.8
 

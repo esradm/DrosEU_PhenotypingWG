@@ -1,5 +1,5 @@
 $Pgm_T4_Abbott_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: PercT4_asin ~ Longitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$pgm, Supervisor.PI == "Abbott")
 
@@ -28,7 +28,7 @@ Correlation of Fixed Effects:
 Longitude -0.771
 
 $Pgm_T5_Abbott_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: PercT5_asin ~ Longitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$pgm, Supervisor.PI == "Abbott")
 
@@ -57,7 +57,7 @@ Correlation of Fixed Effects:
 Longitude -0.771
 
 $Pgm_T6_Abbott_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: PercT6_asin ~ Longitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$pgm, Supervisor.PI == "Abbott")
 
@@ -86,7 +86,7 @@ Correlation of Fixed Effects:
 Longitude -0.776
 
 $Pgm_Total_Abbott_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: TotalPerc_asin ~ Longitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$pgm, Supervisor.PI == "Abbott")
 
@@ -115,7 +115,7 @@ Correlation of Fixed Effects:
 Longitude -0.771
 
 $Pgm_T4_Gibert_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: PercT4_asin ~ Longitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$pgm, Supervisor.PI == "Gibert")
 
@@ -144,7 +144,7 @@ Correlation of Fixed Effects:
 Longitude -0.788
 
 $Pgm_T5_Gibert_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: PercT5_asin ~ Longitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$pgm, Supervisor.PI == "Gibert")
 
@@ -173,7 +173,7 @@ Correlation of Fixed Effects:
 Longitude -0.781
 
 $Pgm_T6_Gibert_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: PercT6_asin ~ Longitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$pgm, Supervisor.PI == "Gibert")
 
@@ -202,7 +202,7 @@ Correlation of Fixed Effects:
 Longitude -0.787
 
 $Pgm_Total_Gibert_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: TotalPerc_asin ~ Longitude + (1 | Line:Population)
    Data: filter(droseu$pgm, Supervisor.PI == "Gibert")
 
@@ -230,9 +230,9 @@ Correlation of Fixed Effects:
 Longitude -0.793
 
 $Pgm_T4_Schmidt_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: PercT4_asin ~ Longitude + (1 | Population) + (1 | Line:Population)
-   Data: filter(droseu$pgm2, Supervisor.PI == "Schmidt")
+   Data: filter(droseu$pgm, Supervisor.PI == "Schmidt")
 
 REML criterion at convergence: -2125
 
@@ -259,9 +259,9 @@ Correlation of Fixed Effects:
 Longitude -0.777
 
 $Pgm_T5_Schmidt_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: PercT5_asin ~ Longitude + (1 | Population) + (1 | Line:Population)
-   Data: filter(droseu$pgm2, Supervisor.PI == "Schmidt")
+   Data: filter(droseu$pgm, Supervisor.PI == "Schmidt")
 
 REML criterion at convergence: -220.2
 
@@ -278,7 +278,7 @@ Number of obs: 1514, groups:  Line:Population, 157; Population, 9
 
 Fixed effects:
              Estimate Std. Error        df t value Pr(>|t|)    
-(Intercept) 0.7859728  0.0410980 7.0728956  19.124 2.38e-07 ***
+(Intercept) 0.7859728  0.0410980 7.0728954  19.124 2.38e-07 ***
 Longitude   0.0004456  0.0018935 6.8575892   0.235    0.821    
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
@@ -288,9 +288,9 @@ Correlation of Fixed Effects:
 Longitude -0.790
 
 $Pgm_T6_Schmidt_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: PercT6_asin ~ Longitude + (1 | Population) + (1 | Line:Population)
-   Data: filter(droseu$pgm2, Supervisor.PI == "Schmidt")
+   Data: filter(droseu$pgm, Supervisor.PI == "Schmidt")
 
 REML criterion at convergence: 839.1
 
@@ -317,9 +317,9 @@ Correlation of Fixed Effects:
 Longitude -0.785
 
 $Pgm_Total_Schmidt_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: TotalPerc_asin ~ Longitude + (1 | Population) + (1 | Line:Population)
-   Data: filter(droseu$pgm2, Supervisor.PI == "Schmidt")
+   Data: filter(droseu$pgm, Supervisor.PI == "Schmidt")
 
 REML criterion at convergence: -1255.6
 
@@ -336,8 +336,8 @@ Number of obs: 1514, groups:  Line:Population, 157; Population, 9
 
 Fixed effects:
              Estimate Std. Error        df t value Pr(>|t|)    
-(Intercept) 0.6103962  0.0327762 7.4103344  18.623 1.71e-07 ***
-Longitude   0.0009606  0.0015129 7.2222136   0.635    0.545    
+(Intercept) 0.6103962  0.0327762 7.4103346  18.623 1.71e-07 ***
+Longitude   0.0009606  0.0015129 7.2222137   0.635    0.545    
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 

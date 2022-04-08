@@ -615,13 +615,13 @@ Pgm_lmers_pop$Pgm_Total_Gibert_lmer_pop <- lmer(TotalPerc_asin ~ Population + (1
 
 
 # Schmidt
-Pgm_lmers_pop$Pgm_T4_Schmidt_lmer_pop <- lmer(PercT4_asin ~ Population + (1|Line:Population), data = filter(droseu$pgm2, Supervisor.PI == "Schmidt"))
+Pgm_lmers_pop$Pgm_T4_Schmidt_lmer_pop <- lmer(PercT4_asin ~ Population + (1|Line:Population), data = filter(droseu$pgm, Supervisor.PI == "Schmidt"))
 
-Pgm_lmers_pop$Pgm_T5_Schmidt_lmer_pop <- lmer(PercT5_asin ~ Population + (1|Line:Population), data = filter(droseu$pgm2, Supervisor.PI == "Schmidt"))
+Pgm_lmers_pop$Pgm_T5_Schmidt_lmer_pop <- lmer(PercT5_asin ~ Population + (1|Line:Population), data = filter(droseu$pgm, Supervisor.PI == "Schmidt"))
 
-Pgm_lmers_pop$Pgm_T6_Schmidt_lmer_pop <- lmer(PercT6_asin ~ Population + (1|Line:Population), data = filter(droseu$pgm2, Supervisor.PI == "Schmidt"))
+Pgm_lmers_pop$Pgm_T6_Schmidt_lmer_pop <- lmer(PercT6_asin ~ Population + (1|Line:Population), data = filter(droseu$pgm, Supervisor.PI == "Schmidt"))
 
-Pgm_lmers_pop$Pgm_Total_Schmidt_lmer_pop <- lmer(TotalPerc_asin ~ Population + (1|Line:Population), data = filter(droseu$pgm2, Supervisor.PI == "Schmidt"))
+Pgm_lmers_pop$Pgm_Total_Schmidt_lmer_pop <- lmer(TotalPerc_asin ~ Population + (1|Line:Population), data = filter(droseu$pgm, Supervisor.PI == "Schmidt"))
 
 
 # save output list

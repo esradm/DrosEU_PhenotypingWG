@@ -1,7 +1,8 @@
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: CCRT_seconds ~ Population + (1 | Population:Line) + (1 | Batch) +  
     (1 | ReplicateVial:Line)
-   Data: filter(droseu$ccrt, Censor == "0" & Supervisor.PI == "Vieira" &      Sex == "F")
+   Data: filter(droseu$ccrt, Censor == "0" & Supervisor.PI == "Vieira" &  
+    Sex == "F")
 
 REML criterion at convergence: 14874.7
 
@@ -15,7 +16,8 @@ Random effects:
  Population:Line    (Intercept)  29469.4 171.67  
  Batch              (Intercept)   3852.3  62.07  
  Residual                       183347.9 428.19  
-Number of obs: 993, groups:  ReplicateVial:Line, 168; Population:Line, 168; Batch, 27
+Number of obs: 993, groups:  
+ReplicateVial:Line, 168; Population:Line, 168; Batch, 27
 
 Fixed effects:
              Estimate Std. Error      df t value Pr(>|t|)    
