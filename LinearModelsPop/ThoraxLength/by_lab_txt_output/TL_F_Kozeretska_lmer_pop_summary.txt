@@ -1,4 +1,5 @@
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest
+]
 Formula: TL_micrometers ~ Population + (1 | Line:Population) + (1 | Batch) +  
     (1 | ReplicateVial:Line)
    Data: filter(droseu$tl, Supervisor.PI == "Kozeretska" & Sex == "F")
@@ -20,7 +21,7 @@ ReplicateVial:Line, 241; Line:Population, 130; Batch, 2
 
 Fixed effects:
              Estimate Std. Error      df t value Pr(>|t|)    
-(Intercept)   936.544      8.986  32.422 104.222   <2e-16 ***
+(Intercept)   936.544      8.986  32.423 104.222   <2e-16 ***
 PopulationGI   -1.508     15.049 123.353  -0.100   0.9204    
 PopulationKA  -24.921     13.441 116.126  -1.854   0.0663 .  
 PopulationMA   27.752     12.426 123.675   2.233   0.0273 *  
