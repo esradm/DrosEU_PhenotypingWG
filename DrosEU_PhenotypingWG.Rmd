@@ -108,7 +108,7 @@ samples_map + map_theme +
 droseu_labs <- data.frame(read.csv("InfoTables/DrosEU_Labs.csv"))
 ```
 
-## Contributers (phenotyping)
+## Contributors (phenotyping)
 
 Contributed labs are `r unique(droseu_labs$PI)` and detailed list below :
 
@@ -128,7 +128,7 @@ globe_labs <- ggplot(data = world) + geom_sf() + xlab("Latitude") + ylab("Longit
 globe_labs + map_theme 
 ```
 
-## Contributers (analyses)
+## Contributors (analyses)
 
 Esra Durmaz (all), Envel Kerdaffrec (all), Katja Hoedjes (Via, DT, DW), Banu Onder (SR, WA), Marija Tanaskovic (WA), Chris Wegener (CET), Eran Tauber (LA), Rudolf Rohr (UniFr), coordination-team
 
@@ -198,7 +198,7 @@ _need to do a few more PCRs, will add them here soon_
 
 ## Traits 
 
-_Contributers and methods for experiments_
+_Contributors and methods for experiments_
 
 ### Viability
 ##### Gibert, Grath, Hoedjes, Schmidt, Stamenkovic-Radak and Zwaan Labs
@@ -536,7 +536,7 @@ dir.create(file.path("Viability"), showWarnings = FALSE)
 
 _For a detailed description of tables, plots, linear models and outputs, please refer [here](#anchor) _
 
-### Contributers  
+### Contributors  
 
 Gibert Lab : Cristina Vieira, Laurence Mouton, Natacha Kremer, Sonia Martinez, Patricia Gibert
 
@@ -931,7 +931,7 @@ dir.create(file.path("DevelopmentTime"), showWarnings = FALSE)
 
 _For a detailed description of tables, plots, linear models and outputs, please refer [here](#anchor) _
 
-#### Contributers  
+#### Contributors  
 
 Schmidt Lab : Paul Schmidt
 
@@ -996,7 +996,7 @@ invisible(dev.off())
 
 _For a detailed description of tables, plots, linear models and outputs, please refer [here](#anchor) _
 
-#### Contributers  
+#### Contributors  
 
 Gibert Lab : Cristina Vieira, Laurence Mouton, Natacha Kremer, Sonia Martinez, Patricia Gibert
 
@@ -1741,7 +1741,7 @@ dir.create(file.path("DryWeight"), showWarnings = FALSE)
 
 _For a detailed description of tables, plots, linear models and outputs, please refer [here](#anchor) _
 
-### Contributers  
+### Contributors  
 
 Colinet Lab : Sapho-Lou Marti , Hervé Colinet
 
@@ -2176,7 +2176,7 @@ dir.create(file.path("ThoraxLength"), showWarnings = FALSE)
 
 _For a detailed description of tables, plots, linear models and outputs, please refer [here](#anchor) _
 
-### Contributers  
+### Contributors  
 
 Kozeretska Lab : Svitlana Serga, Alexandra Protsenko, Oleksandr Maistrenko, Iryna Kozeretska
 
@@ -2662,7 +2662,7 @@ dir.create(file.path("WingArea"), showWarnings = FALSE)
 
 _For a detailed description of tables, plots, linear models and outputs, please refer [here](#anchor) _
 
-### Contributers  
+### Contributors  
 
 Onder Lab : Cansu Aksoy, Ekin Demir, Ezgi Cobanoglu, Banu Sebnem Onder
 
@@ -3717,7 +3717,7 @@ _For a detailed description of tables, plots, linear models and outputs, please 
 #Note that the trait has been phenotyped only in females.
 ```
 
-### Contributers  
+### Contributors  
 
 Billeter Lab : Xiaocui Wang, Tiphaine Bailly, Mario Mira, Jean-Christophe Billeter
 
@@ -3912,7 +3912,7 @@ for (i in dev.list()[1]:dev.list()[length(dev.list())]) {
 # crashed bc tries to save lots -- need to remove some 
 ```
 
-### Contributers  
+### Contributors  
 
 Flatt Lab : Esra Durmaz, Envel Kerdaffrec, Thibault Schowing, Virginie Thieu, Marisa Rodrigues, Thomas Flatt
 
@@ -4380,7 +4380,7 @@ dir.create(file.path("ColdShock"), showWarnings = FALSE)
 
 _For a detailed description of tables, plots, linear models and outputs, please refer [here](#anchor) _
 
-### Contributers  
+### Contributors  
 
 Gonzalez Lab : Llewellyn Green, Josefa Gonzalez, Miriam Merenciano
 
@@ -4812,7 +4812,7 @@ dir.create(file.path("ChillComa"), showWarnings = FALSE)
 _For a detailed description of tables, plots, linear models and outputs, please refer [here](#anchor) _
 
 
-### Contributers  
+### Contributors  
 
 Mensh Lab : Florencia Putero, Lucas Kreiman, Julian Mensh
 
@@ -5008,7 +5008,7 @@ dir.create(file.path("HeatShock"), showWarnings = FALSE)
 
 _For a detailed description of tables, plots, linear models and outputs, please refer [here](#anchor) _
 
-### Contributers  
+### Contributors  
 
 Parsch Lab : Eliza Argyridou, Amanda Glaser-Schmitt, John Parsch
 
@@ -5381,7 +5381,7 @@ dir.create(file.path("Diapause"), showWarnings = FALSE)
 
 _For a detailed description of tables, plots, linear models and outputs, please refer [here](#anchor) _
 
-### Contributers  
+### Contributors  
 
 Bergland Lab : Liam Miller, Alan Bergland, Priscilla Erickson
 
@@ -5610,7 +5610,7 @@ _For a detailed description of tables, plots, linear models and outputs, please 
 #Note that the trait has been phenotyped as mixed sex. 
 ```
 
-### Contributers  
+### Contributors  
 
 Wegener Lab : Susanne Klühspies, Christian Wegener
 
@@ -5796,7 +5796,7 @@ _For a detailed description of tables, plots, linear models and outputs, please 
 #Note that the trait has been phenotyped only in males.
 ```
 
-### Contributers  
+### Contributors  
 
 Tauber Lab : Bettina Fishman, Eran Tauber
 
@@ -5971,7 +5971,7 @@ dir.create(file.path("Starvation"), showWarnings = FALSE)
 
 _For a detailed description of tables, plots, linear models and outputs, please refer [here](#anchor) _
 
-### Contributers  
+### Contributors  
 
 Gonzalez Lab : Llewellyn Green, Josefa Gonzalez, Miriam Merenciano
 
@@ -6480,7 +6480,7 @@ dir.create(file.path("Pigmentation"), showWarnings = FALSE)
 
 _For a detailed description of tables, plots, linear models and outputs, please refer [here](#anchor) _
 
-### Contributers  
+### Contributors  
 
 Abbott Lab : Jessica Abbott, Qinyang Li, Shahzad Khan
 
@@ -7249,7 +7249,7 @@ dir.create(file.path("ParasitoidResistance"), showWarnings = FALSE)
 
 _For a detailed description of tables, plots, linear models and outputs, please refer [here](#anchor) _
 
-### Contributers  
+### Contributors  
 
 Hrcek Lab : Vincent Montbel, Somayeh Rasouli Dogaheh, Jan Hrcek
 
