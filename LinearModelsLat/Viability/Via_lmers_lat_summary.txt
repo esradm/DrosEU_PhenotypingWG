@@ -1,7 +1,6 @@
 $Via_Gibert_lmer_lat
 Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: ProportionEggtoAdultSurvival ~ Latitude + (1 | Population) +  
-    (1 | Line:Population)
+Formula: ProportionEggtoAdultSurvival ~ Latitude + (1 | Population) +      (1 | Line:Population)
    Data: filter(droseu$via, Supervisor.PI == "Gibert")
 
 REML criterion at convergence: -698.5
@@ -30,8 +29,7 @@ Latitude -0.989
 
 $Via_Grath_lmer_lat
 Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: ProportionEggtoAdultSurvival ~ Latitude + (1 | Population) +  
-    (1 | Line:Population)
+Formula: ProportionEggtoAdultSurvival ~ Latitude + (1 | Population) +      (1 | Line:Population)
    Data: filter(droseu$via, Supervisor.PI == "Grath")
 
 REML criterion at convergence: -153.2
@@ -58,8 +56,7 @@ Latitude -0.987
 
 $Via_Hoedjes_lmer_lat
 Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: ProportionEggtoAdultSurvival ~ Latitude + (1 | Population) +  
-    (1 | Line:Population)
+Formula: ProportionEggtoAdultSurvival ~ Latitude + (1 | Population) +      (1 | Line:Population)
    Data: filter(droseu$via, Supervisor.PI == "Hoedjes")
 
 REML criterion at convergence: -727.9
@@ -116,8 +113,7 @@ Latitude -0.989
 
 $Via_StamenkovicRadak_lmer_lat
 Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: ProportionEggtoAdultSurvival ~ Latitude + (1 | Population) +  
-    (1 | Line:Population)
+Formula: ProportionEggtoAdultSurvival ~ Latitude + (1 | Population) +      (1 | Line:Population)
    Data: filter(droseu$via, Supervisor.PI == "StamenkovicRadak")
 
 REML criterion at convergence: -595
@@ -146,8 +142,7 @@ Latitude -0.990
 
 $Via_Zwaan_lmer_lat
 Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: ProportionEggtoAdultSurvival ~ Latitude + (1 | Population) +  
-    (1 | Line:Population)
+Formula: ProportionEggtoAdultSurvival ~ Latitude + (1 | Population) +      (1 | Line:Population)
    Data: filter(droseu$via, Supervisor.PI == "Zwaan")
 
 REML criterion at convergence: -340.8

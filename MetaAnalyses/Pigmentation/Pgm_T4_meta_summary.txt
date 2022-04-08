@@ -1,0 +1,62 @@
+                            95%-CI %W(random) Population
+YE_Abbott  0.3911 [0.3623; 0.4200]        3.8         YE
+YE_Gibert  0.5151 [0.4866; 0.5437]        3.8         YE
+YE_Schmidt 0.5026 [0.4610; 0.5442]        3.6         YE
+RE_Abbott  0.4222 [0.3900; 0.4544]        3.7         RE
+RE_Gibert  0.4440 [0.4126; 0.4754]        3.8         RE
+RE_Schmidt 0.5057 [0.4559; 0.5556]        3.5         RE
+GI_Abbott  0.3623 [0.3279; 0.3967]        3.7         GI
+GI_Gibert  0.4902 [0.4577; 0.5226]        3.7         GI
+GI_Schmidt 0.4534 [0.4018; 0.5050]        3.5         GI
+MU_Abbott  0.3927 [0.3615; 0.4239]        3.8         MU
+MU_Gibert  0.5143 [0.4862; 0.5424]        3.8         MU
+MU_Schmidt 0.4890 [0.4477; 0.5304]        3.6         MU
+MA_Abbott  0.4775 [0.4471; 0.5078]        3.8         MA
+MA_Gibert  0.4968 [0.4678; 0.5257]        3.8         MA
+MA_Schmidt 0.5545 [0.5119; 0.5971]        3.6         MA
+UM_Abbott  0.3796 [0.3493; 0.4099]        3.8         UM
+UM_Gibert  0.5046 [0.4749; 0.5342]        3.8         UM
+UM_Schmidt 0.5518 [0.5040; 0.5997]        3.5         UM
+KA_Abbott  0.2991 [0.2696; 0.3286]        3.8         KA
+KA_Gibert  0.4639 [0.4358; 0.4920]        3.8         KA
+KA_Schmidt 0.5127 [0.4703; 0.5551]        3.6         KA
+VA_Abbott  0.2654 [0.2360; 0.2949]        3.8         VA
+VA_Gibert  0.5042 [0.4754; 0.5331]        3.8         VA
+VA_Schmidt 0.4006 [0.3558; 0.4455]        3.6         VA
+AK_Abbott  0.3790 [0.3503; 0.4076]        3.8         AK
+AK_Gibert  0.5000 [0.4718; 0.5281]        3.8         AK
+AK_Schmidt 0.4844 [0.4431; 0.5257]        3.6         AK
+
+Number of studies combined: k = 27
+
+                                      95%-CI     z  p-value
+Random effects model 0.4533 [0.4256; 0.4811] 31.98 < 0.0001
+
+Quantifying heterogeneity:
+ tau^2 = 0.0051 [0.0030; 0.0098]; tau = 0.0714 [0.0551; 0.0990]
+ I^2 = 95.0% [93.7%; 96.0%]; H = 4.47 [3.98; 5.03]
+
+Test of heterogeneity:
+      Q d.f.  p-value
+ 520.66   26 < 0.0001
+
+Results for subgroups (random effects model):
+                  k                  95%-CI  tau^2    tau      Q   I^2
+Population = YE   3 0.4691 [0.3911; 0.5472] 0.0045 0.0668  40.21 95.0%
+Population = RE   3 0.4538 [0.4083; 0.4994] 0.0012 0.0353   7.61 73.7%
+Population = GI   3 0.4349 [0.3586; 0.5113] 0.0041 0.0643  28.73 93.0%
+Population = MU   3 0.4652 [0.3917; 0.5386] 0.0039 0.0626  33.74 94.1%
+Population = MA   3 0.5073 [0.4643; 0.5503] 0.0011 0.0338   8.46 76.4%
+Population = UM   3 0.4776 [0.3770; 0.5782] 0.0076 0.0869  49.83 96.0%
+Population = KA   3 0.4247 [0.2980; 0.5514] 0.0122 0.1106  90.80 97.8%
+Population = VA   3 0.3901 [0.2536; 0.5265] 0.0142 0.1192 129.24 98.5%
+Population = AK   3 0.4540 [0.3786; 0.5293] 0.0042 0.0644  38.34 94.8%
+
+Test for subgroup differences (random effects model):
+                    Q d.f. p-value
+Between groups   6.17    8  0.6281
+
+Details on meta-analytical method:
+- Inverse variance method
+- Restricted maximum-likelihood estimator for tau^2
+- Q-profile method for confidence interval of tau^2 and tau

@@ -413,8 +413,47 @@ dir.create(file.path(meta_dir, out_dir), showWarnings = F)
 # get effects
 Pgm_effects <- makeEffects(estimates$pgm)
 
-# run meta for females, w/o Schmidt's data
-Pgm_Total_meta <- metagen(data = filter(Pgm_effects, Sex == "F", Trait == "Pgm_Total",  Lab != "Schmidt"), TE = Y, seTE = SE, studlab = Study, fixed = FALSE, random = TRUE)
+
+
+# run meta for females - T4
+Pgm_T4_meta <- metagen(data = filter(Pgm_effects, Sex == "F", Trait == "Pgm_T4"), TE = Y, seTE = SE, studlab = Study, fixed = FALSE, random = TRUE)
+
+# sub groups
+Pgm_T4_meta <- update.meta(Pgm_T4_meta, subgroup = Population, tau.common = FALSE)
+
+# save output
+saveRDS(Pgm_T4_meta, file = file.path(meta_dir, out_dir, "Pgm_T4_meta.rds"))
+
+
+
+
+
+# run meta for females - T5
+Pgm_T5_meta <- metagen(data = filter(Pgm_effects, Sex == "F", Trait == "Pgm_T5"), TE = Y, seTE = SE, studlab = Study, fixed = FALSE, random = TRUE)
+
+# sub groups
+Pgm_T5_meta <- update.meta(Pgm_T5_meta, subgroup = Population, tau.common = FALSE)
+
+# save output
+saveRDS(Pgm_T5_meta, file = file.path(meta_dir, out_dir, "Pgm_T5_meta.rds"))
+
+
+
+
+# run meta for females - T6
+Pgm_T6_meta <- metagen(data = filter(Pgm_effects, Sex == "F", Trait == "Pgm_T6"), TE = Y, seTE = SE, studlab = Study, fixed = FALSE, random = TRUE)
+
+# sub groups
+Pgm_T6_meta <- update.meta(Pgm_T6_meta, subgroup = Population, tau.common = FALSE)
+
+# save output
+saveRDS(Pgm_T6_meta, file = file.path(meta_dir, out_dir, "Pgm_T6_meta.rds"))
+
+
+
+
+# run meta for females - Total
+Pgm_Total_meta <- metagen(data = filter(Pgm_effects, Sex == "F", Trait == "Pgm_Total"), TE = Y, seTE = SE, studlab = Study, fixed = FALSE, random = TRUE)
 
 # sub groups
 Pgm_Total_meta <- update.meta(Pgm_Total_meta, subgroup = Population, tau.common = FALSE)
@@ -422,6 +461,12 @@ Pgm_Total_meta <- update.meta(Pgm_Total_meta, subgroup = Population, tau.common 
 # save output
 saveRDS(Pgm_Total_meta, file = file.path(meta_dir, out_dir, "Pgm_Total_meta.rds"))
 
+
+# run meta for females, w/o Schmidt's data
+#Pgm_Total_meta <- metagen(data = filter(Pgm_effects, Sex == "F", Trait == "Pgm_Total",  Lab != "Schmidt"), TE = Y, seTE = SE, studlab = Study, fixed = FALSE, random = TRUE)
+
+# sub groups
+#Pgm_Total_meta <- update.meta(Pgm_Total_meta, subgroup = Population, tau.common = FALSE)
 
 
 # run meta for females, all three labs

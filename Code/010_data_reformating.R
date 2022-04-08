@@ -2,7 +2,7 @@
 
 rm(list = ls())
 
-setwd("~/Work/UNIFR/GitHub/DrosEU_PhenotypingWG/Data")
+setwd("~/Work/UNIFR/GitHub/DrosEU_PhenotypingWG")
 
 library(tidyverse)
 library(nortest)
@@ -24,7 +24,7 @@ csvBatchReaderToList3 <- function(dir, ...) {
 
 ##### batch load all the .csv files, make sure that the path matches the most up to date directory
 
-droseu <- csvBatchReaderToList3(dir = "MasterSheets_Feb22_git", pattern = "*.csv", full.names = F)
+droseu <- csvBatchReaderToList3(dir = "Data/MasterSheets_Feb22_git", pattern = "*.csv", full.names = F)
 
 
 
@@ -94,7 +94,7 @@ droseu$dia <- droseu$dia %>%
   rename_at(vars(contains("Max_Stage")), ~ paste0("Prop_", .x)) %>%
   as.data.frame()
 
- 
+
 
 ##### define all the trait variables
 
@@ -111,8 +111,24 @@ for (i in 1:length(droseu)) {
 }
 
 
+##### turn Paul's data into proportion
 
-##### arcsin transformation of proportion data
+droseu$pgm2 <- droseu$pgm2 %>%
+  mutate(PercT4 =  ScoreT4 * 0.1,
+         PercT5 =  ScoreT5 * 0.1,
+         PercT6 =  ScoreT6 * 0.1,
+         TotalPerc = ((ScoreT4 + ScoreT5 + ScoreT6)/3)*0.1)
+
+
+droseu$pgm2 <- droseu$pgm2 %>%
+  mutate(PercT4_asin =  asin(sqrt(ScoreT4 * 0.1)),
+         PercT5_asin =  asin(sqrt(ScoreT5 * 0.1)),
+         PercT6_asin =  asin(sqrt(ScoreT6 * 0.1)),
+         TotalPerc_asin = asin(sqrt(((ScoreT4 + ScoreT5 + ScoreT6)/3)*0.1)))
+
+
+
+##### arcsin transformation of other proportion data
 
 droseu$csm <- droseu$csm %>% 
   mutate(CSM_PropDead_ED_asin = asin(sqrt(CSM_PropDead_ED)))
@@ -127,6 +143,12 @@ droseu$pgm <- droseu$pgm %>%
          PercT5_asin = asin(sqrt(PercT5/100)),
          PercT6_asin = asin(sqrt(PercT6/100)),
          TotalPerc_asin = asin(sqrt(TotalPerc/100)))
+
+droseu$pgm2 <- droseu$pgm2 %>%
+  mutate(PercT4_asin =  asin(sqrt(PercT4)),
+         PercT5_asin =  asin(sqrt(PercT5)),
+         PercT6_asin =  asin(sqrt(PercT6)),
+         TotalPerc_asin = asin(sqrt(TotalPerc)))
 
 droseu$via <- droseu$via %>% 
   mutate(ProportionEggtoAdultSurvival_asin = asin(sqrt(ProportionEggtoAdultSurvival)))
@@ -222,7 +244,7 @@ droseu <- lapply(droseu, inner_join, col_plot)
 
 ##### save the data
 
-saveRDS(droseu, file = "droseu_master_list_2022-04-05.rds")
+saveRDS(droseu, file = "Data/droseu_master_list_2022-04-05.rds")
 
 
 

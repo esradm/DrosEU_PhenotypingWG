@@ -1,7 +1,6 @@
 $Via_Gibert_lmer_lon
 Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: ProportionEggtoAdultSurvival ~ Longitude + (1 | Population) +  
-    (1 | Line:Population)
+Formula: ProportionEggtoAdultSurvival ~ Longitude + (1 | Population) +      (1 | Line:Population)
    Data: filter(droseu$via, Supervisor.PI == "Gibert")
 
 REML criterion at convergence: -693
@@ -30,8 +29,7 @@ Longitude -0.772
 
 $Via_Grath_lmer_lon
 Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: ProportionEggtoAdultSurvival ~ Longitude + (1 | Population) +  
-    (1 | Line:Population)
+Formula: ProportionEggtoAdultSurvival ~ Longitude + (1 | Population) +      (1 | Line:Population)
    Data: filter(droseu$via, Supervisor.PI == "Grath")
 
 REML criterion at convergence: -151.6
@@ -60,8 +58,7 @@ Longitude -0.558
 
 $Via_Hoedjes_lmer_lon
 Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: ProportionEggtoAdultSurvival ~ Longitude + (1 | Population) +  
-    (1 | Line:Population)
+Formula: ProportionEggtoAdultSurvival ~ Longitude + (1 | Population) +      (1 | Line:Population)
    Data: filter(droseu$via, Supervisor.PI == "Hoedjes")
 
 REML criterion at convergence: -719.5
@@ -118,8 +115,7 @@ Longitude -0.778
 
 $Via_StamenkovicRadak_lmer_lon
 Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: ProportionEggtoAdultSurvival ~ Longitude + (1 | Population) +  
-    (1 | Line:Population)
+Formula: ProportionEggtoAdultSurvival ~ Longitude + (1 | Population) +      (1 | Line:Population)
    Data: filter(droseu$via, Supervisor.PI == "StamenkovicRadak")
 
 REML criterion at convergence: -594.1
@@ -148,8 +144,7 @@ Longitude -0.777
 
 $Via_Zwaan_lmer_lon
 Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: ProportionEggtoAdultSurvival ~ Longitude + (1 | Population) +  
-    (1 | Line:Population)
+Formula: ProportionEggtoAdultSurvival ~ Longitude + (1 | Population) +      (1 | Line:Population)
    Data: filter(droseu$via, Supervisor.PI == "Zwaan")
 
 REML criterion at convergence: -333.5

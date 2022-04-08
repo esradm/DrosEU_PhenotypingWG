@@ -42,21 +42,21 @@ Altitude 0.021222 0.021222     1 166.4  2.4901 0.1165
 
 $Pgm_T4_Schmidt_lmer_alt
 Type III Analysis of Variance Table with Satterthwaite's method
-          Sum Sq Mean Sq NumDF  DenDF F value Pr(>F)
-Altitude 0.34116 0.34116     1 6.5819  0.4746 0.5144
+            Sum Sq   Mean Sq NumDF  DenDF F value Pr(>F)
+Altitude 0.0051959 0.0051959     1 6.6159  0.4539 0.5233
 
 $Pgm_T5_Schmidt_lmer_alt
 Type III Analysis of Variance Table with Satterthwaite's method
-           Sum Sq  Mean Sq NumDF  DenDF F value Pr(>F)
-Altitude 0.045283 0.045283     1 5.4536  0.0178 0.8987
+             Sum Sq    Mean Sq NumDF DenDF F value Pr(>F)
+Altitude 0.00012948 0.00012948     1 5.442  0.0034 0.9555
 
 $Pgm_T6_Schmidt_lmer_alt
 Type III Analysis of Variance Table with Satterthwaite's method
-          Sum Sq Mean Sq NumDF  DenDF F value Pr(>F)
-Altitude 0.83686 0.83686     1 6.2094  0.1982 0.6713
+            Sum Sq   Mean Sq NumDF  DenDF F value Pr(>F)
+Altitude 0.0082431 0.0082431     1 6.1843  0.1047 0.7569
 
 $Pgm_Total_Schmidt_lmer_alt
 Type III Analysis of Variance Table with Satterthwaite's method
-         Sum Sq Mean Sq NumDF  DenDF F value Pr(>F)
-Altitude 2.6253  2.6253     1 5.9721  0.1934 0.6755
+            Sum Sq   Mean Sq NumDF DenDF F value Pr(>F)
+Altitude 0.0036248 0.0036248     1 5.905   0.189 0.6792
 
