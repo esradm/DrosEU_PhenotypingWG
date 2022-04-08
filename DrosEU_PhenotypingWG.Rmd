@@ -534,6 +534,18 @@ table_pop_wobatch <- readRDS("DescriptiveStatistics/all_table_Pop_wobatch.rds")
 
 **_Please note that "Plots and Linear Models by Lab" are presented in alphabetical order._** 
 
+## Overview 
+
+Here is a summary table with p-values for all the analyses below. p-value adjustments are only made on meta analyses. 
+
+```{r, echo=FALSE}
+pval_table <- read.csv("SummaryLmerMeta/lmers_metas_pvalues_summary_table.csv")
+```
+
+```{r, echo=FALSE}
+DT::datatable(pval_table, options = list(pageLength = 10)) %>% formatRound(3:7, 4)
+```
+
 ## Viability
 
 ```{r include=FALSE}
