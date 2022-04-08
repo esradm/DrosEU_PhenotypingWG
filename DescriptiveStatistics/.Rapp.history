@@ -1,5 +1,0 @@
-load("/Users/durmazm/Documents/GitHub/DrosEU_PhenotypingWG/DescriptiveStatistics/all_table_Line_wbatch.rds")
-load("/Users/durmazm/Documents/GitHub/DrosEU_PhenotypingWG/DescriptiveStatistics/all_table_Pop_wobatch.rds")
-readRDSload("/Users/durmazm/Documents/GitHub/DrosEU_PhenotypingWG/DescriptiveStatistics/all_table_Pop_wobatch.rds")
-readRDS("/Users/durmazm/Documents/GitHub/DrosEU_PhenotypingWG/DescriptiveStatistics/all_table_Pop_wobatch.rds")
-readRDS("~/Documents/GitHub/DrosEU_PhenotypingWG/Data/droseu_master_list_2022-04-05.rds")
