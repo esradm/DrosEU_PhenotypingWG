@@ -1,51 +1,51 @@
-﻿Country,Lab,PI,Trait
-Sweden,Lund,Abbott,Pigmentation
-USA,Charlottesville,Bergland,Diapause
-The Netherlands,Groningen,Billeter,Fecundity
-France,Rennes,Colinet,Dry weight
-Switzerland,Fribourg,Flatt,Diapause
-Switzerland,Fribourg,Flatt,Lifespan
-Germany,Muenster,Fricke,Fecundity
-France,Lyon,Gibert,Development time
-France,Lyon,Gibert,Pigmentation
-France,Lyon,Gibert,Viability
-Spain,Barcelona,Gonzalez,Cold-shock mortality
-Spain,Barcelona,Gonzalez,Starvation resistance
-Germany,Munich,Grath,Development time
-Germany,Munich,Grath,Viability
-The Netherlands,Lausanne,Hoedjes,Development time
-The Netherlands,Lausanne,Hoedjes,Dry weight
-The Netherlands,Lausanne,Hoedjes,Viability
-Czech Republic,Ceske Budejovice,Hrcek,Parasitoid resistance
-Ukraine,Kyiv,Kozeretska,Cold-shock mortality
-Ukraine,Kyiv,Kozeretska,Thorax length
-Argentina,Buenos Aiers,Mensch,Chill-coma recovery time
-Turkey,Ankara,Onder,Dry weight
-Turkey,Ankara,Onder,Starvation resistance
-Turkey,Ankara,Onder,Wing area
-Germany,Munich,Parsch,Heat-shock mortality
-Germany,Munich,Parsch,Lifespan
-Russia,Moscow,Pasyukova,Lifespan
-Russia,Moscow,Pasyukova,Starvation resistance
-Germany,Göttingen,Posnien,Thorax length
-Germany,Göttingen,Posnien,Wing area
-UK,St Andrews,Ritchie,Thorax length
-UK,St Andrews,Ritchie,Wing area
-UK,St Andrews,Ritchie,Wing patterning 
-Austria,Vienna,Schlötterer,Diapause
-USA,Philadelphia,Schmidt,Development time
-USA,Philadelphia,Schmidt,Pigmentation
-USA,Philadelphia,Schmidt,Thorax length
-USA,Philadelphia,Schmidt,Time to pupation
-USA,Philadelphia,Schmidt,Viability
-Serbia,Belgrade,Stamenkovic-Radak,Development time
-Serbia,Belgrade,Stamenkovic-Radak,Viability
-Serbia,Belgrade,Stamenkovic-Radak,Wing area
-Portugal,Lisbon,Sucena,Fly husbandry
-Israel,Haifa,Tauber,Locomotor activity
-Portugal,Porto,Vieira,Chill-coma recovery time
-Portugal,Porto,Vieira,Cold-shock mortality
-Portugal,Porto,Vieira,Heat-shock mortality
-Germany,Würzburg,Wegener,Circadian eclosion timing
-The Netherlands,Wageningen,Zwaan,Development time
-The Netherlands,Wageningen,Zwaan,Viability
+﻿Country,City,Supervisor.PI,Trait,Contributors
+Argentina,Buenos Aiers,Mensch,Chill-coma recovery time,"Florencia Putero, Lucas Kreiman, Julian Mensh"
+Portugal,Porto,Vieira,Chill-coma recovery time,"Jorge Vieira, Cristina P. Vieira, Pedro Duque, Tânia Dias"
+Germany,Würzburg,Wegener,Circadian eclosion timing,"Susanne Klühspies, Christian Wegener"
+Spain,Barcelona,Gonzalez,Cold-shock mortality,"Llewellyn Green, Josefa Gonzalez, Miriam Merenciano"
+Ukraine,Kyiv,Kozeretska,Cold-shock mortality,"Svitlana Serga, Alexandra Protsenko, Oleksandr Maistrenko, Iryna Kozeretska"
+Portugal,Porto,Vieira,Cold-shock mortality,"Jorge Vieira, Cristina P. Vieira, Pedro Duque, Tânia Dias"
+France,Lyon,Gibert,Development time,"Cristina Vieira, Laurence Mouton, Natacha Kremer, Sonia Martinez, Patricia Gibert"
+Germany,Munich,Grath,Development time,"Ingo Müller, Sonja Grath"
+The Netherlands,Lausanne,Hoedjes,Development time,"Hristina Kostic, Katja Hoedjes"
+USA,Philadelphia,Schmidt,Development time,"Ozan Kiratli, Yonatan Babore, Liam Forsythe, Paul Schmidt"
+Serbia,Belgrade,Stamenkovic-Radak,Development time,"Marija Savic Veselinovic, Marija Tanaskovic, Aleksandra Patenkovic, Mihailo Jelic, Katarina Eric, Pavle Eric, Slobodan Davidovic, Marina Stamenkovic-Radak"
+The Netherlands,Wageningen,Zwaan,Development time,"Joost van den Heuvel, Bas Zwaan"
+USA,Charlottesville,Bergland,Diapause,"Liam Miller, Alan Bergland, Priscilla Erickson"
+Switzerland,Fribourg,Flatt,Diapause,"Esra Durmaz, Envel Kerdaffrec, Thibault Schowing, Virginie Thieu, Marisa Rodrigues, Thomas Flatt"
+Austria,Vienna,Schlötterer,Diapause,"Manolis Lyrakis, Christian Schlötterer"
+France,Rennes,Colinet,Dry weight,"Sapho-Lou Marti , Hervé Colinet"
+The Netherlands,Lausanne,Hoedjes,Dry weight,"Hristina Kostic, Katja Hoedjes"
+Turkey,Ankara,Onder,Dry weight,"Seda Coskun, Senel Selin Senkal, Dogus Can, Banu Sebnem Onder"
+The Netherlands,Groningen,Billeter,Fecundity,"Xiaocui Wang, Tiphaine Bailly, Mario Mira, Jean-Christophe Billeter"
+Germany,Muenster,Fricke,Fecundity,Claudia Fricke
+Portugal,Lisbon,Sucena,Fly husbandry,"Tânia Paulo, Elio Sucena"
+Germany,Munich,Parsch,Heat-shock mortality,"Eliza Argyridou, Amanda Glaser-Schmitt, John Parsch"
+Portugal,Porto,Vieira,Heat-shock mortality,"Jorge Vieira, Cristina P. Vieira, Pedro Duque, Tânia Dias"
+Switzerland,Fribourg,Flatt,Lifespan,"Esra Durmaz, Envel Kerdaffrec, Thibault Schowing, Virginie Thieu, Marisa Rodrigues, Thomas Flatt"
+Germany,Munich,Parsch,Lifespan,"Amanda Glaser-Schmitt, Eliza Argyridou, John Parsch"
+Russia,Moscow,Pasyukova,Lifespan,"Natalia Roshina, Alexander Symonenko, Mikhail Trostnikov, Evgenia Tsybul’ko, Ekaterina Veselkina, Olga Rybina, Elena Pasyukova"
+Israel,Haifa,Tauber,Locomotor activity,"Bettina Fishman, Eran Tauber"
+Czech Republic,Ceske Budejovice,Hrcek,Parasitoid resistance,"Vincent Montbel, Somayeh Rasouli Dogaheh, Jan Hrcek"
+Sweden,Lund,Abbott,Pigmentation,"Jessica Abbott, Qinyang Li, Shahzad Khan"
+France,Lyon,Gibert,Pigmentation,"Cristina Vieira, Laurence Mouton, Natacha Kremer, Sonia Martinez, Camille Mermet, Patricia Gibert"
+USA,Philadelphia,Schmidt,Pigmentation,"Amy Goldfischer, Paul Schmidt"
+Spain,Barcelona,Gonzalez,Starvation resistance,"Llewellyn Green, Josefa Gonzalez, Miriam Merenciano"
+Turkey,Ankara,Onder,Starvation resistance,"Seda Coskun, Ekin Demir, Senel Selin Senkal, Cansu Aksoy"
+Russia,Moscow,Pasyukova,Starvation resistance,"Alexander Symonenko, Natalia Roshina, Mikhail Trostnokov, Ekaterina Veselkina, Evgenia Tsybul’ko, Olga Rybina, Elena Pasyukova"
+Ukraine,Kyiv,Kozeretska,Thorax length,"Svitlana Serga, Alexandra Protsenko, Oleksandr Maistrenko, Iryna Kozeretska"
+Germany,Göttingen,Posnien,Thorax length,"Micael Reis, Lennart Hüper"
+UK,St Andrews,Ritchie,Thorax length,"Megan Mcgunnigle, Nicola Cook, Teresa Abaurrea, Michael Ritchie"
+USA,Philadelphia,Schmidt,Thorax length,"Amy Goldfischer, Paul Schmidt"
+USA,Philadelphia,Schmidt,Time to pupation,Paul Schmidt
+France,Lyon,Gibert,Viability,"Cristina Vieira, Laurence Mouton, Natacha Kremer, Sonia Martinez, Patricia Gibert"
+Germany,Munich,Grath,Viability,"Ingo Müller, Sonja Grath"
+The Netherlands,Lausanne,Hoedjes,Viability,"Hristina Kostic, Katja Hoedjes"
+USA,Philadelphia,Schmidt,Viability,"Ozan Kiratli, Yonatan Babore, Liam Forsythe, Paul Schmidt"
+Serbia,Belgrade,Stamenkovic-Radak,Viability,"Marija Savic Veselinovic, Marija Tanaskovic, Aleksandra Patenkovic, Mihailo Jelic, Katarina Eric, Pavle Eric, Slobodan Davidovic, Marina Stamenkovic-Radak"
+The Netherlands,Wageningen,Zwaan,Viability,"Joost van den Heuvel, Bas Zwaan"
+Turkey,Ankara,Onder,Wing area,"Cansu Aksoy, Ekin Demir, Ezgi Cobanoglu, Banu Sebnem Onder"
+Germany,Göttingen,Posnien,Wing area,"Micael Reis, Lennart Hüper, Nico Posnien"
+UK,St Andrews,Ritchie,Wing area,"Megan Mcgunnigle, Nicola Cook, Teresa Abaurrea, Marija Tanaskovic, Michael Ritchie"
+Serbia,Belgrade,Stamenkovic-Radak,Wing area,"Marija Savic Veselinovic, Marija Tanaskovic, Aleksandra Patenkovic, Filip Filopovski, Mihailo Jelic, Katarina Eric, Pavle Eric, Slobodan Davidovic, Marina Stamenkovic-Radak"
+UK,St Andrews,Ritchie,Wing patterning ,"Nicola Cook, Michael Ritchie"
