@@ -1,7 +1,8 @@
 $SR_F_Gonzalez_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest
-]
-Formula: AgeAtDeath_hours ~ Altitude + (1 | Population) + (1 | Line:Population)
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: 
+AgeAtDeath_hours ~ Altitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$sr, Supervisor.PI == "Gonzalez" & Sex == "F")
 
 REML criterion at convergence: 43966.3
@@ -29,9 +30,10 @@ Correlation of Fixed Effects:
 Altitude -0.803
 
 $SR_F_Onder_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest
-]
-Formula: AgeAtDeath_hours ~ Altitude + (1 | Population) + (1 | Line:Population)
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: 
+AgeAtDeath_hours ~ Altitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$sr, Supervisor.PI == "Onder" & Sex == "F")
 
 REML criterion at convergence: 149553.1
@@ -59,9 +61,10 @@ Correlation of Fixed Effects:
 Altitude -0.801
 
 $SR_F_Pasyukova_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest
-]
-Formula: AgeAtDeath_hours ~ Altitude + (1 | Population) + (1 | Line:Population)
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: 
+AgeAtDeath_hours ~ Altitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$sr, Supervisor.PI == "Pasyukova" & Sex == "F")
 
 REML criterion at convergence: 151802.2
@@ -89,9 +92,10 @@ Correlation of Fixed Effects:
 Altitude -0.800
 
 $SR_M_Gonzalez_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest
-]
-Formula: AgeAtDeath_hours ~ Altitude + (1 | Population) + (1 | Line:Population)
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: 
+AgeAtDeath_hours ~ Altitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$sr, Supervisor.PI == "Gonzalez" & Sex == "M")
 
 REML criterion at convergence: 44279.8
@@ -119,9 +123,10 @@ Correlation of Fixed Effects:
 Altitude -0.803
 
 $SR_M_Onder_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest
-]
-Formula: AgeAtDeath_hours ~ Altitude + (1 | Population) + (1 | Line:Population)
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: 
+AgeAtDeath_hours ~ Altitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$sr, Supervisor.PI == "Onder" & Sex == "M")
 
 REML criterion at convergence: 139945.1
@@ -149,9 +154,10 @@ Correlation of Fixed Effects:
 Altitude -0.801
 
 $SR_M_Pasyukova_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest
-]
-Formula: AgeAtDeath_hours ~ Altitude + (1 | Population) + (1 | Line:Population)
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: 
+AgeAtDeath_hours ~ Altitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$sr, Supervisor.PI == "Pasyukova" & Sex == "M")
 
 REML criterion at convergence: 143590.5

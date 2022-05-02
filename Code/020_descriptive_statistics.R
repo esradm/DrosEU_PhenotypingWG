@@ -26,7 +26,7 @@ setwd("~/Work/UNIFR/GitHub/DrosEU_PhenotypingWG/")
 #source("Functions/lab_correlations_functions.R")
 
 ##### load data
-droseu <- readRDS("Data/droseu_master_list_2022-04-05.rds")
+droseu <- readRDS("Data/droseu_master_list_2022-05-02.rds")
 
 ##### create output directory
 desc_dir <- "DescriptiveStatistics"

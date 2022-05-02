@@ -17,7 +17,7 @@ setwd("~/Work/UNIFR/GitHub/DrosEU_PhenotypingWG/")
 
 
 ##### load data
-droseu <- readRDS("Data/droseu_master_list_2022-04-05.rds")
+droseu <- readRDS("Data/droseu_master_list_2022-05-02.rds")
 pops <- readRDS("InfoTables/DrosEU_Populations.rds")
 
 ##### source functions
@@ -166,6 +166,27 @@ CCRT_M_Vieira
 dev.off()
 
 
+# Mensch females
+CCRT_F_Mensch <- ggplot(data = filter(CCRT_prop_pop, Supervisor.PI == "Mensch" & Sex == "F")) + 
+  geom_line(aes(y = 1-PropSurv, x = AgeAtDeath, colour = Population), size = 1.5) +
+  scale_x_continuous(breaks = seq(0, 3600, 600)) +
+  labs(title = "CCRT_F_Mensch", x = "CCRT (sec)", y = "Proportion recovery") +
+  colScale + droseu_theme 
+
+pdf(file.path(surv_dir, out_dir, "p_CCRT_F_Mensch_survival_curves.pdf"), width=8, height=5)
+CCRT_F_Mensch
+dev.off()
+
+# Mensch males
+CCRT_M_Mensch <- ggplot(data = filter(CCRT_prop_pop, Supervisor.PI == "Mensch" & Sex == "M")) + 
+  geom_line(aes(y = 1-PropSurv, x = AgeAtDeath, colour = Population), size = 1.5) +
+  scale_x_continuous(breaks = seq(0, 3600, 600)) +
+  labs(title = "CCRT_M_Mensch", x = "CCRT (sec)", y = "Proportion recovery") +
+  colScale + droseu_theme 
+
+pdf(file.path(surv_dir, out_dir, "p_CCRT_M_Mensch_survival_curves.pdf"), width=8, height=5)
+CCRT_M_Mensch
+dev.off()
 
 
 

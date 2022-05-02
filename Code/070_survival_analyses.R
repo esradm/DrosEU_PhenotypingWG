@@ -29,7 +29,7 @@ setwd("~/Work/UNIFR/GitHub/DrosEU_PhenotypingWG/")
 
 
 ##### load data
-droseu <- readRDS("Data/droseu_master_list_2022-04-05.rds")
+droseu <- readRDS("Data/droseu_master_list_2022-05-02.rds")
 
 ##### create output directory
 surv_dir <- "SurvivalAnalyses"
@@ -157,6 +157,13 @@ CCRT_coxme_pop <- list()
 CCRT_coxme_pop$CCRT_F_coxme_Vieira <- coxme(Surv(CCRT_seconds, Censor) ~ Population + (1|Batch) + (1|Population/Line) , data = filter(droseu$ccrt, Supervisor.PI == "Vieira", Sex == "F"))
 
 CCRT_coxme_pop$CCRT_M_coxme_Vieira <- coxme(Surv(CCRT_seconds, Censor) ~ Population + (1|Batch) + (1|Population/Line) , data = filter(droseu$ccrt, Supervisor.PI == "Vieira", Sex == "M"))
+
+# Mensch
+CCRT_coxme_pop$CCRT_F_coxme_Mensch <- coxme(Surv(CCRT_seconds, Censor) ~ Population + (1|Batch) + (1|Population/Line) , data = filter(droseu$ccrt, Supervisor.PI == "Mensch", Sex == "F"))
+
+CCRT_coxme_pop$CCRT_M_coxme_Mensch <- coxme(Surv(CCRT_seconds, Censor) ~ Population + (1|Batch) + (1|Population/Line) , data = filter(droseu$ccrt, Supervisor.PI == "Mensch", Sex == "M"))
+
+
 
 
 # save output list

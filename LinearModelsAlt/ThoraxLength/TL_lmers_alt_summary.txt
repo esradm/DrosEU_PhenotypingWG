@@ -1,6 +1,6 @@
 $TL_F_Kozeretska_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest
-]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
 Formula: TL_micrometers ~ Altitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$tl, Supervisor.PI == "Kozeretska" & Sex == "F")
 
@@ -29,8 +29,8 @@ Correlation of Fixed Effects:
 Altitude -0.805
 
 $TL_F_Posnien_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest
-]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
 Formula: TL_micrometers ~ Altitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$tl, Supervisor.PI == "Posnien" & Sex == "F")
 
@@ -59,8 +59,8 @@ Correlation of Fixed Effects:
 Altitude -0.800
 
 $TL_F_Ritchie_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest
-]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
 Formula: TL_micrometers ~ Altitude + (1 | Line:Population)
    Data: filter(droseu$tl, Supervisor.PI == "Ritchie" & Sex == "F")
 
@@ -88,8 +88,8 @@ Correlation of Fixed Effects:
 Altitude -0.780
 
 $TL_F_Schmidt_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest
-]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
 Formula: TL_micrometers ~ Altitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$tl, Supervisor.PI == "Schmidt" & Sex == "F")
 
@@ -118,8 +118,8 @@ Correlation of Fixed Effects:
 Altitude -0.800
 
 $TL_M_Kozeretska_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest
-]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
 Formula: TL_micrometers ~ Altitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$tl, Supervisor.PI == "Kozeretska" & Sex == "M")
 
@@ -148,8 +148,8 @@ Correlation of Fixed Effects:
 Altitude -0.804
 
 $TL_M_Posnien_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest
-]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
 Formula: TL_micrometers ~ Altitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$tl, Supervisor.PI == "Posnien" & Sex == "M")
 
@@ -178,8 +178,8 @@ Correlation of Fixed Effects:
 Altitude -0.800
 
 $TL_M_Ritchie_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest
-]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
 Formula: TL_micrometers ~ Altitude + (1 | Line:Population)
    Data: filter(droseu$tl, Supervisor.PI == "Ritchie" & Sex == "M")
 

@@ -50,26 +50,26 @@ Test of heterogeneity:
  296.71   35 < 0.0001
 
 Results for subgroups (random effects model):
-                  k                           95%-CI      tau^2      tau     Q
-Population = YE   4 2782.3647 [2714.8743; 2849.8552]  3344.0843  57.8281  9.15
-Population = RE   4 2878.8311 [2782.5076; 2975.1545]  7996.9744  89.4258 15.91
-Population = GI   4 2760.1676 [2644.0159; 2876.3194] 12494.8217 111.7802 23.35
-Population = MU   4 2769.7015 [2636.7520; 2902.6511] 16630.4524 128.9591 29.16
-Population = MA   4 2823.6252 [2722.0154; 2925.2350]  9056.7302  95.1669 18.23
-Population = UM   4 2839.1806 [2733.2501; 2945.1111]  9981.5885  99.9079 17.79
-Population = KA   4 2768.4371 [2671.7435; 2865.1307]  7944.1279  89.1298 18.05
-Population = VA   4 2757.4290 [2624.0460; 2890.8120] 16747.2142 129.4110 29.24
-Population = AK   4 2743.4046 [2647.4960; 2839.3131]  7791.7274  88.2708 16.00
-                  I^2
-Population = YE 67.2%
-Population = RE 81.1%
-Population = GI 87.1%
-Population = MU 89.7%
-Population = MA 83.5%
-Population = UM 83.1%
-Population = KA 83.4%
-Population = VA 89.7%
-Population = AK 81.2%
+                  k                           95%-CI      tau^2      tau
+Population = YE   4 2782.3647 [2714.8743; 2849.8552]  3344.0843  57.8281
+Population = RE   4 2878.8311 [2782.5076; 2975.1545]  7996.9744  89.4258
+Population = GI   4 2760.1676 [2644.0159; 2876.3194] 12494.8217 111.7802
+Population = MU   4 2769.7015 [2636.7520; 2902.6511] 16630.4524 128.9591
+Population = MA   4 2823.6252 [2722.0154; 2925.2350]  9056.7302  95.1669
+Population = UM   4 2839.1806 [2733.2501; 2945.1111]  9981.5885  99.9079
+Population = KA   4 2768.4371 [2671.7435; 2865.1307]  7944.1279  89.1298
+Population = VA   4 2757.4290 [2624.0460; 2890.8120] 16747.2142 129.4110
+Population = AK   4 2743.4046 [2647.4960; 2839.3131]  7791.7274  88.2708
+                    Q   I^2
+Population = YE  9.15 67.2%
+Population = RE 15.91 81.1%
+Population = GI 23.35 87.1%
+Population = MU 29.16 89.7%
+Population = MA 18.23 83.5%
+Population = UM 17.79 83.1%
+Population = KA 18.05 83.4%
+Population = VA 29.24 89.7%
+Population = AK 16.00 81.2%
 
 Test for subgroup differences (random effects model):
                     Q d.f. p-value

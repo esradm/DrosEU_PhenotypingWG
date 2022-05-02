@@ -1,6 +1,6 @@
 $Via_Gibert_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest
-]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
 Formula: ProportionEggtoAdultSurvival ~ Altitude + (1 | Population) +  
     (1 | Line:Population)
    Data: filter(droseu$via, Supervisor.PI == "Gibert")
@@ -30,8 +30,8 @@ Correlation of Fixed Effects:
 Altitude -0.801
 
 $Via_Grath_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest
-]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
 Formula: ProportionEggtoAdultSurvival ~ Altitude + (1 | Population) +  
     (1 | Line:Population)
    Data: filter(droseu$via, Supervisor.PI == "Grath")
@@ -61,8 +61,8 @@ Correlation of Fixed Effects:
 Altitude -0.815
 
 $Via_Hoedjes_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest
-]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
 Formula: ProportionEggtoAdultSurvival ~ Altitude + (1 | Line:Population)
    Data: filter(droseu$via, Supervisor.PI == "Hoedjes")
 
@@ -90,8 +90,8 @@ Correlation of Fixed Effects:
 Altitude -0.801
 
 $Via_Schmidt_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest
-]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
 Formula: ProportionEggtoAdultSurvival ~ Altitude + (1 | Population)
    Data: filter(droseu$via, Supervisor.PI == "Schmidt")
 
@@ -119,8 +119,8 @@ Correlation of Fixed Effects:
 Altitude -0.799
 
 $Via_StamenkovicRadak_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest
-]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
 Formula: ProportionEggtoAdultSurvival ~ Altitude + (1 | Population) +  
     (1 | Line:Population)
    Data: filter(droseu$via, Supervisor.PI == "StamenkovicRadak")
@@ -150,8 +150,8 @@ Correlation of Fixed Effects:
 Altitude -0.801
 
 $Via_Zwaan_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest
-]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
 Formula: ProportionEggtoAdultSurvival ~ Altitude + (1 | Population) +  
     (1 | Line:Population)
    Data: filter(droseu$via, Supervisor.PI == "Zwaan")

@@ -24,7 +24,7 @@ csvBatchReaderToList3 <- function(dir, ...) {
 
 ##### batch load all the .csv files, make sure that the path matches the most up to date directory
 
-droseu <- csvBatchReaderToList3(dir = "Data/MasterSheets_Feb22_git", pattern = "*.csv", full.names = F)
+droseu <- csvBatchReaderToList3(dir = "Data/MasterSheets_May22_git", pattern = "*.csv", full.names = F)
 
 
 
@@ -162,6 +162,11 @@ droseu$la <- droseu$la %>% mutate(ND_log2 = log2(ND))
 
 
 
+##### remove "AK28" from J. Mensch data
+
+droseu$ccrt <- filter(droseu$ccrt, Line != "AK28")
+
+
 ##### update the trait variable list with transformed data
 
 var_list_up <- c(var_list, "CSM_PropDead_ED_asin", "Prop_Max_Stage7_asin", "Prop_Max_Stage8_asin", "Prop_Max_Stage9_asin", "PercT4_asin", "PercT5_asin", "PercT6_asin", "TotalPerc_asin", "ProportionEggtoAdultSurvival_asin", "ND_log2")
@@ -245,7 +250,7 @@ droseu <- lapply(droseu, inner_join, col_plot)
 
 ##### save the data
 
-saveRDS(droseu, file = "Data/droseu_master_list_2022-04-05.rds")
+saveRDS(droseu, file = "Data/droseu_master_list_2022-05-02.rds")
 
 
 
