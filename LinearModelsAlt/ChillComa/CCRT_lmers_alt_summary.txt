@@ -1,6 +1,6 @@
 $CCRT_F_Vieira_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest
-]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
 Formula: CCRT_seconds ~ Altitude + (1 | Population) + (1 | Population:Line)
    Data: filter(droseu$ccrt, Censor == "0" & Supervisor.PI == "Vieira" &  
     Sex == "F")
@@ -29,9 +29,40 @@ Correlation of Fixed Effects:
          (Intr)
 Altitude -0.801
 
+$CCRT_F_Mensch_lmer_alt
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: CCRT_seconds ~ Altitude + (1 | Population) + (1 | Population:Line)
+   Data: filter(droseu$ccrt, Censor == "0" & Supervisor.PI == "Mensch" &  
+    Sex == "F")
+
+REML criterion at convergence: 14646
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-2.1974 -0.6636 -0.1860  0.4869  3.4064 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Population:Line (Intercept)  85557   292.50  
+ Population      (Intercept)   4428    66.54  
+ Residual                    263740   513.56  
+Number of obs: 945, groups:  Population:Line, 166; Population, 9
+
+Fixed effects:
+             Estimate Std. Error        df t value Pr(>|t|)    
+(Intercept) 1668.2233    60.0070    5.8800  27.800 1.83e-07 ***
+Altitude       0.2497     0.1605    5.5818   1.556    0.174    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+         (Intr)
+Altitude -0.800
+
 $CCRT_M_Vieira_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest
-]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
 Formula: CCRT_seconds ~ Altitude + (1 | Population) + (1 | Population:Line)
    Data: filter(droseu$ccrt, Censor == "0" & Supervisor.PI == "Vieira" &  
     Sex == "M")
@@ -59,4 +90,35 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 Correlation of Fixed Effects:
          (Intr)
 Altitude -0.801
+
+$CCRT_M_Mensch_lmer_alt
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: CCRT_seconds ~ Altitude + (1 | Population) + (1 | Population:Line)
+   Data: filter(droseu$ccrt, Censor == "0" & Supervisor.PI == "Mensch" &  
+    Sex == "M")
+
+REML criterion at convergence: 14232.5
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-2.1207 -0.6071 -0.2246  0.3966  3.2720 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Population:Line (Intercept)  73019   270.22  
+ Population      (Intercept)   4367    66.08  
+ Residual                    223896   473.18  
+Number of obs: 928, groups:  Population:Line, 165; Population, 9
+
+Fixed effects:
+             Estimate Std. Error        df t value Pr(>|t|)    
+(Intercept) 1.648e+03  5.723e+01 6.988e+00   28.79 1.61e-08 ***
+Altitude    5.715e-02  1.545e-01 6.853e+00    0.37    0.723    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+         (Intr)
+Altitude -0.800
 

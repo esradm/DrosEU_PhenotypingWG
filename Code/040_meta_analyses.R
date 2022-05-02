@@ -21,7 +21,7 @@ setwd("~/Work/UNIFR/GitHub/DrosEU_PhenotypingWG/")
 
 
 ##### load data
-droseu <- readRDS("Data/droseu_master_list_2022-04-05.rds")
+droseu <- readRDS("Data/droseu_master_list_2022-05-02.rds")
 estimates <- readRDS("LinearModelsPop/all_lmers_list_pop_estimates.rds")
 pops <- readRDS("InfoTables/DrosEU_Populations.rds")
 
@@ -303,6 +303,36 @@ CSM_M_meta <- update.meta(CSM_M_meta, subgroup = Population, tau.common = FALSE)
 saveRDS(CSM_M_meta, file = file.path(meta_dir, out_dir, "CSM_M_meta.rds"))
 
 
+
+
+
+
+############# CHILL-COMA MORTALITY #############
+
+# create output directory
+out_dir <- "ChillComa"
+dir.create(file.path(meta_dir, out_dir), showWarnings = F) 
+
+# get effects
+CCRT_effects <- makeEffects(estimates$ccrt)
+
+# run meta for females
+CCRT_F_meta <- metagen(data = filter(CCRT_effects, Sex == "F"), TE = Y, seTE = SE, studlab = Study, fixed = FALSE, random = TRUE)
+
+# sub groups
+CCRT_F_meta <- update.meta(CCRT_F_meta, subgroup = Population, tau.common = FALSE)
+
+# save output
+saveRDS(CCRT_F_meta, file = file.path(meta_dir, out_dir, "CCRT_F_meta.rds"))
+
+# run meta for males
+CCRT_M_meta <- metagen(data = filter(CCRT_effects, Sex == "M"), TE = Y, seTE = SE, studlab = Study, fixed = FALSE, random = TRUE)
+
+# sub groups
+CCRT_M_meta <- update.meta(CCRT_M_meta, subgroup = Population, tau.common = FALSE)
+
+# save output
+saveRDS(CCRT_M_meta, file = file.path(meta_dir, out_dir, "CCRT_M_meta.rds"))
 
 
 

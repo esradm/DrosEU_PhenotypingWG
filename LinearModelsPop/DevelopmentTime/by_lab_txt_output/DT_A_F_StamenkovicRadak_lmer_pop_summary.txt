@@ -1,8 +1,9 @@
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest
-]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
 Formula: DT_EggAdult ~ Population + (1 | Line:Population) + (1 | Batch) +  
     (1 | ReplicateVial:Line)
-   Data: filter(droseu$dta, Supervisor.PI == "StamenkovicRadak" & Sex ==      "F")
+   Data: filter(droseu$dta, Supervisor.PI == "StamenkovicRadak" & Sex ==  
+    "F")
 
 REML criterion at convergence: 54203.3
 

@@ -1,6 +1,6 @@
 $LS_F_Flatt_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest
-]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
 Formula: LSP_AgeAtDeath_days ~ Longitude + (1 | Population)
    Data: filter(droseu$lsp, Censor == "0" & Supervisor.PI == "Flatt" &  
     Sex == "F")
@@ -29,8 +29,8 @@ Correlation of Fixed Effects:
 Longitude -0.769
 
 $LS_F_Parsch_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest
-]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
 Formula: 
 LSL_AgeAtDeath_days ~ Longitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$lsl, Censor == "0" & Supervisor.PI == "Parsch" &  
@@ -61,8 +61,8 @@ Correlation of Fixed Effects:
 Longitude -0.769
 
 $LS_F_Pasyukova_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest
-]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
 Formula: 
 LSL_AgeAtDeath_days ~ Longitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$lsl, Censor == "0" & Supervisor.PI == "Pasyukova" &  
@@ -93,8 +93,8 @@ Correlation of Fixed Effects:
 Longitude -0.787
 
 $LS_M_Flatt_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest
-]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
 Formula: LSP_AgeAtDeath_days ~ Longitude + (1 | Population)
    Data: filter(droseu$lsp, Censor == "0" & Supervisor.PI == "Flatt" &  
     Sex == "M")
@@ -123,8 +123,8 @@ Correlation of Fixed Effects:
 Longitude -0.768
 
 $LS_M_Parsch_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest
-]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
 Formula: 
 LSL_AgeAtDeath_days ~ Longitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$lsl, Censor == "0" & Supervisor.PI == "Parsch" &  
@@ -155,8 +155,8 @@ Correlation of Fixed Effects:
 Longitude -0.769
 
 $LS_M_Pasyukova_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest
-]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
 Formula: 
 LSL_AgeAtDeath_days ~ Longitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$lsl, Censor == "0" & Supervisor.PI == "Pasyukova" &  

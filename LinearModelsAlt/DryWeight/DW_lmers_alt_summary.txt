@@ -1,6 +1,6 @@
 $DW_F_Colinet_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest
-]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
 Formula: DW_micrograms ~ Altitude + (1 | Population) + (1 | Population:Line)
    Data: filter(droseu$dw, Supervisor.PI == "Colinet" & Sex == "F")
 
@@ -29,8 +29,8 @@ Correlation of Fixed Effects:
 Altitude -0.800
 
 $DW_F_Hoedjes_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest
-]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
 Formula: DW_micrograms ~ Altitude + (1 | Population) + (1 | Population:Line)
    Data: filter(droseu$dw, Supervisor.PI == "Hoedjes" & Sex == "F")
 
@@ -59,8 +59,8 @@ Correlation of Fixed Effects:
 Altitude -0.801
 
 $DW_F_Onder_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest
-]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
 Formula: DW_micrograms ~ Altitude + (1 | Population) + (1 | Population:Line)
    Data: filter(droseu$dw, Supervisor.PI == "Onder" & Sex == "F")
 
@@ -89,8 +89,8 @@ Correlation of Fixed Effects:
 Altitude -0.800
 
 $DW_M_Colinet_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest
-]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
 Formula: DW_micrograms ~ Altitude + (1 | Population) + (1 | Population:Line)
    Data: filter(droseu$dw, Supervisor.PI == "Colinet" & Sex == "M")
 
@@ -119,8 +119,8 @@ Correlation of Fixed Effects:
 Altitude -0.800
 
 $DW_M_Hoedjes_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest
-]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
 Formula: DW_micrograms ~ Altitude + (1 | Population:Line)
    Data: filter(droseu$dw, Supervisor.PI == "Hoedjes" & Sex == "M")
 
@@ -148,8 +148,8 @@ Correlation of Fixed Effects:
 Altitude -0.801
 
 $DW_M_Onder_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest
-]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
 Formula: DW_micrograms ~ Altitude + (1 | Population) + (1 | Population:Line)
    Data: filter(droseu$dw, Supervisor.PI == "Onder" & Sex == "M")
 

@@ -26,7 +26,7 @@ setwd("~/Work/UNIFR/GitHub/DrosEU_PhenotypingWG/")
 source("Functions/lab_correlations_functions.R")
 
 ##### load data
-droseu <- readRDS("Data/droseu_master_list_2022-04-05.rds")
+droseu <- readRDS("Data/droseu_master_list_2022-05-02.rds")
 
 ##### create output directory
 lmer_dir <- "LinearModelsPop"
@@ -419,8 +419,8 @@ CCRT_lmers_pop <- list()
 # Vieira
 CCRT_lmers_pop$CCRT_F_Vieira_lmer_pop <- lmer(CCRT_seconds ~ Population + (1|Population:Line) + (1|Batch) + (1|ReplicateVial:Line), data = filter(droseu$ccrt, Censor == "0" & Supervisor.PI == "Vieira" & Sex == "F"))
 
-# Mensh
-#CCRT_lmers_pop$CCRT_F_Mensh_lmer_pop <- lmer(CCRT_seconds ~ Population + (1|Population:Line) + (1|Batch) + (1|ReplicateVial:Line), data = filter(droseu$ccrt, Censor == "0" & Supervisor.PI == "Mensh" & Sex == "F"))
+# Mensch, singular fit, removed Line
+CCRT_lmers_pop$CCRT_F_Mensch_lmer_pop <- lmer(CCRT_seconds ~ Population + (1|Batch) + (1|ReplicateVial:Line), data = filter(droseu$ccrt, Censor == "0" & Supervisor.PI == "Mensch" & Sex == "F"))
 
 
 
@@ -429,8 +429,8 @@ CCRT_lmers_pop$CCRT_F_Vieira_lmer_pop <- lmer(CCRT_seconds ~ Population + (1|Pop
 # Vieira, singular fit, removed Batch
 CCRT_lmers_pop$CCRT_M_Vieira_lmer_pop <- lmer(CCRT_seconds ~ Population + (1|Population:Line) + (1|ReplicateVial:Line), data = filter(droseu$ccrt, Censor == "0" & Supervisor.PI == "Vieira" & Sex == "M"))
 
-# Mensh
-#CCRT_lmers_pop$CCRT_M_Mensh_lmer_pop <- lmer(CCRT_seconds ~ Population + (1|Population:Line) + (1|Batch) + (1|ReplicateVial:Line), data = filter(droseu$ccrt, Censor == "0" & Supervisor.PI == "Mensh" & Sex == "M"))
+#  Mensch, singular fit, removed Line
+CCRT_lmers_pop$CCRT_M_Mensch_lmer_pop <- lmer(CCRT_seconds ~ Population + (1|Batch) + (1|ReplicateVial:Line), data = filter(droseu$ccrt, Censor == "0" & Supervisor.PI == "Mensch" & Sex == "M"))
 
 # save output list
 saveRDS(CCRT_lmers_pop, file = file.path(lmer_dir, out_dir, "CCRT_lmers_pop.rds"))

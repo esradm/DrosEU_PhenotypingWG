@@ -1,6 +1,6 @@
 $Fec_Billeter_lmer_pop
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest
-]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
 Formula: NumberOfAdultsEclosed ~ Population + (1 | Line:Population)
    Data: filter(droseu$fec, Supervisor.PI == "Billeter")
 
@@ -42,8 +42,8 @@ PopulatinVA -0.710  0.467  0.503  0.483  0.491  0.457  0.466
 PopulatinYE -0.706  0.465  0.500  0.480  0.489  0.454  0.463  0.501
 
 $Fec_Fricke_lmer_pop
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest
-]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
 Formula: NumberOfAdultsEclosed ~ Population + (1 | Line:Population) +  
     (1 | Batch)
    Data: filter(droseu$fec, Supervisor.PI == "Fricke")

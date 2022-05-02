@@ -27,7 +27,7 @@ setwd("~/Work/UNIFR/GitHub/DrosEU_PhenotypingWG/")
 #source("Functions/lab_correlations_functions.R")
 
 ##### load data
-droseu <- readRDS("Data/droseu_master_list_2022-04-05.rds")
+droseu <- readRDS("Data/droseu_master_list_2022-05-02.rds")
 
 ##### create output directory
 lmer_dir <- "LinearModelsLat"
@@ -433,8 +433,8 @@ CCRT_lmers_lat <- list()
 #### Vieira Lab
 CCRT_lmers_lat$CCRT_F_Vieira_lmer_lat <- lmer(CCRT_seconds ~ Latitude + (1|Population) + (1|Population:Line), data = filter(droseu$ccrt, Censor == "0" & Supervisor.PI == "Vieira" & Sex == "F"))
 
-#### Mensh Lab
-#CCRT_lmers_lat$CCRT_F_Mensh_lmer_lat <- lmer(CCRT_seconds ~ Latitude + (1|Population) + (1|Population:Line), data = filter(droseu$ccrt, Censor == "0" & Supervisor.PI == "Mensh" & Sex == "F"))
+#### Mensch Lab
+CCRT_lmers_lat$CCRT_F_Mensch_lmer_lat <- lmer(CCRT_seconds ~ Latitude + (1|Population) + (1|Population:Line), data = filter(droseu$ccrt, Censor == "0" & Supervisor.PI == "Mensch" & Sex == "F"))
 
 
 ## Males
@@ -442,8 +442,8 @@ CCRT_lmers_lat$CCRT_F_Vieira_lmer_lat <- lmer(CCRT_seconds ~ Latitude + (1|Popul
 #### Vieira Lab
 CCRT_lmers_lat$CCRT_M_Vieira_lmer_lat <- lmer(CCRT_seconds ~ Latitude + (1|Population) + (1|Population:Line), data = filter(droseu$ccrt, Censor == "0" & Supervisor.PI == "Vieira" & Sex == "M"))
 
-#### Mensh Lab
-#CCRT_lmers_lat$CCRT_M_Mensh_lmer_lat <- lmer(CCRT_seconds ~ Latitude + (1|Population) + (1|Population:Line), data = filter(droseu$ccrt, Censor == "0" & Supervisor.PI == "Mensh" & Sex == "M"))
+#### Mensch Lab
+CCRT_lmers_lat$CCRT_M_Mensch_lmer_lat <- lmer(CCRT_seconds ~ Latitude + (1|Population) + (1|Population:Line), data = filter(droseu$ccrt, Censor == "0" & Supervisor.PI == "Mensch" & Sex == "M"))
 
 # save output list
 saveRDS(CCRT_lmers_lat, file = file.path(lmer_dir, out_dir, "CCRT_lmers_lat.rds"))
