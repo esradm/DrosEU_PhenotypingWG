@@ -3673,7 +3673,7 @@ y-axis is scaled by the minimum (`r min_Fec`) and maximum (`r max_Fec`) values i
 ```{r p_Fec_all, echo=FALSE}
 p_Fec_all <- ggplot(data = droseu$fec, aes(x=Population_Lat, y=NumberOfAdultsEclosed, fill=Supervisor.PI)) + 
         geom_boxplot(outlier.shape = NA, notch=FALSE) + 
-        labs(title="p_Fec_all", x="Population", y = "DW_micrograms") + ylim(c(min_Fec, max_Fec))+ droseu_theme + scale_fill_grey(start=1, end=0)
+        labs(title="p_Fec_all", x="Population", y = "NumberOfAdultsEclosed") + ylim(c(min_Fec, max_Fec))+ droseu_theme + scale_fill_grey(start=1, end=0)
 ```
 
 ```{r echo=FALSE}
