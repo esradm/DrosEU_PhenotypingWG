@@ -501,7 +501,7 @@ All analyses outputs can be found in the trait directory (Analyses/Trait), under
 
 **Reading the data, tables and model outputs in R**
 ```{r load_Rdas, include=TRUE}
-droseu <- readRDS("Data/droseu_master_list_2022-04-05.rds")
+droseu <- readRDS("Data/droseu_master_list_2022-05-02.rds")
 lmers_anova <- readRDS("LinearModelsPop/all_lmers_list_pop_anova.rds")
 lmers_tukey <- readRDS("LinearModelsPop/all_lmers_list_pop_tukey.rds")
 lmers_sum <- readRDS("LinearModelsPop/all_lmers_list_pop_summary.rds")
