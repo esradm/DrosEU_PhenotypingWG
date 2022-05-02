@@ -4106,7 +4106,7 @@ _Females_
 coxme_anova$LS_P_F_Flatt_coxme
 ```
 
-```{r}
+```{r echo=FALSE}
 knitr::include_graphics("SurvivalAnalyses/Lifespan/p_LS_F_Flatt_survival_curves.pdf")
 ```
 
@@ -4115,7 +4115,7 @@ _Males_
 coxme_anova$LS_P_M_Flatt_coxme
 ```
 
-```{r}
+```{r echo=FALSE}
 knitr::include_graphics("SurvivalAnalyses/Lifespan/p_LS_M_Flatt_survival_curves.pdf")
 ```
 
@@ -4127,7 +4127,7 @@ _Females_
 coxme_anova$LS_L_F_Parsch_coxme
 ```
 
-```{r}
+```{r echo=FALSE}
 knitr::include_graphics("SurvivalAnalyses/Lifespan/p_LS_F_Parsch_survival_curves.pdf")
 ```
 
@@ -4137,7 +4137,7 @@ _Males_
 coxme_anova$LS_L_M_Parsch_coxme
 ```
 
-```{r}
+```{r echo=FALSE}
 knitr::include_graphics("SurvivalAnalyses/Lifespan/p_LS_M_Parsch_survival_curves.pdf")
 ```
 
@@ -4148,7 +4148,7 @@ _Females_
 coxme_anova$LS_L_F_Pasyukova_coxme
 ```
 
-```{r}
+```{r echo=FALSE}
 knitr::include_graphics("SurvivalAnalyses/Lifespan/p_LS_F_Pasyukova_survival_curves.pdf")
 ```
 
@@ -4157,7 +4157,7 @@ _Males_
 coxme_anova$LS_L_M_Pasyukova_coxme
 ```
 
-```{r}
+```{r echo=FALSE}
 knitr::include_graphics("SurvivalAnalyses/Lifespan/p_LS_M_Pasyukova_survival_curves.pdf")
 ```
 
@@ -4231,12 +4231,12 @@ write(intersect_Pop_LS, file ="Lifespan/intersect_Pop_LS", sep = "\t")
 There are `r length(intersect_Pop_LS) ` populations and `r length(intersect_Line_LS) ` isofemale lines that have been phenotyped across the labs. Please refer to tables named intersect_Trait_level (i.e. intersect_Via_pop) for details. 
 
 _Females_
-```{r}
+```{r echo=FALSE}
 knitr::include_graphics("LabCorrelations/Lifespan/LS_F_lab_correlations.png")
 ```
 
 _Males_
-```{r}
+```{r echo=FALSE}
 knitr::include_graphics("LabCorrelations/Lifespan/LS_M_lab_correlations.png")
 ```
 
@@ -4643,12 +4643,12 @@ write(intersect_Pop_CSM, file ="ColdShock/intersect_Pop_CSM.txt", sep = "\t")
 There are `r length(intersect_Pop_CSM) ` populations and `r length(intersect_Line_CSM) ` isofemale lines that have been phenotyped across the labs. Please refer to tables named intersect_Trait_level (i.e. intersect_Via_pop) for details. 
 
 _Females_
-```{r}
+```{r echo=FALSE}
 knitr::include_graphics("LabCorrelations/ColdShock/CSM_F_lab_correlations.png")
 ```
 
 _Males_
-```{r}
+```{r echo=FALSE}
 knitr::include_graphics("LabCorrelations/ColdShock/CSM_M_lab_correlations.png")
 ```
 
@@ -5522,7 +5522,7 @@ write(intersect_Pop_Dia, file ="Diapause/intersect_Pop_Dia.txt", sep = "\t")
 
 There are `r length(intersect_Pop_Dia) ` populations and `r length(intersect_Line_Dia) ` isofemale lines that have been phenotyped across the labs. Please refer to tables named intersect_Trait_level (i.e. intersect_Via_pop) for details. 
 
-```{r}
+```{r echo=FALSE}
 knitr::include_graphics("LabCorrelations/Diapause/Dia_F_lab_correlations.png")
 ```
 
@@ -5838,56 +5838,56 @@ From Eran :
 
 Red letters denote significant difference by Multiple Comparisons of Means: Tukey Contrasts
 
-```{r}
+```{r echo=FALSE}
 knitr::include_graphics("Locomotor/FromEran/pheno2022_Page_1.png")
 ```
 
-```{r}
+```{r echo=FALSE}
 knitr::include_graphics("Locomotor/FromEran/pheno2022_Page_2.png")
 ```
 
-```{r}
+```{r echo=FALSE}
 knitr::include_graphics("Locomotor/FromEran/pheno2022_Page_3.png")
 ```
 
 Phase in DD represented in angle. The mean and 95 confidence limits are shown. CI limits in red indicate uniform distribution (low concentration. i.e. Rayleigh test not significant).
 
-```{r}
+```{r echo=FALSE}
 knitr::include_graphics("Locomotor/FromEran/pheno2022_Page_4.png")
 ```
 
 Oriana 3 (Stacked circular).   
 
-```{r}
+```{r echo=FALSE}
 knitr::include_graphics("Locomotor/FromEran/pheno2022_Page_5.png")
 ```
 
 ### Linear Models / Residuals 
 
 _Activity_
-```{r}
+```{r echo=FALSE}
 knitr::include_graphics("LinearModelsPop/Locomotor/by_lab_lmer_residuals/LA_Activity_Tauber_lmer_pop_hist_residuals.png")
 ```
 
-```{r}
+```{r echo=FALSE}
 knitr::include_graphics("LinearModelsPop/Locomotor/by_lab_lmer_residuals/LA_Activity_Tauber_lmer_pop_hist_residuals.png")
 ```
 
 _ND Ratio_
-```{r}
+```{r echo=FALSE}
 knitr::include_graphics("LinearModelsPop/Locomotor/by_lab_lmer_residuals/LA_NDlog2_Tauber_lmer_pop_hist_residuals.png")
 ```
 
-```{r}
+```{r echo=FALSE}
 knitr::include_graphics("LinearModelsPop/Locomotor/by_lab_lmer_residuals/LA_NDlog2_Tauber_lmer_pop_qq_plot_residuals.png")
 ```
 
 _Circadian Phase_
-```{r}
+```{r echo=FALSE}
 knitr::include_graphics("LinearModelsPop/Locomotor/by_lab_lmer_residuals/LA_CircPhase_Tauber_lmer_pop_hist_residuals.png")
 ```
 
-```{r}
+```{r echo=FALSE}
 knitr::include_graphics("LinearModelsPop/Locomotor/by_lab_lmer_residuals/LA_CircPhase_Tauber_lmer_pop_qq_plot_residuals.png")
 ```
 
@@ -7089,19 +7089,19 @@ write(intersect_Pop_Pgm, file ="Pigmentation/intersect_Pop_Pgm", sep = "\t")
 
 There are `r length(intersect_Pop_Pgm) ` populations and `r length(intersect_Line_Pgm) ` isofemale lines that have been phenotyped across the labs. Please refer to tables named intersect_Trait_level (i.e. intersect_Via_pop) for details. 
 
-```{r}
+```{r echo=FALSE}
 knitr::include_graphics("LabCorrelations/Pigmentation/Pgm_T4_F_lab_correlations.png")
 ```
 
-```{r}
+```{r echo=FALSE}
 knitr::include_graphics("LabCorrelations/Pigmentation/Pgm_T5_F_lab_correlations.png")
 ```
 
-```{r}
+```{r echo=FALSE}
 knitr::include_graphics("LabCorrelations/Pigmentation/Pgm_T6_F_lab_correlations.png")
 ```
 
-```{r}
+```{r echo=FALSE}
 knitr::include_graphics("LabCorrelations/Pigmentation/Pgm_Total_F_lab_correlations.png")
 ```
 
