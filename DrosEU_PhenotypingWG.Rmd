@@ -123,15 +123,14 @@ cities <- read.csv("InfoTables/DrosEU_cities.csv")
 ```{r research_groups_map, echo=FALSE, message=TRUE}
 globe_labs <- ggplot(data = world) + geom_sf() + xlab("Longitude") + ylab("Latitude") +
   coord_sf(xlim = c(-80.15, 40.12), ylim = c(-45, 60), expand = TRUE) +
-  ggtitle("Contributed labs", subtitle = paste0("(", length(unique(droseu_labs$Country)), " countries", ", ", length(unique(droseu_labs$PI)), " research groups", ")")) +
+  ggtitle("Contributed labs", subtitle = paste0("(", length(unique(droseu_labs$Country)), " countries", ", ", length(unique(droseu_labs$Supervisor.PI)), " research groups", ")")) +
   annotate(geom = "point", x = cities$Long, y = cities$Lat, colour = "red", size = 2) 
 globe_labs + map_theme 
 ```
 
 ## Contributors (analyses)
 
-Esra Durmaz (all), Envel Kerdaffrec (all), Katja Hoedjes (Via, DT, DW), Banu Onder (SR, WA), Marija Tanaskovic (WA), Chris Wegener (CET), Eran Tauber (LA), Rudolf Rohr (UniFr), coordination-team
-
+_tbd_
 
 # Methods
 
