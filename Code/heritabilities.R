@@ -82,3 +82,7 @@ h2_wal_pi <- lapply(wa_pi, H2_lmm, "WAL", "Line")
 h2_war_pi <- lapply(wa_pi, H2_lmm, "WAR", "Line")
 
 
+
+
+lmer(DW_micrograms ~ Population + (1|Line), data = droseu$dw)
+
