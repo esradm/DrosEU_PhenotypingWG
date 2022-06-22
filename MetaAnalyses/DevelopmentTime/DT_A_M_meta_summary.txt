@@ -5,7 +5,7 @@ YE_Schmidt          225.9375 [216.4101; 235.4649]        2.0         YE
 YE_StamenkovicRadak 246.0427 [237.1373; 254.9482]        2.0         YE
 YE_Zwaan            223.1141 [218.1703; 228.0580]        2.1         YE
 RE_Gibert           228.5836 [225.4801; 231.6871]        2.1         RE
-RE_Grath            316.1752 [307.1966; 325.1538]        2.0         RE
+RE_Grath            324.2977 [315.6499; 332.9455]        2.1         RE
 RE_Hoedjes          244.4384 [241.1713; 247.7055]        2.1         RE
 RE_Schmidt          231.6509 [220.6048; 242.6970]        2.0         RE
 RE_StamenkovicRadak 259.6355 [250.1820; 269.0889]        2.0         RE
@@ -16,7 +16,7 @@ GI_Schmidt          243.1172 [230.1853; 256.0490]        2.0         GI
 GI_StamenkovicRadak 251.7237 [241.6027; 261.8447]        2.0         GI
 GI_Zwaan            229.3335 [224.2074; 234.4595]        2.1         GI
 MU_Gibert           227.8011 [224.9898; 230.6125]        2.1         MU
-MU_Grath            313.2975 [308.9882; 317.6067]        2.1         MU
+MU_Grath            312.1476 [307.5213; 316.7738]        2.1         MU
 MU_Hoedjes          236.5314 [233.6574; 239.4054]        2.1         MU
 MU_Schmidt          226.7164 [217.1687; 236.2641]        2.0         MU
 MU_StamenkovicRadak 244.1239 [235.2691; 252.9788]        2.0         MU
@@ -42,7 +42,7 @@ VA_Schmidt          250.0485 [240.3823; 259.7146]        2.0         VA
 VA_StamenkovicRadak 259.3841 [250.3707; 268.3976]        2.0         VA
 VA_Zwaan            227.7893 [222.8991; 232.6795]        2.1         VA
 AK_Gibert           226.5155 [223.7481; 229.2829]        2.1         AK
-AK_Grath            317.5895 [313.1639; 322.0150]        2.1         AK
+AK_Grath            317.5672 [312.9641; 322.1704]        2.1         AK
 AK_Hoedjes          238.6853 [235.8118; 241.5588]        2.1         AK
 AK_Schmidt          226.0131 [216.7171; 235.3090]        2.0         AK
 AK_StamenkovicRadak 242.7182 [233.7341; 251.7022]        2.0         AK
@@ -51,41 +51,31 @@ AK_Zwaan            225.7358 [220.8599; 230.6116]        2.1         AK
 Number of studies combined: k = 48
 
                                             95%-CI     z p-value
-Random effects model 239.8814 [233.6005; 246.1623] 74.86       0
+Random effects model 240.0270 [233.5995; 246.4545] 73.19       0
 
 Quantifying heterogeneity:
- tau^2 = 481.2387 [329.6129; 759.9849]; tau = 21.9372 [18.1552; 27.5678]
- I^2 = 98.7% [98.5%; 98.8%]; H = 8.62 [8.14; 9.13]
+ tau^2 = 504.5213 [345.9038; 797.4032]; tau = 22.4616 [18.5985; 28.2383]
+ I^2 = 98.6% [98.4%; 98.7%]; H = 8.37 [7.90; 8.87]
 
 Test of heterogeneity:
        Q d.f. p-value
- 3494.10   47       0
+ 3294.35   47       0
 
 Results for subgroups (random effects model):
-                  k                        95%-CI     tau^2     tau       Q
-Population = YE   5 231.3564 [222.3777; 240.3351]   94.7107  9.7319   77.48
-Population = RE   6 251.6325 [224.7514; 278.5135] 1114.0723 33.3777  369.53
-Population = GI   5 239.4042 [231.1341; 247.6743]   75.0984  8.6659   48.53
-Population = MU   6 245.7172 [218.5068; 272.9276] 1146.6128 33.8617 1213.76
-Population = MA   5 234.0427 [225.1518; 242.9336]   92.6588  9.6259   66.63
-Population = UM   5 235.4982 [224.7393; 246.2572]  138.9070 11.7859   50.69
-Population = KA   5 229.4707 [224.1717; 234.7697]   27.7017  5.2632   27.59
-Population = VA   5 239.7321 [227.7508; 251.7134]  176.1392 13.2717   63.14
-Population = AK   6 246.2541 [217.5919; 274.9162] 1273.3736 35.6844 1296.76
-                  I^2
-Population = YE 94.8%
-Population = RE 98.6%
-Population = GI 91.8%
-Population = MU 99.6%
-Population = MA 94.0%
-Population = UM 92.1%
-Population = KA 85.5%
-Population = VA 93.7%
-Population = AK 99.6%
+                  k                        95%-CI     tau^2     tau       Q   I^2
+Population = YE   5 231.3564 [222.3777; 240.3351]   94.7107  9.7319   77.48 94.8%
+Population = RE   6 253.0098 [223.6040; 282.4155] 1336.2581 36.5549  457.91 98.9%
+Population = GI   5 239.4042 [231.1341; 247.6743]   75.0984  8.6659   48.53 91.8%
+Population = MU   6 245.5187 [218.6853; 272.3521] 1114.6651 33.3866 1048.60 99.5%
+Population = MA   5 234.0427 [225.1518; 242.9336]   92.6588  9.6259   66.63 94.0%
+Population = UM   5 235.4982 [224.7393; 246.2572]  138.9070 11.7859   50.69 92.1%
+Population = KA   5 229.4707 [224.1717; 234.7697]   27.7017  5.2632   27.59 85.5%
+Population = VA   5 239.7321 [227.7508; 251.7134]  176.1392 13.2717   63.14 93.7%
+Population = AK   6 246.2465 [217.5973; 274.8957] 1272.1434 35.6671 1213.95 99.6%
 
 Test for subgroup differences (random effects model):
                     Q d.f. p-value
-Between groups   8.80    8  0.3595
+Between groups   8.75    8  0.3642
 
 Details on meta-analytical method:
 - Inverse variance method

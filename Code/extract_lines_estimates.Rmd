@@ -1,0 +1,106 @@
+---
+title: "Extracting Line random effects and estimates from linear mixed models"
+#author: "Envel Kerdaffrec"
+#date: "6/21/2022"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_knit$set(root.dir = "~/Work/UNIFR/GitHub/DrosEU_PhenotypingWG/")
+
+##### clean workspace
+rm(list = ls())
+
+##### packages
+library(tidyverse)
+library(lme4)
+library(afex)
+library(mixedup)
+library(foreach)
+```
+
+As suggested by Thomas and Rudolf we can extract the Line estimates and their SE using the _mixedup_ package. This package can retrieve either random effects (deviations from the intercept) or random coefficients (fixed effects + random effects --- similar to the Pop estimates we have used so far). However, random coefficients can only be extracted from linear models that have been generated using _lme4::lmer_ --- we have used _afex::lmer_ since it computes a _p_ value. Below we investigate whether random effects would be sufficient for trait correlations and the remaining analyses.
+
+We load the DrosEU data and run a simplified model with Line as random factor using wing area from Banu's lab.
+
+```{r data}
+##### load data
+droseu <- readRDS("Data/droseu_master_list_2022-05-02.rds")
+```
+
+
+
+```{r left wings}
+##### run lme4 model for left wings
+wl_lme4 <- lme4::lmer(CentroidSizeLeft_micrometers ~ Population + (1|Line), 
+                      data = filter(droseu$wa, Supervisor.PI == "Onder"))
+
+##### extract random effects and coefficients
+wl_re <- extract_random_effects(wl_lme4, re = "Line")
+wl_coef <- extract_random_coefs(wl_lme4, re = "Line")
+```
+
+
+lme4::lmer results
+```{r wl_lme4, echo=FALSE}
+wl_lme4
+```
+
+
+Random effects
+```{r wl_re, echo=FALSE}
+head(wl_re)
+```
+
+Random coefficients
+```{r wl_coef, echo=FALSE}
+head(wl_coef)
+```
+By summing the intercept from the model (here = `r round(as.numeric(fixef(wl_lme4)[1]),3)`) and the Line random effects we find the Line random coefficients. Below is an example for AK10, with random effect = `r round(wl_re$value[wl_re$group == "AK10"], 2)` and random coefficient = `r round(wl_coef$value[wl_coef$group == "AK10"], 2)`.  
+
+```{r ak10 example, echo=TRUE}
+ak10 <- round(as.numeric(fixef(wl_lme4)[1] + wl_re$value[wl_re$group == "AK10"]), 2)
+identical(ak10, round(wl_coef$value[wl_coef$group == "AK10"], 2))
+print(ak10)
+```
+
+For a given trait, Line random effects and Line random coefficients should be correlated
+
+```{r, echo=TRUE}
+cor.test(wl_re$value, wl_coef$value)
+```
+
+```{r, echo=TRUE}
+plot(wl_re$value, wl_coef$value, xlab = "Random effects", ylab = "Random coefficients")
+```
+
+
+Now let's produce similar data for the right wings and look at correlations between left and right wings Line random effects, and left and right wings Line random coefficients. Both correlation coefficients and _p_ values should be similar.
+
+
+```{r right wings, echo=FALSE}
+##### run lme4 model for right wings
+wr_lme4 <- lme4::lmer(CentroidSizeRight_micrometers ~ Population + (1|Line), data = filter(droseu$wa, Supervisor.PI == "Onder"))
+
+##### extract random effects and coefficients
+wr_re <- extract_random_effects(wr_lme4, re = "Line")
+wr_coef <- extract_random_coefs(wr_lme4, re = "Line")
+```
+
+
+Correlation between left and right wings random effects 
+```{r, echo=TRUE}
+cor.test(wl_re$value, wr_re$value)
+```
+
+Correlation between left and right wings random coefficients 
+```{r, echo=TRUE}
+cor.test(wl_coef$value, wr_coef$value)
+```
+
+Using random effects or random coefficients does not make any difference regarding trait correlations. Since we are not really interested in knowing the Line coefficients (we want to know how lines differ from each other, not their actual value) we can probably use the random effects for the remaining analyses.
+
+
+
+

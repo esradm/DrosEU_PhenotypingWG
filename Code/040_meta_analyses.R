@@ -22,7 +22,7 @@ setwd("~/Work/UNIFR/GitHub/DrosEU_PhenotypingWG/")
 
 ##### load data
 droseu <- readRDS("Data/droseu_master_list_2022-05-02.rds")
-estimates <- readRDS("LinearModelsPop/all_lmers_list_pop_estimates.rds")
+estimates <- readRDS("LinearModelsPop/all_models_list_pop_estimates.rds")
 pops <- readRDS("InfoTables/DrosEU_Populations.rds")
 
 
@@ -47,7 +47,7 @@ out_dir <- "Viability"
 dir.create(file.path(meta_dir, out_dir), showWarnings = F) 
 
 # get effects
-Via_effects <- makeEffects(estimates$via)
+Via_effects <- makeEffects(estimates$via_lmer)
 
 # run meta
 Via_meta <- metagen(data = filter(Via_effects, Sex == "NA"), TE = Y, seTE = SE, studlab = Study, fixed = FALSE, random = TRUE)
@@ -66,7 +66,7 @@ out_dir <- "DevelopmentTime"
 dir.create(file.path(meta_dir, out_dir), showWarnings = F) 
 
 # get effects
-DT_A_effects <- makeEffects(filter(estimates$dt, Trait == "DT_A"))
+DT_A_effects <- makeEffects(filter(estimates$dt_lmer, Trait == "DT_A"))
 
 # run meta
 DT_A_F_meta <- metagen(data = filter(DT_A_effects, Sex == "F"), TE = Y, seTE = SE, studlab = Study, fixed = FALSE, random = TRUE)
@@ -96,7 +96,7 @@ out_dir <- "DryWeight"
 dir.create(file.path(meta_dir, out_dir), showWarnings = F) 
 
 # get effects
-DW_effects <- makeEffects(estimates$dw)
+DW_effects <- makeEffects(estimates$dw_lmer)
 
 # run meta
 DW_F_meta <- metagen(data = filter(DW_effects, Sex == "F"), TE = Y, seTE = SE, studlab = Study, fixed = FALSE, random = TRUE)
@@ -127,7 +127,7 @@ out_dir <- "ThoraxLength"
 dir.create(file.path(meta_dir, out_dir), showWarnings = F) 
 
 # get effects
-TL_effects <- makeEffects(estimates$tl)
+TL_effects <- makeEffects(estimates$tl_lmer)
 
 # run meta
 TL_F_meta <- metagen(data = filter(TL_effects, Sex == "F"), TE = Y, seTE = SE, studlab = Study, fixed = FALSE, random = TRUE)
@@ -157,7 +157,7 @@ out_dir <- "WingArea"
 dir.create(file.path(meta_dir, out_dir), showWarnings = F) 
 
 # get effects
-WA_effects <- makeEffects(estimates$wa)
+WA_effects <- makeEffects(estimates$wa_lmer)
 
 # run meta for both L and R for females
 #WA_F_meta <- metagen(data = filter(WA_effects, Sex == "F"), TE = Y, seTE = SE, studlab = Study, fixed = FALSE, random = TRUE)
@@ -229,7 +229,7 @@ out_dir <- "Fecundity"
 dir.create(file.path(meta_dir, out_dir), showWarnings = F) 
 
 # get effects
-Fec_effects <- makeEffects(estimates$fec)
+Fec_effects <- makeEffects(estimates$fec_lmer)
 
 # run meta
 Fec_meta <- metagen(data = filter(Fec_effects, Sex == "F"), TE = Y, seTE = SE, studlab = Study, fixed = FALSE, random = TRUE)
@@ -251,7 +251,7 @@ out_dir <- "Lifespan"
 dir.create(file.path(meta_dir, out_dir), showWarnings = F) 
 
 # get effects
-LS_effects <- makeEffects(estimates$ls)
+LS_effects <- makeEffects(estimates$ls_lmer)
 
 # run meta for females
 LS_F_meta <- metagen(data = filter(LS_effects, Sex == "F"), TE = Y, seTE = SE, studlab = Study, fixed = FALSE, random = TRUE)
@@ -282,7 +282,7 @@ out_dir <- "ColdShock"
 dir.create(file.path(meta_dir, out_dir), showWarnings = F) 
 
 # get effects
-CSM_effects <- makeEffects(estimates$csm)
+CSM_effects <- makeEffects(estimates$csm_lmer)
 
 # run meta for females
 CSM_F_meta <- metagen(data = filter(CSM_effects, Sex == "F"), TE = Y, seTE = SE, studlab = Study, fixed = FALSE, random = TRUE)
@@ -314,7 +314,7 @@ out_dir <- "ChillComa"
 dir.create(file.path(meta_dir, out_dir), showWarnings = F) 
 
 # get effects
-CCRT_effects <- makeEffects(estimates$ccrt)
+CCRT_effects <- makeEffects(estimates$ccrt_lmer)
 
 # run meta for females
 CCRT_F_meta <- metagen(data = filter(CCRT_effects, Sex == "F"), TE = Y, seTE = SE, studlab = Study, fixed = FALSE, random = TRUE)
@@ -348,7 +348,7 @@ out_dir <- "HeatShock"
 dir.create(file.path(meta_dir, out_dir), showWarnings = F) 
 
 # get effects
-HSM_effects <- makeEffects(estimates$hsm)
+HSM_effects <- makeEffects(estimates$hsm_lmer)
 
 # run meta for females
 HSM_F_meta <- metagen(data = filter(HSM_effects, Sex == "F"), TE = Y, seTE = SE, studlab = Study, fixed = FALSE, random = TRUE)
@@ -383,17 +383,29 @@ out_dir <- "Diapause"
 dir.create(file.path(meta_dir, out_dir), showWarnings = F) 
 
 # get effects
-Dia_effects <- makeEffects(estimates$dia)
+Dia_lmer_effects <- makeEffects(estimates$dia_lmer)
 
 # run meta for females
-Dia_meta <- metagen(data = filter(Dia_effects, Sex == "F"), TE = Y, seTE = SE, studlab = Study, fixed = FALSE, random = TRUE)
+Dia_lmer_meta <- metagen(data = filter(Dia_lmer_effects, Sex == "F"), TE = Y, seTE = SE, studlab = Study, fixed = FALSE, random = TRUE)
 
 # sub groups
-Dia_meta <- update.meta(Dia_meta, subgroup = Population, tau.common = FALSE)
+Dia_lmer_meta <- update.meta(Dia_lmer_meta, subgroup = Population, tau.common = FALSE)
 
 # save output
-saveRDS(Dia_meta, file = file.path(meta_dir, out_dir, "Dia_meta.rds"))
+saveRDS(Dia_lmer_meta, file = file.path(meta_dir, out_dir, "Dia_lmer_meta.rds"))
 
+
+# get effects
+Dia_glmer_effects <- makeEffects(estimates$dia_glmer)
+
+# run meta for females
+Dia_glmer_meta <- metagen(data = filter(Dia_glmer_effects, Sex == "F"), TE = Y, seTE = SE, studlab = Study, fixed = FALSE, random = TRUE)
+
+# sub groups
+Dia_glmer_meta <- update.meta(Dia_glmer_meta, subgroup = Population, tau.common = FALSE)
+
+# save output
+saveRDS(Dia_glmer_meta, file = file.path(meta_dir, out_dir, "Dia_glmer_meta.rds"))
 
 
 
@@ -411,7 +423,7 @@ out_dir <- "Starvation"
 dir.create(file.path(meta_dir, out_dir), showWarnings = F) 
 
 # get effects
-SR_effects <- makeEffects(estimates$sr)
+SR_effects <- makeEffects(estimates$sr_lmer)
 
 # run meta for females
 SR_F_meta <- metagen(data = filter(SR_effects, Sex == "F"), TE = Y, seTE = SE, studlab = Study, fixed = FALSE, random = TRUE)
@@ -441,7 +453,7 @@ out_dir <- "Pigmentation"
 dir.create(file.path(meta_dir, out_dir), showWarnings = F) 
 
 # get effects
-Pgm_effects <- makeEffects(estimates$pgm)
+Pgm_effects <- makeEffects(estimates$pgm_lmer)
 
 
 
@@ -519,11 +531,10 @@ save(all_metas, file = file.path(meta_dir, "all_metas_list.Rdata"))
 
 
 
-
-
 ######### summaries
 
 metas <- list.files(path = "MetaAnalyses", recursive = T, full.names = T, pattern = "meta.rds")
+
 
 for (i in 1:length(metas)){
   f <- metas[i]
@@ -553,23 +564,19 @@ n_traits <- 20
 metas_pvalues <- bind_rows(Meta = names(metas_list), Q = lapply(metas_list, function(x) x$Q.b.random) %>% unlist(), P = lapply(metas_list, function(x) x$pval.Q.b.random) %>% unlist()) %>% mutate(P_bonf = P * n_traits) %>% mutate(P_bonf = ifelse(P_bonf > 1, 1, P_bonf))
 
 write.csv(metas_pvalues, "MetaAnalyses/all_metas_pvalues.csv", row.names = F)
+saveRDS(metas_pvalues, "MetaAnalyses/all_metas_pvalues.rds")
+
+
+
 
 
 ######### plots
-
-
-
-
-
-#"Archambault"
-#"Johnson"
-#"Isfahan2"
 
 myColors <- met.brewer("Johnson", 9)
 names(myColors) <- as.factor(c("AK", "GI", "KA", "MA", "MU", "RE", "UM", "VA", "YE"))
 colScale <- scale_colour_manual(name = "Population", values = myColors)
 
-
+metas <- list.files(path = "MetaAnalyses", recursive = T, full.names = T, pattern = "meta.rds")
 
 for (i in 1:length(metas)){
   f <- metas[i]
@@ -577,6 +584,8 @@ for (i in 1:length(metas)){
   p_out_png <- sub(".rds", "_summary_effect.png", f)
   m <- readRDS(f)
   m <- data.frame(Population = m$bylevs, Mstar = m$TE.random.w, SEMstar = m$seTE.random.w, Q = m$Q.b.random, p = m$pval.Q.b.random, LLMstar = m$lower.random.w, ULMstar = m$upper.random.w ) %>% mutate(Q_plot = paste0("italic(Q) == ", round(Q, 2)), P_plot = ifelse(metas_pvalues$P_bonf[i] < 0.001, "italic(p) < 0.001", paste0("italic(p) == ", round(metas_pvalues$P_bonf[i], 3))), Population = factor(Population, levels = pops$by_lat$Population))
+  trait_name <- str_match(f, '([^/]+)(?:/[^/]+){0}$')[,1]
+  trait_name <- sub("_meta.rds", "", trait_name)
   
   #ann <- data.frame(x = c(-Inf, -Inf), y = c(8, 9), l = c(unique(m$P_plot), unique(m$Q_plot)))
   p_meta_SE <- ggplot(data = m, aes(x = Mstar, y = 1:length(Population), color = Population)) +
@@ -585,7 +594,7 @@ for (i in 1:length(metas)){
     geom_errorbarh(aes(xmax = Mstar + SEMstar, xmin = Mstar - SEMstar), height = 0) +
     colScale +
     scale_y_continuous(name = "Population", breaks = 1:length(m$Population), labels = m$Population) +
-    labs(x = "Summary effect", title = "Pop. summary effect with SE") +
+    labs(x = "Summary effect", title = paste(trait_name, "meta with SE")) +
     theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank()) + 
     annotate("text", x = -Inf, y = Inf, label = unique(m$Q_plot), hjust=-0.2, vjust=3.2, parse = T) +
     annotate("text", x = -Inf, y = Inf, label = unique(m$P_plot), hjust=-0.4, vjust=4.2, parse = T) +
@@ -597,7 +606,7 @@ for (i in 1:length(metas)){
     geom_errorbarh(aes(xmax = ULMstar, xmin = LLMstar), height = 0) +
     colScale +
     scale_y_continuous(name = "Population", breaks = 1:length(m$Population), labels = m$Population) +
-    labs(x = "Summary effect", title = "Pop. summary effect with 95% CI") +
+    labs(x = "Summary effect", title = paste(trait_name, "meta with 95% CI")) +
     theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank()) +
     annotate("text", x = -Inf, y = Inf, label = unique(m$Q_plot), hjust=-0.2, vjust=3.2, parse = T) +
     annotate("text", x = -Inf, y = Inf, label = unique(m$P_plot), hjust=-0.4, vjust=4.2, parse = T) +

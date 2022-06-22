@@ -1,6 +1,5 @@
 $TL_F_Kozeretska_lmer_pop
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
 Formula: TL_micrometers ~ Population + (1 | Line:Population) + (1 | Batch) +  
     (1 | ReplicateVial:Line)
    Data: filter(droseu$tl, Supervisor.PI == "Kozeretska" & Sex == "F")
@@ -17,8 +16,7 @@ Random effects:
  Line:Population    (Intercept)  768.84  27.728  
  Batch              (Intercept)   16.12   4.015  
  Residual                       2100.14  45.827  
-Number of obs: 4810, groups:  
-ReplicateVial:Line, 241; Line:Population, 130; Batch, 2
+Number of obs: 4810, groups:  ReplicateVial:Line, 241; Line:Population, 130; Batch, 2
 
 Fixed effects:
              Estimate Std. Error      df t value Pr(>|t|)    
@@ -46,8 +44,7 @@ PopulatinVA -0.679  0.405  0.454  0.490  0.495  0.447  0.450
 PopulatinYE -0.603  0.360  0.403  0.436  0.440  0.397  0.400  0.455
 
 $TL_F_Posnien_lmer_pop
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
 Formula: TL_micrometers ~ Population + (1 | Line:Population)
    Data: filter(droseu$tl, Supervisor.PI == "Posnien" & Sex == "F")
 
@@ -89,8 +86,7 @@ PopulatinVA -0.707  0.500  0.500  0.500  0.500  0.500  0.500
 PopulatinYE -0.707  0.500  0.500  0.500  0.500  0.500  0.500  0.500
 
 $TL_F_Ritchie_lmer_pop
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
 Formula: TL_micrometers ~ Population + (1 | Line:Population) + (1 | Batch) +  
     (1 | ReplicateVial:Line)
    Data: filter(droseu$tl, Supervisor.PI == "Ritchie" & Sex == "F")
@@ -107,8 +103,7 @@ Random effects:
  Line:Population    (Intercept)  198.2   14.08   
  Batch              (Intercept) 1302.0   36.08   
  Residual                       1823.1   42.70   
-Number of obs: 1059, groups:  
-ReplicateVial:Line, 78; Line:Population, 26; Batch, 12
+Number of obs: 1059, groups:  ReplicateVial:Line, 78; Line:Population, 26; Batch, 12
 
 Fixed effects:
              Estimate Std. Error      df t value Pr(>|t|)    
@@ -130,8 +125,7 @@ PopulatinMU -0.583  0.358  0.565  0.566
 PopulatinYE -0.621  0.534  0.474  0.475  0.493
 
 $TL_F_Schmidt_lmer_pop
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
 Formula: TL_micrometers ~ Population + (1 | Line:Population)
    Data: filter(droseu$tl, Supervisor.PI == "Schmidt" & Sex == "F")
 
@@ -173,8 +167,7 @@ PopulatinVA -0.677  0.422  0.473  0.471  0.478  0.430  0.442
 PopulatinYE -0.703  0.438  0.491  0.489  0.497  0.447  0.459  0.476
 
 $TL_M_Kozeretska_lmer_pop
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
 Formula: TL_micrometers ~ Population + (1 | Line:Population) + (1 | Batch) +  
     (1 | ReplicateVial:Line)
    Data: filter(droseu$tl, Supervisor.PI == "Kozeretska" & Sex == "M")
@@ -191,8 +184,7 @@ Random effects:
  Line:Population    (Intercept)  672.48  25.932  
  Batch              (Intercept)   11.11   3.333  
  Residual                       1819.03  42.650  
-Number of obs: 4807, groups:  
-ReplicateVial:Line, 241; Line:Population, 130; Batch, 2
+Number of obs: 4807, groups:  ReplicateVial:Line, 241; Line:Population, 130; Batch, 2
 
 Fixed effects:
              Estimate Std. Error      df t value Pr(>|t|)    
@@ -220,8 +212,7 @@ PopulatinVA -0.687  0.405  0.454  0.491  0.496  0.447  0.451
 PopulatinYE -0.611  0.360  0.404  0.436  0.440  0.397  0.401  0.455
 
 $TL_M_Posnien_lmer_pop
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
 Formula: TL_micrometers ~ Population + (1 | Line:Population)
    Data: filter(droseu$tl, Supervisor.PI == "Posnien" & Sex == "M")
 
@@ -263,8 +254,7 @@ PopulatinVA -0.707  0.500  0.500  0.500  0.500  0.500  0.500
 PopulatinYE -0.707  0.500  0.500  0.500  0.500  0.500  0.500  0.500
 
 $TL_M_Ritchie_lmer_pop
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
 Formula: TL_micrometers ~ Population + (1 | Line:Population) + (1 | Batch) +  
     (1 | ReplicateVial:Line)
    Data: filter(droseu$tl, Supervisor.PI == "Ritchie" & Sex == "M")
@@ -281,8 +271,7 @@ Random effects:
  Line:Population    (Intercept)  410.3   20.25   
  Batch              (Intercept) 1205.0   34.71   
  Residual                       2694.9   51.91   
-Number of obs: 1024, groups:  
-ReplicateVial:Line, 78; Line:Population, 26; Batch, 12
+Number of obs: 1024, groups:  ReplicateVial:Line, 78; Line:Population, 26; Batch, 12
 
 Fixed effects:
              Estimate Std. Error      df t value Pr(>|t|)    

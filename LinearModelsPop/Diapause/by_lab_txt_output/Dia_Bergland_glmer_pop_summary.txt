@@ -1,0 +1,43 @@
+Generalized linear mixed model fit by maximum likelihood (Laplace Approximation) [
+glmerMod]
+ Family: binomial  ( logit )
+Formula: Prop_Max_Stage9 ~ Population + (1 | Line:Population)
+   Data: filter(dia, Supervisor.PI == pi)
+Weights: n
+
+     AIC      BIC   logLik deviance df.resid 
+   999.0   1031.4   -489.5    979.0      179 
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.2915 -0.3372  0.0625  0.5447  2.0361 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 1.079    1.039   
+Number of obs: 189, groups:  Line:Population, 158
+
+Fixed effects:
+             Estimate Std. Error z value Pr(>|z|)   
+(Intercept)    0.1752     0.2790   0.628  0.53004   
+PopulationGI   0.2155     0.4103   0.525  0.59943   
+PopulationKA   0.3481     0.3825   0.910  0.36272   
+PopulationMA   0.7509     0.3967   1.893  0.05835 . 
+PopulationMU   0.8488     0.4000   2.122  0.03385 * 
+PopulationRE   0.3001     0.4316   0.695  0.48695   
+PopulationUM   1.3774     0.4238   3.250  0.00115 **
+PopulationVA   1.0774     0.4018   2.682  0.00732 **
+PopulationYE   0.8434     0.3830   2.202  0.02766 * 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+            (Intr) PpltGI PpltKA PpltMA PpltMU PpltRE PpltUM PpltVA
+PopulatinGI -0.680                                                 
+PopulatinKA -0.729  0.496                                          
+PopulatinMA -0.702  0.478  0.513                                   
+PopulatinMU -0.697  0.474  0.508  0.491                            
+PopulatinRE -0.646  0.439  0.471  0.454  0.450                     
+PopulatinUM -0.657  0.447  0.480  0.465  0.459  0.425              
+PopulatinVA -0.693  0.471  0.506  0.491  0.484  0.448  0.459       
+PopulatinYE -0.728  0.495  0.531  0.512  0.508  0.470  0.480  0.506

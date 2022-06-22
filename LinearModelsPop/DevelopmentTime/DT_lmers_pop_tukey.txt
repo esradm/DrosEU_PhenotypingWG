@@ -148,18 +148,18 @@ $DT_A_F_Grath_lmer_pop
 $DT_A_F_Grath_lmer_pop$contrasts
 $emmeans
  Population emmean   SE  df asymp.LCL asymp.UCL
- AK            309 2.31 Inf       304       313
- MU            306 2.25 Inf       302       310
- RE            314 4.76 Inf       305       324
+ AK            310 1.72 Inf       306       313
+ MU            306 1.76 Inf       302       309
+ RE            322 3.60 Inf       315       329
 
 Degrees-of-freedom method: asymptotic 
 Confidence level used: 0.95 
 
 $contrasts
  contrast estimate   SE  df z.ratio p.value
- AK - MU      2.82 3.23 Inf   0.875  0.6558
- AK - RE     -5.40 5.29 Inf  -1.021  0.5638
- MU - RE     -8.22 5.27 Inf  -1.562  0.2624
+ AK - MU         4 2.46 Inf   1.624  0.2353
+ AK - RE       -12 3.99 Inf  -3.006  0.0075
+ MU - RE       -16 4.00 Inf  -3.992  0.0002
 
 Degrees-of-freedom method: asymptotic 
 P value adjustment: tukey method for comparing a family of 3 estimates 
@@ -167,9 +167,9 @@ P value adjustment: tukey method for comparing a family of 3 estimates
 
 $DT_A_F_Grath_lmer_pop$letters
   Population   emmean       SE  df asymp.LCL asymp.UCL cld
-1         AK 308.8893 2.309222 Inf  304.3633  313.4153   a
-2         MU 306.0659 2.251639 Inf  301.6527  310.4790   a
-3         RE 314.2886 4.759575 Inf  304.9600  323.6172   a
+1         AK 309.6257 1.722057 Inf  306.2505  313.0009  a 
+2         MU 305.6306 1.755941 Inf  302.1890  309.0722  a 
+3         RE 321.6162 3.598687 Inf  314.5629  328.6695   b
 
 
 $DT_A_F_Hoedjes_lmer_pop
@@ -541,18 +541,18 @@ $DT_A_M_Grath_lmer_pop
 $DT_A_M_Grath_lmer_pop$contrasts
 $emmeans
  Population emmean   SE  df asymp.LCL asymp.UCL
- AK            318 2.26 Inf       313       322
- MU            313 2.20 Inf       309       318
- RE            316 4.58 Inf       307       325
+ AK            318 2.35 Inf       313       322
+ MU            312 2.36 Inf       308       317
+ RE            324 4.41 Inf       316       333
 
 Degrees-of-freedom method: asymptotic 
 Confidence level used: 0.95 
 
 $contrasts
  contrast estimate   SE  df z.ratio p.value
- AK - MU      4.29 3.15 Inf   1.362  0.3611
- AK - RE      1.41 5.11 Inf   0.277  0.9586
- MU - RE     -2.88 5.08 Inf  -0.566  0.8380
+ AK - MU      5.42 3.33 Inf   1.628  0.2339
+ AK - RE     -6.73 5.00 Inf  -1.347  0.3694
+ MU - RE    -12.15 5.00 Inf  -2.428  0.0402
 
 Degrees-of-freedom method: asymptotic 
 P value adjustment: tukey method for comparing a family of 3 estimates 
@@ -560,9 +560,9 @@ P value adjustment: tukey method for comparing a family of 3 estimates
 
 $DT_A_M_Grath_lmer_pop$letters
   Population   emmean       SE  df asymp.LCL asymp.UCL cld
-1         AK 317.5895 2.257956 Inf  313.1639  322.0150   a
-2         MU 313.2975 2.198660 Inf  308.9882  317.6067   a
-3         RE 316.1752 4.580990 Inf  307.1966  325.1538   a
+1         AK 317.5672 2.348578 Inf  312.9641  322.1704  ab
+2         MU 312.1476 2.360398 Inf  307.5213  316.7738  a 
+3         RE 324.2977 4.412219 Inf  315.6499  332.9455   b
 
 
 $DT_A_M_Hoedjes_lmer_pop

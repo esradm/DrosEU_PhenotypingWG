@@ -1,5 +1,4 @@
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
 Formula: CentroidSizeLeft_micrometers ~ Population + (1 | Line:Population) +  
     (1 | ReplicateVial:Line:Population)
    Data: filter(droseu$wa, Supervisor.PI == "Onder" & Sex == "M")
@@ -15,8 +14,7 @@ Random effects:
  ReplicateVial:Line:Population (Intercept)  800.6   28.30   
  Line:Population               (Intercept) 2211.8   47.03   
  Residual                                  4698.8   68.55   
-Number of obs: 5230, groups:  
-ReplicateVial:Line:Population, 518; Line:Population, 167
+Number of obs: 5230, groups:  ReplicateVial:Line:Population, 518; Line:Population, 167
 
 Fixed effects:
              Estimate Std. Error      df t value Pr(>|t|)    

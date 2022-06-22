@@ -1,0 +1,31 @@
+$Dia_Bergland_glmer_pop
+Data: filter(dia, Supervisor.PI == pi)
+Models:
+m2: Prop_Max_Stage9 ~ +(1 | Line:Population)
+m1: Prop_Max_Stage9 ~ Population + (1 | Line:Population)
+   npar    AIC    BIC  logLik deviance  Chisq Df Pr(>Chisq)  
+m2    2 1000.7 1007.1 -498.34   996.67                       
+m1   10  999.0 1031.4 -489.50   979.00 17.672  8    0.02382 *
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+$Dia_Flatt_glmer_pop
+Data: filter(dia, Supervisor.PI == pi)
+Models:
+m2: Prop_Max_Stage9 ~ +(1 | Line:Population)
+m1: Prop_Max_Stage9 ~ Population + (1 | Line:Population)
+   npar    AIC    BIC  logLik deviance  Chisq Df Pr(>Chisq)
+m2    2 320.78 326.97 -158.39   316.78                     
+m1   10 331.41 362.34 -155.70   311.41 5.3771  8     0.7166
+
+$Dia_Schlotterer_glmer_pop
+Data: filter(dia, Supervisor.PI == pi)
+Models:
+m2: Prop_Max_Stage9 ~ +(1 | Line:Population)
+m1: Prop_Max_Stage9 ~ Population + (1 | Line:Population)
+   npar    AIC    BIC  logLik deviance  Chisq Df Pr(>Chisq)   
+m2    2 1014.0 1020.5 -504.98  1009.96                        
+m1   10 1007.6 1040.4 -493.82   987.64 22.317  8   0.004361 **
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+

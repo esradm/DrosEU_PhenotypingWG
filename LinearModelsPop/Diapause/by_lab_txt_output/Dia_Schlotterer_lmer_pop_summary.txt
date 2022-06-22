@@ -1,7 +1,5 @@
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-lmerModLmerTest]
-Formula: Prop_Max_Stage9_asin ~ Population + (1 | Population:Line) + (1 |  
-    Batch)
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Formula: Prop_Max_Stage9_asin ~ Population + (1 | Line:Population) + (1 |      Batch)
    Data: filter(droseu$dia, Supervisor.PI == "Schlotterer")
 
 REML criterion at convergence: 122.5
@@ -12,10 +10,10 @@ Scaled residuals:
 
 Random effects:
  Groups          Name        Variance Std.Dev.
- Population:Line (Intercept) 0.05690  0.23854 
+ Line:Population (Intercept) 0.05690  0.23854 
  Batch           (Intercept) 0.00464  0.06812 
  Residual                    0.04769  0.21839 
-Number of obs: 195, groups:  Population:Line, 159; Batch, 3
+Number of obs: 195, groups:  Line:Population, 159; Batch, 3
 
 Fixed effects:
               Estimate Std. Error        df t value Pr(>|t|)    
