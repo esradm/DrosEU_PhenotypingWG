@@ -23,7 +23,7 @@ The call was made with approximate numbers of populations, lines, etc. and under
 
 ## Sampling Locations
 
-```{r libraries, echo=FALSE, message=FALSE}
+```{r libraries, echo=FALSE, message=FALSE, warning=FALSE}
 
 library(tidyverse)
 library(ggpubr)
@@ -501,15 +501,16 @@ All analyses outputs can be found in the trait directory (Analyses/Trait), under
 **Reading the data, tables and model outputs in R**
 ```{r load_Rdas, include=TRUE}
 droseu <- readRDS("Data/droseu_master_list_2022-05-02.rds")
-lmers_anova <- readRDS("LinearModelsPop/all_lmers_list_pop_anova.rds")
-lmers_tukey <- readRDS("LinearModelsPop/all_lmers_list_pop_tukey.rds")
-lmers_sum <- readRDS("LinearModelsPop/all_lmers_list_pop_summary.rds")
+lmers_anova <- readRDS("LinearModelsPop/all_lmers_pop_anova_list.rds")
+glmers_anova <- readRDS("LinearModelsPop/all_glmers_pop_anova_list.rds")
+lmers_tukey <- readRDS("LinearModelsPop/all_lmers_pop_tukey_list.rds")
+lmers_sum <- readRDS("LinearModelsPop/all_lmers_pop_summary_list.rds")
 table_line_wbatch <- readRDS("DescriptiveStatistics/all_table_Line_wbatch.rds")
 table_line_wobatch <- readRDS("DescriptiveStatistics/all_table_Line_wobatch.rds")
 table_pop_wbatch <- readRDS("DescriptiveStatistics/all_table_Pop_wbatch.rds")
 table_pop_wobatch <- readRDS("DescriptiveStatistics/all_table_Pop_wobatch.rds")
-coxme_anova <- readRDS("SurvivalAnalyses/all_coxmes_list_pop_anova.rds")
-coxme_sum <- readRDS("SurvivalAnalyses/all_coxmes_list_pop_summary.rds")
+coxme_anova <- readRDS("SurvivalAnalyses/all_coxmes_pop_anova_list.rds")
+coxme_sum <- readRDS("SurvivalAnalyses/all_coxmes_pop_summary_list.rds")
 ```
 
 
@@ -517,14 +518,14 @@ coxme_sum <- readRDS("SurvivalAnalyses/all_coxmes_list_pop_summary.rds")
 
 ## Overview 
 
-Here is a summary table with p-values for all the analyses below. p-value adjustments are only made on meta analyses. 
+Here is a summary table with p-values for all the analyses below. p-value adjustments are only made on meta analyses (Bonferroni correction for n = 20 traits). 
 
 ```{r, echo=FALSE}
-pval_table <- read.csv("InfoTables/lmers_metas_pvalues_summary_table.csv")
+pval_table <- read.csv("InfoTables/models_metas_pvalues_summary_table.csv")
 ```
 
 ```{r, echo=FALSE}
-DT::datatable(pval_table, options = list(pageLength = 25)) %>% formatRound(3:7, 4)
+DT::datatable(pval_table, options = list(pageLength = 25)) %>% formatRound(5:9, 4)
 ```
 
 ## Viability
@@ -838,45 +839,45 @@ invisible(dev.off())
 
 #### Gibert Lab
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/Viability/by_lab_lmer_residuals/Via_Gibert_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/Viability/by_lab_models_residuals/Via_Gibert_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/Viability/by_lab_lmer_residuals/Via_Gibert_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/Viability/by_lab_models_residuals/Via_Gibert_lmer_pop_qq_plot_residuals.png")
 
 ```
 
 #### Grath Lab
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/Viability/by_lab_lmer_residuals/Via_Grath_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/Viability/by_lab_models_residuals/Via_Grath_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/Viability/by_lab_lmer_residuals/Via_Grath_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/Viability/by_lab_models_residuals/Via_Grath_lmer_pop_qq_plot_residuals.png")
 ```
 
 #### Hoedjes Lab
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/Viability/by_lab_lmer_residuals/Via_Hoedjes_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/Viability/by_lab_models_residuals/Via_Hoedjes_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/Viability/by_lab_lmer_residuals/Via_Hoedjes_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/Viability/by_lab_models_residuals/Via_Hoedjes_lmer_pop_qq_plot_residuals.png")
 ```
 
 #### Schmidt Lab
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/Viability/by_lab_lmer_residuals/Via_Schmidt_lm_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/Viability/by_lab_models_residuals/Via_Schmidt_lm_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/Viability/by_lab_lmer_residuals/Via_Schmidt_lm_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/Viability/by_lab_models_residuals/Via_Schmidt_lm_pop_qq_plot_residuals.png")
 ```
 
 #### Stamenkovic-Radak Lab
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/Viability/by_lab_lmer_residuals/Via_StamenkovicRadak_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/Viability/by_lab_models_residuals/Via_StamenkovicRadak_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/Viability/by_lab_lmer_residuals/Via_StamenkovicRadak_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/Viability/by_lab_models_residuals/Via_StamenkovicRadak_lmer_pop_qq_plot_residuals.png")
 ```
 
 #### Zwaan Lab
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/Viability/by_lab_lmer_residuals/Via_Zwaan_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/Viability/by_lab_models_residuals/Via_Zwaan_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/Viability/by_lab_lmer_residuals/Via_Zwaan_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/Viability/by_lab_models_residuals/Via_Zwaan_lmer_pop_qq_plot_residuals.png")
 ```
 
 ### Lab correlations
@@ -906,7 +907,7 @@ There are `r length(intersect_Via_pop) ` populations and `r length(intersect_Via
 
 
 ```{r echo=FALSE}
-knitr::include_graphics("LabCorrelations/Viability/Via_NA_lab_correlations.png")
+knitr::include_graphics("LabCorrelations/Viability/Via_NA_lmer_lab_correlations.png")
 ```
 
 ## Developmental time
@@ -1572,97 +1573,97 @@ dev.off
 ##### Gibert Lab
 _Females_
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_lmer_residuals/DT_A_F_Gibert_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_models_residuals/DT_A_F_Gibert_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_lmer_residuals/DT_A_F_Gibert_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_models_residuals/DT_A_F_Gibert_lmer_pop_qq_plot_residuals.png")
 ```
 
 
 _Males_
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_lmer_residuals/DT_A_M_Gibert_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_models_residuals/DT_A_M_Gibert_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_lmer_residuals/DT_A_M_Gibert_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_models_residuals/DT_A_M_Gibert_lmer_pop_qq_plot_residuals.png")
 ```
 
 ##### Grath Lab
 
 _Females_
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_lmer_residuals/DT_A_F_Grath_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_models_residuals/DT_A_F_Grath_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_lmer_residuals/DT_A_F_Grath_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_models_residuals/DT_A_F_Grath_lmer_pop_qq_plot_residuals.png")
 ```
 
 _Males_
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_lmer_residuals/DT_A_M_Grath_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_models_residuals/DT_A_M_Grath_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_lmer_residuals/DT_A_M_Grath_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_models_residuals/DT_A_M_Grath_lmer_pop_qq_plot_residuals.png")
 ```
 
 ##### Hoedjes Lab
 
 _Females_
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_lmer_residuals/DT_A_F_Hoedjes_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_models_residuals/DT_A_F_Hoedjes_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_lmer_residuals/DT_A_F_Hoedjes_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_models_residuals/DT_A_F_Hoedjes_lmer_pop_qq_plot_residuals.png")
 ```
 
 _Males_
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_lmer_residuals/DT_A_M_Hoedjes_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_models_residuals/DT_A_M_Hoedjes_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_lmer_residuals/DT_A_M_Hoedjes_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_models_residuals/DT_A_M_Hoedjes_lmer_pop_qq_plot_residuals.png")
 ```
 
 ##### Schmidt Lab
 
 _Females_
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_lmer_residuals/DT_A_F_Schmidt_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_models_residuals/DT_A_F_Schmidt_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_lmer_residuals/DT_A_F_Schmidt_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_models_residuals/DT_A_F_Schmidt_lmer_pop_qq_plot_residuals.png")
 ```
 
 _Males_
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_lmer_residuals/DT_A_M_Schmidt_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_models_residuals/DT_A_M_Schmidt_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_lmer_residuals/DT_A_M_Schmidt_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_models_residuals/DT_A_M_Schmidt_lmer_pop_qq_plot_residuals.png")
 ```
 
 ##### Stamenkovic-Radak Lab
 
 _Females_
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_lmer_residuals/DT_A_F_StamenkovicRadak_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_models_residuals/DT_A_F_StamenkovicRadak_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_lmer_residuals/DT_A_F_StamenkovicRadak_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_models_residuals/DT_A_F_StamenkovicRadak_lmer_pop_qq_plot_residuals.png")
 ```
 
 _Males_
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_lmer_residuals/DT_A_M_StamenkovicRadak_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_models_residuals/DT_A_M_StamenkovicRadak_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_lmer_residuals/DT_A_M_StamenkovicRadak_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_models_residuals/DT_A_M_StamenkovicRadak_lmer_pop_qq_plot_residuals.png")
 ```
 
 ##### Zwaan Lab
 
 _Females_
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_lmer_residuals/DT_A_F_Zwaan_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_models_residuals/DT_A_F_Zwaan_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_lmer_residuals/DT_A_F_Zwaan_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_models_residuals/DT_A_F_Zwaan_lmer_pop_qq_plot_residuals.png")
 ```
 
 _Males_
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_lmer_residuals/DT_A_M_Zwaan_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_models_residuals/DT_A_M_Zwaan_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_lmer_residuals/DT_A_M_Zwaan_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_models_residuals/DT_A_M_Zwaan_lmer_pop_qq_plot_residuals.png")
 ```
 
 #### Lab correlations
@@ -1690,12 +1691,12 @@ There are `r length(intersect_Pop_DT_A) ` populations and `r length(intersect_Li
 
 _Females_
 ```{r echo=FALSE}
-knitr::include_graphics("LabCorrelations/DevelopmentTime/DT_A_F_lab_correlations.png")
+knitr::include_graphics("LabCorrelations/DevelopmentTime/DT_A_F_lmer_lab_correlations.png")
 ```
 
 _Males_
 ```{r echo=FALSE}
-knitr::include_graphics("LabCorrelations/DevelopmentTime/DT_A_M_lab_correlations.png")
+knitr::include_graphics("LabCorrelations/DevelopmentTime/DT_A_M_lmer_lab_correlations.png")
 ```
 
 ## Dry weight
@@ -2041,48 +2042,48 @@ invisible(dev.off())
 
 _Females_
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/DryWeight/by_lab_lmer_residuals/DW_F_Colinet_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/DryWeight/by_lab_models_residuals/DW_F_Colinet_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/DryWeight/by_lab_lmer_residuals/DW_F_Colinet_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/DryWeight/by_lab_models_residuals/DW_F_Colinet_lmer_pop_qq_plot_residuals.png")
 ```
 
 _Males_
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/DryWeight/by_lab_lmer_residuals/DW_M_Colinet_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/DryWeight/by_lab_models_residuals/DW_M_Colinet_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/DryWeight/by_lab_lmer_residuals/DW_M_Colinet_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/DryWeight/by_lab_models_residuals/DW_M_Colinet_lmer_pop_qq_plot_residuals.png")
 ```
 
 #### Hoedjes Lab
 
 _Females_
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/DryWeight/by_lab_lmer_residuals/DW_F_Hoedjes_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/DryWeight/by_lab_models_residuals/DW_F_Hoedjes_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/DryWeight/by_lab_lmer_residuals/DW_F_Hoedjes_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/DryWeight/by_lab_models_residuals/DW_F_Hoedjes_lmer_pop_qq_plot_residuals.png")
 ```
 
 _Males_
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/DryWeight/by_lab_lmer_residuals/DW_M_Hoedjes_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/DryWeight/by_lab_models_residuals/DW_M_Hoedjes_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/DryWeight/by_lab_lmer_residuals/DW_M_Hoedjes_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/DryWeight/by_lab_models_residuals/DW_M_Hoedjes_lmer_pop_qq_plot_residuals.png")
 ```
 
 #### Onder Lab
 
 _Females_
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/DryWeight/by_lab_lmer_residuals/DW_F_Onder_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/DryWeight/by_lab_models_residuals/DW_F_Onder_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/DryWeight/by_lab_lmer_residuals/DW_F_Onder_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/DryWeight/by_lab_models_residuals/DW_F_Onder_lmer_pop_qq_plot_residuals.png")
 ```
 
 _Males_
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/DryWeight/by_lab_lmer_residuals/DW_M_Onder_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/DryWeight/by_lab_models_residuals/DW_M_Onder_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/DryWeight/by_lab_lmer_residuals/DW_M_Onder_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/DryWeight/by_lab_models_residuals/DW_M_Onder_lmer_pop_qq_plot_residuals.png")
 ```
 
 ### Lab correlations
@@ -2106,12 +2107,12 @@ There are `r length(intersect_Pop_DW) ` populations and `r length(intersect_Line
 
 _Females_
 ```{r echo=FALSE}
-knitr::include_graphics("LabCorrelations/DryWeight/DW_F_lab_correlations.png")
+knitr::include_graphics("LabCorrelations/DryWeight/DW_F_lmer_lab_correlations.png")
 ```
 
 _Males_
 ```{r echo=FALSE}
-knitr::include_graphics("LabCorrelations/DryWeight/DW_M_lab_correlations.png")
+knitr::include_graphics("LabCorrelations/DryWeight/DW_M_lmer_lab_correlations.png")
 ```
 
 ```{r echo=FALSE}
@@ -2503,57 +2504,57 @@ invisible(dev.off())
 
 _Females_
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/ThoraxLength/by_lab_lmer_residuals/TL_F_Kozeretska_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/ThoraxLength/by_lab_models_residuals/TL_F_Kozeretska_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/ThoraxLength/by_lab_lmer_residuals/TL_F_Kozeretska_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/ThoraxLength/by_lab_models_residuals/TL_F_Kozeretska_lmer_pop_qq_plot_residuals.png")
 ```
 
 _Males_
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/ThoraxLength/by_lab_lmer_residuals/TL_M_Kozeretska_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/ThoraxLength/by_lab_models_residuals/TL_M_Kozeretska_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/ThoraxLength/by_lab_lmer_residuals/TL_M_Kozeretska_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/ThoraxLength/by_lab_models_residuals/TL_M_Kozeretska_lmer_pop_qq_plot_residuals.png")
 ```
 
 #### Posnien Lab
 
 _Females_
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/ThoraxLength/by_lab_lmer_residuals/TL_F_Posnien_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/ThoraxLength/by_lab_models_residuals/TL_F_Posnien_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/ThoraxLength/by_lab_lmer_residuals/TL_F_Posnien_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/ThoraxLength/by_lab_models_residuals/TL_F_Posnien_lmer_pop_qq_plot_residuals.png")
 ```
 
 _Males_
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/ThoraxLength/by_lab_lmer_residuals/TL_M_Posnien_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/ThoraxLength/by_lab_models_residuals/TL_M_Posnien_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/ThoraxLength/by_lab_lmer_residuals/TL_M_Posnien_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/ThoraxLength/by_lab_models_residuals/TL_M_Posnien_lmer_pop_qq_plot_residuals.png")
 ```
 
 #### Ritchie Lab
 
 _Females_
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/ThoraxLength/by_lab_lmer_residuals/TL_F_Ritchie_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/ThoraxLength/by_lab_models_residuals/TL_F_Ritchie_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/ThoraxLength/by_lab_lmer_residuals/TL_F_Ritchie_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/ThoraxLength/by_lab_models_residuals/TL_F_Ritchie_lmer_pop_qq_plot_residuals.png")
 ```
 
 _Males_
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/ThoraxLength/by_lab_lmer_residuals/TL_M_Ritchie_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/ThoraxLength/by_lab_models_residuals/TL_M_Ritchie_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/ThoraxLength/by_lab_lmer_residuals/TL_M_Ritchie_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/ThoraxLength/by_lab_models_residuals/TL_M_Ritchie_lmer_pop_qq_plot_residuals.png")
 ```
 
 #### Schmidt Lab
 
 _Females_
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/ThoraxLength/by_lab_lmer_residuals/TL_F_Schmidt_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/ThoraxLength/by_lab_models_residuals/TL_F_Schmidt_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/ThoraxLength/by_lab_lmer_residuals/TL_F_Schmidt_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/ThoraxLength/by_lab_models_residuals/TL_F_Schmidt_lmer_pop_qq_plot_residuals.png")
 ```
 
 ### Lab correlations
@@ -2578,12 +2579,12 @@ There are `r length(intersect_Line_TL) ` populations and `r length(intersect_Pop
 
 _Females_
 ```{r echo=FALSE}
-knitr::include_graphics("LabCorrelations/ThoraxLength/TL_F_lab_correlations.png")
+knitr::include_graphics("LabCorrelations/ThoraxLength/TL_F_lmer_lab_correlations.png")
 ```
 
 _Males_
 ```{r echo=FALSE}
-knitr::include_graphics("LabCorrelations/ThoraxLength/TL_M_lab_correlations.png")
+knitr::include_graphics("LabCorrelations/ThoraxLength/TL_M_lmer_lab_correlations.png")
 ```
 
 ```{r echo=FALSE}
@@ -3436,64 +3437,64 @@ invisible(dev.off())
 
 _Females_
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/WingArea/by_lab_lmer_residuals/WA_L_F_Onder_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/WingArea/by_lab_models_residuals/WA_L_F_Onder_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/WingArea/by_lab_lmer_residuals/WA_L_F_Onder_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/WingArea/by_lab_models_residuals/WA_L_F_Onder_lmer_pop_qq_plot_residuals.png")
 ```
 
 _Males_
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/WingArea/by_lab_lmer_residuals/WA_L_M_Onder_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/WingArea/by_lab_models_residuals/WA_L_M_Onder_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/WingArea/by_lab_lmer_residuals/WA_L_M_Onder_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/WingArea/by_lab_models_residuals/WA_L_M_Onder_lmer_pop_qq_plot_residuals.png")
 ```
 
 #### Posnien Lab
 
 _Females_
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/WingArea/by_lab_lmer_residuals/WA_L_F_Posnien_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/WingArea/by_lab_models_residuals/WA_L_F_Posnien_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/WingArea/by_lab_lmer_residuals/WA_L_F_Posnien_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/WingArea/by_lab_models_residuals/WA_L_F_Posnien_lmer_pop_qq_plot_residuals.png")
 ```
 
 _Males_
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/WingArea/by_lab_lmer_residuals/WA_L_M_Posnien_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/WingArea/by_lab_models_residuals/WA_L_M_Posnien_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/WingArea/by_lab_lmer_residuals/WA_L_M_Posnien_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/WingArea/by_lab_models_residuals/WA_L_M_Posnien_lmer_pop_qq_plot_residuals.png")
 ```
 
 #### Ritchie Lab
 
 _Females_
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/WingArea/by_lab_lmer_residuals/WA_L_F_Ritchie_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/WingArea/by_lab_models_residuals/WA_L_F_Ritchie_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/WingArea/by_lab_lmer_residuals/WA_L_F_Ritchie_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/WingArea/by_lab_models_residuals/WA_L_F_Ritchie_lmer_pop_qq_plot_residuals.png")
 ```
 
 _Males_
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/WingArea/by_lab_lmer_residuals/WA_L_M_Ritchie_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/WingArea/by_lab_models_residuals/WA_L_M_Ritchie_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/WingArea/by_lab_lmer_residuals/WA_L_M_Ritchie_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/WingArea/by_lab_models_residuals/WA_L_M_Ritchie_lmer_pop_qq_plot_residuals.png")
 ```
 
 #### Stamenkovic-Radak Lab
 
 _Females_
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/WingArea/by_lab_lmer_residuals/WA_L_F_StamenkovicRadak_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/WingArea/by_lab_models_residuals/WA_L_F_StamenkovicRadak_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/WingArea/by_lab_lmer_residuals/WA_L_F_StamenkovicRadak_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/WingArea/by_lab_models_residuals/WA_L_F_StamenkovicRadak_lmer_pop_qq_plot_residuals.png")
 ```
 
 _Males_
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/WingArea/by_lab_lmer_residuals/WA_L_M_StamenkovicRadak_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/WingArea/by_lab_models_residuals/WA_L_M_StamenkovicRadak_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/WingArea/by_lab_lmer_residuals/WA_L_M_StamenkovicRadak_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/WingArea/by_lab_models_residuals/WA_L_M_StamenkovicRadak_lmer_pop_qq_plot_residuals.png")
 ```
 
 ### Linear Models / Residuals (Right)
@@ -3502,64 +3503,64 @@ knitr::include_graphics("LinearModelsPop/WingArea/by_lab_lmer_residuals/WA_L_M_S
 
 _Females_
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/WingArea/by_lab_lmer_residuals/WA_R_F_Onder_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/WingArea/by_lab_models_residuals/WA_R_F_Onder_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/WingArea/by_lab_lmer_residuals/WA_R_F_Onder_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/WingArea/by_lab_models_residuals/WA_R_F_Onder_lmer_pop_qq_plot_residuals.png")
 ```
 
 _Males_
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/WingArea/by_lab_lmer_residuals/WA_R_M_Onder_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/WingArea/by_lab_models_residuals/WA_R_M_Onder_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/WingArea/by_lab_lmer_residuals/WA_R_M_Onder_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/WingArea/by_lab_models_residuals/WA_R_M_Onder_lmer_pop_qq_plot_residuals.png")
 ```
 
 #### Posnien Lab
 
 _Females_
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/WingArea/by_lab_lmer_residuals/WA_R_F_Posnien_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/WingArea/by_lab_models_residuals/WA_R_F_Posnien_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/WingArea/by_lab_lmer_residuals/WA_R_F_Posnien_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/WingArea/by_lab_models_residuals/WA_R_F_Posnien_lmer_pop_qq_plot_residuals.png")
 ```
 
 _Males_
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/WingArea/by_lab_lmer_residuals/WA_R_M_Posnien_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/WingArea/by_lab_models_residuals/WA_R_M_Posnien_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/WingArea/by_lab_lmer_residuals/WA_R_M_Posnien_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/WingArea/by_lab_models_residuals/WA_R_M_Posnien_lmer_pop_qq_plot_residuals.png")
 ```
 
 #### Ritchie Lab
 
 _Females_
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/WingArea/by_lab_lmer_residuals/WA_R_F_Ritchie_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/WingArea/by_lab_models_residuals/WA_R_F_Ritchie_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/WingArea/by_lab_lmer_residuals/WA_R_F_Ritchie_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/WingArea/by_lab_models_residuals/WA_R_F_Ritchie_lmer_pop_qq_plot_residuals.png")
 ```
 
 _Males_
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/WingArea/by_lab_lmer_residuals/WA_R_M_Ritchie_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/WingArea/by_lab_models_residuals/WA_R_M_Ritchie_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/WingArea/by_lab_lmer_residuals/WA_R_M_Ritchie_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/WingArea/by_lab_models_residuals/WA_R_M_Ritchie_lmer_pop_qq_plot_residuals.png")
 ```
 
 #### Stamenkovic-Radak Lab
 
 _Females_
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/WingArea/by_lab_lmer_residuals/WA_R_F_StamenkovicRadak_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/WingArea/by_lab_models_residuals/WA_R_F_StamenkovicRadak_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/WingArea/by_lab_lmer_residuals/WA_R_F_StamenkovicRadak_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/WingArea/by_lab_models_residuals/WA_R_F_StamenkovicRadak_lmer_pop_qq_plot_residuals.png")
 ```
 
 _Males_
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/WingArea/by_lab_lmer_residuals/WA_R_M_StamenkovicRadak_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/WingArea/by_lab_models_residuals/WA_R_M_StamenkovicRadak_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/WingArea/by_lab_lmer_residuals/WA_R_M_StamenkovicRadak_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/WingArea/by_lab_models_residuals/WA_R_M_StamenkovicRadak_lmer_pop_qq_plot_residuals.png")
 ```
 
 ### Lab correlations
@@ -3585,24 +3586,24 @@ There are `r length(intersect_Pop_WA) ` populations and `r length(intersect_Line
 
 _Females_
 ```{r echo=FALSE}
-knitr::include_graphics("LabCorrelations/WingArea/WA_L_F_lab_correlations.png")
+knitr::include_graphics("LabCorrelations/WingArea/WA_L_F_lmer_lab_correlations.png")
 ```
 
 _Males_
 ```{r echo=FALSE}
-knitr::include_graphics("LabCorrelations/WingArea/WA_L_M_lab_correlations.png")
+knitr::include_graphics("LabCorrelations/WingArea/WA_L_M_lmer_lab_correlations.png")
 ```
 
 ### _Right_
 
 _Females_
 ```{r echo=FALSE}
-knitr::include_graphics("LabCorrelations/WingArea/WA_R_F_lab_correlations.png")
+knitr::include_graphics("LabCorrelations/WingArea/WA_R_F_lmer_lab_correlations.png")
 ```
 
 _Males_
 ```{r echo=FALSE}
-knitr::include_graphics("LabCorrelations/WingArea/WA_R_M_lab_correlations.png")
+knitr::include_graphics("LabCorrelations/WingArea/WA_R_M_lmer_lab_correlations.png")
 ```
 
 ```{r echo=FALSE}
@@ -3766,17 +3767,17 @@ invisible(dev.off())
 #### Billeter Lab
 
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/Fecundity/by_lab_lmer_residuals/Fec_Billeter_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/Fecundity/by_lab_models_residuals/Fec_Billeter_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/Fecundity/by_lab_lmer_residuals/Fec_Billeter_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/Fecundity/by_lab_models_residuals/Fec_Billeter_lmer_pop_qq_plot_residuals.png")
 ```
 
 #### Fricke Lab
 
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/Fecundity/by_lab_lmer_residuals/Fec_Fricke_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/Fecundity/by_lab_models_residuals/Fec_Fricke_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/Fecundity/by_lab_lmer_residuals/Fec_Fricke_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/Fecundity/by_lab_models_residuals/Fec_Fricke_lmer_pop_qq_plot_residuals.png")
 ```
 
 ### Lab correlations
@@ -3797,7 +3798,7 @@ write(intersect_Pop_Fec, file ="Fecundity/intersect_Pop_Fec.txt", sep = "\t")
 There are `r length(intersect_Pop_Fec) ` populations and `r length(intersect_Line_Fec) ` isofemale lines that have been phenotyped across the labs. Please refer to tables named intersect_Trait_level (i.e. intersect_Via_pop) for details. 
 
 ```{r echo=FALSE}
-knitr::include_graphics("LabCorrelations/Fecundity/Fec_F_lab_correlations.png")
+knitr::include_graphics("LabCorrelations/Fecundity/Fec_F_lmer_lab_correlations.png")
 ```
 
 ## Lifespan
@@ -4166,48 +4167,48 @@ knitr::include_graphics("SurvivalAnalyses/Lifespan/p_LS_M_Pasyukova_survival_cur
 
 _Females_
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/Lifespan/by_lab_lmer_residuals/LS_F_Flatt_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/Lifespan/by_lab_models_residuals/LS_F_Flatt_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/Lifespan/by_lab_lmer_residuals/LS_F_Flatt_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/Lifespan/by_lab_models_residuals/LS_F_Flatt_lmer_pop_qq_plot_residuals.png")
 ```
 
 _Males_
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/Lifespan/by_lab_lmer_residuals/LS_M_Flatt_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/Lifespan/by_lab_models_residuals/LS_M_Flatt_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/Lifespan/by_lab_lmer_residuals/LS_M_Flatt_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/Lifespan/by_lab_models_residuals/LS_M_Flatt_lmer_pop_qq_plot_residuals.png")
 ```
 
 #### Parsch Lab
 _Females_
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/Lifespan/by_lab_lmer_residuals/LS_F_Parsch_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/Lifespan/by_lab_models_residuals/LS_F_Parsch_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/Lifespan/by_lab_lmer_residuals/LS_F_Parsch_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/Lifespan/by_lab_models_residuals/LS_F_Parsch_lmer_pop_qq_plot_residuals.png")
 ```
 
 _Males_
 
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/Lifespan/by_lab_lmer_residuals/LS_M_Parsch_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/Lifespan/by_lab_models_residuals/LS_M_Parsch_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/Lifespan/by_lab_lmer_residuals/LS_M_Parsch_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/Lifespan/by_lab_models_residuals/LS_M_Parsch_lmer_pop_qq_plot_residuals.png")
 ```
 
 #### Pasyukova Lab
 
 _Females_
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/Lifespan/by_lab_lmer_residuals/LS_F_Pasyukova_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/Lifespan/by_lab_models_residuals/LS_F_Pasyukova_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/Lifespan/by_lab_lmer_residuals/LS_F_Pasyukova_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/Lifespan/by_lab_models_residuals/LS_F_Pasyukova_lmer_pop_qq_plot_residuals.png")
 ```
 
 _Males_
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/Lifespan/by_lab_lmer_residuals/LS_M_Pasyukova_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/Lifespan/by_lab_models_residuals/LS_M_Pasyukova_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/Lifespan/by_lab_lmer_residuals/LS_M_Pasyukova_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/Lifespan/by_lab_models_residuals/LS_M_Pasyukova_lmer_pop_qq_plot_residuals.png")
 ```
 
 
@@ -4231,12 +4232,12 @@ There are `r length(intersect_Pop_LS) ` populations and `r length(intersect_Line
 
 _Females_
 ```{r echo=FALSE}
-knitr::include_graphics("LabCorrelations/Lifespan/LS_F_lab_correlations.png")
+knitr::include_graphics("LabCorrelations/Lifespan/LS_F_lmer_lab_correlations.png")
 ```
 
 _Males_
 ```{r echo=FALSE}
-knitr::include_graphics("LabCorrelations/Lifespan/LS_M_lab_correlations.png")
+knitr::include_graphics("LabCorrelations/Lifespan/LS_M_lmer_lab_correlations.png")
 ```
 
 ## Cold-shock mortality
@@ -4581,48 +4582,48 @@ invisible(dev.off())
 
 _Females_
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/ColdShock/by_lab_lmer_residuals/CSM_F_Gonzalez_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/ColdShock/by_lab_models_residuals/CSM_F_Gonzalez_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/ColdShock/by_lab_lmer_residuals/CSM_F_Gonzalez_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/ColdShock/by_lab_models_residuals/CSM_F_Gonzalez_lmer_pop_qq_plot_residuals.png")
 ```
 
 _Males_
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/ColdShock/by_lab_lmer_residuals/CSM_M_Gonzalez_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/ColdShock/by_lab_models_residuals/CSM_M_Gonzalez_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/ColdShock/by_lab_lmer_residuals/CSM_M_Gonzalez_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/ColdShock/by_lab_models_residuals/CSM_M_Gonzalez_lmer_pop_qq_plot_residuals.png")
 ```
 
 #### Kozeretska Lab
 
 _Females_
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/ColdShock/by_lab_lmer_residuals/CSM_F_Kozeretska_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/ColdShock/by_lab_models_residuals/CSM_F_Kozeretska_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/ColdShock/by_lab_lmer_residuals/CSM_F_Kozeretska_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/ColdShock/by_lab_models_residuals/CSM_F_Kozeretska_lmer_pop_qq_plot_residuals.png")
 ```
 
 _Males_
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/ColdShock/by_lab_lmer_residuals/CSM_M_Kozeretska_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/ColdShock/by_lab_models_residuals/CSM_M_Kozeretska_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/ColdShock/by_lab_lmer_residuals/CSM_M_Kozeretska_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/ColdShock/by_lab_models_residuals/CSM_M_Kozeretska_lmer_pop_qq_plot_residuals.png")
 ```
 
 #### Vieira Lab
 
 _Females_
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/ColdShock/by_lab_lmer_residuals/CSM_F_Vieira_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/ColdShock/by_lab_models_residuals/CSM_F_Vieira_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/ColdShock/by_lab_lmer_residuals/CSM_F_Vieira_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/ColdShock/by_lab_models_residuals/CSM_F_Vieira_lmer_pop_qq_plot_residuals.png")
 ```
 
 _Males_
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/ColdShock/by_lab_lmer_residuals/CSM_M_Vieira_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/ColdShock/by_lab_models_residuals/CSM_M_Vieira_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/ColdShock/by_lab_lmer_residuals/CSM_M_Vieira_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/ColdShock/by_lab_models_residuals/CSM_M_Vieira_lmer_pop_qq_plot_residuals.png")
 ```
 
 ### Lab correlations
@@ -4643,12 +4644,12 @@ There are `r length(intersect_Pop_CSM) ` populations and `r length(intersect_Lin
 
 _Females_
 ```{r echo=FALSE}
-knitr::include_graphics("LabCorrelations/ColdShock/CSM_F_lab_correlations.png")
+knitr::include_graphics("LabCorrelations/ColdShock/CSM_F_lmer_lab_correlations.png")
 ```
 
 _Males_
 ```{r echo=FALSE}
-knitr::include_graphics("LabCorrelations/ColdShock/CSM_M_lab_correlations.png")
+knitr::include_graphics("LabCorrelations/ColdShock/CSM_M_lmer_lab_correlations.png")
 ```
 
 ```{r echo=FALSE}
@@ -4927,32 +4928,32 @@ knitr::include_graphics("SurvivalAnalyses/ChillComa/p_CCRT_M_Vieira_survival_cur
 
 _Females_
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/ChillComa/by_lab_lmer_residuals/CCRT_F_Mensch_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/ChillComa/by_lab_models_residuals/CCRT_F_Mensch_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/ChillComa/by_lab_lmer_residuals/CCRT_F_Mensch_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/ChillComa/by_lab_models_residuals/CCRT_F_Mensch_lmer_pop_qq_plot_residuals.png")
 ```
 
 _Males_
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/ChillComa/by_lab_lmer_residuals/CCRT_M_Mensch_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/ChillComa/by_lab_models_residuals/CCRT_M_Mensch_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/ChillComa/by_lab_lmer_residuals/CCRT_M_Mensch_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/ChillComa/by_lab_models_residuals/CCRT_M_Mensch_lmer_pop_qq_plot_residuals.png")
 ```
 
 #### Vieira Lab
 
 _Females_
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/ChillComa/by_lab_lmer_residuals/CCRT_F_Vieira_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/ChillComa/by_lab_models_residuals/CCRT_F_Vieira_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/ChillComa/by_lab_lmer_residuals/CCRT_F_Vieira_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/ChillComa/by_lab_models_residuals/CCRT_F_Vieira_lmer_pop_qq_plot_residuals.png")
 ```
 
 _Males_
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/ChillComa/by_lab_lmer_residuals/CCRT_M_Vieira_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/ChillComa/by_lab_models_residuals/CCRT_M_Vieira_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/ChillComa/by_lab_lmer_residuals/CCRT_M_Vieira_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/ChillComa/by_lab_models_residuals/CCRT_M_Vieira_lmer_pop_qq_plot_residuals.png")
 ```
 
 ### Lab correlations
@@ -5254,32 +5255,32 @@ knitr::include_graphics("SurvivalAnalyses/HeatShock/p_HSM_M_Vieira_survival_curv
 
 _Females_
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/HeatShock/by_lab_lmer_residuals/HSM_F_Parsch_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/HeatShock/by_lab_models_residuals/HSM_F_Parsch_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/HeatShock/by_lab_lmer_residuals/HSM_F_Parsch_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/HeatShock/by_lab_models_residuals/HSM_F_Parsch_lmer_pop_qq_plot_residuals.png")
 ```
 
 _Males_
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/HeatShock/by_lab_lmer_residuals/HSM_M_Parsch_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/HeatShock/by_lab_models_residuals/HSM_M_Parsch_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/HeatShock/by_lab_lmer_residuals/HSM_M_Parsch_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/HeatShock/by_lab_models_residuals/HSM_M_Parsch_lmer_pop_qq_plot_residuals.png")
 ```
 
 #### Vieria Lab
 
 _Females_
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/HeatShock/by_lab_lmer_residuals/HSM_F_Vieira_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/HeatShock/by_lab_models_residuals/HSM_F_Vieira_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/HeatShock/by_lab_lmer_residuals/HSM_F_Vieira_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/HeatShock/by_lab_models_residuals/HSM_F_Vieira_lmer_pop_qq_plot_residuals.png")
 ```
 
 _Males_
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/HeatShock/by_lab_lmer_residuals/HSM_M_Vieira_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/HeatShock/by_lab_models_residuals/HSM_M_Vieira_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/HeatShock/by_lab_lmer_residuals/HSM_M_Vieira_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/HeatShock/by_lab_models_residuals/HSM_M_Vieira_lmer_pop_qq_plot_residuals.png")
 ```
 
 ### Lab correlations
@@ -5298,12 +5299,12 @@ There are `r length(intersect_Pop_HSM) ` populations and `r length(intersect_Lin
 
 _Females_
 ```{r, echo=FALSE}
-knitr::include_graphics("LabCorrelations/HeatShock/HSM_F_lab_correlations.png")
+knitr::include_graphics("LabCorrelations/HeatShock/HSM_F_lmer_lab_correlations.png")
 ```
 
 _Males_
 ```{r, echo=FALSE}
-knitr::include_graphics("LabCorrelations/HeatShock/HSM_M_lab_correlations.png")
+knitr::include_graphics("LabCorrelations/HeatShock/HSM_M_lmer_lab_correlations.png")
 ```
 
 ## Diapause
@@ -5502,25 +5503,25 @@ invisible(dev.off())
 #### Bergland Lab
 
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/Diapause/by_lab_lmer_residuals/Dia_Bergland_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/Diapause/by_lab_models_residuals/Dia_Bergland_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/Diapause/by_lab_lmer_residuals/Dia_Bergland_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/Diapause/by_lab_models_residuals/Dia_Bergland_lmer_pop_qq_plot_residuals.png")
 ```
 
 #### Flatt Lab
 
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/Diapause/by_lab_lmer_residuals/Dia_Flatt_lm_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/Diapause/by_lab_models_residuals/Dia_Flatt_lm_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/Diapause/by_lab_lmer_residuals/Dia_Flatt_lm_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/Diapause/by_lab_models_residuals/Dia_Flatt_lm_pop_qq_plot_residuals.png")
 ```
 
 #### Schlotterer Lab
 
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/Diapause/by_lab_lmer_residuals/Dia_Schlotterer_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/Diapause/by_lab_models_residuals/Dia_Schlotterer_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/Diapause/by_lab_lmer_residuals/Dia_Schlotterer_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/Diapause/by_lab_models_residuals/Dia_Schlotterer_lmer_pop_qq_plot_residuals.png")
 ```
 
 ### Lab correlations
@@ -5542,10 +5543,15 @@ write(intersect_Pop_Dia, file ="Diapause/intersect_Pop_Dia.txt", sep = "\t")
 
 There are `r length(intersect_Pop_Dia) ` populations and `r length(intersect_Line_Dia) ` isofemale lines that have been phenotyped across the labs. Please refer to tables named intersect_Trait_level (i.e. intersect_Via_pop) for details. 
 
+Using LMER estimates
 ```{r echo=FALSE}
-knitr::include_graphics("LabCorrelations/Diapause/Dia_F_lab_correlations.png")
+knitr::include_graphics("LabCorrelations/Diapause/Dia_F_lmer_lab_correlations.png")
 ```
 
+Using GLMER estimates
+```{r echo=FALSE}
+knitr::include_graphics("LabCorrelations/Diapause/Dia_F_glmer_lab_correlations.png")
+```
 ## Circadian eclosion timing
 
 ```{r include=FALSE}
@@ -5886,29 +5892,29 @@ knitr::include_graphics("Locomotor/FromEran/pheno2022_Page_5.png")
 
 _Activity_
 ```{r echo=FALSE}
-knitr::include_graphics("LinearModelsPop/Locomotor/by_lab_lmer_residuals/LA_Activity_Tauber_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/Locomotor/by_lab_models_residuals/LA_Activity_Tauber_lmer_pop_hist_residuals.png")
 ```
 
 ```{r echo=FALSE}
-knitr::include_graphics("LinearModelsPop/Locomotor/by_lab_lmer_residuals/LA_Activity_Tauber_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/Locomotor/by_lab_models_residuals/LA_Activity_Tauber_lmer_pop_hist_residuals.png")
 ```
 
 _ND Ratio_
 ```{r echo=FALSE}
-knitr::include_graphics("LinearModelsPop/Locomotor/by_lab_lmer_residuals/LA_NDlog2_Tauber_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/Locomotor/by_lab_models_residuals/LA_NDlog2_Tauber_lmer_pop_hist_residuals.png")
 ```
 
 ```{r echo=FALSE}
-knitr::include_graphics("LinearModelsPop/Locomotor/by_lab_lmer_residuals/LA_NDlog2_Tauber_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/Locomotor/by_lab_models_residuals/LA_NDlog2_Tauber_lmer_pop_qq_plot_residuals.png")
 ```
 
 _Circadian Phase_
 ```{r echo=FALSE}
-knitr::include_graphics("LinearModelsPop/Locomotor/by_lab_lmer_residuals/LA_CircPhase_Tauber_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/Locomotor/by_lab_models_residuals/LA_CircPhase_Tauber_lmer_pop_hist_residuals.png")
 ```
 
 ```{r echo=FALSE}
-knitr::include_graphics("LinearModelsPop/Locomotor/by_lab_lmer_residuals/LA_CircPhase_Tauber_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/Locomotor/by_lab_models_residuals/LA_CircPhase_Tauber_lmer_pop_qq_plot_residuals.png")
 ```
 
 ## Starvation resistance
@@ -6312,48 +6318,48 @@ knitr::include_graphics("SurvivalAnalyses/Starvation/p_SR_M_Pasyukova_survival_c
 
 _Females_
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/Starvation/by_lab_lmer_residuals/SR_F_Gonzalez_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/Starvation/by_lab_models_residuals/SR_F_Gonzalez_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/Starvation/by_lab_lmer_residuals/SR_F_Gonzalez_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/Starvation/by_lab_models_residuals/SR_F_Gonzalez_lmer_pop_qq_plot_residuals.png")
 ```
 
 _Males_
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/Starvation/by_lab_lmer_residuals/SR_M_Gonzalez_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/Starvation/by_lab_models_residuals/SR_M_Gonzalez_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/Starvation/by_lab_lmer_residuals/SR_M_Gonzalez_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/Starvation/by_lab_models_residuals/SR_M_Gonzalez_lmer_pop_qq_plot_residuals.png")
 ```
 
 #### Onder Lab
 
 _Females_
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/Starvation/by_lab_lmer_residuals/SR_F_Onder_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/Starvation/by_lab_models_residuals/SR_F_Onder_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/Starvation/by_lab_lmer_residuals/SR_F_Onder_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/Starvation/by_lab_models_residuals/SR_F_Onder_lmer_pop_qq_plot_residuals.png")
 ```
 
 _Males_
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/Starvation/by_lab_lmer_residuals/SR_M_Onder_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/Starvation/by_lab_models_residuals/SR_M_Onder_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/Starvation/by_lab_lmer_residuals/SR_M_Onder_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/Starvation/by_lab_models_residuals/SR_M_Onder_lmer_pop_qq_plot_residuals.png")
 ```
 
 #### Pasyukova Lab
 
 _Females_
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/Starvation/by_lab_lmer_residuals/SR_F_Pasyukova_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/Starvation/by_lab_models_residuals/SR_F_Pasyukova_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/Starvation/by_lab_lmer_residuals/SR_F_Pasyukova_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/Starvation/by_lab_models_residuals/SR_F_Pasyukova_lmer_pop_qq_plot_residuals.png")
 ```
 
 _Males_
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/Starvation/by_lab_lmer_residuals/SR_M_Pasyukova_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/Starvation/by_lab_models_residuals/SR_M_Pasyukova_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/Starvation/by_lab_lmer_residuals/SR_M_Pasyukova_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/Starvation/by_lab_models_residuals/SR_M_Pasyukova_lmer_pop_qq_plot_residuals.png")
 ```
 
 ### Lab correlations
@@ -6376,12 +6382,12 @@ There are `r length(intersect_Pop_SR) ` populations and `r length(intersect_Line
 
 _Females_
 ```{r echo=FALSE}
-knitr::include_graphics("LabCorrelations/Starvation/SR_F_lab_correlations.png")
+knitr::include_graphics("LabCorrelations/Starvation/SR_F_lmer_lab_correlations.png")
 ```
 
 _Males_
 ```{r echo=FALSE}
-knitr::include_graphics("LabCorrelations/Starvation/SR_M_lab_correlations.png")
+knitr::include_graphics("LabCorrelations/Starvation/SR_M_lmer_lab_correlations.png")
 ```
 
 ## Pigmentation
@@ -7013,79 +7019,79 @@ invisible(dev.off())
 
 #### Abbott Lab
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/Pigmentation/by_lab_lmer_residuals/Pgm_T4_Abbott_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/Pigmentation/by_lab_models_residuals/Pgm_T4_Abbott_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/Pigmentation/by_lab_lmer_residuals/Pgm_T4_Abbott_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/Pigmentation/by_lab_models_residuals/Pgm_T4_Abbott_lmer_pop_qq_plot_residuals.png")
 ```
 
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/Pigmentation/by_lab_lmer_residuals/Pgm_T5_Abbott_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/Pigmentation/by_lab_models_residuals/Pgm_T5_Abbott_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/Pigmentation/by_lab_lmer_residuals/Pgm_T5_Abbott_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/Pigmentation/by_lab_models_residuals/Pgm_T5_Abbott_lmer_pop_qq_plot_residuals.png")
 ```
 
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/Pigmentation/by_lab_lmer_residuals/Pgm_T6_Abbott_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/Pigmentation/by_lab_models_residuals/Pgm_T6_Abbott_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/Pigmentation/by_lab_lmer_residuals/Pgm_T6_Abbott_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/Pigmentation/by_lab_models_residuals/Pgm_T6_Abbott_lmer_pop_qq_plot_residuals.png")
 ```
 
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/Pigmentation/by_lab_lmer_residuals/Pgm_Total_Abbott_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/Pigmentation/by_lab_models_residuals/Pgm_Total_Abbott_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/Pigmentation/by_lab_lmer_residuals/Pgm_Total_Abbott_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/Pigmentation/by_lab_models_residuals/Pgm_Total_Abbott_lmer_pop_qq_plot_residuals.png")
 ```
 
 #### Gibert Lab
 
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/Pigmentation/by_lab_lmer_residuals/Pgm_T4_Gibert_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/Pigmentation/by_lab_models_residuals/Pgm_T4_Gibert_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/Pigmentation/by_lab_lmer_residuals/Pgm_T4_Gibert_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/Pigmentation/by_lab_models_residuals/Pgm_T4_Gibert_lmer_pop_qq_plot_residuals.png")
 ```
 
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/Pigmentation/by_lab_lmer_residuals/Pgm_T5_Gibert_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/Pigmentation/by_lab_models_residuals/Pgm_T5_Gibert_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/Pigmentation/by_lab_lmer_residuals/Pgm_T5_Gibert_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/Pigmentation/by_lab_models_residuals/Pgm_T5_Gibert_lmer_pop_qq_plot_residuals.png")
 ```
 
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/Pigmentation/by_lab_lmer_residuals/Pgm_T6_Gibert_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/Pigmentation/by_lab_models_residuals/Pgm_T6_Gibert_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/Pigmentation/by_lab_lmer_residuals/Pgm_T6_Gibert_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/Pigmentation/by_lab_models_residuals/Pgm_T6_Gibert_lmer_pop_qq_plot_residuals.png")
 ```
 
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/Pigmentation/by_lab_lmer_residuals/Pgm_Total_Gibert_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/Pigmentation/by_lab_models_residuals/Pgm_Total_Gibert_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/Pigmentation/by_lab_lmer_residuals/Pgm_Total_Gibert_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/Pigmentation/by_lab_models_residuals/Pgm_Total_Gibert_lmer_pop_qq_plot_residuals.png")
 ```
 
 #### Schmidt Lab
 
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/Pigmentation/by_lab_lmer_residuals/Pgm_T4_Schmidt_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/Pigmentation/by_lab_models_residuals/Pgm_T4_Schmidt_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/Pigmentation/by_lab_lmer_residuals/Pgm_T4_Schmidt_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/Pigmentation/by_lab_models_residuals/Pgm_T4_Schmidt_lmer_pop_qq_plot_residuals.png")
 ```
 
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/Pigmentation/by_lab_lmer_residuals/Pgm_T5_Schmidt_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/Pigmentation/by_lab_models_residuals/Pgm_T5_Schmidt_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/Pigmentation/by_lab_lmer_residuals/Pgm_T5_Schmidt_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/Pigmentation/by_lab_models_residuals/Pgm_T5_Schmidt_lmer_pop_qq_plot_residuals.png")
 ```
 
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/Pigmentation/by_lab_lmer_residuals/Pgm_T6_Schmidt_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/Pigmentation/by_lab_models_residuals/Pgm_T6_Schmidt_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/Pigmentation/by_lab_lmer_residuals/Pgm_T6_Schmidt_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/Pigmentation/by_lab_models_residuals/Pgm_T6_Schmidt_lmer_pop_qq_plot_residuals.png")
 ```
 
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
-knitr::include_graphics("LinearModelsPop/Pigmentation/by_lab_lmer_residuals/Pgm_Total_Schmidt_lmer_pop_hist_residuals.png")
+knitr::include_graphics("LinearModelsPop/Pigmentation/by_lab_models_residuals/Pgm_Total_Schmidt_lmer_pop_hist_residuals.png")
 
-knitr::include_graphics("LinearModelsPop/Pigmentation/by_lab_lmer_residuals/Pgm_Total_Schmidt_lmer_pop_qq_plot_residuals.png")
+knitr::include_graphics("LinearModelsPop/Pigmentation/by_lab_models_residuals/Pgm_Total_Schmidt_lmer_pop_qq_plot_residuals.png")
 ```
 
 ### Lab correlations
@@ -7110,19 +7116,19 @@ write(intersect_Pop_Pgm, file ="Pigmentation/intersect_Pop_Pgm", sep = "\t")
 There are `r length(intersect_Pop_Pgm) ` populations and `r length(intersect_Line_Pgm) ` isofemale lines that have been phenotyped across the labs. Please refer to tables named intersect_Trait_level (i.e. intersect_Via_pop) for details. 
 
 ```{r echo=FALSE}
-knitr::include_graphics("LabCorrelations/Pigmentation/Pgm_T4_F_lab_correlations.png")
+knitr::include_graphics("LabCorrelations/Pigmentation/Pgm_T4_F_lmer_lab_correlations.png")
 ```
 
 ```{r echo=FALSE}
-knitr::include_graphics("LabCorrelations/Pigmentation/Pgm_T5_F_lab_correlations.png")
+knitr::include_graphics("LabCorrelations/Pigmentation/Pgm_T5_F_lmer_lab_correlations.png")
 ```
 
 ```{r echo=FALSE}
-knitr::include_graphics("LabCorrelations/Pigmentation/Pgm_T6_F_lab_correlations.png")
+knitr::include_graphics("LabCorrelations/Pigmentation/Pgm_T6_F_lmer_lab_correlations.png")
 ```
 
 ```{r echo=FALSE}
-knitr::include_graphics("LabCorrelations/Pigmentation/Pgm_Total_F_lab_correlations.png")
+knitr::include_graphics("LabCorrelations/Pigmentation/Pgm_Total_F_lmer_lab_correlations.png")
 ```
 
 ## Parasitoid resistance
@@ -7280,8 +7286,13 @@ knitr::include_graphics("MetaAnalyses/HeatShock/HSM_M_meta_summary_effect.png")
 
 ## Diapause
 
+Using LMER estimates
 ```{r echo=FALSE}
-knitr::include_graphics("MetaAnalyses/Diapause/Dia_meta_summary_effect.png")
+knitr::include_graphics("MetaAnalyses/Diapause/Dia_lmer_meta_summary_effect.png")
+```
+Using GLMER estimates
+```{r echo=FALSE}
+knitr::include_graphics("MetaAnalyses/Diapause/Dia_glmer_meta_summary_effect.png")
 ```
 
 ## Starvation resistance
@@ -7307,9 +7318,9 @@ knitr::include_graphics("MetaAnalyses/Pigmentation/Pgm_Total_meta_summary_effect
 # Results III : Environmental Variables  
 
 ```{r}
-lmers_lat <- readRDS("LinearModelsLat/all_lmers_list_lat_anova.rds")
-lmers_lon <- readRDS("LinearModelsLon/all_lmers_list_lon_anova.rds")
-lmers_alt <- readRDS("LinearModelsAlt/all_lmers_list_alt_anova.rds")
+lmers_lat <- readRDS("LinearModelsLat/all_lmers_lat_anova_list.rds")
+lmers_lon <- readRDS("LinearModelsLon/all_lmers_lon_anova_list.rds")
+lmers_alt <- readRDS("LinearModelsAlt/all_lmers_alt_anova_list.rds")
 ```
 
 ## Geography - Latitude 

@@ -1,8 +1,6 @@
 $Dia_Bergland_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-lmerModLmerTest]
-Formula: 
-Prop_Max_Stage9_asin ~ Altitude + (1 | Population) + (1 | Population:Line)
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Formula: Prop_Max_Stage9_asin ~ Altitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$dia, Supervisor.PI == "Bergland")
 
 REML criterion at convergence: 125
@@ -13,10 +11,10 @@ Scaled residuals:
 
 Random effects:
  Groups          Name        Variance Std.Dev.
- Population:Line (Intercept) 0.034336 0.18530 
+ Line:Population (Intercept) 0.034336 0.18530 
  Population      (Intercept) 0.007094 0.08423 
  Residual                    0.067122 0.25908 
-Number of obs: 189, groups:  Population:Line, 158; Population, 9
+Number of obs: 189, groups:  Line:Population, 158; Population, 9
 
 Fixed effects:
              Estimate Std. Error        df t value Pr(>|t|)    
@@ -52,10 +50,8 @@ F-statistic: 0.002449 on 1 and 161 DF,  p-value: 0.9606
 
 
 $Dia_Schlotterer_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-lmerModLmerTest]
-Formula: 
-Prop_Max_Stage9_asin ~ Altitude + (1 | Population) + (1 | Population:Line)
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Formula: Prop_Max_Stage9_asin ~ Altitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$dia, Supervisor.PI == "Schlotterer")
 
 REML criterion at convergence: 132.3
@@ -66,10 +62,10 @@ Scaled residuals:
 
 Random effects:
  Groups          Name        Variance Std.Dev.
- Population:Line (Intercept) 0.052632 0.22942 
+ Line:Population (Intercept) 0.052632 0.22942 
  Population      (Intercept) 0.009874 0.09937 
  Residual                    0.054228 0.23287 
-Number of obs: 195, groups:  Population:Line, 159; Population, 9
+Number of obs: 195, groups:  Line:Population, 159; Population, 9
 
 Fixed effects:
              Estimate Std. Error        df t value Pr(>|t|)    

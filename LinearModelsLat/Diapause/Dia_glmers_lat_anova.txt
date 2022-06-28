@@ -1,0 +1,27 @@
+$Dia_Bergland_glmer_lat
+Data: filter(dia, Supervisor.PI == pi)
+Models:
+m2: Prop_Max_Stage9 ~ +(1 | Population) + (1 | Line:Population)
+m1: Prop_Max_Stage9 ~ Latitude + (1 | Population) + (1 | Line:Population)
+   npar    AIC    BIC  logLik deviance  Chisq Df Pr(>Chisq)
+m2    3 1000.6 1010.4 -497.32   994.64                     
+m1    4 1002.5 1015.5 -497.25   994.51 0.1373  1      0.711
+
+$Dia_Flatt_glmer_lat
+Data: filter(dia, Supervisor.PI == pi)
+Models:
+m2: Prop_Max_Stage9 ~ +(1 | Population) + (1 | Line:Population)
+m1: Prop_Max_Stage9 ~ Latitude + (1 | Population) + (1 | Line:Population)
+   npar    AIC    BIC  logLik deviance  Chisq Df Pr(>Chisq)
+m2    3 322.78 332.06 -158.39   316.78                     
+m1    4 324.61 336.98 -158.30   316.61 0.1718  1     0.6785
+
+$Dia_Schlotterer_glmer_lat
+Data: filter(dia, Supervisor.PI == pi)
+Models:
+m2: Prop_Max_Stage9 ~ +(1 | Population) + (1 | Line:Population)
+m1: Prop_Max_Stage9 ~ Latitude + (1 | Population) + (1 | Line:Population)
+   npar    AIC    BIC  logLik deviance Chisq Df Pr(>Chisq)
+m2    3 1012.0 1021.8 -502.98   1006.0                    
+m1    4 1013.1 1026.2 -502.54   1005.1 0.879  1     0.3485
+

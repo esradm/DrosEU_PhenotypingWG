@@ -1,0 +1,120 @@
+$CCRT_F_Vieira_coxme_pop
+Cox mixed-effects model fit by maximum likelihood
+  Data: filter(droseu$ccrt, Supervisor.PI == "Vieira", Sex == "F")
+  events, n = 993, 1008
+  Iterations= 12 64 
+                    NULL Integrated   Fitted
+Log-likelihood -5939.527  -5883.573 -5760.18
+
+                   Chisq     df p    AIC     BIC
+Integrated loglik 111.91  11.00 0  89.91   36.00
+ Penalized loglik 358.69 100.53 0 157.64 -335.01
+
+Model:  Surv(CCRT_seconds, Censor) ~ Population + (1 | Batch) + (1 |      Population/Line) 
+Fixed coefficients
+                   coef exp(coef)  se(coef)     z       p
+PopulationGI  0.2694676 1.3092673 0.2318747  1.16 2.5e-01
+PopulationKA  0.4250024 1.5295941 0.2067566  2.06 4.0e-02
+PopulationMA  0.8208536 2.2724388 0.2072212  3.96 7.5e-05
+PopulationMU  0.2326289 1.2619131 0.2061304  1.13 2.6e-01
+PopulationRE  0.5349147 1.7073026 0.2191169  2.44 1.5e-02
+PopulationUM -0.2025218 0.8166687 0.2089644 -0.97 3.3e-01
+PopulationVA  0.5559549 1.7436052 0.2068938  2.69 7.2e-03
+PopulationYE  0.3588412 1.4316695 0.2063576  1.74 8.2e-02
+
+Random effects
+ Group           Variable    Std Dev      Variance    
+ Batch           Intercept   1.558908e-02 2.430195e-04
+ Population/Line (Intercept) 4.958648e-01 2.458819e-01
+ Population      (Intercept) 5.386775e-03 2.901734e-05
+
+$CCRT_M_Vieira_coxme_pop
+Cox mixed-effects model fit by maximum likelihood
+  Data: filter(droseu$ccrt, Supervisor.PI == "Vieira", Sex == "M")
+  events, n = 993, 1008
+  Iterations= 17 89 
+                    NULL Integrated    Fitted
+Log-likelihood -5939.527  -5864.224 -5704.103
+
+                   Chisq     df p    AIC     BIC
+Integrated loglik 150.61  11.00 0 128.61   74.70
+ Penalized loglik 470.85 118.71 0 233.43 -348.31
+
+Model:  Surv(CCRT_seconds, Censor) ~ Population + (1 | Batch) + (1 |      Population/Line) 
+Fixed coefficients
+                    coef exp(coef)  se(coef)     z       p
+PopulationGI -0.47993314 0.6188248 0.2716306 -1.77 0.07700
+PopulationKA  0.25800904 1.2943505 0.2418710  1.07 0.29000
+PopulationMA  0.87230746 2.3924249 0.2432709  3.59 0.00034
+PopulationMU -0.11158297 0.8944172 0.2418305 -0.46 0.64000
+PopulationRE -0.00523731 0.9947764 0.2550282 -0.02 0.98000
+PopulationUM -0.02649222 0.9738556 0.2444159 -0.11 0.91000
+PopulationVA  0.08054235 1.0838747 0.2408740  0.33 0.74000
+PopulationYE -0.38452913 0.6807711 0.2422270 -1.59 0.11000
+
+Random effects
+ Group           Variable    Std Dev      Variance    
+ Batch           Intercept   2.479043e-02 6.145652e-04
+ Population/Line (Intercept) 6.361751e-01 4.047188e-01
+ Population      (Intercept) 6.955892e-03 4.838444e-05
+
+$CCRT_F_Mensch_coxme_pop
+Cox mixed-effects model fit by maximum likelihood
+  Data: filter(droseu$ccrt, Supervisor.PI == "Mensch", Sex == "F")
+  events, n = 945, 1002
+  Iterations= 22 114 
+                    NULL Integrated   Fitted
+Log-likelihood -5749.551  -5681.448 -5527.17
+
+                   Chisq     df p    AIC     BIC
+Integrated loglik 136.21  11.00 0 114.21   60.84
+ Penalized loglik 444.76 114.97 0 214.82 -342.92
+
+Model:  Surv(CCRT_seconds, Censor) ~ Population + (1 | Batch) + (1 |      Population/Line) 
+Fixed coefficients
+                    coef exp(coef)  se(coef)     z      p
+PopulationGI  0.71772110 2.0497567 0.2604308  2.76 0.0059
+PopulationKA  0.34017432 1.4051925 0.2353253  1.45 0.1500
+PopulationMA  0.01895849 1.0191393 0.2376804  0.08 0.9400
+PopulationMU  0.14268383 1.1533651 0.2369001  0.60 0.5500
+PopulationRE  0.23512613 1.2650683 0.2503361  0.94 0.3500
+PopulationUM -0.02214167 0.9781017 0.2467210 -0.09 0.9300
+PopulationVA  0.14002746 1.1503054 0.2348822  0.60 0.5500
+PopulationYE -0.07264050 0.9299351 0.2388154 -0.30 0.7600
+
+Random effects
+ Group           Variable    Std Dev      Variance    
+ Batch           Intercept   2.720407e-01 7.400612e-02
+ Population/Line (Intercept) 6.045286e-01 3.654548e-01
+ Population      (Intercept) 6.993591e-03 4.891032e-05
+
+$CCRT_M_Mensch_coxme_pop
+Cox mixed-effects model fit by maximum likelihood
+  Data: filter(droseu$ccrt, Supervisor.PI == "Mensch", Sex == "M")
+  events, n = 928, 990
+  Iterations= 30 154 
+                   NULL Integrated    Fitted
+Log-likelihood -5646.23  -5569.205 -5413.249
+
+                   Chisq     df p    AIC     BIC
+Integrated loglik 154.05  11.00 0 132.05   78.89
+ Penalized loglik 465.96 115.47 0 235.03 -323.03
+
+Model:  Surv(CCRT_seconds, Censor) ~ Population + (1 | Batch) + (1 |      Population/Line) 
+Fixed coefficients
+                    coef exp(coef)  se(coef)     z      p
+PopulationGI  0.24272337  1.274716 0.2639839  0.92 0.3600
+PopulationKA  0.02589664  1.026235 0.2403579  0.11 0.9100
+PopulationMA  0.39839958  1.489439 0.2419330  1.65 0.1000
+PopulationMU  0.29076936  1.337456 0.2404268  1.21 0.2300
+PopulationRE  0.74657963  2.109771 0.2541950  2.94 0.0033
+PopulationUM  0.31984887  1.376920 0.2523636  1.27 0.2100
+PopulationVA  0.42509407  1.529734 0.2392058  1.78 0.0760
+PopulationYE -0.24307084  0.784216 0.2494950 -0.97 0.3300
+
+Random effects
+ Group           Variable    Std Dev      Variance    
+ Batch           Intercept   0.2756345701 0.0759744162
+ Population/Line (Intercept) 0.6191145798 0.3833028629
+ Population      (Intercept) 0.0110826252 0.0001228246
+

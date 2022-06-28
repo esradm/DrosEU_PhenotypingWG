@@ -1,6 +1,5 @@
 $LA_NDlog2_Tauber_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
 Formula: ND_log2 ~ Altitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$la, ND_log2 != -Inf)
 
@@ -29,8 +28,7 @@ Correlation of Fixed Effects:
 Altitude -0.801
 
 $LA_Period_Tauber_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
 Formula: Period ~ Latitude + (1 | Population) + (1 | Line:Population)
    Data: droseu$la
 
@@ -59,8 +57,7 @@ Correlation of Fixed Effects:
 Latitude -0.989
 
 $LA_CircPhase_Tauber_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
 Formula: CircPhase ~ Latitude + (1 | Population) + (1 | Line:Population)
    Data: droseu$la
 
@@ -89,8 +86,7 @@ Correlation of Fixed Effects:
 Latitude -0.989
 
 $LA_AbsPhase_Tauber_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
 Formula: AbsPhase ~ Latitude + (1 | Population)
    Data: droseu$la
 
@@ -118,8 +114,7 @@ Correlation of Fixed Effects:
 Latitude -0.989
 
 $LA_Activity_Tauber_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
 Formula: Activity ~ Latitude + (1 | Population) + (1 | Line:Population)
    Data: droseu$la
 

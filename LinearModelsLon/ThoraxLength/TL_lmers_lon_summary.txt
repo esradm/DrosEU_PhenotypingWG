@@ -1,8 +1,6 @@
 $TL_F_Kozeretska_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-lmerModLmerTest]
-Formula: 
-TL_micrometers ~ Longitude + (1 | Population) + (1 | Line:Population)
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Formula: TL_micrometers ~ Longitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$tl, Supervisor.PI == "Kozeretska" & Sex == "F")
 
 REML criterion at convergence: 51773.6
@@ -30,10 +28,8 @@ Correlation of Fixed Effects:
 Longitude -0.784
 
 $TL_F_Posnien_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-lmerModLmerTest]
-Formula: 
-TL_micrometers ~ Longitude + (1 | Population) + (1 | Line:Population)
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Formula: TL_micrometers ~ Longitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$tl, Supervisor.PI == "Posnien" & Sex == "F")
 
 REML criterion at convergence: 2799.8
@@ -61,8 +57,7 @@ Correlation of Fixed Effects:
 Longitude -0.769
 
 $TL_F_Ritchie_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
 Formula: TL_micrometers ~ Longitude + (1 | Line:Population)
    Data: filter(droseu$tl, Supervisor.PI == "Ritchie" & Sex == "F")
 
@@ -90,10 +85,8 @@ Correlation of Fixed Effects:
 Longitude -0.830
 
 $TL_F_Schmidt_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-lmerModLmerTest]
-Formula: 
-TL_micrometers ~ Longitude + (1 | Population) + (1 | Line:Population)
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Formula: TL_micrometers ~ Longitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$tl, Supervisor.PI == "Schmidt" & Sex == "F")
 
 REML criterion at convergence: 15340.3
@@ -121,10 +114,8 @@ Correlation of Fixed Effects:
 Longitude -0.782
 
 $TL_M_Kozeretska_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-lmerModLmerTest]
-Formula: 
-TL_micrometers ~ Longitude + (1 | Population) + (1 | Line:Population)
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Formula: TL_micrometers ~ Longitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$tl, Supervisor.PI == "Kozeretska" & Sex == "M")
 
 REML criterion at convergence: 51137.9
@@ -152,10 +143,8 @@ Correlation of Fixed Effects:
 Longitude -0.783
 
 $TL_M_Posnien_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-lmerModLmerTest]
-Formula: 
-TL_micrometers ~ Longitude + (1 | Population) + (1 | Line:Population)
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Formula: TL_micrometers ~ Longitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$tl, Supervisor.PI == "Posnien" & Sex == "M")
 
 REML criterion at convergence: 2738.2
@@ -183,8 +172,7 @@ Correlation of Fixed Effects:
 Longitude -0.769
 
 $TL_M_Ritchie_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
 Formula: TL_micrometers ~ Longitude + (1 | Line:Population)
    Data: filter(droseu$tl, Supervisor.PI == "Ritchie" & Sex == "M")
 

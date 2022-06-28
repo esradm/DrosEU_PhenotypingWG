@@ -1,9 +1,7 @@
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
 Formula: CentroidSizeRight_micrometers ~ Latitude + (1 | Population) +  
     (1 | Line:Population)
-   Data: filter(droseu$wa, Supervisor.PI == "StamenkovicRadak" & Sex ==  
-    "M")
+   Data: filter(droseu$wa, Supervisor.PI == "StamenkovicRadak" & Sex ==      "M")
 
 REML criterion at convergence: 42472.2
 

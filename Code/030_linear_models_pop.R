@@ -23,7 +23,7 @@ setwd("~/Work/UNIFR/GitHub/DrosEU_PhenotypingWG/")
 
 
 ##### source functions
-source("Functions/lab_correlations_functions.R")
+source("Code/functions.R")
 
 ##### load data
 droseu <- readRDS("Data/droseu_master_list_2022-05-02.rds")
@@ -667,245 +667,104 @@ saveRDS(Pgm_lmers_pop, file = file.path(lmer_dir, out_dir, "Pgm_lmers_pop.rds"))
 
 
 
-############# output all lmers as Rdata ############# 
+###############################################################################
+###############################################################################
+###############################################################################
 
-#all_lmers_pop <- ls()[grep("_lmers_", ls())]
-#save(all_lmers_pop, file = "LinearModelsPop/all_lmers_pop.Rdata")
+######### combine all linear models into global lists, one for all LMERs and one for all GLMERs
 
+### LMERs
 
-
-
-
-
-
-######### combine all linear models into one list ###########
-
-rdsBatchReaderToList <- function(...) {
-  temp = list.files(...)
-  tnames <- str_split(temp, "/", simplify = T)[,3]
-  tnames <- str_replace(tnames, ".rds", "")
-  tlist <- lapply(temp, readRDS)
-  names(tlist) <- tnames
-  return(tlist)
-}
-
-### for lmers
-
-# this is a 2 level list where each element is a trait and sub element is a lab / sex
-all_lmers_pop <- rdsBatchReaderToList(path = "LinearModelsPop", recursive = T, full.names = T, pattern = "_lmers_pop.rds")
-
-# flatten the list
+# list with 2 levels where each element is a trait and sub element is a lab
+all_lmers_pop <- rdsBatchReaderToList(path = lmer_dir, recursive = T, full.names = T, pattern = "_lmers_pop.rds")
+# flatten the list and rename elements
 all_lmers_pop <- unlist(all_lmers_pop, recursive=FALSE)
 names(all_lmers_pop) <- str_split(names(all_lmers_pop), "\\.", simplify = T)[,2]
-
 # output the list
-saveRDS(all_lmers_pop, file = "LinearModelsPop/all_lmers_list_pop.rds")
+saveRDS(all_lmers_pop, file = file.path(lmer_dir, "all_lmers_pop_list.rds"))
 
-### for glmers - currently for diapause only
-
-all_glmers_pop <- rdsBatchReaderToList(path = "LinearModelsPop", recursive = T, full.names = T, pattern = "_glmers_pop.rds")
-
-# flatten the list
+### GLMERs - currently for diapause only
+all_glmers_pop <- rdsBatchReaderToList(path = lmer_dir, recursive = T, full.names = T, pattern = "_glmers_pop.rds")
 all_glmers_pop <- unlist(all_glmers_pop, recursive=FALSE)
 names(all_glmers_pop) <- str_split(names(all_glmers_pop), "\\.", simplify = T)[,2]
-
-# output the list
-saveRDS(all_glmers_pop, file = "LinearModelsPop/all_glmers_list_pop.rds")
+saveRDS(all_glmers_pop, file = file.path(lmer_dir, "all_glmers_pop_list.rds"))
 
 
 
+######### output all model summaries, anovas and tukeys as global lists
+######### anovas only for LMERs as they are already performed in the trait sections for GLMERs 
+######### tukeys only when applicable (eg for Population)
 
 
-############# check linear models residuals per trait ############# 
+### LMERs
 
-
-# list models outputs to keep the directory structure
-lmers <- list.files(path = "LinearModelsPop", recursive = T, full.names = T, pattern = "_lmers_pop.rds")
-glmers <- list.files(path = "LinearModelsPop", recursive = T, full.names = T, pattern = "_glmers_pop.rds")
-models <- c(lmers, glmers)
-
-# loop over lmers to get residuals
-for (i in 1:length(models)){
-  f <- models[i]
-  p <- str_match(f, '(.*[^/]+)(?:/[^/]+){1}$')[,2]
-  dir.create(file.path(p, "by_lab_models_residuals"), showWarnings = F) 
-  m <- readRDS(f)
-  n <- names(m)
-  f_out <- file.path(p, "by_lab_models_residuals", n)
-  qq_out_png <- paste0(f_out, "_qq_plot_residuals.png")
-  hist_out_png <- paste0(f_out, "_hist_residuals.png")
-  for (j in 1:length(n)){
-    png(filename = qq_out_png[j], height = 2100, width = 2100, res = 300)
-    qqnorm(resid(m[[j]]), main = n[j])
-    qqline(resid(m[[j]]))
-    dev.off()
-    png(filename = hist_out_png[j], height = 2100, width = 2100, res = 300)
-    hist(resid(m[[j]]), main = n[j], xlab = "Residuals")
-    dev.off()
-  } 
-}
- 
-
-
-
-
-
-############# output all lmers summaries, anovas and tukeys as global lists ############# 
-
-
-compTukeyCLD <- function(x) {
-  em <- emmeans(x, pairwise ~ Population, mode = "asymp", adjust = "tukey")
-  let <- cld(em, Letters = letters, alpha = 0.05) %>% 
-    as.data.frame %>% mutate(Population = as.factor(Population)) %>% 
-    arrange(Population) %>% dplyr::rename(cld = .group)
-  list(contrasts = em, letters = let)
-}
-
-# for lmers
-
-all_lmers_pop <- readRDS("LinearModelsPop/all_lmers_list_pop.rds")
-
+all_lmers_pop <- readRDS(file.path(lmer_dir, "all_lmers_pop_list.rds"))
+# tukey
 all_lmers_pop_tukey <- lapply(all_lmers_pop, compTukeyCLD)
-saveRDS(all_lmers_pop_tukey, file = "LinearModelsPop/all_lmers_list_pop_tukey.rds")
-
+saveRDS(all_lmers_pop_tukey, file = file.path(lmer_dir, "all_lmers_pop_tukey_list.rds"))
+# summary
 all_lmers_pop_summary <- lapply(all_lmers_pop, summary)
-saveRDS(all_lmers_pop_summary, file = "LinearModelsPop/all_lmers_list_pop_summary.rds")
-
+saveRDS(all_lmers_pop_summary, file = file.path(lmer_dir, "all_lmers_pop_summary_list.rds"))
+# anova
 all_lmers_pop_anova <- lapply(all_lmers_pop, anova)
-saveRDS(all_lmers_pop_anova, file = "LinearModelsPop/all_lmers_list_pop_anova.rds")
+saveRDS(all_lmers_pop_anova, file = "LinearModelsPop/all_lmers_pop_anova_list.rds")
 
 
-# for glmers
+### GLMERs
 
-all_glmers_pop <- readRDS("LinearModelsPop/all_glmers_list_pop.rds")
-
+all_glmers_pop <- readRDS(file.path(lmer_dir, "all_glmers_pop_list.rds"))
+# tukey
 all_glmers_pop_tukey <- lapply(all_glmers_pop, compTukeyCLD)
-saveRDS(all_glmers_pop_tukey, file = "LinearModelsPop/all_glmers_list_pop_tukey.rds")
-
+saveRDS(all_glmers_pop_tukey, file = file.path(lmer_dir, "all_glmers_pop_tukey_list.rds"))
+# summary
 all_glmers_pop_summary <- lapply(all_glmers_pop, summary)
-saveRDS(all_glmers_pop_summary, file = "LinearModelsPop/all_glmers_list_pop_summary.rds")
-
-
-# anovas have already been generated at the trait level, they just need to be combined
-
-all_glmers_pop_anova <- rdsBatchReaderToList(path = "LinearModelsPop", recursive = T, full.names = T, pattern = "_glmers_pop_anova.rds")
-
+saveRDS(all_glmers_pop_summary, file = file.path(lmer_dir, "all_glmers_pop_summary_list.rds"))
+# anova
+all_glmers_pop_anova <- rdsBatchReaderToList(path = lmer_dir, recursive = T, full.names = T, pattern = "_glmers_pop_anova.rds")
 all_glmers_pop_anova <- unlist(all_glmers_pop_anova, recursive=FALSE)
 names(all_glmers_pop_anova) <- str_split(names(all_glmers_pop_anova), "\\.", simplify = T)[,2]
-
-saveRDS(all_glmers_pop_anova, file = "LinearModelsPop/all_glmers_list_pop_anova.rds")
-
+saveRDS(all_glmers_pop_anova, file = file.path(lmer_dir, "all_glmers_pop_anova_list.rds"))
 
 
 
 
 
-############# output all lmers summaries, anovas and tukeys by trait ############# 
-
+######### plot linear models residuals per trait
 
 # list models outputs to keep the directory structure
-lmers <- list.files(path = "LinearModelsPop", recursive = T, full.names = T, pattern = "_lmers_pop.rds")
-glmers <- list.files(path = "LinearModelsPop", recursive = T, full.names = T, pattern = "_glmers_pop.rds")
+lmers <- list.files(path = lmer_dir, recursive = T, full.names = T, pattern = "_lmers_pop.rds")
+glmers <- list.files(path = lmer_dir, recursive = T, full.names = T, pattern = "_glmers_pop.rds")
 models <- c(lmers, glmers)
 
 
-for (i in 1:length(models)){
-  f <- models[i]
-  s_out_rds <- sub(".rds", "_summary.rds", f)
-  s_out_txt <- sub(".rds", "_summary.txt", f)
-  a_out_rds <- sub(".rds", "_anova.rds", f)
-  a_out_txt <- sub(".rds", "_anova.txt", f)
-  t_out_rds <- sub(".rds", "_tukey.rds", f)
-  t_out_txt <- sub(".rds", "_tukey.txt", f)
-  m <- readRDS(f)
-  s <- lapply(m, summary)
-  saveRDS(s, file = s_out_rds)
-  capture.output(s, file = s_out_txt)
-  if (class(m[[1]]) != "glmerMod") {
-    a <- lapply(m, anova)
-    saveRDS(a, file = a_out_rds) 
-    capture.output(a, file = a_out_txt) }
-  t <- lapply(m, compTukeyCLD)
-  saveRDS(t, file = t_out_rds)
-  capture.output(t, file = t_out_txt)
-}
-  
-
-
-
-############# output all lmers summaries, anovas and tukeys by trait and lab ############# 
-
-# list models outputs to keep the directory structure
-lmers <- list.files(path = "LinearModelsPop", recursive = T, full.names = T, pattern = "_lmers_pop.rds")
-glmers <- list.files(path = "LinearModelsPop", recursive = T, full.names = T, pattern = "_glmers_pop.rds")
-models <- c(lmers, glmers)
-
-for (i in 1:length(models)){
-  f <- models[i]
-  p <- str_match(f, '(.*[^/]+)(?:/[^/]+){1}$')[,2]
-  dir.create(file.path(p, "by_lab_txt_output"), showWarnings = F) 
-  dir.create(file.path(p, "by_lab_rds_output"), showWarnings = F) 
-  m <- readRDS(f)
-  n <- names(m)
-  f_out_txt <- file.path(p, "by_lab_txt_output", n)
-  f_out_rds <- file.path(p, "by_lab_rds_output", n)
-  s_out_rds <- paste0(f_out_rds, "_summary.rds")
-  s_out_txt <- paste0(f_out_txt, "_summary.txt")
-  a_out_rds <- paste0(f_out_rds, "_anova.rds")
-  a_out_txt <- paste0(f_out_txt, "_anova.txt")
-  t_out_rds <- paste0(f_out_rds, "_tukey.rds")
-  t_out_txt <- paste0(f_out_txt, "_tukey.txt")
-  for (j in 1:length(n)){
-    s <- summary(m[[j]])
-    saveRDS(s, file = s_out_rds[j])
-    capture.output(s, file = s_out_txt[j])
-    if (class(m[[j]]) != "glmerMod") {
-      a <- anova(m[[j]])
-      saveRDS(a, file = a_out_rds[j])
-      capture.output(a, file = a_out_txt[j]) }
-    t <- compTukeyCLD(m[[j]])
-    saveRDS(t, file = t_out_rds[j])
-    capture.output(t, file = t_out_txt[j])
-  } 
+# loop over models to get residuals
+for (m in 1:length(models)){
+  plotResiduals(models[m])
 }
 
 
 
+######### output all models summaries, anovas and tukeys by trait
 
-############# output all models estimates as a global list ############# 
-
-getEstSE <- function(x, groups = "Population") {
-  require(emmeans)
-  df <- as.data.frame(emmeans(x, groups, mode = "asymp"))[,1:3]
-  colnames(df)[2] <- "Estimate"
-  df
+# loop over models to get statistics
+for (m in 1:length(models)){
+  outputModelsStats(models[m])
 }
 
-combineEstSE <- function(x) {
-  for (lab in 1:length(x)) {
-    info <- str_split(names(x)[lab], "_") %>% unlist
-    if (length(info) >= 5) info[1] <- paste(info[1], info[2], sep = "_")
-    info[1] <- sub("_F", "", info[1])
-    info[1] <- sub("_M", "", info[1])
-    es <- x[[lab]] %>% 
-      mutate(Model = paste(info[length(info)-1], info[length(info)], sep = "_"), Trait = info[1], Lab = info[length(info)-2], Sex = info[length(info)-3]) %>% relocate(Model, Trait, Lab, Sex) 
-    if (!unique(es$Sex) %in% c("F", "M")) es$Sex <- "NA" 
-    if (length(unique(es$Trait)) == 1 & unique(es$Trait) %in% c("Dia", "Fec")) es$Sex <- "F"
-    if (length(unique(es$Trait)) == 1 & grepl("Pgm_", unique(es$Trait))) es$Sex <- "F"
-    if (length(unique(es$Trait)) == 1 & grepl("LA_", unique(es$Trait))) es$Sex <- "B" 
-    x[[lab]] <- es }
-  bind_rows(x) }
 
 
+######### output all models summaries, anovas and tukeys by trait and lab
+
+# loop over models to get statistics
+for (m in 1:length(models)){
+  outputModelsStatsLab(models[m])
+}
 
 
+######### output all models estimates as a global list
+######### estimates are the fitted Population values and their corresponding SE
 
-# list models outputs to keep the directory structure
-lmers <- list.files(path = "LinearModelsPop", recursive = T, full.names = T, pattern = "_lmers_pop.rds")
-glmers <- list.files(path = "LinearModelsPop", recursive = T, full.names = T, pattern = "_glmers_pop.rds")
-models <- c(lmers, glmers)
-
-all_model_estimates <- list()
+all_models_estimates <- list()
 for (trait in 1:length(models)){
   f <- models[trait]
   n <- str_match(f, '([^/]+)(?:/[^/]+){0}$')[,1]
@@ -914,20 +773,16 @@ for (trait in 1:length(models)){
   n <- tolower(n)
   m <- readRDS(f)
   e <- lapply(m, getEstSE)
-  all_model_estimates[[trait]] <- combineEstSE(e)
-  names(all_model_estimates)[trait] <- n
+  all_models_estimates[[trait]] <- combineEstSE(e)
+  names(all_models_estimates)[trait] <- n
 }
-saveRDS(all_model_estimates, file = "LinearModelsPop/all_models_list_pop_estimates.rds")
 
-write.csv(bind_rows(all_model_estimates), file = "LinearModelsPop/all_models_pop_estimates.csv", row.names = F)
+saveRDS(all_models_estimates, file = file.path(lmer_dir, "all_models_pop_estimates_list.rds"))
+write.csv(bind_rows(all_models_estimates), file = file.path(lmer_dir, "all_models_pop_estimates_list.csv"), row.names = F)
 
 
 
-############# output all models estimates by trait ############# 
-
-lmers <- list.files(path = "LinearModelsPop", recursive = T, full.names = T, pattern = "_lmers_pop.rds")
-glmers <- list.files(path = "LinearModelsPop", recursive = T, full.names = T, pattern = "_glmers_pop.rds")
-models <- c(lmers, glmers)
+######### output all models estimates by trait
 
 for (i in 1:length(models)){
   f <- models[i]
@@ -941,37 +796,16 @@ for (i in 1:length(models)){
 }
 
 
-############ get all lmers pvalues
+######### output all models P values
 
-all_lmers_pop_anova <- readRDS("LinearModelsPop/all_lmers_list_pop_anova.rds")
-all_glmers_pop_anova <- readRDS("LinearModelsPop/all_glmers_list_pop_anova.rds")
+all_lmers_pop_anova <- readRDS(file.path(lmer_dir, "all_lmers_pop_anova_list.rds"))
+all_glmers_pop_anova <- readRDS(file.path(lmer_dir, "all_glmers_pop_anova_list.rds"))
 all_pop_anova <- c(all_lmers_pop_anova, all_glmers_pop_anova)
 
+pvalues <- combinePValues(all_pop_anova)
 
-combinePValues <- function(x) {
-  pvals <- list()
-  for (a in 1:length(x)) {
-    info <- str_split(names(x)[a], "_") %>% unlist
-    if (length(info) >= 5) info[1] <- paste(info[1], info[2], sep = "_")
-    info[1] <- sub("_F", "", info[1])
-    info[1] <- sub("_M", "", info[1])
-    info <- data.frame(Lab = info[length(info)-2], 
-                       Trait = info[1], 
-                       Sex = info[length(info)-3],
-                       Model = paste(info[length(info)-1], info[length(info)], sep = "_"))
-    info$P <- ifelse(grepl("glmer", info$Model), x[[a]]$P[2], x[[a]]$P[1])
-    if (!info$Sex %in% c("F", "M")) info$Sex <- "NA" 
-    if (info$Trait %in% c("Dia", "Fec")) info$Sex <- "F"
-    if (grepl("Pgm_", info$Trait)) info$Sex <- "F"
-    if (grepl("LA_", info$Trait)) info$Sex <- "B" 
-    pvals[[a]] <- info }
-  bind_rows(pvals) }
-    
-
-pop_pvalues <- combinePValues(all_pop_anova)
-
-saveRDS(pop_pvalues, file = "LinearModelsPop/all_models_pop_pvalues.rds")
-write.csv(pop_pvalues, "LinearModelsPop/all_models_pop_pvalues.csv", row.names = F)
+saveRDS(pvalues, file = file.path(lmer_dir, "all_models_pop_pvalues.rds"))
+write.csv(pvalues, file = file.path(lmer_dir, "all_models_pop_pvalues.csv"), row.names = F)
 
 
 

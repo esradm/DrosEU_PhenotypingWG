@@ -1,7 +1,6 @@
 $DW_F_Colinet_lmer_lat
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-lmerModLmerTest]
-Formula: DW_micrograms ~ Latitude + (1 | Population) + (1 | Population:Line)
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Formula: DW_micrograms ~ Latitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$dw, Supervisor.PI == "Colinet" & Sex == "F")
 
 REML criterion at convergence: -11730.5
@@ -12,10 +11,10 @@ Scaled residuals:
 
 Random effects:
  Groups          Name        Variance  Std.Dev.
- Population:Line (Intercept) 0.0014538 0.03813 
+ Line:Population (Intercept) 0.0014538 0.03813 
  Population      (Intercept) 0.0001647 0.01283 
  Residual                    0.0026883 0.05185 
-Number of obs: 3958, groups:  Population:Line, 165; Population, 9
+Number of obs: 3958, groups:  Line:Population, 165; Population, 9
 
 Fixed effects:
               Estimate Std. Error         df t value Pr(>|t|)    
@@ -29,9 +28,8 @@ Correlation of Fixed Effects:
 Latitude -0.989
 
 $DW_F_Hoedjes_lmer_lat
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-lmerModLmerTest]
-Formula: DW_micrograms ~ Latitude + (1 | Population:Line)
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Formula: DW_micrograms ~ Latitude + (1 | Line:Population)
    Data: filter(droseu$dw, Supervisor.PI == "Hoedjes" & Sex == "F")
 
 REML criterion at convergence: -12552.2
@@ -42,9 +40,9 @@ Scaled residuals:
 
 Random effects:
  Groups          Name        Variance Std.Dev.
- Population:Line (Intercept) 0.001372 0.03704 
+ Line:Population (Intercept) 0.001372 0.03704 
  Residual                    0.002260 0.04753 
-Number of obs: 4004, groups:  Population:Line, 167
+Number of obs: 4004, groups:  Line:Population, 167
 
 Fixed effects:
              Estimate Std. Error        df t value Pr(>|t|)    
@@ -58,9 +56,8 @@ Correlation of Fixed Effects:
 Latitude -0.990
 
 $DW_F_Onder_lmer_lat
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-lmerModLmerTest]
-Formula: DW_micrograms ~ Latitude + (1 | Population) + (1 | Population:Line)
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Formula: DW_micrograms ~ Latitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$dw, Supervisor.PI == "Onder" & Sex == "F")
 
 REML criterion at convergence: -12233.3
@@ -71,10 +68,10 @@ Scaled residuals:
 
 Random effects:
  Groups          Name        Variance  Std.Dev.
- Population:Line (Intercept) 0.0012283 0.03505 
+ Line:Population (Intercept) 0.0012283 0.03505 
  Population      (Intercept) 0.0003372 0.01836 
  Residual                    0.0026591 0.05157 
-Number of obs: 4102, groups:  Population:Line, 166; Population, 9
+Number of obs: 4102, groups:  Line:Population, 166; Population, 9
 
 Fixed effects:
              Estimate Std. Error        df t value Pr(>|t|)    
@@ -88,9 +85,8 @@ Correlation of Fixed Effects:
 Latitude -0.989
 
 $DW_M_Colinet_lmer_lat
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-lmerModLmerTest]
-Formula: DW_micrograms ~ Latitude + (1 | Population) + (1 | Population:Line)
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Formula: DW_micrograms ~ Latitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$dw, Supervisor.PI == "Colinet" & Sex == "M")
 
 REML criterion at convergence: -16938.2
@@ -101,10 +97,10 @@ Scaled residuals:
 
 Random effects:
  Groups          Name        Variance  Std.Dev.
- Population:Line (Intercept) 3.459e-04 0.018599
+ Line:Population (Intercept) 3.459e-04 0.018599
  Population      (Intercept) 8.532e-05 0.009237
  Residual                    7.176e-04 0.026788
-Number of obs: 3951, groups:  Population:Line, 165; Population, 9
+Number of obs: 3951, groups:  Line:Population, 165; Population, 9
 
 Fixed effects:
              Estimate Std. Error        df t value Pr(>|t|)    
@@ -118,9 +114,8 @@ Correlation of Fixed Effects:
 Latitude -0.989
 
 $DW_M_Hoedjes_lmer_lat
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-lmerModLmerTest]
-Formula: DW_micrograms ~ Latitude + (1 | Population:Line)
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Formula: DW_micrograms ~ Latitude + (1 | Line:Population)
    Data: filter(droseu$dw, Supervisor.PI == "Hoedjes" & Sex == "M")
 
 REML criterion at convergence: -17305.1
@@ -131,9 +126,9 @@ Scaled residuals:
 
 Random effects:
  Groups          Name        Variance  Std.Dev.
- Population:Line (Intercept) 0.0003910 0.01977 
+ Line:Population (Intercept) 0.0003910 0.01977 
  Residual                    0.0006854 0.02618 
-Number of obs: 3997, groups:  Population:Line, 167
+Number of obs: 3997, groups:  Line:Population, 167
 
 Fixed effects:
              Estimate Std. Error        df t value Pr(>|t|)    
@@ -147,9 +142,8 @@ Correlation of Fixed Effects:
 Latitude -0.990
 
 $DW_M_Onder_lmer_lat
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-lmerModLmerTest]
-Formula: DW_micrograms ~ Latitude + (1 | Population) + (1 | Population:Line)
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Formula: DW_micrograms ~ Latitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$dw, Supervisor.PI == "Onder" & Sex == "M")
 
 REML criterion at convergence: -16587.9
@@ -160,10 +154,10 @@ Scaled residuals:
 
 Random effects:
  Groups          Name        Variance  Std.Dev.
- Population:Line (Intercept) 4.382e-04 0.020934
+ Line:Population (Intercept) 4.382e-04 0.020934
  Population      (Intercept) 4.121e-05 0.006419
  Residual                    9.185e-04 0.030307
-Number of obs: 4101, groups:  Population:Line, 166; Population, 9
+Number of obs: 4101, groups:  Line:Population, 166; Population, 9
 
 Fixed effects:
              Estimate Std. Error        df t value Pr(>|t|)    
