@@ -1,0 +1,219 @@
+$Dia_Bergland_glmer_pop
+$Dia_Bergland_glmer_pop$contrasts
+$emmeans
+ Population emmean    SE  df asymp.LCL asymp.UCL
+ AK          0.175 0.279 Inf   -0.3716     0.722
+ GI          0.391 0.301 Inf   -0.1992     0.981
+ KA          0.523 0.262 Inf    0.0102     1.036
+ MA          0.926 0.283 Inf    0.3723     1.480
+ MU          1.024 0.287 Inf    0.4616     1.586
+ RE          0.475 0.329 Inf   -0.1704     1.121
+ UM          1.553 0.319 Inf    0.9265     2.179
+ VA          1.253 0.290 Inf    0.6846     1.821
+ YE          1.019 0.263 Inf    0.5038     1.533
+
+Results are given on the logit (not the response) scale. 
+Confidence level used: 0.95 
+
+$contrasts
+ contrast estimate    SE  df z.ratio p.value
+ AK - GI  -0.21552 0.410 Inf  -0.525  0.9999
+ AK - KA  -0.34814 0.382 Inf  -0.910  0.9925
+ AK - MA  -0.75094 0.397 Inf  -1.893  0.6186
+ AK - MU  -0.84882 0.400 Inf  -2.122  0.4582
+ AK - RE  -0.30006 0.432 Inf  -0.695  0.9989
+ AK - UM  -1.37743 0.424 Inf  -3.250  0.0317
+ AK - VA  -1.07739 0.402 Inf  -2.682  0.1542
+ AK - YE  -0.84340 0.383 Inf  -2.202  0.4041
+ GI - KA  -0.13262 0.399 Inf  -0.332  1.0000
+ GI - MA  -0.53542 0.413 Inf  -1.298  0.9324
+ GI - MU  -0.63330 0.416 Inf  -1.523  0.8449
+ GI - RE  -0.08454 0.446 Inf  -0.189  1.0000
+ GI - UM  -1.16191 0.439 Inf  -2.648  0.1668
+ GI - VA  -0.86187 0.418 Inf  -2.064  0.4981
+ GI - YE  -0.62788 0.399 Inf  -1.572  0.8202
+ KA - MA  -0.40280 0.385 Inf  -1.047  0.9813
+ KA - MU  -0.50068 0.388 Inf  -1.289  0.9347
+ KA - RE   0.04809 0.421 Inf   0.114  1.0000
+ KA - UM  -1.02929 0.413 Inf  -2.494  0.2347
+ KA - VA  -0.72925 0.390 Inf  -1.869  0.6350
+ KA - YE  -0.49525 0.371 Inf  -1.336  0.9207
+ MA - MU  -0.09788 0.402 Inf  -0.243  1.0000
+ MA - RE   0.45089 0.434 Inf   1.039  0.9821
+ MA - UM  -0.62649 0.425 Inf  -1.474  0.8680
+ MA - VA  -0.32645 0.403 Inf  -0.810  0.9966
+ MA - YE  -0.09246 0.385 Inf  -0.240  1.0000
+ MU - RE   0.54877 0.437 Inf   1.256  0.9436
+ MU - UM  -0.52861 0.429 Inf  -1.233  0.9495
+ MU - VA  -0.22857 0.407 Inf  -0.561  0.9998
+ MU - YE   0.00543 0.389 Inf   0.014  1.0000
+ RE - UM  -1.07738 0.459 Inf  -2.349  0.3129
+ RE - VA  -0.77733 0.439 Inf  -1.773  0.7005
+ RE - YE  -0.54334 0.421 Inf  -1.290  0.9346
+ UM - VA   0.30004 0.430 Inf   0.698  0.9988
+ UM - YE   0.53404 0.413 Inf   1.293  0.9337
+ VA - YE   0.23399 0.390 Inf   0.599  0.9996
+
+Results are given on the log odds ratio (not the response) scale. 
+P value adjustment: tukey method for comparing a family of 9 estimates 
+
+
+$Dia_Bergland_glmer_pop$letters
+  Population    emmean        SE  df   asymp.LCL asymp.UCL cld
+1         AK 0.1751886 0.2789844 Inf -0.37161086 0.7219881  a 
+2         GI 0.3907083 0.3010031 Inf -0.19924701 0.9806635  ab
+3         KA 0.5233327 0.2618093 Inf  0.01019585 1.0364695  ab
+4         MA 0.9261318 0.2825719 Inf  0.37230093 1.4799626  ab
+5         MU 1.0240123 0.2869296 Inf  0.46164071 1.5863840  ab
+6         RE 0.4752457 0.3294066 Inf -0.17037932 1.1208707  ab
+7         UM 1.5526223 0.3194699 Inf  0.92647275 2.1787718   b
+8         VA 1.2525776 0.2898051 Inf  0.68457016 1.8205851  ab
+9         YE 1.0185869 0.2626555 Inf  0.50379164 1.5333821  ab
+
+
+$Dia_Flatt_glmer_pop
+$Dia_Flatt_glmer_pop$contrasts
+$emmeans
+ Population emmean    SE  df asymp.LCL asymp.UCL
+ AK           3.99 0.549 Inf      2.91      5.07
+ GI           3.67 0.610 Inf      2.47      4.86
+ KA           4.40 0.615 Inf      3.19      5.60
+ MA           3.79 0.545 Inf      2.72      4.86
+ MU           4.75 0.613 Inf      3.55      5.95
+ RE           3.98 0.629 Inf      2.75      5.22
+ UM           5.07 0.767 Inf      3.57      6.57
+ VA           3.58 0.514 Inf      2.58      4.59
+ YE           3.94 0.559 Inf      2.85      5.04
+
+Results are given on the logit (not the response) scale. 
+Confidence level used: 0.95 
+
+$contrasts
+ contrast estimate    SE  df z.ratio p.value
+ AK - GI   0.32294 0.759 Inf   0.426  1.0000
+ AK - KA  -0.40784 0.756 Inf  -0.539  0.9998
+ AK - MA   0.19740 0.722 Inf   0.274  1.0000
+ AK - MU  -0.76212 0.762 Inf  -1.001  0.9859
+ AK - RE   0.00573 0.789 Inf   0.007  1.0000
+ AK - UM  -1.08190 0.891 Inf  -1.214  0.9538
+ AK - VA   0.40543 0.690 Inf   0.588  0.9997
+ AK - YE   0.04654 0.722 Inf   0.064  1.0000
+ GI - KA  -0.73079 0.805 Inf  -0.908  0.9926
+ GI - MA  -0.12554 0.771 Inf  -0.163  1.0000
+ GI - MU  -1.08507 0.809 Inf  -1.340  0.9192
+ GI - RE  -0.31721 0.835 Inf  -0.380  1.0000
+ GI - UM  -1.40485 0.933 Inf  -1.506  0.8530
+ GI - VA   0.08248 0.742 Inf   0.111  1.0000
+ GI - YE  -0.27641 0.772 Inf  -0.358  1.0000
+ KA - MA   0.60524 0.770 Inf   0.786  0.9973
+ KA - MU  -0.35428 0.807 Inf  -0.439  1.0000
+ KA - RE   0.41357 0.834 Inf   0.496  0.9999
+ KA - UM  -0.67406 0.931 Inf  -0.724  0.9985
+ KA - VA   0.81327 0.741 Inf   1.098  0.9747
+ KA - YE   0.45438 0.771 Inf   0.590  0.9997
+ MA - MU  -0.95952 0.774 Inf  -1.240  0.9477
+ MA - RE  -0.19167 0.798 Inf  -0.240  1.0000
+ MA - UM  -1.27931 0.902 Inf  -1.419  0.8909
+ MA - VA   0.20803 0.702 Inf   0.296  1.0000
+ MA - YE  -0.15086 0.734 Inf  -0.205  1.0000
+ MU - RE   0.76785 0.837 Inf   0.917  0.9921
+ MU - UM  -0.31978 0.935 Inf  -0.342  1.0000
+ MU - VA   1.16755 0.745 Inf   1.567  0.8228
+ MU - YE   0.80866 0.775 Inf   1.043  0.9816
+ RE - UM  -1.08763 0.956 Inf  -1.137  0.9686
+ RE - VA   0.39970 0.771 Inf   0.518  0.9999
+ RE - YE   0.04081 0.801 Inf   0.051  1.0000
+ UM - VA   1.48733 0.877 Inf   1.696  0.7494
+ UM - YE   1.12844 0.903 Inf   1.250  0.9452
+ VA - YE  -0.35889 0.704 Inf  -0.510  0.9999
+
+Results are given on the log odds ratio (not the response) scale. 
+P value adjustment: tukey method for comparing a family of 9 estimates 
+
+
+$Dia_Flatt_glmer_pop$letters
+  Population   emmean        SE  df asymp.LCL asymp.UCL cld
+1         AK 3.988759 0.5493054 Inf  2.912140  5.065377   a
+2         GI 3.665814 0.6095239 Inf  2.471169  4.860459   a
+3         KA 4.396601 0.6152027 Inf  3.190826  5.602377   a
+4         MA 3.791358 0.5449063 Inf  2.723361  4.859355   a
+5         MU 4.750881 0.6128213 Inf  3.549773  5.951988   a
+6         RE 3.983029 0.6294094 Inf  2.749409  5.216649   a
+7         UM 5.070664 0.7665404 Inf  3.568272  6.573055   a
+8         VA 3.583331 0.5137927 Inf  2.576316  4.590346   a
+9         YE 3.942221 0.5586612 Inf  2.847265  5.037177   a
+
+
+$Dia_Schlotterer_glmer_pop
+$Dia_Schlotterer_glmer_pop$contrasts
+$emmeans
+ Population emmean    SE  df asymp.LCL asymp.UCL
+ AK          0.100 0.313 Inf  -0.51391     0.714
+ GI          0.726 0.369 Inf   0.00177     1.449
+ KA          0.953 0.322 Inf   0.32120     1.584
+ MA          1.105 0.329 Inf   0.45996     1.749
+ MU          1.312 0.325 Inf   0.67430     1.949
+ RE          1.154 0.373 Inf   0.42243     1.886
+ UM          2.490 0.426 Inf   1.65546     3.324
+ VA          1.211 0.368 Inf   0.48951     1.932
+ YE          1.032 0.324 Inf   0.39709     1.666
+
+Results are given on the logit (not the response) scale. 
+Confidence level used: 0.95 
+
+$contrasts
+ contrast estimate    SE  df z.ratio p.value
+ AK - GI   -0.6252 0.484 Inf  -1.291  0.9344
+ AK - KA   -0.8524 0.450 Inf  -1.896  0.6165
+ AK - MA   -1.0043 0.454 Inf  -2.210  0.3988
+ AK - MU   -1.2115 0.452 Inf  -2.681  0.1543
+ AK - RE   -1.0541 0.488 Inf  -2.162  0.4311
+ AK - UM   -2.3895 0.529 Inf  -4.517  0.0002
+ AK - VA   -1.1105 0.484 Inf  -2.297  0.3441
+ AK - YE   -0.9314 0.451 Inf  -2.067  0.4964
+ GI - KA   -0.2272 0.489 Inf  -0.464  0.9999
+ GI - MA   -0.3791 0.494 Inf  -0.768  0.9977
+ GI - MU   -0.5863 0.491 Inf  -1.193  0.9581
+ GI - RE   -0.4288 0.524 Inf  -0.818  0.9964
+ GI - UM   -1.7643 0.561 Inf  -3.143  0.0442
+ GI - VA   -0.4853 0.520 Inf  -0.933  0.9911
+ GI - YE   -0.3061 0.491 Inf  -0.624  0.9995
+ KA - MA   -0.1519 0.460 Inf  -0.330  1.0000
+ KA - MU   -0.3591 0.457 Inf  -0.786  0.9973
+ KA - RE   -0.2016 0.493 Inf  -0.409  1.0000
+ KA - UM   -1.5371 0.532 Inf  -2.889  0.0912
+ KA - VA   -0.2581 0.488 Inf  -0.529  0.9998
+ KA - YE   -0.0790 0.456 Inf  -0.173  1.0000
+ MA - MU   -0.2072 0.462 Inf  -0.449  1.0000
+ MA - RE   -0.0498 0.497 Inf  -0.100  1.0000
+ MA - UM   -1.3852 0.536 Inf  -2.583  0.1936
+ MA - VA   -0.1062 0.493 Inf  -0.216  1.0000
+ MA - YE    0.0729 0.461 Inf   0.158  1.0000
+ MU - RE    0.1575 0.494 Inf   0.318  1.0000
+ MU - UM   -1.1780 0.534 Inf  -2.208  0.4003
+ MU - VA    0.1010 0.490 Inf   0.206  1.0000
+ MU - YE    0.2802 0.458 Inf   0.611  0.9996
+ RE - UM   -1.3355 0.564 Inf  -2.367  0.3024
+ RE - VA   -0.0565 0.523 Inf  -0.108  1.0000
+ RE - YE    0.1227 0.494 Inf   0.248  1.0000
+ UM - VA    1.2790 0.559 Inf   2.286  0.3505
+ UM - YE    1.4581 0.533 Inf   2.733  0.1361
+ VA - YE    0.1792 0.489 Inf   0.366  1.0000
+
+Results are given on the log odds ratio (not the response) scale. 
+P value adjustment: tukey method for comparing a family of 9 estimates 
+
+
+$Dia_Schlotterer_glmer_pop$letters
+  Population    emmean        SE  df    asymp.LCL asymp.UCL cld
+1         AK 0.1002848 0.3133697 Inf -0.513908530 0.7144781  a 
+2         GI 0.7255071 0.3692628 Inf  0.001765299 1.4492488  a 
+3         KA 0.9526918 0.3221947 Inf  0.321201716 1.5841819  ab
+4         MA 1.1045694 0.3288896 Inf  0.459957677 1.7491810  ab
+5         MU 1.3118167 0.3252719 Inf  0.674295559 1.9493378  ab
+6         RE 1.1543405 0.3734293 Inf  0.422432520 1.8862484  ab
+7         UM 2.4897989 0.4256901 Inf  1.655461641 3.3241362   b
+8         VA 1.2108099 0.3680159 Inf  0.489512018 1.9321079  ab
+9         YE 1.0316497 0.3237608 Inf  0.397090163 1.6662093  ab
+
+

@@ -1,7 +1,6 @@
 $Dia_Bergland_lmer_pop
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-lmerModLmerTest]
-Formula: Prop_Max_Stage9_asin ~ Population + (1 | Population:Line)
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Formula: Prop_Max_Stage9_asin ~ Population + (1 | Line:Population)
    Data: filter(droseu$dia, Supervisor.PI == "Bergland")
 
 REML criterion at convergence: 120.5
@@ -12,9 +11,9 @@ Scaled residuals:
 
 Random effects:
  Groups          Name        Variance Std.Dev.
- Population:Line (Intercept) 0.03207  0.1791  
+ Line:Population (Intercept) 0.03207  0.1791  
  Residual                    0.06898  0.2626  
-Number of obs: 189, groups:  Population:Line, 158
+Number of obs: 189, groups:  Line:Population, 158
 
 Fixed effects:
               Estimate Std. Error        df t value Pr(>|t|)    
@@ -71,10 +70,8 @@ F-statistic: 0.7367 on 8 and 154 DF,  p-value: 0.659
 
 
 $Dia_Schlotterer_lmer_pop
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-lmerModLmerTest]
-Formula: Prop_Max_Stage9_asin ~ Population + (1 | Population:Line) + (1 |  
-    Batch)
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Formula: Prop_Max_Stage9_asin ~ Population + (1 | Line:Population) + (1 |      Batch)
    Data: filter(droseu$dia, Supervisor.PI == "Schlotterer")
 
 REML criterion at convergence: 122.5
@@ -85,10 +82,10 @@ Scaled residuals:
 
 Random effects:
  Groups          Name        Variance Std.Dev.
- Population:Line (Intercept) 0.05690  0.23854 
+ Line:Population (Intercept) 0.05690  0.23854 
  Batch           (Intercept) 0.00464  0.06812 
  Residual                    0.04769  0.21839 
-Number of obs: 195, groups:  Population:Line, 159; Batch, 3
+Number of obs: 195, groups:  Line:Population, 159; Batch, 3
 
 Fixed effects:
               Estimate Std. Error        df t value Pr(>|t|)    

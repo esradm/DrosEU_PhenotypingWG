@@ -1,29 +1,28 @@
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-lmerModLmerTest]
-Formula: DT_EggAdult ~ Population + (1 | ReplicateVial:Line)
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Formula: DT_EggAdult ~ Population + (1 | Line:Population)
    Data: filter(droseu$dta, Supervisor.PI == "Grath" & Sex == "M")
 
-REML criterion at convergence: 7245.1
+REML criterion at convergence: 7557.5
 
 Scaled residuals: 
     Min      1Q  Median      3Q     Max 
--2.5785 -0.6958  0.0232  0.5468  3.5585 
+-2.4732 -0.5678 -0.0897  0.6034  4.2694 
 
 Random effects:
- Groups             Name        Variance Std.Dev.
- ReplicateVial:Line (Intercept) 167.7    12.95   
- Residual                       178.2    13.35   
-Number of obs: 881, groups:  ReplicateVial:Line, 86
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept)  47.61    6.90   
+ Residual                    300.89   17.35   
+Number of obs: 881, groups:  Line:Population, 23
 
 Fixed effects:
              Estimate Std. Error      df t value Pr(>|t|)    
-(Intercept)   317.589      2.258  79.668 140.654   <2e-16 ***
-PopulationMU   -4.292      3.152  81.107  -1.362    0.177    
-PopulationRE   -1.414      5.107  79.678  -0.277    0.783    
+(Intercept)   317.567      2.349  17.582 135.217   <2e-16 ***
+PopulationMU   -5.420      3.330  17.762  -1.628    0.121    
+PopulationRE    6.730      4.998  19.040   1.347    0.194    
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 Correlation of Fixed Effects:
             (Intr) PpltMU
-PopulatinMU -0.716       
-PopulatinRE -0.442  0.317
+PopulatinMU -0.705       
+PopulatinRE -0.470  0.331

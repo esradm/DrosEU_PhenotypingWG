@@ -1,0 +1,28 @@
+Cox mixed-effects model fit by maximum likelihood
+  Data: filter(droseu$hsm, Supervisor.PI == "Parsch", Sex == "M")
+  events, n = 5065, 6033
+  Iterations= 30 157 
+                    NULL Integrated   Fitted
+Log-likelihood -40797.95  -38458.22 -38101.2
+
+                    Chisq     df p     AIC     BIC
+Integrated loglik 4679.47  11.00 0 4657.47 4585.64
+ Penalized loglik 5393.50 139.22 0 5115.05 4205.92
+
+Model:  Surv(TimeDeath_min, Censor) ~ Population + (1 | Batch) + (1 |      Population/Line) 
+Fixed coefficients
+                  coef exp(coef)  se(coef)    z       p
+PopulationGI 1.6318386  5.113268 0.4378733 3.73 1.9e-04
+PopulationKA 0.7782414  2.177639 0.4365498 1.78 7.5e-02
+PopulationMA 0.1116196  1.118087 0.4349359 0.26 8.0e-01
+PopulationMU 0.8060773  2.239107 0.4345265 1.86 6.4e-02
+PopulationRE 2.2431483  9.422951 0.4435494 5.06 4.3e-07
+PopulationUM 0.4410238  1.554298 0.4476107 0.99 3.2e-01
+PopulationVA 0.6658728  1.946188 0.4478084 1.49 1.4e-01
+PopulationYE 2.1377819  8.480606 0.4391889 4.87 1.1e-06
+
+Random effects
+ Group           Variable    Std Dev      Variance    
+ Batch           Intercept   1.0836399875 1.1742756224
+ Population/Line (Intercept) 1.1728476459 1.3755716004
+ Population      (Intercept) 0.0195026027 0.0003803515

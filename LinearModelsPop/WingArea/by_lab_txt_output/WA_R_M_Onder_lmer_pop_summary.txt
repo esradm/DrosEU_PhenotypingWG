@@ -1,7 +1,5 @@
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-lmerModLmerTest]
-Formula: 
-CentroidSizeRight_micrometers ~ Population + (1 | Line:Population) +  
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Formula: CentroidSizeRight_micrometers ~ Population + (1 | Line:Population) +  
     (1 | ReplicateVial:Line)
    Data: filter(droseu$wa, Supervisor.PI == "Onder" & Sex == "M")
 

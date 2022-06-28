@@ -1,0 +1,120 @@
+$HSM_F_Parsch_coxme_pop
+Cox mixed-effects model fit by maximum likelihood
+  Data: filter(droseu$hsm, Supervisor.PI == "Parsch", Sex == "F")
+  events, n = 3384, 6036
+  Iterations= 16 87 
+                    NULL Integrated    Fitted
+Log-likelihood -28256.89  -26262.82 -25948.97
+
+                    Chisq     df p     AIC     BIC
+Integrated loglik 3988.14  11.00 0 3966.14 3898.74
+ Penalized loglik 4615.84 135.64 0 4344.57 3513.55
+
+Model:  Surv(TimeDeath_min, Censor) ~ Population + (1 | Batch) + (1 |      Population/Line) 
+Fixed coefficients
+                   coef  exp(coef)  se(coef)     z       p
+PopulationGI  2.2270105  9.2721061 0.4507558  4.94 7.8e-07
+PopulationKA  1.1967960  3.3094962 0.4504073  2.66 7.9e-03
+PopulationMA -0.1134564  0.8927431 0.4526366 -0.25 8.0e-01
+PopulationMU  1.0095874  2.7444683 0.4475602  2.26 2.4e-02
+PopulationRE  2.6496351 14.1488745 0.4568967  5.80 6.7e-09
+PopulationUM  0.7661853  2.1515430 0.4663202  1.64 1.0e-01
+PopulationVA  0.7542500  2.1260164 0.4667565  1.62 1.1e-01
+PopulationYE  2.2720751  9.6995074 0.4519464  5.03 5.0e-07
+
+Random effects
+ Group           Variable    Std Dev      Variance    
+ Batch           Intercept   1.2072506400 1.4574541077
+ Population/Line (Intercept) 1.1872985318 1.4096778036
+ Population      (Intercept) 0.0194487890 0.0003782554
+
+$HSM_M_Parsch_coxme_pop
+Cox mixed-effects model fit by maximum likelihood
+  Data: filter(droseu$hsm, Supervisor.PI == "Parsch", Sex == "M")
+  events, n = 5065, 6033
+  Iterations= 30 157 
+                    NULL Integrated   Fitted
+Log-likelihood -40797.95  -38458.22 -38101.2
+
+                    Chisq     df p     AIC     BIC
+Integrated loglik 4679.47  11.00 0 4657.47 4585.64
+ Penalized loglik 5393.50 139.22 0 5115.05 4205.92
+
+Model:  Surv(TimeDeath_min, Censor) ~ Population + (1 | Batch) + (1 |      Population/Line) 
+Fixed coefficients
+                  coef exp(coef)  se(coef)    z       p
+PopulationGI 1.6318386  5.113268 0.4378733 3.73 1.9e-04
+PopulationKA 0.7782414  2.177639 0.4365498 1.78 7.5e-02
+PopulationMA 0.1116196  1.118087 0.4349359 0.26 8.0e-01
+PopulationMU 0.8060773  2.239107 0.4345265 1.86 6.4e-02
+PopulationRE 2.2431483  9.422951 0.4435494 5.06 4.3e-07
+PopulationUM 0.4410238  1.554298 0.4476107 0.99 3.2e-01
+PopulationVA 0.6658728  1.946188 0.4478084 1.49 1.4e-01
+PopulationYE 2.1377819  8.480606 0.4391889 4.87 1.1e-06
+
+Random effects
+ Group           Variable    Std Dev      Variance    
+ Batch           Intercept   1.0836399875 1.1742756224
+ Population/Line (Intercept) 1.1728476459 1.3755716004
+ Population      (Intercept) 0.0195026027 0.0003803515
+
+$HSM_F_Vieira_coxme_pop
+Cox mixed-effects model fit by maximum likelihood
+  Data: filter(droseu$hsm, Supervisor.PI == "Vieira", Sex == "F")
+  events, n = 5310, 9593
+  Iterations= 22 117 
+                   NULL Integrated    Fitted
+Log-likelihood -46830.4     -44993 -44663.09
+
+                    Chisq     df p    AIC     BIC
+Integrated loglik 3674.80  11.00 0 3652.8 3580.45
+ Penalized loglik 4334.61 157.31 0 4020.0 2985.33
+
+Model:  Surv(TimeDeath_min, Censor) ~ Population + (1 | Batch) + (1 |      Population/Line) 
+Fixed coefficients
+                    coef exp(coef)  se(coef)     z       p
+PopulationGI  1.28869402 3.6280453 0.3330803  3.87 1.1e-04
+PopulationKA -0.35891270 0.6984353 0.3277999 -1.09 2.7e-01
+PopulationMA -0.23212799 0.7928446 0.3332668 -0.70 4.9e-01
+PopulationMU  1.37173018 3.9421655 0.2962369  4.63 3.6e-06
+PopulationRE -0.27027606 0.7631688 0.3608557 -0.75 4.5e-01
+PopulationUM  0.09704373 1.1019086 0.3185102  0.30 7.6e-01
+PopulationVA  0.71996316 2.0543575 0.3342776  2.15 3.1e-02
+PopulationYE  0.38028488 1.4627012 0.3353665  1.13 2.6e-01
+
+Random effects
+ Group           Variable    Std Dev     Variance   
+ Batch           Intercept   0.339951587 0.115567082
+ Population/Line (Intercept) 0.804497473 0.647216183
+ Population      (Intercept) 0.019309869 0.000372871
+
+$HSM_M_Vieira_coxme_pop
+Cox mixed-effects model fit by maximum likelihood
+  Data: filter(droseu$hsm, Supervisor.PI == "Vieira", Sex == "M")
+  events, n = 8743, 9582
+  Iterations= 29 152 
+                    NULL Integrated    Fitted
+Log-likelihood -73454.23  -71409.79 -71041.07
+
+                    Chisq     df p     AIC     BIC
+Integrated loglik 4088.89  11.00 0 4066.89 3989.06
+ Penalized loglik 4826.33 161.74 0 4502.85 3358.37
+
+Model:  Surv(TimeDeath_min, Censor) ~ Population + (1 | Batch) + (1 |      Population/Line) 
+Fixed coefficients
+                  coef exp(coef)  se(coef)    z       p
+PopulationGI 1.6248553  5.077684 0.2946310 5.51 3.5e-08
+PopulationKA 0.4082226  1.504142 0.2800225 1.46 1.4e-01
+PopulationMA 0.7338796  2.083147 0.2836293 2.59 9.7e-03
+PopulationMU 1.0494999  2.856222 0.2627996 3.99 6.5e-05
+PopulationRE 0.6987483  2.011234 0.3056093 2.29 2.2e-02
+PopulationUM 0.8600541  2.363289 0.2757015 3.12 1.8e-03
+PopulationVA 0.6881833  1.990097 0.2861104 2.41 1.6e-02
+PopulationYE 0.5392689  1.714753 0.2866413 1.88 6.0e-02
+
+Random effects
+ Group           Variable    Std Dev      Variance    
+ Batch           Intercept   0.2540079785 0.0645200531
+ Population/Line (Intercept) 0.7392062738 0.5464259152
+ Population      (Intercept) 0.0173533297 0.0003011381
+

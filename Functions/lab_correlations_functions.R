@@ -115,7 +115,7 @@ longToWide <- function(fitted_values) {
 
 # turn long table to wide for correlations matrices
 longToWide2 <- function(estimates) {
-  dplyr::select(estimates, -c(SE, Trait)) %>%
+  dplyr::select(estimates, -c(SE, Trait, Model, Predictor)) %>%
     pivot_wider(names_from = c(Lab, Sex), names_sep = "_", values_from = Estimate) %>%
     #mutate(Population = factor(Population, levels = c("YE","RE","GI","MU","MA","UM","KA","VA","AK"))) %>%
     arrange(Population) %>% 
@@ -303,4 +303,11 @@ scatterPlotMatrix <- function(x, sex) {
   par(cex.axis = 1.6)
   pairs2(x, lower.panel = panScatterPlot, upper.panel = panCor, oma = c(6.5,4.5,2,4), ax.labels = TRUE, ax.ticks = TRUE, gap = 1)
   legend("bottom", xjust = 0.5, inset = -ncol(x)*0.012, legend = c("AK", "GI", "KA", "MA", "MU", "RE", "UM", "VA", "YE"), pch = 21, pt.cex = 2, pt.bg = met.brewer("Johnson", 9), horiz = T, cex = 0.8, bty = "n", xpd = T)}
+
+
+
+
+
+
+
 

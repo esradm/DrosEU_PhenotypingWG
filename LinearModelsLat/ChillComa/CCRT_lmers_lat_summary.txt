@@ -1,7 +1,6 @@
 $CCRT_F_Vieira_lmer_lat
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-lmerModLmerTest]
-Formula: CCRT_seconds ~ Latitude + (1 | Population) + (1 | Population:Line)
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Formula: CCRT_seconds ~ Latitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$ccrt, Censor == "0" & Supervisor.PI == "Vieira" &  
     Sex == "F")
 
@@ -13,10 +12,10 @@ Scaled residuals:
 
 Random effects:
  Groups          Name        Variance Std.Dev.
- Population:Line (Intercept)  33227   182.3   
+ Line:Population (Intercept)  33227   182.3   
  Population      (Intercept)  15966   126.4   
  Residual                    183351   428.2   
-Number of obs: 993, groups:  Population:Line, 168; Population, 9
+Number of obs: 993, groups:  Line:Population, 168; Population, 9
 
 Fixed effects:
              Estimate Std. Error        df t value Pr(>|t|)   
@@ -30,9 +29,8 @@ Correlation of Fixed Effects:
 Latitude -0.989
 
 $CCRT_F_Mensch_lmer_lat
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-lmerModLmerTest]
-Formula: CCRT_seconds ~ Latitude + (1 | Population) + (1 | Population:Line)
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Formula: CCRT_seconds ~ Latitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$ccrt, Censor == "0" & Supervisor.PI == "Mensch" &  
     Sex == "F")
 
@@ -44,10 +42,10 @@ Scaled residuals:
 
 Random effects:
  Groups          Name        Variance Std.Dev.
- Population:Line (Intercept)  85411   292.25  
+ Line:Population (Intercept)  85411   292.25  
  Population      (Intercept)   8513    92.27  
  Residual                    263723   513.54  
-Number of obs: 945, groups:  Population:Line, 166; Population, 9
+Number of obs: 945, groups:  Line:Population, 166; Population, 9
 
 Fixed effects:
             Estimate Std. Error       df t value Pr(>|t|)   
@@ -61,9 +59,8 @@ Correlation of Fixed Effects:
 Latitude -0.990
 
 $CCRT_M_Vieira_lmer_lat
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-lmerModLmerTest]
-Formula: CCRT_seconds ~ Latitude + (1 | Population) + (1 | Population:Line)
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Formula: CCRT_seconds ~ Latitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$ccrt, Censor == "0" & Supervisor.PI == "Vieira" &  
     Sex == "M")
 
@@ -75,10 +72,10 @@ Scaled residuals:
 
 Random effects:
  Groups          Name        Variance Std.Dev.
- Population:Line (Intercept)  46061   214.6   
+ Line:Population (Intercept)  46061   214.6   
  Population      (Intercept)  15228   123.4   
  Residual                    157207   396.5   
-Number of obs: 993, groups:  Population:Line, 168; Population, 9
+Number of obs: 993, groups:  Line:Population, 168; Population, 9
 
 Fixed effects:
             Estimate Std. Error       df t value Pr(>|t|)    
@@ -92,9 +89,8 @@ Correlation of Fixed Effects:
 Latitude -0.990
 
 $CCRT_M_Mensch_lmer_lat
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-lmerModLmerTest]
-Formula: CCRT_seconds ~ Latitude + (1 | Population) + (1 | Population:Line)
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Formula: CCRT_seconds ~ Latitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$ccrt, Censor == "0" & Supervisor.PI == "Mensch" &  
     Sex == "M")
 
@@ -106,10 +102,10 @@ Scaled residuals:
 
 Random effects:
  Groups          Name        Variance Std.Dev.
- Population:Line (Intercept)  72962   270.11  
+ Line:Population (Intercept)  72962   270.11  
  Population      (Intercept)   3732    61.09  
  Residual                    223932   473.21  
-Number of obs: 928, groups:  Population:Line, 165; Population, 9
+Number of obs: 928, groups:  Line:Population, 165; Population, 9
 
 Fixed effects:
             Estimate Std. Error       df t value Pr(>|t|)    

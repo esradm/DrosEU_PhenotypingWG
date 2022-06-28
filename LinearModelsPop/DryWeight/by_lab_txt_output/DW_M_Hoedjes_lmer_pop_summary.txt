@@ -1,6 +1,5 @@
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-lmerModLmerTest]
-Formula: DW_micrograms ~ Population + (1 | Population:Line) + (1 | Batch)
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Formula: DW_micrograms ~ Population + (1 | Line:Population) + (1 | Batch)
    Data: filter(droseu$dw, Supervisor.PI == "Hoedjes" & Sex == "M")
 
 REML criterion at convergence: -17309.3
@@ -11,10 +10,10 @@ Scaled residuals:
 
 Random effects:
  Groups          Name        Variance  Std.Dev.
- Population:Line (Intercept) 3.883e-04 0.019704
+ Line:Population (Intercept) 3.883e-04 0.019704
  Batch           (Intercept) 9.299e-05 0.009643
  Residual                    6.746e-04 0.025974
-Number of obs: 3997, groups:  Population:Line, 167; Batch, 5
+Number of obs: 3997, groups:  Line:Population, 167; Batch, 5
 
 Fixed effects:
               Estimate Std. Error        df t value Pr(>|t|)    
