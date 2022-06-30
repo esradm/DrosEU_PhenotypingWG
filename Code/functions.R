@@ -147,10 +147,10 @@ combinePValues <- function(x) {
 makeEffects <- function(x) {
   x <- mutate(x, Population = factor(Population, levels = c("YE","RE","GI","MU","MA","UM","KA","VA","AK")), Lab = as.factor(Lab), V = SE^2, Study = paste(Population, Lab, sep = "_"))
   x <- relocate(x, Trait, Population, Sex, Lab, Study) %>% 
-    arrange(Population) %>% dplyr::rename(Y = Estimate) }
-
-
-
+    arrange(Population) %>% dplyr::rename(Y = Estimate) 
+  if ("Line" %in% colnames(x)) {
+    x <- relocate(x, Trait, Population, Line, Sex, Lab, Study) %>% 
+      arrange(Population, Line) } }
 
 
 
