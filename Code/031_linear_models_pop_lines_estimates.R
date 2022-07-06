@@ -100,12 +100,4 @@ by_trait <- foreach(p = paths) %do% {
    
   
   
-  
-  
-  
-  
-  
-
-
-
-
+####### compound values for line estimates ######
