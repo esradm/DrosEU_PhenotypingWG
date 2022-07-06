@@ -29,7 +29,7 @@ diets <- read.csv("InfoTables/DrosEU_Diets_Feb22.csv")
 
 
 
-p1 <- diets %>%
+p1 <- diets %>% select(PI.Lab.head,  P.C, Diet) %>% distinct() %>% 
   ggplot(aes(x = Diet, y = P.C, color = Diet)) +
   geom_boxplot(outlier.colour = NA) +
   geom_quasirandom(size = 4, alpha = 0.5, width = .3) +
@@ -38,7 +38,7 @@ p1 <- diets %>%
   ggtitle("All ratios") +
   theme(plot.title = element_text(size=22))
 
-p2 <- diets %>% filter(P.C < 1) %>%
+p2 <- diets %>% filter(P.C < 1) %>% select(PI.Lab.head,  P.C, Diet) %>% distinct() %>%
   ggplot(aes(x = Diet, y = P.C, color = Diet)) +
   geom_boxplot(outlier.colour = NA) +
   geom_quasirandom(size = 4, alpha = 0.5, width = .3) +
