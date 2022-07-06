@@ -53,7 +53,7 @@ Nine sampling locations were chosen based on genomic data and these locations co
 ```{r droseu_coord, echo=FALSE, message=FALSE}
 droseu_coord <- read.csv("InfoTables/DrosEU_Coordinates.csv")
 droseu_coord <- data.frame(droseu_coord %>%
-  add_column(Collector = c("Jorge Vieira", "Josefa Gonzalez", "Mads Schou", "Amanda Glaser-Schmitt","Andrea Betancourt","Maaria Kankare","Iryna Kozeretska","Banu Onder","Elena Pasyukova")))
+  add_column(Collector = c("Jorge Vieira", "Josefa Gonzalez", "Mads Schou", "John Parsch & Amanda Glaser-Schmitt","Andrea Betancourt","Maaria Kankare","Iryna Kozeretska","Banu Onder","Elena Pasyukova")))
 ```
 
 ```{r echo=FALSE, message=FALSE}
