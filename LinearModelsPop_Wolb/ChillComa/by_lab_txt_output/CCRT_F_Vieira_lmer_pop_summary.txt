@@ -1,0 +1,52 @@
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: CCRT_seconds ~ Population + Wolbachia + (1 | Line:Population) +  
+    (1 | Batch) + (1 | ReplicateVial:Line)
+   Data: filter(CCRT, Censor == "0" & Supervisor.PI == "Vieira" & Sex ==  
+    "F")
+
+REML criterion at convergence: 13114.7
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-2.1291 -0.5681 -0.1459  0.3633  4.9568 
+
+Random effects:
+ Groups             Name        Variance  Std.Dev.
+ ReplicateVial:Line (Intercept) 1.746e-01   0.4179
+ Line:Population    (Intercept) 3.281e+04 181.1422
+ Batch              (Intercept) 2.879e+03  53.6566
+ Residual                       1.898e+05 435.6161
+Number of obs: 875, groups:  
+ReplicateVial:Line, 148; Line:Population, 148; Batch, 27
+
+Fixed effects:
+             Estimate Std. Error      df t value Pr(>|t|)    
+(Intercept)   1583.47      89.20   66.90  17.752  < 2e-16 ***
+PopulationGI   -54.69      99.12  136.63  -0.552  0.58203    
+PopulationKA  -209.27      91.35   40.88  -2.291  0.02720 *  
+PopulationMA  -311.01      92.38   29.02  -3.367  0.00216 ** 
+PopulationMU   -47.45      94.40   27.17  -0.503  0.61930    
+PopulationRE  -132.65     100.97  117.31  -1.314  0.19150    
+PopulationUM   148.10      96.50   39.30   1.535  0.13288    
+PopulationVA  -227.09      98.93   46.30  -2.296  0.02628 *  
+PopulationYE  -116.91      89.57   35.00  -1.305  0.20032    
+Wolbachia+      15.89      61.04  136.18   0.260  0.79507    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+            (Intr) PpltGI PpltKA PpltMA PpltMU PpltRE PpltUM PpltVA PpltYE
+PopulatinGI -0.592                                                        
+PopulatinKA -0.531  0.407                                                 
+PopulatinMA -0.607  0.434  0.498                                          
+PopulatinMU -0.527  0.416  0.475  0.477                                   
+PopulatinRE -0.658  0.435  0.426  0.461  0.419                            
+PopulatinUM -0.659  0.448  0.489  0.500  0.470  0.488                     
+PopulatinVA -0.468  0.367  0.453  0.448  0.437  0.382  0.429              
+PopulatinYE -0.594  0.435  0.505  0.513  0.489  0.460  0.503  0.510       
+Wolbachia+  -0.697  0.268  0.042  0.159  0.063  0.338  0.266  0.006  0.118
+optimizer (nloptwrap) convergence code: 0 (OK)
+unable to evaluate scaled gradient
+Model failed to converge: degenerate  Hessian with 1 negative eigenvalues
+

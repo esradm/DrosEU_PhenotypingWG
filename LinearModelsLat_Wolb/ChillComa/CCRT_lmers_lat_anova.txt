@@ -1,0 +1,26 @@
+$CCRT_F_Vieira_lmer_lat
+Type III Analysis of Variance Table with Satterthwaite's method
+           Sum Sq Mean Sq NumDF  DenDF F value Pr(>F)
+Latitude    84.64   84.64     1 144.03  0.0004 0.9832
+Wolbachia 1096.26 1096.26     1 141.45  0.0058 0.9395
+
+$CCRT_F_Mensch_lmer_lat
+Type III Analysis of Variance Table with Satterthwaite's method
+          Sum Sq Mean Sq NumDF  DenDF F value Pr(>F)
+Latitude   60918   60918     1 138.95  0.2422 0.6234
+Wolbachia 247633  247633     1 141.59  0.9845 0.3228
+
+$CCRT_M_Vieira_lmer_lat
+Type III Analysis of Variance Table with Satterthwaite's method
+          Sum Sq Mean Sq NumDF  DenDF F value  Pr(>F)  
+Latitude  679970  679970     1 145.55  4.4199 0.03724 *
+Wolbachia  24328   24328     1 145.29  0.1581 0.69146  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+$CCRT_M_Mensch_lmer_lat
+Type III Analysis of Variance Table with Satterthwaite's method
+          Sum Sq Mean Sq NumDF  DenDF F value Pr(>F)
+Latitude  372987  372987     1 138.11  1.6469 0.2015
+Wolbachia 563705  563705     1 134.97  2.4890 0.1170
+

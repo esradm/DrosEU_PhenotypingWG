@@ -1,0 +1,233 @@
+$TL_F_Kozeretska_lmer_lat
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: TL_micrometers ~ Latitude + Wolbachia + (1 | Line:Population) +  
+    (1 | Batch) + (1 | ReplicateVial:Line)
+   Data: filter(TL, Supervisor.PI == "Kozeretska" & Sex == "F")
+
+REML criterion at convergence: 45776
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-4.4960 -0.6032  0.0644  0.6860  3.5342 
+
+Random effects:
+ Groups             Name        Variance Std.Dev.
+ ReplicateVial:Line (Intercept)  924.72  30.409  
+ Line:Population    (Intercept)  887.85  29.797  
+ Batch              (Intercept)   27.18   5.213  
+ Residual                       2092.15  45.740  
+Number of obs: 4310, groups:  
+ReplicateVial:Line, 216; Line:Population, 117; Batch, 2
+
+Fixed effects:
+            Estimate Std. Error       df t value Pr(>|t|)    
+(Intercept) 978.9230    24.9172 107.7827  39.287   <2e-16 ***
+Latitude     -0.8876     0.5171 113.7557  -1.717   0.0888 .  
+Wolbachia+   10.7728    10.4814 113.2180   1.028   0.3062    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Latitd
+Latitude   -0.920       
+Wolbachia+  0.010 -0.351
+
+$TL_F_Posnien_lmer_lat
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: TL_micrometers ~ Latitude + Wolbachia + (1 | Line:Population)
+   Data: filter(TL, Supervisor.PI == "Posnien" & Sex == "F")
+
+REML criterion at convergence: 2580
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-2.7400 -0.5765  0.0480  0.6585  2.7532 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 1220     34.93   
+ Residual                    1535     39.18   
+Number of obs: 250, groups:  Line:Population, 25
+
+Fixed effects:
+            Estimate Std. Error       df t value Pr(>|t|)    
+(Intercept) 1005.727     51.051   22.000  19.701 1.83e-15 ***
+Latitude      -2.386      1.088   22.000  -2.193   0.0392 *  
+Wolbachia+    18.643     18.196   22.000   1.025   0.3167    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Latitd
+Latitude   -0.955       
+Wolbachia+  0.040 -0.300
+
+$TL_F_Ritchie_lmer_lat
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: TL_micrometers ~ Latitude + Wolbachia + (1 | Line:Population) +  
+    (1 | Batch) + (1 | ReplicateVial:Line)
+   Data: filter(TL, Supervisor.PI == "Ritchie" & Sex == "F")
+
+REML criterion at convergence: 10252
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.9475 -0.5715  0.0520  0.6427  6.0740 
+
+Random effects:
+ Groups             Name        Variance Std.Dev.
+ ReplicateVial:Line (Intercept) 1789.7   42.30   
+ Line:Population    (Intercept)  213.8   14.62   
+ Batch              (Intercept) 1125.8   33.55   
+ Residual                       1872.0   43.27   
+Number of obs: 970, groups:  
+ReplicateVial:Line, 72; Line:Population, 24; Batch, 12
+
+Fixed effects:
+             Estimate Std. Error        df t value Pr(>|t|)    
+(Intercept) 1041.0276    44.2997   13.7293  23.500 1.75e-12 ***
+Latitude      -1.7326     0.9503   12.7053  -1.823   0.0919 .  
+Wolbachia+    17.3650    17.6516   15.4714   0.984   0.3404    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Latitd
+Latitude   -0.930       
+Wolbachia+  0.134 -0.400
+
+$TL_F_Schmidt_lmer_lat
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: TL_micrometers ~ Latitude + Wolbachia + (1 | Line:Population)
+   Data: filter(TL, Supervisor.PI == "Schmidt" & Sex == "F")
+
+REML criterion at convergence: 13769.1
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-8.8210 -0.5243  0.0792  0.5913  2.6457 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept)  469.1   21.66   
+ Residual                    1277.8   35.75   
+Number of obs: 1358, groups:  Line:Population, 141
+
+Fixed effects:
+             Estimate Std. Error        df t value Pr(>|t|)    
+(Intercept) 1053.5552    14.1715  137.7416  74.343   <2e-16 ***
+Latitude      -0.7823     0.2987  137.0049  -2.619   0.0098 ** 
+Wolbachia+    -3.9403     5.6479  138.0215  -0.698   0.4866    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Latitd
+Latitude   -0.940       
+Wolbachia+  0.011 -0.322
+
+$TL_M_Kozeretska_lmer_lat
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: TL_micrometers ~ Latitude + Wolbachia + (1 | Line:Population) +  
+    (1 | Batch) + (1 | ReplicateVial:Line)
+   Data: filter(TL, Supervisor.PI == "Kozeretska" & Sex == "M")
+
+REML criterion at convergence: 45096.1
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-4.8555 -0.5860  0.0540  0.6591  3.7324 
+
+Random effects:
+ Groups             Name        Variance Std.Dev.
+ ReplicateVial:Line (Intercept)  942.86  30.706  
+ Line:Population    (Intercept)  832.00  28.844  
+ Batch              (Intercept)   11.48   3.388  
+ Residual                       1787.54  42.279  
+Number of obs: 4307, groups:  
+ReplicateVial:Line, 216; Line:Population, 117; Batch, 2
+
+Fixed effects:
+            Estimate Std. Error       df t value Pr(>|t|)    
+(Intercept) 867.7306    24.2971 112.5629  35.713   <2e-16 ***
+Latitude     -0.6258     0.5074 114.7438  -1.233    0.220    
+Wolbachia+    6.2799    10.2846 114.1948   0.611    0.543    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Latitd
+Latitude   -0.926       
+Wolbachia+  0.011 -0.351
+
+$TL_M_Posnien_lmer_lat
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: TL_micrometers ~ Latitude + Wolbachia + (1 | Line:Population)
+   Data: filter(TL, Supervisor.PI == "Posnien" & Sex == "M")
+
+REML criterion at convergence: 2530.7
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.6652 -0.5513 -0.0436  0.5776  3.4923 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 1195     34.57   
+ Residual                    1238     35.19   
+Number of obs: 250, groups:  Line:Population, 25
+
+Fixed effects:
+            Estimate Std. Error      df t value Pr(>|t|)    
+(Intercept)  878.854     50.019  22.000  17.570 1.96e-14 ***
+Latitude      -1.886      1.066  22.000  -1.769   0.0907 .  
+Wolbachia+    19.576     17.828  22.000   1.098   0.2841    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Latitd
+Latitude   -0.955       
+Wolbachia+  0.040 -0.300
+
+$TL_M_Ritchie_lmer_lat
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: TL_micrometers ~ Latitude + Wolbachia + (1 | Line:Population) +  
+    (1 | Batch) + (1 | ReplicateVial:Line)
+   Data: filter(TL, Supervisor.PI == "Ritchie" & Sex == "M")
+
+REML criterion at convergence: 10319.9
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-9.7163 -0.4977  0.0667  0.5777  4.5234 
+
+Random effects:
+ Groups             Name        Variance Std.Dev.
+ ReplicateVial:Line (Intercept) 1440.3   37.95   
+ Line:Population    (Intercept)  487.8   22.09   
+ Batch              (Intercept)  972.3   31.18   
+ Residual                       2777.3   52.70   
+Number of obs: 944, groups:  
+ReplicateVial:Line, 72; Line:Population, 24; Batch, 12
+
+Fixed effects:
+            Estimate Std. Error      df t value Pr(>|t|)    
+(Intercept)  882.737     47.898  14.279  18.429 2.35e-11 ***
+Latitude      -1.255      1.032  13.554  -1.216    0.245    
+Wolbachia+    15.782     18.886  16.782   0.836    0.415    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Latitd
+Latitude   -0.937       
+Wolbachia+  0.139 -0.400
+

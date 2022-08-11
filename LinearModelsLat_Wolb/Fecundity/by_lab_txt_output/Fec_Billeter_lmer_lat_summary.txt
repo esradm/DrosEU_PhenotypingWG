@@ -1,0 +1,29 @@
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: NumberOfAdultsEclosed ~ Latitude + Wolbachia + (1 | Line:Population)
+   Data: filter(FEC, Supervisor.PI == "Billeter")
+
+REML criterion at convergence: 7819.9
+
+Scaled residuals: 
+     Min       1Q   Median       3Q      Max 
+-2.76477 -0.60263 -0.04555  0.54464  3.08111 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 1047     32.36   
+ Residual                    2708     52.04   
+Number of obs: 715, groups:  Line:Population, 143
+
+Fixed effects:
+            Estimate Std. Error       df t value Pr(>|t|)    
+(Intercept)   9.9433    22.5933 138.1424   0.440 0.660554    
+Latitude      1.6498     0.4722 137.7493   3.494 0.000641 ***
+Wolbachia+   -6.9507     9.0941 138.9917  -0.764 0.445980    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Latitd
+Latitude   -0.938       
+Wolbachia+ -0.019 -0.299

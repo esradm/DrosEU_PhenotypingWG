@@ -1,0 +1,46 @@
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: 
+CSM_PropDead_ED_asin ~ Population + Wolbachia + (1 | Line:Population) +  
+    (1 | Batch)
+   Data: filter(CSM, Supervisor.PI == "Gonzalez" & Sex == "M")
+
+REML criterion at convergence: 95.5
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.2150 -0.5868 -0.0363  0.4989  2.8954 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 0.02797  0.1672  
+ Batch           (Intercept) 0.03953  0.1988  
+ Residual                    0.04553  0.2134  
+Number of obs: 483, groups:  Line:Population, 143; Batch, 9
+
+Fixed effects:
+               Estimate Std. Error         df t value Pr(>|t|)    
+(Intercept)    0.883833   0.095815  30.132912   9.224 2.78e-10 ***
+PopulationGI   0.092219   0.073860 131.567351   1.249    0.214    
+PopulationKA   0.089007   0.072072 122.926505   1.235    0.219    
+PopulationMA   0.024688   0.066579 129.952907   0.371    0.711    
+PopulationMU   0.015288   0.067820 130.905112   0.225    0.822    
+PopulationRE   0.024385   0.075504 126.735079   0.323    0.747    
+PopulationUM  -0.070735   0.074997 131.831231  -0.943    0.347    
+PopulationVA  -0.048214   0.073209 131.538788  -0.659    0.511    
+PopulationYE   0.154619   0.065100 126.961905   2.375    0.019 *  
+Wolbachia+     0.003319   0.051103 130.718386   0.065    0.948    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+            (Intr) PpltGI PpltKA PpltMA PpltMU PpltRE PpltUM PpltVA PpltYE
+PopulatinGI -0.420                                                        
+PopulatinKA -0.300  0.388                                                 
+PopulatinMA -0.412  0.459  0.432                                          
+PopulatinMU -0.342  0.422  0.422  0.464                                   
+PopulatinRE -0.473  0.452  0.382  0.469  0.418                            
+PopulatinUM -0.405  0.426  0.382  0.449  0.415  0.439                     
+PopulatinVA -0.288  0.380  0.388  0.418  0.414  0.367  0.374              
+PopulatinYE -0.401  0.458  0.444  0.501  0.473  0.469  0.450  0.425       
+Wolbachia+  -0.527  0.245 -0.001  0.156  0.044  0.333  0.222  0.003  0.114

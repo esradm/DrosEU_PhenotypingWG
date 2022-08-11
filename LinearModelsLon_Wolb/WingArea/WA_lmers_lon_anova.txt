@@ -1,0 +1,112 @@
+$WA_L_F_Onder_lmer_lon
+Type III Analysis of Variance Table with Satterthwaite's method
+          Sum Sq Mean Sq NumDF  DenDF F value   Pr(>F)   
+Longitude  51368   51368     1 141.71  8.8411 0.003462 **
+Wolbachia  31802   31802     1 141.63  5.4736 0.020704 * 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+$WA_L_F_Posnien_lmer_lon
+Type III Analysis of Variance Table with Satterthwaite's method
+           Sum Sq Mean Sq NumDF DenDF F value Pr(>F)
+Longitude 20849.7 20849.7     1    22  2.3916 0.1363
+Wolbachia   710.5   710.5     1    22  0.0815 0.7779
+
+$WA_L_F_Ritchie_lmer_lon
+Type III Analysis of Variance Table with Satterthwaite's method
+           Sum Sq Mean Sq NumDF  DenDF F value Pr(>F)
+Longitude 22023.5 22023.5     1 28.597  2.5048 0.1245
+Wolbachia   877.8   877.8     1 29.925  0.0998 0.7542
+
+$WA_L_F_StamenkovicRadak_lmer_lon
+Type III Analysis of Variance Table with Satterthwaite's method
+          Sum Sq Mean Sq NumDF  DenDF F value  Pr(>F)  
+Longitude  31081   31081     1 104.97  4.0259 0.04738 *
+Wolbachia  38668   38668     1 104.99  5.0086 0.02733 *
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+$WA_L_M_Onder_lmer_lon
+Type III Analysis of Variance Table with Satterthwaite's method
+          Sum Sq Mean Sq NumDF  DenDF F value  Pr(>F)  
+Longitude  27028   27028     1 147.37  5.7269 0.01797 *
+Wolbachia  16760   16760     1 147.26  3.5513 0.06147 .
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+$WA_L_M_Posnien_lmer_lon
+Type III Analysis of Variance Table with Satterthwaite's method
+          Sum Sq Mean Sq NumDF DenDF F value Pr(>F)
+Longitude 4458.7  4458.7     1    22  0.7355 0.4003
+Wolbachia  643.6   643.6     1    22  0.1062 0.7476
+
+$WA_L_M_Ritchie_lmer_lon
+Type III Analysis of Variance Table with Satterthwaite's method
+          Sum Sq Mean Sq NumDF  DenDF F value Pr(>F)
+Longitude 4654.8  4654.8     1 35.863  0.6533 0.4243
+Wolbachia   46.6    46.6     1 35.935  0.0065 0.9360
+
+$WA_L_M_StamenkovicRadak_lmer_lon
+Type III Analysis of Variance Table with Satterthwaite's method
+          Sum Sq Mean Sq NumDF  DenDF F value  Pr(>F)  
+Longitude  17521   17521     1 102.77  2.8954 0.09185 .
+Wolbachia  41467   41467     1 103.92  6.8527 0.01017 *
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+$WA_R_F_Onder_lmer_lon
+Type III Analysis of Variance Table with Satterthwaite's method
+          Sum Sq Mean Sq NumDF  DenDF F value   Pr(>F)   
+Longitude  51517   51517     1 141.42  8.8955 0.003368 **
+Wolbachia  32993   32993     1 141.35  5.6968 0.018319 * 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+$WA_R_F_Posnien_lmer_lon
+Type III Analysis of Variance Table with Satterthwaite's method
+           Sum Sq Mean Sq NumDF DenDF F value Pr(>F)
+Longitude 21227.1 21227.1     1    22  2.3517 0.1394
+Wolbachia   522.2   522.2     1    22  0.0579 0.8121
+
+$WA_R_F_Ritchie_lmer_lon
+Type III Analysis of Variance Table with Satterthwaite's method
+           Sum Sq Mean Sq NumDF  DenDF F value Pr(>F)
+Longitude 22263.4 22263.4     1 28.660  2.5230 0.1232
+Wolbachia   978.6   978.6     1 29.981  0.1109 0.7414
+
+$WA_R_F_StamenkovicRadak_lmer_lon
+Type III Analysis of Variance Table with Satterthwaite's method
+          Sum Sq Mean Sq NumDF  DenDF F value  Pr(>F)  
+Longitude  28757   28757     1 104.94  3.7303 0.05613 .
+Wolbachia  40481   40481     1 104.97  5.2511 0.02393 *
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+$WA_R_M_Onder_lmer_lon
+Type III Analysis of Variance Table with Satterthwaite's method
+          Sum Sq Mean Sq NumDF  DenDF F value  Pr(>F)  
+Longitude  27648   27648     1 147.38  5.8761 0.01656 *
+Wolbachia  17921   17921     1 147.25  3.8088 0.05288 .
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+$WA_R_M_Posnien_lmer_lon
+Type III Analysis of Variance Table with Satterthwaite's method
+          Sum Sq Mean Sq NumDF DenDF F value Pr(>F)
+Longitude 4783.8  4783.8     1    22  0.7881 0.3843
+Wolbachia  618.4   618.4     1    22  0.1019 0.7526
+
+$WA_R_M_Ritchie_lmer_lon
+Type III Analysis of Variance Table with Satterthwaite's method
+           Sum Sq Mean Sq NumDF  DenDF F value Pr(>F)
+Longitude 3009.16 3009.16     1 35.669  0.4269 0.5177
+Wolbachia  141.58  141.58     1 35.895  0.0201 0.8881
+
+$WA_R_M_StamenkovicRadak_lmer_lon
+Type III Analysis of Variance Table with Satterthwaite's method
+          Sum Sq Mean Sq NumDF  DenDF F value  Pr(>F)  
+Longitude  14689   14689     1 105.09  2.4863 0.11784  
+Wolbachia  36553   36553     1 104.83  6.1870 0.01445 *
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+

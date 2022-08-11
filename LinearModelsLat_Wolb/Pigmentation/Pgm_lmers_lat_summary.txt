@@ -1,0 +1,372 @@
+$Pgm_T4_Abbott_lmer_lat
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: PercT4_asin ~ Latitude + Wolbachia + (1 | Line:Population)
+   Data: filter(PGM, Supervisor.PI == "Abbott")
+
+REML criterion at convergence: -3509.4
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.2714 -0.5888 -0.0374  0.5786  5.9355 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 0.006193 0.07870 
+ Residual                    0.006243 0.07901 
+Number of obs: 1743, groups:  Line:Population, 144
+
+Fixed effects:
+              Estimate Std. Error         df t value Pr(>|t|)    
+(Intercept)  5.548e-01  4.630e-02  1.410e+02  11.984  < 2e-16 ***
+Latitude    -3.174e-03  9.734e-04  1.409e+02  -3.261  0.00139 ** 
+Wolbachia+  -2.186e-02  1.839e-02  1.414e+02  -1.189  0.23643    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Latitd
+Latitude   -0.940       
+Wolbachia+ -0.004 -0.307
+
+$Pgm_T5_Abbott_lmer_lat
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: PercT5_asin ~ Latitude + Wolbachia + (1 | Line:Population)
+   Data: filter(PGM, Supervisor.PI == "Abbott")
+
+REML criterion at convergence: -3530.2
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.9561 -0.6306 -0.0313  0.5816  5.5204 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 0.004574 0.06763 
+ Residual                    0.006313 0.07945 
+Number of obs: 1743, groups:  Line:Population, 144
+
+Fixed effects:
+              Estimate Std. Error         df t value Pr(>|t|)    
+(Intercept)  5.065e-01  4.035e-02  1.406e+02  12.554   <2e-16 ***
+Latitude    -1.677e-03  8.483e-04  1.406e+02  -1.977    0.050 .  
+Wolbachia+  -8.101e-03  1.603e-02  1.412e+02  -0.505    0.614    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Latitd
+Latitude   -0.940       
+Wolbachia+ -0.003 -0.307
+
+$Pgm_T6_Abbott_lmer_lat
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: PercT6_asin ~ Latitude + Wolbachia + (1 | Line:Population)
+   Data: filter(PGM, Supervisor.PI == "Abbott")
+
+REML criterion at convergence: -1281.2
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.7931 -0.5614  0.0230  0.5739  3.0378 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 0.02080  0.1442  
+ Residual                    0.02259  0.1503  
+Number of obs: 1743, groups:  Line:Population, 144
+
+Fixed effects:
+              Estimate Std. Error         df t value Pr(>|t|)    
+(Intercept)  6.610e-01  8.510e-02  1.408e+02   7.767 1.51e-12 ***
+Latitude    -2.674e-04  1.789e-03  1.407e+02  -0.149    0.881    
+Wolbachia+  -5.438e-03  3.380e-02  1.412e+02  -0.161    0.872    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Latitd
+Latitude   -0.940       
+Wolbachia+ -0.004 -0.307
+
+$Pgm_Total_Abbott_lmer_lat
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: TotalPerc_asin ~ Latitude + Wolbachia + (1 | Line:Population)
+   Data: filter(PGM, Supervisor.PI == "Abbott")
+
+REML criterion at convergence: -3779.3
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.6541 -0.6258 -0.0381  0.6039  4.1363 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 0.005201 0.07212 
+ Residual                    0.005354 0.07317 
+Number of obs: 1743, groups:  Line:Population, 144
+
+Fixed effects:
+              Estimate Std. Error         df t value Pr(>|t|)    
+(Intercept)  5.677e-01  4.246e-02  1.406e+02  13.370   <2e-16 ***
+Latitude    -1.581e-03  8.928e-04  1.406e+02  -1.771   0.0788 .  
+Wolbachia+  -9.000e-03  1.686e-02  1.411e+02  -0.534   0.5944    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Latitd
+Latitude   -0.940       
+Wolbachia+ -0.004 -0.307
+
+$Pgm_T4_Gibert_lmer_lat
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: PercT4_asin ~ Latitude + Wolbachia + (1 | Line:Population)
+   Data: filter(PGM, Supervisor.PI == "Gibert")
+
+REML criterion at convergence: -2083.1
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-2.8694 -0.6240 -0.0639  0.6139  5.2586 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 0.003136 0.0560  
+ Residual                    0.013496 0.1162  
+Number of obs: 1561, groups:  Line:Population, 150
+
+Fixed effects:
+              Estimate Std. Error         df t value Pr(>|t|)    
+(Intercept)  5.152e-01  3.750e-02  1.462e+02  13.738   <2e-16 ***
+Latitude    -3.886e-04  7.869e-04  1.460e+02  -0.494    0.622    
+Wolbachia+  -6.083e-03  1.475e-02  1.485e+02  -0.413    0.681    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Latitd
+Latitude   -0.941       
+Wolbachia+ -0.011 -0.299
+
+$Pgm_T5_Gibert_lmer_lat
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: PercT5_asin ~ Latitude + Wolbachia + (1 | Line:Population)
+   Data: filter(PGM, Supervisor.PI == "Gibert")
+
+REML criterion at convergence: -2140.1
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.6205 -0.6238 -0.0497  0.5668  5.8441 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 0.005007 0.07076 
+ Residual                    0.012519 0.11189 
+Number of obs: 1561, groups:  Line:Population, 150
+
+Fixed effects:
+              Estimate Std. Error         df t value Pr(>|t|)    
+(Intercept)  6.160e-01  4.434e-02  1.470e+02  13.894   <2e-16 ***
+Latitude     1.455e-04  9.303e-04  1.468e+02   0.156    0.876    
+Wolbachia+  -2.837e-02  1.741e-02  1.485e+02  -1.630    0.105    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Latitd
+Latitude   -0.941       
+Wolbachia+ -0.010 -0.299
+
+$Pgm_T6_Gibert_lmer_lat
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: PercT6_asin ~ Latitude + Wolbachia + (1 | Line:Population)
+   Data: filter(PGM, Supervisor.PI == "Gibert")
+
+REML criterion at convergence: -870.1
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-4.5727 -0.5797  0.0499  0.6273  3.5547 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 0.02432  0.1559  
+ Residual                    0.02644  0.1626  
+Number of obs: 1561, groups:  Line:Population, 150
+
+Fixed effects:
+              Estimate Std. Error         df t value Pr(>|t|)    
+(Intercept)   0.757344   0.092061 147.611637   8.227 9.23e-14 ***
+Latitude      0.001688   0.001932 147.492611   0.874    0.384    
+Wolbachia+   -0.045422   0.036102 148.387481  -1.258    0.210    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Latitd
+Latitude   -0.941       
+Wolbachia+ -0.010 -0.299
+
+$Pgm_Total_Gibert_lmer_lat
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: TotalPerc_asin ~ Latitude + Wolbachia + (1 | Line:Population)
+   Data: filter(PGM, Supervisor.PI == "Gibert")
+
+REML criterion at convergence: -2705.2
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-4.0728 -0.6494 -0.0263  0.6268  4.0305 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 0.004276 0.06539 
+ Residual                    0.008562 0.09253 
+Number of obs: 1561, groups:  Line:Population, 150
+
+Fixed effects:
+              Estimate Std. Error         df t value Pr(>|t|)    
+(Intercept)  6.242e-01  4.016e-02  1.476e+02  15.544   <2e-16 ***
+Latitude     3.331e-04  8.427e-04  1.474e+02   0.395    0.693    
+Wolbachia+  -2.365e-02  1.576e-02  1.489e+02  -1.500    0.136    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Latitd
+Latitude   -0.941       
+Wolbachia+ -0.010 -0.299
+
+$Pgm_T4_Schmidt_lmer_lat
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: PercT4_asin ~ Latitude + Wolbachia + (1 | Line:Population)
+   Data: filter(PGM, Supervisor.PI == "Schmidt")
+
+REML criterion at convergence: -1864.1
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-4.9219 -0.5831  0.0075  0.5280  8.2193 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 0.009051 0.09513 
+ Residual                    0.011706 0.10819 
+Number of obs: 1358, groups:  Line:Population, 141
+
+Fixed effects:
+              Estimate Std. Error         df t value Pr(>|t|)    
+(Intercept)  5.580e-01  5.847e-02  1.375e+02   9.545   <2e-16 ***
+Latitude    -7.595e-04  1.233e-03  1.371e+02  -0.616    0.539    
+Wolbachia+  -2.427e-02  2.329e-02  1.377e+02  -1.042    0.299    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Latitd
+Latitude   -0.940       
+Wolbachia+  0.011 -0.322
+
+$Pgm_T5_Schmidt_lmer_lat
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: PercT5_asin ~ Latitude + Wolbachia + (1 | Line:Population)
+   Data: filter(PGM, Supervisor.PI == "Schmidt")
+
+REML criterion at convergence: -176.4
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.7693 -0.5588 -0.0573  0.5574  4.2966 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 0.05383  0.2320  
+ Residual                    0.03851  0.1962  
+Number of obs: 1358, groups:  Line:Population, 141
+
+Fixed effects:
+              Estimate Std. Error         df t value Pr(>|t|)    
+(Intercept)   0.755556   0.138678 138.283227   5.448 2.26e-07 ***
+Latitude      0.001781   0.002926 138.006260   0.609    0.544    
+Wolbachia+   -0.050803   0.055243 138.421737  -0.920    0.359    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Latitd
+Latitude   -0.940       
+Wolbachia+  0.012 -0.322
+
+$Pgm_T6_Schmidt_lmer_lat
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: PercT6_asin ~ Latitude + Wolbachia + (1 | Line:Population)
+   Data: filter(PGM, Supervisor.PI == "Schmidt")
+
+REML criterion at convergence: 760.7
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-2.9222 -0.5963 -0.0191  0.6264  3.5963 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 0.08540  0.2922  
+ Residual                    0.07876  0.2806  
+Number of obs: 1358, groups:  Line:Population, 141
+
+Fixed effects:
+              Estimate Std. Error         df t value Pr(>|t|)   
+(Intercept)  5.739e-01  1.764e-01  1.384e+02   3.253  0.00144 **
+Latitude     1.272e-04  3.722e-03  1.380e+02   0.034  0.97278   
+Wolbachia+  -2.146e-02  7.029e-02  1.385e+02  -0.305  0.76064   
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Latitd
+Latitude   -0.940       
+Wolbachia+  0.012 -0.322
+
+$Pgm_Total_Schmidt_lmer_lat
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: TotalPerc_asin ~ Latitude + Wolbachia + (1 | Line:Population)
+   Data: filter(PGM, Supervisor.PI == "Schmidt")
+
+REML criterion at convergence: -1108.3
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.9151 -0.6201 -0.0589  0.6140  3.7354 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 0.02742  0.1656  
+ Residual                    0.01933  0.1390  
+Number of obs: 1358, groups:  Line:Population, 141
+
+Fixed effects:
+              Estimate Std. Error         df t value Pr(>|t|)    
+(Intercept)  6.437e-01  9.893e-02  1.381e+02   6.507 1.31e-09 ***
+Latitude     2.615e-04  2.087e-03  1.378e+02   0.125    0.900    
+Wolbachia+  -2.614e-02  3.941e-02  1.382e+02  -0.663    0.508    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Latitd
+Latitude   -0.940       
+Wolbachia+  0.012 -0.322
+

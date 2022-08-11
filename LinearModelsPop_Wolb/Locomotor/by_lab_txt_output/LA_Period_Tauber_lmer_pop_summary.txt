@@ -1,0 +1,46 @@
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: Period ~ Population + Wolbachia + (1 | Line:Population)
+   Data: LA
+
+REML criterion at convergence: 2268.9
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.3733 -0.4752 -0.0345  0.3382  4.4271 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 0.000    0.000   
+ Residual                    3.491    1.869   
+Number of obs: 555, groups:  Line:Population, 84
+
+Fixed effects:
+              Estimate Std. Error        df t value Pr(>|t|)    
+(Intercept)   24.42464    0.31722 545.00000  76.997   <2e-16 ***
+PopulationGI  -0.85493    0.35095 545.00000  -2.436   0.0152 *  
+PopulationKA   0.59867    0.32341 545.00000   1.851   0.0647 .  
+PopulationMA  -0.03659    0.30910 545.00000  -0.118   0.9058    
+PopulationMU  -0.51676    0.34715 545.00000  -1.489   0.1372    
+PopulationRE  -0.10955    0.37784 545.00000  -0.290   0.7720    
+PopulationUM   0.22557    0.33085 545.00000   0.682   0.4957    
+PopulationVA  -0.05826    0.39785 545.00000  -0.146   0.8836    
+PopulationYE  -0.23865    0.29620 545.00000  -0.806   0.4208    
+Wolbachia+    -0.10013    0.22683 545.00000  -0.441   0.6591    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+            (Intr) PpltGI PpltKA PpltMA PpltMU PpltRE PpltUM PpltVA PpltYE
+PopulatinGI -0.639                                                        
+PopulatinKA -0.479  0.433                                                 
+PopulatinMA -0.653  0.512  0.492                                          
+PopulatinMU -0.466  0.411  0.438  0.464                                   
+PopulatinRE -0.561  0.429  0.402  0.466  0.381                            
+PopulatinUM -0.696  0.511  0.460  0.548  0.437  0.460                     
+PopulatinVA -0.390  0.352  0.382  0.400  0.356  0.327  0.374              
+PopulatinYE -0.583  0.496  0.513  0.555  0.480  0.457  0.528  0.417       
+Wolbachia+  -0.715  0.275  0.000  0.212  0.027  0.210  0.319  0.000  0.083
+optimizer (nloptwrap) convergence code: 0 (OK)
+boundary (singular) fit: see help('isSingular')
+

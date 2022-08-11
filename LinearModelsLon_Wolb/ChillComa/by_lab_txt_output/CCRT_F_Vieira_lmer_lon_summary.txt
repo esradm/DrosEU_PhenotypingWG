@@ -1,0 +1,38 @@
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: CCRT_seconds ~ Longitude + Wolbachia + (1 | Line:Population) +  
+    (1 | Batch) + (1 | ReplicateVial:Line)
+   Data: filter(CCRT, Censor == "0" & Supervisor.PI == "Vieira" & Sex ==  
+    "F")
+
+REML criterion at convergence: 13218.3
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-2.1691 -0.5832 -0.1512  0.3540  4.8500 
+
+Random effects:
+ Groups             Name        Variance Std.Dev.
+ ReplicateVial:Line (Intercept)    193.8  13.92  
+ Line:Population    (Intercept)  31878.7 178.55  
+ Batch              (Intercept)  17197.4 131.14  
+ Residual                       189753.0 435.61  
+Number of obs: 875, groups:  
+ReplicateVial:Line, 148; Line:Population, 148; Batch, 27
+
+Fixed effects:
+            Estimate Std. Error       df t value Pr(>|t|)    
+(Intercept) 1432.456     61.847  105.162  23.161   <2e-16 ***
+Longitude      3.163      2.076  110.193   1.524    0.130    
+Wolbachia+   -15.812     57.740  138.556  -0.274    0.785    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Longtd
+Longitude  -0.403       
+Wolbachia+ -0.618 -0.242
+optimizer (nloptwrap) convergence code: 0 (OK)
+unable to evaluate scaled gradient
+Model failed to converge: degenerate  Hessian with 1 negative eigenvalues
+

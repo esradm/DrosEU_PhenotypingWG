@@ -1,0 +1,4 @@
+Type III Analysis of Variance Table with Satterthwaite's method
+          Sum Sq Mean Sq NumDF  DenDF F value Pr(>F)
+Latitude  4109.9  4109.9     1 13.554  1.4798 0.2446
+Wolbachia 1939.3  1939.3     1 16.782  0.6983 0.4151

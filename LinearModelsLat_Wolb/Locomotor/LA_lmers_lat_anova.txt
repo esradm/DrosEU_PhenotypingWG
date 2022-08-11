@@ -1,0 +1,38 @@
+$LA_NDlog2_Tauber_lmer_lat
+Type III Analysis of Variance Table with Satterthwaite's method
+           Sum Sq Mean Sq NumDF  DenDF F value  Pr(>F)  
+Latitude  0.87245 0.87245     1 77.181  3.9570 0.05022 .
+Wolbachia 0.30876 0.30876     1 82.481  1.4004 0.24005  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+$LA_Period_Tauber_lmer_lat
+Type III Analysis of Variance Table with Satterthwaite's method
+           Sum Sq Mean Sq NumDF   DenDF F value  Pr(>F)  
+Latitude  19.4009 19.4009     1  89.081  5.5627 0.02053 *
+Wolbachia  1.1027  1.1027     1 104.834  0.3162 0.57511  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+$LA_CircPhase_Tauber_lmer_lat
+Type III Analysis of Variance Table with Satterthwaite's method
+          Sum Sq Mean Sq NumDF  DenDF F value Pr(>F)
+Latitude  119.85  119.85     1 70.008  2.6622 0.1072
+Wolbachia 118.09  118.09     1 81.807  2.6230 0.1092
+
+$LA_AbsPhase_Tauber_lm_lat
+Analysis of Variance Table
+
+Response: AbsPhase
+           Df  Sum Sq Mean Sq F value Pr(>F)
+Latitude    1    24.6  24.616  1.2987  0.255
+Residuals 542 10273.3  18.954               
+
+$LA_Activity_Tauber_lmer_lat
+Type III Analysis of Variance Table with Satterthwaite's method
+          Sum Sq Mean Sq NumDF  DenDF F value  Pr(>F)  
+Latitude  242.04  242.04     1 71.372  3.5504 0.06360 .
+Wolbachia 232.65  232.65     1 76.466  3.4127 0.06857 .
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+

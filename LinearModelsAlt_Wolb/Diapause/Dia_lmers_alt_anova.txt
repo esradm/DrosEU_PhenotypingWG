@@ -1,0 +1,22 @@
+$Dia_Bergland_lmer_alt
+Type III Analysis of Variance Table with Satterthwaite's method
+           Sum Sq Mean Sq NumDF  DenDF F value  Pr(>F)  
+Altitude  0.25741 0.25741     1 141.09  3.9996 0.04743 *
+Wolbachia 0.00014 0.00014     1 127.33  0.0022 0.96283  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+$Dia_Flatt_lm_alt
+Analysis of Variance Table
+
+Response: Prop_Max_Stage9_asin
+           Df Sum Sq  Mean Sq F value Pr(>F)
+Altitude    1 0.0050 0.005042  0.1449  0.704
+Residuals 144 5.0098 0.034790               
+
+$Dia_Schlotterer_lmer_alt
+Type III Analysis of Variance Table with Satterthwaite's method
+             Sum Sq   Mean Sq NumDF  DenDF F value Pr(>F)
+Altitude  0.0064445 0.0064445     1 134.96  0.1349  0.714
+Wolbachia 0.0057589 0.0057589     1 134.83  0.1206  0.729
+

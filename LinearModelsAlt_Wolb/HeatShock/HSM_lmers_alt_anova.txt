@@ -1,0 +1,26 @@
+$HSM_F_Parsch_lmer_alt
+Type III Analysis of Variance Table with Satterthwaite's method
+           Sum Sq Mean Sq NumDF  DenDF F value  Pr(>F)  
+Altitude    877.2   877.2     1 120.86  0.1457 0.70332  
+Wolbachia 28573.7 28573.7     1 117.51  4.7469 0.03135 *
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+$HSM_F_Vieira_lmer_alt
+Type III Analysis of Variance Table with Satterthwaite's method
+          Sum Sq Mean Sq NumDF   DenDF F value Pr(>F)
+Altitude  3336.1  3336.1     1  75.978  1.0988 0.2979
+Wolbachia 2556.9  2556.9     1 144.124  0.8421 0.3603
+
+$HSM_M_Parsch_lmer_alt
+Type III Analysis of Variance Table with Satterthwaite's method
+          Sum Sq Mean Sq NumDF  DenDF F value Pr(>F)
+Altitude    6165    6165     1 118.85  1.2786 0.2604
+Wolbachia  10148   10148     1 118.78  2.1047 0.1495
+
+$HSM_M_Vieira_lmer_alt
+Type III Analysis of Variance Table with Satterthwaite's method
+          Sum Sq Mean Sq NumDF   DenDF F value Pr(>F)
+Altitude  3102.7  3102.7     1  85.189  1.0555 0.3072
+Wolbachia 4591.1  4591.1     1 138.043  1.5618 0.2135
+

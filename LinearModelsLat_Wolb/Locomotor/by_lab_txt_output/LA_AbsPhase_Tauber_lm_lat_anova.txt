@@ -1,0 +1,6 @@
+Analysis of Variance Table
+
+Response: AbsPhase
+           Df  Sum Sq Mean Sq F value Pr(>F)
+Latitude    1    24.6  24.616  1.2987  0.255
+Residuals 542 10273.3  18.954               

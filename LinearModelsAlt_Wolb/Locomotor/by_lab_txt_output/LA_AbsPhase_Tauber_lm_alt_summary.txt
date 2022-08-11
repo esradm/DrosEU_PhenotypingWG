@@ -1,0 +1,20 @@
+
+Call:
+lm(formula = AbsPhase ~ Altitude, data = LA)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-12.5210  -0.2279  -0.0136   0.1388  16.4864 
+
+Coefficients:
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  1.253e+01  3.154e-01   39.72   <2e-16 ***
+Altitude    -8.572e-05  7.809e-04   -0.11    0.913    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 4.359 on 542 degrees of freedom
+  (11 Beobachtungen als fehlend gelöscht)
+Multiple R-squared:  2.224e-05,	Adjusted R-squared:  -0.001823 
+F-statistic: 0.01205 on 1 and 542 DF,  p-value: 0.9126
+

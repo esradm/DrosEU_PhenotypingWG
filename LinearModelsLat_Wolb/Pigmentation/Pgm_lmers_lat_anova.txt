@@ -1,0 +1,78 @@
+$Pgm_T4_Abbott_lmer_lat
+Type III Analysis of Variance Table with Satterthwaite's method
+            Sum Sq  Mean Sq NumDF  DenDF F value   Pr(>F)   
+Latitude  0.066394 0.066394     1 140.95 10.6356 0.001391 **
+Wolbachia 0.008825 0.008825     1 141.38  1.4137 0.236428   
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+$Pgm_T5_Abbott_lmer_lat
+Type III Analysis of Variance Table with Satterthwaite's method
+             Sum Sq   Mean Sq NumDF  DenDF F value  Pr(>F)  
+Latitude  0.0246624 0.0246624     1 140.60  3.9067 0.05005 .
+Wolbachia 0.0016122 0.0016122     1 141.19  0.2554 0.61409  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+$Pgm_T6_Abbott_lmer_lat
+Type III Analysis of Variance Table with Satterthwaite's method
+              Sum Sq    Mean Sq NumDF  DenDF F value Pr(>F)
+Latitude  0.00050453 0.00050453     1 140.75  0.0223 0.8814
+Wolbachia 0.00058470 0.00058470     1 141.22  0.0259 0.8724
+
+$Pgm_Total_Abbott_lmer_lat
+Type III Analysis of Variance Table with Satterthwaite's method
+             Sum Sq   Mean Sq NumDF  DenDF F value  Pr(>F)  
+Latitude  0.0167851 0.0167851     1 140.61  3.1351 0.07879 .
+Wolbachia 0.0015248 0.0015248     1 141.06  0.2848 0.59442  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+$Pgm_T4_Gibert_lmer_lat
+Type III Analysis of Variance Table with Satterthwaite's method
+             Sum Sq   Mean Sq NumDF  DenDF F value Pr(>F)
+Latitude  0.0032922 0.0032922     1 146.05  0.2439 0.6221
+Wolbachia 0.0022968 0.0022968     1 148.52  0.1702 0.6805
+
+$Pgm_T5_Gibert_lmer_lat
+Type III Analysis of Variance Table with Satterthwaite's method
+            Sum Sq  Mean Sq NumDF  DenDF F value Pr(>F)
+Latitude  0.000306 0.000306     1 146.79  0.0245 0.8760
+Wolbachia 0.033243 0.033243     1 148.50  2.6554 0.1053
+
+$Pgm_T6_Gibert_lmer_lat
+Type III Analysis of Variance Table with Satterthwaite's method
+            Sum Sq  Mean Sq NumDF  DenDF F value Pr(>F)
+Latitude  0.020182 0.020182     1 147.49  0.7632 0.3837
+Wolbachia 0.041859 0.041859     1 148.39  1.5830 0.2103
+
+$Pgm_Total_Gibert_lmer_lat
+Type III Analysis of Variance Table with Satterthwaite's method
+             Sum Sq   Mean Sq NumDF  DenDF F value Pr(>F)
+Latitude  0.0013382 0.0013382     1 147.44  0.1563 0.6932
+Wolbachia 0.0192707 0.0192707     1 148.90  2.2507 0.1357
+
+$Pgm_T4_Schmidt_lmer_lat
+Type III Analysis of Variance Table with Satterthwaite's method
+             Sum Sq   Mean Sq NumDF  DenDF F value Pr(>F)
+Latitude  0.0044414 0.0044414     1 137.08  0.3794 0.5389
+Wolbachia 0.0127097 0.0127097     1 137.72  1.0857 0.2992
+
+$Pgm_T5_Schmidt_lmer_lat
+Type III Analysis of Variance Table with Satterthwaite's method
+            Sum Sq  Mean Sq NumDF  DenDF F value Pr(>F)
+Latitude  0.014279 0.014279     1 138.01  0.3708 0.5436
+Wolbachia 0.032569 0.032569     1 138.42  0.8457 0.3594
+
+$Pgm_T6_Schmidt_lmer_lat
+Type III Analysis of Variance Table with Satterthwaite's method
+             Sum Sq   Mean Sq NumDF  DenDF F value Pr(>F)
+Latitude  0.0000920 0.0000920     1 138.02  0.0012 0.9728
+Wolbachia 0.0073381 0.0073381     1 138.53  0.0932 0.7606
+
+$Pgm_Total_Schmidt_lmer_lat
+Type III Analysis of Variance Table with Satterthwaite's method
+             Sum Sq   Mean Sq NumDF  DenDF F value Pr(>F)
+Latitude  0.0003035 0.0003035     1 137.82  0.0157 0.9005
+Wolbachia 0.0085093 0.0085093     1 138.23  0.4402 0.5082
+
