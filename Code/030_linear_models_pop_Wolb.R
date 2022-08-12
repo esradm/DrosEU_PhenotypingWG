@@ -824,23 +824,23 @@ for (m in 1:length(models)){
 
 ######### output all models estimates as a global list
 ######### estimates are the fitted Population values and their corresponding SE
-
-all_models_estimates <- list()
-for (trait in 1:length(models)){
-  f <- models[trait]
-  n <- str_match(f, '([^/]+)(?:/[^/]+){0}$')[,1]
-  n <- sub("_lmers_pop.rds", "_lmer", n)
-  n <- sub("_glmers_pop.rds", "_glmer", n)
-  n <- tolower(n)
-  m <- readRDS(f)
-  e <- lapply(m, getEstSE)
-  all_models_estimates[[trait]] <- combineEstSE(e)
-  names(all_models_estimates)[trait] <- n
-}
-
-saveRDS(all_models_estimates, file = file.path(lmer_dir, "all_models_pop_estimates_list.rds"))
-write.csv(bind_rows(all_models_estimates), file = file.path(lmer_dir, "all_models_pop_estimates_list.csv"), row.names = F)
-
+# 
+# all_models_estimates <- list()
+# for (trait in 1:length(models)){
+#   f <- models[trait]
+#   n <- str_match(f, '([^/]+)(?:/[^/]+){0}$')[,1]
+#   n <- sub("_lmers_pop.rds", "_lmer", n)
+#   n <- sub("_glmers_pop.rds", "_glmer", n)
+#   n <- tolower(n)
+#   m <- readRDS(f)
+#   e <- lapply(m, getEstSE)
+#   all_models_estimates[[trait]] <- combineEstSE(e)
+#   names(all_models_estimates)[trait] <- n
+# }
+#
+# saveRDS(all_models_estimates, file = file.path(lmer_dir, "all_models_pop_estimates_list.rds"))
+# write.csv(bind_rows(all_models_estimates), file = file.path(lmer_dir, "all_models_pop_estimates_list.csv"), row.names = F)
+#
 
 
 ######### output all models estimates by trait
@@ -864,6 +864,25 @@ all_glmers_pop_anova <- readRDS(file.path(lmer_dir, "all_glmers_pop_anova_list.r
 all_pop_anova <- c(all_lmers_pop_anova, all_glmers_pop_anova)
 
 pvalues <- combinePValues(all_pop_anova)
+pvalues.Wolb <- combinePValuesWolb(all_pop_anova)
 
 saveRDS(pvalues, file = file.path(lmer_dir, "all_models_pop_pvalues.rds"))
 write.csv(pvalues, file = file.path(lmer_dir, "all_models_pop_pvalues.csv"), row.names = F)
+
+saveRDS(pvalues.Wolb, file = file.path(lmer_dir, "all_models_pop_pvalues_Wolb.rds"))
+write.csv(pvalues.Wolb, file = file.path(lmer_dir, "all_models_pop_pvalues_Wolb.csv"), row.names = F)
+
+##### Plot Wolbachia p-values; dashed blue line is 0.05 alpha-TH
+ggplot(pvalues.Wolb, aes(x=-log10(P),y=Lab))+
+  geom_bar(stat="identity")+
+  facet_grid(Sex~Trait,
+    scales="free_y",
+    space="free")+
+  geom_vline(xintercept=-log10(0.05),
+    linetype="dashed",
+    color="blue")+
+  theme_bw()
+
+ggsave(file = file.path(lmer_dir, "all_models_pop_pvalues_Wolb.pdf"),
+  width=30,
+  height=6)

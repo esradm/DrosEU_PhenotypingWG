@@ -554,7 +554,7 @@ saveRDS(Dia_lmers_lon, file = file.path(lmer_dir, out_dir, "Dia_lmers_lon.rds"))
 
 dia <- read.csv("Data/MasterSheets_May22_git/DIA_MasterSheet_Feb22.csv")
 
-dia <- group_by(dia, Supervisor.PI, Diet, Batch, Population, Line) %>%
+dia <- group_by(dia, Supervisor.PI, Diet, Batch, Population, Line,Longitude) %>%
   summarise(Prop_Max_Stage9 = mean(MostAdvancedStage <= 9 & NumberOfEggs == 0),
             Prop_Max_Stage9_asin = asin(sqrt(Prop_Max_Stage9)),
             n = n())
@@ -562,14 +562,16 @@ dia <- group_by(dia, Supervisor.PI, Diet, Batch, Population, Line) %>%
 dia <- dia %>%
   inner_join(Wolb.cons,by=c("Line"))
 
-
 Dia_glmers_lon <- foreach(pi = unique(dia$Supervisor.PI)) %do% {
-  m1 <- glmer(Prop_Max_Stage9 ~ Longitude + Wolbachia +(1|Line:Population), weights = n, family = binomial(), data = filter(dia, Supervisor.PI == pi))
-  m2 <- glmer(Prop_Max_Stage9 ~ + (1|Line:Population), weights = n, family = binomial(), data = filter(dia, Supervisor.PI == pi))
-  a <- anova(m1, m2)
-  l <- list(m1, a)
-  names(l) <- c(paste0("Dia_", pi, "_glmer_lon"), paste0("Dia_", pi, "_glmer_lon_anova"))
+  full <- glmer(Prop_Max_Stage9 ~ Longitude + Wolbachia +(1|Line:Population), weights = n, family = binomial(), data = filter(dia, Supervisor.PI == pi))
+  Wolb <- glmer(Prop_Max_Stage9 ~ Longitude + (1|Line:Population), weights = n, family = binomial(), data = filter(dia, Supervisor.PI == pi))
+  Lon <- glmer(Prop_Max_Stage9 ~ Wolbachia + (1|Line:Population), weights = n, family = binomial(), data = filter(dia, Supervisor.PI == pi))
+  Wolb.t <- anova(full, Wolb)
+  Lon.t <- anova(full, Lon)
+  l <- list(full, Wolb.t,Lon.t)
+  names(l) <- c(paste0("Dia_", pi, "_glmer_Lon"), paste0("Dia_", pi, "_glmer_Lon_anova"))
   l }
+
 
 Dia_glmers_lon <- unlist(Dia_glmers_lon, recursive=FALSE)
 Dia_glmers_lon_anova <- Dia_glmers_lon[grep("anova", names(Dia_glmers_lon))]
@@ -818,22 +820,22 @@ for (m in 1:length(models)){
 ######### output all models estimates as a global list
 ######### estimates are the fitted Population values and their corresponding SE
 
-all_models_estimates <- list()
-for (trait in 1:length(models)){
-  f <- models[trait]
-  n <- str_match(f, '([^/]+)(?:/[^/]+){0}$')[,1]
-  n <- sub("_lmers_lon.rds", "_lmer", n)
-  n <- sub("_glmers_lon.rds", "_glmer", n)
-  n <- tolower(n)
-  m <- readRDS(f)
-  e <- lapply(m, getEstSE)
-  all_models_estimates[[trait]] <- combineEstSE(e)
-  names(all_models_estimates)[trait] <- n
-}
-
-saveRDS(all_models_estimates, file = file.path(lmer_dir, "all_models_lon_estimates_list.rds"))
-write.csv(bind_rows(all_models_estimates), file = file.path(lmer_dir, "all_models_lon_estimates_list.csv"), row.names = F)
-
+# all_models_estimates <- list()
+# for (trait in 1:length(models)){
+#   f <- models[trait]
+#   n <- str_match(f, '([^/]+)(?:/[^/]+){0}$')[,1]
+#   n <- sub("_lmers_lon.rds", "_lmer", n)
+#   n <- sub("_glmers_lon.rds", "_glmer", n)
+#   n <- tolower(n)
+#   m <- readRDS(f)
+#   e <- lapply(m, getEstSE)
+#   all_models_estimates[[trait]] <- combineEstSE(e)
+#   names(all_models_estimates)[trait] <- n
+# }
+#
+# saveRDS(all_models_estimates, file = file.path(lmer_dir, "all_models_lon_estimates_list.rds"))
+# write.csv(bind_rows(all_models_estimates), file = file.path(lmer_dir, "all_models_lon_estimates_list.csv"), row.names = F)
+#
 
 
 ######### output all models estimates by trait

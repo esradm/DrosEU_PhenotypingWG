@@ -554,7 +554,7 @@ saveRDS(Dia_lmers_lat, file = file.path(lmer_dir, out_dir, "Dia_lmers_lat.rds"))
 
 dia <- read.csv("Data/MasterSheets_May22_git/DIA_MasterSheet_Feb22.csv")
 
-dia <- group_by(dia, Supervisor.PI, Diet, Batch, Population, Line) %>%
+dia <- group_by(dia, Supervisor.PI, Diet, Batch, Population, Line,Latitude) %>%
   summarise(Prop_Max_Stage9 = mean(MostAdvancedStage <= 9 & NumberOfEggs == 0),
             Prop_Max_Stage9_asin = asin(sqrt(Prop_Max_Stage9)),
             n = n())
@@ -562,14 +562,16 @@ dia <- group_by(dia, Supervisor.PI, Diet, Batch, Population, Line) %>%
 dia <- dia %>%
   inner_join(Wolb.cons,by=c("Line"))
 
-
 Dia_glmers_lat <- foreach(pi = unique(dia$Supervisor.PI)) %do% {
-  m1 <- glmer(Prop_Max_Stage9 ~ Latitude + Wolbachia +(1|Line:Population), weights = n, family = binomial(), data = filter(dia, Supervisor.PI == pi))
-  m2 <- glmer(Prop_Max_Stage9 ~ + (1|Line:Population), weights = n, family = binomial(), data = filter(dia, Supervisor.PI == pi))
-  a <- anova(m1, m2)
-  l <- list(m1, a)
+  full <- glmer(Prop_Max_Stage9 ~ Latitude + Wolbachia +(1|Line:Population), weights = n, family = binomial(), data = filter(dia, Supervisor.PI == pi))
+  Wolb <- glmer(Prop_Max_Stage9 ~ Latitude + (1|Line:Population), weights = n, family = binomial(), data = filter(dia, Supervisor.PI == pi))
+  lat <- glmer(Prop_Max_Stage9 ~ Wolbachia + (1|Line:Population), weights = n, family = binomial(), data = filter(dia, Supervisor.PI == pi))
+  Wolb.t <- anova(full, Wolb)
+  lat.t <- anova(full, lat)
+  l <- list(full, Wolb.t,lat.t)
   names(l) <- c(paste0("Dia_", pi, "_glmer_lat"), paste0("Dia_", pi, "_glmer_lat_anova"))
   l }
+
 
 Dia_glmers_lat <- unlist(Dia_glmers_lat, recursive=FALSE)
 Dia_glmers_lat_anova <- Dia_glmers_lat[grep("anova", names(Dia_glmers_lat))]
@@ -818,22 +820,21 @@ for (m in 1:length(models)){
 ######### output all models estimates as a global list
 ######### estimates are the fitted Population values and their corresponding SE
 
-all_models_estimates <- list()
-for (trait in 1:length(models)){
-  f <- models[trait]
-  n <- str_match(f, '([^/]+)(?:/[^/]+){0}$')[,1]
-  n <- sub("_lmers_lat.rds", "_lmer", n)
-  n <- sub("_glmers_lat.rds", "_glmer", n)
-  n <- tolower(n)
-  m <- readRDS(f)
-  e <- lapply(m, getEstSE)
-  all_models_estimates[[trait]] <- combineEstSE(e)
-  names(all_models_estimates)[trait] <- n
-}
-
-saveRDS(all_models_estimates, file = file.path(lmer_dir, "all_models_lat_estimates_list.rds"))
-write.csv(bind_rows(all_models_estimates), file = file.path(lmer_dir, "all_models_lat_estimates_list.csv"), row.names = F)
-
+# all_models_estimates <- list()
+# for (trait in 1:length(models)){
+#   f <- models[trait]
+#   n <- str_match(f, '([^/]+)(?:/[^/]+){0}$')[,1]
+#   n <- sub("_lmers_lat.rds", "_lmer", n)
+#   n <- sub("_glmers_lat.rds", "_glmer", n)
+#   n <- tolower(n)
+#   m <- readRDS(f)
+#   e <- lapply(m, getEstSE)
+#   all_models_estimates[[trait]] <- combineEstSE(e)
+#   names(all_models_estimates)[trait] <- n
+# }
+#
+# saveRDS(all_models_estimates, file = file.path(lmer_dir, "all_models_lat_estimates_list.rds"))
+# write.csv(bind_rows(all_models_estimates), file = file.path(lmer_dir, "all_models_lat_estimates_list.csv"), row.names = F)
 
 
 ######### output all models estimates by trait
@@ -853,10 +854,29 @@ for (i in 1:length(models)){
 ######### output all models P values
 
 all_lmers_lat_anova <- readRDS(file.path(lmer_dir, "all_lmers_lat_anova_list.rds"))
-#all_glmers_lat_anova <- readRDS(file.path(lmer_dir, "all_glmers_lat_anova_list.rds"))
-all_lat_anova <- c(all_lmers_lat_anova)#, all_glmers_lat_anova)
+all_glmers_lat_anova <- readRDS(file.path(lmer_dir, "all_glmers_lat_anova_list.rds"))
+all_lat_anova <- c(all_lmers_lat_anova, all_glmers_lat_anova)
 
 pvalues <- combinePValues(all_lat_anova)
+pvalues.Wolb <- combinePValuesWolb(all_lat_anova)
 
 saveRDS(pvalues, file = file.path(lmer_dir, "all_models_lat_pvalues.rds"))
 write.csv(pvalues, file = file.path(lmer_dir, "all_models_lat_pvalues.csv"), row.names = F)
+
+saveRDS(pvalues.Wolb, file = file.path(lmer_dir, "all_models_lat_pvalues_Wolb.rds"))
+write.csv(pvalues.Wolb, file = file.path(lmer_dir, "all_models_lat_pvalues_Wolb.csv"), row.names = F)
+
+##### Plot Wolbachia p-values; dashed blue line is 0.05 alpha-TH
+ggplot(pvalues.Wolb, aes(x=-log10(P),y=Lab))+
+  geom_bar(stat="identity")+
+  facet_grid(Sex~Trait,
+    scales="free_y",
+    space="free")+
+  geom_vline(xintercept=-log10(0.05),
+    linetype="dashed",
+    color="blue")+
+  theme_bw()
+
+ggsave(file = file.path(lmer_dir, "all_models_lat_pvalues_Wolb.pdf"),
+  width=20,
+  height=6)

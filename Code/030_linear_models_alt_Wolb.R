@@ -554,7 +554,7 @@ saveRDS(Dia_lmers_alt, file = file.path(lmer_dir, out_dir, "Dia_lmers_alt.rds"))
 
 dia <- read.csv("Data/MasterSheets_May22_git/DIA_MasterSheet_Feb22.csv")
 
-dia <- group_by(dia, Supervisor.PI, Diet, Batch, Population, Line) %>%
+dia <- group_by(dia, Supervisor.PI, Diet, Batch, Population, Line,Altitude) %>%
   summarise(Prop_Max_Stage9 = mean(MostAdvancedStage <= 9 & NumberOfEggs == 0),
             Prop_Max_Stage9_asin = asin(sqrt(Prop_Max_Stage9)),
             n = n())
@@ -562,12 +562,13 @@ dia <- group_by(dia, Supervisor.PI, Diet, Batch, Population, Line) %>%
 dia <- dia %>%
   inner_join(Wolb.cons,by=c("Line"))
 
-
 Dia_glmers_alt <- foreach(pi = unique(dia$Supervisor.PI)) %do% {
-  m1 <- glmer(Prop_Max_Stage9 ~ Altitude + Wolbachia +(1|Line:Population), weights = n, family = binomial(), data = filter(dia, Supervisor.PI == pi))
-  m2 <- glmer(Prop_Max_Stage9 ~ + (1|Line:Population), weights = n, family = binomial(), data = filter(dia, Supervisor.PI == pi))
-  a <- anova(m1, m2)
-  l <- list(m1, a)
+  full <- glmer(Prop_Max_Stage9 ~ Altitude + Wolbachia +(1|Line:Population), weights = n, family = binomial(), data = filter(dia, Supervisor.PI == pi))
+  Wolb <- glmer(Prop_Max_Stage9 ~ Altitude + (1|Line:Population), weights = n, family = binomial(), data = filter(dia, Supervisor.PI == pi))
+  alt <- glmer(Prop_Max_Stage9 ~ Wolbachia + (1|Line:Population), weights = n, family = binomial(), data = filter(dia, Supervisor.PI == pi))
+  Wolb.t <- anova(full, Wolb)
+  alt.t <- anova(full, alt)
+  l <- list(full, Wolb.t,alt.t)
   names(l) <- c(paste0("Dia_", pi, "_glmer_alt"), paste0("Dia_", pi, "_glmer_alt_anova"))
   l }
 
@@ -853,10 +854,29 @@ for (i in 1:length(models)){
 ######### output all models P values
 
 all_lmers_alt_anova <- readRDS(file.path(lmer_dir, "all_lmers_alt_anova_list.rds"))
-#all_glmers_alt_anova <- readRDS(file.path(lmer_dir, "all_glmers_alt_anova_list.rds"))
-all_alt_anova <- c(all_lmers_alt_anova)#, all_glmers_alt_anova)
+all_glmers_alt_anova <- readRDS(file.path(lmer_dir, "all_glmers_alt_anova_list.rds"))
+all_alt_anova <- c(all_lmers_alt_anova, all_glmers_alt_anova)
 
 pvalues <- combinePValues(all_alt_anova)
+pvalues.Wolb <- combinePValuesWolb(all_alt_anova)
 
 saveRDS(pvalues, file = file.path(lmer_dir, "all_models_alt_pvalues.rds"))
 write.csv(pvalues, file = file.path(lmer_dir, "all_models_alt_pvalues.csv"), row.names = F)
+
+saveRDS(pvalues.Wolb, file = file.path(lmer_dir, "all_models_alt_pvalues_Wolb.rds"))
+write.csv(pvalues.Wolb, file = file.path(lmer_dir, "all_models_alt_pvalues_Wolb.csv"), row.names = F)
+
+##### Plot Wolbachia p-values; dashed blue line is 0.05 alpha-TH
+ggplot(pvalues.Wolb, aes(x=-log10(P),y=Lab))+
+  geom_bar(stat="identity")+
+  facet_grid(Sex~Trait,
+    scales="free_y",
+    space="free")+
+  geom_vline(xintercept=-log10(0.05),
+    linetype="dashed",
+    color="blue")+
+  theme_bw()
+
+ggsave(file = file.path(lmer_dir, "all_models_alt_pvalues_Wolb.pdf"),
+  width=20,
+  height=6)
