@@ -155,6 +155,7 @@ combinePValues <- function(x) {
                          Sex = info[length(info)-3],
                          Model = info[length(info)-1],
                          Predictor = "Wolbachia")
+      ## skip glmers for now
       if(info$Model == "lmer"){
       info$P <- x[[a]]$P[2]
       if (!info$Sex %in% c("F", "M")) info$Sex <- "NA"
