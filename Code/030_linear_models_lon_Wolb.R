@@ -855,10 +855,29 @@ for (i in 1:length(models)){
 ######### output all models P values
 
 all_lmers_lon_anova <- readRDS(file.path(lmer_dir, "all_lmers_lon_anova_list.rds"))
-#all_glmers_lon_anova <- readRDS(file.path(lmer_dir, "all_glmers_lon_anova_list.rds"))
-all_lon_anova <- c(all_lmers_lon_anova)#, all_glmers_lon_anova)
+all_glmers_lon_anova <- readRDS(file.path(lmer_dir, "all_glmers_lon_anova_list.rds"))
+all_lon_anova <- c(all_lmers_lon_anova, all_glmers_lon_anova)
 
 pvalues <- combinePValues(all_lon_anova)
+pvalues.Wolb <- combinePValuesWolb(all_lon_anova)
 
 saveRDS(pvalues, file = file.path(lmer_dir, "all_models_lon_pvalues.rds"))
 write.csv(pvalues, file = file.path(lmer_dir, "all_models_lon_pvalues.csv"), row.names = F)
+
+saveRDS(pvalues.Wolb, file = file.path(lmer_dir, "all_models_lon_pvalues_Wolb.rds"))
+write.csv(pvalues.Wolb, file = file.path(lmer_dir, "all_models_lon_pvalues_Wolb.csv"), row.names = F)
+
+##### Plot Wolbachia p-values; dashed blue line is 0.05 alpha-TH
+ggplot(pvalues.Wolb, aes(x=-log10(P),y=Lab))+
+  geom_bar(stat="identity")+
+  facet_grid(Sex~Trait,
+    scales="free_y",
+    space="free")+
+  geom_vline(xintercept=-log10(0.05),
+    linetype="dashed",
+    color="blue")+
+  theme_bw()
+
+ggsave(file = file.path(lmer_dir, "all_models_lon_pvalues_Wolb.pdf"),
+  width=20,
+  height=6)
