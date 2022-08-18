@@ -659,7 +659,7 @@ for (i in 1:length(metas)){
   p_out_rds <- sub(".rds", "_pop_compound_estimates.rds", f)
   p_out_txt <- sub(".rds", "_pop_compound_estimates.txt", f)
   m <- readRDS(f)
-  m <- data.frame(Population = m$bylevs, Mstar = m$TE.random.w, SEMstar = m$seTE.random.w, Q = m$Q.b.random, p = m$pval.Q.b.random, LLMstar = m$lower.random.w, ULMstar = m$upper.random.w)
+  m <- data.frame(Population = m$bylevs, Mstar = m$TE.random.w, SEMstar = m$seTE.random.w, Q = m$Q.b.random, p = m$pval.Q.b.random, LLMstar = m$lower.random.w, ULMstar = m$upper.random.w, N_lab = m$k.w)
   saveRDS(m, p_out_rds)
   write.table(m, p_out_txt, row.names = F, quote = F, sep = "\t")
 }  
