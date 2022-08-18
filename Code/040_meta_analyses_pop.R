@@ -14,6 +14,7 @@ library(tidyverse)
 library(meta)
 library(ggpubr)
 library(MetBrewer)
+library(foreach)
 
 
 ##### set working directory
@@ -647,9 +648,41 @@ for (i in 1:length(metas)){
 }
   
 
+#####
 
 
 
+metas <- list.files(path = "MetaAnalyses", recursive = T, full.names = T, pattern = "meta.rds")
+
+for (i in 1:length(metas)){
+  f <- metas[i]
+  p_out_rds <- sub(".rds", "_pop_compound_estimates.rds", f)
+  p_out_txt <- sub(".rds", "_pop_compound_estimates.txt", f)
+  m <- readRDS(f)
+  m <- data.frame(Population = m$bylevs, Mstar = m$TE.random.w, SEMstar = m$seTE.random.w, Q = m$Q.b.random, p = m$pval.Q.b.random, LLMstar = m$lower.random.w, ULMstar = m$upper.random.w)
+  saveRDS(m, p_out_rds)
+  write.table(m, p_out_txt, row.names = F, quote = F, sep = "\t")
+}  
+
+
+
+all_metas_pop <- rdsBatchReaderToList(path = "MetaAnalyses", recursive = T, full.names = T, pattern = "_pop_compound_estimates.rds")
+
+all_metas_pop_comp <- foreach(m = 1:length(all_metas_pop)) %do% {
+  info <- str_split(names(all_metas_pop)[m], "_") %>% unlist
+  if (length(info) >= 7) info[1] <- paste(info[1], info[2], sep = "_")
+  info[1] <- sub("_F", "", info[1])
+  info[1] <- sub("_M", "", info[1])
+  e <- mutate(all_metas_pop[[m]], Trait = info[1], Sex = info[length(info)-4]) %>%
+    relocate(Trait, Sex) 
+  if (!unique(e$Sex) %in% c("F", "M")) e$Sex <- "NA" 
+  if (length(unique(e$Trait)) == 1 & unique(e$Trait) %in% c("Dia", "Fec")) e$Sex <- "F"
+  if (length(unique(e$Trait)) == 1 & grepl("Pgm", unique(e$Trait))) e$Sex <- "F"
+  if (length(unique(e$Trait)) == 1 & grepl("LA_", unique(e$Trait))) e$Sex <- "B"
+  e }
+names(all_metas_pop_comp) <- names(all_metas_pop)
+saveRDS(all_metas_pop_comp, "MetaAnalyses/all_metas_pop_compound_estimates_list.rds")
+write.csv(bind_rows(all_metas_pop_comp), file = "MetaAnalyses/all_metas_pop_compound_estimates.csv", row.names = F)
 
 
 
