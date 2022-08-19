@@ -25,7 +25,7 @@ setwd("~/Work/UNIFR/GitHub/DrosEU_PhenotypingWG/")
 
 ##### load data
 droseu <- readRDS("Data/droseu_master_list_2022-05-02.rds")
-
+line_re <- read.csv("LinearModelsPop/all_models_line_random_effects.csv")
 
 ##### functions
 
@@ -77,6 +77,11 @@ via_df_line <- group_by(droseu$via, Supervisor.PI, Line) %>%
 
 # apply H2_lmm
 h2_via <- H2_lmm(via_df_line, "via", "Line")
+
+
+### calculate between labs H2 with Line random effects
+h2_via_re <- H2_lmm(filter(line_re, Trait == "Via"), "Estimate", "Line")
+
 
 
 
