@@ -1,0 +1,31 @@
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: DW_micrograms ~ Altitude + Wolbachia + (1 | Line:Population) +  
+    (1 | Batch)
+   Data: filter(DW, Supervisor.PI == "Colinet" & Sex == "F")
+
+REML criterion at convergence: -10547.7
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-4.2298 -0.6103  0.0303  0.6259  4.1661 
+
+Random effects:
+ Groups          Name        Variance  Std.Dev.
+ Line:Population (Intercept) 0.0013357 0.03655 
+ Batch           (Intercept) 0.0003468 0.01862 
+ Residual                    0.0026657 0.05163 
+Number of obs: 3550, groups:  Line:Population, 148; Batch, 3
+
+Fixed effects:
+             Estimate Std. Error        df t value Pr(>|t|)    
+(Intercept) 4.804e-01  1.411e-02 4.480e+00  34.045 1.39e-06 ***
+Altitude    1.785e-06  1.414e-05 1.449e+02   0.126    0.900    
+Wolbachia+  8.569e-03  8.261e-03 1.442e+02   1.037    0.301    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Altitd
+Altitude   -0.352       
+Wolbachia+ -0.501  0.037

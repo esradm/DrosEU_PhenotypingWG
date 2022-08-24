@@ -1,0 +1,136 @@
+$HSM_F_Parsch_lmer_lat
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: TimeDeath_min ~ Latitude + Wolbachia + (1 | Line:Population) +  
+    (1 | Batch)
+   Data: filter(HSM, Censor == "0" & Supervisor.PI == "Parsch" & Sex ==  
+    "F")
+
+REML criterion at convergence: 35825.4
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-4.9961 -0.6004  0.1291  0.6995  2.9801 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 3071     55.42   
+ Batch           (Intercept) 3647     60.39   
+ Residual                    6019     77.58   
+Number of obs: 3077, groups:  Line:Population, 120; Batch, 9
+
+Fixed effects:
+            Estimate Std. Error       df t value Pr(>|t|)    
+(Intercept) 210.9908    42.2309  82.2301   4.996 3.24e-06 ***
+Latitude      3.0060     0.7903 117.2138   3.804 0.000228 ***
+Wolbachia+   15.1306    14.4213 116.0314   1.049 0.296272    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Latitd
+Latitude   -0.828       
+Wolbachia+ -0.010 -0.292
+
+$HSM_F_Vieira_lmer_lat
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: TimeDeath_min ~ Latitude + Wolbachia + (1 | Line:Population) +  
+    (1 | Batch)
+   Data: filter(HSM, Censor == "0" & Supervisor.PI == "Vieira" & Sex ==  
+    "F")
+
+REML criterion at convergence: 50671.3
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-6.2378 -0.5190  0.1360  0.7336  2.3521 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept)  527.3   22.96   
+ Batch           (Intercept)  140.7   11.86   
+ Residual                    3036.1   55.10   
+Number of obs: 4643, groups:  Line:Population, 148; Batch, 32
+
+Fixed effects:
+            Estimate Std. Error       df t value Pr(>|t|)    
+(Intercept) 334.6997    17.5499 107.4971  19.071   <2e-16 ***
+Latitude      0.4416     0.3653 120.5085   1.209    0.229    
+Wolbachia+    3.3311     6.0668 142.2581   0.549    0.584    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Latitd
+Latitude   -0.949       
+Wolbachia+  0.025 -0.292
+
+$HSM_M_Parsch_lmer_lat
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: TimeDeath_min ~ Latitude + Wolbachia + (1 | Line:Population) +  
+    (1 | Batch)
+   Data: filter(HSM, Censor == "0" & Supervisor.PI == "Parsch" & Sex ==  
+    "M")
+
+REML criterion at convergence: 52658
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-5.2322 -0.6914  0.0321  0.6785  2.8288 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 5458     73.88   
+ Batch           (Intercept) 3291     57.37   
+ Residual                    4821     69.43   
+Number of obs: 4610, groups:  Line:Population, 122; Batch, 9
+
+Fixed effects:
+            Estimate Std. Error       df t value Pr(>|t|)    
+(Intercept)  86.7559    50.5540 112.3662   1.716   0.0889 .  
+Latitude      4.9782     0.9917 119.1571   5.020 1.83e-06 ***
+Wolbachia+   -1.4980    18.2621 118.9867  -0.082   0.9348    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Latitd
+Latitude   -0.872       
+Wolbachia+ -0.005 -0.301
+
+$HSM_M_Vieira_lmer_lat
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: TimeDeath_min ~ Latitude + Wolbachia + (1 | Line:Population) +  
+    (1 | Batch)
+   Data: filter(HSM, Censor == "0" & Supervisor.PI == "Vieira" & Sex ==  
+    "M")
+
+REML criterion at convergence: 83452.6
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-5.8929 -0.6068  0.0443  0.6772  2.8039 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 1039.1   32.24   
+ Batch           (Intercept)  461.1   21.47   
+ Residual                    2939.6   54.22   
+Number of obs: 7668, groups:  Line:Population, 148; Batch, 32
+
+Fixed effects:
+            Estimate Std. Error       df t value Pr(>|t|)    
+(Intercept) 241.3736    24.7512 121.5634   9.752  < 2e-16 ***
+Latitude      1.4928     0.5084 131.7111   2.936  0.00392 ** 
+Wolbachia+    3.6964     7.9798 132.9538   0.463  0.64397    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Latitd
+Latitude   -0.949       
+Wolbachia+  0.023 -0.276
+

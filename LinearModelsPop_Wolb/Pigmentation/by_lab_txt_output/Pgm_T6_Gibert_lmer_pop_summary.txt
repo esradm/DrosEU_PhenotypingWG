@@ -1,0 +1,43 @@
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: PercT6_asin ~ Population + Wolbachia + (1 | Line:Population)
+   Data: filter(PGM, Supervisor.PI == "Gibert")
+
+REML criterion at convergence: -857.7
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-4.5801 -0.5827  0.0533  0.6285  3.5096 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 0.02355  0.1535  
+ Residual                    0.02644  0.1626  
+Number of obs: 1561, groups:  Line:Population, 150
+
+Fixed effects:
+              Estimate Std. Error        df t value Pr(>|t|)    
+(Intercept)    0.78442    0.05233 141.03420  14.991   <2e-16 ***
+PopulationGI  -0.01430    0.05790 139.88185  -0.247   0.8053    
+PopulationKA   0.13965    0.05256 140.05885   2.657   0.0088 ** 
+PopulationMA   0.08846    0.05321 140.37083   1.662   0.0987 .  
+PopulationMU   0.07043    0.05342 140.62594   1.318   0.1895    
+PopulationRE   0.05501    0.05942 140.31910   0.926   0.3562    
+PopulationUM   0.06256    0.05553 140.02324   1.127   0.2619    
+PopulationVA   0.07580    0.05899 139.76655   1.285   0.2010    
+PopulationYE   0.01501    0.05156 141.40480   0.291   0.7714    
+Wolbachia+    -0.04303    0.03783 141.81670  -1.138   0.2572    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+            (Intr) PpltGI PpltKA PpltMA PpltMU PpltRE PpltUM PpltVA PpltYE
+PopulatinGI -0.599                                                        
+PopulatinKA -0.504  0.439                                                 
+PopulatinMA -0.582  0.460  0.474                                          
+PopulatinMU -0.498  0.432  0.467  0.466                                   
+PopulatinRE -0.651  0.454  0.431  0.463  0.425                            
+PopulatinUM -0.652  0.471  0.459  0.486  0.452  0.485                     
+PopulatinVA -0.423  0.383  0.422  0.416  0.415  0.373  0.399              
+PopulatinYE -0.562  0.463  0.487  0.493  0.479  0.461  0.487  0.430       
+Wolbachia+  -0.723  0.232  0.040  0.156  0.042  0.319  0.280  0.000  0.108

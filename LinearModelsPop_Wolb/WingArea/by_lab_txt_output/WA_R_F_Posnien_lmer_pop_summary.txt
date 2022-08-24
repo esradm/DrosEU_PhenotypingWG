@@ -1,0 +1,44 @@
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: CentroidSizeRight_micrometers ~ Population + Wolbachia + (1 |  
+    Line:Population)
+   Data: filter(WA, Supervisor.PI == "Posnien" & Sex == "F")
+
+REML criterion at convergence: 2935
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-2.8134 -0.6084  0.0034  0.6332  2.4194 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 8797     93.79   
+ Residual                    9026     95.01   
+Number of obs: 250, groups:  Line:Population, 25
+
+Fixed effects:
+             Estimate Std. Error      df t value Pr(>|t|)    
+(Intercept)   2518.90     102.51   15.00  24.572 1.57e-13 ***
+PopulationGI   140.26      80.41   15.00   1.744    0.102    
+PopulationKA    50.22      89.91   15.00   0.559    0.585    
+PopulationMA   116.35      98.49   15.00   1.181    0.256    
+PopulationMU   -22.66      80.41   15.00  -0.282    0.782    
+PopulationRE   201.14     117.22   15.00   1.716    0.107    
+PopulationUM    97.55      85.29   15.00   1.144    0.271    
+PopulationVA   -62.53      89.91   15.00  -0.696    0.497    
+PopulationYE    72.22      80.41   15.00   0.898    0.383    
+Wolbachia+      66.08      85.29   15.00   0.775    0.451    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+            (Intr) PpltGI PpltKA PpltMA PpltMU PpltRE PpltUM PpltVA PpltYE
+PopulatinGI -0.392                                                        
+PopulatinKA -0.351  0.447                                                 
+PopulatinMA -0.801  0.408  0.365                                          
+PopulatinMU -0.392  0.500  0.447  0.408                                   
+PopulatinRE -0.874  0.343  0.307  0.700  0.343                            
+PopulatinUM -0.647  0.471  0.422  0.577  0.471  0.566                     
+PopulatinVA -0.351  0.447  0.400  0.365  0.447  0.307  0.422              
+PopulatinYE -0.392  0.500  0.447  0.408  0.500  0.343  0.471  0.447       
+Wolbachia+  -0.832  0.000  0.000  0.577  0.000  0.728  0.333  0.000  0.000

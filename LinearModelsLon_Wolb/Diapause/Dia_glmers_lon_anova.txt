@@ -1,0 +1,27 @@
+$Dia_Bergland_glmer_Lon
+Data: filter(dia, Supervisor.PI == pi)
+Models:
+Wolb: Prop_Max_Stage9 ~ Longitude + (1 | Line:Population)
+full: Prop_Max_Stage9 ~ Longitude + Wolbachia + (1 | Line:Population)
+     npar    AIC    BIC  logLik deviance  Chisq Df Pr(>Chisq)
+Wolb    3 907.37 916.82 -450.69   901.37                     
+full    4 908.98 921.57 -450.49   900.98 0.3927  1     0.5309
+
+$Dia_Flatt_glmer_Lon
+Data: filter(dia, Supervisor.PI == pi)
+Models:
+Wolb: Prop_Max_Stage9 ~ Longitude + (1 | Line:Population)
+full: Prop_Max_Stage9 ~ Longitude + Wolbachia + (1 | Line:Population)
+     npar    AIC    BIC  logLik deviance  Chisq Df Pr(>Chisq)
+Wolb    3 290.50 299.45 -142.25   284.50                     
+full    4 291.35 303.28 -141.67   283.35 1.1565  1     0.2822
+
+$Dia_Schlotterer_glmer_Lon
+Data: filter(dia, Supervisor.PI == pi)
+Models:
+Wolb: Prop_Max_Stage9 ~ Longitude + (1 | Line:Population)
+full: Prop_Max_Stage9 ~ Longitude + Wolbachia + (1 | Line:Population)
+     npar    AIC    BIC  logLik deviance  Chisq Df Pr(>Chisq)
+Wolb    3 914.65 924.14 -454.32   908.65                     
+full    4 916.22 928.88 -454.11   908.22 0.4247  1     0.5146
+

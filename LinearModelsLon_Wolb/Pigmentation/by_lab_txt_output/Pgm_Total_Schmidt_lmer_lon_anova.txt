@@ -1,0 +1,4 @@
+Type III Analysis of Variance Table with Satterthwaite's method
+            Sum Sq  Mean Sq NumDF  DenDF F value Pr(>F)
+Longitude 0.043178 0.043178     1 138.65  2.2335 0.1373
+Wolbachia 0.020118 0.020118     1 138.19  1.0407 0.3095

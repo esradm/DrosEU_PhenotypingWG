@@ -1,0 +1,116 @@
+$WA_L_F_Onder_lmer_pop
+Type III Analysis of Variance Table with Satterthwaite's method
+           Sum Sq Mean Sq NumDF  DenDF F value    Pr(>F)    
+Population 295586   36948     8 134.03  6.3592 5.542e-07 ***
+Wolbachia    2916    2916     1 133.46  0.5019    0.4799    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+$WA_L_F_Posnien_lmer_pop
+Type III Analysis of Variance Table with Satterthwaite's method
+           Sum Sq Mean Sq NumDF DenDF F value Pr(>F)
+Population  85619 10702.3     8    15  1.2276 0.3481
+Wolbachia    4361  4360.7     1    15  0.5002 0.4903
+
+$WA_L_F_Ritchie_lmer_pop
+Type III Analysis of Variance Table with Satterthwaite's method
+           Sum Sq Mean Sq NumDF  DenDF F value  Pr(>F)  
+Population 151590 18948.8     8 22.977  2.1571 0.07144 .
+Wolbachia    1185  1184.5     1 25.018  0.1348 0.71655  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+$WA_L_F_StamenkovicRadak_lmer_pop
+Type III Analysis of Variance Table with Satterthwaite's method
+           Sum Sq Mean Sq NumDF  DenDF F value    Pr(>F)    
+Population 581514   72689     8 97.864  9.4155 1.453e-09 ***
+Wolbachia     234     234     1 97.906  0.0304     0.862    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+$WA_L_M_Onder_lmer_pop
+Type III Analysis of Variance Table with Satterthwaite's method
+           Sum Sq Mean Sq NumDF  DenDF F value    Pr(>F)    
+Population 226483 28310.4     8 139.96  5.9986 1.286e-06 ***
+Wolbachia     728   728.4     1 140.56  0.1543     0.695    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+$WA_L_M_Posnien_lmer_pop
+Type III Analysis of Variance Table with Satterthwaite's method
+           Sum Sq Mean Sq NumDF DenDF F value Pr(>F)
+Population  48131  6016.3     8    15  0.9925 0.4794
+Wolbachia   13035 13034.7     1    15  2.1503 0.1632
+
+$WA_L_M_Ritchie_lmer_pop
+Type III Analysis of Variance Table with Satterthwaite's method
+           Sum Sq Mean Sq NumDF  DenDF F value Pr(>F)
+Population  44198  5524.7     8 25.371  0.7754 0.6277
+Wolbachia    2167  2167.4     1 28.674  0.3042 0.5855
+
+$WA_L_M_StamenkovicRadak_lmer_pop
+Type III Analysis of Variance Table with Satterthwaite's method
+           Sum Sq Mean Sq NumDF  DenDF F value    Pr(>F)    
+Population 384712   48089     8 97.175  7.9465 3.509e-08 ***
+Wolbachia     170     170     1 97.381  0.0281    0.8673    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+$WA_R_F_Onder_lmer_pop
+Type III Analysis of Variance Table with Satterthwaite's method
+           Sum Sq Mean Sq NumDF  DenDF F value    Pr(>F)    
+Population 295054   36882     8 133.72  6.3683 5.444e-07 ***
+Wolbachia    3426    3426     1 133.19  0.5915    0.4432    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+$WA_R_F_Posnien_lmer_pop
+Type III Analysis of Variance Table with Satterthwaite's method
+           Sum Sq Mean Sq NumDF DenDF F value Pr(>F)
+Population  89073 11134.1     8    15  1.2335 0.3452
+Wolbachia    5418  5418.2     1    15  0.6003 0.4505
+
+$WA_R_F_Ritchie_lmer_pop
+Type III Analysis of Variance Table with Satterthwaite's method
+           Sum Sq Mean Sq NumDF  DenDF F value  Pr(>F)  
+Population 159466 19933.3     8 22.742  2.2609 0.06069 .
+Wolbachia    1020  1020.1     1 24.687  0.1157 0.73662  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+$WA_R_F_StamenkovicRadak_lmer_pop
+Type III Analysis of Variance Table with Satterthwaite's method
+           Sum Sq Mean Sq NumDF  DenDF F value   Pr(>F)    
+Population 605802   75725     8 97.792   9.823 6.27e-10 ***
+Wolbachia     116     116     1 97.832   0.015   0.9027    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+$WA_R_M_Onder_lmer_pop
+Type III Analysis of Variance Table with Satterthwaite's method
+           Sum Sq Mean Sq NumDF  DenDF F value    Pr(>F)    
+Population 219274 27409.2     8 139.94  5.8254 2.029e-06 ***
+Wolbachia    1193  1193.2     1 140.59  0.2536    0.6153    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+$WA_R_M_Posnien_lmer_pop
+Type III Analysis of Variance Table with Satterthwaite's method
+           Sum Sq Mean Sq NumDF DenDF F value Pr(>F)
+Population  45165  5645.6     8    15  0.9301 0.5201
+Wolbachia   14059 14058.5     1    15  2.3160 0.1488
+
+$WA_R_M_Ritchie_lmer_pop
+Type III Analysis of Variance Table with Satterthwaite's method
+           Sum Sq Mean Sq NumDF  DenDF F value Pr(>F)
+Population  44899  5612.4     8 25.637  0.7962 0.6111
+Wolbachia    1467  1467.3     1 28.804  0.2082 0.6516
+
+$WA_R_M_StamenkovicRadak_lmer_pop
+Type III Analysis of Variance Table with Satterthwaite's method
+           Sum Sq Mean Sq NumDF  DenDF F value    Pr(>F)    
+Population 391776   48972     8 97.234  8.2885 1.656e-08 ***
+Wolbachia       0       0     1 97.427  0.0000    0.9982    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+

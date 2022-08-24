@@ -1,0 +1,34 @@
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: 
+CentroidSizeRight_micrometers ~ Latitude + Wolbachia + (1 | Line:Population) +  
+    (1 | Batch) + (1 | ReplicateVial:Line:Population)
+   Data: filter(WA, Supervisor.PI == "Ritchie" & Sex == "M")
+
+REML criterion at convergence: 14446.4
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-4.8963 -0.4964  0.0441  0.5796  4.6773 
+
+Random effects:
+ Groups                        Name        Variance Std.Dev.
+ ReplicateVial:Line:Population (Intercept) 4964.1   70.46   
+ Line:Population               (Intercept) 5340.5   73.08   
+ Batch                         (Intercept)  788.3   28.08   
+ Residual                                  7049.7   83.96   
+Number of obs: 1211, groups:  
+ReplicateVial:Line:Population, 117; Line:Population, 39; Batch, 15
+
+Fixed effects:
+            Estimate Std. Error       df t value Pr(>|t|)    
+(Intercept) 2431.892     99.938   30.650  24.334   <2e-16 ***
+Latitude       0.522      2.181   30.797   0.239    0.812    
+Wolbachia+    10.481     35.176   34.747   0.298    0.768    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Latitd
+Latitude   -0.958       
+Wolbachia+  0.161 -0.399

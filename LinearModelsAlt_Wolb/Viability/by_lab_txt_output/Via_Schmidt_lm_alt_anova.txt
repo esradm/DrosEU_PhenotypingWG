@@ -1,0 +1,8 @@
+Analysis of Variance Table
+
+Response: ProportionEggtoAdultSurvival_asin
+           Df  Sum Sq Mean Sq F value  Pr(>F)  
+Altitude    1  0.3878 0.38779  4.9082 0.02831 *
+Residuals 143 11.2982 0.07901                  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1

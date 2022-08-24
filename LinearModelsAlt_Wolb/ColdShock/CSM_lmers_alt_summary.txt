@@ -1,0 +1,201 @@
+$CSM_F_Gonzalez_lmer_alt
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: CSM_PropDead_ED_asin ~ Altitude + Wolbachia + (1 | Line:Population) +  
+    (1 | Batch)
+   Data: filter(CSM, Supervisor.PI == "Gonzalez" & Sex == "F")
+
+REML criterion at convergence: -59.2
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-4.4880 -0.5845 -0.0239  0.6003  2.5822 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 0.02477  0.1574  
+ Batch           (Intercept) 0.01099  0.1048  
+ Residual                    0.03244  0.1801  
+Number of obs: 483, groups:  Line:Population, 143; Batch, 9
+
+Fixed effects:
+             Estimate Std. Error        df t value Pr(>|t|)    
+(Intercept) 1.165e+00  5.660e-02 3.989e+01  20.579   <2e-16 ***
+Altitude    5.778e-05  6.744e-05 1.352e+02   0.857    0.393    
+Wolbachia+  5.765e-02  4.183e-02 1.367e+02   1.378    0.170    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Altitd
+Altitude   -0.390       
+Wolbachia+ -0.605  0.003
+
+$CSM_F_Kozeretska_lmer_alt
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: CSM_PropDead_ED_asin ~ Altitude + Wolbachia + (1 | Line:Population) +  
+    (1 | Batch)
+   Data: filter(CSM, Supervisor.PI == "Kozeretska" & Sex == "F")
+
+REML criterion at convergence: 210.7
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-1.7814 -0.7185 -0.1226  0.6327  2.5064 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 0.01488  0.1220  
+ Batch           (Intercept) 0.04498  0.2121  
+ Residual                    0.12298  0.3507  
+Number of obs: 218, groups:  Line:Population, 117; Batch, 2
+
+Fixed effects:
+              Estimate Std. Error         df t value Pr(>|t|)  
+(Intercept)  7.666e-01  1.700e-01  1.511e+00   4.510   0.0749 .
+Altitude    -1.600e-05  1.176e-04  1.088e+02  -0.136   0.8920  
+Wolbachia+   2.351e-02  7.560e-02  1.082e+02   0.311   0.7564  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Altitd
+Altitude   -0.236       
+Wolbachia+ -0.385  0.098
+
+$CSM_F_Vieira_lmer_alt
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: CSM_PropDead_ED_asin ~ Altitude + Wolbachia + (1 | Line:Population) +  
+    (1 | Batch)
+   Data: filter(CSM, Supervisor.PI == "Vieira" & Sex == "F")
+
+REML criterion at convergence: -40.4
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-4.2206 -0.5437 -0.0435  0.6292  2.3975 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 0.028868 0.16991 
+ Batch           (Intercept) 0.005652 0.07518 
+ Residual                    0.031420 0.17726 
+Number of obs: 444, groups:  Line:Population, 148; Batch, 32
+
+Fixed effects:
+              Estimate Std. Error         df t value Pr(>|t|)    
+(Intercept)  1.339e+00  4.902e-02  8.433e+01  27.314   <2e-16 ***
+Altitude    -4.496e-05  8.477e-05  4.969e+01  -0.530    0.598    
+Wolbachia+  -6.683e-02  4.413e-02  1.447e+02  -1.514    0.132    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Altitd
+Altitude   -0.532       
+Wolbachia+ -0.733  0.017
+
+$CSM_M_Gonzalez_lmer_alt
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: CSM_PropDead_ED_asin ~ Altitude + Wolbachia + (1 | Line:Population) +  
+    (1 | Batch)
+   Data: filter(CSM, Supervisor.PI == "Gonzalez" & Sex == "M")
+
+REML criterion at convergence: 95.3
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.0711 -0.5702 -0.0259  0.4951  2.8976 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 0.02946  0.1716  
+ Batch           (Intercept) 0.03917  0.1979  
+ Residual                    0.04565  0.2136  
+Number of obs: 483, groups:  Line:Population, 143; Batch, 9
+
+Fixed effects:
+             Estimate Std. Error        df t value Pr(>|t|)    
+(Intercept) 8.866e-01  8.281e-02 1.797e+01  10.706 3.15e-09 ***
+Altitude    1.100e-04  7.545e-05 1.344e+02   1.458    0.147    
+Wolbachia+  2.971e-03  4.681e-02 1.361e+02   0.063    0.949    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Altitd
+Altitude   -0.299       
+Wolbachia+ -0.461  0.002
+
+$CSM_M_Kozeretska_lmer_alt
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: CSM_PropDead_ED_asin ~ Altitude + Wolbachia + (1 | Line:Population) +  
+    (1 | Batch)
+   Data: filter(CSM, Supervisor.PI == "Kozeretska" & Sex == "M")
+
+REML criterion at convergence: 196.7
+
+Scaled residuals: 
+     Min       1Q   Median       3Q      Max 
+-2.63110 -0.75295  0.08293  0.73800  2.00029 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 0.00000  0.0000  
+ Batch           (Intercept) 0.05725  0.2393  
+ Residual                    0.12808  0.3579  
+Number of obs: 218, groups:  Line:Population, 117; Batch, 2
+
+Fixed effects:
+             Estimate Std. Error        df t value Pr(>|t|)  
+(Intercept) 1.003e+00  1.845e-01 1.334e+00   5.436    0.072 .
+Altitude    1.066e-04  1.083e-04 2.142e+02   0.984    0.326  
+Wolbachia+  4.968e-02  6.956e-02 2.143e+02   0.714    0.476  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Altitd
+Altitude   -0.201       
+Wolbachia+ -0.327  0.104
+optimizer (nloptwrap) convergence code: 0 (OK)
+boundary (singular) fit: see help('isSingular')
+
+
+$CSM_M_Vieira_lmer_alt
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: CSM_PropDead_ED_asin ~ Altitude + Wolbachia + (1 | Line:Population) +  
+    (1 | Batch)
+   Data: filter(CSM, Supervisor.PI == "Vieira" & Sex == "M")
+
+REML criterion at convergence: 88.8
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.1774 -0.5131 -0.0127  0.6036  2.0596 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 0.054366 0.2332  
+ Batch           (Intercept) 0.009781 0.0989  
+ Residual                    0.037468 0.1936  
+Number of obs: 444, groups:  Line:Population, 148; Batch, 32
+
+Fixed effects:
+              Estimate Std. Error         df t value Pr(>|t|)    
+(Intercept)  1.148e+00  6.402e-02  9.704e+01  17.926   <2e-16 ***
+Altitude     2.941e-04  1.108e-04  6.276e+01   2.655   0.0100 *  
+Wolbachia+  -1.215e-01  5.757e-02  1.448e+02  -2.111   0.0365 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Altitd
+Altitude   -0.533       
+Wolbachia+ -0.733  0.017
+

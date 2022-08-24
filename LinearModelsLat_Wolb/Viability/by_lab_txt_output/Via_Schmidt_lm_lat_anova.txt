@@ -1,0 +1,8 @@
+Analysis of Variance Table
+
+Response: ProportionEggtoAdultSurvival_asin
+           Df  Sum Sq Mean Sq F value  Pr(>F)  
+Latitude    1  0.4054 0.40540  5.1391 0.02489 *
+Residuals 143 11.2806 0.07889                  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1

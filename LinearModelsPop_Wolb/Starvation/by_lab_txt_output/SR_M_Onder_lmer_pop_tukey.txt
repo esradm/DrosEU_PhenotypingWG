@@ -1,0 +1,73 @@
+$contrasts
+$emmeans
+ Population emmean   SE  df asymp.LCL asymp.UCL
+ AK           72.8 2.56 Inf      67.8      77.8
+ GI           70.8 2.73 Inf      65.4      76.1
+ KA           76.5 2.61 Inf      71.4      81.6
+ MA           72.8 2.42 Inf      68.1      77.6
+ MU           79.5 2.67 Inf      74.2      84.7
+ RE           69.5 2.71 Inf      64.2      74.8
+ UM           76.4 2.55 Inf      71.4      81.4
+ VA           76.9 3.05 Inf      71.0      82.9
+ YE           64.7 2.41 Inf      60.0      69.4
+
+Results are averaged over the levels of: Wolbachia 
+Degrees-of-freedom method: asymptotic 
+Confidence level used: 0.95 
+
+$contrasts
+ contrast estimate   SE  df z.ratio p.value
+ AK - GI    1.9906 3.63 Inf   0.548  0.9998
+ AK - KA   -3.7071 3.29 Inf  -1.126  0.9705
+ AK - MA   -0.0706 3.28 Inf  -0.022  1.0000
+ AK - MU   -6.6999 3.34 Inf  -2.004  0.5405
+ AK - RE    3.2938 3.73 Inf   0.884  0.9938
+ AK - UM   -3.6299 3.51 Inf  -1.033  0.9827
+ AK - VA   -4.1596 3.61 Inf  -1.153  0.9658
+ AK - YE    8.0642 3.22 Inf   2.502  0.2305
+ GI - KA   -5.6977 3.68 Inf  -1.548  0.8325
+ GI - MA   -2.0612 3.58 Inf  -0.575  0.9997
+ GI - MU   -8.6905 3.72 Inf  -2.334  0.3214
+ GI - RE    1.3032 3.84 Inf   0.339  1.0000
+ GI - UM   -5.6205 3.71 Inf  -1.516  0.8484
+ GI - VA   -6.1502 3.99 Inf  -1.541  0.8363
+ GI - YE    6.0736 3.56 Inf   1.704  0.7441
+ KA - MA    3.6365 3.35 Inf   1.085  0.9765
+ KA - MU   -2.9928 3.42 Inf  -0.874  0.9943
+ KA - RE    7.0009 3.76 Inf   1.861  0.6406
+ KA - UM    0.0772 3.56 Inf   0.022  1.0000
+ KA - VA   -0.4525 3.69 Inf  -0.123  1.0000
+ KA - YE   11.7713 3.30 Inf   3.569  0.0108
+ MA - MU   -6.6293 3.40 Inf  -1.950  0.5785
+ MA - RE    3.3644 3.63 Inf   0.926  0.9916
+ MA - UM   -3.5593 3.46 Inf  -1.029  0.9832
+ MA - VA   -4.0890 3.68 Inf  -1.112  0.9727
+ MA - YE    8.1348 3.25 Inf   2.505  0.2293
+ MU - RE    9.9937 3.80 Inf   2.628  0.1749
+ MU - UM    3.0699 3.61 Inf   0.851  0.9952
+ MU - VA    2.5403 3.73 Inf   0.681  0.9990
+ MU - YE   14.7641 3.35 Inf   4.411  0.0004
+ RE - UM   -6.9237 3.72 Inf  -1.862  0.6403
+ RE - VA   -7.4534 4.08 Inf  -1.828  0.6636
+ RE - YE    4.7704 3.63 Inf   1.315  0.9271
+ UM - VA   -0.5297 3.89 Inf  -0.136  1.0000
+ UM - YE   11.6941 3.44 Inf   3.400  0.0194
+ VA - YE   12.2238 3.62 Inf   3.373  0.0213
+
+Results are averaged over the levels of: Wolbachia 
+Degrees-of-freedom method: asymptotic 
+P value adjustment: tukey method for comparing a family of 9 estimates 
+
+
+$letters
+  Population   emmean       SE  df asymp.LCL asymp.UCL cld
+1         AK 72.77377 2.559186 Inf  67.75786  77.78969  ab
+2         GI 70.78318 2.728412 Inf  65.43559  76.13077  ab
+3         KA 76.48089 2.611398 Inf  71.36264  81.59913   b
+4         MA 72.84438 2.423499 Inf  68.09441  77.59436  ab
+5         MU 79.47364 2.670894 Inf  74.23879  84.70850   b
+6         RE 69.47999 2.706903 Inf  64.17455  74.78542  ab
+7         UM 76.40371 2.550075 Inf  71.40565  81.40176   b
+8         VA 76.93338 3.049514 Inf  70.95644  82.91032   b
+9         YE 64.70958 2.413042 Inf  59.98011  69.43906  a 
+

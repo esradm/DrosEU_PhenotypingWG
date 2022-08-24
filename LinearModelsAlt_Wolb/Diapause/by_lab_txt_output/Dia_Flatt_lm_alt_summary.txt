@@ -1,0 +1,20 @@
+
+Call:
+lm(formula = Prop_Max_Stage9_asin ~ Altitude, data = filter(DIA, 
+    Supervisor.PI == "Flatt"))
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-0.7236 -0.1391  0.1062  0.1149  0.1189 
+
+Coefficients:
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  1.469e+00  2.559e-02  57.410   <2e-16 ***
+Altitude    -2.512e-05  6.599e-05  -0.381    0.704    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.1865 on 144 degrees of freedom
+Multiple R-squared:  0.001005,	Adjusted R-squared:  -0.005932 
+F-statistic: 0.1449 on 1 and 144 DF,  p-value: 0.704
+

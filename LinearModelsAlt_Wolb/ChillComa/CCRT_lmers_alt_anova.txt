@@ -1,0 +1,26 @@
+$CCRT_F_Vieira_lmer_alt
+Type III Analysis of Variance Table with Satterthwaite's method
+          Sum Sq Mean Sq NumDF   DenDF F value Pr(>F)
+Altitude   84363   84363     1  69.145  0.4446 0.5071
+Wolbachia     36      36     1 140.743  0.0002 0.9891
+
+$CCRT_F_Mensch_lmer_alt
+Type III Analysis of Variance Table with Satterthwaite's method
+           Sum Sq Mean Sq NumDF  DenDF F value  Pr(>F)  
+Altitude  1041249 1041249     1 140.17  4.1394 0.04378 *
+Wolbachia  187275  187275     1 140.16  0.7445 0.38970  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+$CCRT_M_Vieira_lmer_alt
+Type III Analysis of Variance Table with Satterthwaite's method
+           Sum Sq Mean Sq NumDF  DenDF F value Pr(>F)
+Altitude   5113.6  5113.6     1 145.99  0.0332 0.8556
+Wolbachia 11619.0 11619.0     1 145.11  0.0755 0.7839
+
+$CCRT_M_Mensch_lmer_alt
+Type III Analysis of Variance Table with Satterthwaite's method
+          Sum Sq Mean Sq NumDF  DenDF F value Pr(>F)
+Altitude   15994   15994     1 139.93  0.0707 0.7908
+Wolbachia 325576  325576     1 134.04  1.4384 0.2325
+

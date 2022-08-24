@@ -1,0 +1,146 @@
+$LA_NDlog2_Tauber_lmer_lat
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: ND_log2 ~ Latitude + Wolbachia + (1 | Line:Population)
+   Data: filter(LA, ND_log2 != -Inf)
+
+REML criterion at convergence: 859.8
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.6362 -0.4170  0.0661  0.4392  4.7033 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 0.1096   0.3311  
+ Residual                    0.2205   0.4696  
+Number of obs: 553, groups:  Line:Population, 83
+
+Fixed effects:
+             Estimate Std. Error        df t value Pr(>|t|)  
+(Intercept)  0.292723   0.291611 80.063129   1.004   0.3185  
+Latitude    -0.012336   0.006202 77.180860  -1.989   0.0502 .
+Wolbachia+   0.129751   0.109643 82.481067   1.183   0.2401  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Latitd
+Latitude   -0.946       
+Wolbachia+ -0.030 -0.262
+
+$LA_Period_Tauber_lmer_lat
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: Period ~ Latitude + Wolbachia + (1 | Line:Population)
+   Data: LA
+
+REML criterion at convergence: 2285.9
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.0986 -0.4448 -0.0649  0.3320  4.4902 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 0.06209  0.2492  
+ Residual                    3.48770  1.8675  
+Number of obs: 555, groups:  Line:Population, 84
+
+Fixed effects:
+             Estimate Std. Error        df t value Pr(>|t|)    
+(Intercept)  22.93918    0.58444  95.45937  39.250   <2e-16 ***
+Latitude      0.02878    0.01220  89.08077   2.359   0.0205 *  
+Wolbachia+   -0.12450    0.22140 104.83390  -0.562   0.5751    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Latitd
+Latitude   -0.944       
+Wolbachia+ -0.053 -0.247
+
+$LA_CircPhase_Tauber_lmer_lat
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: CircPhase ~ Latitude + Wolbachia + (1 | Line:Population)
+   Data: LA
+
+REML criterion at convergence: 3708.8
+
+Scaled residuals: 
+     Min       1Q   Median       3Q      Max 
+-1.97966 -0.62012 -0.05957  0.79761  1.79168 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept)  1.957   1.399   
+ Residual                    45.019   6.710   
+Number of obs: 555, groups:  Line:Population, 84
+
+Fixed effects:
+            Estimate Std. Error       df t value Pr(>|t|)    
+(Intercept) 17.22071    2.27343 74.71986   7.575 7.81e-11 ***
+Latitude    -0.07767    0.04760 70.00752  -1.632    0.107    
+Wolbachia+  -1.38969    0.85806 81.80746  -1.620    0.109    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Latitd
+Latitude   -0.945       
+Wolbachia+ -0.049 -0.249
+
+$LA_AbsPhase_Tauber_lm_lat
+
+Call:
+lm(formula = AbsPhase ~ Latitude, data = LA)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-12.7173  -0.2955  -0.0168   0.2682  16.2688 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 13.95242    1.28749   10.84   <2e-16 ***
+Latitude    -0.02968    0.02604   -1.14    0.255    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 4.354 on 542 degrees of freedom
+  (11 Beobachtungen als fehlend gelöscht)
+Multiple R-squared:  0.00239,	Adjusted R-squared:  0.0005498 
+F-statistic: 1.299 on 1 and 542 DF,  p-value: 0.255
+
+
+$LA_Activity_Tauber_lmer_lat
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: Activity ~ Latitude + Wolbachia + (1 | Line:Population)
+   Data: LA
+
+REML criterion at convergence: 4063.4
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.1852 -0.5433  0.0937  0.6763  2.1787 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 59.58    7.719   
+ Residual                    68.17    8.257   
+Number of obs: 555, groups:  Line:Population, 84
+
+Fixed effects:
+            Estimate Std. Error      df t value Pr(>|t|)    
+(Intercept)  41.8839     6.3998 73.3558   6.545 7.07e-09 ***
+Latitude     -0.2571     0.1364 71.3723  -1.884   0.0636 .  
+Wolbachia+    4.3499     2.3547 76.4662   1.847   0.0686 .  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Latitd
+Latitude   -0.949       
+Wolbachia+ -0.021 -0.261
+

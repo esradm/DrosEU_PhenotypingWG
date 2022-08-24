@@ -1,0 +1,32 @@
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: 
+CSM_PropDead_ED_asin ~ Longitude + Wolbachia + (1 | Line:Population) +  
+    (1 | Batch)
+   Data: filter(CSM, Supervisor.PI == "Vieira" & Sex == "F")
+
+REML criterion at convergence: -46.1
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-4.2031 -0.5544 -0.0416  0.6351  2.4150 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 0.02944  0.1716  
+ Batch           (Intercept) 0.00483  0.0695  
+ Residual                    0.03142  0.1773  
+Number of obs: 444, groups:  Line:Population, 148; Batch, 32
+
+Fixed effects:
+              Estimate Std. Error         df t value Pr(>|t|)    
+(Intercept)   1.321460   0.046180  75.970809  28.615   <2e-16 ***
+Longitude     0.000186   0.001545  45.504149   0.120    0.905    
+Wolbachia+   -0.065685   0.044804 143.496185  -1.466    0.145    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Longtd
+Longitude  -0.449       
+Wolbachia+ -0.685 -0.167

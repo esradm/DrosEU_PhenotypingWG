@@ -1,0 +1,34 @@
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: LSL_AgeAtDeath_days ~ Longitude + Wolbachia + (1 | Batch) + (1 |  
+    Line:Population) + (1 | Line:ReplicateVial)
+   Data: filter(LSL, Censor == "0" & Supervisor.PI == "Parsch" & Sex ==  
+    "M")
+
+REML criterion at convergence: 38314.3
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.1930 -0.5979  0.0908  0.6951  2.6868 
+
+Random effects:
+ Groups             Name        Variance Std.Dev.
+ Line:ReplicateVial (Intercept)  13.984   3.740  
+ Line:Population    (Intercept)  41.567   6.447  
+ Batch              (Intercept)   2.006   1.416  
+ Residual                       359.106  18.950  
+Number of obs: 4356, groups:  
+Line:ReplicateVial, 614; Line:Population, 122; Batch, 2
+
+Fixed effects:
+             Estimate Std. Error        df t value Pr(>|t|)    
+(Intercept)  51.75374    1.89549   9.82528  27.304 1.36e-10 ***
+Longitude     0.10561    0.05128 118.31231   2.059   0.0417 *  
+Wolbachia+    2.13655    1.76413 118.14061   1.211   0.2283    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Longtd
+Longitude  -0.250       
+Wolbachia+ -0.645 -0.250
