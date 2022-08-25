@@ -1,0 +1,38 @@
+---
+title: "Meta Analyses"
+author: "Envel Kerdaffrec"
+date: '2022-08-25'
+output: pdf_document
+---
+
+```{r packages, include=FALSE}
+library(tidyverse)
+```
+
+Since running a single linear mixed-effect model per trait turned out to be more complex than originally thought (mainly because of the different data structure between labs) we used a meta analysis framework to combine the outputs of individual linear mixed-effect models that have been ran separately for each single lab.
+
+The aim of the meta analysis approach is to combine the effects of a variable observed in different studies to identify an overall effect. In our case, for a given trait, we consider each lab as being a study in which the effect of the population variable has been assessed via a linear mixed-effect model. However, as we are not directly interested in finding overall effects and because the population variable has 9 levels, we go a step further than in classic meta analysis and perform a subgroup analysis that allows to test for differences between populations (each population being considered as a subgroup). In a way, this is conceptually similar to performing a regression analysis where one tests the effect of the population variable on a given trait. 
+
+The input data for the subgroup meta analysis consists of the estimates and standard errors obtained for the population variable in the lab-specific linear mixed-effect models. Estimates are used as populations effects, and the standard errors of those estimates can be used as weights in the meta analysis model --- to give more or less weight to studies depending on their sample size and replication level.
+
+
+
+```{r example, echo = FALSE}
+##### source functions
+source("../Code/functions.R")
+##### load data
+droseu <- readRDS("../Data/droseu_master_list_2022-05-02.rds")
+estimates <- readRDS("../LinearModelsPop/all_models_pop_estimates_list.rds")
+pops <- readRDS("../InfoTables/DrosEU_Populations.rds")
+```
+
+Below is how the input data looks like for left wing area in females measured in Banu Onder's lab:
+```{r pressure, echo=FALSE}
+estimates$wa %>% filter(Lab == "Onder", Trait == "WA_L", Sex == "F")
+```
+
+
+
+
+
+

@@ -150,7 +150,8 @@ makeEffects <- function(x) {
     arrange(Population) %>% dplyr::rename(Y = Estimate) 
   if ("Line" %in% colnames(x)) {
     x <- relocate(x, Trait, Population, Line, Sex, Lab, Study) %>% 
-      arrange(Population, Line) } }
+      arrange(Population, Line) } 
+  x }
 
 
 
