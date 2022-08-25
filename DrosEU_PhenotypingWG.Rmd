@@ -28,25 +28,17 @@ The call was made with approximate numbers of populations, lines, etc. and under
 library(tidyverse)
 library(ggpubr)
 library(hrbrthemes)
-library(rworldmap)
-library(maps)
-library(rnaturalearth)
-library(maptools)
-library(rgeos)
 library(qwraps2)
 library(afex)
 library(Hmisc)
 library(knitr)
-library(sf)
-library(rnaturalearthdata)
 library(cowplot)
-library(googleway)
 library(ggrepel)
-library(ggspatial)
 library(DT)
 library(data.table)
 library(MetBrewer)
 ```
+
 
 Nine sampling locations were chosen based on genomic data and these locations covered a wide range of latitude (~20°) and longitude (~40°) across the continent (see table below). From each location, 15 to 20 isofemale lines were established in corresponding labs at the sampling location and the isofemale lines were centrally maintained by Élio Sucena  at Instituto Gulbenkian de Ciência (IGC), Lisbon, Portugal. A total of 173 isofemale lines were used in this study. 
 
@@ -68,40 +60,13 @@ caption {
     }
 ```
 
-```{r samples_map, echo=FALSE, message=TRUE}
-world <- ne_countries(scale = "medium", returnclass = "sf")
-samples_map <- ggplot(data = world) + geom_sf() + xlab("Longitude") + ylab("Latitude") + ggplot2::coord_sf(xlim = c(-12, 38), ylim = c(30, 65), expand = FALSE) + annotation_scale(location = "bl", width_hint = 0.5) + ggtitle("Sampling locations")
-```
 
-```{r map_theme, echo=FALSE, message=FALSE}
-map_theme <- theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), panel.background = element_blank(), axis.line = element_line(colour = "black",), axis.title.x = element_text(size = 16), axis.text.x = element_text(size = 14, colour = "black"),axis.text.y = element_text(size = 14, colour = "black"),axis.title.y = element_text(size = 16), plot.title = element_text(color="black", size=14, face="bold"))
+```{r echo=FALSE}
+knitr::include_graphics("InfoTables/samples_map_2-1.png")
 ```
 
 ```{r panmix_theme, echo=FALSE, message=FALSE}
 panmix_theme <- theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),panel.background = element_blank(), axis.line = element_line(colour = "black",), axis.title.x = element_text(size = 16), axis.text.x = element_text(size = 16, colour = "black"), axis.text.y = element_text(size = 16, colour = "black"),axis.title.y = element_text(size = 16))
-```
-
-```{r samples_map_2, echo=FALSE, message=TRUE}
-samples_map + map_theme + 
-  annotate(geom = "point", x = -8.410, y = 41.150, colour = "orange", size = 3) + 
-  annotate(geom = "point", x = 0.620, y = 41.618,colour = "orange", size = 3) + 
-  annotate(geom = "point", x = 10.213, y = 55.945, colour = "orange", size = 3) + 
-  annotate(geom = "point", x = 32.260, y = 40.231, colour = "orange", size = 3) + 
-  annotate(geom = "point", x = 11.610, y = 48.180, colour = "orange", size = 3) + 
-  annotate(geom = "point", x = 15.560, y = 48.375, colour = "orange", size = 3) + 
-  annotate(geom = "point", x = 33.244, y = 57.979, colour = "orange", size = 3) + 
-  annotate(geom = "point", x = 30.206, y = 48.753, colour = "orange", size = 3) + 
-  annotate(geom = "point", x = 23.520, y = 61.100, colour = "orange", size = 3) +
-  annotate(geom = "text", x = -8.410, y = 41.150, label ="PT",fontface = "bold", color = "black", size =5, angle=15) +
-  annotate(geom = "text", x = 0.620, y = 41.618, label ="ES",fontface = "bold", color = "black", size =5, angle=15) + 
-  annotate(geom = "text", x = 10.213, y = 55.945, label ="DK",fontface = "bold", color = "black", size =5, angle=15) + 
-  annotate(geom = "text", x = 32.260, y = 40.231, label ="TR",fontface = "bold", color = "black", size =5, angle=15) + 
-  annotate(geom = "text", x = 11.610, y = 48.180, label ="DE",fontface = "bold", color = "black", size =5, angle=15) + 
-  annotate(geom = "text", x = 15.560, y = 48.375, label ="AT",fontface = "bold", color = "black", size =5, angle=15) + 
-  annotate(geom = "text", x = 33.244, y = 57.979, label ="RU",fontface = "bold", color = "black", size =5, angle=15) + 
-  annotate(geom = "text", x = 30.206, y = 48.753, label ="UA",fontface = "bold", color = "black", size =5, angle=15) + 
-  annotate(geom = "text", x = 23.520, y = 61.100, label ="FI",fontface = "bold", color = "black", size =5, angle=15) 
-
 ```
 
 ```{r droseu_labs, echo=FALSE, message=FALSE}
@@ -120,13 +85,11 @@ knitr::kable(droseu_labs, allign = "llll", caption = "Table X. Contributed labs 
 cities <- read.csv("InfoTables/DrosEU_cities.csv")
 ```
 
-```{r research_groups_map, echo=FALSE, message=TRUE}
-globe_labs <- ggplot(data = world) + geom_sf() + xlab("Longitude") + ylab("Latitude") +
-  coord_sf(xlim = c(-80.15, 40.12), ylim = c(-45, 60), expand = TRUE) +
-  ggtitle("Contributed labs", subtitle = paste0("(", length(unique(droseu_labs$Country)), " countries", ", ", length(unique(droseu_labs$Supervisor.PI)), " research groups", ")")) +
-  annotate(geom = "point", x = cities$Long, y = cities$Lat, colour = "red", size = 2) 
-globe_labs + map_theme 
+
+```{r echo=FALSE}
+knitr::include_graphics("InfoTables/research_groups_map-1.png")
 ```
+
 
 ## Contributors (analyses)
 
@@ -8978,3 +8941,98 @@ lmers_alt$Pgm_Total_Schmidt_lmer_alt
 * Intraclass correlations (David et al. 2005)
 * Evolvability 
 
+# Results VII : Wolbachia
+
+## Population
+
+```{r, echo=FALSE}
+pval_Wolb_pop <- read.csv("LinearModelsPop_Wolb/all_models_pop_pvalues_Wolb.csv")
+```
+
+```{r, echo=FALSE}
+DT::datatable(pval_Wolb_pop, options = list(pageLength = 25)) %>% formatRound(6:6, 4)
+```
+
+
+```{r echo=FALSE}
+knitr::include_graphics("LinearModelsPop_Wolb/all_models_pop_pvalues_Wolb.pdf")
+```
+
+
+## Latitude 
+
+```{r, echo=FALSE}
+pval_Wolb_lat <- read.csv("LinearModelsLat_Wolb/all_models_lat_pvalues_Wolb.csv")
+```
+
+```{r, echo=FALSE}
+DT::datatable(pval_Wolb_lat, options = list(pageLength = 25)) %>% formatRound(6:6, 4)
+```
+
+```{r echo=FALSE}
+knitr::include_graphics("LinearModelsLat_Wolb/all_models_lat_pvalues_Wolb.pdf")
+```
+
+
+
+## Longitude
+
+```{r, echo=FALSE}
+pval_Wolb_lon <- read.csv("LinearModelsLon_Wolb/all_models_lon_pvalues_Wolb.csv")
+```
+
+```{r, echo=FALSE}
+DT::datatable(pval_Wolb_lon, options = list(pageLength = 25)) %>% formatRound(6:6, 4)
+```
+
+
+```{r echo=FALSE}
+knitr::include_graphics("LinearModelsLon_Wolb/all_models_lon_pvalues_Wolb.pdf")
+```
+
+
+## Altitude
+
+```{r, echo=FALSE}
+pval_Wolb_alt <- read.csv("LinearModelsAlt_Wolb/all_models_alt_pvalues_Wolb.csv")
+```
+
+```{r, echo=FALSE}
+DT::datatable(pval_Wolb_alt, options = list(pageLength = 25)) %>% formatRound(6:6, 4)
+```
+
+
+```{r echo=FALSE}
+knitr::include_graphics("LinearModelsAlt_Wolb/all_models_alt_pvalues_Wolb.pdf")
+```
+
+
+# Results VIII : UPGMA trees 
+
+Here are some example UPGMA trees from Jorge and Cristina -- please refer to /UPGMATrees folder for all of the trees. 
+
+```{r echo=FALSE}
+knitr::include_graphics("UPGMATrees/CCRT_F_meta_summary.txt.Mensch.png")
+```
+
+```{r echo=FALSE}
+knitr::include_graphics("UPGMATrees/CSM_F_meta_summary.txt.Gonzalez.png")
+```
+
+```{r echo=FALSE}
+knitr::include_graphics("UPGMATrees/DT_A_F_meta_summary.txt.Hoedjes.png")
+```
+
+```{r echo=FALSE}
+knitr::include_graphics("UPGMATrees/DW_M_meta_summary.txt.Colinet.png")
+```
+
+```{r echo=FALSE}
+knitr::include_graphics("UPGMATrees/SR_F_meta_summary.txt.Pasyukova.png")
+```
+
+```{r echo=FALSE}
+knitr::include_graphics("UPGMATrees/WA_R_F_meta_summary.txt.StamenkovicRadak.png")
+```
+
+# Results IX : Climatic variables _tbd_

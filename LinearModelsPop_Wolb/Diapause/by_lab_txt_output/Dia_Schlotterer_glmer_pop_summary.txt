@@ -1,0 +1,45 @@
+Generalized linear mixed model fit by maximum likelihood (Laplace
+  Approximation) [glmerMod]
+ Family: binomial  ( logit )
+Formula: Prop_Max_Stage9 ~ Population + Wolbachia + (1 | Line:Population)
+   Data: filter(dia, Supervisor.PI == pi)
+Weights: n
+
+     AIC      BIC   logLik deviance df.resid 
+   908.6    943.4   -443.3    886.6      164 
+
+Scaled residuals: 
+     Min       1Q   Median       3Q      Max 
+-3.01262 -0.34999  0.03209  0.52898  1.95389 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 1.588    1.26    
+Number of obs: 175, groups:  Line:Population, 143
+
+Fixed effects:
+             Estimate Std. Error z value Pr(>|z|)    
+(Intercept)   -0.0870     0.4715  -0.184   0.8536    
+PopulationGI   0.5654     0.5034   1.123   0.2614    
+PopulationKA   0.8887     0.4599   1.932   0.0533 .  
+PopulationMA   0.9827     0.4622   2.126   0.0335 *  
+PopulationMU   0.9565     0.4636   2.063   0.0391 *  
+PopulationRE   1.3732     0.5433   2.527   0.0115 *  
+PopulationUM   2.4120     0.5485   4.397  1.1e-05 ***
+PopulationVA   1.3678     0.5669   2.413   0.0158 *  
+PopulationYE   0.9569     0.4502   2.125   0.0335 *  
+Wolbachia+     0.1874     0.3548   0.528   0.5973    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+            (Intr) PpltGI PpltKA PpltMA PpltMU PpltRE PpltUM PpltVA PpltYE
+PopulatinGI -0.589                                                        
+PopulatinKA -0.480  0.430                                                 
+PopulatinMA -0.545  0.449  0.462                                          
+PopulatinMU -0.481  0.428  0.457  0.459                                   
+PopulatinRE -0.645  0.441  0.405  0.435  0.404                            
+PopulatinUM -0.534  0.406  0.399  0.415  0.395  0.406                     
+PopulatinVA -0.360  0.341  0.374  0.372  0.370  0.317  0.320              
+PopulatinYE -0.546  0.457  0.474  0.482  0.470  0.440  0.421  0.381       
+Wolbachia+  -0.752  0.242  0.045  0.135  0.053  0.356  0.212 -0.002  0.122

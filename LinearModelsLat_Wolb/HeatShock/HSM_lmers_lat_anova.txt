@@ -1,0 +1,30 @@
+$HSM_F_Parsch_lmer_lat
+Type III Analysis of Variance Table with Satterthwaite's method
+          Sum Sq Mean Sq NumDF  DenDF F value    Pr(>F)    
+Latitude   87082   87082     1 117.21 14.4676 0.0002281 ***
+Wolbachia   6626    6626     1 116.03  1.1008 0.2962720    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+$HSM_F_Vieira_lmer_lat
+Type III Analysis of Variance Table with Satterthwaite's method
+          Sum Sq Mean Sq NumDF  DenDF F value Pr(>F)
+Latitude  4437.0  4437.0     1 120.51  1.4614 0.2291
+Wolbachia  915.3   915.3     1 142.26  0.3015 0.5838
+
+$HSM_M_Parsch_lmer_lat
+Type III Analysis of Variance Table with Satterthwaite's method
+          Sum Sq Mean Sq NumDF  DenDF F value    Pr(>F)    
+Latitude  121487  121487     1 119.16 25.1988 1.831e-06 ***
+Wolbachia     32      32     1 118.99  0.0067    0.9348    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+$HSM_M_Vieira_lmer_lat
+Type III Analysis of Variance Table with Satterthwaite's method
+           Sum Sq Mean Sq NumDF  DenDF F value   Pr(>F)   
+Latitude  25344.8 25344.8     1 131.71  8.6217 0.003922 **
+Wolbachia   630.8   630.8     1 132.95  0.2146 0.643968   
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+

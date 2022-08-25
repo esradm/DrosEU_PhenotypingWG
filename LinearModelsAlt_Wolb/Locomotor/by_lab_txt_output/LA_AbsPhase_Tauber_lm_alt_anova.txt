@@ -1,0 +1,6 @@
+Analysis of Variance Table
+
+Response: AbsPhase
+           Df  Sum Sq Mean Sq F value Pr(>F)
+Altitude    1     0.2   0.229  0.0121 0.9126
+Residuals 542 10297.7  18.999               

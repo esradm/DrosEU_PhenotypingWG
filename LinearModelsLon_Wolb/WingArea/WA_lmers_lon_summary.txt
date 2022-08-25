@@ -1,0 +1,543 @@
+$WA_L_F_Onder_lmer_lon
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: 
+CentroidSizeLeft_micrometers ~ Longitude + Wolbachia + (1 | Line:Population) +  
+    (1 | Batch) + (1 | ReplicateVial:Line)
+   Data: filter(WA, Supervisor.PI == "Onder" & Sex == "F")
+
+REML criterion at convergence: 55283.8
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-5.6959 -0.5594  0.0584  0.6168  4.0295 
+
+Random effects:
+ Groups             Name        Variance Std.Dev.
+ ReplicateVial:Line (Intercept)  839.7   28.98   
+ Line:Population    (Intercept) 4078.0   63.86   
+ Batch              (Intercept) 1392.2   37.31   
+ Residual                       5810.1   76.22   
+Number of obs: 4739, groups:  
+ReplicateVial:Line, 467; Line:Population, 150; Batch, 7
+
+Fixed effects:
+             Estimate Std. Error        df t value Pr(>|t|)    
+(Intercept) 2911.8550    20.2273   14.8626 143.956  < 2e-16 ***
+Longitude     -1.2948     0.4355  141.7118  -2.973  0.00346 ** 
+Wolbachia+   -35.1719    15.0335  141.6323  -2.340  0.02070 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Longtd
+Longitude  -0.231       
+Wolbachia+ -0.528 -0.229
+
+$WA_L_F_Posnien_lmer_lon
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: 
+CentroidSizeLeft_micrometers ~ Longitude + Wolbachia + (1 | Line:Population)
+   Data: filter(WA, Supervisor.PI == "Posnien" & Sex == "F")
+
+REML criterion at convergence: 3015.2
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.3124 -0.6136  0.0009  0.6336  2.4449 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 8938     94.54   
+ Residual                    8718     93.37   
+Number of obs: 250, groups:  Line:Population, 25
+
+Fixed effects:
+            Estimate Std. Error       df t value Pr(>|t|)    
+(Intercept) 2693.214     41.523   22.000  64.861   <2e-16 ***
+Longitude     -2.428      1.570   22.000  -1.546    0.136    
+Wolbachia+   -14.520     50.862   22.000  -0.285    0.778    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Longtd
+Longitude  -0.227       
+Wolbachia+ -0.681 -0.410
+
+$WA_L_F_Ritchie_lmer_lon
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: 
+CentroidSizeLeft_micrometers ~ Longitude + Wolbachia + (1 | Line:Population) +  
+    (1 | Batch) + (1 | ReplicateVial:Line:Population)
+   Data: filter(WA, Supervisor.PI == "Ritchie" & Sex == "F")
+
+REML criterion at convergence: 14753.4
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-5.4065 -0.5355  0.0357  0.6170  3.1950 
+
+Random effects:
+ Groups                        Name        Variance Std.Dev.
+ ReplicateVial:Line:Population (Intercept)  7001     83.67  
+ Line:Population               (Intercept) 17185    131.09  
+ Batch                         (Intercept)  6193     78.69  
+ Residual                                   8792     93.77  
+Number of obs: 1211, groups:  
+ReplicateVial:Line:Population, 117; Line:Population, 42; Batch, 15
+
+Fixed effects:
+            Estimate Std. Error       df t value Pr(>|t|)    
+(Intercept) 2737.889     51.940   27.365  52.712   <2e-16 ***
+Longitude      2.997      1.894   28.597   1.583    0.124    
+Wolbachia+   -18.295     57.899   29.926  -0.316    0.754    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Longtd
+Longitude  -0.283       
+Wolbachia+ -0.589 -0.389
+
+$WA_L_F_StamenkovicRadak_lmer_lon
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: 
+CentroidSizeLeft_micrometers ~ Longitude + Wolbachia + (1 | Line:Population)
+   Data: filter(WA, Supervisor.PI == "StamenkovicRadak" & Sex == "F")
+
+REML criterion at convergence: 39102.3
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-5.4820 -0.5581  0.0640  0.6359  3.6103 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 3672     60.60   
+ Residual                    7720     87.87   
+Number of obs: 3293, groups:  Line:Population, 108
+
+Fixed effects:
+             Estimate Std. Error        df t value Pr(>|t|)    
+(Intercept) 2889.8249    14.7042  105.0039 196.531   <2e-16 ***
+Longitude     -0.9456     0.4713  104.9655  -2.006   0.0474 *  
+Wolbachia+   -36.1719    16.1627  104.9895  -2.238   0.0273 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Longtd
+Longitude  -0.302       
+Wolbachia+ -0.743 -0.277
+
+$WA_L_M_Onder_lmer_lon
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: 
+CentroidSizeLeft_micrometers ~ Longitude + Wolbachia + (1 | Line:Population) +  
+    (1 | ReplicateVial:Line:Population)
+   Data: filter(WA, Supervisor.PI == "Onder" & Sex == "M")
+
+REML criterion at convergence: 54091.1
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-4.2859 -0.5843  0.0357  0.6143  5.8597 
+
+Random effects:
+ Groups                        Name        Variance Std.Dev.
+ ReplicateVial:Line:Population (Intercept)  838.4   28.96   
+ Line:Population               (Intercept) 2817.8   53.08   
+ Residual                                  4719.4   68.70   
+Number of obs: 4720, groups:  
+ReplicateVial:Line:Population, 467; Line:Population, 150
+
+Fixed effects:
+             Estimate Std. Error        df t value Pr(>|t|)    
+(Intercept) 2523.6085    11.8382  147.1744 213.175   <2e-16 ***
+Longitude     -0.8765     0.3663  147.3738  -2.393   0.0180 *  
+Wolbachia+   -23.8397    12.6505  147.2588  -1.884   0.0615 .  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Longtd
+Longitude  -0.326       
+Wolbachia+ -0.761 -0.231
+
+$WA_L_M_Posnien_lmer_lon
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: 
+CentroidSizeLeft_micrometers ~ Longitude + Wolbachia + (1 | Line:Population)
+   Data: filter(WA, Supervisor.PI == "Posnien" & Sex == "M")
+
+REML criterion at convergence: 2928.3
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.9792 -0.4799  0.0338  0.6116  3.3480 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 7160     84.62   
+ Residual                    6062     77.86   
+Number of obs: 250, groups:  Line:Population, 25
+
+Fixed effects:
+            Estimate Std. Error       df t value Pr(>|t|)    
+(Intercept) 2355.087     36.946   22.000  63.744   <2e-16 ***
+Longitude     -1.198      1.397   22.000  -0.858    0.400    
+Wolbachia+    14.747     45.256   22.000   0.326    0.748    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Longtd
+Longitude  -0.227       
+Wolbachia+ -0.681 -0.410
+
+$WA_L_M_Ritchie_lmer_lon
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: 
+CentroidSizeLeft_micrometers ~ Longitude + Wolbachia + (1 | Line:Population) +  
+    (1 | Batch) + (1 | ReplicateVial:Line:Population)
+   Data: filter(WA, Supervisor.PI == "Ritchie" & Sex == "M")
+
+REML criterion at convergence: 14460.5
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-4.8993 -0.4811  0.0643  0.5740  4.5910 
+
+Random effects:
+ Groups                        Name        Variance  Std.Dev.
+ ReplicateVial:Line:Population (Intercept) 5.053e+03 71.08113
+ Line:Population               (Intercept) 5.949e+03 77.13135
+ Batch                         (Intercept) 3.949e-03  0.06284
+ Residual                                  7.125e+03 84.41233
+Number of obs: 1211, groups:  
+ReplicateVial:Line:Population, 117; Line:Population, 39; Batch, 15
+
+Fixed effects:
+             Estimate Std. Error        df t value Pr(>|t|)    
+(Intercept) 2428.0265    29.8382   35.9677  81.373   <2e-16 ***
+Longitude      0.9102     1.1261   35.8633   0.808    0.424    
+Wolbachia+     2.7947    34.5457   35.9353   0.081    0.936    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Longtd
+Longitude  -0.341       
+Wolbachia+ -0.649 -0.336
+optimizer (nloptwrap) convergence code: 0 (OK)
+unable to evaluate scaled gradient
+Model failed to converge: degenerate  Hessian with 1 negative eigenvalues
+
+
+$WA_L_M_StamenkovicRadak_lmer_lon
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: 
+CentroidSizeLeft_micrometers ~ Longitude + Wolbachia + (1 | Line:Population) +  
+    (1 | Batch)
+   Data: filter(WA, Supervisor.PI == "StamenkovicRadak" & Sex == "M")
+
+REML criterion at convergence: 37253.4
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-7.2293 -0.5460  0.0591  0.6162  5.9525 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 2704.62  52.006  
+ Batch           (Intercept)   29.12   5.396  
+ Residual                    6051.14  77.789  
+Number of obs: 3203, groups:  Line:Population, 108; Batch, 5
+
+Fixed effects:
+             Estimate Std. Error        df t value Pr(>|t|)    
+(Intercept) 2510.1387    12.9565   49.3889 193.736   <2e-16 ***
+Longitude     -0.6913     0.4063  102.7740  -1.702   0.0919 .  
+Wolbachia+   -36.4932    13.9406  103.9220  -2.618   0.0102 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Longtd
+Longitude  -0.294       
+Wolbachia+ -0.728 -0.278
+
+$WA_R_F_Onder_lmer_lon
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: CentroidSizeRight_micrometers ~ Longitude + Wolbachia + (1 |  
+    Line:Population) + (1 | Batch) + (1 | ReplicateVial:Line:Population)
+   Data: filter(WA, Supervisor.PI == "Onder" & Sex == "F")
+
+REML criterion at convergence: 55270.9
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-5.5964 -0.5598  0.0506  0.6229  3.7708 
+
+Random effects:
+ Groups                        Name        Variance Std.Dev.
+ ReplicateVial:Line:Population (Intercept)  858.7   29.30   
+ Line:Population               (Intercept) 3993.7   63.20   
+ Batch                         (Intercept) 1290.1   35.92   
+ Residual                                  5791.4   76.10   
+Number of obs: 4739, groups:  
+ReplicateVial:Line:Population, 467; Line:Population, 150; Batch, 7
+
+Fixed effects:
+             Estimate Std. Error        df t value Pr(>|t|)    
+(Intercept) 2912.9443    19.7735   15.2791 147.316  < 2e-16 ***
+Longitude     -1.2876     0.4317  141.4176  -2.983  0.00337 ** 
+Wolbachia+   -35.5719    14.9035  141.3509  -2.387  0.01832 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Longtd
+Longitude  -0.234       
+Wolbachia+ -0.536 -0.229
+
+$WA_R_F_Posnien_lmer_lon
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: CentroidSizeRight_micrometers ~ Longitude + Wolbachia + (1 |  
+    Line:Population)
+   Data: filter(WA, Supervisor.PI == "Posnien" & Sex == "F")
+
+REML criterion at convergence: 3023.2
+
+Scaled residuals: 
+     Min       1Q   Median       3Q      Max 
+-2.89171 -0.60811  0.00034  0.63956  2.34974 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 9003     94.88   
+ Residual                    9026     95.01   
+Number of obs: 250, groups:  Line:Population, 25
+
+Fixed effects:
+            Estimate Std. Error       df t value Pr(>|t|)    
+(Intercept) 2689.067     41.726   22.000  64.447   <2e-16 ***
+Longitude     -2.420      1.578   22.000  -1.534    0.139    
+Wolbachia+   -12.294     51.111   22.000  -0.241    0.812    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Longtd
+Longitude  -0.227       
+Wolbachia+ -0.681 -0.410
+
+$WA_R_F_Ritchie_lmer_lon
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: CentroidSizeRight_micrometers ~ Longitude + Wolbachia + (1 |  
+    Line:Population) + (1 | Batch) + (1 | ReplicateVial:Line)
+   Data: filter(WA, Supervisor.PI == "Ritchie" & Sex == "F")
+
+REML criterion at convergence: 14760.6
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-5.4435 -0.5297  0.0579  0.6396  3.2232 
+
+Random effects:
+ Groups             Name        Variance Std.Dev.
+ ReplicateVial:Line (Intercept)  7365     85.82  
+ Line:Population    (Intercept) 17086    130.71  
+ Batch              (Intercept)  6004     77.48  
+ Residual                        8824     93.94  
+Number of obs: 1211, groups:  
+ReplicateVial:Line, 117; Line:Population, 42; Batch, 15
+
+Fixed effects:
+            Estimate Std. Error       df t value Pr(>|t|)    
+(Intercept) 2759.867     51.806   27.323  53.273   <2e-16 ***
+Longitude      3.006      1.892   28.660   1.588    0.123    
+Wolbachia+   -19.269     57.862   29.981  -0.333    0.741    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Longtd
+Longitude  -0.284       
+Wolbachia+ -0.591 -0.388
+
+$WA_R_F_StamenkovicRadak_lmer_lon
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: CentroidSizeRight_micrometers ~ Longitude + Wolbachia + (1 |  
+    Line:Population)
+   Data: filter(WA, Supervisor.PI == "StamenkovicRadak" & Sex == "F")
+
+REML criterion at convergence: 39102
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-5.7080 -0.5488  0.0816  0.6280  3.6708 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 3839     61.96   
+ Residual                    7709     87.80   
+Number of obs: 3293, groups:  Line:Population, 108
+
+Fixed effects:
+             Estimate Std. Error        df t value Pr(>|t|)    
+(Intercept) 2890.9714    15.0128  104.9796 192.568   <2e-16 ***
+Longitude     -0.9294     0.4812  104.9431  -1.931   0.0561 .  
+Wolbachia+   -37.8147    16.5019  104.9661  -2.292   0.0239 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Longtd
+Longitude  -0.302       
+Wolbachia+ -0.743 -0.277
+
+$WA_R_M_Onder_lmer_lon
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: CentroidSizeRight_micrometers ~ Longitude + Wolbachia + (1 |  
+    Line:Population) + (1 | ReplicateVial:Line)
+   Data: filter(WA, Supervisor.PI == "Onder" & Sex == "M")
+
+REML criterion at convergence: 54106.8
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-4.1244 -0.5833  0.0334  0.6119  6.0478 
+
+Random effects:
+ Groups             Name        Variance Std.Dev.
+ ReplicateVial:Line (Intercept)  955.4   30.91   
+ Line:Population    (Intercept) 2821.0   53.11   
+ Residual                       4705.1   68.59   
+Number of obs: 4720, groups:  ReplicateVial:Line, 467; Line:Population, 150
+
+Fixed effects:
+             Estimate Std. Error        df t value Pr(>|t|)    
+(Intercept) 2525.2462    11.9143  147.1524 211.951   <2e-16 ***
+Longitude     -0.8936     0.3686  147.3752  -2.424   0.0166 *  
+Wolbachia+   -24.8482    12.7321  147.2462  -1.952   0.0529 .  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Longtd
+Longitude  -0.325       
+Wolbachia+ -0.761 -0.231
+
+$WA_R_M_Posnien_lmer_lon
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: CentroidSizeRight_micrometers ~ Longitude + Wolbachia + (1 |  
+    Line:Population)
+   Data: filter(WA, Supervisor.PI == "Posnien" & Sex == "M")
+
+REML criterion at convergence: 2928.4
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-4.1554 -0.5468  0.0077  0.6534  3.4732 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 7096     84.24   
+ Residual                    6070     77.91   
+Number of obs: 250, groups:  Line:Population, 25
+
+Fixed effects:
+            Estimate Std. Error       df t value Pr(>|t|)    
+(Intercept) 2354.842     36.794   22.000  64.000   <2e-16 ***
+Longitude     -1.235      1.391   22.000  -0.888    0.384    
+Wolbachia+    14.386     45.071   22.000   0.319    0.753    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Longtd
+Longitude  -0.227       
+Wolbachia+ -0.681 -0.410
+
+$WA_R_M_Ritchie_lmer_lon
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: CentroidSizeRight_micrometers ~ Longitude + Wolbachia + (1 |  
+    Line:Population) + (1 | Batch) + (1 | ReplicateVial:Line:Population)
+   Data: filter(WA, Supervisor.PI == "Ritchie" & Sex == "M")
+
+REML criterion at convergence: 14447.4
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-4.8997 -0.4960  0.0451  0.5823  4.6738 
+
+Random effects:
+ Groups                        Name        Variance Std.Dev.
+ ReplicateVial:Line:Population (Intercept) 4965.6   70.47   
+ Line:Population               (Intercept) 5456.8   73.87   
+ Batch                         (Intercept)  559.5   23.65   
+ Residual                                  7049.6   83.96   
+Number of obs: 1211, groups:  
+ReplicateVial:Line:Population, 117; Line:Population, 39; Batch, 15
+
+Fixed effects:
+             Estimate Std. Error        df t value Pr(>|t|)    
+(Intercept) 2449.0719    30.0510   35.0241  81.497   <2e-16 ***
+Longitude      0.7337     1.1230   35.6692   0.653    0.518    
+Wolbachia+     4.8892    34.4998   35.8947   0.142    0.888    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Longtd
+Longitude  -0.324       
+Wolbachia+ -0.633 -0.356
+
+$WA_R_M_StamenkovicRadak_lmer_lon
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: CentroidSizeRight_micrometers ~ Longitude + Wolbachia + (1 |  
+    Line:Population)
+   Data: filter(WA, Supervisor.PI == "StamenkovicRadak" & Sex == "M")
+
+REML criterion at convergence: 37185.7
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-7.2188 -0.5607  0.0641  0.6317  5.9207 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 2912     53.96   
+ Residual                    5908     76.86   
+Number of obs: 3203, groups:  Line:Population, 108
+
+Fixed effects:
+             Estimate Std. Error        df t value Pr(>|t|)    
+(Intercept) 2509.8166    13.0913  104.7787 191.716   <2e-16 ***
+Longitude     -0.6622     0.4200  105.0911  -1.577   0.1178    
+Wolbachia+   -35.7980    14.3919  104.8254  -2.487   0.0144 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Longtd
+Longitude  -0.302       
+Wolbachia+ -0.743 -0.278
+

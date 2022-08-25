@@ -1,0 +1,136 @@
+$HSM_F_Parsch_lmer_alt
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: TimeDeath_min ~ Altitude + Wolbachia + (1 | Line:Population) +  
+    (1 | Batch)
+   Data: filter(HSM, Censor == "0" & Supervisor.PI == "Parsch" & Sex ==  
+    "F")
+
+REML criterion at convergence: 35845.8
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-4.9689 -0.5893  0.1286  0.6978  2.9806 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 3493     59.10   
+ Batch           (Intercept) 3652     60.43   
+ Residual                    6019     77.58   
+Number of obs: 3077, groups:  Line:Population, 120; Batch, 9
+
+Fixed effects:
+              Estimate Std. Error         df t value Pr(>|t|)    
+(Intercept) 346.709968  25.043783  17.461938  13.844 7.53e-11 ***
+Altitude     -0.009736   0.025505 120.855248  -0.382   0.7033    
+Wolbachia+   31.912003  14.646996 117.506351   2.179   0.0313 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Altitd
+Altitude   -0.277       
+Wolbachia+ -0.451 -0.071
+
+$HSM_F_Vieira_lmer_alt
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: TimeDeath_min ~ Altitude + Wolbachia + (1 | Line:Population) +  
+    (1 | Batch)
+   Data: filter(HSM, Censor == "0" & Supervisor.PI == "Vieira" & Sex ==  
+    "F")
+
+REML criterion at convergence: 50678.5
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-6.2455 -0.5212  0.1393  0.7257  2.3552 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept)  529.4   23.01   
+ Batch           (Intercept)  138.4   11.76   
+ Residual                    3036.2   55.10   
+Number of obs: 4643, groups:  Line:Population, 148; Batch, 32
+
+Fixed effects:
+             Estimate Std. Error        df t value Pr(>|t|)    
+(Intercept) 358.61301    6.61096 100.54144  54.245   <2e-16 ***
+Altitude     -0.01213    0.01157  75.97787  -1.048    0.298    
+Wolbachia+    5.32969    5.80780 144.12407   0.918    0.360    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Altitd
+Altitude   -0.544       
+Wolbachia+ -0.712  0.020
+
+$HSM_M_Parsch_lmer_alt
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: TimeDeath_min ~ Altitude + Wolbachia + (1 | Line:Population) +  
+    (1 | Batch)
+   Data: filter(HSM, Censor == "0" & Supervisor.PI == "Parsch" & Sex ==  
+    "M")
+
+REML criterion at convergence: 52686.7
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-5.2176 -0.6984  0.0315  0.6745  2.8214 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 6553     80.95   
+ Batch           (Intercept) 3275     57.23   
+ Residual                    4822     69.44   
+Number of obs: 4610, groups:  Line:Population, 122; Batch, 9
+
+Fixed effects:
+             Estimate Std. Error        df t value Pr(>|t|)    
+(Intercept) 318.04131   27.17096  29.12020  11.705 1.56e-12 ***
+Altitude     -0.03714    0.03285 118.85351  -1.131    0.260    
+Wolbachia+   27.66628   19.07026 118.78367   1.451    0.149    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Altitd
+Altitude   -0.328       
+Wolbachia+ -0.547 -0.064
+
+$HSM_M_Vieira_lmer_alt
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: TimeDeath_min ~ Altitude + Wolbachia + (1 | Line:Population) +  
+    (1 | Batch)
+   Data: filter(HSM, Censor == "0" & Supervisor.PI == "Vieira" & Sex ==  
+    "M")
+
+REML criterion at convergence: 83466.6
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-5.8849 -0.6116  0.0452  0.6778  2.8129 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 1118.8   33.45   
+ Batch           (Intercept)  420.5   20.51   
+ Residual                    2939.7   54.22   
+Number of obs: 7668, groups:  Line:Population, 148; Batch, 32
+
+Fixed effects:
+             Estimate Std. Error        df t value Pr(>|t|)    
+(Intercept) 315.66692    9.44772  99.91608  33.412   <2e-16 ***
+Altitude     -0.01728    0.01682  85.18864  -1.027    0.307    
+Wolbachia+    9.87488    7.90170 138.04277   1.250    0.214    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Altitd
+Altitude   -0.551       
+Wolbachia+ -0.692  0.040
+

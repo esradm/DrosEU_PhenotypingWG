@@ -1,0 +1,43 @@
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: TL_micrometers ~ Population + Wolbachia + (1 | Line:Population)
+   Data: filter(TL, Supervisor.PI == "Posnien" & Sex == "M")
+
+REML criterion at convergence: 2454.7
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.6736 -0.5402 -0.0399  0.5848  3.6657 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept)  931.3   30.52   
+ Residual                    1238.0   35.19   
+Number of obs: 250, groups:  Line:Population, 25
+
+Fixed effects:
+             Estimate Std. Error     df t value Pr(>|t|)    
+(Intercept)    751.24      33.81  15.00  22.220 6.83e-13 ***
+PopulationGI    64.07      26.52  15.00   2.416   0.0289 *  
+PopulationKA    48.66      29.65  15.00   1.641   0.1216    
+PopulationMA    25.55      32.48  15.00   0.787   0.4437    
+PopulationMU   -20.49      26.52  15.00  -0.773   0.4518    
+PopulationRE    51.35      38.66  15.00   1.328   0.2040    
+PopulationUM    53.37      28.13  15.00   1.897   0.0772 .  
+PopulationVA    15.37      29.65  15.00   0.518   0.6119    
+PopulationYE    42.41      26.52  15.00   1.599   0.1307    
+Wolbachia+      25.91      28.13  15.00   0.921   0.3715    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+            (Intr) PpltGI PpltKA PpltMA PpltMU PpltRE PpltUM PpltVA PpltYE
+PopulatinGI -0.392                                                        
+PopulatinKA -0.351  0.447                                                 
+PopulatinMA -0.801  0.408  0.365                                          
+PopulatinMU -0.392  0.500  0.447  0.408                                   
+PopulatinRE -0.874  0.343  0.307  0.700  0.343                            
+PopulatinUM -0.647  0.471  0.422  0.577  0.471  0.566                     
+PopulatinVA -0.351  0.447  0.400  0.365  0.447  0.307  0.422              
+PopulatinYE -0.392  0.500  0.447  0.408  0.500  0.343  0.471  0.447       
+Wolbachia+  -0.832  0.000  0.000  0.577  0.000  0.728  0.333  0.000  0.000

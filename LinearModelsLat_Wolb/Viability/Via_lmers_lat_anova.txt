@@ -1,0 +1,50 @@
+$Via_Gibert_lmer_lat
+Type III Analysis of Variance Table with Satterthwaite's method
+           Sum Sq Mean Sq NumDF  DenDF F value    Pr(>F)    
+Latitude  0.46506 0.46506     1 144.39 41.7580 1.485e-09 ***
+Wolbachia 0.04799 0.04799     1 144.32  4.3089   0.03969 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+$Via_Grath_lmer_lat
+Type III Analysis of Variance Table with Satterthwaite's method
+            Sum Sq  Mean Sq NumDF  DenDF F value  Pr(>F)  
+Latitude  0.075067 0.075067     1 26.629  3.8057 0.06168 .
+Wolbachia 0.010541 0.010541     1 25.813  0.5344 0.47135  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+$Via_Hoedjes_lmer_lat
+Type III Analysis of Variance Table with Satterthwaite's method
+            Sum Sq  Mean Sq NumDF DenDF F value    Pr(>F)    
+Latitude  0.260206 0.260206     1   147 26.4660 8.442e-07 ***
+Wolbachia 0.049713 0.049713     1   147  5.0564   0.02602 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+$Via_Schmidt_lm_lat
+Analysis of Variance Table
+
+Response: ProportionEggtoAdultSurvival_asin
+           Df  Sum Sq Mean Sq F value  Pr(>F)  
+Latitude    1  0.4054 0.40540  5.1391 0.02489 *
+Residuals 143 11.2806 0.07889                  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+$Via_StamenkovicRadak_lmer_lat
+Type III Analysis of Variance Table with Satterthwaite's method
+            Sum Sq  Mean Sq NumDF  DenDF F value    Pr(>F)    
+Latitude  0.168527 0.168527     1 141.32 13.1496 0.0004006 ***
+Wolbachia 0.000337 0.000337     1 142.32  0.0263 0.8714715    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+$Via_Zwaan_lmer_lat
+Type III Analysis of Variance Table with Satterthwaite's method
+           Sum Sq Mean Sq NumDF  DenDF F value    Pr(>F)    
+Latitude  0.64940 0.64940     1 141.85 22.1590 5.907e-06 ***
+Wolbachia 0.01947 0.01947     1 135.85  0.6643    0.4165    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+

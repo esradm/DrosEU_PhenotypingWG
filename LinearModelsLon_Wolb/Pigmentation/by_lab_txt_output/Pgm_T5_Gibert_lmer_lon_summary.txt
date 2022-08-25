@@ -1,0 +1,29 @@
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: PercT5_asin ~ Longitude + Wolbachia + (1 | Line:Population)
+   Data: filter(PGM, Supervisor.PI == "Gibert")
+
+REML criterion at convergence: -2141.8
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.5947 -0.6183 -0.0549  0.5649  5.8332 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 0.004875 0.06982 
+ Residual                    0.012520 0.11189 
+Number of obs: 1561, groups:  Line:Population, 150
+
+Fixed effects:
+              Estimate Std. Error         df t value Pr(>|t|)    
+(Intercept)  6.123e-01  1.595e-02  1.470e+02  38.382   <2e-16 ***
+Longitude    8.689e-04  4.961e-04  1.466e+02   1.752   0.0819 .  
+Wolbachia+  -3.327e-02  1.676e-02  1.488e+02  -1.985   0.0490 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Longtd
+Longitude  -0.367       
+Wolbachia+ -0.752 -0.195

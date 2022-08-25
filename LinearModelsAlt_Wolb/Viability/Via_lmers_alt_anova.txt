@@ -1,0 +1,48 @@
+$Via_Gibert_lmer_alt
+Type III Analysis of Variance Table with Satterthwaite's method
+            Sum Sq  Mean Sq NumDF  DenDF F value    Pr(>F)    
+Altitude  0.267404 0.267404     1 145.28 23.9017 2.653e-06 ***
+Wolbachia 0.000504 0.000504     1 145.86  0.0451    0.8321    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+$Via_Grath_lmer_alt
+Type III Analysis of Variance Table with Satterthwaite's method
+            Sum Sq  Mean Sq NumDF  DenDF F value Pr(>F)
+Altitude  0.046035 0.046035     1 26.387  2.3344 0.1384
+Wolbachia 0.004079 0.004079     1 26.026  0.2068 0.6530
+
+$Via_Hoedjes_lmer_alt
+Type III Analysis of Variance Table with Satterthwaite's method
+            Sum Sq  Mean Sq NumDF DenDF F value    Pr(>F)    
+Altitude  0.052413 0.052413     1   147   5.331 0.0223428 *  
+Wolbachia 0.141437 0.141437     1   147  14.386 0.0002169 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+$Via_Schmidt_lm_alt
+Analysis of Variance Table
+
+Response: ProportionEggtoAdultSurvival_asin
+           Df  Sum Sq Mean Sq F value  Pr(>F)  
+Altitude    1  0.3878 0.38779  4.9082 0.02831 *
+Residuals 143 11.2982 0.07901                  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+$Via_StamenkovicRadak_lmer_alt
+Type III Analysis of Variance Table with Satterthwaite's method
+            Sum Sq  Mean Sq NumDF  DenDF F value    Pr(>F)    
+Altitude  0.149999 0.149999     1 141.10 11.7039 0.0008161 ***
+Wolbachia 0.014383 0.014383     1 142.16  1.1222 0.2912324    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+$Via_Zwaan_lmer_alt
+Type III Analysis of Variance Table with Satterthwaite's method
+           Sum Sq Mean Sq NumDF  DenDF F value   Pr(>F)    
+Altitude  0.48453 0.48453     1 143.71  16.553 7.77e-05 ***
+Wolbachia 0.16172 0.16172     1 136.06   5.525  0.02018 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+

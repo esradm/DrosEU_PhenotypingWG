@@ -1,0 +1,44 @@
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: CentroidSizeRight_micrometers ~ Population + Wolbachia + (1 |  
+    Line:Population)
+   Data: filter(WA, Supervisor.PI == "Posnien" & Sex == "M")
+
+REML criterion at convergence: 2842.5
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-4.0750 -0.5254  0.0062  0.5978  3.5182 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 7215     84.94   
+ Residual                    6070     77.91   
+Number of obs: 250, groups:  Line:Population, 25
+
+Fixed effects:
+             Estimate Std. Error      df t value Pr(>|t|)    
+(Intercept)   2180.17      92.05   15.00  23.684 2.69e-13 ***
+PopulationGI   108.33      72.21   15.00   1.500   0.1543    
+PopulationKA    43.08      80.74   15.00   0.534   0.6014    
+PopulationMA   163.88      88.44   15.00   1.853   0.0837 .  
+PopulationMU   -22.87      72.21   15.00  -0.317   0.7558    
+PopulationRE   194.82     105.27   15.00   1.851   0.0840 .  
+PopulationUM    91.26      76.59   15.00   1.191   0.2520    
+PopulationVA    45.61      80.74   15.00   0.565   0.5805    
+PopulationYE    48.05      72.21   15.00   0.665   0.5159    
+Wolbachia+     116.56      76.59   15.00   1.522   0.1488    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+            (Intr) PpltGI PpltKA PpltMA PpltMU PpltRE PpltUM PpltVA PpltYE
+PopulatinGI -0.392                                                        
+PopulatinKA -0.351  0.447                                                 
+PopulatinMA -0.801  0.408  0.365                                          
+PopulatinMU -0.392  0.500  0.447  0.408                                   
+PopulatinRE -0.874  0.343  0.307  0.700  0.343                            
+PopulatinUM -0.647  0.471  0.422  0.577  0.471  0.566                     
+PopulatinVA -0.351  0.447  0.400  0.365  0.447  0.307  0.422              
+PopulatinYE -0.392  0.500  0.447  0.408  0.500  0.343  0.471  0.447       
+Wolbachia+  -0.832  0.000  0.000  0.577  0.000  0.728  0.333  0.000  0.000

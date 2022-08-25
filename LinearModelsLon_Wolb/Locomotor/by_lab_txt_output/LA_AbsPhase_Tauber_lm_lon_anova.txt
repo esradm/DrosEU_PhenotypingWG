@@ -1,0 +1,6 @@
+Analysis of Variance Table
+
+Response: AbsPhase
+           Df  Sum Sq Mean Sq F value Pr(>F)
+Longitude   1    38.3  38.287  2.0226 0.1555
+Residuals 542 10259.6  18.929               

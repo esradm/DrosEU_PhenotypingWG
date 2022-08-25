@@ -1,0 +1,8 @@
+Analysis of Variance Table
+
+Response: ProportionEggtoAdultSurvival_asin
+            Df Sum Sq Mean Sq F value Pr(>F)   
+Population   8 1.8614 0.23267  3.2208 0.0022 **
+Residuals  136 9.8246 0.07224                  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1

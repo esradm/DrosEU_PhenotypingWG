@@ -1,0 +1,6 @@
+Type III Analysis of Variance Table with Satterthwaite's method
+          Sum Sq Mean Sq NumDF  DenDF F value  Pr(>F)   
+Altitude  1151.2  1151.2     1 119.38  4.3489 0.03916 * 
+Wolbachia 2130.0  2130.0     1 119.20  8.0462 0.00536 **
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1

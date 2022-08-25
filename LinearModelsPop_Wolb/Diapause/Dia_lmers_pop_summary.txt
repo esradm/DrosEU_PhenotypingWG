@@ -1,0 +1,122 @@
+$Dia_Bergland_lmer_pop
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: Prop_Max_Stage9_asin ~ Population + Wolbachia + (1 | Line:Population)
+   Data: filter(DIA, Supervisor.PI == "Bergland")
+
+REML criterion at convergence: 111.2
+
+Scaled residuals: 
+     Min       1Q   Median       3Q      Max 
+-2.58518 -0.55683  0.06493  0.54901  2.18320 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 0.03250  0.1803  
+ Residual                    0.06781  0.2604  
+Number of obs: 172, groups:  Line:Population, 141
+
+Fixed effects:
+               Estimate Std. Error         df t value Pr(>|t|)    
+(Intercept)    0.845018   0.104331 138.225615   8.099 2.59e-13 ***
+PopulationGI  -0.008300   0.114718 146.586210  -0.072   0.9424    
+PopulationKA   0.088660   0.102552 136.707102   0.865   0.3888    
+PopulationMA   0.216636   0.105557 146.344367   2.052   0.0419 *  
+PopulationMU   0.163094   0.106464 130.121127   1.532   0.1280    
+PopulationRE  -0.003008   0.123989 143.107502  -0.024   0.9807    
+PopulationUM   0.275094   0.111941 132.243050   2.457   0.0153 *  
+PopulationVA   0.266947   0.114442 136.784221   2.333   0.0211 *  
+PopulationYE   0.187633   0.101537 142.613390   1.848   0.0667 .  
+Wolbachia+    -0.012296   0.072887 119.138914  -0.169   0.8663    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+            (Intr) PpltGI PpltKA PpltMA PpltMU PpltRE PpltUM PpltVA PpltYE
+PopulatinGI -0.640                                                        
+PopulatinKA -0.565  0.489                                                 
+PopulatinMA -0.609  0.497  0.524                                          
+PopulatinMU -0.529  0.466  0.513  0.502                                   
+PopulatinRE -0.681  0.481  0.461  0.478  0.436                            
+PopulatinUM -0.661  0.499  0.502  0.510  0.478  0.496                     
+PopulatinVA -0.467  0.424  0.475  0.461  0.457  0.393  0.435              
+PopulatinYE -0.596  0.503  0.541  0.535  0.519  0.478  0.516  0.480       
+Wolbachia+  -0.699  0.250  0.063  0.147  0.039  0.359  0.263  0.000  0.100
+
+$Dia_Flatt_lm_pop
+
+Call:
+lm(formula = Prop_Max_Stage9_asin ~ Population, data = filter(DIA, 
+    Supervisor.PI == "Flatt"))
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.66975 -0.13840  0.07341  0.13978  0.16117 
+
+Coefficients:
+               Estimate Std. Error t value Pr(>|t|)    
+(Intercept)   1.4311161  0.0416823  34.334   <2e-16 ***
+PopulationGI -0.0009079  0.0664106  -0.014    0.989    
+PopulationKA  0.0989384  0.0605630   1.634    0.105    
+PopulationMA -0.0047514  0.0605630  -0.078    0.938    
+PopulationMU  0.0662748  0.0614934   1.078    0.283    
+PopulationRE -0.0001278  0.0680669  -0.002    0.999    
+PopulationUM  0.0870452  0.0636708   1.367    0.174    
+PopulationVA -0.0214882  0.0664106  -0.324    0.747    
+PopulationYE  0.0276467  0.0589477   0.469    0.640    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.1864 on 137 degrees of freedom
+Multiple R-squared:  0.05072,	Adjusted R-squared:  -0.004713 
+F-statistic: 0.915 on 8 and 137 DF,  p-value: 0.5062
+
+
+$Dia_Schlotterer_lmer_pop
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: 
+Prop_Max_Stage9_asin ~ Population + Wolbachia + (1 | Line:Population) +  
+    (1 | Batch)
+   Data: filter(DIA, Supervisor.PI == "Schlotterer")
+
+REML criterion at convergence: 113.5
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-2.1837 -0.4524 -0.0353  0.5220  1.6345 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 0.058593 0.24206 
+ Batch           (Intercept) 0.004574 0.06763 
+ Residual                    0.046505 0.21565 
+Number of obs: 175, groups:  Line:Population, 143; Batch, 3
+
+Fixed effects:
+              Estimate Std. Error        df t value Pr(>|t|)    
+(Intercept)    0.77116    0.11167  52.04947   6.906 6.96e-09 ***
+PopulationGI   0.13730    0.11384 132.08967   1.206   0.2299    
+PopulationKA   0.22683    0.10292 132.63581   2.204   0.0293 *  
+PopulationMA   0.21883    0.10332 131.34638   2.118   0.0361 *  
+PopulationMU   0.20037    0.10467 133.06568   1.914   0.0577 .  
+PopulationRE   0.28576    0.12183 139.27664   2.346   0.0204 *  
+PopulationUM   0.46176    0.11456 135.49220   4.031 9.23e-05 ***
+PopulationVA   0.30617    0.12456 142.42970   2.458   0.0152 *  
+PopulationYE   0.19658    0.10210 128.44312   1.925   0.0564 .  
+Wolbachia+     0.03851    0.07725 128.98856   0.498   0.6190    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+            (Intr) PpltGI PpltKA PpltMA PpltMU PpltRE PpltUM PpltVA PpltYE
+PopulatinGI -0.565                                                        
+PopulatinKA -0.462  0.438                                                 
+PopulatinMA -0.513  0.454  0.474                                          
+PopulatinMU -0.467  0.437  0.467  0.469                                   
+PopulatinRE -0.608  0.454  0.415  0.439  0.417                            
+PopulatinUM -0.549  0.431  0.428  0.449  0.427  0.431                     
+PopulatinVA -0.358  0.354  0.390  0.388  0.385  0.332  0.348              
+PopulatinYE -0.525  0.467  0.483  0.492  0.482  0.456  0.453  0.397       
+Wolbachia+  -0.691  0.249  0.040  0.117  0.058  0.348  0.231  0.000  0.123
+

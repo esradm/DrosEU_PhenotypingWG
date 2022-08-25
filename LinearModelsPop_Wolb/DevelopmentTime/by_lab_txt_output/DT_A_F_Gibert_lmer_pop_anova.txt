@@ -1,0 +1,6 @@
+Type III Analysis of Variance Table with Satterthwaite's method
+            Sum Sq Mean Sq NumDF  DenDF F value    Pr(>F)    
+Population 2989.77  373.72     8 138.74  4.0779 0.0002186 ***
+Wolbachia   148.71  148.71     1 141.05  1.6226 0.2048248    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1

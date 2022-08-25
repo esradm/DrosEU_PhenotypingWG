@@ -1,0 +1,196 @@
+$DW_F_Colinet_lmer_alt
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: DW_micrograms ~ Altitude + Wolbachia + (1 | Line:Population) +  
+    (1 | Batch)
+   Data: filter(DW, Supervisor.PI == "Colinet" & Sex == "F")
+
+REML criterion at convergence: -10547.7
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-4.2298 -0.6103  0.0303  0.6259  4.1661 
+
+Random effects:
+ Groups          Name        Variance  Std.Dev.
+ Line:Population (Intercept) 0.0013357 0.03655 
+ Batch           (Intercept) 0.0003468 0.01862 
+ Residual                    0.0026657 0.05163 
+Number of obs: 3550, groups:  Line:Population, 148; Batch, 3
+
+Fixed effects:
+             Estimate Std. Error        df t value Pr(>|t|)    
+(Intercept) 4.804e-01  1.411e-02 4.480e+00  34.045 1.39e-06 ***
+Altitude    1.785e-06  1.414e-05 1.449e+02   0.126    0.900    
+Wolbachia+  8.569e-03  8.261e-03 1.442e+02   1.037    0.301    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Altitd
+Altitude   -0.352       
+Wolbachia+ -0.501  0.037
+
+$DW_F_Hoedjes_lmer_alt
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: DW_micrograms ~ Altitude + Wolbachia + (1 | Line:Population) +  
+    (1 | Batch)
+   Data: filter(DW, Supervisor.PI == "Hoedjes" & Sex == "F")
+
+REML criterion at convergence: -11425.2
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.8067 -0.6216 -0.0074  0.6348  3.5028 
+
+Random effects:
+ Groups          Name        Variance  Std.Dev.
+ Line:Population (Intercept) 1.166e-03 0.034150
+ Batch           (Intercept) 7.012e-05 0.008374
+ Residual                    2.169e-03 0.046575
+Number of obs: 3599, groups:  Line:Population, 150; Batch, 4
+
+Fixed effects:
+              Estimate Std. Error         df t value Pr(>|t|)    
+(Intercept)  4.537e-01  8.770e-03  3.245e+01  51.735   <2e-16 ***
+Altitude    -1.486e-05  1.246e-05  1.459e+02  -1.192    0.235    
+Wolbachia+   4.691e-04  7.452e-03  1.465e+02   0.063    0.950    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Altitd
+Altitude   -0.429       
+Wolbachia+ -0.686 -0.014
+
+$DW_F_Onder_lmer_alt
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: DW_micrograms ~ Altitude + Wolbachia + (1 | Line:Population) +  
+    (1 | Batch)
+   Data: filter(DW, Supervisor.PI == "Onder" & Sex == "F")
+
+REML criterion at convergence: -11048.8
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-4.8145 -0.5817  0.0535  0.6359  3.6469 
+
+Random effects:
+ Groups          Name        Variance  Std.Dev.
+ Line:Population (Intercept) 0.0013851 0.03722 
+ Batch           (Intercept) 0.0002813 0.01677 
+ Residual                    0.0026138 0.05112 
+Number of obs: 3694, groups:  Line:Population, 149; Batch, 5
+
+Fixed effects:
+              Estimate Std. Error         df t value Pr(>|t|)    
+(Intercept)  4.497e-01  1.149e-02  1.683e+01  39.121   <2e-16 ***
+Altitude    -1.128e-05  1.395e-05  1.417e+02  -0.809    0.420    
+Wolbachia+   4.124e-03  8.411e-03  1.404e+02   0.490    0.625    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Altitd
+Altitude   -0.355       
+Wolbachia+ -0.598 -0.020
+
+$DW_M_Colinet_lmer_alt
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: DW_micrograms ~ Altitude + Wolbachia + (1 | Line:Population)
+   Data: filter(DW, Supervisor.PI == "Colinet" & Sex == "M")
+
+REML criterion at convergence: -15145.7
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.5472 -0.5830 -0.0248  0.5711  7.4033 
+
+Random effects:
+ Groups          Name        Variance  Std.Dev.
+ Line:Population (Intercept) 0.0004018 0.02005 
+ Residual                    0.0007219 0.02687 
+Number of obs: 3544, groups:  Line:Population, 148
+
+Fixed effects:
+              Estimate Std. Error         df t value Pr(>|t|)    
+(Intercept)  2.723e-01  4.588e-03  1.450e+02  59.358   <2e-16 ***
+Altitude    -1.775e-05  7.366e-06  1.450e+02  -2.410   0.0172 *  
+Wolbachia+   3.350e-04  4.424e-03  1.450e+02   0.076   0.9397    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Altitd
+Altitude   -0.490       
+Wolbachia+ -0.788  0.000
+
+$DW_M_Hoedjes_lmer_alt
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: DW_micrograms ~ Altitude + Wolbachia + (1 | Line:Population) +  
+    (1 | Batch)
+   Data: filter(DW, Supervisor.PI == "Hoedjes" & Sex == "M")
+
+REML criterion at convergence: -15604.1
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-4.1119 -0.6262 -0.0392  0.6103  5.1863 
+
+Random effects:
+ Groups          Name        Variance  Std.Dev.
+ Line:Population (Intercept) 3.440e-04 0.018548
+ Batch           (Intercept) 6.249e-05 0.007905
+ Residual                    6.724e-04 0.025931
+Number of obs: 3591, groups:  Line:Population, 150; Batch, 5
+
+Fixed effects:
+              Estimate Std. Error         df t value Pr(>|t|)    
+(Intercept)  2.693e-01  5.543e-03  1.618e+01  48.572   <2e-16 ***
+Altitude    -7.151e-06  6.778e-06  1.449e+02  -1.055    0.293    
+Wolbachia+   3.889e-04  4.058e-03  1.458e+02   0.096    0.924    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Altitd
+Altitude   -0.370       
+Wolbachia+ -0.587 -0.015
+
+$DW_M_Onder_lmer_alt
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: DW_micrograms ~ Altitude + Wolbachia + (1 | Line:Population) +  
+    (1 | Batch)
+   Data: filter(DW, Supervisor.PI == "Onder" & Sex == "M")
+
+REML criterion at convergence: -14972.2
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-4.2730 -0.6100  0.0019  0.6493  4.0557 
+
+Random effects:
+ Groups          Name        Variance  Std.Dev.
+ Line:Population (Intercept) 0.0004766 0.02183 
+ Batch           (Intercept) 0.0001104 0.01051 
+ Residual                    0.0009018 0.03003 
+Number of obs: 3693, groups:  Line:Population, 149; Batch, 5
+
+Fixed effects:
+             Estimate Std. Error        df t value Pr(>|t|)    
+(Intercept) 2.564e-01  6.943e-03 1.473e+01  36.932  6.2e-16 ***
+Altitude    2.279e-06  8.185e-06 1.387e+02   0.278    0.781    
+Wolbachia+  4.409e-03  4.935e-03 1.373e+02   0.893    0.373    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Altitd
+Altitude   -0.345       
+Wolbachia+ -0.581 -0.019
+
