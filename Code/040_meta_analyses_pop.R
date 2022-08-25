@@ -689,3 +689,140 @@ write.csv(bind_rows(all_metas_pop_comp), file = "MetaAnalyses/all_metas_pop_comp
 #str(m , list.len = length(m))
 
 
+
+####### meta regression
+# just a trial to see how we could use meta regression to take into account the effect of diet
+
+library(metafor)
+
+diets <- read.csv("InfoTables/DrosEU_Diets_Feb22.csv") %>%
+  select(PI.Lab.head, Diet, P.C) %>%
+  rename(Lab = PI.Lab.head) %>%
+  mutate(Lab = ifelse(Lab == "Stamenkovic-Radak", "StamenkovicRadak", Lab)) %>%
+  distinct()
+
+
+### viability
+
+# get effects
+Via_effects <- makeEffects(estimates$via_lmer)
+
+# add diet info
+Via_effects <- inner_join(Via_effects, diets)
+
+
+# run meta
+Via_meta <- metagen(data = filter(Via_effects, Sex == "NA"), TE = Y, seTE = SE, studlab = Study, fixed = FALSE, random = TRUE, method.tau = "ML")
+
+# this gives the same as the subgroup analysis
+Via_meta_reg <- metareg(Via_meta, ~ Population, method.tau = "REML")
+
+
+Via_meta_reg <- rma(yi = Y, sei = SE, data = Via_effects %>% filter(Lab != "Test"), method = "ML", mods = ~ Population)
+
+Via_meta_reg_full <- rma(yi = Y, sei = SE, data = Via_effects, method = "ML", mods = ~ Population + Lab)
+
+anova(Via_meta_reg_full, Via_meta_reg)
+
+Via_meta_reg_int <- rma(yi = Y, sei = SE, data = Via_effects, method = "ML", mods = ~ Population * P.C)
+
+
+
+
+
+############# WING AREA #############
+
+
+# get effects
+WA_effects <- makeEffects(estimates$wa_lmer)
+
+# add diet info
+WA_effects <- inner_join(WA_effects, diets)
+
+
+WA_L_F_meta <- metagen(data = filter(WA_effects, Lab != "Posnien", Sex == "F", Trait == "WA_L"), TE = Y, seTE = SE, studlab = Study, fixed = FALSE, random = TRUE, method.tau = "ML")
+# sub groups
+WA_L_F_meta <- update.meta(WA_L_F_meta, subgroup = Population, tau.common = FALSE)
+
+
+
+WA_L_F_meta_reg <- rma(yi = Y, sei = SE, data = WA_effects %>% filter(Lab != "Posnien", Sex == "F", Trait == "WA_L"), method = "ML", mods = ~ Population)
+
+WA_L_F_meta_reg_full <- rma(yi = Y, sei = SE, data = WA_effects %>% filter(Lab != "Posnien", Sex == "F", Trait == "WA_L"), method = "ML", mods = ~ Population + P.C)
+
+anova(WA_L_F_meta_reg, WA_L_F_meta_reg_full)
+
+
+
+
+############# THORAX LENGTH #############
+
+
+# get effects
+TL_effects <- makeEffects(estimates$tl_lmer)
+
+# add diet info
+TL_effects <- inner_join(TL_effects, diets)
+
+
+TL_F_meta <- metagen(data = filter(TL_effects, Lab != "Posnien", Sex == "F"), TE = Y, seTE = SE, studlab = Study, fixed = FALSE, random = TRUE, 
+                     method.tau = "ML")
+# sub groups
+TL_F_meta <- update.meta(TL_F_meta, subgroup = Population, tau.common = FALSE)
+
+
+
+TF_F_meta_reg <- rma(yi = Y, sei = SE, data = TL_effects %>% filter(Lab != "Posnien", Sex == "F"), method = "ML", mods = ~ Population)
+
+TF_F_meta_reg_full <- rma(yi = Y, sei = SE, data = TL_effects %>% filter(Lab != "Posnien", Sex == "F"), method = "ML", mods = ~ Population +  (1|P.C))
+
+anova(TF_F_meta_reg, TF_F_meta_reg_full)
+
+
+
+
+
+m <- data.frame(Population = WA_L_F_meta$bylevs, Mstar = WA_L_F_meta$TE.random.w, SEMstar = WA_L_F_meta$seTE.random.w, Q = WA_L_F_meta$Q.b.random, p = WA_L_F_meta$pval.Q.b.random, LLMstar = WA_L_F_meta$lower.random.w, ULMstar = WA_L_F_meta$upper.random.w) %>% mutate(Q_plot = paste0("italic(Q) == ", round(Q, 2)), P_plot = ifelse(p < 0.001, "italic(p) < 0.001", paste0("italic(p) == ", round(p, 3))), Population = factor(Population, levels = pops$by_lat$Population))
+
+p_meta_SE <- ggplot(data = m, aes(x = Mstar, y = 1:length(Population), color = Population)) +
+  theme_bw() +
+  geom_point(size = 8, shape = 15) +
+  geom_errorbarh(aes(xmax = Mstar + SEMstar, xmin = Mstar - SEMstar), height = 0) +
+  colScale +
+  scale_y_continuous(name = "Population", breaks = 1:length(m$Population), labels = m$Population) +
+  labs(x = "Summary effect") +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank()) + 
+  annotate("text", x = -Inf, y = Inf, label = unique(m$Q_plot), hjust=-0.2, vjust=3.2, parse = T) +
+  annotate("text", x = -Inf, y = Inf, label = unique(m$P_plot), hjust=-0.4, vjust=4.2, parse = T) +
+  theme(legend.position = "none")
+
+p_meta_CI <- ggplot(data = m, aes(x = Mstar, y = 1:length(Population), color = Population)) +
+  theme_bw() +
+  geom_point(size = 8, shape = 15) +
+  geom_errorbarh(aes(xmax = ULMstar, xmin = LLMstar), height = 0) +
+  colScale +
+  scale_y_continuous(name = "Population", breaks = 1:length(m$Population), labels = m$Population) +
+  labs(x = "Summary effect") +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank()) +
+  annotate("text", x = -Inf, y = Inf, label = unique(m$Q_plot), hjust=-0.2, vjust=3.2, parse = T) +
+  annotate("text", x = -Inf, y = Inf, label = unique(m$P_plot), hjust=-0.4, vjust=4.2, parse = T) +
+  theme(legend.position = "none")
+
+p_meta <- ggarrange(p_meta_SE, p_meta_CI)
+
+pdf("MetaAnalyses/WingArea/WA_L_F_meta_summary_effect_wo_partial_data.pdf", width = 8, height = 5)
+print(p_meta)
+dev.off()
+
+
+ggplot(data = Via_effects, aes(x = P.C, y = Y)) + geom_point(aes(color = Population))
+ggplot(data = Via_effects, aes(x = Lab, y = Y)) + geom_point(aes(color = Population))
+ggplot(data = Via_effects, aes(x = Lab, y = Y)) + geom_boxplot()
+
+
+ggplot(data = TL_effects, aes(x = P.C, y = Y)) + geom_point(aes(color = Population))
+ggplot(data = TL_effects, aes(x = Lab, y = Y)) + geom_point(aes(color = Population))
+ggplot(data = TL_effects, aes(x = Lab, y = Y)) + geom_boxplot()
+
+
+
