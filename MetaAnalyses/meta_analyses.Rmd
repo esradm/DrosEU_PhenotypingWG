@@ -7,6 +7,8 @@ output: pdf_document
 
 ```{r packages, include=FALSE}
 library(tidyverse)
+library(meta)
+library(metafor)
 ```
 
 Since running a single linear mixed-effect model per trait turned out to be more complex than originally thought (mainly because of the different data structure between labs) we used a meta analysis framework to combine the outputs of individual linear mixed-effect models that have been ran separately for each single lab.
@@ -26,10 +28,41 @@ estimates <- readRDS("../LinearModelsPop/all_models_pop_estimates_list.rds")
 pops <- readRDS("../InfoTables/DrosEU_Populations.rds")
 ```
 
+
+
 Below is how the input data looks like for left wing area in females measured in Banu Onder's lab:
-```{r pressure, echo=FALSE}
-estimates$wa %>% filter(Lab == "Onder", Trait == "WA_L", Sex == "F")
+```{r estimates, echo = FALSE}
+estimates$wa_lmer %>% filter(Lab == "Onder", Trait == "WA_L", Sex == "F")
 ```
+
+```{r effects, echo = FALSE}
+
+```
+
+We run the meta analysis using a random effect model because we assume that effects of individual studies do not only deviate due to sampling error alone but that there is another source of variance. In o
+
+
+s
+
+
+```{r meta wa left, echo=FALSE}
+## get the data in the right format
+WA_effects <- makeEffects(estimates$wa_lmer)
+## run the meta analysis with a random effect model
+WA_L_F_meta <- metagen(data = filter(WA_effects, Sex == "F", Trait == "WA_L"), TE = Y, seTE = SE, studlab = Study, fixed = FALSE, random = TRUE, method.tau = "REML")
+## run the subgroup analysis
+WA_L_F_meta <- update.meta(WA_L_F_meta, subgroup = Population, tau.common = FALSE)
+```
+
+
+
+
+
+
+
+
+
+
 
 
 
