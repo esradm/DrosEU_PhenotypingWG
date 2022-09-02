@@ -668,9 +668,13 @@ for (i in 1:length(metas)){
 
 all_metas_pop <- rdsBatchReaderToList(path = "MetaAnalyses", recursive = T, full.names = T, pattern = "_pop_compound_estimates.rds")
 
+# do not consider lmer for diapause
+#all_metas_pop <- all_metas_pop[-grep("Dia_lmer", names(all_metas_pop))]
+
+
 all_metas_pop_comp <- foreach(m = 1:length(all_metas_pop)) %do% {
   info <- str_split(names(all_metas_pop)[m], "_") %>% unlist
-  if (length(info) >= 7) info[1] <- paste(info[1], info[2], sep = "_")
+  if (length(info) >= 7 | info[1] %in% c("Dia", "Pgm")) info[1] <- paste(info[1], info[2], sep = "_")
   info[1] <- sub("_F", "", info[1])
   info[1] <- sub("_M", "", info[1])
   e <- mutate(all_metas_pop[[m]], Trait = info[1], Sex = info[length(info)-4]) %>%
