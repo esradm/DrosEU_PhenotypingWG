@@ -1,0 +1,3 @@
+                  predictor predictors_Importance predictors_pValues
+4 DrosoEu_wc2_1_30s_vapr_06                36.647              0.052
+6 DrosoEu_wc2_1_30s_wind_08                55.757              0.069

@@ -1,0 +1,3 @@
+full model proportion =  0.1691356
+Env model Proportion =  0.8308644
+Geo_distance Proportion =  0

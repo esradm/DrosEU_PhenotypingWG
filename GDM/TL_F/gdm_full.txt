@@ -1,0 +1,70 @@
+[1] 
+[1] 
+[1] GDM Modelling Summary
+[1] Creation Date:  Sun Sep  4 14:41:13 2022
+[1] 
+[1] Name:  gdm_full
+[1] 
+[1] Data:  SelectedgdmTab_rast
+[1] 
+[1] Samples:  36
+[1] 
+[1] Geographical distance used in model fitting?  TRUE
+[1] 
+[1] NULL Deviance:  11.389
+[1] GDM Deviance:  3.945
+[1] Percent Deviance Explained:  65.359
+[1] 
+[1] Intercept:  0
+[1] 
+[1] PREDICTOR ORDER BY SUM OF I-SPLINE COEFFICIENTS:
+[1] 
+[1] Predictor 1: DrosoEu_wc2_1_30s_srad_06
+[1] Splines: 3
+[1] Min Knot: 18764.13
+[1] 50% Knot: 20109.55
+[1] Max Knot: 25376.872
+[1] Coefficient[1]: 0.27
+[1] Coefficient[2]: 0.056
+[1] Coefficient[3]: 0.283
+[1] Sum of coefficients for DrosoEu_wc2_1_30s_srad_06: 0.609
+[1] 
+[1] Predictor 2: DrosoEu_wc2_1_30s_wind_12
+[1] Splines: 3
+[1] Min Knot: 1.8
+[1] 50% Knot: 2.889
+[1] Max Knot: 5.916
+[1] Coefficient[1]: 0.459
+[1] Coefficient[2]: 0
+[1] Coefficient[3]: 0
+[1] Sum of coefficients for DrosoEu_wc2_1_30s_wind_12: 0.459
+[1] 
+[1] Predictor 3: DrosoEu_wc2_1_30s_prec_05
+[1] Splines: 3
+[1] Min Knot: 35.5
+[1] 50% Knot: 52
+[1] Max Knot: 95.8
+[1] Coefficient[1]: 0.387
+[1] Coefficient[2]: 0
+[1] Coefficient[3]: 0
+[1] Sum of coefficients for DrosoEu_wc2_1_30s_prec_05: 0.387
+[1] 
+[1] Predictor 4: DrosoEu_wc2_1_30s_srad_01
+[1] Splines: 3
+[1] Min Knot: 896.45
+[1] 50% Knot: 3498.822
+[1] Max Knot: 6628.366
+[1] Coefficient[1]: 0
+[1] Coefficient[2]: 0
+[1] Coefficient[3]: 0.186
+[1] Sum of coefficients for DrosoEu_wc2_1_30s_srad_01: 0.186
+[1] 
+[1] Predictor 5: Geographic
+[1] Splines: 3
+[1] Min Knot: 3.955
+[1] 50% Knot: 19.364
+[1] Max Knot: 44.925
+[1] Coefficient[1]: 0
+[1] Coefficient[2]: 0
+[1] Coefficient[3]: 0
+[1] Sum of coefficients for Geographic: 0

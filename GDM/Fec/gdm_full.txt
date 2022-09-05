@@ -1,0 +1,50 @@
+[1] 
+[1] 
+[1] GDM Modelling Summary
+[1] Creation Date:  Fri Sep  2 12:19:44 2022
+[1] 
+[1] Name:  gdm_full
+[1] 
+[1] Data:  SelectedgdmTab_rast
+[1] 
+[1] Samples:  36
+[1] 
+[1] Geographical distance used in model fitting?  TRUE
+[1] 
+[1] NULL Deviance:  14.697
+[1] GDM Deviance:  3.156
+[1] Percent Deviance Explained:  78.522
+[1] 
+[1] Intercept:  0.011
+[1] 
+[1] PREDICTOR ORDER BY SUM OF I-SPLINE COEFFICIENTS:
+[1] 
+[1] Predictor 1: DrosoEu_wc2_1_30s_srad_01
+[1] Splines: 3
+[1] Min Knot: 896.45
+[1] 50% Knot: 3498.822
+[1] Max Knot: 6628.366
+[1] Coefficient[1]: 0.004
+[1] Coefficient[2]: 0.219
+[1] Coefficient[3]: 0.949
+[1] Sum of coefficients for DrosoEu_wc2_1_30s_srad_01: 1.171
+[1] 
+[1] Predictor 2: DrosoEu_wc2_1_30s_wind_07
+[1] Splines: 3
+[1] Min Knot: 2.2
+[1] 50% Knot: 2.35
+[1] Max Knot: 4.901
+[1] Coefficient[1]: 0.23
+[1] Coefficient[2]: 0
+[1] Coefficient[3]: 0.143
+[1] Sum of coefficients for DrosoEu_wc2_1_30s_wind_07: 0.374
+[1] 
+[1] Predictor 3: Geographic
+[1] Splines: 3
+[1] Min Knot: 3.955
+[1] 50% Knot: 19.364
+[1] Max Knot: 44.925
+[1] Coefficient[1]: 0
+[1] Coefficient[2]: 0
+[1] Coefficient[3]: 0
+[1] Sum of coefficients for Geographic: 0

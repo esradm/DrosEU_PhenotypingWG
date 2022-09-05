@@ -1,0 +1,5 @@
+                           All predictors DrosoEu_wc2_1_30s_vapr_06-removed DrosoEu_wc2_1_30s_prec_01-removed
+Model deviance                      4.406                             4.485                             4.743
+Percent deviance explained         66.774                            66.176                            64.235
+Model p-value                       0.049                             0.035                             0.020
+Fitted permutations              9920.000                          9862.000                          9733.000

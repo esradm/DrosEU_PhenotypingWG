@@ -1,0 +1,30 @@
+[1] 
+[1] 
+[1] GDM Modelling Summary
+[1] Creation Date:  Sun Sep  4 15:03:26 2022
+[1] 
+[1] Name:  gdm_XY
+[1] 
+[1] Data:  [           Data:  gdmTab_rast Data:              Data:  1:6        
+[1] 
+[1] Samples:  36
+[1] 
+[1] Geographical distance used in model fitting?  TRUE
+[1] 
+[1] NULL Deviance:  13.261
+[1] GDM Deviance:  12.286
+[1] Percent Deviance Explained:  7.349
+[1] 
+[1] Intercept:  0.417
+[1] 
+[1] PREDICTOR ORDER BY SUM OF I-SPLINE COEFFICIENTS:
+[1] 
+[1] Predictor 1: Geographic
+[1] Splines: 3
+[1] Min Knot: 3.955
+[1] 50% Knot: 19.364
+[1] Max Knot: 44.925
+[1] Coefficient[1]: 0
+[1] Coefficient[2]: 0
+[1] Coefficient[3]: 0.622
+[1] Sum of coefficients for Geographic: 0.622
