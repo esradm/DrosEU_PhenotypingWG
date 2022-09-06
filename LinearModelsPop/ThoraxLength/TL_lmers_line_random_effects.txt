@@ -1,4 +1,4 @@
-Model	Trait	Lab	Sex	Population	Line	Estimate	SE
+Model	Trait	Lab	Sex	Population	Line	Value_re	SE_re
 lmer_pop	TL	Kozeretska	F	AK	AK1	-12.309	17.727
 lmer_pop	TL	Kozeretska	F	AK	AK10	-6.553	17.727
 lmer_pop	TL	Kozeretska	F	AK	AK11	1.739	17.727

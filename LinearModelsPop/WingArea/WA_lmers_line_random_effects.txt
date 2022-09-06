@@ -1,4 +1,4 @@
-Model	Trait	Lab	Sex	Population	Line	Estimate	SE
+Model	Trait	Lab	Sex	Population	Line	Value_re	SE_re
 lmer_pop	WA_L	Onder	F	AK	AK1	19.47	21.6
 lmer_pop	WA_L	Onder	F	AK	AK10	-73.156	21.057
 lmer_pop	WA_L	Onder	F	AK	AK11	-30.767	21.29

@@ -1,4 +1,4 @@
-Model	Trait	Lab	Sex	Population	Line	Estimate	SE
+Model	Trait	Lab	Sex	Population	Line	Value_re	SE_re
 lmer_pop	LS	Parsch	F	AK	AK1	5.15	3.04
 lmer_pop	LS	Parsch	F	AK	AK10	-3.01	3.185
 lmer_pop	LS	Parsch	F	AK	AK11	1.21	3.015

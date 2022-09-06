@@ -1,4 +1,4 @@
-Model	Trait	Sex	Population	Line	Estimate_Vieira	Estimate_Mensch	SE_Vieira	SE_Mensch
+Model	Trait	Sex	Population	Line	Value_re_Vieira	Value_re_Mensch	SE_re_Vieira	SE_re_Mensch
 lmer_pop	CCRT	F	AK	AK1	144.783	198.392	125.598	172.095
 lmer_pop	CCRT	F	AK	AK10	-127.653	-271.733	125.886	171.96
 lmer_pop	CCRT	F	AK	AK11	-38.92	-77.322	125.338	170.502
