@@ -1,0 +1,2 @@
+pval= 0
+Vars=  s1.DrosoEu_wc2_1_30s_vapr_07 s2.DrosoEu_wc2_1_30s_bio_2 s2.DrosoEu_wc2_1_30s_vapr_07

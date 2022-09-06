@@ -1,0 +1,6 @@
+                  predictor predictors_Importance predictors_pValues
+1  DrosoEu_wc2_1_30s_bio_10                 0.213              0.052
+2 DrosoEu_wc2_1_30s_srad_05                12.611              0.037
+3 DrosoEu_wc2_1_30s_tavg_06                 0.032              0.066
+4 DrosoEu_wc2_1_30s_vapr_06                 3.432              0.014
+5 DrosoEu_wc2_1_30s_wind_08                10.945              0.131
