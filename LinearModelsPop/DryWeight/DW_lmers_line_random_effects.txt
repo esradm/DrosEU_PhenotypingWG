@@ -1,4 +1,4 @@
-Model	Trait	Lab	Sex	Population	Line	Estimate	SE
+Model	Trait	Lab	Sex	Population	Line	Value_re	SE_re
 lmer_pop	DW	Colinet	F	AK	AK1	0.038	0.011
 lmer_pop	DW	Colinet	F	AK	AK10	0.004	0.011
 lmer_pop	DW	Colinet	F	AK	AK11	-0.004	0.011

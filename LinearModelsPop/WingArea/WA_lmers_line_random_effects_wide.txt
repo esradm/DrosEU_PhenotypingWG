@@ -1,4 +1,4 @@
-Model	Trait	Sex	Population	Line	Estimate_Onder	Estimate_Posnien	Estimate_Ritchie	Estimate_StamenkovicRadak	SE_Onder	SE_Posnien	SE_Ritchie	SE_StamenkovicRadak
+Model	Trait	Sex	Population	Line	Value_re_Onder	Value_re_Posnien	Value_re_Ritchie	Value_re_StamenkovicRadak	SE_re_Onder	SE_re_Posnien	SE_re_Ritchie	SE_re_StamenkovicRadak
 lmer_pop	WA_L	F	AK	AK1	19.47	NA	-135.333	20.098	21.6	NA	57.834	15.276
 lmer_pop	WA_L	F	AK	AK10	-73.156	NA	NA	NA	21.057	NA	NA	NA
 lmer_pop	WA_L	F	AK	AK11	-30.767	NA	NA	NA	21.29	NA	NA	NA

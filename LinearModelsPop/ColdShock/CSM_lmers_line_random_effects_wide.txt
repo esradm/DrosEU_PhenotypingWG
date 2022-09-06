@@ -1,4 +1,4 @@
-Model	Trait	Sex	Population	Line	Estimate_Gonzalez	Estimate_Kozeretska	Estimate_Vieira	SE_Gonzalez	SE_Kozeretska	SE_Vieira
+Model	Trait	Sex	Population	Line	Value_re_Gonzalez	Value_re_Kozeretska	Value_re_Vieira	SE_re_Gonzalez	SE_re_Kozeretska	SE_re_Vieira
 lmer_pop	CSM	F	AK	AK1	-0.186	-0.015	0.135	0.086	0.141	0.093
 lmer_pop	CSM	F	AK	AK10	-0.05	-0.038	-0.021	0.087	0.142	0.093
 lmer_pop	CSM	F	AK	AK11	0.165	0.031	0.089	0.086	0.141	0.093

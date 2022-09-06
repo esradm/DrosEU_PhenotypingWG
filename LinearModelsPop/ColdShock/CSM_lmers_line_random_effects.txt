@@ -1,4 +1,4 @@
-Model	Trait	Lab	Sex	Population	Line	Estimate	SE
+Model	Trait	Lab	Sex	Population	Line	Value_re	SE_re
 lmer_pop	CSM	Gonzalez	F	AK	AK1	-0.186	0.086
 lmer_pop	CSM	Gonzalez	F	AK	AK10	-0.05	0.087
 lmer_pop	CSM	Gonzalez	F	AK	AK11	0.165	0.086

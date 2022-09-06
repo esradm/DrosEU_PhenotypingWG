@@ -1,4 +1,4 @@
-Model	Trait	Lab	Sex	Population	Line	Estimate	SE
+Model	Trait	Lab	Sex	Population	Line	Value_re	SE_re
 lmer_pop	DT_P	Schmidt	NA	AK	AK1	11.278	1.649
 lmer_pop	DT_P	Schmidt	NA	AK	AK10	-6.992	2.109
 lmer_pop	DT_P	Schmidt	NA	AK	AK11	10.807	2.455

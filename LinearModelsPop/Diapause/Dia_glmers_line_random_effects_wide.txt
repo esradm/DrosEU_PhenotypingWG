@@ -1,4 +1,4 @@
-Model	Trait	Sex	Population	Line	Estimate_Bergland	Estimate_Flatt	Estimate_Schlotterer	SE_Bergland	SE_Flatt	SE_Schlotterer
+Model	Trait	Sex	Population	Line	Value_re_Bergland	Value_re_Flatt	Value_re_Schlotterer	SE_re_Bergland	SE_re_Flatt	SE_re_Schlotterer
 glmer_pop	Dia	F	AK	AK1	-0.923	-0.764	-0.671	0.531	0.961	0.495
 glmer_pop	Dia	F	AK	AK10	0.876	-0.839	0.029	0.664	0.977	0.479
 glmer_pop	Dia	F	AK	AK11	-0.839	0.42	-0.201	0.459	1.243	0.479

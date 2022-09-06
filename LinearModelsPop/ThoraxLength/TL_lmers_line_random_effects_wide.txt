@@ -1,4 +1,4 @@
-Model	Trait	Sex	Population	Line	Estimate_Kozeretska	Estimate_Posnien	Estimate_Ritchie	Estimate_Schmidt	SE_Kozeretska	SE_Posnien	SE_Ritchie	SE_Schmidt
+Model	Trait	Sex	Population	Line	Value_re_Kozeretska	Value_re_Posnien	Value_re_Ritchie	Value_re_Schmidt	SE_re_Kozeretska	SE_re_Posnien	SE_re_Ritchie	SE_re_Schmidt
 lmer_pop	TL	F	AK	AK1	-12.309	NA	-4.596	-7.613	17.727	NA	12.975	9.892
 lmer_pop	TL	F	AK	AK10	-6.553	NA	NA	12.939	17.727	NA	NA	9.892
 lmer_pop	TL	F	AK	AK11	1.739	NA	NA	3.794	17.727	NA	NA	9.892
