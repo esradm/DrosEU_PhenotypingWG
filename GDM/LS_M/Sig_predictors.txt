@@ -1,0 +1,4 @@
+pval= 0
+Vars=  s1.DrosoEu_wc2_1_30s_srad_05 s1.DrosoEu_wc2_1_30s_srad_06 s1.DrosoEu_wc2_1_30s_wind_12 
+s2.DrosoEu_wc2_1_30s_prec_10 s2.DrosoEu_wc2_1_30s_srad_05 s2.DrosoEu_wc2_1_30s_srad_06 
+s2.DrosoEu_wc2_1_30s_wind_12

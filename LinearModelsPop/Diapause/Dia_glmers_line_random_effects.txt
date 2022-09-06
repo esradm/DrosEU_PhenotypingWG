@@ -1,4 +1,4 @@
-Model	Trait	Lab	Sex	Population	Line	Estimate	SE
+Model	Trait	Lab	Sex	Population	Line	Value_re	SE_re
 glmer_pop	Dia	Bergland	F	AK	AK1	-0.923	0.531
 glmer_pop	Dia	Bergland	F	AK	AK10	0.876	0.664
 glmer_pop	Dia	Bergland	F	AK	AK11	-0.839	0.459

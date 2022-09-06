@@ -1,4 +1,4 @@
-Model	Trait	Sex	Population	Line	Estimate_Billeter	Estimate_Fricke	SE_Billeter	SE_Fricke
+Model	Trait	Sex	Population	Line	Value_re_Billeter	Value_re_Fricke	SE_re_Billeter	SE_re_Fricke
 lmer_pop	Fec	F	AK	AK1	24.813	NA	19.216	NA
 lmer_pop	Fec	F	AK	AK10	-38.134	5.372	19.216	12.071
 lmer_pop	Fec	F	AK	AK11	-37.465	9.593	19.216	11.475

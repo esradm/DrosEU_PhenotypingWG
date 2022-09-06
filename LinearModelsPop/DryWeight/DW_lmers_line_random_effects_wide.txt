@@ -1,4 +1,4 @@
-Model	Trait	Sex	Population	Line	Estimate_Colinet	Estimate_Hoedjes	Estimate_Onder	SE_Colinet	SE_Hoedjes	SE_Onder
+Model	Trait	Sex	Population	Line	Value_re_Colinet	Value_re_Hoedjes	Value_re_Onder	SE_re_Colinet	SE_re_Hoedjes	SE_re_Onder
 lmer_pop	DW	F	AK	AK1	0.038	0.002	0.021	0.011	0.01	0.011
 lmer_pop	DW	F	AK	AK10	0.004	0.011	0.029	0.011	0.01	0.011
 lmer_pop	DW	F	AK	AK11	-0.004	-0.034	-0.014	0.011	0.01	0.011

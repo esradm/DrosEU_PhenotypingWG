@@ -1,4 +1,4 @@
-Model	Trait	Lab	Sex	Population	Line	Estimate	SE
+Model	Trait	Lab	Sex	Population	Line	Value_re	SE_re
 lmer_pop	CCRT	Vieira	F	AK	AK1	144.783	125.598
 lmer_pop	CCRT	Vieira	F	AK	AK10	-127.653	125.886
 lmer_pop	CCRT	Vieira	F	AK	AK11	-38.92	125.338

@@ -1,0 +1,208 @@
+$SR_F_Gonzalez_lmer_lat
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: AgeAtDeath_hours ~ Latitude + Wolbachia + (1 | Line:Population) +  
+    (1 | Batch) + (1 | ReplicateVial:Line:Population)
+   Data: filter(SR, Supervisor.PI == "Gonzalez" & Sex == "F")
+
+REML criterion at convergence: 38772.8
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-4.6532 -0.6312 -0.0472  0.5835  4.9332 
+
+Random effects:
+ Groups                        Name        Variance Std.Dev.
+ ReplicateVial:Line:Population (Intercept) 107.68   10.377  
+ Line:Population               (Intercept) 133.42   11.551  
+ Batch                         (Intercept)  10.51    3.242  
+ Residual                                  338.27   18.392  
+Number of obs: 4388, groups:  
+ReplicateVial:Line:Population, 389; Line:Population, 127; Batch, 7
+
+Fixed effects:
+            Estimate Std. Error       df t value Pr(>|t|)    
+(Intercept)  50.2901     8.2418 129.3980   6.102 1.13e-08 ***
+Latitude      0.6677     0.1689 126.2044   3.953 0.000128 ***
+Wolbachia+   -2.9688     3.6541 125.2468  -0.812 0.418068    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Latitd
+Latitude   -0.907       
+Wolbachia+ -0.075 -0.296
+
+$SR_F_Onder_lmer_lat
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: AgeAtDeath_hours ~ Latitude + Wolbachia + (1 | Line:Population) +  
+    (1 | ReplicateVial:Line:Population)
+   Data: filter(SR, Supervisor.PI == "Onder" & Sex == "F")
+
+REML criterion at convergence: 133848.7
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-5.0602 -0.6198 -0.0282  0.6100  4.0132 
+
+Random effects:
+ Groups                        Name        Variance Std.Dev.
+ ReplicateVial:Line:Population (Intercept)  10.19    3.192  
+ Line:Population               (Intercept) 180.72   13.443  
+ Residual                                  310.27   17.614  
+Number of obs: 15491, groups:  
+ReplicateVial:Line:Population, 1557; Line:Population, 151
+
+Fixed effects:
+            Estimate Std. Error       df t value Pr(>|t|)    
+(Intercept)  62.4201     7.5958 147.9684   8.218  9.6e-14 ***
+Latitude      0.5747     0.1595 147.9652   3.603 0.000429 ***
+Wolbachia+    2.2380     3.0302 148.0039   0.739 0.461344    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Latitd
+Latitude   -0.939       
+Wolbachia+ -0.013 -0.303
+
+$SR_F_Pasyukova_lmer_lat
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: AgeAtDeath_hours ~ Latitude + Wolbachia + (1 | Line:Population) +  
+    (1 | Batch) + (1 | ReplicateVial:Line:Population)
+   Data: filter(SR, Supervisor.PI == "Pasyukova" & Sex == "F")
+
+REML criterion at convergence: 131687.3
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-5.2042 -0.5769  0.0263  0.6104  3.5558 
+
+Random effects:
+ Groups                        Name        Variance Std.Dev.
+ ReplicateVial:Line:Population (Intercept) 102.94   10.146  
+ Line:Population               (Intercept) 139.39   11.806  
+ Batch                         (Intercept)  72.89    8.538  
+ Residual                                  368.79   19.204  
+Number of obs: 14786, groups:  
+ReplicateVial:Line:Population, 1481; Line:Population, 149; Batch, 5
+
+Fixed effects:
+            Estimate Std. Error       df t value Pr(>|t|)    
+(Intercept)  82.4498     8.0113  41.9069  10.292 4.85e-13 ***
+Latitude      0.4406     0.1470 145.8833   2.997  0.00321 ** 
+Wolbachia+   -2.5725     2.7739 145.6801  -0.927  0.35525    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Latitd
+Latitude   -0.820       
+Wolbachia+  0.002 -0.313
+
+$SR_M_Gonzalez_lmer_lat
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: AgeAtDeath_hours ~ Latitude + Wolbachia + (1 | Line:Population) +  
+    (1 | Batch) + (1 | ReplicateVial:Line:Population)
+   Data: filter(SR, Supervisor.PI == "Gonzalez" & Sex == "M")
+
+REML criterion at convergence: 37770.5
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-4.2720 -0.6058 -0.0866  0.5151  8.2896 
+
+Random effects:
+ Groups                        Name        Variance Std.Dev.
+ ReplicateVial:Line:Population (Intercept)  48.62    6.973  
+ Line:Population               (Intercept)  65.46    8.091  
+ Batch                         (Intercept)  89.63    9.467  
+ Residual                                  145.08   12.045  
+Number of obs: 4721, groups:  
+ReplicateVial:Line:Population, 426; Line:Population, 139; Batch, 7
+
+Fixed effects:
+            Estimate Std. Error       df t value Pr(>|t|)    
+(Intercept)  33.8066     6.4255  49.1147   5.261 3.12e-06 ***
+Latitude      0.4722     0.1132 135.0443   4.169 5.43e-05 ***
+Wolbachia+   -1.9374     2.2451 133.8423  -0.863     0.39    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Latitd
+Latitude   -0.774       
+Wolbachia+ -0.029 -0.290
+
+$SR_M_Onder_lmer_lat
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: AgeAtDeath_hours ~ Latitude + Wolbachia + (1 | Line:Population) +  
+    (1 | ReplicateVial:Line:Population)
+   Data: filter(SR, Supervisor.PI == "Onder" & Sex == "M")
+
+REML criterion at convergence: 125324.9
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.9739 -0.6290 -0.0356  0.6015  5.0945 
+
+Random effects:
+ Groups                        Name        Variance Std.Dev.
+ ReplicateVial:Line:Population (Intercept)  10.23    3.199  
+ Line:Population               (Intercept) 108.01   10.393  
+ Residual                                  183.51   13.547  
+Number of obs: 15415, groups:  
+ReplicateVial:Line:Population, 1554; Line:Population, 151
+
+Fixed effects:
+            Estimate Std. Error       df t value Pr(>|t|)    
+(Intercept)  55.5764     5.8831 147.9605   9.447  < 2e-16 ***
+Latitude      0.3571     0.1236 147.9671   2.890  0.00443 ** 
+Wolbachia+    0.1675     2.3467 147.9476   0.071  0.94321    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Latitd
+Latitude   -0.939       
+Wolbachia+ -0.013 -0.303
+
+$SR_M_Pasyukova_lmer_lat
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: AgeAtDeath_hours ~ Latitude + Wolbachia + (1 | Line:Population) +  
+    (1 | Batch) + (1 | ReplicateVial:Line:Population)
+   Data: filter(SR, Supervisor.PI == "Pasyukova" & Sex == "M")
+
+REML criterion at convergence: 124751.9
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-4.6128 -0.6095 -0.0008  0.5686  5.8323 
+
+Random effects:
+ Groups                        Name        Variance Std.Dev.
+ ReplicateVial:Line:Population (Intercept)  49.85    7.060  
+ Line:Population               (Intercept)  79.94    8.941  
+ Batch                         (Intercept)  11.93    3.454  
+ Residual                                  224.45   14.982  
+Number of obs: 14862, groups:  
+ReplicateVial:Line:Population, 1487; Line:Population, 149; Batch, 5
+
+Fixed effects:
+            Estimate Std. Error       df t value Pr(>|t|)    
+(Intercept)  50.8761     5.4982 133.0411   9.253 4.82e-16 ***
+Latitude      0.3997     0.1108 145.7995   3.606 0.000426 ***
+Wolbachia+   -1.7377     2.0912 145.5824  -0.831 0.407343    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Latitd
+Latitude   -0.899       
+Wolbachia+  0.001 -0.313
+

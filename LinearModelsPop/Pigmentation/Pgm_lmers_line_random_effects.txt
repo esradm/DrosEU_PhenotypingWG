@@ -1,4 +1,4 @@
-Model	Trait	Lab	Sex	Population	Line	Estimate	SE
+Model	Trait	Lab	Sex	Population	Line	Value_re	SE_re
 lmer_pop	Pgm_T4	Abbott	F	AK	AK1	-0.025	0.021
 lmer_pop	Pgm_T4	Abbott	F	AK	AK10	-0.021	0.02
 lmer_pop	Pgm_T4	Abbott	F	AK	AK11	0.075	0.021

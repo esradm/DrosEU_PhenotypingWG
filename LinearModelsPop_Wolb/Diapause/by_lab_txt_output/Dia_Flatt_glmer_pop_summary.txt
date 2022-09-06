@@ -1,0 +1,48 @@
+Generalized linear mixed model fit by maximum likelihood (Laplace
+  Approximation) [glmerMod]
+ Family: binomial  ( logit )
+Formula: Prop_Max_Stage9 ~ Population + Wolbachia + (1 | Line:Population)
+   Data: filter(dia, Supervisor.PI == pi)
+Weights: n
+
+     AIC      BIC   logLik deviance df.resid 
+   297.5    330.3   -137.8    275.5      135 
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-1.4902 -0.4646  0.3285  0.4372  0.7139 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 2.027    1.424   
+Number of obs: 146, groups:  Line:Population, 146
+
+Fixed effects:
+              Estimate Std. Error z value Pr(>|z|)    
+(Intercept)   3.230538   0.771824   4.186 2.84e-05 ***
+PopulationGI -0.006935   0.809023  -0.009    0.993    
+PopulationKA  1.271269   0.876306   1.451    0.147    
+PopulationMA  0.006618   0.718008   0.009    0.993    
+PopulationMU  0.706078   0.757611   0.932    0.351    
+PopulationRE  0.174351   0.838391   0.208    0.835    
+PopulationUM  1.416098   0.931605   1.520    0.128    
+PopulationVA -0.502964   0.741459  -0.678    0.498    
+PopulationYE  0.143432   0.712286   0.201    0.840    
+Wolbachia+    0.639274   0.550041   1.162    0.245    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+            (Intr) PpltGI PpltKA PpltMA PpltMU PpltRE PpltUM PpltVA PpltYE
+PopulatinGI -0.641                                                        
+PopulatinKA -0.361  0.344                                                 
+PopulatinMA -0.553  0.462  0.377                                          
+PopulatinMU -0.433  0.398  0.355  0.439                                   
+PopulatinRE -0.628  0.470  0.329  0.447  0.384                            
+PopulatinUM -0.562  0.429  0.299  0.402  0.346  0.410                     
+PopulatinVA -0.416  0.392  0.361  0.442  0.419  0.379  0.341              
+PopulatinYE -0.539  0.462  0.381  0.484  0.441  0.445  0.402  0.445       
+Wolbachia+  -0.722  0.365  0.036  0.157  0.039  0.337  0.320  0.001  0.148
+optimizer (Nelder_Mead) convergence code: 0 (OK)
+Model failed to converge with max|grad| = 0.28911 (tol = 0.002, component 1)
+

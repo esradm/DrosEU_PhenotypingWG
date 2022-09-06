@@ -1,0 +1,6 @@
+Analysis of Variance Table
+
+Response: Prop_Max_Stage9_asin
+           Df Sum Sq  Mean Sq F value Pr(>F)
+Longitude   1 0.0000 0.000021   6e-04 0.9803
+Residuals 144 5.0148 0.034825               

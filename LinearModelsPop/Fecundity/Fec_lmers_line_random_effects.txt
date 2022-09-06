@@ -1,4 +1,4 @@
-Model	Trait	Lab	Sex	Population	Line	Estimate	SE
+Model	Trait	Lab	Sex	Population	Line	Value_re	SE_re
 lmer_pop	Fec	Billeter	F	AK	AK1	24.813	19.216
 lmer_pop	Fec	Billeter	F	AK	AK10	-38.134	19.216
 lmer_pop	Fec	Billeter	F	AK	AK11	-37.465	19.216

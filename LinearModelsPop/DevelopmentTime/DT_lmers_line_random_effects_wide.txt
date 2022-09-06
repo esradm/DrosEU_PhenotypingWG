@@ -1,4 +1,4 @@
-Model	Trait	Sex	Population	Line	Estimate_Schmidt	Estimate_Gibert	Estimate_Grath	Estimate_Hoedjes	Estimate_StamenkovicRadak	Estimate_Zwaan	SE_Schmidt	SE_Gibert	SE_Grath	SE_Hoedjes	SE_StamenkovicRadak	SE_Zwaan
+Model	Trait	Sex	Population	Line	Value_re_Schmidt	Value_re_Gibert	Value_re_Grath	Value_re_Hoedjes	Value_re_StamenkovicRadak	Value_re_Zwaan	SE_re_Schmidt	SE_re_Gibert	SE_re_Grath	SE_re_Hoedjes	SE_re_StamenkovicRadak	SE_re_Zwaan
 lmer_pop	DT_P	NA	AK	AK1	11.278	NA	NA	NA	NA	NA	1.649	NA	NA	NA	NA	NA
 lmer_pop	DT_P	NA	AK	AK10	-6.992	NA	NA	NA	NA	NA	2.109	NA	NA	NA	NA	NA
 lmer_pop	DT_P	NA	AK	AK11	10.807	NA	NA	NA	NA	NA	2.455	NA	NA	NA	NA	NA

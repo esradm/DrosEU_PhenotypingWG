@@ -1,0 +1,30 @@
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: ProportionEggtoAdultSurvival_asin ~ Latitude + Wolbachia + (1 |  
+    Line:Population)
+   Data: filter(Viab, Supervisor.PI == "Hoedjes")
+
+REML criterion at convergence: -520
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.4479 -0.5250  0.0027  0.4902  4.3659 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 0.015577 0.12481 
+ Residual                    0.009832 0.09915 
+Number of obs: 450, groups:  Line:Population, 150
+
+Fixed effects:
+             Estimate Std. Error        df t value Pr(>|t|)    
+(Intercept) 5.093e-01  7.712e-02 1.470e+02   6.603 6.86e-10 ***
+Latitude    8.331e-03  1.619e-03 1.470e+02   5.145 8.44e-07 ***
+Wolbachia+  6.796e-02  3.022e-02 1.470e+02   2.249    0.026 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Latitd
+Latitude   -0.942       
+Wolbachia+ -0.001 -0.306

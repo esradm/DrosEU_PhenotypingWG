@@ -1,0 +1,20 @@
+
+Call:
+lm(formula = AbsPhase ~ Longitude, data = LA)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-12.8648  -0.3980  -0.0013   0.3156  15.9469 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 12.87768    0.32414  39.729   <2e-16 ***
+Longitude   -0.02086    0.01466  -1.422    0.156    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 4.351 on 542 degrees of freedom
+  (11 Beobachtungen als fehlend gelöscht)
+Multiple R-squared:  0.003718,	Adjusted R-squared:  0.00188 
+F-statistic: 2.023 on 1 and 542 DF,  p-value: 0.1555
+

@@ -1,0 +1,33 @@
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: DT_EggAdult ~ Altitude + Wolbachia + (1 | Line:Population) +  
+    (1 | Batch) + (1 | ReplicateVial:Line)
+   Data: filter(DTA, Supervisor.PI == "StamenkovicRadak" & Sex == "M")
+
+REML criterion at convergence: 45054
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-4.0117 -0.5720 -0.1488  0.3760  6.7148 
+
+Random effects:
+ Groups             Name        Variance Std.Dev.
+ ReplicateVial:Line (Intercept) 143.22   11.967  
+ Line:Population    (Intercept) 201.07   14.180  
+ Batch              (Intercept)  46.13    6.792  
+ Residual                       324.47   18.013  
+Number of obs: 5111, groups:  
+ReplicateVial:Line, 437; Line:Population, 146; Batch, 4
+
+Fixed effects:
+              Estimate Std. Error         df t value Pr(>|t|)    
+(Intercept) 251.227028   4.922146   9.729684  51.040 3.79e-13 ***
+Altitude      0.003294   0.005712 140.951886   0.577    0.565    
+Wolbachia+   -4.480410   3.454402 140.905151  -1.297    0.197    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Altitd
+Altitude   -0.353       
+Wolbachia+ -0.564 -0.017

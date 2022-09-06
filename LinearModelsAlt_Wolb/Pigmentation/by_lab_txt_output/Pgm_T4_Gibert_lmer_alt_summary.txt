@@ -1,0 +1,29 @@
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: PercT4_asin ~ Altitude + Wolbachia + (1 | Line:Population)
+   Data: filter(PGM, Supervisor.PI == "Gibert")
+
+REML criterion at convergence: -2084
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-2.9168 -0.6353 -0.0537  0.6168  5.2933 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 0.002904 0.05389 
+ Residual                    0.013496 0.11617 
+Number of obs: 1561, groups:  Line:Population, 150
+
+Fixed effects:
+              Estimate Std. Error         df t value Pr(>|t|)    
+(Intercept)  4.780e-01  1.413e-02  1.466e+02  33.838  < 2e-16 ***
+Altitude     6.645e-05  2.302e-05  1.479e+02   2.886  0.00448 ** 
+Wolbachia+  -8.826e-03  1.370e-02  1.485e+02  -0.644  0.52053    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Altitd
+Altitude   -0.482       
+Wolbachia+ -0.783 -0.016

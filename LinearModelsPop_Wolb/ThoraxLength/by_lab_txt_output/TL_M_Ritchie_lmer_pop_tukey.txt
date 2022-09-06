@@ -1,0 +1,46 @@
+$contrasts
+$emmeans
+ Population emmean   SE  df asymp.LCL asymp.UCL
+ AK            820 23.9 Inf       773       867
+ GI            831 23.0 Inf       785       876
+ KA            795 25.4 Inf       745       845
+ MA            841 20.4 Inf       801       881
+ MU            842 28.5 Inf       786       898
+ YE            839 21.6 Inf       797       881
+
+Results are averaged over the levels of: Wolbachia 
+Degrees-of-freedom method: asymptotic 
+Confidence level used: 0.95 
+
+$contrasts
+ contrast estimate   SE  df z.ratio p.value
+ AK - GI   -10.841 29.5 Inf  -0.368  0.9991
+ AK - KA    24.542 30.9 Inf   0.795  0.9684
+ AK - MA   -21.624 30.7 Inf  -0.704  0.9815
+ AK - MU   -22.097 35.1 Inf  -0.629  0.9889
+ AK - YE   -19.223 24.4 Inf  -0.789  0.9694
+ GI - KA    35.383 36.8 Inf   0.961  0.9302
+ GI - MA   -10.782 31.0 Inf  -0.348  0.9993
+ GI - MU   -11.256 36.6 Inf  -0.307  0.9996
+ GI - YE    -8.382 29.7 Inf  -0.282  0.9998
+ KA - MA   -46.166 24.6 Inf  -1.878  0.4160
+ KA - MU   -46.639 33.1 Inf  -1.411  0.7206
+ KA - YE   -43.765 29.0 Inf  -1.508  0.6594
+ MA - MU    -0.473 31.3 Inf  -0.015  1.0000
+ MA - YE     2.401 28.7 Inf   0.084  1.0000
+ MU - YE     2.874 31.7 Inf   0.091  1.0000
+
+Results are averaged over the levels of: Wolbachia 
+Degrees-of-freedom method: asymptotic 
+P value adjustment: tukey method for comparing a family of 6 estimates 
+
+
+$letters
+  Population   emmean       SE  df asymp.LCL asymp.UCL cld
+1         AK 819.7023 23.90044 Inf  772.8583  866.5463   a
+2         GI 830.5437 23.00714 Inf  785.4505  875.6369   a
+3         KA 795.1605 25.39407 Inf  745.3891  844.9320   a
+4         MA 841.3261 20.37920 Inf  801.3836  881.2686   a
+5         MU 841.7994 28.53442 Inf  785.8729  897.7258   a
+6         YE 838.9252 21.59953 Inf  796.5909  881.2595   a
+

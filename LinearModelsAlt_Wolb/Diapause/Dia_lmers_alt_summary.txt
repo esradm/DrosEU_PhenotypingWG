@@ -1,0 +1,86 @@
+$Dia_Bergland_lmer_alt
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: Prop_Max_Stage9_asin ~ Altitude + Wolbachia + (1 | Line:Population)
+   Data: filter(DIA, Supervisor.PI == "Bergland")
+
+REML criterion at convergence: 115.9
+
+Scaled residuals: 
+     Min       1Q   Median       3Q      Max 
+-2.46848 -0.49240  0.07158  0.53164  2.20384 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 0.04017  0.2004  
+ Residual                    0.06436  0.2537  
+Number of obs: 172, groups:  Line:Population, 141
+
+Fixed effects:
+             Estimate Std. Error        df t value Pr(>|t|)    
+(Intercept) 8.977e-01  6.785e-02 1.179e+02  13.230   <2e-16 ***
+Altitude    2.237e-04  1.118e-04 1.411e+02   2.000   0.0474 *  
+Wolbachia+  3.100e-03  6.638e-02 1.273e+02   0.047   0.9628    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Altitd
+Altitude   -0.479       
+Wolbachia+ -0.768 -0.040
+
+$Dia_Flatt_lm_alt
+
+Call:
+lm(formula = Prop_Max_Stage9_asin ~ Altitude, data = filter(DIA, 
+    Supervisor.PI == "Flatt"))
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-0.7236 -0.1391  0.1062  0.1149  0.1189 
+
+Coefficients:
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  1.469e+00  2.559e-02  57.410   <2e-16 ***
+Altitude    -2.512e-05  6.599e-05  -0.381    0.704    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.1865 on 144 degrees of freedom
+Multiple R-squared:  0.001005,	Adjusted R-squared:  -0.005932 
+F-statistic: 0.1449 on 1 and 144 DF,  p-value: 0.704
+
+
+$Dia_Schlotterer_lmer_alt
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: Prop_Max_Stage9_asin ~ Altitude + Wolbachia + (1 | Line:Population) +  
+    (1 | Batch)
+   Data: filter(DIA, Supervisor.PI == "Schlotterer")
+
+REML criterion at convergence: 125.2
+
+Scaled residuals: 
+     Min       1Q   Median       3Q      Max 
+-2.35548 -0.46143 -0.02155  0.49391  1.62315 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept) 0.065126 0.25520 
+ Batch           (Intercept) 0.005673 0.07532 
+ Residual                    0.047769 0.21856 
+Number of obs: 175, groups:  Line:Population, 143; Batch, 3
+
+Fixed effects:
+              Estimate Std. Error         df t value Pr(>|t|)    
+(Intercept)  1.021e+00  8.612e-02  1.748e+01  11.856 8.72e-10 ***
+Altitude     4.308e-05  1.173e-04  1.350e+02   0.367    0.714    
+Wolbachia+  -2.503e-02  7.207e-02  1.348e+02  -0.347    0.729    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Altitd
+Altitude   -0.407       
+Wolbachia+ -0.684 -0.016
+

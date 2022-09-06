@@ -1,0 +1,142 @@
+$CCRT_F_Vieira_lmer_lon
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: CCRT_seconds ~ Longitude + Wolbachia + (1 | Line:Population) +  
+    (1 | Batch) + (1 | ReplicateVial:Line)
+   Data: filter(CCRT, Censor == "0" & Supervisor.PI == "Vieira" & Sex ==  
+    "F")
+
+REML criterion at convergence: 13218.3
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-2.1691 -0.5832 -0.1512  0.3540  4.8500 
+
+Random effects:
+ Groups             Name        Variance Std.Dev.
+ ReplicateVial:Line (Intercept)    193.8  13.92  
+ Line:Population    (Intercept)  31878.7 178.55  
+ Batch              (Intercept)  17197.4 131.14  
+ Residual                       189753.0 435.61  
+Number of obs: 875, groups:  
+ReplicateVial:Line, 148; Line:Population, 148; Batch, 27
+
+Fixed effects:
+            Estimate Std. Error       df t value Pr(>|t|)    
+(Intercept) 1432.456     61.847  105.162  23.161   <2e-16 ***
+Longitude      3.163      2.076  110.193   1.524    0.130    
+Wolbachia+   -15.812     57.740  138.556  -0.274    0.785    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Longtd
+Longitude  -0.403       
+Wolbachia+ -0.618 -0.242
+optimizer (nloptwrap) convergence code: 0 (OK)
+unable to evaluate scaled gradient
+Model failed to converge: degenerate  Hessian with 1 negative eigenvalues
+
+
+$CCRT_F_Mensch_lmer_lon
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: 
+CCRT_seconds ~ Longitude + Wolbachia + (1 | Batch) + (1 | Line:Population)
+   Data: filter(CCRT, Censor == "0" & Supervisor.PI == "Mensch" & Sex ==  
+    "F")
+
+REML criterion at convergence: 13118.4
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-2.3165 -0.6556 -0.1678  0.4738  2.9267 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept)  80880   284.39  
+ Batch           (Intercept)   9692    98.45  
+ Residual                    251652   501.65  
+Number of obs: 850, groups:  Line:Population, 149; Batch, 11
+
+Fixed effects:
+            Estimate Std. Error       df t value Pr(>|t|)    
+(Intercept) 1728.788     79.629   70.377  21.710  < 2e-16 ***
+Longitude      7.626      2.314  141.885   3.295  0.00124 ** 
+Wolbachia+  -114.792     76.570  139.308  -1.499  0.13609    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Longtd
+Longitude  -0.358       
+Wolbachia+ -0.683 -0.188
+
+$CCRT_M_Vieira_lmer_lon
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: CCRT_seconds ~ Longitude + Wolbachia + (1 | Line:Population) +  
+    (1 | ReplicateVial:Line)
+   Data: filter(CCRT, Censor == "0" & Supervisor.PI == "Vieira" & Sex ==  
+    "M")
+
+REML criterion at convergence: 13088.1
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-2.3722 -0.5293 -0.1670  0.3675  4.7104 
+
+Random effects:
+ Groups             Name        Variance Std.Dev.
+ Line:Population    (Intercept)  23787   154.2   
+ ReplicateVial:Line (Intercept)  37253   193.0   
+ Residual                       153851   392.2   
+Number of obs: 875, groups:  Line:Population, 148; ReplicateVial:Line, 148
+
+Fixed effects:
+             Estimate Std. Error        df t value Pr(>|t|)    
+(Intercept) 1583.8270    60.2996  144.7857  26.266   <2e-16 ***
+Longitude     -0.3415     1.9192  145.5969  -0.178    0.859    
+Wolbachia+   -14.3928    63.3543  145.2118  -0.227    0.821    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Longtd
+Longitude  -0.381       
+Wolbachia+ -0.733 -0.211
+
+$CCRT_M_Mensch_lmer_lon
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: 
+CCRT_seconds ~ Longitude + Wolbachia + (1 | Batch) + (1 | Line:Population)
+   Data: filter(CCRT, Censor == "0" & Supervisor.PI == "Mensch" & Sex ==  
+    "M")
+
+REML criterion at convergence: 12698.4
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-2.0513 -0.6346 -0.2000  0.3988  3.2592 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ Line:Population (Intercept)  63551   252.1   
+ Batch           (Intercept)  15673   125.2   
+ Residual                    226237   475.6   
+Number of obs: 829, groups:  Line:Population, 148; Batch, 11
+
+Fixed effects:
+            Estimate Std. Error       df t value Pr(>|t|)    
+(Intercept) 1714.081     77.255   53.451  22.187   <2e-16 ***
+Longitude      4.135      2.140  137.690   1.933   0.0553 .  
+Wolbachia+  -108.741     69.659  133.801  -1.561   0.1209    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Longtd
+Longitude  -0.335       
+Wolbachia+ -0.635 -0.192
+

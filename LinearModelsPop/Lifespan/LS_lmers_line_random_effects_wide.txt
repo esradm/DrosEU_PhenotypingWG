@@ -1,4 +1,4 @@
-Model	Trait	Sex	Population	Line	Estimate_Parsch	Estimate_Pasyukova	SE_Parsch	SE_Pasyukova
+Model	Trait	Sex	Population	Line	Value_re_Parsch	Value_re_Pasyukova	SE_re_Parsch	SE_re_Pasyukova
 lmer_pop	LS	F	AK	AK1	5.15	-1.619	3.04	2.431
 lmer_pop	LS	F	AK	AK10	-3.01	-6.654	3.185	2.431
 lmer_pop	LS	F	AK	AK11	1.21	1.676	3.015	2.431

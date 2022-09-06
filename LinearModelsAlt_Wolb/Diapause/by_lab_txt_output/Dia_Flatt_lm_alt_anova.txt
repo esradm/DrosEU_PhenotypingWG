@@ -1,0 +1,6 @@
+Analysis of Variance Table
+
+Response: Prop_Max_Stage9_asin
+           Df Sum Sq  Mean Sq F value Pr(>F)
+Altitude    1 0.0050 0.005042  0.1449  0.704
+Residuals 144 5.0098 0.034790               

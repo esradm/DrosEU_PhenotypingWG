@@ -1,0 +1,14 @@
+$Fec_Billeter_lmer_alt
+Type III Analysis of Variance Table with Satterthwaite's method
+           Sum Sq Mean Sq NumDF  DenDF F value  Pr(>F)  
+Altitude  11140.8 11140.8     1 139.23  4.1158 0.04439 *
+Wolbachia   209.9   209.9     1 139.75  0.0775 0.78106  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+$Fec_Fricke_lmer_alt
+Type III Analysis of Variance Table with Satterthwaite's method
+          Sum Sq Mean Sq NumDF  DenDF F value Pr(>F)
+Altitude  95.455  95.455     1 135.42  0.0744 0.7855
+Wolbachia 98.652  98.652     1 137.30  0.0769 0.7820
+

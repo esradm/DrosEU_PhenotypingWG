@@ -1,4 +1,4 @@
-Model	Trait	Lab	Sex	Population	Line	Estimate	SE
+Model	Trait	Lab	Sex	Population	Line	Value_re	SE_re
 lmer_pop	Via	Gibert	NA	AK	AK1	-0.068	0.056
 lmer_pop	Via	Gibert	NA	AK	AK10	0.037	0.056
 lmer_pop	Via	Gibert	NA	AK	AK11	-0.021	0.056

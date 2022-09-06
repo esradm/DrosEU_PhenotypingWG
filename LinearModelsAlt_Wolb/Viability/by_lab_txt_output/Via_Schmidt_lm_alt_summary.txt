@@ -1,0 +1,20 @@
+
+Call:
+lm(formula = ProportionEggtoAdultSurvival_asin ~ Altitude, data = filter(Viab, 
+    Supervisor.PI == "Schmidt"))
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.94469 -0.15929 -0.02429  0.16484  0.73818 
+
+Coefficients:
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  9.829e-01  3.850e-02  25.531   <2e-16 ***
+Altitude    -2.210e-04  9.977e-05  -2.215   0.0283 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.2811 on 143 degrees of freedom
+Multiple R-squared:  0.03318,	Adjusted R-squared:  0.02642 
+F-statistic: 4.908 on 1 and 143 DF,  p-value: 0.02831
+

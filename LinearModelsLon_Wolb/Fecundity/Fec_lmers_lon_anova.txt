@@ -1,0 +1,12 @@
+$Fec_Billeter_lmer_lon
+Type III Analysis of Variance Table with Satterthwaite's method
+          Sum Sq Mean Sq NumDF  DenDF F value Pr(>F)
+Longitude 378.39  378.39     1 138.19  0.1397 0.7091
+Wolbachia 115.73  115.73     1 139.99  0.0427 0.8365
+
+$Fec_Fricke_lmer_lon
+Type III Analysis of Variance Table with Satterthwaite's method
+           Sum Sq Mean Sq NumDF  DenDF F value Pr(>F)
+Longitude 143.515 143.515     1 139.78  0.1119 0.7385
+Wolbachia  56.063  56.063     1 138.42  0.0437 0.8347
+

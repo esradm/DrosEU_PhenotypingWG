@@ -1,0 +1,140 @@
+$LS_F_Parsch_lmer_alt
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: LSL_AgeAtDeath_days ~ Altitude + Wolbachia + (1 | Batch) + (1 |  
+    Line:Population) + (1 | Line:ReplicateVial)
+   Data: filter(LSL, Censor == "0" & Supervisor.PI == "Parsch" & Sex ==  
+    "F")
+
+REML criterion at convergence: 38097.4
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.6695 -0.5418  0.1200  0.6461  2.6548 
+
+Random effects:
+ Groups             Name        Variance Std.Dev.
+ Line:ReplicateVial (Intercept)  46.71    6.834  
+ Line:Population    (Intercept)  34.98    5.914  
+ Batch              (Intercept)  12.80    3.578  
+ Residual                       264.72   16.270  
+Number of obs: 4450, groups:  
+Line:ReplicateVial, 614; Line:Population, 122; Batch, 2
+
+Fixed effects:
+              Estimate Std. Error         df t value Pr(>|t|)   
+(Intercept)  51.189906   3.042758   1.996405  16.824  0.00354 **
+Altitude     -0.006014   0.002884 119.381532  -2.085  0.03916 * 
+Wolbachia+    4.745128   1.672830 119.202669   2.837  0.00536 **
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Altitd
+Altitude   -0.254       
+Wolbachia+ -0.427 -0.067
+
+$LS_F_Pasyukova_lmer_alt
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: LSL_AgeAtDeath_days ~ Altitude + Wolbachia + (1 | Line:Population) +  
+    (1 | Line:ReplicateVial)
+   Data: filter(LSL, Censor == "0" & Supervisor.PI == "Pasyukova" & Sex ==  
+    "F")
+
+REML criterion at convergence: 99230.1
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.4286 -0.5705  0.0844  0.6491  3.8465 
+
+Random effects:
+ Groups             Name        Variance Std.Dev.
+ Line:ReplicateVial (Intercept)  41.70    6.458  
+ Line:Population    (Intercept)  26.48    5.146  
+ Residual                       212.60   14.581  
+Number of obs: 11920, groups:  Line:ReplicateVial, 1192; Line:Population, 149
+
+Fixed effects:
+              Estimate Std. Error         df t value Pr(>|t|)    
+(Intercept)  43.253859   1.291384 146.001048  33.494   <2e-16 ***
+Altitude     -0.003562   0.002061 146.001048  -1.728   0.0861 .  
+Wolbachia+    1.432059   1.246543 146.001047   1.149   0.2525    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Altitd
+Altitude   -0.487       
+Wolbachia+ -0.786 -0.009
+
+$LS_M_Parsch_lmer_alt
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: LSL_AgeAtDeath_days ~ Altitude + Wolbachia + (1 | Batch) + (1 |  
+    Line:Population) + (1 | Line:ReplicateVial)
+   Data: filter(LSL, Censor == "0" & Supervisor.PI == "Parsch" & Sex ==  
+    "M")
+
+REML criterion at convergence: 38320
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.1999 -0.5912  0.0928  0.6961  2.6987 
+
+Random effects:
+ Groups             Name        Variance Std.Dev.
+ Line:ReplicateVial (Intercept)  14.021   3.745  
+ Line:Population    (Intercept)  41.626   6.452  
+ Batch              (Intercept)   2.082   1.443  
+ Residual                       359.073  18.949  
+Number of obs: 4356, groups:  
+Line:ReplicateVial, 614; Line:Population, 122; Batch, 2
+
+Fixed effects:
+              Estimate Std. Error         df t value Pr(>|t|)    
+(Intercept)  54.359235   2.012054  11.538878  27.017 8.58e-12 ***
+Altitude     -0.006036   0.002957 119.196861  -2.041   0.0435 *  
+Wolbachia+    3.268374   1.712745 118.299942   1.908   0.0588 .  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Altitd
+Altitude   -0.397       
+Wolbachia+ -0.662 -0.064
+
+$LS_M_Pasyukova_lmer_alt
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: LSL_AgeAtDeath_days ~ Altitude + Wolbachia + (1 | Line:Population) +  
+    (1 | Line:ReplicateVial)
+   Data: filter(LSL, Censor == "0" & Supervisor.PI == "Pasyukova" & Sex ==  
+    "M")
+
+REML criterion at convergence: 102268
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-4.0973 -0.5587  0.0584  0.6405  2.8878 
+
+Random effects:
+ Groups             Name        Variance Std.Dev.
+ Line:ReplicateVial (Intercept)  51.63    7.185  
+ Line:Population    (Intercept)  36.73    6.060  
+ Residual                       274.85   16.579  
+Number of obs: 11920, groups:  Line:ReplicateVial, 1192; Line:Population, 149
+
+Fixed effects:
+              Estimate Std. Error         df t value Pr(>|t|)    
+(Intercept)  47.890047   1.504379 146.002338  31.834   <2e-16 ***
+Altitude     -0.006025   0.002401 146.002793  -2.509   0.0132 *  
+Wolbachia+    2.757069   1.452142 146.002246   1.899   0.0596 .  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+           (Intr) Altitd
+Altitude   -0.487       
+Wolbachia+ -0.786 -0.009
+

@@ -1,0 +1,20 @@
+                           All predictors DrosoEu_wc2_1_30s_wind_06-removed DrosoEu_wc2_1_30s_wind_12-removed
+Model deviance                      5.521                             5.521                             5.522
+Percent deviance explained         65.995                            65.995                            65.988
+Model p-value                       0.027                             0.027                             0.027
+Fitted permutations              9917.000                          9909.000                          9933.000
+                           DrosoEu_wc2_1_30s_prec_08-removed DrosoEu_wc2_1_30s_vapr_08-removed
+Model deviance                                         5.522                             5.531
+Percent deviance explained                            65.988                            65.935
+Model p-value                                          0.018                             0.003
+Fitted permutations                                 9939.000                          9926.000
+                           DrosoEu_wc2_1_30s_bio_7-removed DrosoEu_wc2_1_30s_prec_09-removed
+Model deviance                                       5.640                             5.711
+Percent deviance explained                          65.262                            64.827
+Model p-value                                        0.002                             0.001
+Fitted permutations                               9788.000                          9089.000
+                           DrosoEu_wc2_1_30s_wind_08-removed
+Model deviance                                         5.836
+Percent deviance explained                            64.056
+Model p-value                                          0.002
+Fitted permutations                                 8460.000

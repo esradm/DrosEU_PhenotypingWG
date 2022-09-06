@@ -1,4 +1,4 @@
-Model	Trait	Lab	Sex	Population	Line	Estimate	SE
+Model	Trait	Lab	Sex	Population	Line	Value_re	SE_re
 lmer_pop	LA_NDlog2	Tauber	B	AK	AK1	-0.177	0.134
 lmer_pop	LA_NDlog2	Tauber	B	AK	AK2	0.339	0.14
 lmer_pop	LA_NDlog2	Tauber	B	AK	AK3	-0.025	0.153

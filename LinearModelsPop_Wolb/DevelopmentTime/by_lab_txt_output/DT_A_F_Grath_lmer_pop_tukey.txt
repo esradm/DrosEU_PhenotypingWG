@@ -1,0 +1,28 @@
+$contrasts
+$emmeans
+ Population emmean   SE  df asymp.LCL asymp.UCL
+ AK            306 4.15 Inf       297       314
+ MU            302 4.16 Inf       293       310
+ RE            321 3.75 Inf       314       328
+
+Results are averaged over the levels of: Wolbachia 
+Degrees-of-freedom method: asymptotic 
+Confidence level used: 0.95 
+
+$contrasts
+ contrast estimate   SE  df z.ratio p.value
+ AK - MU       4.0 2.53 Inf   1.581  0.2537
+ AK - RE     -15.5 5.10 Inf  -3.034  0.0068
+ MU - RE     -19.5 5.11 Inf  -3.809  0.0004
+
+Results are averaged over the levels of: Wolbachia 
+Degrees-of-freedom method: asymptotic 
+P value adjustment: tukey method for comparing a family of 3 estimates 
+
+
+$letters
+  Population   emmean       SE  df asymp.LCL asymp.UCL cld
+1         AK 305.5026 4.145263 Inf  297.3781  313.6272  a 
+2         MU 301.5060 4.159463 Inf  293.3536  309.6584  a 
+3         RE 320.9745 3.748083 Inf  313.6284  328.3207   b
+

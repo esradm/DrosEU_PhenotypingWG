@@ -1,4 +1,4 @@
-Model	Trait	Sex	Population	Line	Estimate_Parsch	Estimate_Vieira	SE_Parsch	SE_Vieira
+Model	Trait	Sex	Population	Line	Value_re_Parsch	Value_re_Vieira	SE_re_Parsch	SE_re_Vieira
 lmer_pop	HSM	F	AK	AK1	-61.939	-26.047	12.561	7.845
 lmer_pop	HSM	F	AK	AK10	20.326	-14.023	18.164	8.739
 lmer_pop	HSM	F	AK	AK11	56.566	11.949	15.402	13.229

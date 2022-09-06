@@ -1,0 +1,50 @@
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: AgeAtDeath_hours ~ Population + Wolbachia + (1 | Line:Population) +  
+    (1 | Batch) + (1 | ReplicateVial:Line:Population)
+   Data: filter(SR, Supervisor.PI == "Pasyukova" & Sex == "F")
+
+REML criterion at convergence: 131623
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-5.2053 -0.5792  0.0256  0.6121  3.5532 
+
+Random effects:
+ Groups                        Name        Variance Std.Dev.
+ ReplicateVial:Line:Population (Intercept) 102.93   10.145  
+ Line:Population               (Intercept) 118.54   10.888  
+ Batch                         (Intercept)  74.63    8.639  
+ Residual                                  368.79   19.204  
+Number of obs: 14786, groups:  
+ReplicateVial:Line:Population, 1481; Line:Population, 149; Batch, 5
+
+Fixed effects:
+             Estimate Std. Error       df t value Pr(>|t|)    
+(Intercept)  102.1693     5.4651  10.1370  18.695 3.45e-09 ***
+PopulationGI   6.5864     4.3564 138.6814   1.512 0.132834    
+PopulationKA   2.0826     3.7448 138.7292   0.556 0.579015    
+PopulationMA  -1.1752     3.7335 138.6324  -0.315 0.753408    
+PopulationMU   0.3624     3.8023 138.6926   0.095 0.924199    
+PopulationRE  -0.2590     4.2386 138.6213  -0.061 0.951366    
+PopulationUM   1.8334     3.9983 138.9820   0.459 0.647285    
+PopulationVA   7.5536     4.1022 138.6275   1.841 0.067710 .  
+PopulationYE -14.0676     3.6669 139.0232  -3.836 0.000189 ***
+Wolbachia+     0.3907     2.7328 138.7262   0.143 0.886518    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+            (Intr) PpltGI PpltKA PpltMA PpltMU PpltRE PpltUM PpltVA PpltYE
+PopulatinGI -0.412                                                        
+PopulatinKA -0.347  0.417                                                 
+PopulatinMA -0.402  0.448  0.481                                          
+PopulatinMU -0.340  0.411  0.467  0.473                                   
+PopulatinRE -0.447  0.443  0.431  0.469  0.425                            
+PopulatinUM -0.432  0.448  0.453  0.484  0.447  0.474                     
+PopulatinVA -0.296  0.371  0.432  0.433  0.425  0.381  0.404              
+PopulatinYE -0.389  0.444  0.487  0.501  0.480  0.463  0.481  0.441       
+Wolbachia+  -0.499  0.261  0.040  0.154  0.042  0.322  0.257  0.000  0.112
+optimizer (nloptwrap) convergence code: 0 (OK)
+Model failed to converge with max|grad| = 0.00247985 (tol = 0.002, component 1)
+

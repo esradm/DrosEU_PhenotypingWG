@@ -1,0 +1,20 @@
+$Dia_Bergland_lmer_lat
+Type III Analysis of Variance Table with Satterthwaite's method
+             Sum Sq   Mean Sq NumDF  DenDF F value Pr(>F)
+Latitude  0.0034069 0.0034069     1 143.97  0.0522 0.8197
+Wolbachia 0.0022597 0.0022597     1 123.26  0.0346 0.8527
+
+$Dia_Flatt_lm_lat
+Analysis of Variance Table
+
+Response: Prop_Max_Stage9_asin
+           Df Sum Sq  Mean Sq F value Pr(>F)
+Latitude    1 0.0002 0.000195  0.0056 0.9404
+Residuals 144 5.0147 0.034824               
+
+$Dia_Schlotterer_lmer_lat
+Type III Analysis of Variance Table with Satterthwaite's method
+            Sum Sq  Mean Sq NumDF  DenDF F value Pr(>F)
+Latitude  0.066060 0.066060     1 139.78  1.3866 0.2410
+Wolbachia 0.000116 0.000116     1 135.90  0.0024 0.9607
+
