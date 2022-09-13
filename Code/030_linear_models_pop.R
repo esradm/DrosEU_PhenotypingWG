@@ -793,6 +793,7 @@ for (trait in 1:length(models)){
 }
 
 saveRDS(all_models_estimates, file = file.path(lmer_dir, "all_models_pop_estimates_list.rds"))
+saveRDS(bind_rows(all_models_estimates), file = file.path(lmer_dir, "all_models_pop_estimates.rds"))
 write.csv(bind_rows(all_models_estimates), file = file.path(lmer_dir, "all_models_pop_estimates.csv"), row.names = F)
 
 

@@ -141,7 +141,7 @@ write.csv(all_metas_pop, file = file.path(meta_dir, "all_models_pop_meta_compoun
 ##### read in meta results
 all_metas_pop_list <- rdsBatchReaderToList(path = meta_dir, recursive = T, full.names = T, pattern = "lmers_pop_meta_compound_estimates.rds")
 
-##### define function to extract p values
+##### define function to extract p values and other statistcics
 getPvalue <- function(x) {
     x %>% mutate(Min_lab = min(N_lab), Max_lab = max(N_lab)) %>% 
     select(Models, Trait, Sex, Q, P, Min_lab, Max_lab) %>%
@@ -152,36 +152,48 @@ getPvalue <- function(x) {
 all_metas_pvalues <- lapply(all_metas_pop_list, getPvalue) %>%
   bind_rows()
 
+
+##### remove non informative meta analyses for DT_P, LA and TL males
+
+all_metas_pvalues <- all_metas_pvalues %>% filter(Min_lab > 1)
+
+##### correct p values for multiple testing
+
+all_metas_pvalues_adj <- all_metas_pvalues %>%
+  mutate(P_bonf = p.adjust(P, "bonferroni"),
+         P_bh = p.adjust(P, "BH"))
+
+
 ##### define number of traits and apply Bonferroni correction
 #n_traits <- 13 # unique traits we run meta on
 #n_traits <- 22 # unique traits we run meta on + sex
 #n_traits <- 17 - 1 # unique traits + subtraits we run meta on
-n_traits <- 27 -1 # unique traits + subtraits we run meta on + sex
-# DW_M is also not meta analysed, hence - 1
+#n_traits <- 27 - 1 # unique traits + subtraits we run meta on + sex
+# TL_M is also not meta analysed, hence - 1
 
-all_metas_pvalues_multi <- all_metas_pvalues %>%
-  mutate(P_bonf = P * n_traits,
-         P_bonf = ifelse(P_bonf > 1, 1, P_bonf))
 
 ##### output pvalues
-saveRDS(all_metas_pvalues_multi, file.path(meta_dir, "all_models_pop_meta_pvalues.rds"))
-write.csv(all_metas_pvalues_multi, file.path(meta_dir, "all_models_pop_meta_pvalues.csv"), row.names = F)
+saveRDS(all_metas_pvalues_adj, file.path(meta_dir, "all_models_pop_meta_pvalues.rds"))
+write.csv(all_metas_pvalues_adj, file.path(meta_dir, "all_models_pop_meta_pvalues.csv"), row.names = F)
 
 
-############# PVALUE Q PLOT ############# 
+############# Q AND P VALUES PLOT ############# 
 
-all_metas_pvalues_multi_filt <- all_metas_pvalues_multi %>% 
-  filter(Min_lab > 1) 
-
-pvalue_plot <- all_metas_pvalues_multi_filt %>%
+bh_thresh <- sum(sort(all_metas_pvalues_adj$P) < 0.05) / nrow(all_metas_pvalues_adj) * 0.05
+bonf_thresh <- 0.05 / nrow(all_metas_pvalues_adj)
+  
+  
+pvalue_plot <- all_metas_pvalues_adj %>%
   ggplot(aes(x = Q, y = -log10(P))) +
   geom_point(size = 4, alpha = 0.3, pch = 19) +
   theme_bw(16) +
-  geom_hline(yintercept = -log10(0.05/nrow(all_metas_pvalues_multi_filt)), linetype = 2, size = 0.5, col = "red") +
-  geom_hline(yintercept = -log10(0.05), linetype = 2, size = 0.5) +
+  geom_hline(yintercept = -log10(bonf_thresh), linetype = 2, size = 0.5, col = "red") +
+  geom_hline(yintercept = -log10(bh_thresh), linetype = 2, size = 0.5) +
   labs(title = "Meta analyses Q and P values", x = "Q value", y = "-log10(Pvalue)") +
-  geom_label_repel(data = mutate(all_metas_pvalues_multi_filt, Label = ifelse(P >= 0.05, NA, paste(Trait, Sex))), aes(x = Q, y = -log10(P), label = Label), size = 3, box.padding = 0.45, label.padding = 0.45, point.padding = 0, segment.color = 'grey50', max.overlaps = 10, min.segment.length = 0, seed = 1, force = 20) +
-  annotate("text", x = max(all_metas_pvalues_multi_filt$Q), y = -log10(0.05/nrow(all_metas_pvalues_multi_filt)) + 0.2, label = "Bonferroni correction", color = "red", hjust = 1, vjust = 0)
+  geom_label_repel(data = mutate(all_metas_pvalues_adj, Label = ifelse(P_bh >= 0.05, NA, paste(Trait, Sex))), aes(x = Q, y = -log10(P), label = Label), size = 3, box.padding = 0.45, label.padding = 0.45, point.padding = 0, segment.color = 'grey50', max.overlaps = 10, min.segment.length = 0, seed = 1, force = 20) +
+  annotate("text", x = max(all_metas_pvalues_adj$Q), y = -log10(bonf_thresh) + 0.2, label = "Bonferroni threshold", color = "red", hjust = 1, vjust = 0) +
+  annotate("text", x = max(all_metas_pvalues_adj$Q), y = -log10(bh_thresh) + 0.2, label = "BH threshold", hjust = 1, vjust = 0) +
+  theme(plot.title = element_text(size = 16))
 
 ggsave(pvalue_plot, filename = file.path(meta_dir, "all_models_pop_meta_pvalues.pdf"), height = 5, width = 5)
 
@@ -192,44 +204,47 @@ ggsave(pvalue_plot, filename = file.path(meta_dir, "all_models_pop_meta_pvalues.
 ############# FACET PLOT ############# 
 
 
-##### list all metas
-metas <- readRDS("MetaAnalyses/all_models_pop_meta_compound_estimates.rds")
-
 ##### read in population info
 pops <- readRDS("InfoTables/DrosEU_Populations.rds")
 
-##### prepare data for plotting
-metas_prep <- metas %>% 
-  mutate(Group = paste(Trait, Sex, Models, sep = " "),
-         Q_plot = paste0("italic(Q) == ", round(Q, 2)),
-         P_plot = ifelse(P * n_traits < 0.001, "italic(p) < 0.001", paste0("italic(p) == ", round(P * n_traits, 3))),
-         P_plot = ifelse(P * n_traits > 1, "italic(p) == 1", P_plot)) %>%
-  group_by(Group) %>% 
-  mutate(xpos = min(LLEst), ypos = 11.2, ypos2 = 10.2, N_plot = paste("N ==", round(N_lab_av, 1))) %>%
-  filter(N_lab_av >= 2) %>%
-  mutate(Population = factor(Population, levels = pops$by_lat$Population),
-         y = as.numeric(Population))
 
-##### prepare additional text
-stats_text <- select(metas_prep, Group, Q_plot, P_plot, N_plot, xpos, ypos, ypos2) %>%
-  distinct()
+##### get all metas pop compound estimates and add define variables for plotting
+meta_pops <- readRDS(file.path(meta_dir, "all_models_pop_meta_compound_estimates.rds")) %>%
+  mutate(Group = paste(Trait, Sex, Models)) %>%
+  group_by(Group) %>% 
+  mutate(Population = factor(Population, levels = pops$by_lat$Population),
+         y = as.numeric(Population),
+         xpos = min(LLEst), 
+         ypos_qp = 11.2, 
+         ypos_n = 10.2, 
+         N_plot = paste("N ==", round(N_lab_av, 1))) %>%
+  filter(N_lab_av >= 2)
+
+##### get model pvalues, add Group and format statistics
+meta_pops_pvalues <- readRDS(file.path(meta_dir, "all_models_pop_meta_pvalues.rds")) %>% 
+  mutate(Group = paste(Trait, Sex, Models),
+         Q_plot = paste0("italic(Q) == ", round(Q, 2)),
+         P_bonf_plot = ifelse(P_bonf < 0.001, "italic(p) < 0.001", paste0("italic(p) == ", round(P_bonf, 3)))) 
+
+
+##### prepare text plotting
+stats_text <- inner_join(select(meta_pops_pvalues, Group, Q_plot, P_bonf_plot), select(meta_pops, Group, N_plot, xpos, ypos_qp, ypos_n) %>% distinct())
 
 ##### facet plot
-p_meta_CI_facet <- ggplot(data = metas_prep, aes(x = Estimate, y = y, color = Population)) +
+p_meta_CI_facet <- ggplot(data = meta_pops, aes(x = Estimate, y = y, color = Population)) +
   facet_wrap(Group ~ ., scales = "free_x", ncol = 5) +
   theme_bw() +
   geom_point(shape = 15, size = 2) +
   geom_errorbarh(aes(xmin = LLEst, xmax = ULEst), height = 0) +
   droseu_color_scale +
-  scale_y_continuous(name = "Population", breaks = 1:length(unique(metas_prep$Population)), labels = unique(metas_prep$Population)) +
+  scale_y_continuous(name = "Population", breaks = 1:max(meta_pops$y), labels = unique(meta_pops$Population)) +
   labs(x = "Population summary effect", y = "Population", title = "Subgroup meta analyses results", subtitle = "Populations summary effects with 95% CI, Q and P values and average number of labs (N)") +
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank()) +
-  geom_text(data = stats_text, aes(x = xpos, y = ypos, label = paste(Q_plot, P_plot, sep = "~~")), color = "black", parse = T, hjust = 0, size = 3, vjust = 1) +
-  geom_text(data = stats_text, aes(x = xpos, y = ypos2, label = N_plot), color = "black", parse = T, hjust = 0, size = 3, vjust = 1) +
-  theme(axis.text.x = element_blank(),
-        axis.ticks.x = element_blank()) + 
-  theme(legend.position = "none") +
-  expand_limits(y = 11)
+  geom_text(data = stats_text, aes(x = xpos, y = ypos_qp, label = paste(Q_plot, P_bonf_plot, sep = "~~")), color = "black", parse = T, hjust = 0, size = 3, vjust = 1) +
+  geom_text(data = stats_text, aes(x = xpos, y = ypos_n, label = N_plot), color = "black", parse = T, hjust = 0, size = 3, vjust = 1) +
+  theme(axis.text.x = element_blank(), 
+        axis.ticks.x = element_blank(),
+        legend.position = "none")
 
 ##### save facet plot
 ggsave(p_meta_CI_facet, filename = "MetaAnalyses/all_models_pop_meta_summary_effect.pdf", width = 8.27, height = 11.69)
@@ -239,38 +254,42 @@ ggsave(p_meta_CI_facet, filename = "MetaAnalyses/all_models_pop_meta_summary_eff
 
 ############# INDVIDUAL PLOTS ############# 
 
-# re usage of facet plot prep data
+# re usage of facet plot stats_text
 
 ##### list all metas
-metas <- list.files(path = meta_dir, recursive = T, full.names = T, pattern = "lmers_pop_meta_compound_estimates.rds")
+metas_pop_trait <- list.files(path = meta_dir, recursive = T, full.names = T, pattern = "lmers_pop_meta_compound_estimates.rds")
 
-for (i in 1:length(metas)){
-  fpath <- metas[i]
+for (i in 1:length(metas_pop_trait)){
+  fpath <- metas_pop_trait[i]
   # set output names
   p_out_pdf <- sub("compound_estimates.rds", "summary_effect.pdf", fpath)
   p_out_png <- sub(".pdf", ".png", p_out_pdf)
-  # read meta in and format Q and P, order Population by latitude
-  m <- readRDS(fpath)
-  m <- inner_join(select(m, Models, Trait, Sex, Population), metas_prep)
+  # read compound estimates in and define variables
+  m <- readRDS(fpath) %>% 
+    mutate(Group = paste(Trait, Sex, Models),
+           Population = factor(Population, levels = pops$by_lat$Population),
+           y = as.numeric(Population))
+  # get stats defined before
+  m <- inner_join(m, stats_text)
+  # plot relevant metas
   if (nrow(m) > 0) {
     title_text <- paste(unique(m$Trait), unique(m$Sex), "summary effect with 95% CI")
     qvalue <- unique(m$Q_plot)
-    pvalue <- unique(m$P_plot)
+    pvalue <- unique(m$P_bonf_plot)
     nvalue <- unique(m$N_plot)
-
+    # plot
     p_meta_CI <- ggplot(data = m, aes(x = Estimate, y = y, color = Population)) +
       theme_bw(16) +
       geom_point(shape = 15, size = 6) +
       geom_errorbarh(aes(xmin = LLEst, xmax = ULEst), height = 0, lwd = 1.5) +
       droseu_color_scale +
-      scale_y_continuous(name = "Population", breaks = 1:length(unique(m$Population)), labels = unique(m$Population)) +
+      scale_y_continuous(name = "Population", breaks = 1:max(m$y), labels = unique(m$Population)) +
       labs(x = "Population summary effect", y = "Population", title = title_text) +
       theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank()) +
-      geom_text(data = m, aes(x = unique(xpos), y = unique(ypos2), label = paste(qvalue, pvalue, nvalue, sep = "~~")), color = "black", parse = T, hjust = 0, size = 5, vjust = 1) +
-      theme(legend.position = "none") +
-      theme(plot.title = element_text(size = 16)) +
-      expand_limits(y = 10)
-  
+      geom_text(aes(x = unique(xpos), y = unique(ypos_n)), label = paste(qvalue, pvalue, nvalue, sep = "~~"), color = "black", parse = T, hjust = 0, size = 5, vjust = 1) +
+      theme(plot.title = element_text(size = 16),
+            legend.position = "none")
+    # save plot
     ggsave(p_meta_CI, filename = p_out_pdf, width = 5, height = 5)
     ggsave(p_meta_CI, filename = p_out_png, width = 5, height = 5)
   }

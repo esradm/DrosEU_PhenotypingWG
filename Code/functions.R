@@ -187,7 +187,7 @@ makeEffects <- function(x, pop.order = c("YE","RE","GI","MU","MA","UM","KA","VA"
 
 
 # droseu official population colors
-require(MetBrewer)
+suppressWarnings(require(MetBrewer))
 droseu_colors <- met.brewer("Johnson", 9)
 names(droseu_colors) <- as.factor(c("AK", "GI", "KA", "MA", "MU", "RE", "UM", "VA", "YE"))
 droseu_color_scale <- scale_colour_manual(name = "Population", values = droseu_colors)
