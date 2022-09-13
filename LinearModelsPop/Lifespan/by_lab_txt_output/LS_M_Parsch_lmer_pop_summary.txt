@@ -1,4 +1,4 @@
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: LSL_AgeAtDeath_days ~ Population + (1 | Batch) + (1 | Line:Population) +  
     (1 | Line:ReplicateVial)
    Data: filter(droseu$lsl, Censor == "0" & Supervisor.PI == "Parsch" &  
@@ -16,7 +16,8 @@ Random effects:
  Line:Population    (Intercept)  34.973   5.914  
  Batch              (Intercept)   2.336   1.528  
  Residual                       355.597  18.857  
-Number of obs: 4821, groups:  Line:ReplicateVial, 679; Line:Population, 135; Batch, 2
+Number of obs: 4821, groups:  
+Line:ReplicateVial, 679; Line:Population, 135; Batch, 2
 
 Fixed effects:
              Estimate Std. Error       df t value Pr(>|t|)    

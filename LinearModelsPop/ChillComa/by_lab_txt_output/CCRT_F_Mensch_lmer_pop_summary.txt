@@ -1,4 +1,4 @@
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: CCRT_seconds ~ Population + (1 | Batch) + (1 | Line:Population)
    Data: filter(droseu$ccrt, Censor == "0" & Supervisor.PI == "Mensch" &  
     Sex == "F")

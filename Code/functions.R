@@ -1,4 +1,5 @@
-# functions
+
+# this is a set of functions called in various analysis scripts
 # source("Code/functions.R")
 
 
@@ -13,11 +14,12 @@ rdsBatchReaderToList <- function(...) {
   return(tlist)
 }
 
-# compute pairwise diff between Population using emmeans and multcomp::cld.
+# compute pairwise diff between Population using emmeans and multcomp::cld. mode = "asymp" assumes infinite degrees of freedom. When not specified mode is set to "asymp" when the number of data points is greater than 3000.
 compTukeyCLD <- function(x) {
   require(emmeans)
   require(multcomp)
-  em <- emmeans(x, pairwise ~ Population, mode = "asymp", adjust = "tukey")
+  #em <- emmeans(x, pairwise ~ Population, mode = "asymp", adjust = "tukey")
+  em <- emmeans(x, pairwise ~ Population, adjust = "tukey")
   let <- cld(em, Letters = letters, alpha = 0.05) %>%
     as.data.frame %>% mutate(Population = as.factor(Population)) %>%
     arrange(Population) %>% dplyr::rename(cld = .group)
@@ -96,15 +98,16 @@ outputModelsStatsLab <- function(f) {
   }
 }
 
-# get model estimates (fitted values) and their SE using emmeans package
+# get model estimates (fitted values) and their SE using emmeans package. mode = "asymp" assumes infinite degrees of freedom. When not specified mode is set to "asymp" when the number of data points is greater than 3000. Returns a data.frame with Pop estimates and SE.
 getEstSE <- function(x, groups = "Population") {
   require(emmeans)
-  df <- as.data.frame(emmeans(x, groups, mode = "asymp"))[,1:3]
+  #df <- as.data.frame(emmeans(x, groups, mode = "asymp"))[,1:3]
+  df <- as.data.frame(emmeans(x, groups))[,1:3] 
   colnames(df)[2] <- "Estimate"
   df
 }
 
-# combine model estimates by trait
+# combine model estimates by trait, all labs in the same object
 combineEstSE <- function(x) {
   for (lab in 1:length(x)) {
     info <- str_split(names(x)[lab], "_") %>% unlist
@@ -121,7 +124,7 @@ combineEstSE <- function(x) {
   bind_rows(x) }
 
 
-# combine model P values
+# combine models P values
 combinePValues <- function(x) {
   pvals <- list()
   for (a in 1:length(x)) {
@@ -134,7 +137,7 @@ combinePValues <- function(x) {
                        Sex = info[length(info)-3],
                        Model = info[length(info)-1],
                        Predictor = info[length(info)])
-    info$P <- ifelse(info$Model == "lmer", x[[a]]$P[1], x[[a]]$P[2])
+    info$P <- ifelse(info$Model == "lmer" | info$Model == "lm", x[[a]]$P[1], x[[a]]$P[2])
     if (!info$Sex %in% c("F", "M")) info$Sex <- "NA"
     if (info$Trait %in% c("Dia", "Fec")) info$Sex <- "F"
     if (grepl("Pgm_", info$Trait)) info$Sex <- "F"
@@ -142,38 +145,52 @@ combinePValues <- function(x) {
     pvals[[a]] <- info }
   bind_rows(pvals) }
 
-  # combine model P values for Wolbachia
-  combinePValuesWolb <- function(x) {
-    pvals <- list()
-    for (a in 1:length(x)) {
-      info <- str_split(names(x)[a], "_") %>% unlist
-      if (length(info) >= 5) info[1] <- paste(info[1], info[2], sep = "_")
-      info[1] <- sub("_F", "", info[1])
-      info[1] <- sub("_M", "", info[1])
-      info <- data.frame(Lab = info[length(info)-2],
-                         Trait = info[1],
-                         Sex = info[length(info)-3],
-                         Model = info[length(info)-1],
-                         Predictor = "Wolbachia")
-      ## skip glmers for now
-      if(info$Model == "lmer"){
-      info$P <- x[[a]]$P[2]
-      if (!info$Sex %in% c("F", "M")) info$Sex <- "NA"
-      if (info$Trait %in% c("Dia", "Fec")) info$Sex <- "F"
-      if (grepl("Pgm_", info$Trait)) info$Sex <- "F"
-      if (grepl("LA_", info$Trait)) info$Sex <- "NA"
-      pvals[[a]] <- info }
-    }
-    bind_rows(pvals) }
+
+# combine model P values for Wolbachia
+combinePValuesWolb <- function(x) {
+  pvals <- list()
+  for (a in 1:length(x)) {
+    info <- str_split(names(x)[a], "_") %>% unlist
+    if (length(info) >= 5) info[1] <- paste(info[1], info[2], sep = "_")
+    info[1] <- sub("_F", "", info[1])
+    info[1] <- sub("_M", "", info[1])
+    info <- data.frame(Lab = info[length(info)-2],
+                       Trait = info[1],
+                       Sex = info[length(info)-3],
+                       Model = info[length(info)-1],
+                       Predictor = "Wolbachia")
+    ## skip glmers for now
+    if(info$Model == "lmer"){
+    info$P <- x[[a]]$P[2]
+    if (!info$Sex %in% c("F", "M")) info$Sex <- "NA"
+    if (info$Trait %in% c("Dia", "Fec")) info$Sex <- "F"
+    if (grepl("Pgm_", info$Trait)) info$Sex <- "F"
+    if (grepl("LA_", info$Trait)) info$Sex <- "NA"
+    pvals[[a]] <- info }
+  }
+  bind_rows(pvals) }
 
 
 
-# combine estimates and format them to run meta analyses. Populations are ordered by latitude
-makeEffects <- function(x) {
-  x <- mutate(x, Population = factor(Population, levels = c("YE","RE","GI","MU","MA","UM","KA","VA","AK")), Lab = as.factor(Lab), V = SE^2, Study = paste(Population, Lab, sep = "_"))
+# combine estimates and format them to run meta analyses. By default populations are ordered by latitude
+makeEffects <- function(x, pop.order = c("YE","RE","GI","MU","MA","UM","KA","VA","AK")) {
+  x <- mutate(x, Population = factor(Population, levels = pop.order), Lab = as.factor(Lab), V = SE^2, Study = paste(Population, Lab, sep = "_"))
   x <- relocate(x, Trait, Population, Sex, Lab, Study) %>%
     arrange(Population) %>% dplyr::rename(Y = Estimate)
   if ("Line" %in% colnames(x)) {
     x <- relocate(x, Trait, Population, Line, Sex, Lab, Study) %>%
       arrange(Population, Line) }
   x }
+
+
+
+
+
+# droseu official population colors
+require(MetBrewer)
+droseu_colors <- met.brewer("Johnson", 9)
+names(droseu_colors) <- as.factor(c("AK", "GI", "KA", "MA", "MU", "RE", "UM", "VA", "YE"))
+droseu_color_scale <- scale_colour_manual(name = "Population", values = droseu_colors)
+
+
+

@@ -1,0 +1,62 @@
+                                              95%-CI %W(random) Population
+YE_Onder            2815.7080 [2779.0427; 2852.3734]        4.6         YE
+YE_Ritchie          2797.3801 [2665.3494; 2929.4108]        1.7         YE
+YE_StamenkovicRadak 2823.4123 [2796.0143; 2850.8104]        4.9         YE
+RE_Onder            2944.6309 [2906.0121; 2983.2497]        4.5         RE
+RE_Ritchie          2896.2191 [2764.2423; 3028.1958]        1.7         RE
+RE_StamenkovicRadak 2933.2634 [2904.8079; 2961.7188]        4.9         RE
+GI_Onder            2854.8116 [2815.3100; 2894.3132]        4.5         GI
+GI_Ritchie          2611.6739 [2494.7051; 2728.6426]        2.0         GI
+GI_StamenkovicRadak 2833.7286 [2801.2793; 2866.1779]        4.7         GI
+MU_Onder            2860.4145 [2824.3984; 2896.4306]        4.6         MU
+MU_Ritchie          2805.6944 [2674.5153; 2936.8736]        1.7         MU
+MU_StamenkovicRadak 2850.2739 [2823.8986; 2876.6492]        4.9         MU
+MA_Onder            2899.6699 [2863.0762; 2936.2636]        4.6         MA
+MA_Ritchie          2875.3975 [2745.1293; 3005.6657]        1.7         MA
+MA_StamenkovicRadak 2862.0380 [2831.0873; 2892.9888]        4.8         MA
+UM_Onder            2901.8546 [2864.0696; 2939.6395]        4.5         UM
+UM_Ritchie          2913.6355 [2782.0552; 3045.2158]        1.7         UM
+UM_StamenkovicRadak 2886.8465 [2859.3640; 2914.3291]        4.9         UM
+KA_Onder            2860.0492 [2823.5384; 2896.5600]        4.6         KA
+KA_Ritchie          2731.8515 [2584.8990; 2878.8040]        1.4         KA
+KA_StamenkovicRadak 2813.0587 [2787.3643; 2838.7532]        5.0         KA
+VA_Onder            2845.2024 [2808.8593; 2881.5454]        4.6         VA
+VA_Ritchie          2794.0000 [2662.2787; 2925.7212]        1.7         VA
+VA_StamenkovicRadak 2836.4639 [2809.9918; 2862.9359]        4.9         VA
+AK_Onder            2815.3225 [2778.9103; 2851.7347]        4.6         AK
+AK_Ritchie          2777.3622 [2630.0926; 2924.6318]        1.4         AK
+AK_StamenkovicRadak 2775.5345 [2749.9570; 2801.1119]        5.0         AK
+
+Number of studies combined: k = 27
+
+                                               95%-CI      z p-value
+Random effects model 2847.1824 [2826.6612; 2867.7037] 271.93       0
+
+Quantifying heterogeneity:
+ tau^2 = 2039.3919 [1093.3701; 6154.0090]; tau = 45.1596 [33.0661; 78.4475]
+ I^2 = 83.1% [76.4%; 87.9%]; H = 2.43 [2.06; 2.88]
+
+Test of heterogeneity:
+      Q d.f.  p-value
+ 154.05   26 < 0.0001
+
+Results for subgroups (random effects model):
+                  k                           95%-CI      tau^2      tau     Q   I^2
+Population = YE   3 2820.0261 [2798.3758; 2841.6764]          0        0  0.22  0.0%
+Population = RE   3 2936.0629 [2913.4920; 2958.6337]          0        0  0.58  0.0%
+Population = GI   3 2776.5383 [2634.6428; 2918.4339] 14446.4288 120.1933 14.92 86.6%
+Population = MU   3 2852.5801 [2831.5752; 2873.5849]          0        0  0.70  0.0%
+Population = MA   3 2879.0650 [2846.2723; 2911.8577]   300.3117  17.3295  2.37 15.6%
+Population = UM   3 2892.6382 [2870.7232; 2914.5532]          0        0  0.50  0.0%
+Population = KA   3 2826.2998 [2780.6595; 2871.9400]   929.3822  30.4858  5.89 66.0%
+Population = VA   3 2838.3234 [2817.2028; 2859.4440]          0        0  0.59  0.0%
+Population = AK   3 2792.0576 [2757.1999; 2826.9152]   420.9371  20.5168  3.09 35.3%
+
+Test for subgroup differences (random effects model):
+                     Q d.f.  p-value
+Between groups   89.06    8 < 0.0001
+
+Details on meta-analytical method:
+- Inverse variance method
+- Restricted maximum-likelihood estimator for tau^2
+- Q-profile method for confidence interval of tau^2 and tau

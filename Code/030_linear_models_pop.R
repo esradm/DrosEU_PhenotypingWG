@@ -1,10 +1,22 @@
 
 
-########################################################################### 
-######################  RUN ALL LMMs FOR POPULATIONS ######################
-###########################################################################
+###################################################################################### 
+######################  RUN ALL LMMs (AND GLMMs) FOR POPULATION ######################
+######################################################################################
 
 
+# For each trait and lab combination we fit a linear mixed model where Population is a fixed effect variable and Batch, Line, Rep etc. are random effect variables. Modelling is done with the lmer fonction from the afex package (afex::lmer) to obtain a model global p value. Because of the different data structures between labs it is not straightforward to automate this modelling step as models formulas need to be adapted to each trait and lab.
+
+# In some rare cases a LM is the most appropriate model:
+# Dia_Flatt, No Line rep, no Batch, no Rep.
+# LA_AbsPhase_Tauber - singular fit when Line is included
+# Via_Schmidt - no Line rep, no Rep, no Batch
+
+# For diapause we also fit a GLMM. This could also be done for other traits with binomial ditribution. CSM would work (Total, Dead), but number of eggs would be needed for Via.
+
+# After model fitting all model outputs are combined into a single list (actually one for LMM and one for GLMM) to automate subsequent analyses (models residuals, anovas, Tukey HSD pairwise comparisons, extraction of Population estimates etc.)
+
+# Population estimates (fitted values) and their respective standard errors are extracted from lmer objects using the emmeans package. 
 
 
 ##### clean workspace
@@ -21,17 +33,15 @@ library(foreach)
 ##### set working directory
 setwd("~/Work/UNIFR/GitHub/DrosEU_PhenotypingWG/")
 
-
 ##### source functions
 source("Code/functions.R")
 
-##### load data
+##### load latest data
 droseu <- readRDS("Data/droseu_master_list_2022-05-02.rds")
 
 ##### create output directory
 lmer_dir <- "LinearModelsPop"
 dir.create(lmer_dir, showWarnings = F) 
-
 
 
 
@@ -569,7 +579,7 @@ LA_lmers_pop$LA_Period_Tauber_lmer_pop <- lmer(Period ~ Population + (1|Line:Pop
 LA_lmers_pop$LA_CircPhase_Tauber_lmer_pop <- lmer(CircPhase ~ Population + (1|Line:Population), data = droseu$la)
 
 # singular fit, removed Line
-LA_lmers_pop$LA_AbsPhase_Tauber_lm_pop <- lm(AbsPhase ~ Population, data = droseu$la)
+LA_lmers_pop$LA_AbsPhase_Tauber_lm_pop <- lm(AbsPhase ~ Population, data = filter(droseu$la, !is.na(AbsPhase)))
 
 LA_lmers_pop$LA_Activity_Tauber_lmer_pop <- lmer(Activity ~ Population + (1|Line:Population), data = droseu$la)
 
@@ -667,34 +677,42 @@ saveRDS(Pgm_lmers_pop, file = file.path(lmer_dir, out_dir, "Pgm_lmers_pop.rds"))
 
 
 
-###############################################################################
-###############################################################################
-###############################################################################
 
-######### combine all linear models into global lists, one for all LMERs and one for all GLMERs
+############# COMBINE LMM AND GLMM OUTPUTS INTO LISTS ############# 
+
+# combine all linear models into global lists, one for all LMERs and one for all GLMERs (currently diapause only)
 
 ### LMERs
 
 # list with 2 levels where each element is a trait and sub element is a lab
 all_lmers_pop <- rdsBatchReaderToList(path = lmer_dir, recursive = T, full.names = T, pattern = "_lmers_pop.rds")
+
 # flatten the list and rename elements
 all_lmers_pop <- unlist(all_lmers_pop, recursive=FALSE)
 names(all_lmers_pop) <- str_split(names(all_lmers_pop), "\\.", simplify = T)[,2]
+
 # output the list
 saveRDS(all_lmers_pop, file = file.path(lmer_dir, "all_lmers_pop_list.rds"))
 
+
 ### GLMERs - currently for diapause only
+
+# list with 2 levels where each element is a trait and sub element is a lab
 all_glmers_pop <- rdsBatchReaderToList(path = lmer_dir, recursive = T, full.names = T, pattern = "_glmers_pop.rds")
+
+# flatten the list and rename elements
 all_glmers_pop <- unlist(all_glmers_pop, recursive=FALSE)
 names(all_glmers_pop) <- str_split(names(all_glmers_pop), "\\.", simplify = T)[,2]
+
+# output the list
 saveRDS(all_glmers_pop, file = file.path(lmer_dir, "all_glmers_pop_list.rds"))
 
 
 
-######### output all model summaries, anovas and tukeys as global lists
-######### anovas only for LMERs as they are already performed in the trait sections for GLMERs 
-######### tukeys only when applicable (eg for Population)
+############# OUTPUT MODELS SUMMARIES, ANOVAS, TUKEY PAIRWISE DIFFS AS GLOBAL LISTS ############# 
 
+# output all model summaries, anovas and tukeys as global lists
+# anovas only for LMERs as they are already performed in the trait sections for GLMERs 
 
 ### LMERs
 
@@ -727,22 +745,19 @@ saveRDS(all_glmers_pop_anova, file = file.path(lmer_dir, "all_glmers_pop_anova_l
 
 
 
+############# OUTPUT MODELS RESIDUALS, SUMMARIES, ANOVAS, TUKEY PAIRWISE DIFFS BY TRAIT AND LAB ############# 
 
-
-######### plot linear models residuals per trait
+# plot linear models residuals per trait
 
 # list models outputs to keep the directory structure
 lmers <- list.files(path = lmer_dir, recursive = T, full.names = T, pattern = "_lmers_pop.rds")
 glmers <- list.files(path = lmer_dir, recursive = T, full.names = T, pattern = "_glmers_pop.rds")
 models <- c(lmers, glmers)
 
-
 # loop over models to get residuals
 for (m in 1:length(models)){
   plotResiduals(models[m])
 }
-
-
 
 ######### output all models summaries, anovas and tukeys by trait
 
@@ -750,7 +765,6 @@ for (m in 1:length(models)){
 for (m in 1:length(models)){
   outputModelsStats(models[m])
 }
-
 
 
 ######### output all models summaries, anovas and tukeys by trait and lab
@@ -761,8 +775,9 @@ for (m in 1:length(models)){
 }
 
 
-######### output all models estimates as a global list
-######### estimates are the fitted Population values and their corresponding SE
+############# OUTPUT ALL MODELS POPULATION ESTIMATES AS GLOBAL LIST ############# 
+
+# estimates are the fitted Population values and their corresponding SE
 
 all_models_estimates <- list()
 for (trait in 1:length(models)){
@@ -778,11 +793,13 @@ for (trait in 1:length(models)){
 }
 
 saveRDS(all_models_estimates, file = file.path(lmer_dir, "all_models_pop_estimates_list.rds"))
-write.csv(bind_rows(all_models_estimates), file = file.path(lmer_dir, "all_models_pop_estimates_list.csv"), row.names = F)
+write.csv(bind_rows(all_models_estimates), file = file.path(lmer_dir, "all_models_pop_estimates.csv"), row.names = F)
 
 
 
-######### output all models estimates by trait
+############# OUTPUT ALL MODELS POPULATION ESTIMATES BY TRAIT ############# 
+
+# estimates are the fitted Population values and their corresponding SE
 
 for (i in 1:length(models)){
   f <- models[i]
@@ -796,7 +813,7 @@ for (i in 1:length(models)){
 }
 
 
-######### output all models P values
+############# OUTPUT ALL MODELS P VALUES ############# 
 
 all_lmers_pop_anova <- readRDS(file.path(lmer_dir, "all_lmers_pop_anova_list.rds"))
 all_glmers_pop_anova <- readRDS(file.path(lmer_dir, "all_glmers_pop_anova_list.rds"))

@@ -1,0 +1,48 @@
+Lab,Trait_long,Trait_short,Trait_code,Diet,PC
+Vieira,Chill-coma recovery time,ccrt,CCRT,S,0.094
+Mensch,Chill-coma recovery time,ccrt,CCRT,NA,NA
+Wegener,Circadian eclosion timing,cets,CET,NS,0.185
+Gonzalez,Cold-shock mortality,csm,CSM,S,0.066
+Vieira,Cold-shock mortality,csm,CSM,S,0.094
+Kozeretska,Cold-shock mortality,csm,CSM,NS,0.368
+Flatt,Diapause,dia,Dia,S,0.088
+Bergland,Diapause,dia,Dia,S,0.099
+Schlotterer,Diapause,dia,Dia,NS,0.238
+Onder,Dry weight,dw,DW,NS,0.179
+Hoedjes,Dry weight,dw,DW,NS,0.283
+Colinet,Dry weight,dw,DW,NS,1.28
+StamenkovicRadak,Egg-to-adult development time,dta,DT_A,NS,0.099
+Schmidt,Egg-to-adult development time,dta,DT_A,NS,0.183
+Grath,Egg-to-adult development time,dta,DT_A,NS,0.222
+Hoedjes,Egg-to-adult development time,dta,DT_A,NS,0.283
+Zwaan,Egg-to-adult development time,dta,DT_A,NS,0.291
+Gibert,Egg-to-adult development time,dta,DT_A,NS,0.076
+Schmidt,Egg-to-pupa development time,dtp,DT_P,NS,0.183
+Fricke,Fecundity,fec,Fec,S,0.073
+Billeter,Fecundity,fec,Fec,NS,0.313
+Vieira,Heat-shock mortality,hsm,HSM,S,0.094
+Parsch,Heat-shock mortality,hsm,HSM,NS,0.222
+Flatt,Lifespan,ls,LS,S,0.088
+Pasyukova,Lifespan,ls,LS,S,0.143
+Parsch,Lifespan,ls,LS,NS,0.222
+Tauber,Locomotor activity,la,LA,NS,0.177
+Gibert,Pigmentation,pgm,Pgm,NS,0.076
+Abbott,Pigmentation,pgm,Pgm,S,0.08
+Schmidt,Pigmentation,pgm,Pgm,NS,0.183
+Gonzalez,Starvation resistance,sr,SR,S,0.066
+Pasyukova,Starvation resistance,sr,SR,S,0.143
+Onder,Starvation resistance,sr,SR,NS,0.179
+Posnien,Thorax length,tl,TL,S,0.117
+Ritchie,Thorax length,tl,TL,S,0.181
+Schmidt,Thorax length,tl,TL,NS,0.183
+Kozeretska,Thorax length,tl,TL,NS,0.368
+Gibert,Viability,via,Via,NS,0.076
+StamenkovicRadak,Viability,via,Via,NS,0.099
+Schmidt,Viability,via,Via,NS,0.183
+Grath,Viability,via,Via,NS,0.222
+Hoedjes,Viability,via,Via,NS,0.283
+Zwaan,Viability,via,Via,NS,0.291
+StamenkovicRadak,Wing area,wa,WA,NS,0.099
+Posnien,Wing area,wa,WA,S,0.117
+Onder,Wing area,wa,WA,NS,0.179
+Ritchie,Wing area,wa,WA,S,0.181
