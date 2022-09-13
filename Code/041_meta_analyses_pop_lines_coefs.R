@@ -1,33 +1,27 @@
 
-#######################################################################################
-######################  RUN ALL META ANALYSES FOR LINE ESTIMATES ######################
-#######################################################################################
+#################################################################################
+################# META ANALYSES TO GET COMPOUND LINE ESTIMATES ##################
+#################################################################################
 
-
-##### clean workspace
-rm(list = ls())
-
-##### libraries
-library(tidyverse)
-library(meta)
-library(ggpubr)
-library(MetBrewer)
-
-
-##### set working directory
-setwd("~/Work/UNIFR/GitHub/DrosEU_PhenotypingWG/")
-
-##### source functions
-source("Code/functions.R")
-
-
-##### get all the line estimates, from all the traits
-lines_coefs <- list.files(path = "LinearModelsPop", recursive = T, full.names = T, pattern = "lmers_line_random_coefs.rds") 
+ 
 
 
 
-##### meta loop to get compound estimates per trait
-# at the moment it is quick and dirty because it also runs a meta on traits for which only one lab is involved, returning the original line estomates as compound estimates. This is correct but maybe we should do that in a better way.
+
+##### quick plot for tarit correlations
+
+library(GGally)
+corF <- ggpairs(select(compound_effects_wide, contains(c("_F", "NA"))))
+ggsave(corF, file = "~/Desktop/trait_cor_F.pdf", width = 14, height = 14)
+
+corM <- ggpairs(select(compound_effects_wide, contains(c("_M", "NA"))))
+ggsave(corM, file = "~/Desktop/trait_cor_M.pdf", width = 14, height = 14)
+
+
+
+
+
+
 
 for (f in 1:length(lines_coefs)) {
   
@@ -74,37 +68,6 @@ for (f in 1:length(lines_coefs)) {
   capture.output(meta_trait_res, file = sub(".txt", "_meta.txt", out_txt)) 
   
 }
-
-
-##### combine traits
-
-compound_effects <- rdsBatchReaderToList(path = "LinearModelsPop", recursive = T, full.names = T, pattern = "lmers_line_compound_random_coefs.rds")
-
-compound_effects <- compound_effects[-grep("Dia_lmers", names(compound_effects))] # remove diapause lmer
-
-compound_effects_wide <- bind_rows(compound_effects) %>%
-  dplyr::select(Trait, Population, Line, Sex, Value) %>%
-  pivot_wider(values_from = Value, names_from = c(Trait, Sex)) 
-
-saveRDS(compound_effects, "LinearModelsPop/all_models_line_compound_random_coefs_list.rds")
-write.csv(bind_rows(compound_effects), file = "LinearModelsPop/all_models_line_compound_random_coefs.csv", row.names = F)
-write.csv(compound_effects_wide, file = "LinearModelsPop/all_models_line_compound_random_coefs_wide.csv", row.names = F)
-
-
-##### quick plot
-
-library(GGally)
-corF <- ggpairs(select(compound_effects_wide, contains(c("_F", "NA"))))
-ggsave(corF, file = "~/Desktop/trait_cor_F.pdf", width = 14, height = 14)
-
-corM <- ggpairs(select(compound_effects_wide, contains(c("_M", "NA"))))
-ggsave(corM, file = "~/Desktop/trait_cor_M.pdf", width = 14, height = 14)
-
-
-
-
-
-
 
 
 

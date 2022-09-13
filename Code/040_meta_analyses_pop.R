@@ -1,7 +1,7 @@
 
-####################################################################
-######################  RUN ALL META ANALYSES ######################
-####################################################################
+######################################################################
+###################### POPULATION META ANALYSES ######################
+######################################################################
 
 
 
@@ -58,6 +58,10 @@ partial_labs <- "Posnien"
 ##### get all the line estimates, from all the traits
 pops_coefs <- list.files(path = lmer_dir, recursive = T, full.names = T, pattern = lmer_pat)
 print(pops_coefs)
+
+##### remove Dia lmers, keep glmers instead
+pops_coefs <- pops_coefs[-grep("Dia_lmers", pops_coefs)]
+
 
 
 ##### meta loop to get compound estimates per trait
