@@ -5,6 +5,9 @@
 
 ### IN PROGRESS
 
+
+# note to self: size patterns are clearly influenced by RE and AK, respectively the least and the most viable populations - could viability cause difference in larval density that would translate into size differences?
+
 ##### clean workspace
 rm(list = ls())
 
@@ -12,235 +15,278 @@ rm(list = ls())
 library(tidyverse)
 library(ggrepel)
 library(ggpubr)
+library(MetBrewer)
+
 
 ##### set working directory
 setwd("~/Work/UNIFR/GitHub/DrosEU_PhenotypingWG/")
 
-
-
-#### fix data
-pops_estimates <- read.csv("LinearModelsPop/all_models_pop_estimates.csv") %>% mutate(Model = paste(Model, Predictor, sep = "_")) %>% select(-Predictor)
- 
-lines_re <- read.csv("LinearModelsPop/all_models_line_random_effects.csv") %>%
-  rename(Re = Estimate, SE_re = SE)
-
-lines_coefs <- inner_join(pops_estimates, lines_re) %>%
-  mutate(SE = sqrt(SE^2 + SE_re^2)) %>% # check this one
-  mutate(Coef = Estimate + Re) %>%
-  select(Model, Trait, Lab, Sex, Population, Line, Coef, SE)
-  
-write.csv(lines_coefs, "LinearModelsPop/all_models_line_random_coefs.csv", row.names = F)
-
-
-
-
-# where is LA absphase in lines re. It is a lm, Lines not included in there.
-
-
-
-
-
- 
-pops_estimates$Trait[pops_estimates$Trait == "Dia"] <- paste(pops_estimates$Trait[pops_estimates$Trait == "Dia"], pops_estimates$Model[pops_estimates$Trait == "Dia"], sep = "_")
-
-pops_estimates$Trait <- gsub("Dia_lm", "Dia_lmer", pops_estimates$Trait)
-pops_estimates$Trait <- gsub("Dia_lmerer", "Dia_lmer", pops_estimates$Trait)
-
+##### create directory
+dir.create("GeoCorrelations")
 
 ##### load data
 pops <- readRDS("InfoTables/DrosEU_Populations.rds")
 droseu <- readRDS("Data/droseu_master_list_2022-05-02.rds")
-pop_comp <- read.csv("MetaAnalyses/all_metas_pop_compound_estimates.csv")
-lines_comp <- readRDS("LinearModelsPop/all_models_line_compound_random_effects_list.rds")
+pop_comp <- read.csv("MetaAnalyses/all_models_pop_meta_compound_estimates.csv")
+#pop_estimates <- read.csv("LinearModelsPop/all_models_pop_estimates.csv")
+line_comp <- read.csv("MetaAnalyses/all_models_line_meta_compound_random_coefs.csv")
+
+##### define colors for plotting
+
+myColors <- met.brewer("Johnson", 9)
+names(myColors) <- as.factor(c("AK", "GI", "KA", "MA", "MU", "RE", "UM", "VA", "YE"))
+colScale <- scale_colour_manual(name = "Population", values = myColors)
 
 
 
 ##### pop level
 
-pop_geo <- inner_join(select(pop_comp, Trait, Sex, Population, Mstar), pops$by_lat) %>%
+pop_geo_list <- filter(pop_comp, Trait != "Dia_lmer") %>%
+  dplyr::select(Trait, Sex, Population, Estimate) %>%
+  inner_join(pops$by_lat) %>%
   group_split(Trait, Sex)
 
-pearson_cor <- list()
-for (i in 1:length(pop_geo)) {
-  cortest <- cor.test(pop_geo[[i]]$Mstar, pop_geo[[i]]$Latitude)
-  pearson_cor[[i]] <- data.frame(Trait = unique(pop_geo[[i]]$Trait), 
-                                 Sex = unique(pop_geo[[i]]$Sex),
+# add traits measured only in 1 lab (traits that have not been through meta)
+# also removing LA_AbsPhase for the time being since we don't have Line random coefs for this trait - for Pop and Line plots to be comparable
+
+#single_lab <- filter(pop_estimates, Lab == "Tauber" | Trait == "DT_P") %>%
+#  filter(Trait != "LA_AbsPhase") %>%
+#  dplyr::select(Trait, Sex, Population, Estimate) %>% 
+#  inner_join(pops$by_lat)
+
+#pop_geo_list <- bind_rows(pop_geo, single_lab) %>%
+#  group_split(Trait, Sex)
+  
+
+### latitude
+
+pop_lat_pearson <- list()
+for (i in 1:length(pop_geo_list)) {
+  cortest <- cor.test(pop_geo_list[[i]]$Estimate, pop_geo_list[[i]]$Latitude)
+  pop_lat_pearson[[i]] <- data.frame(Trait = unique(pop_geo_list[[i]]$Trait), 
+                                 Sex = unique(pop_geo_list[[i]]$Sex),
                                  R = cortest$estimate,
                                  P = cortest$p.value,
                                  Method = "pearson")
 }
-pearson_cor <- bind_rows(pearson_cor)
+pop_lat_pearson <- bind_rows(pop_lat_pearson) %>%
+  mutate(Sex = factor(Sex, levels = c("F", "M", "B", "NA")),
+         Label = paste(Trait, Sex, sep = "_"))
+
+write.csv(pop_lat_pearson, "GeoCorrelations/pop_lat_pearson_correlations.csv", row.names = F)
 
 
-ggplot(data = pearson_cor, aes(x = R, y = -log10(P))) +
-  geom_point(aes(color = Sex), size = 3) +
-  theme_classic() +
-  geom_hline(yintercept = -log10(0.05/25), linetype = 2, size = 0.15) +
-  geom_hline(yintercept = -log10(0.05), linetype = 2, size = 0.15) +
-  labs(title = "Pearson correlations between Population and Latitude", colour = "Sex", x = "Pearson's R", y = "-log10(Pvalue)") +
-  geom_label_repel(aes(x = R, y = -log10(P), label = Trait),
-                   size = 2.5, box.padding = 0.25, label.padding = 0.15, point.padding = 0,
+pop_lat_pearson_plot <- ggplot(data = pop_lat_pearson, aes(x = R, y = -log10(P))) +
+  geom_point(size = 4, alpha = 0.3, pch = 19) +
+  theme_bw(16) +
+  geom_hline(yintercept = -log10(0.05/nrow(pop_lat_pearson)), linetype = 2, size = 0.5, col = "red") +
+  geom_hline(yintercept = -log10(0.05), linetype = 2, size = 0.5) +
+  labs(title = "Pearson correlations with Latitude\nPopulation level", colour = "Sex", x = "Pearson's R", y = "-log10(Pvalue)") +
+  geom_label_repel(data = mutate(pop_lat_pearson, Label = ifelse(P >= 0.05, NA, Label)), 
+                          aes(x = R, y = -log10(P), label = Label),
+                   size = 3, box.padding = 0.45, label.padding = 0.45, point.padding = 0,
                    segment.color = 'grey50', max.overlaps = 60, min.segment.length = 0,
                    seed = 1, force = 5)
   
-
-ggsave(pval_slope_lat_lon_eu, 
-       file = "", 
-       width = 6, height = 6, dpi = 300)
+ggsave(pop_lat_pearson_plot, filename = "GeoCorrelations/pop_lat_pearson_correlations.pdf", height = 7, width = 7)
 
 
+pop_lat_pearson_facet <- bind_rows(pop_geo_list) %>%
+  mutate(Label = paste(Trait, Sex, sep = "_")) %>%
+  ggplot(aes(x = Latitude, y = Estimate)) +
+  geom_point(aes(color = Population), size = 2) +
+  colScale +
+  facet_wrap(Label ~., scales = "free", ncol = 7) +
+  geom_smooth(method = "lm", se = F, color = "black", size = 0.5) +
+  stat_cor(method = "pearson", label.x.npc = 0, label.y.npc = 0.05, size = 3) +
+  labs(title = "Pearson correlations with Latitude - Population level", y = "Population estimates") +
+  theme_bw(14)
+
+ggsave(pop_lat_pearson_facet, filename = "GeoCorrelations/pop_lat_pearson_correlations_facets.pdf", height = 10, width = 14)
+  
 
 
 
 
+### longitude
 
-spearman_cor <- list()
-for (i in 1:length(pop_geo)) {
-  cortest <- cor.test(rank(pop_geo[[i]]$Mstar), rank(pop_geo[[i]]$Latitude))
-  spearman_cor[[i]] <- data.frame(Trait = unique(pop_geo[[i]]$Trait), 
-                                 Sex = unique(pop_geo[[i]]$Sex),
-                                 R = cortest$estimate,
-                                 P = cortest$p.value,
-                                 Method = "spearman")
+pop_lon_pearson <- list()
+for (i in 1:length(pop_geo_list)) {
+  cortest <- cor.test(pop_geo_list[[i]]$Estimate, pop_geo_list[[i]]$Longitude)
+  pop_lon_pearson[[i]] <- data.frame(Trait = unique(pop_geo_list[[i]]$Trait), 
+                                     Sex = unique(pop_geo_list[[i]]$Sex),
+                                     R = cortest$estimate,
+                                     P = cortest$p.value,
+                                     Method = "pearson")
 }
-spearman_cor <- bind_rows(spearman_cor)
+pop_lon_pearson <- bind_rows(pop_lon_pearson) %>%
+  mutate(Sex = factor(Sex, levels = c("F", "M", "B", "NA")),
+         Label = paste(Trait, Sex, sep = "_"))
+
+
+
+write.csv(pop_lon_pearson, "GeoCorrelations/pop_lon_pearson_correlations.csv", row.names = F)
+
+
+pop_lon_pearson_plot <- ggplot(data = pop_lon_pearson, aes(x = R, y = -log10(P))) +
+  geom_point(size = 4, alpha = 0.3, pch = 19) +
+  theme_bw(16) +
+  geom_hline(yintercept = -log10(0.05/nrow(pop_lon_pearson)), linetype = 2, size = 0.5, col = "red") +
+  geom_hline(yintercept = -log10(0.05), linetype = 2, size = 0.5) +
+  labs(title = "Pearson correlations with Longitude\nPopulation level", colour = "Sex", x = "Pearson's R", y = "-log10(Pvalue)") +
+  geom_label_repel(data = mutate(pop_lon_pearson, Label = ifelse(P >= 0.05, NA, Label)), 
+                   aes(x = R, y = -log10(P), label = Label),
+                   size = 3, box.padding = 0.45, label.padding = 0.45, point.padding = 0,
+                   segment.color = 'grey50', max.overlaps = 60, min.segment.length = 0,
+                   seed = 1, force = 5)
+
+ggsave(pop_lon_pearson_plot, filename = "GeoCorrelations/pop_lon_pearson_correlations.pdf", height = 7, width = 7)
+
+
+pop_lon_pearson_facet <- bind_rows(pop_geo_list) %>%
+  mutate(Label = paste(Trait, Sex, sep = "_")) %>%
+  ggplot(aes(x = Longitude, y = Estimate)) +
+  geom_point(aes(color = Population), size = 2) +
+  colScale +
+  facet_wrap(Label ~., scales = "free", ncol = 7) +
+  geom_smooth(method = "lm", se = F, color = "black", size = 0.5) +
+  stat_cor(method = "pearson", label.x.npc = 0, label.y.npc = 0.05, size = 3) +
+  labs(title = "Pearson correlations with Longitude - Population level", y = "Population estimates") +
+  theme_bw(14)
+
+ggsave(pop_lon_pearson_facet, filename = "GeoCorrelations/pop_lon_pearson_correlations_facets.pdf", height = 10, width = 14)
+
+
+
+
+
+
+
+
+
 
 
 
 
 ##### line level
 
-lines_geo <- bind_rows(lines_comp) %>%
-  select(Trait, Sex, Population, Line, Value) 
-
-%>%
-  inner_join(pops$by_lat) %>%
+line_geo_list <- inner_join(select(line_comp, Trait, Sex, Population, Estimate), pops$by_lat) %>%
   group_split(Trait, Sex)
 
 
+### latitude
 
-
-ggplot(data = filter(lines_geo, Trait == "TL" & Sex == "F"), aes(x = Population, y = Value)) +
-  geom_point(aes(color = Population)) +
-  theme_classic() +
-  geom_hline(yintercept = -log10(0.05/25), linetype = 2, size = 0.15) +
-  geom_hline(yintercept = -log10(0.05), linetype = 2, size = 0.15) +
-  labs(title = "Pearson correlations between Population and Latitude", colour = "Sex", x = "Pearson's R", y = "-log10(Pvalue)") +
-  geom_label_repel(aes(x = R, y = -log10(P), label = Trait),
-                   size = 2.5, box.padding = 0.25, label.padding = 0.15, point.padding = 0,
-                   segment.color = 'grey50', max.overlaps = 60, min.segment.length = 0,
-                   seed = 1, force = 5)
-
-
-a <- filter(lines_geo, Trait == "TL" & Sex == "F") %>%
-  group_by(Population) %>% summarise(m = mean(Value)) %>%
-  inner_join(pops$by_lat) 
-
-%>%
-  ggplot(aes(x = Latitude, y = m)) +
-  geom_point(aes(color = Population))
-  
-
-
-
-pearson_cor_lines <- list()
-for (i in 1:length(lines_geo)) {
-  cortest <- cor.test(lines_geo[[i]]$Value, lines_geo[[i]]$Latitude)
-  pearson_cor_lines[[i]] <- data.frame(Trait = unique(lines_geo[[i]]$Trait), 
-                                 Sex = unique(lines_geo[[i]]$Sex),
+line_lat_pearson <- list()
+for (i in 1:length(line_geo_list)) {
+  cortest <- cor.test(line_geo_list[[i]]$Estimate, line_geo_list[[i]]$Latitude)
+  line_lat_pearson[[i]] <- data.frame(Trait = unique(line_geo_list[[i]]$Trait), 
+                                 Sex = unique(line_geo_list[[i]]$Sex),
                                  R = cortest$estimate,
                                  P = cortest$p.value,
                                  Method = "pearson")
 }
-pearson_cor_lines <- bind_rows(pearson_cor_lines)
+line_lat_pearson <- bind_rows(line_lat_pearson) %>%
+  mutate(Sex = factor(Sex, levels = c("F", "M", "B", "NA")),
+         Label = paste(Trait, Sex, sep = "_"))
+
+
+write.csv(line_lat_pearson, "GeoCorrelations/line_lat_pearson_correlations.csv", row.names = F)
+
+
+line_lat_pearson_plot <- ggplot(data = line_lat_pearson, aes(x = R, y = -log10(P))) +
+  geom_point(size = 4, alpha = 0.3, pch = 19) +
+  theme_bw(16) +
+  geom_hline(yintercept = -log10(0.05/nrow(line_lat_pearson)), linetype = 2, size = 0.5, col = "red") +
+  geom_hline(yintercept = -log10(0.05), linetype = 2, size = 0.5) +
+  labs(title = "Pearson correlations with Latitude\nLine level", colour = "Sex", x = "Pearson's R", y = "-log10(Pvalue)") +
+  geom_label_repel(data = mutate(line_lat_pearson, Label = ifelse(P >= 0.05, NA, Label)), 
+                   aes(x = R, y = -log10(P), label = Label),
+                   size = 3, box.padding = 0.45, label.padding = 0.45, point.padding = 0,
+                   segment.color = 'grey50', max.overlaps = 60, min.segment.length = 0,
+                   seed = 1, force = 5)
+
+ggsave(line_lat_pearson_plot, filename = "GeoCorrelations/line_lat_pearson_correlations.pdf", height = 7, width = 7)
 
 
 
-spearman_cor <- list()
-for (i in 1:length(pop_geo)) {
-  cortest <- cor.test(rank(pop_geo[[i]]$Mstar), rank(pop_geo[[i]]$Latitude))
-  spearman_cor[[i]] <- data.frame(Trait = unique(pop_geo[[i]]$Trait), 
-                                  Sex = unique(pop_geo[[i]]$Sex),
-                                  R = cortest$estimate,
-                                  P = cortest$p.value,
-                                  Method = "spearman")
+
+line_lat_pearson_facet <- bind_rows(line_geo_list) %>%
+  mutate(Label = paste(Trait, Sex, sep = "_")) %>%
+  ggplot(aes(x = Latitude, y = Estimate)) +
+  geom_point(aes(color = Population), size = 2) +
+  colScale +
+  facet_wrap(Label ~., scales = "free", ncol = 7) +
+  geom_smooth(method = "lm", se = F, color = "black", size = 0.5) +
+  stat_cor(method = "pearson", label.x.npc = 0, label.y.npc = 0.05, size = 3) +
+  labs(title = "Pearson correlations with Latitude - Line level", y = "Line random coefficients") +
+  theme_bw(14)
+
+ggsave(line_lat_pearson_facet, filename = "GeoCorrelations/line_lat_pearson_correlations_facets.pdf", height = 10, width = 14)
+
+
+
+### longitude
+
+line_lon_pearson <- list()
+for (i in 1:length(line_geo_list)) {
+  cortest <- cor.test(line_geo_list[[i]]$Estimate, line_geo_list[[i]]$Longitude)
+  line_lon_pearson[[i]] <- data.frame(Trait = unique(line_geo_list[[i]]$Trait), 
+                                      Sex = unique(line_geo_list[[i]]$Sex),
+                                      R = cortest$estimate,
+                                      P = cortest$p.value,
+                                      Method = "pearson")
 }
-spearman_cor <- bind_rows(spearman_cor)
+line_lon_pearson <- bind_rows(line_lon_pearson) %>%
+  mutate(Sex = factor(Sex, levels = c("F", "M", "B", "NA")),
+         Label = paste(Trait, Sex, sep = "_"))
+
+
+write.csv(line_lon_pearson, "GeoCorrelations/line_lon_pearson_correlations.csv", row.names = F)
+
+
+line_lon_pearson_plot <- ggplot(data = line_lon_pearson, aes(x = R, y = -log10(P))) +
+  geom_point(size = 4, alpha = 0.3, pch = 19) +
+  theme_bw(16) +
+  geom_hline(yintercept = -log10(0.05/nrow(line_lon_pearson)), linetype = 2, size = 0.5, col = "red") +
+  geom_hline(yintercept = -log10(0.05), linetype = 2, size = 0.5) +
+  labs(title = "Pearson correlations with Longitude\nLine level", colour = "Sex", x = "Pearson's R", y = "-log10(Pvalue)") +
+  geom_label_repel(data = mutate(line_lon_pearson, Label = ifelse(P >= 0.05, NA, Label)), 
+                   aes(x = R, y = -log10(P), label = Label),
+                   size = 3, box.padding = 0.45, label.padding = 0.45, point.padding = 0,
+                   segment.color = 'grey50', max.overlaps = 60, min.segment.length = 0,
+                   seed = 1, force = 10)
+
+ggsave(line_lon_pearson_plot, filename = "GeoCorrelations/line_lon_pearson_correlations.pdf", height = 7, width = 7)
+
+
+
+
+line_lon_pearson_facet <- bind_rows(line_geo_list) %>%
+  mutate(Label = paste(Trait, Sex, sep = "_")) %>%
+  ggplot(aes(x = Longitude, y = Estimate)) +
+  geom_point(aes(color = Population), size = 2) +
+  colScale +
+  facet_wrap(Label ~., scales = "free", ncol = 7) +
+  geom_smooth(method = "lm", se = F, color = "black", size = 0.5) +
+  stat_cor(method = "pearson", label.x.npc = 0, label.y.npc = 0.05, size = 3) +
+  labs(title = "Pearson correlations with Longitude - Line level", y = "Line random coefficients") +
+  theme_bw(14)
+
+ggsave(line_lon_pearson_facet, filename = "GeoCorrelations/line_lon_pearson_correlations_facets.pdf", height = 10, width = 14)
 
 
 
 
 
-a <- lmer(TL_micrometers ~ Population + (1|Line), data = filter(droseu$tl, Supervisor.PI == "Kozeretska" & Sex == "F"))
 
 
-e <- extract_random_effects(a, re = "Line") %>% 
-  separate(group, c("Line", "Population"), ":") %>%
-  rename(Estimate = value, SE = se) 
-
-b <- lmer(TL_micrometers ~ Population + (1|Population:Line), data = filter(droseu$tl, Supervisor.PI == "Kozeretska" & Sex == "F"))
-
-e <- extract_random_effects(b, re = "Population:Line") %>% 
-  separate(group, c("Population", "Line"), ":") %>%
-  rename(Estimate = value, SE = se) 
-
-inner_join(e, filter(droseu$tl, Supervisor.PI == "Kozeretska" & Sex == "F") %>% group_by(Line) %>% summarize(m = mean(TL_micrometers))) %>%
-  ggplot(aes(x = Estimate, y = m)) +
-  geom_point(aes(color = Population))
-
-
-d <- lmer(TL_micrometers ~ 1 + (1|Population:Line), data = filter(droseu$tl, Supervisor.PI == "Schmidt" & Sex == "F"))
-
-e <- extract_random_effects(d, re = "Population:Line") %>% 
-  separate(group, c("Population", "Line"), ":") %>%
-  rename(Estimate = value, SE = se) 
-
-inner_join(e, filter(droseu$tl, Supervisor.PI == "Schmidt" & Sex == "F") %>% group_by(Line) %>% summarize(m = mean(TL_micrometers))) %>%
-  ggplot(aes(x = Estimate, y = m)) +
-  geom_point(aes(color = Population))
-
-inner_join(e, pops$by_lat) %>%
-  ggplot(aes(x = Estimate, y = Latitude)) +
-  geom_point(aes(color = Population))
-
-
-p <- inner_join(e, pops$by_lat)
-
-dd <- lme4::lmer(TL_micrometers ~ Population + (1|Population:Line), data = filter(droseu$tl, Supervisor.PI == "Schmidt" & Sex == "F"))
-
-
-ee <- extract_random_coefs(dd, re = "Population:Line") %>% 
-  separate(group, c("Population", "Line"), ":") %>%
-  rename(Estimate = value, SE = se) 
-
-inner_join(ee, pops$by_lat) %>%
-  ggplot(aes(x = Estimate, y = Latitude)) +
-  geom_point(aes(color = Population))
+#pl <- align_plots(pop_lat_pearson_plot, line_lat_pearson_plot, align="v")
+#ggsave(pl[[1]], filename = "GeoCorrelations/pop_lat_pearson_correlations.pdf", height = 7, width = 7)
+#ggsave(pl[[2]], filename = "GeoCorrelations/line_lat_pearson_correlations.pdf", height = 7, width = 7)
 
 
 
 
-eee <- extract_random_effects(dd, re = "Population:Line") %>% 
-  separate(group, c("Population", "Line"), ":") %>%
-  rename(Estimate = value, SE = se) 
-
-inner_join(eee, pops$by_lat) %>%
-  ggplot(aes(x = Estimate, y = Latitude)) +
-  geom_point(aes(color = Population))
-
-ggplot(aes(x = ee$Estimate, y = eee$Estimate)) +
-  geom_point(aes(color = Population))
 
 
-fe <- data.frame(stats::coef(summary(dd))) %>%
-  dplyr::mutate(term = rownames(.)) %>%
-  dplyr::select(term, dplyr::everything())
 
-extract_fixed_effects(d)
-
-fixed_effects  <- extract_fixed_effects(dd) %>%
-  dplyr::rename(effect = term,
-                se_fe = se,
-                value_fe = value)
-
-random_effects <- extract_random_effects(dd)

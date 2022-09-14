@@ -23,7 +23,7 @@
 "StamenkovicRadak","DT_A","M","lmer","pop",1.31476794011807e-06
 "Zwaan","DT_A","M","lmer","pop",0.0264118064376956
 "Bergland","Dia","F","lmer","pop",0.0162701804265161
-"Flatt","Dia","F","lm","pop",NA
+"Flatt","Dia","F","lm","pop",0.658978587065494
 "Schlotterer","Dia","F","lmer","pop",0.0208998779621458
 "Colinet","DW","F","lmer","pop",0.0211076980008757
 "Hoedjes","DW","F","lmer","pop",0.0604504543076979
@@ -46,7 +46,7 @@
 "Tauber","LA_NDlog2","B","lmer","pop",0.0105863582389442
 "Tauber","LA_Period","B","lmer","pop",0.0288303562777535
 "Tauber","LA_CircPhase","B","lmer","pop",0.00545289131744018
-"Tauber","LA_AbsPhase","B","lm","pop",NA
+"Tauber","LA_AbsPhase","B","lm","pop",0.0100679548223112
 "Tauber","LA_Activity","B","lmer","pop",0.000147186351193311
 "Abbott","Pgm_T4","F","lmer","pop",1.33173377066548e-17
 "Abbott","Pgm_T5","F","lmer","pop",7.34988131800683e-16
@@ -76,7 +76,7 @@
 "Gibert","Via","NA","lmer","pop",4.38856351698363e-09
 "Grath","Via","NA","lmer","pop",0.162354239763607
 "Hoedjes","Via","NA","lmer","pop",4.98524132848739e-07
-"Schmidt","Via","NA","lm","pop",NA
+"Schmidt","Via","NA","lm","pop",0.00830779240471185
 "StamenkovicRadak","Via","NA","lmer","pop",9.10420942404616e-06
 "Zwaan","Via","NA","lmer","pop",4.87689051946373e-07
 "Onder","WA_L","F","lmer","pop",5.18551435235945e-10

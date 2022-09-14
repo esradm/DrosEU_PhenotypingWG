@@ -1,0 +1,59 @@
+                                        95%-CI %W(random) Population
+YE_Kozeretska  950.4143 [ 929.4010;  971.4277]        4.3         YE
+YE_Ritchie     988.7509 [ 951.0025; 1026.4993]        3.5         YE
+YE_Schmidt    1009.8852 [ 999.3658; 1020.4045]        4.6         YE
+RE_Kozeretska  962.3955 [ 940.7911;  983.9999]        4.3         RE
+RE_Schmidt    1036.7173 [1024.0819; 1049.3527]        4.6         RE
+GI_Kozeretska  935.0366 [ 910.0905;  959.9826]        4.1         GI
+GI_Ritchie     966.1246 [ 926.9761; 1005.2730]        3.5         GI
+GI_Schmidt    1021.9497 [1008.8935; 1035.0058]        4.5         GI
+MU_Kozeretska  942.8911 [ 924.6114;  961.1708]        4.4         MU
+MU_Ritchie     968.4904 [ 915.1810; 1021.7997]        2.8         MU
+MU_Schmidt    1004.7704 [ 994.3482; 1015.1927]        4.6         MU
+MA_Kozeretska  964.2961 [ 945.7083;  982.8839]        4.4         MA
+MA_Ritchie     975.4906 [ 935.3893; 1015.5919]        3.4         MA
+MA_Schmidt    1014.8919 [1004.1377; 1025.6461]        4.6         MA
+UM_Kozeretska  941.4621 [ 920.1071;  962.8170]        4.3         UM
+UM_Schmidt    1011.0814 [ 999.0218; 1023.1409]        4.6         UM
+KA_Kozeretska  911.6229 [ 890.5101;  932.7358]        4.3         KA
+KA_Ritchie     948.2626 [ 907.9298;  988.5955]        3.4         KA
+KA_Schmidt    1005.3833 [ 994.7206; 1016.0460]        4.6         KA
+VA_Kozeretska  958.3653 [ 941.1253;  975.6054]        4.4         VA
+VA_Schmidt    1012.3335 [1001.0372; 1023.6299]        4.6         VA
+AK_Kozeretska  936.5441 [ 918.9317;  954.1564]        4.4         AK
+AK_Ritchie     960.0899 [ 917.7157; 1002.4640]        3.3         AK
+AK_Schmidt     995.0466 [ 984.6481; 1005.4450]        4.6         AK
+
+Number of studies combined: k = 24
+
+                                            95%-CI      z p-value
+Random effects model 977.3954 [963.4027; 991.3881] 136.90       0
+
+Quantifying heterogeneity:
+ tau^2 = 1076.1868 [580.9342; 2080.8972]; tau = 32.8053 [24.1026; 45.6169]
+ I^2 = 93.4% [91.3%; 94.9%]; H = 3.89 [3.39; 4.45]
+
+Test of heterogeneity:
+      Q d.f.  p-value
+ 347.27   23 < 0.0001
+
+Results for subgroups (random effects model):
+                  k                          95%-CI     tau^2     tau     Q   I^2
+Population = YE   3  983.4783 [946.7305; 1020.2260]  901.4784 30.0246 24.82 91.9%
+Population = RE   2 1000.0942 [927.2679; 1072.9206] 2680.3313 51.7719 33.87 97.0%
+Population = GI   3  975.6082 [923.4031; 1027.8134] 1936.5380 44.0061 39.78 95.0%
+Population = MU   3  973.1768 [932.5454; 1013.8083] 1070.2753 32.7151 33.81 94.1%
+Population = MA   3  986.7159 [953.2650; 1020.1669]  723.2098 26.8926 22.94 91.3%
+Population = UM   2  976.8524 [908.6363; 1045.0686] 2345.1362 48.4266 30.96 96.8%
+Population = KA   3  956.0025 [899.9996; 1012.0055] 2270.8085 47.6530 63.61 96.9%
+Population = VA   2  985.7585 [932.8767; 1038.6403] 1400.9889 37.4298 26.34 96.2%
+Population = AK   3  964.8981 [927.6975; 1002.0987]  919.5636 30.3243 32.23 93.8%
+
+Test for subgroup differences (random effects model):
+                    Q d.f. p-value
+Between groups   1.91    8  0.9836
+
+Details on meta-analytical method:
+- Inverse variance method
+- Restricted maximum-likelihood estimator for tau^2
+- Q-profile method for confidence interval of tau^2 and tau

@@ -1,0 +1,44 @@
+                              95%-CI %W(random) Population
+YE_Tauber 34.7576 [31.3132; 38.2021]       12.2         YE
+RE_Tauber 40.0590 [34.8956; 45.2223]       10.5         RE
+GI_Tauber 34.2559 [29.4502; 39.0616]       10.9         GI
+MU_Tauber 24.8384 [20.0702; 29.6066]       10.9         MU
+MA_Tauber 37.1823 [32.7979; 41.5666]       11.3         MA
+UM_Tauber 26.1907 [21.5495; 30.8318]       11.0         UM
+KA_Tauber 35.7665 [31.3696; 40.1634]       11.3         KA
+VA_Tauber 28.9939 [24.3018; 33.6860]       11.0         VA
+AK_Tauber 30.4574 [25.6498; 35.2650]       10.9         AK
+
+Number of studies combined: k = 9
+
+                                         95%-CI     z  p-value
+Random effects model 32.5191 [29.2056; 35.8327] 19.24 < 0.0001
+
+Quantifying heterogeneity:
+ tau^2 = 20.2815 [6.2730; 91.7515]; tau = 4.5035 [2.5046; 9.5787]
+ I^2 = 78.2% [58.8%; 88.5%]; H = 2.14 [1.56; 2.94]
+
+Test of heterogeneity:
+     Q d.f.  p-value
+ 36.69    8 < 0.0001
+
+Results for subgroups (random effects model):
+                  k                     95%-CI tau^2 tau    Q I^2
+Population = YE   1 34.7576 [31.3132; 38.2021]    --  -- 0.00  --
+Population = RE   1 40.0590 [34.8956; 45.2223]    --  -- 0.00  --
+Population = GI   1 34.2559 [29.4502; 39.0616]    --  -- 0.00  --
+Population = MU   1 24.8384 [20.0702; 29.6066]    --  -- 0.00  --
+Population = MA   1 37.1823 [32.7979; 41.5666]    --  -- 0.00  --
+Population = UM   1 26.1907 [21.5495; 30.8318]    --  -- 0.00  --
+Population = KA   1 35.7665 [31.3696; 40.1634]    --  -- 0.00  --
+Population = VA   1 28.9939 [24.3018; 33.6860]    --  -- 0.00  --
+Population = AK   1 30.4574 [25.6498; 35.2650]    --  -- 0.00  --
+
+Test for subgroup differences (random effects model):
+                     Q d.f.  p-value
+Between groups   36.69    8 < 0.0001
+
+Details on meta-analytical method:
+- Inverse variance method
+- Restricted maximum-likelihood estimator for tau^2
+- Q-profile method for confidence interval of tau^2 and tau
