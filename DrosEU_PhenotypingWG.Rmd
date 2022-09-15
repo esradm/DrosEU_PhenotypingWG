@@ -327,9 +327,7 @@ All proportion data has been arcsin transformed prior to the analyses. For other
 
 For each trait and lab, we ran counts for sex, population, line and replicate vial (if applicable). If we could spot anything suspicious or unusual (typos, shifts, etc.), I have contacted you already. Please let me know if there is anything that you have spotted and we missed. Thanks! 
 
-# Results I : Linear Models  {#anchor}
-
-## Examples & Directories & Legends 
+# Results : Examples & Directories & Legends {#anchor}
 
 ### Tables 
 
@@ -405,7 +403,6 @@ invisible(dev.off())
 ```
 
 
-
 ### Linear Models
 
 Here is an example code for linear models (egg-to-adult development time, males, Gibert Lab). The very same code is used for other contributing labs and traits by filtering the data at supervisor level (for females and males separately, if applicable), adding or removing factors if they cause convergence problems or singularity (i.e. if only one replicate vial has been phenotyped per line and/or population and/or batch, the lowest level [ _replicate_vial_  in this example] has been dropped from given model). 
@@ -461,6 +458,15 @@ capture.output(anova(SR_F_coxme_Gonzalez), file = "Starvation/SR_F_coxme_Gonzale
 
 All analyses outputs can be found in the trait directory (Analyses/Trait), under the file names  **__TraitAbbreviation_Function_Output.txt__** . The analyses at the lab level can be found in the same trait directory, under _by_lab_ folders (_i.e. LinearModelsPop/DevelopmentTime/by_lab_txt_output/DT_A_M_Gibert_lmer_pop_anova.txt_)
 
+### Meta Analyses
+
+Please refer to the .pdf file below ( _README_META.pdf_ ) for details. 
+
+```{r echo=FALSE}
+knitr::include_graphics("MetaAnalyses/README_META.pdf")
+```
+
+
 **Reading the data, tables and model outputs in R**
 ```{r load_Rdas, include=TRUE}
 droseu <- readRDS("Data/droseu_master_list_2022-05-02.rds")
@@ -478,6 +484,8 @@ coxme_sum <- readRDS("SurvivalAnalyses/all_coxmes_pop_summary_list.rds")
 
 
 **_Please note that "Plots and Linear Models by Lab" are presented in alphabetical order._** 
+
+# Results I : Linear Models  {#anchor}
 
 ## Overview 
 
@@ -7108,174 +7116,183 @@ Hrcek Lab : Vincent Montbel, Somayeh Rasouli Dogaheh, Jan Hrcek
 
 # Results II : Meta-Analyses
 
-## Viability
 
 ```{r echo=FALSE}
-knitr::include_graphics("MetaAnalyses/Viability/Via_meta_summary_effect.png")
+knitr::include_graphics("MetaAnalyses/README_META.pdf")
 ```
 
-## Development Time
+## Overview 
+
+
+```{r echo=FALSE}
+knitr::include_graphics("MetaAnalyses/all_models_pop_meta_summary_effect.pdf")
+```
+
+
+```{r echo=FALSE}
+knitr::include_graphics("MetaAnalyses/all_models_pop_meta_pvalues.pdf")
+```
+
+## Plots by Trait  
+
+### Viability
+
+```{r echo=FALSE}
+knitr::include_graphics("MetaAnalyses/Viability/Via_NA_lmers_pop_meta_summary_effect.pdf")
+```
+
+### Development Time
 
 _Females_
 
 ```{r echo=FALSE}
-knitr::include_graphics("MetaAnalyses/DevelopmentTime/DT_A_F_meta_summary_effect.png")
+knitr::include_graphics("MetaAnalyses/DevelopmentTime/DT_A_F_lmers_pop_meta_summary_effect.pdf")
 ```
 
 _Males_
 
 ```{r echo=FALSE}
-knitr::include_graphics("MetaAnalyses/DevelopmentTime/DT_A_M_meta_summary_effect.png")
+knitr::include_graphics("MetaAnalyses/DevelopmentTime/DT_A_M_lmers_pop_meta_summary_effect.pdf")
 ```
 
-## Dry weight
+### Dry weight
 
 _Females_
 
 ```{r echo=FALSE}
-knitr::include_graphics("MetaAnalyses/DryWeight/DW_F_meta_summary_effect.png")
+knitr::include_graphics("MetaAnalyses/DryWeight/DW_F_lmers_pop_meta_summary_effect.pdf")
 ```
 
 _Males_
 
 ```{r echo=FALSE}
-knitr::include_graphics("MetaAnalyses/DryWeight/DW_M_meta_summary_effect.png")
+knitr::include_graphics("MetaAnalyses/DryWeight/DW_M_lmers_pop_meta_summary_effect.pdf")
 ```
 
-## Thorax length
+### Thorax length
 
 _Females_
 
 ```{r echo=FALSE}
-knitr::include_graphics("MetaAnalyses/ThoraxLength/TL_F_meta_summary_effect.png")
+knitr::include_graphics("MetaAnalyses/ThoraxLength/TL_F_lmers_pop_meta_summary_effect.pdf")
 ```
 
-_Males_
-
-```{r echo=FALSE}
-knitr::include_graphics("MetaAnalyses/ThoraxLength/TL_M_meta_summary_effect.png")
-```
-
-## Wing area
+### Wing area
 
 _Left_
 _Females_
 
 ```{r echo=FALSE}
-knitr::include_graphics("MetaAnalyses/WingArea/WA_L_F_meta_summary_effect.png")
+knitr::include_graphics("MetaAnalyses/WingArea/WA_L_F_lmers_pop_meta_summary_effect.pdf")
 ```
 
 _Males_
 
 ```{r echo=FALSE}
-knitr::include_graphics("MetaAnalyses/WingArea/WA_L_M_meta_summary_effect.png")
+knitr::include_graphics("MetaAnalyses/WingArea/WA_L_M_lmers_pop_meta_summary_effect.pdf")
 ```
 
 _Right_
 _Females_
 ```{r echo=FALSE}
-knitr::include_graphics("MetaAnalyses/WingArea/WA_R_F_meta_summary_effect.png")
+knitr::include_graphics("MetaAnalyses/WingArea/WA_R_F_lmers_pop_meta_summary_effect.pdf")
 ```
 
 _Males_
 
 ```{r echo=FALSE}
-knitr::include_graphics("MetaAnalyses/WingArea/WA_R_M_meta_summary_effect.png")
+knitr::include_graphics("MetaAnalyses/WingArea/WA_R_M_lmers_pop_meta_summary_effect.pdf")
 ```
 
-## Fecundity
+### Fecundity
 
 ```{r echo=FALSE}
-knitr::include_graphics("MetaAnalyses/Fecundity/Fec_meta_summary_effect.png")
+knitr::include_graphics("MetaAnalyses/Fecundity/Fec_F_lmers_pop_meta_summary_effect.pdf")
 ```
 
-## Lifespan
+### Lifespan
 
 _Females_
 
 ```{r echo=FALSE}
-knitr::include_graphics("MetaAnalyses/Lifespan/LS_F_meta_summary_effect.png")
+knitr::include_graphics("MetaAnalyses/Lifespan/LS_F_lmers_pop_meta_summary_effect.pdf")
 ```
 
 _Males_
 
 ```{r echo=FALSE}
-knitr::include_graphics("MetaAnalyses/Lifespan/LS_M_meta_summary_effect.png")
+knitr::include_graphics("MetaAnalyses/Lifespan/LS_M_lmers_pop_meta_summary_effect.pdf")
 ```
 
-## Cold-shock mortality
+### Cold-shock mortality
 
 _Females_
 
 ```{r echo=FALSE}
-knitr::include_graphics("MetaAnalyses/ColdShock/CSM_F_meta_summary_effect.png")
+knitr::include_graphics("MetaAnalyses/ColdShock/CSM_F_lmers_pop_meta_summary_effect.png")
 ```
 
 _Males_
 
 ```{r echo=FALSE}
-knitr::include_graphics("MetaAnalyses/ColdShock/CSM_M_meta_summary_effect.png")
+knitr::include_graphics("MetaAnalyses/ColdShock/CSM_M_lmers_pop_meta_summary_effect.pdf")
 ```
 
 
-## Chill-coma recovery time
+### Chill-coma recovery time
 
 _Females_
 
 ```{r echo=FALSE}
-knitr::include_graphics("MetaAnalyses/ChillComa/CCRT_F_meta_summary_effect.png")
+knitr::include_graphics("MetaAnalyses/ChillComa/CCRT_F_lmers_pop_meta_summary_effect.pdf")
 ```
 
 _Males_
 
 ```{r echo=FALSE}
-knitr::include_graphics("MetaAnalyses/ChillComa/CCRT_M_meta_summary_effect.png")
+knitr::include_graphics("MetaAnalyses/ChillComa/CCRT_M_lmers_pop_meta_summary_effect.pdf")
 ```
 
 
-## Heat-shock mortality
+### Heat-shock mortality
 
 _Females_
 
 ```{r echo=FALSE}
-knitr::include_graphics("MetaAnalyses/HeatShock/HSM_F_meta_summary_effect.png")
+knitr::include_graphics("MetaAnalyses/HeatShock/HSM_F_lmers_pop_meta_summary_effect.pdf")
 ```
 
 _Males_
 
 ```{r echo=FALSE}
-knitr::include_graphics("MetaAnalyses/HeatShock/HSM_M_meta_summary_effect.png")
+knitr::include_graphics("MetaAnalyses/HeatShock/HSM_M_lmers_pop_meta_summary_effect.pdf")
 ```
 
-## Diapause
+### Diapause
 
-Using LMER estimates
-```{r echo=FALSE}
-knitr::include_graphics("MetaAnalyses/Diapause/Dia_lmer_meta_summary_effect.png")
-```
 Using GLMER estimates
 ```{r echo=FALSE}
-knitr::include_graphics("MetaAnalyses/Diapause/Dia_glmer_meta_summary_effect.png")
+knitr::include_graphics("MetaAnalyses/Diapause/Dia_F_glmers_pop_meta_summary_effect.pdf")
 ```
 
-## Starvation resistance
+### Starvation resistance
 
 _Females_
 
 ```{r echo=FALSE}
-knitr::include_graphics("MetaAnalyses/Starvation/SR_F_meta_summary_effect.png")
+knitr::include_graphics("MetaAnalyses/Starvation/SR_F_lmers_pop_meta_summary_effect.pdf")
 ```
 
 _Males_
 
 ```{r echo=FALSE}
-knitr::include_graphics("MetaAnalyses/Starvation/SR_M_meta_summary_effect.png")
+knitr::include_graphics("MetaAnalyses/Starvation/SR_M_lmers_pop_meta_summary_effect.pdf")
 ```
 
-## Pigmentation
+### Pigmentation
 
 ```{r echo=FALSE}
-knitr::include_graphics("MetaAnalyses/Pigmentation/Pgm_Total_meta_summary_effect.png")
+knitr::include_graphics("MetaAnalyses/Pigmentation/Pgm_Total_F_lmers_pop_meta_summary_effect.pdf")
 ```
 
 # Results III : Environmental Variables  
@@ -9011,26 +9028,33 @@ knitr::include_graphics("LinearModelsAlt_Wolb/all_models_alt_pvalues_Wolb.pdf")
 
 Here are some example UPGMA trees from Jorge and Cristina -- please refer to /UPGMATrees folder for all of the trees. 
 
+_CCRT Female_
+
 ```{r echo=FALSE}
 knitr::include_graphics("UPGMATrees/CCRT_F_meta_summary.txt.Mensch.png")
 ```
 
+_CSM Female_
 ```{r echo=FALSE}
 knitr::include_graphics("UPGMATrees/CSM_F_meta_summary.txt.Gonzalez.png")
 ```
 
+_DT_A Female_
 ```{r echo=FALSE}
 knitr::include_graphics("UPGMATrees/DT_A_F_meta_summary.txt.Hoedjes.png")
 ```
 
+_DW Male_
 ```{r echo=FALSE}
 knitr::include_graphics("UPGMATrees/DW_M_meta_summary.txt.Colinet.png")
 ```
 
+_SR Female_
 ```{r echo=FALSE}
 knitr::include_graphics("UPGMATrees/SR_F_meta_summary.txt.Pasyukova.png")
 ```
 
+_WA_R Female_
 ```{r echo=FALSE}
 knitr::include_graphics("UPGMATrees/WA_R_F_meta_summary.txt.StamenkovicRadak.png")
 ```
