@@ -296,6 +296,7 @@ panScatterPlot <- function(x, y, bg.col = met.brewer("Johnson", 9)){
 # run longToWide and prepScatterPlotMatrix and plot the matrix with pairs2
 # requires longToWide2(), prepScatterPlotMatrix2(), pairs2(), panScatterPlot(), panCor()
 scatterPlotMatrix <- function(x, sex) {
+  require(MetBrewer)
   x <- longToWide2(x)
   if (!missing(sex)) { x <- prepScatterPlotMatrix2(x, sex = sex) }
   else { x <- prepScatterPlotMatrix2(x) }
