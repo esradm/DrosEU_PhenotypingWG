@@ -12,11 +12,11 @@
 
 
 
-# for LSP and CETS, H2 can be calculated for Population
+# for LSP and CETS, H2 could be calculated for Population instead of Line
 
 # what should be the input data when measures have been made at the individual level? Is each individual a line replicate or should we use the average value per replicate vial?
 
-# for between labs H2, how do we pool teh data from all labs together or do we first get an average line value per lab? Then each lab is treated as a replicate measure?
+# for between labs H2, how do we pool the data from all labs together or do we first get an average line value per lab? Then each lab is treated as a replicate measure?
 
 # for between labs H2, instead of using mean Line values, one could consider using Line random coefficients extracted from individual labs linear mixed models
 
