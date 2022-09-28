@@ -303,4 +303,4 @@ write.csv(PCA2_ind, file = "/Users/ewanharney/Dropbox/Barcelona_IBE/DrosEU/F9_dr
 write.csv(PCA3_ind, file = "/Users/ewanharney/Dropbox/Barcelona_IBE/DrosEU/Fmax_drosEU_PCcoords.csv", row.names = F)
 write.csv(PCA4_ind, file = "/Users/ewanharney/Dropbox/Barcelona_IBE/DrosEU/FmaxP_drosEU_PCcoords.csv", row.names = F)
 
-save.image(file = "PCA_drosEU_220927.RData")
+save.image(file = "/Users/ewanharney/Dropbox/Barcelona_IBE/DrosEU/PCA_drosEU_220927.RData")
