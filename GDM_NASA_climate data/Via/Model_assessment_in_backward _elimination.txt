@@ -1,0 +1,5 @@
+                           All predictors BIO14-removed BIO17-removed ALLSKY_SFC_LW_DWN-removed BIO5-removed
+Model deviance                      3.562         3.579         4.413                     4.133        4.257
+Percent deviance explained         69.358        69.208        62.033                    64.440       63.374
+Model p-value                       0.006         0.004         0.013                     0.004        0.002
+Fitted permutations              9932.000      9866.000      9677.000                  9513.000     9389.000

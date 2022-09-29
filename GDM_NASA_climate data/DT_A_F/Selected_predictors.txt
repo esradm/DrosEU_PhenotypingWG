@@ -1,0 +1,3 @@
+  predictor predictors_Importance predictors_pValues
+4      BIO8                54.083              0.128
+6      WS2M                25.864              0.070

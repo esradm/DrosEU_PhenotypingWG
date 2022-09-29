@@ -1,0 +1,40 @@
+[1] 
+[1] 
+[1] GDM Modelling Summary
+[1] Creation Date:  Thu Sep 29 01:36:02 2022
+[1] 
+[1] Name:  gdm_Env
+[1] 
+[1] Data:  SelectedgdmTab_rast
+[1] 
+[1] Samples:  36
+[1] 
+[1] Geographical distance used in model fitting?  FALSE
+[1] 
+[1] NULL Deviance:  11.623
+[1] GDM Deviance:  4.257
+[1] Percent Deviance Explained:  63.374
+[1] 
+[1] Intercept:  0.072
+[1] 
+[1] PREDICTOR ORDER BY SUM OF I-SPLINE COEFFICIENTS:
+[1] 
+[1] Predictor 1: RH2M
+[1] Splines: 3
+[1] Min Knot: 64.87
+[1] 50% Knot: 79.07
+[1] Max Knot: 90.7
+[1] Coefficient[1]: 0.873
+[1] Coefficient[2]: 0.013
+[1] Coefficient[3]: 0.028
+[1] Sum of coefficients for RH2M: 0.914
+[1] 
+[1] Predictor 2: BIO15
+[1] Splines: 3
+[1] Min Knot: 14.347
+[1] 50% Knot: 19.582
+[1] Max Knot: 40.529
+[1] Coefficient[1]: 0.356
+[1] Coefficient[2]: 0
+[1] Coefficient[3]: 0.01
+[1] Sum of coefficients for BIO15: 0.365

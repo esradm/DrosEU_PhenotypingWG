@@ -1,0 +1,4 @@
+full model deviance  =  60.74625
+Env model deviance  =  60.74625
+Geo_distance model deviance  =  8.740997
+Random model deviance =  19.73244

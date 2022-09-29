@@ -1,0 +1,3 @@
+  predictor predictors_Importance predictors_pValues
+3     BIO15                21.410              0.078
+6      RH2M                87.762              0.067

@@ -1,0 +1,5 @@
+                           modTest[["Model assessment"]]
+Model deviance                                     4.729
+Percent deviance explained                        69.921
+Model p-value                                      0.002
+Fitted permutations                             9453.000

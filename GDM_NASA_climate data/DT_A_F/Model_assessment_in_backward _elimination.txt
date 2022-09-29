@@ -1,0 +1,5 @@
+                           All predictors BIO19-removed RH2M-removed BIO5-removed BIO13-removed
+Model deviance                      4.300         4.301        4.312        4.447         4.679
+Percent deviance explained         63.929        63.922       63.827       62.691        60.746
+Model p-value                       0.029         0.021        0.015        0.011         0.010
+Fitted permutations              9962.000      9964.000     9995.000     9654.000      8504.000

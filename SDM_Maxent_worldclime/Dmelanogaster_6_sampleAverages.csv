@@ -1,0 +1,10 @@
+Predictor variable,Categorical,Sample average
+DrosoEu_wc2.1_30s_tmax_02,false,5.758913045246964
+DrosoEu_wc2.1_30s_tmin_01,false,-2.258695652060535
+DrosoEu_wc2.1_30s_tmin_12,false,-0.8045652192139972
+DrosoEu_wc2_1_30s_bio_3,false,33.44650451826013
+DrosoEu_wc2_1_30s_bio_4,false,679.1753756536954
+DrosoEu_wc2_1_30s_bio_7,false,27.213260875923048
+DrosoEu_wc2_1_30s_vapr_01,false,0.5521159401622371
+DrosoEu_wc2_1_30s_vapr_02,false,0.564659419267074
+DrosoEu_wc2_1_30s_vapr_10,false,0.9944855065665383

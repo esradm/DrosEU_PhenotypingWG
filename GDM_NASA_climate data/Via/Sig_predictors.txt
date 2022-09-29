@@ -1,0 +1,2 @@
+pval= 0
+Vars=  s1.RH2M s2.BIO15 s2.RH2M

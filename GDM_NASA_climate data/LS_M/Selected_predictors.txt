@@ -1,0 +1,4 @@
+  predictor predictors_Importance predictors_pValues
+1     BIO10                 4.056              0.025
+2     BIO17                22.991              0.026
+3    TS_MAX                 0.623              0.078

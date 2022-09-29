@@ -1,0 +1,5 @@
+  predictor predictors_Importance predictors_pValues
+2     BIO17                 5.414              0.100
+3     BIO18                 2.180              0.056
+4      BIO5                 8.693              0.069
+6      BIO9                 6.196              0.178

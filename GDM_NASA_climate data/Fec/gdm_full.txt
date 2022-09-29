@@ -1,0 +1,70 @@
+[1] 
+[1] 
+[1] GDM Modelling Summary
+[1] Creation Date:  Wed Sep 28 23:31:55 2022
+[1] 
+[1] Name:  gdm_full
+[1] 
+[1] Data:  SelectedgdmTab_rast
+[1] 
+[1] Samples:  36
+[1] 
+[1] Geographical distance used in model fitting?  TRUE
+[1] 
+[1] NULL Deviance:  14.697
+[1] GDM Deviance:  3.207
+[1] Percent Deviance Explained:  78.182
+[1] 
+[1] Intercept:  0
+[1] 
+[1] PREDICTOR ORDER BY SUM OF I-SPLINE COEFFICIENTS:
+[1] 
+[1] Predictor 1: BIO18
+[1] Splines: 3
+[1] Min Knot: 2.4
+[1] 50% Knot: 7.69
+[1] Max Knot: 13.8
+[1] Coefficient[1]: 0.71
+[1] Coefficient[2]: 0
+[1] Coefficient[3]: 0.027
+[1] Sum of coefficients for BIO18: 0.736
+[1] 
+[1] Predictor 2: BIO17
+[1] Splines: 3
+[1] Min Knot: 1.65
+[1] 50% Knot: 4
+[1] Max Knot: 6.89
+[1] Coefficient[1]: 0.596
+[1] Coefficient[2]: 0
+[1] Coefficient[3]: 0
+[1] Sum of coefficients for BIO17: 0.596
+[1] 
+[1] Predictor 3: BIO5
+[1] Splines: 3
+[1] Min Knot: 27.59
+[1] 50% Knot: 36.2
+[1] Max Knot: 42.05
+[1] Coefficient[1]: 0.256
+[1] Coefficient[2]: 0
+[1] Coefficient[3]: 0
+[1] Sum of coefficients for BIO5: 0.256
+[1] 
+[1] Predictor 4: BIO9
+[1] Splines: 3
+[1] Min Knot: -7.307
+[1] 50% Knot: 1.383
+[1] Max Knot: 24.367
+[1] Coefficient[1]: 0.197
+[1] Coefficient[2]: 0
+[1] Coefficient[3]: 0
+[1] Sum of coefficients for BIO9: 0.197
+[1] 
+[1] Predictor 5: Geographic
+[1] Splines: 3
+[1] Min Knot: 3.955
+[1] 50% Knot: 19.364
+[1] Max Knot: 44.925
+[1] Coefficient[1]: 0
+[1] Coefficient[2]: 0
+[1] Coefficient[3]: 0
+[1] Sum of coefficients for Geographic: 0
