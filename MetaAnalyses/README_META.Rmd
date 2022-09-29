@@ -1,0 +1,270 @@
+---
+title: "Meta Analyses Read Me"
+date: '2022-09-15'
+output: 
+  bookdown::pdf_document2:
+    toc: true
+    toc_depth: 5
+---
+
+```{r packages, include=FALSE}
+library(tidyverse)
+library(meta)
+library(metafor)
+source("../Code/functions.R")
+```
+
+
+The aim of the meta analysis approach is to combine effects from different studies to identify an overall effect. Here, for a given trait, we consider each lab as being a study in which the effect of _Population_ has been assessed via a linear mixed-effect model. However, as we are not directly interested in finding overall effects and because _Population_ has 9 levels, we perform a subgroup meta analysis that allows to test for differences between populations (each population being considered as a subgroup). In a way, this is conceptually similar to performing a regression analysis to test for the effect of _Population_ on a given trait. 
+
+The input data for the subgroup meta analysis consists of the estimates and standard errors obtained for _Population_ in the trait- and lab-specific linear mixed-effect models. Estimates are used as populations effects, and standard errors of those estimates are used as weights --- to give more or less weight to labs depending on sample size and replication level.
+
+This approach can be used to assess differences between populations and generate compound population estimates as input data for downstream analyses. Similarly, this approach can be applied to line random coefficents extracted from the mixed-effect models (in which _Line_ is a random-effect variable) to generate compound line estimates --- note that we are not interested in finding differences between lines here.
+
+
+# Population differentiation and compound estimates
+
+## Input data
+
+Linear models population estimates are located in the LinearModelsPop directory and trait sub directories. Files with identical names but different extensions contain the same data, they are just in different formats to simplify data handling and browsing. 
+
+```{r echo=FALSE}
+dir("../..", recursive = T)[grep("pop_estimates", dir("../..", recursive = T))]
+```
+Population estimates are available as a list (File 1), in which each element contains estimates for a given trait, or as a table (collapsed list, File 2 and 3). These files contain the population estimates for all the traits.
+
+Alternatively, population estimates are available for each trait separately, for example for Viability:
+
+```{r echo=FALSE}
+f <- dir("../..", recursive = T)[grep("pop_model_estimates", dir("../..", recursive = T))]
+f[grep("LinearModelsPop/Viability/", f)]
+```
+
+
+
+```{r load data table}
+# read in models estimates for a specific trait, Viability, as a table
+estimates_via <- readRDS("../LinearModelsPop/Viability/Via_lmers_pop_model_estimates.rds")
+print(estimates_via)
+```
+
+
+
+## Meta analyses model
+
+We run meta analyses trait- and sex-wise using a random-effect model since we assume that effects measured in each lab do not only deviate because of sampling error alone but also because of other sources of variance --- such as lab effect.
+
+```{r wa meta libs}
+# packages and function
+library(meta)
+library(metafor)
+source("../Code/functions.R") # get makeEffects
+```
+
+```{r wa meta}
+# read in models estimates for all models as a list
+estimates_list <- readRDS("../LinearModelsPop/all_models_pop_estimates_list.rds")
+
+# meta analysis
+meta_via <- metagen(data = makeEffects(estimates_list$via_lmer), 
+                    TE = Y, 
+                    seTE = SE, 
+                    studlab = Study, 
+                    fixed = FALSE, 
+                    random = TRUE, 
+                    method.tau = "REML")
+```
+
+```{r wa subgroup}
+# subgroup meta analysis
+meta_via_sub <- update.meta(meta_via, subgroup = Population, tau.common = FALSE)
+```
+
+As discussed in early September 2022 at the "analyses task force" meeting, partial data (incomple data sets) from Posnien lab has been removed prior to running analyses for Wing Area and Thorax Length. 
+
+Importantly meta analyses have been run for all the traits, including those that have been measured in single labs (Locomotor Activity and Egg-to-pupa Development Time) and thus for which there is no data to combine. Obviously, results from these analyses are not relevant but it allows us to keep those traits in the loop and to streamline the generation of compound estimates --- they will be equal to linear model estimates in the case of the aforementioned traits. The same applies to Thorax Length males, a trait for which some populations have been measured only in one lab. _Population_ subgroup meta analyses have been run for the following 33 traits / sub traits / sex combinations (only 26 of them are actually relevant):
+
+```{r echo=FALSE}
+ce <- readRDS("all_models_pop_meta_compound_estimates_list.rds")
+print(gsub("_pop_meta_compound_estimates", "", names(ce) ))
+```
+Also note that glmer estimates (not lmer) were used as input for the Diapause meta analysis.
+
+
+## Meta analyses output
+
+All meta analyses related outputs are saved in the MetaAnalyses directory and trait sub directories. For example all the _Population_ subgroup analysis files for Viability are listed below:
+
+```{r echo=FALSE}
+f <- dir("../..", recursive = T)[grep("pop_meta", dir("../..", recursive = T))]
+rev(f[grep("MetaAnalyses/Viability/", f)])
+#rev(dir("Viability/")[grep("pop_meta", dir("Viability/"))])
+```
+File naming is consistent between traits. The _trait_ or _sub trait_ abbrevation (Via for Viability, for other traits such as Wing Area Left it will be WA_L) is followed by _sex_ (NA because not available for Viability, otherwise F or M, and sometimes B when measurements were done on both sexes at the same time) and by the type of _models_ the input data comes from (lmers, can also be glmers). Files with identical names but with different extensions contain the same data but are saved in different formats to facilitate both data handling and browsing. Raw results of the subgroup analysis are stored in Files 1 and 2, which are then used to extract population summary effects (compound estimates) and analysis statistics (Files 5 and 6). Files 3 and 4 are graphic representations of the subgroup analysis results.
+
+
+### Model results
+
+Below are shown the raw results of the Viabilty meta analysis (files 1 and 2):
+```{r}
+# meta results for Viability
+meta_via <- readRDS("../MetaAnalyses/Viability/Via_NA_lmers_pop_meta.rds")
+print(meta_via)
+```
+
+We are mainly interested in the second part of the meta analysis output, starting from the "Results for subgroups (random effects model)" table. For each population one can extract a summary effect (compound estimate) with its 95% confidence interval as well as the number of labs that have contributed to phenoytyping (k). Differences between populations can be assessed with the _Q_ statistic shown in the "Test for subgroup differences (random effects model)" part of the model output. In short, the _Q_ statistic quantifies the heterogeneity between the different subgroups, the higher the _Q_ value the greater the heterogeneity. Under the null hypothesis of no differences between subgroups, _Q_ follows a central $\chi^2$ distribution with degrees of freedom equal to k subgroups - 1, so one can report a _p_ value for any observed value of _Q_. In the case of Viability, _Q_ = 100.09 and is statistically significant (_p_ < 0.0001), meaning that _Population_ does have a significant effect on Viability.
+
+
+### Compound population estimates
+
+Compound population estimates (population summary effects) and their 95% confidence intervals were extracted from the meta analyses results and stored in Files 5 and 6. Below is an example for Viability:
+
+```{r load comp pop via}
+# read in population compound estimates
+comp_pop_via <- readRDS("../MetaAnalyses/Viability/Via_NA_lmers_pop_meta_compound_estimates.rds")
+print(select(comp_pop_via, -c(Models, Sex, SE, N_lab_av))) # for clarity
+```
+
+
+### Visualisation of the meta analyses results
+
+Results can be represented with a simplified forest plot (Files 3 and 4) where population summary effects (compound estimates) and populations are represented on x and y axis, respectively (Figure \@ref(fig:meta-plot-example)).
+
+\newpage
+
+```{r meta-plot-example, echo=FALSE, out.width="50%", fig.cap="Subgroup meta analysis for Viability. N indicates the average number of labs that have phenotyped the different populations.", fig.align = "center"}
+knitr::include_graphics("../MetaAnalyses/Viability/Via_NA_lmers_pop_meta_summary_effect.pdf")
+```
+
+
+### Compiled data for all traits
+
+Compiled population compound estimates, meta analyses statistics and composite figures for all traits are available in the MetaAnalyses directory:
+
+```{r echo=FALSE}
+dir("../..", recursive = T)[grep("all_models_pop_meta", dir("../..", recursive = T))]
+
+#dir()[grep("pop", dir())]
+```
+
+All meta analyses main statistics are compiled in a single table (Files 4 and 6). _P_ values were corrected for multiple testing using Bonferroni and Benjamini Hochberg procedures (For Bonferroni n= 26 which corresponds to the number of "relevant" meta analyses that have been performed, see above). As mentioned earlier in the document, statistics for Locomotor Activity, Egg-to-pupa Development Time and Thorax Length in males should not be considered and have been filtered out from this table, leaving results for only 26 traits.
+
+```{r}
+# meta compiled statistics
+meta_stats <- readRDS("../MetaAnalyses/all_models_pop_meta_pvalues.rds")
+print(meta_stats %>% mutate_at(vars(contains(c("P", "Q"))), round, 3))
+```
+
+Statistics such as _Q_ and _p_ values for all traits can be visualised on a single graph (File 5 and Figure \@ref(fig:meta-plot-pvalues)). 
+
+```{r meta-plot-pvalues, echo=FALSE, out.width="50%", fig.cap="All meta analyses Q statistics and p values.", fig.align = "center"}
+knitr::include_graphics("../MetaAnalyses/all_models_pop_meta_pvalues.pdf")
+```
+
+
+Compiled compound population estimates for all traits are available both as a list (File 1) or a table (collapsed list, Files 2 and 3).
+```{r}
+# population compoud estimates as list
+comp_pop_list <- readRDS("../MetaAnalyses/all_models_pop_meta_compound_estimates_list.rds")
+lapply(comp_pop_list, function(x) select(x, -c(Models, SE, N_lab_av))) %>% head(4)
+```
+
+\bigskip
+
+Finally population summary effects for all traits can be visualized with a composite figure of all the meta analyses results (Files 7 and 8, Figure \@ref(fig:meta-fig-main)).
+
+
+```{r meta-fig-main, echo=FALSE, fig.cap="Meta analyses population summary effects for all 26 traits.", fig.align = "center"}
+knitr::include_graphics("../MetaAnalyses/all_models_pop_meta_summary_effect.pdf")
+```
+
+
+\newpage
+
+
+
+# Compound line estimates
+
+The meta analysis approach described for _Population_ has also been used to generate line compound estimates.
+
+
+
+
+## Input data
+
+Compiled line random coefficients extracted from the linear models outputs:
+```{r echo=FALSE}
+dir("../..", recursive = T)[grep("all_models_line_random_coefs", dir("../..", recursive = T))]
+```
+
+Trait-specific line random coefficients extracted from the linear models outputs, for example for Viability:
+```{r echo=FALSE}
+f <- dir("../..", recursive = T)[grep("line_random_coefs", dir("../..", recursive = T))]
+f[grep("LinearModelsPop/Viability/", f)]
+```
+
+
+
+
+## Meta analyses model
+
+The only difference with the _Population_ subgroup meta analyses is that here subgroups are defined by the _Line_ variable.
+
+Importantly, as previously mentionned in the _Population_ meta analyses section, meta analyses for _Line_ have been run for all the traits, including those that have been measured in single labs (Locomotor Activity and Egg-to-pupa Development Time). In addition, even for traits involving several labs, some lines might have been measured only once. Again, results from these analyses are meaningless and should not be considered but it allows us to keep those traits in the loop and to streamline the generation of compound estimates. _Line_ subgroup meta analyses have been run for the following 32 traits to generate line compound estimates:
+
+```{r echo=FALSE}
+rc <- readRDS("all_models_line_meta_compound_random_coefs_list.rds")
+print(gsub("_line_meta_compound_random_coefs", "", names(rc) ))
+```
+
+Note that we could not run the analysis for Locomotor Activity AbsPhase since line random coefficients are not available for that particular trait --- _Line_ could not be included as a random-effect factor in the linear model. For Diapause, we ran the meta analysis using the glmer models estimates only.
+
+Finally partial data (incomple data sets) from Posnien lab has been removed prior to running analyses for Wing Area and Thorax Length, to match what has been done in the _Population_ meta analyses.
+
+
+
+
+## Meta analyses output
+
+We are not interested in testing for differences between lines, we just want to extract line summary effects (compound estimates), so there is not much to be shown here. However analyses raw results are still available for each trait, for example for Viability:
+
+```{r echo=FALSE}
+f <- dir("../..", recursive = T)[grep("line_meta", dir("../..", recursive = T))]
+f <- f[grep("MetaAnalyses/Viability/", f)]
+rev(f[grep("random_coefs", f, invert = T)])
+#rev(dir("Viability/")[grep("pop_meta", dir("Viability/"))])
+```
+
+
+
+
+
+### Compound line estimates
+
+Compound line estimates (line summary effects) and their 95% confidence intervals were extracted from the meta analyses raw results for each trait. Below are listed the files for Viability:
+```{r echo=FALSE}
+f <- dir("../..", recursive = T)[grep("line_meta_compound", dir("../..", recursive = T))]
+rev(f[grep("MetaAnalyses/Viability/", f)])
+#rev(dir("Viability/")[grep("pop_meta", dir("Viability/"))])
+```
+
+
+
+### Compiled data for all traits
+
+Line compound estimates for all traits have been exported as a list, table and wide table:
+
+
+```{r echo=FALSE}
+dir("../..", recursive = T)[grep("all_models_line_meta", dir("../..", recursive = T))]
+
+#dir()[grep("pop", dir())]
+```
+```{r}
+# wide table, showing the first 30 lines and first 6 traits
+lc_wide <- read.csv("all_models_line_meta_compound_random_coefs_wide.csv")
+print(lc_wide[1:30, 1:8])
+```
+
+
+

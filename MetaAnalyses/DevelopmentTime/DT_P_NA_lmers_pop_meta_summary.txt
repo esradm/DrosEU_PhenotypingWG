@@ -1,0 +1,44 @@
+                                  95%-CI %W(random) Population
+YE_Schmidt 135.2002 [129.5350; 140.8655]       11.6         YE
+RE_Schmidt 135.2698 [128.7102; 141.8294]       10.4         RE
+GI_Schmidt 140.4224 [133.0881; 147.7566]        9.4         GI
+MU_Schmidt 129.7299 [124.1154; 135.3444]       11.7         MU
+MA_Schmidt 132.0037 [126.2099; 137.7975]       11.5         MA
+UM_Schmidt 131.1608 [124.6951; 137.6265]       10.5         UM
+KA_Schmidt 127.2923 [121.6422; 132.9424]       11.7         KA
+VA_Schmidt 140.7654 [134.9527; 146.5780]       11.4         VA
+AK_Schmidt 127.5020 [121.8831; 133.1210]       11.7         AK
+
+Number of studies combined: k = 9
+
+                                            95%-CI     z p-value
+Random effects model 133.0775 [129.8183; 136.3366] 80.03       0
+
+Quantifying heterogeneity:
+ tau^2 = 15.3819 [1.9120; 83.0362]; tau = 3.9220 [1.3827; 9.1124]
+ I^2 = 62.1% [21.9%; 81.7%]; H = 1.63 [1.13; 2.33]
+
+Test of heterogeneity:
+     Q d.f. p-value
+ 21.13    8  0.0068
+
+Results for subgroups (random effects model):
+                  k                        95%-CI tau^2 tau    Q I^2
+Population = YE   1 135.2002 [129.5350; 140.8655]    --  -- 0.00  --
+Population = RE   1 135.2698 [128.7102; 141.8294]    --  -- 0.00  --
+Population = GI   1 140.4224 [133.0881; 147.7566]    --  -- 0.00  --
+Population = MU   1 129.7299 [124.1154; 135.3444]    --  -- 0.00  --
+Population = MA   1 132.0037 [126.2099; 137.7975]    --  -- 0.00  --
+Population = UM   1 131.1608 [124.6951; 137.6265]    --  -- 0.00  --
+Population = KA   1 127.2923 [121.6422; 132.9424]    --  -- 0.00  --
+Population = VA   1 140.7654 [134.9527; 146.5780]    --  -- 0.00  --
+Population = AK   1 127.5020 [121.8831; 133.1210]    --  -- 0.00  --
+
+Test for subgroup differences (random effects model):
+                     Q d.f. p-value
+Between groups   21.13    8  0.0068
+
+Details on meta-analytical method:
+- Inverse variance method
+- Restricted maximum-likelihood estimator for tau^2
+- Q-profile method for confidence interval of tau^2 and tau

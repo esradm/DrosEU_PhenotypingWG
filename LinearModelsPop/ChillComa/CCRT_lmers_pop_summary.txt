@@ -1,5 +1,5 @@
 $CCRT_F_Vieira_lmer_pop
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: CCRT_seconds ~ Population + (1 | Line:Population) + (1 | Batch) +  
     (1 | ReplicateVial:Line)
    Data: filter(droseu$ccrt, Censor == "0" & Supervisor.PI == "Vieira" &  
@@ -17,7 +17,8 @@ Random effects:
  Line:Population    (Intercept)  29469.4 171.67  
  Batch              (Intercept)   3852.3  62.07  
  Residual                       183347.9 428.19  
-Number of obs: 993, groups:  ReplicateVial:Line, 168; Line:Population, 168; Batch, 27
+Number of obs: 993, groups:  
+ReplicateVial:Line, 168; Line:Population, 168; Batch, 27
 
 Fixed effects:
              Estimate Std. Error      df t value Pr(>|t|)    
@@ -45,7 +46,7 @@ PopulatinVA -0.703  0.403  0.501  0.493  0.483  0.461  0.491
 PopulatinYE -0.713  0.408  0.508  0.499  0.489  0.468  0.498  0.573
 
 $CCRT_F_Mensch_lmer_pop
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: CCRT_seconds ~ Population + (1 | Batch) + (1 | Line:Population)
    Data: filter(droseu$ccrt, Censor == "0" & Supervisor.PI == "Mensch" &  
     Sex == "F")
@@ -89,8 +90,9 @@ PopulatinVA -0.648  0.451  0.497  0.495  0.496  0.469  0.473
 PopulatinYE -0.641  0.449  0.492  0.494  0.491  0.463  0.473  0.491
 
 $CCRT_M_Vieira_lmer_pop
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: CCRT_seconds ~ Population + (1 | Line:Population) + (1 | ReplicateVial:Line)
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Formula: 
+CCRT_seconds ~ Population + (1 | Line:Population) + (1 | ReplicateVial:Line)
    Data: filter(droseu$ccrt, Censor == "0" & Supervisor.PI == "Vieira" &  
     Sex == "M")
 
@@ -133,7 +135,7 @@ PopulatinVA -0.706  0.443  0.497  0.499  0.499  0.470  0.492
 PopulatinYE -0.704  0.442  0.496  0.497  0.498  0.469  0.491  0.497
 
 $CCRT_M_Mensch_lmer_pop
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
 Formula: CCRT_seconds ~ Population + (1 | Batch) + (1 | Line:Population)
    Data: filter(droseu$ccrt, Censor == "0" & Supervisor.PI == "Mensch" &  
     Sex == "M")
