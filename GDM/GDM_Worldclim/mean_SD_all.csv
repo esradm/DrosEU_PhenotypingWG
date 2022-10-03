@@ -1,0 +1,5 @@
+"group","variable","n","mean","sd"
+"full","Deviance_explained",8,60.544,12.397
+"Geo_distance","Deviance_explained",8,4.278,4.224
+"Env","Deviance_explained",8,60.536,12.395
+"Random","Deviance_explained",8,16.78,4.703

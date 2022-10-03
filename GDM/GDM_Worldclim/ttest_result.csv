@@ -1,0 +1,4 @@
+"estimate","estimate1","estimate2",".y.","group1","group2","n1","n2","statistic","p","df","conf.low","conf.high","method","alternative","p.signif"
+43.76480875,60.54436125,16.7795525,"Deviance_explained","full","Random",8,8,9.33554132108634,6.45e-06,8.97404363217428,33.1551890255848,54.3744284744152,"T-test","two.sided","****"
+-12.5017574125,4.2777950875,16.7795525,"Deviance_explained","Geo_distance","Random",8,8,-5.59350755491296,6.91e-05,13.8414129676555,-17.3006162812599,-7.70289854374015,"T-test","two.sided","****"
+43.75601625,60.53556875,16.7795525,"Deviance_explained","Env","Random",8,8,9.33556069844947,6.45e-06,8.97492343391874,33.1487090717002,54.3633234282998,"T-test","two.sided","****"

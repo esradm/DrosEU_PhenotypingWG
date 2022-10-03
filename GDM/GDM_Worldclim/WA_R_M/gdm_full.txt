@@ -1,15 +1,15 @@
 [1] 
 [1] 
 [1] GDM Modelling Summary
-[1] Creation Date:  Sun Sep  4 15:12:02 2022
+[1] Creation Date:  Sun Oct  2 13:17:19 2022
 [1] 
-[1] Name:  gdm_Env
+[1] Name:  gdm_full
 [1] 
 [1] Data:  SelectedgdmTab_rast
 [1] 
 [1] Samples:  36
 [1] 
-[1] Geographical distance used in model fitting?  FALSE
+[1] Geographical distance used in model fitting?  TRUE
 [1] 
 [1] NULL Deviance:  10.625
 [1] GDM Deviance:  5.982
@@ -38,3 +38,13 @@
 [1] Coefficient[2]: 0.586
 [1] Coefficient[3]: 0
 [1] Sum of coefficients for DrosoEu_wc2_1_30s_vapr_06: 0.662
+[1] 
+[1] Predictor 3: Geographic
+[1] Splines: 3
+[1] Min Knot: 3.955
+[1] 50% Knot: 19.364
+[1] Max Knot: 44.925
+[1] Coefficient[1]: 0
+[1] Coefficient[2]: 0
+[1] Coefficient[3]: 0
+[1] Sum of coefficients for Geographic: 0
