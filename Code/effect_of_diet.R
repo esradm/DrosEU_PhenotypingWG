@@ -95,7 +95,8 @@ diet_plus_fec <- bind_rows(
 rc_trait_lab <- random_coefs %>%
   mutate(Trait_lab = paste(tolower(Trait), Lab, sep = "_")) %>%
   filter(Trait_lab %in% diet_plus_fec$Trait_lab) %>%
-  select(-Trait_lab)
+  select(-Trait_lab) %>%
+  filter(!(Trait == "Dia" & Model == "lmer_pop"))
 
 write.csv(
   rc_trait_lab,
