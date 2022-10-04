@@ -30,19 +30,91 @@ source("Code/functions.R")
 ##### load data
 droseu <- readRDS("Data/droseu_master_list_2022-05-02.rds")
 diets <- read.csv("InfoTables/DrosEU_Diets_Sept22.csv")
+random_coefs <- read.csv("LinearModelsPop/all_models_line_random_coefs.csv")
+
 
 
 ######### DIET VARIATION ##########
 
 
 ##### prep the data for plotting
-d <- bind_rows(filter(diets, !is.na(PC)) %>% mutate(Group = "All P/C"),
-               filter(diets, PC < 1) %>% mutate(Group = "P/C < 1")) 
+d <- bind_rows(
+  filter(diets, !is.na(PC)) %>% mutate(Group = "All P/C"),
+  filter(diets, PC < 1) %>% mutate(Group = "P/C < 1")
+)
+
+
+
+
+######### IDENTIFY SUBSETS OF TRAITS WITH SIMILAR PCR RATIOS ########
+
+# nine traits in common between males and females
+c9 <- c("ccrt", "csm", "hsm", "dta", "dw", "ls", "sr", "tl", "wa")
+
+# female traits
+fmax <- c(c9, "dia", "fec", "pgm")
+
+# female traits plus
+fmax_plus <- c(fmax, "via")
+
+filter(d, Trait_short %in% c9 & !Lab %in% c("Posnien", "Ritchie")) %>%
+  arrange(PC) %>%
+  select(-c(Trait_long, Group)) %>%
+  distinct()
+
+
+
+diet_range <- c(0.094, 0.183)
+
+diet_list <- filter(d, PC >= diet_range[1] & PC <= diet_range[2] &
+  Trait_short %in% fmax_plus & !Lab %in% c("Posnien", "Ritchie")) %>%
+  select(Lab, Trait_short, PC) %>%
+    arrange(PC, Trait_short) %>%
+    distinct() %>%
+    group_split(Trait_short)
+
+
+sample_row <- function(x, n) {
+  x[sample(nrow(x), n), ]
+}
+
+set.seed(1)
+diet_sub <- lapply(diet_list, sample_row, 1) %>%
+  bind_rows()
+
+diet_plus_fec <- bind_rows(diet_sub,
+  filter(d, Trait_short == "fec" & Lab == "Fricke") %>%
+    select(Lab, Trait_short, PC) %>%
+    distinct()) %>%
+  arrange(PC) %>%
+    mutate(
+      Trait_lab = paste(Trait_short, Lab, sep = "_"),
+      Trait_lab = str_replace(Trait_lab, "wa", "wa_l"),
+      Trait_lab = str_replace(Trait_lab, "dta", "dt_a"),
+      Trait_lab = str_replace(Trait_lab, "pgm", "pgm_total")
+    )
+
+
+
+rc_trait_lab <- random_coefs %>%
+  mutate(Trait_lab = paste(tolower(Trait), Lab, sep = "_")) %>%
+  filter(Trait_lab %in% diet_plus_fec$Trait_lab) %>%
+  select(-Trait_lab)
+
+write.csv(
+  rc_trait_lab,
+  "LinearModelsPop/all_models_line_random_coefs_similar_diet.csv",
+  row.names = FALSE
+)
+
+
+
 
 ##### plot the different PC ratios and Diets, regardless of traits
 
 ### facet plot
-p1 <- select(d, Lab, PC, Diet, Group) %>% distinct() %>%
+p1 <- select(d, Lab, PC, Diet, Group) %>%
+  distinct() %>%
   ggplot(aes(x = Diet, y = PC, color = Diet)) +
   facet_wrap(. ~ Group, scales = "free") +
   geom_boxplot(outlier.colour = NA) +
@@ -85,7 +157,8 @@ p4 <- ggplot(data = d, aes(x = PC, y = Trait_long, color = Diet)) +
   theme_bw(base_size = 18) +
   labs(y = "Traits", x = "P/C", title = "Protein/Carbohydrate (P/C) ratios") +
   theme(panel.grid.major.y = element_line(size = 0.5)) +
-  theme(plot.title = element_text(size=15))
+  theme(plot.title = element_text(size=15)) +
+  geom_vline(xintercept = diet_range)
 ggsave(p4, filename = "Diets/DrosEU_Diets_PC_ratios_traits_facets.pdf", width = 8, height = 6)
 
 
@@ -104,7 +177,6 @@ p6 <- ggplot(data = d, aes(x = PC, y = Trait_short, color = Diet)) +
   theme(plot.title = element_text(size=15))
 p56 <- ggarrange(p5, p6, common.legend = TRUE)
 ggsave(p56, filename = "Diets/DrosEU_Diets_PC_ratios_traits.pdf", width = 6, height = 6)
-
 
 
 
