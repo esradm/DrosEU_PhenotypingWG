@@ -219,11 +219,6 @@ pop_coefs <- read.csv("LinearModelsPop/all_models_pop_estimates.csv") %>%
   inner_join(dplyr::select(diets, Lab, Diet, PC) %>%
     distinct())
 
-line_coefs <- read.csv("LinearModelsPop/all_models_line_random_coefs.csv") %>%
-  filter(!(Trait == "Dia" & Model != "glmer")) %>%
-  inner_join(dplyr::select(diets, Lab, Diet, PC) %>%
-    distinct())
-
 
 # loop over all traits to plot population estimates for each lab
 
@@ -312,343 +307,119 @@ ggsave(pop_estimates_pc_facets,
 
 
 
+####### META REGRESSION WITH LAB AND DIET
 
+dir.create("MetaRegressionDiet")
 
+##### get all the line estimates, from all the traits
 
+estimates <- readRDS("LinearModelsPop/all_models_pop_estimates.rds")
 
-
-
-##### TL
-
-### pop level
-
-tl_pop_coefs <- filter(pop_coefs, Trait == "TL")
-
-lab_pc_pop <- dplyr::select(tl_pop_coefs, Lab, PC, Sex) %>%
-  distinct() %>%
-  arrange(PC) %>%
-  mutate(ypos = 0.97 * min(tl_pop_coefs$Estimate))
-
-tl_pop_coefs <- mutate(tl_pop_coefs, Lab = factor(Lab, levels = unique(lab_pc_pop$Lab)))
-
-p7 <- ggplot(data = tl_pop_coefs) +
-  geom_quasirandom(aes(x = Lab, y = Estimate, color = Population), size = 3,
-    alpha = 1, width = .3) +
-  facet_wrap(. ~ Sex) +
-  theme_bw(base_size = 18) +
-  droseu_color_scale +
-  labs(
-    y = "Thorax Length",
-    x = "Lab (ordered by increasing P/C)",
-    title = "Lab and Diet effects on Thorax Length - Pop level"
-    ) +
-  theme(panel.grid.major.y = element_line(size = 0.5)) +
-  theme(plot.title = element_text(size = 15)) +
-  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1)) +
-  geom_text(data = lab_pc_pop, aes(x = Lab, y = ypos, label = PC)) +
-  expand_limits(y = unique(lab_pc_pop$ypos))
-ggsave(p7, filename = "Diets/DrosEU_Diets_PC_ratios_TL_pop_facets.pdf", width = 7, height = 6)
-
-
-### line level
-
-tl_line_coefs <- filter(line_coefs, Trait == "TL")
-
-lab_pc_line <- dplyr::select(tl_line_coefs, Lab, PC, Sex) %>%
-  distinct() %>%
-  arrange(PC) %>%
-  mutate(ypos = 0.97 * min(tl_line_coefs$Coef))
-
-tl_line_coefs <- mutate(tl_line_coefs, Lab = factor(Lab, levels = unique(lab_pc_line$Lab)))
-
-p8 <- ggplot(data = tl_line_coefs) +
-  geom_quasirandom(aes(x = Lab, y = Coef, color = Population),
-    size = 1,
-    alpha = 1, width = .3, pch = 1
-  ) +
-  facet_wrap(. ~ Sex) +
-  theme_bw(base_size = 18) +
-  droseu_color_scale +
-  labs(
-    y = "Thorax Length",
-    x = "Lab (ordered by increasing P/C)",
-    title = "Lab and Diet effects on Thorax Length - Line level"
-    ) +
-  theme(panel.grid.major.y = element_line(size = 0.5)) +
-  theme(plot.title = element_text(size = 15)) +
-  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1)) +
-  geom_text(data = lab_pc_line, aes(x = Lab, y = ypos, label = PC)) +
-  expand_limits(y = unique(lab_pc_line$ypos))
-ggsave(p8, filename = "Diets/DrosEU_Diets_PC_ratios_TL_line_facets.pdf", width = 7, height = 6)
-
-
-
-
-##### Viab
-
-### pop level
-
-via_pop_coefs <- filter(pop_coefs, Trait == "Via")
-
-lab_pc_pop <- dplyr::select(via_pop_coefs, Lab, PC, Sex) %>%
-  distinct() %>%
-  arrange(PC) %>%
-  mutate(ypos = 0.97 * min(via_pop_coefs$Estimate))
-
-via_pop_coefs <- mutate(via_pop_coefs, Lab = factor(Lab, levels = unique(lab_pc_pop$Lab)))
-
-p9 <- ggplot(data = via_pop_coefs) +
-  geom_quasirandom(aes(x = Lab, y = Estimate, color = Population),
-    size = 3,
-    alpha = 1, width = .3
-  ) +
-  theme_bw(base_size = 18) +
-  facet_wrap(Trait ~ .) +
-  droseu_color_scale +
-  labs(
-    y = "Viability",
-    x = "Lab (ordered by increasing P/C)",
-    title = "Lab and Diet effects on Viability - Pop level"
-    ) +
-  theme(panel.grid.major.y = element_line(size = 0.5)) +
-  theme(plot.title = element_text(size = 15)) +
-  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1)) +
-  geom_text(data = lab_pc_pop, aes(x = Lab, y = ypos, label = PC)) +
-  expand_limits(y = unique(lab_pc_pop$ypos))
-ggsave(p9, filename = "Diets/DrosEU_Diets_PC_ratios_Via_pop_facets.pdf", width = 7, height = 6)
-
-
-### line level
-
-via_line_coefs <- filter(line_coefs, Trait == "Via")
-
-lab_pc_line <- dplyr::select(via_line_coefs, Lab, PC, Sex) %>%
-  distinct() %>%
-  arrange(PC) %>%
-  mutate(ypos = 0.97 * min(via_line_coefs$Coef))
-
-via_line_coefs <- mutate(via_line_coefs, Lab = factor(Lab, levels = unique(lab_pc_line$Lab)))
-
-p10 <- ggplot(data = via_line_coefs) +
-  geom_quasirandom(aes(x = Lab, y = Coef, color = Population),
-    size = 1,
-    alpha = 1, width = .3, pch = 1
-  ) +
-  facet_wrap(Trait ~ .) +
-  theme_bw(base_size = 18) +
-  droseu_color_scale +
-  labs(
-    y = "Viability",
-    x = "Lab (ordered by increasing P/C)",
-    title = "Lab and Diet effects on Viability - Line level"
-    ) +
-  theme(panel.grid.major.y = element_line(size = 0.5)) +
-  theme(plot.title = element_text(size = 15)) +
-  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1)) +
-  geom_text(data = lab_pc_line, aes(x = Lab, y = ypos, label = PC)) +
-  expand_limits(y = unique(lab_pc_line$ypos))
-ggsave(p10, filename = "Diets/DrosEU_Diets_PC_ratios_Via_line_facets.pdf", width = 7, height = 6)
-
-
-
-
-
-##### DTA
-
-### pop level
-
-dta_pop_coefs <- filter(pop_coefs, Trait == "DT_A")
-
-lab_pc_pop <- dplyr::select(dta_pop_coefs, Lab, PC, Sex) %>%
-  distinct() %>%
-  arrange(PC) %>%
-  mutate(ypos = 0.97 * min(dta_pop_coefs$Estimate))
-
-dta_pop_coefs <- mutate(dta_pop_coefs, Lab = factor(Lab, levels = unique(lab_pc_pop$Lab)))
-
-p11 <- ggplot(data = dta_pop_coefs) +
-  geom_quasirandom(aes(x = Lab, y = Estimate, color = Population),
-    size = 3,
-    alpha = 1, width = .3
-  ) +
-  theme_bw(base_size = 18) +
-  facet_wrap(Sex ~ .) +
-  droseu_color_scale +
-  labs(
-    y = "Egg-to-adult development time",
-    x = "Lab (ordered by increasing P/C)",
-    title = "Lab and Diet effects on dev. time - Pop level"
-    ) +
-  theme(panel.grid.major.y = element_line(size = 0.5)) +
-  theme(plot.title = element_text(size = 15)) +
-  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1)) +
-  geom_text(data = lab_pc_pop, aes(x = Lab, y = ypos, label = round(PC, 2))) +
-  expand_limits(y = unique(lab_pc_pop$ypos))
-ggsave(p11,
-  filename = "Diets/DrosEU_Diets_PC_ratios_DT_A_pop_facets.pdf",
-  width = 7,
-  height = 6
+partial_labs <- "Posnien"
+partial_traits <- c(
+  "CCRT", "DT_P", "LA_NDlog2", "LA_Period", "LA_CircPhase",
+  "LA_AbsPhase", "LA_Activity"
 )
 
+estimates_list <- estimates %>%
+  filter(!Lab %in% partial_labs) %>%
+  filter(!Trait %in% partial_traits) %>%
+  filter(!(Trait == "Dia" & Model != "glmer")) %>%
+  group_split(Trait, Sex)
 
-### line level
 
-dta_line_coefs <- filter(line_coefs, Trait == "DT_A")
 
-lab_pc_line <- dplyr::select(dta_line_coefs, Lab, PC, Sex) %>%
-  distinct() %>%
-  arrange(PC) %>%
-  mutate(ypos = 0.97 * min(dta_line_coefs$Coef))
+traits <-  unique(estimates$Trait)
 
-dta_line_coefs <- mutate(dta_line_coefs, Lab = factor(Lab, levels = unique(lab_pc_line$Lab)))
-
-p12 <- ggplot(data = dta_line_coefs) +
-  geom_quasirandom(aes(x = Lab, y = Coef, color = Population),
-    size = 1,
-    alpha = 1, width = .3, pch = 1
-  ) +
-  facet_wrap(Sex ~ .) +
-  theme_bw(base_size = 18) +
-  droseu_color_scale +
-  labs(
-    y = "Viability",
-    x = "Lab (ordered by increasing P/C)",
-    title = "Lab and Diet effects  on dev. time - Line level"
-    ) +
-  theme(panel.grid.major.y = element_line(size = 0.5)) +
-  theme(plot.title = element_text(size = 15)) +
-  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1)) +
-  geom_text(data = lab_pc_line, aes(x = Lab, y = ypos, label = round(PC, 2))) +
-  expand_limits(y = unique(lab_pc_line$ypos))
-ggsave(p12,
-  filename = "Diets/DrosEU_Diets_PC_ratios_DT_A_line_facets.pdf",
-  width = 7,
-  height = 6
+directories <- c(
+  "ChillComa", "ColdShock", rep("DevelopmentTime", 2), "Diapause", "DryWeight",
+  "Fecundity", "HeatShock", "Lifespan", rep("Locomotor", 5), rep("Pigmentation", 4),
+  "Starvation", "ThoraxLength", "Viability", rep("WingArea", 2)
 )
 
+trait_dirs <- data.frame(Trait = traits, Dir = directories)
 
 
 
 
+##### loop over estimates per trait and sex
+
+for (i in seq_len(length(estimates_list))) {
+
+  trait_sex <- estimates_list[[i]]
+  trait <- unique(trait_sex$Trait)
+  sex <- unique(trait_sex$Sex)
+  model <- paste0(unique(trait_sex$Model)[1], "s")
+  out_dir <- trait_dirs$Dir[trait_dirs$Trait == trait]
+  out_name <- paste(trait, sex, model, "pop_meta_reg_diet.rds", sep = "_")
+  out_path <- file.path("MetaRegressionDiet", out_dir, out_name)
+
+  effects <- makeEffects(trait_sex)
+  effects_diet <- inner_join(
+    effects,
+    select(diets, Lab, PC) %>%
+      distinct()
+  )
+
+  meta_reg <- list()
+
+  meta_reg$pop <- rma(
+    yi = Y,
+    sei = SE,
+    data = effects_diet,
+    method = "REML",
+    mods = ~ Population
+  )
+
+  meta_reg$pc <- rma(
+    yi = Y,
+    sei = SE,
+    data = effects_diet,
+    method = "REML",
+    mods = ~ PC
+  )
+
+  meta_reg$lab <- rma(
+    yi = Y,
+    sei = SE,
+    data = effects_diet,
+    method = "REML",
+    mods = ~ Lab
+  )
+
+  meta_reg$pop_lab <- rma(
+    yi = Y,
+    sei = SE,
+    data = effects_diet,
+    method = "REML",
+    mods = ~ Population + Lab
+  )
+
+  meta_reg$pop_pc <- rma(
+    yi = Y,
+    sei = SE,
+    data = effects_diet,
+    method = "REML",
+    mods = ~ Population + PC
+  )
+
+  dir.create(file.path("MetaRegressionDiet", out_dir), showWarnings = FALSE)
+  saveRDS(meta_reg, file = out_path)
+
+  stats_output <- function(x) {
+    data.frame(
+      Trait = trait,
+      Sex = sex,
+      Moderator = as.character(x$formula.mods)[2],
+      R2 = x$R2,
+      P = x$QMp
+    )
+  }
 
 
+  output <- lapply(meta_reg, stats_output) %>%
+    bind_rows()
 
+  write.csv(output, file = sub(".rds", "_r2.csv", out_path))
 
-
-estimates <- readRDS("LinearModelsPop/all_models_pop_estimates_list.rds")
-
-### dw
-
-# get effects
-dw_effects <- makeEffects(estimates$dw_lmer)
-
-# add diet info
-dw_effects <- inner_join(dw_effects, select(diets, Lab, PC) %>% distinct())
-
-dw_f_meta_reg <- rma(
-  yi = Y, sei = SE,
-  data = filter(dw_effects, Sex == "F"),
-  method = "ML",
-  mods = ~Population
-)
-
-dw_f_meta_reg_full <- rma(
-  yi = Y,
-  sei = SE,
-  data = filter(dw_effects, Sex == "F"),
-  method = "ML",
-  mods = ~ Population + Lab
-)
-
-anova(dw_F_meta_reg, dw_F_meta_reg_full)
-
-
-### via
-
-# get effects
-via_effects <- makeEffects(estimates$via_lmer)
-
-# add diet info
-via_effects <- inner_join(
-  via_effects,
-  select(diets, Lab, PC) %>%
-    distinct()
-)
-
-via_f_meta_reg <- rma(
-  yi = Y,
-  sei = SE,
-  data = via_effects,
-  method = "ML",
-  mods = ~Population
-)
-
-via_f_meta_reg_full <- rma(
-  yi = Y,
-  sei = SE,
-  data = via_effects,
-  method = "ML",
-  mods = ~Lab
-)
-
-anova(via_F_meta_reg, via_F_meta_reg_full)
-
-
-
-# get effects
-sr_effects <- makeEffects(estimates$sr_lmer)
-
-# add diet info
-sr_effects <- inner_join(
-  sr_effects,
-  select(diets, Lab, PC) %>%
-    distinct()
-)
-
-sr_m_meta_reg <- rma(
-  yi = Y,
-  sei = SE,
-  data = filter(sr_effects, Sex == "M"),
-  method = "ML",
-  mods = ~Population
-)
-
-sr_m_meta_reg_full <- rma(
-  yi = Y,
-  sei = SE,
-  data = filter(sr_effects, Sex == "M"),
-  method = "ML",
-  mods = ~PC
-)
-
-anova(via_F_meta_reg, via_F_meta_reg_full)
-
-
-
-# get effects
-dt_effects <- makeEffects(estimates$dt_lmer)
-
-# add diet info
-dt_effects <- inner_join(
-  dt_effects,
-  select(diets, Lab, PC) %>%
-    distinct()
-)
-
-dt_m_meta_reg <- rma(
-  yi = Y,
-  sei = SE,
-  data = filter(sr_effects, Sex == "M"),
-  method = "ML",
-  mods = ~Population
-)
-
-sr_m_meta_reg_full <- rma(
-  yi = Y,
-  sei = SE,
-  data = filter(sr_effects, Sex == "M"),
-  method = "ML",
-  mods = ~PC
-)
-
-anova(via_F_meta_reg, via_F_meta_reg_full)
+}
