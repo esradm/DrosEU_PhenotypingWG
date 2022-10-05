@@ -10,102 +10,39 @@ library(ggbeeswarm)
 library(ggdist)
 library(ggpubr)
 library(MetBrewer)
+library(metafor)
 
-##### set working directory
+
+
+##### set working directory #####
 setwd("~/Work/UNIFR/GitHub/DrosEU_PhenotypingWG/")
 
 
-##### dir
+##### make new ouput directory #####
 dir.create("Diets")
 
-##### source functions
+##### source functions #####
 source("Code/functions.R")
 
-##### load data
+##### load data #####
 droseu <- readRDS("Data/droseu_master_list_2022-05-02.rds")
 diets <- read.csv("InfoTables/DrosEU_Diets_Sept22.csv")
 random_coefs <- read.csv("LinearModelsPop/all_models_line_random_coefs.csv")
 
 
 
-######### DIET VARIATION ##########
+
+
+
+######### EXPLORE DIET VARIATION ##########
 
 
 ##### prep the data for plotting
+
 d <- bind_rows(
   filter(diets, !is.na(PC)) %>% mutate(Group = "All P/C"),
   filter(diets, PC < 1) %>% mutate(Group = "P/C < 1")
 )
-
-
-
-
-######### IDENTIFY SUBSETS OF TRAITS WITH SIMILAR PCR RATIOS ########
-
-# nine traits in common between males and females
-c9 <- c("ccrt", "csm", "hsm", "dta", "dw", "ls", "sr", "tl", "wa")
-
-# female traits
-fmax <- c(c9, "dia", "fec", "pgm")
-
-# female traits plus
-fmax_plus <- c(fmax, "via")
-
-filter(d, Trait_short %in% c9 & !Lab %in% c("Posnien", "Ritchie")) %>%
-  arrange(PC) %>%
-  select(-c(Trait_long, Group)) %>%
-  distinct()
-
-
-
-diet_range <- c(0.094, 0.183)
-
-diet_list <- filter(d, PC >= diet_range[1] & PC <= diet_range[2] &
-  Trait_short %in% fmax_plus & !Lab %in% c("Posnien", "Ritchie")) %>%
-  select(Lab, Trait_short, PC) %>%
-  arrange(PC, Trait_short) %>%
-  distinct() %>%
-  group_split(Trait_short)
-
-
-sample_row <- function(x, n) {
-  x[sample(nrow(x), n), ]
-}
-
-set.seed(1)
-diet_sub <- lapply(diet_list, sample_row, 1) %>%
-  bind_rows()
-
-diet_plus_fec <- bind_rows(
-  diet_sub,
-  filter(d, Trait_short == "fec" & Lab == "Fricke") %>%
-    select(Lab, Trait_short, PC) %>%
-    distinct()
-) %>%
-  arrange(PC) %>%
-  mutate(
-    Trait_lab = paste(Trait_short, Lab, sep = "_"),
-    Trait_lab = str_replace(Trait_lab, "wa", "wa_l"),
-    Trait_lab = str_replace(Trait_lab, "dta", "dt_a"),
-    Trait_lab = str_replace(Trait_lab, "pgm", "pgm_total")
-  )
-
-
-
-rc_trait_lab <- random_coefs %>%
-  mutate(Trait_lab = paste(tolower(Trait), Lab, sep = "_")) %>%
-  filter(Trait_lab %in% diet_plus_fec$Trait_lab) %>%
-  select(-Trait_lab) %>%
-  filter(!(Trait == "Dia" & Model == "lmer_pop"))
-
-write.csv(
-  rc_trait_lab,
-  "LinearModelsPop/all_models_line_random_coefs_similar_diet.csv",
-  row.names = FALSE
-)
-
-
-
 
 ##### plot the different PC ratios and Diets, regardless of traits
 
@@ -128,8 +65,8 @@ ggsave(p1,
   height = 6
 )
 
-
 ### same as above but different layout
+
 p2 <- select(d, Lab, PC, Diet, Group) %>%
   filter(Group == "All P/C") %>%
   distinct() %>%
@@ -162,6 +99,7 @@ ggsave(ggarrange(p2, p3),
 
 ##### plot the different PC ratios and Traits
 
+### facet plot
 
 p4 <- ggplot(data = d, aes(x = PC, y = Trait_long, color = Diet)) +
   geom_point(size = 3, alpha = 0.5) +
@@ -169,8 +107,7 @@ p4 <- ggplot(data = d, aes(x = PC, y = Trait_long, color = Diet)) +
   theme_bw(base_size = 18) +
   labs(y = "Traits", x = "P/C", title = "Protein/Carbohydrate (P/C) ratios") +
   theme(panel.grid.major.y = element_line(size = 0.5)) +
-  theme(plot.title = element_text(size = 15)) +
-  geom_vline(xintercept = diet_range)
+  theme(plot.title = element_text(size = 15))
 
 ggsave(p4,
   filename = "Diets/DrosEU_Diets_PC_ratios_traits_facets.pdf",
@@ -178,7 +115,7 @@ ggsave(p4,
   height = 6
 )
 
-
+### same as above but different layout
 
 p5 <- ggplot(data = d, aes(x = PC, y = Trait_short, color = Diet)) +
   geom_point(size = 3, alpha = 0.5) +
@@ -202,17 +139,183 @@ p6 <- ggplot(data = d, aes(x = PC, y = Trait_short, color = Diet)) +
 
 
 
-######### EFFECT OF DIET ON TRAITS ##########
+
+
+
+
+######### IDENTIFY SUBSETS OF TRAITS WITH SIMILAR PCR RATIOS ########
+
+# be consistent with Ewan's PCAs
+# nine traits in common between males and females
+c9 <- c("ccrt", "csm", "hsm", "dta", "dw", "ls", "sr", "tl", "wa")
+# female traits
+fmax <- c(c9, "dia", "fec", "pgm")
+# female traits plus
+fmax_plus <- c(fmax, "via")
+
+# based on diets plots above, the below range covers most of the traits
+diet_range <- c(0.094, 0.183)
+
+# keep labs within diet range, remove partial labs and split by trait
+diet_list <- filter(d, PC >= diet_range[1] & PC <= diet_range[2] &
+  Trait_short %in% fmax_plus & !Lab %in% c("Posnien", "Ritchie")) %>%
+  select(Lab, Trait_short, PC) %>%
+  arrange(PC, Trait_short) %>%
+  distinct() %>%
+  group_split(Trait_short)
+
+# randomly sample one lab per trait when there are more than one lab
+
+sample_row <- function(x, n) {
+  x[sample(nrow(x), n), ]
+}
+
+set.seed(1)
+diet_sub <- lapply(diet_list, sample_row, 1) %>%
+  bind_rows()
+
+# add in fecundity and add a column for merging with random coefs
+
+diet_plus_fec <- bind_rows(
+  diet_sub,
+  filter(d, Trait_short == "fec" & Lab == "Fricke") %>%
+    select(Lab, Trait_short, PC) %>%
+    distinct()
+  ) %>%
+  arrange(PC) %>%
+  mutate(
+    Trait_lab = paste(Trait_short, Lab, sep = "_"),
+    Trait_lab = str_replace(Trait_lab, "wa", "wa_l"),
+    Trait_lab = str_replace(Trait_lab, "dta", "dt_a"),
+    Trait_lab = str_replace(Trait_lab, "pgm", "pgm_total")
+  )
+
+# keep random coefs for the selected labs, remove lmer Dia
+
+rc_trait_lab <- random_coefs %>%
+  mutate(Trait_lab = paste(tolower(Trait), Lab, sep = "_")) %>%
+  filter(Trait_lab %in% diet_plus_fec$Trait_lab) %>%
+  select(-Trait_lab) %>%
+  filter(!(Trait == "Dia" & Model == "lmer_pop"))
+
+write.csv(
+  rc_trait_lab,
+  "LinearModelsPop/all_models_line_random_coefs_similar_diet.csv",
+  row.names = FALSE
+)
+
+
+
+
+
+
+######### EFFECT OF LAB AND DIET ON TRAITS ##########
+
+# get data in
 
 pop_coefs <- read.csv("LinearModelsPop/all_models_pop_estimates.csv") %>%
-  inner_join(dplyr::select(diets, Lab, Diet, PC) %>% distinct())
+  filter(!(Trait == "Dia" & Model != "glmer")) %>%
+  filter(Lab != "Posnien") %>%
+  inner_join(dplyr::select(diets, Lab, Diet, PC) %>%
+    distinct())
 
 line_coefs <- read.csv("LinearModelsPop/all_models_line_random_coefs.csv") %>%
-  inner_join(dplyr::select(diets, Lab, Diet, PC) %>% distinct())
+  filter(!(Trait == "Dia" & Model != "glmer")) %>%
+  inner_join(dplyr::select(diets, Lab, Diet, PC) %>%
+    distinct())
 
-my_colors <- met.brewer("Johnson", 9)
-names(my_colors) <- as.factor(c("AK", "GI", "KA", "MA", "MU", "RE", "UM", "VA", "YE"))
-col_scale <- scale_colour_manual(name = "Population", values = my_colors)
+
+# loop over all traits to plot population estimates for each lab
+
+pop_coefs_list <- group_split(pop_coefs, Trait)
+
+for (i in seq_len(length(pop_coefs_list))) {
+  trait <- pop_coefs_list[[i]] %>% filter(!is.na(PC))
+
+  if (length(unique(trait$Lab)) >= 2) {
+    lab_pc <- dplyr::select(trait, Lab, PC, Sex) %>%
+      distinct() %>%
+      arrange(PC) %>%
+      mutate(ypos = 0.95 * min(trait$Estimate))
+
+    trait <- mutate(trait, Lab = factor(Lab, levels = unique(lab_pc$Lab)))
+
+    p <- ggplot(data = trait) +
+      geom_quasirandom(aes(x = Lab, y = Estimate, color = Population), size = 3, width = .3) +
+      facet_wrap(Sex ~ .) +
+      theme_bw(base_size = 18) +
+      droseu_color_scale +
+      labs(
+        y = "Population estimate",
+        x = "Lab (ordered by increasing P/C)",
+        title = paste("Lab and Diet effects on", unique(trait$Trait))
+        ) +
+      theme(panel.grid.major.y = element_line(size = 0.5)) +
+      theme(plot.title = element_text(size = 15)) +
+      theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1)) +
+      geom_text(data = lab_pc, aes(x = Lab, y = ypos, label = round(PC, 2))) +
+      expand_limits(y = unique(lab_pc$ypos))
+
+    ggsave(p,
+      filename = paste("Diets/DrosEU_Diets_PC_ratios_", unique(trait$Trait),
+        "_pop_facets.pdf", sep = ""),
+      width = 7, height = 6
+    )
+  }
+}
+
+
+# facet plot for pop estimates and labs
+
+pop_estimates_labs_facets <- pop_coefs %>%
+  arrange(PC) %>%
+  mutate(
+    Group = paste(Trait, Sex),
+    Lab = str_replace(Lab, "StamenkovicRadak", "S-R"),
+    Lab = factor(Lab, levels = (unique(Lab)))
+    ) %>%
+  ggplot(aes(x = Lab, y = Estimate, color = Population)) +
+    droseu_color_scale +
+    geom_quasirandom(size = 2, width = .3) +
+    facet_wrap(Group ~ ., scale = "free", ncol = 7) +
+    theme_bw(base_size = 14) +
+    theme(legend.position = "none") +
+    theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1)) +
+    labs(x = "Lab (ordered by increasing P/C ratio)", y = "Population estimate")
+
+ggsave(pop_estimates_labs_facets,
+  filename = "Diets/DrosEU_Diets_lab_traits_pop_facets.pdf",
+  width = 14,
+  height = 10
+)
+
+
+
+# facet plot for pop estimates and PC ratios
+
+pop_estimates_pc_facets <- pop_coefs %>%
+  arrange(PC) %>%
+  mutate(Group = paste(Trait, Sex)) %>%
+  ggplot(aes(x = PC, y = Estimate, color = Lab)) +
+  geom_point(size = 2) +
+  facet_wrap(Group ~ ., scale = "free", ncol = 7) +
+  theme_bw(base_size = 14) +
+  theme(legend.position = "none") +
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1)) +
+  labs(x = "Lab P/C ratio", y = "Population estimate")
+
+ggsave(pop_estimates_pc_facets,
+  filename = "Diets/DrosEU_Diets_PC_ratios_traits_pop_facets.pdf",
+  width = 14,
+  height = 10
+)
+
+
+
+
+
+
+
 
 
 ##### TL
@@ -233,7 +336,7 @@ p7 <- ggplot(data = tl_pop_coefs) +
     alpha = 1, width = .3) +
   facet_wrap(. ~ Sex) +
   theme_bw(base_size = 18) +
-  col_scale +
+  droseu_color_scale +
   labs(
     y = "Thorax Length",
     x = "Lab (ordered by increasing P/C)",
@@ -265,7 +368,7 @@ p8 <- ggplot(data = tl_line_coefs) +
   ) +
   facet_wrap(. ~ Sex) +
   theme_bw(base_size = 18) +
-  col_scale +
+  droseu_color_scale +
   labs(
     y = "Thorax Length",
     x = "Lab (ordered by increasing P/C)",
@@ -301,7 +404,7 @@ p9 <- ggplot(data = via_pop_coefs) +
   ) +
   theme_bw(base_size = 18) +
   facet_wrap(Trait ~ .) +
-  col_scale +
+  droseu_color_scale +
   labs(
     y = "Viability",
     x = "Lab (ordered by increasing P/C)",
@@ -333,7 +436,7 @@ p10 <- ggplot(data = via_line_coefs) +
   ) +
   facet_wrap(Trait ~ .) +
   theme_bw(base_size = 18) +
-  col_scale +
+  droseu_color_scale +
   labs(
     y = "Viability",
     x = "Lab (ordered by increasing P/C)",
@@ -370,7 +473,7 @@ p11 <- ggplot(data = dta_pop_coefs) +
   ) +
   theme_bw(base_size = 18) +
   facet_wrap(Sex ~ .) +
-  col_scale +
+  droseu_color_scale +
   labs(
     y = "Egg-to-adult development time",
     x = "Lab (ordered by increasing P/C)",
@@ -406,7 +509,7 @@ p12 <- ggplot(data = dta_line_coefs) +
   ) +
   facet_wrap(Sex ~ .) +
   theme_bw(base_size = 18) +
-  col_scale +
+  droseu_color_scale +
   labs(
     y = "Viability",
     x = "Lab (ordered by increasing P/C)",
@@ -426,54 +529,10 @@ ggsave(p12,
 
 
 
-pop_coefs <- read.csv("LinearModelsPop/all_models_pop_estimates.csv") %>%
-  filter(!(Trait == "Dia" & Model != "glmer")) %>%
-  inner_join(dplyr::select(diets, Lab, Diet, PC) %>% distinct())
-
-
-
-pop_coefs_list <- group_split(pop_coefs, Trait)
-
-for (i in seq_len(length(pop_coefs_list))) {
-  trait <- pop_coefs_list[[i]] %>% filter(!is.na(PC))
-
-  if (length(unique(trait$Lab)) >= 2) {
-    lab_pc <- dplyr::select(trait, Lab, PC, Sex) %>%
-      distinct() %>%
-      arrange(PC) %>%
-      mutate(ypos = 0.95 * min(trait$Estimate))
-
-    trait <- mutate(trait, Lab = factor(Lab, levels = unique(lab_pc$Lab)))
-
-    p <- ggplot(data = trait) +
-      geom_quasirandom(aes(x = Lab, y = Estimate, color = Population), size = 3, width = .3) +
-      facet_wrap(Sex ~ .) +
-      theme_bw(base_size = 18) +
-      col_scale +
-      labs(
-        y = "Population estimate",
-        x = "Lab (ordered by increasing P/C)",
-        title = paste("Lab and Diet effects on", unique(trait$Trait))
-        ) +
-      theme(panel.grid.major.y = element_line(size = 0.5)) +
-      theme(plot.title = element_text(size = 15)) +
-      theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1)) +
-      geom_text(data = lab_pc, aes(x = Lab, y = ypos, label = round(PC, 2))) +
-      expand_limits(y = unique(lab_pc$ypos))
-
-    ggsave(p,
-      filename = paste("Diets/DrosEU_Diets_PC_ratios_", unique(trait$Trait),
-        "_pop_facets.pdf", sep = ""),
-      width = 7, height = 6
-    )
-  }
-}
 
 
 
 
-
-library(metafor)
 
 
 estimates <- readRDS("LinearModelsPop/all_models_pop_estimates_list.rds")
