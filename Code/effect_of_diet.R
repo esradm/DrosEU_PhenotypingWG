@@ -423,3 +423,7 @@ for (i in seq_len(length(estimates_list))) {
   write.csv(output, file = sub(".rds", "_r2.csv", out_path))
 
 }
+
+
+
+# stil needs to combine all that in a table
