@@ -1,0 +1,16 @@
+﻿Number,Predictor variable name,Predictor variable abbreviation
+1,Mean Temperature of Warmest Quarter,Bio 10
+2,diurnal temperature range,Bio 02
+3,Mean Temperature of Wettest Quarter,Bio 08
+4,precipitation (mm) in May,Prec 05
+5,precipitation (mm) in October,Prec 10
+6,solar radiation (kJ m-2 day-1) in January,Srad 01
+7,solar radiation (kJ m-2 day-1) in May,Srad 05
+8,solar radiation (kJ m-2 day-1) in June,Srad 06
+9,average temperature (°C) in June,Tavg 06 
+10,water vapor pressure (kPa) in June,Vapr 06
+11,water vapor pressure (kPa) in July,Vapr 07
+12,water vapor pressure (kPa) in August,Vapr 08 
+13,wind speed (m s-1) in July,Wind 07
+14,wind speed (m s-1) in August,Wind 08
+15,wind speed (m s-1) in December,Wind 12
