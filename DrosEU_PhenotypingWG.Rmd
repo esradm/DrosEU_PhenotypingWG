@@ -4357,7 +4357,7 @@ knitr::include_graphics("MetaAnalyses/all_models_pop_meta_pvalues.png")
 
 ### Viability
 
-```{r echo=FALSE}
+```{r echo=FALSE, out.width="50%"}
 knitr::include_graphics("MetaAnalyses/Viability/Via_NA_lmers_pop_meta_summary_effect.png")
 ```
 
@@ -4365,13 +4365,13 @@ knitr::include_graphics("MetaAnalyses/Viability/Via_NA_lmers_pop_meta_summary_ef
 
 _Females_
 
-```{r echo=FALSE}
+```{r echo=FALSE, out.width="50%"}
 knitr::include_graphics("MetaAnalyses/DevelopmentTime/DT_A_F_lmers_pop_meta_summary_effect.png")
 ```
 
 _Males_
 
-```{r echo=FALSE}
+```{r echo=FALSE, out.width="50%"}
 knitr::include_graphics("MetaAnalyses/DevelopmentTime/DT_A_M_lmers_pop_meta_summary_effect.png")
 ```
 
@@ -4379,13 +4379,13 @@ knitr::include_graphics("MetaAnalyses/DevelopmentTime/DT_A_M_lmers_pop_meta_summ
 
 _Females_
 
-```{r echo=FALSE}
+```{r echo=FALSE, out.width="50%"}
 knitr::include_graphics("MetaAnalyses/DryWeight/DW_F_lmers_pop_meta_summary_effect.png")
 ```
 
 _Males_
 
-```{r echo=FALSE}
+```{r echo=FALSE, out.width="50%"}
 knitr::include_graphics("MetaAnalyses/DryWeight/DW_M_lmers_pop_meta_summary_effect.png")
 ```
 
@@ -4393,7 +4393,7 @@ knitr::include_graphics("MetaAnalyses/DryWeight/DW_M_lmers_pop_meta_summary_effe
 
 _Females_
 
-```{r echo=FALSE}
+```{r echo=FALSE, out.width="50%"}
 knitr::include_graphics("MetaAnalyses/ThoraxLength/TL_F_lmers_pop_meta_summary_effect.png")
 ```
 
@@ -4402,31 +4402,31 @@ knitr::include_graphics("MetaAnalyses/ThoraxLength/TL_F_lmers_pop_meta_summary_e
 _Left_
 _Females_
 
-```{r echo=FALSE}
+```{r echo=FALSE, out.width="50%"}
 knitr::include_graphics("MetaAnalyses/WingArea/WA_L_F_lmers_pop_meta_summary_effect.png")
 ```
 
 _Males_
 
-```{r echo=FALSE}
+```{r echo=FALSE, out.width="50%"}
 knitr::include_graphics("MetaAnalyses/WingArea/WA_L_M_lmers_pop_meta_summary_effect.png")
 ```
 
 _Right_
 _Females_
-```{r echo=FALSE}
+```{r echo=FALSE, out.width="50%"}
 knitr::include_graphics("MetaAnalyses/WingArea/WA_R_F_lmers_pop_meta_summary_effect.png")
 ```
 
 _Males_
 
-```{r echo=FALSE}
+```{r echo=FALSE, out.width="50%"}
 knitr::include_graphics("MetaAnalyses/WingArea/WA_R_M_lmers_pop_meta_summary_effect.png")
 ```
 
 ### Fecundity
 
-```{r echo=FALSE}
+```{r echo=FALSE, out.width="50%"}
 knitr::include_graphics("MetaAnalyses/Fecundity/Fec_F_lmers_pop_meta_summary_effect.png")
 ```
 
@@ -4434,13 +4434,13 @@ knitr::include_graphics("MetaAnalyses/Fecundity/Fec_F_lmers_pop_meta_summary_eff
 
 _Females_
 
-```{r echo=FALSE}
+```{r echo=FALSE, out.width="50%"}
 knitr::include_graphics("MetaAnalyses/Lifespan/LS_F_lmers_pop_meta_summary_effect.pdf")
 ```
 
 _Males_
 
-```{r echo=FALSE}
+```{r echo=FALSE, out.width="50%"}
 knitr::include_graphics("MetaAnalyses/Lifespan/LS_M_lmers_pop_meta_summary_effect.png")
 ```
 
@@ -4448,13 +4448,13 @@ knitr::include_graphics("MetaAnalyses/Lifespan/LS_M_lmers_pop_meta_summary_effec
 
 _Females_
 
-```{r echo=FALSE}
+```{r echo=FALSE, out.width="50%"}
 knitr::include_graphics("MetaAnalyses/ColdShock/CSM_F_lmers_pop_meta_summary_effect.png")
 ```
 
 _Males_
 
-```{r echo=FALSE}
+```{r echo=FALSE, out.width="50%"}
 knitr::include_graphics("MetaAnalyses/ColdShock/CSM_M_lmers_pop_meta_summary_effect.png")
 ```
 
@@ -4463,13 +4463,13 @@ knitr::include_graphics("MetaAnalyses/ColdShock/CSM_M_lmers_pop_meta_summary_eff
 
 _Females_
 
-```{r echo=FALSE}
+```{r echo=FALSE, out.width="50%"}
 knitr::include_graphics("MetaAnalyses/ChillComa/CCRT_F_lmers_pop_meta_summary_effect.png")
 ```
 
 _Males_
 
-```{r echo=FALSE}
+```{r echo=FALSE, out.width="50%"}
 knitr::include_graphics("MetaAnalyses/ChillComa/CCRT_M_lmers_pop_meta_summary_effect.png")
 ```
 
@@ -4478,20 +4478,20 @@ knitr::include_graphics("MetaAnalyses/ChillComa/CCRT_M_lmers_pop_meta_summary_ef
 
 _Females_
 
-```{r echo=FALSE}
+```{r echo=FALSE, out.width="50%"}
 knitr::include_graphics("MetaAnalyses/HeatShock/HSM_F_lmers_pop_meta_summary_effect.png")
 ```
 
 _Males_
 
-```{r echo=FALSE}
+```{r echo=FALSE, out.width="50%"}
 knitr::include_graphics("MetaAnalyses/HeatShock/HSM_M_lmers_pop_meta_summary_effect.png")
 ```
 
 ### Diapause
 
 Using GLMER estimates
-```{r echo=FALSE}
+```{r echo=FALSE, out.width="50%"}
 knitr::include_graphics("MetaAnalyses/Diapause/Dia_F_glmers_pop_meta_summary_effect.png")
 ```
 
@@ -4499,19 +4499,19 @@ knitr::include_graphics("MetaAnalyses/Diapause/Dia_F_glmers_pop_meta_summary_eff
 
 _Females_
 
-```{r echo=FALSE}
+```{r echo=FALSE, out.width="50%"}
 knitr::include_graphics("MetaAnalyses/Starvation/SR_F_lmers_pop_meta_summary_effect.png")
 ```
 
 _Males_
 
-```{r echo=FALSE}
+```{r echo=FALSE, out.width="50%"}
 knitr::include_graphics("MetaAnalyses/Starvation/SR_M_lmers_pop_meta_summary_effect.png")
 ```
 
 ### Pigmentation
 
-```{r echo=FALSE}
+```{r echo=FALSE, out.width="50%"}
 knitr::include_graphics("MetaAnalyses/Pigmentation/Pgm_Total_F_lmers_pop_meta_summary_effect.png")
 ```
 
@@ -4532,7 +4532,7 @@ pval_table_lat <- read.csv("LinearModelsLat/all_models_lat_pvalues.csv")
 ```
 
 ```{r, echo=FALSE}
-DT::datatable(pval_table_lat, options = list(pageLength = 25)) %>% formatRound(6, 4)
+DT::datatable(pval_table_lat, options = list(pageLength = 10)) %>% formatRound(6, 4)
 ```
 
 ## Geography - Longitude
@@ -4542,7 +4542,7 @@ pval_table_lon <- read.csv("LinearModelsLon/all_models_lon_pvalues.csv")
 ```
 
 ```{r, echo=FALSE}
-DT::datatable(pval_table_lon, options = list(pageLength = 25)) %>% formatRound(6, 4)
+DT::datatable(pval_table_lon, options = list(pageLength = 10)) %>% formatRound(6, 4)
 ```
 
 ## Geography - Altitude
@@ -4552,7 +4552,7 @@ pval_table_alt <- read.csv("LinearModelsAlt/all_models_alt_pvalues.csv")
 ```
 
 ```{r, echo=FALSE}
-DT::datatable(pval_table_alt, options = list(pageLength = 25)) %>% formatRound(6, 4)
+DT::datatable(pval_table_alt, options = list(pageLength = 10)) %>% formatRound(6, 4)
 ```
 
 ## Geography - Altitude
@@ -4560,38 +4560,38 @@ DT::datatable(pval_table_alt, options = list(pageLength = 25)) %>% formatRound(6
 # Results : GeoCorrelations
 
 ## Latitude - Line
-```{r}
+```{r echo=FALSE}
 knitr::include_graphics("GeoCorrelations/line_lat_pearson_correlations_facets.png")
 ```
 
-```{r}
+```{r echo=FALSE, out.width="50%"}
 knitr::include_graphics("GeoCorrelations/line_lat_pearson_correlations.png")
 ```
 
 ## Latitude - Population
-```{r}
+```{r echo=FALSE}
 knitr::include_graphics("GeoCorrelations/pop_lat_pearson_correlations_facets.png")
 ```
 
-```{r}
+```{r echo=FALSE, out.width="50%"}
 knitr::include_graphics("GeoCorrelations/pop_lat_pearson_correlations.png")
 ```
 
 ## Longtitude - Line
-```{r}
+```{r echo=FALSE}
 knitr::include_graphics("GeoCorrelations/line_lon_pearson_correlations_facets.png")
 ```
 
-```{r}
+```{r echo=FALSE, out.width="50%"}
 knitr::include_graphics("GeoCorrelations/line_lon_pearson_correlations.png")
 ```
 
 ## Longtitude - Population
-```{r}
+```{r echo=FALSE}
 knitr::include_graphics("GeoCorrelations/pop_lon_pearson_correlations_facets.png")
 ```
 
-```{r}
+```{r echo=FALSE, out.width="50%"}
 knitr::include_graphics("GeoCorrelations/pop_lon_pearson_correlations.png")
 ```
 
@@ -4599,101 +4599,116 @@ knitr::include_graphics("GeoCorrelations/pop_lon_pearson_correlations.png")
 
 ## Overview
 
-```{r}
+```{r echo=FALSE, out.width="50%"}
 knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_facets.png")
 ```
 
-```{r}
+```{r echo=FALSE, out.width="75%"}
 knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_traits_facets.png")
 ```
 
-```{r}
+```{r echo=FALSE}
 knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_traits_pop_facets.png")
 ```
 
-```{r}
+```{r echo=FALSE}
 knitr::include_graphics("Diets/DrosEU_Diets_lab_traits_pop_facets.png")
 ```
 
-### Cold-shock mortality
-```{r}
-knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_CSM_pop_facets.png")
-```
+### Plots by trait
 
-### Diapause
-```{r}
-knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_Dia_pop_facets.png")
-```
-
-### Development time
-```{r}
-knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_DT_A_pop_facets.png")
-```
-
-### Dry weight
-```{r}
-knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_DW_pop_facets.png")
-```
-
-### Fecundity
-```{r}
-knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_Fec_pop_facets.png")
-```
-
-### Heat-shock mortality
-```{r}
-knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_HSM_pop_facets.png")
-```
-
-### Lifespan
-```{r}
-knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_LS_pop_facets.png")
-```
-
-### Pigmentation
-```{r}
-knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_Pgm_T4_pop_facets.png")
-```
-
-```{r}
-knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_Pgm_T5_pop_facets.png")
-```
-
-```{r}
-knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_Pgm_T6_pop_facets.pdf")
-```
-
-```{r}
-knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_Pgm_Total_pop_facets.png")
-```
-
-### Starvation resistance 
-```{r}
-knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_SR_pop_facets.png")
-```
-
-### Thorax length
-```{r}
-knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_TL_pop_facets.png")
-```
-
-### Viability
-```{r}
+#### Viability
+```{r echo=FALSE, out.width="50%"}
 knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_Via_pop_facets.png")
 ```
 
-### Wing area
-```{r}
+#### Development time
+```{r echo=FALSE, out.width="50%"}
+knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_DT_A_pop_facets.png")
+```
+
+#### Dry weight
+```{r echo=FALSE, out.width="50%"}
+knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_DW_pop_facets.png")
+```
+
+#### Thorax length
+```{r echo=FALSE, out.width="50%"}
+knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_TL_pop_facets.png")
+```
+
+#### Wing area
+```{r echo=FALSE, out.width="50%"}
 knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_WA_L_pop_facets.png")
 ```
 
-```{r}
+#### Fecundity
+```{r echo=FALSE, out.width="50%"}
+knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_Fec_pop_facets.png")
+```
+
+#### Lifespan
+```{r echo=FALSE, out.width="50%"}
+knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_LS_pop_facets.png")
+```
+
+#### Cold-shock mortality
+```{r echo=FALSE, out.width="50%"}
+knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_CSM_pop_facets.png")
+```
+
+#### Heat-shock mortality
+```{r echo=FALSE, out.width="50%"}
+knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_HSM_pop_facets.png")
+```
+
+#### Diapause
+```{r echo=FALSE, out.width="50%"}
+knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_Dia_pop_facets.png")
+```
+
+#### Starvation resistance 
+```{r echo=FALSE, out.width="50%"}
+knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_SR_pop_facets.png")
+```
+
+```{r echo=FALSE, out.width="50%"}
 knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_WA_R_pop_facets.png")
+```
+
+#### Pigmentation
+```{r echo=FALSE, out.width="50%"}
+knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_Pgm_T4_pop_facets.png")
+```
+
+```{r echo=FALSE, out.width="50%"}
+knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_Pgm_T5_pop_facets.png")
+```
+
+```{r echo=FALSE, out.width="50%"}
+knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_Pgm_T6_pop_facets.pdf")
+```
+
+```{r echo=FALSE, out.width="50%"}
+knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_Pgm_Total_pop_facets.png")
 ```
 
 ## PCAs with ~similar P:C ratio datasets 
 
-Notes
+
+```{r include=FALSE}
+colorize <- function(x, color) {
+  if (knitr::is_latex_output()) {
+    sprintf("\\textcolor{%s}{%s}", color, x)
+  } else if (knitr::is_html_output()) {
+    sprintf("<span style='color: %s;'>%s</span>", color,
+      x)
+  } else x
+}
+```
+
+_Notes_
+
 - Using model estimates for line rather than raw data (scaled to
 unit variance).
 
@@ -4716,13 +4731,15 @@ from a single lab but with similar P:C ratio in diet.
   
 - Loadings of traits on to PCs are considered of interest if greater than > 0.4 (or < -0.4).
 
-  - Loadings > 0.6 are in bold red
+  - Loadings `r colorize("__> 0.6__", "red")` are in `r colorize("bold red", "red")`
   
-  - Loadings from 0.4 - 0.59 are in dark red
+  - Loadings from `r colorize("0.4 - 0.59", "darkred")`  are in `r colorize("dark red", "darkred")`
   
-
 ```{r echo=FALSE}
 knitr::include_graphics("LinearModelsPop/PCA_ControlledDiet/PCAd_4_Rmd/PCAd_r_Rmd1.pdf")
+```
+
+```{r echo=FALSE}
 knitr::include_graphics("LinearModelsPop/PCA_ControlledDiet/PCAd_4_Rmd/PCAd_r_Rmd2.pdf")
 ```
 
@@ -4739,6 +4756,9 @@ strongly onto PC4)
 
 ```{r echo=FALSE}
 knitr::include_graphics("LinearModelsPop/PCA_ControlledDiet/PCAd_4_Rmd/PCAd_r_Rmd3.pdf")
+```
+
+```{r echo=FALSE}
 knitr::include_graphics("LinearModelsPop/PCA_ControlledDiet/PCAd_4_Rmd/PCAd_r_Rmd4.pdf")
 ```
 
@@ -4754,6 +4774,9 @@ knitr::include_graphics("LinearModelsPop/PCA_ControlledDiet/PCAd_4_Rmd/PCAd_r_Rm
 
 ```{r echo=FALSE}
 knitr::include_graphics("LinearModelsPop/PCA_ControlledDiet/PCAd_4_Rmd/PCAd_r_Rmd5.pdf")
+```
+
+```{r echo=FALSE}
 knitr::include_graphics("LinearModelsPop/PCA_ControlledDiet/PCAd_4_Rmd/PCAd_r_Rmd6.pdf")
 ```
 
@@ -4771,6 +4794,9 @@ weaker (loading < 0.4)
 
 ```{r echo=FALSE}
 knitr::include_graphics("LinearModelsPop/PCA_ControlledDiet/PCAd_4_Rmd/PCAd_r_Rmd7.pdf")
+```
+
+```{r echo=FALSE}
 knitr::include_graphics("LinearModelsPop/PCA_ControlledDiet/PCAd_4_Rmd/PCAd_r_Rmd8.pdf")
 ```
 
@@ -4801,7 +4827,7 @@ knitr::include_graphics("LinearModelsPop/PCA_ControlledDiet/PCAd_4_Rmd/PCAd_r_Rm
 _**Please refer to /LabCorrelations folder for trait-specific plots*_
 
 ## Pearson's - Line
-```{r echo=FALSE, out.width="50%"}
+```{r echo=FALSE, out.width="100%", out.height="100%"}
 knitr::include_graphics("LabCorrelations/lab_correlation_line_pearson.png")
 ```
 
@@ -4827,41 +4853,42 @@ knitr::include_graphics("LabCorrelations/lab_correlation_pop_spearman.png")
 (iii) PCAs
 
 ## Pearson's 
-```{r}
+```{r echo=FALSE}
 knitr::include_graphics("TraitCorrelations/trait_correlations_f9_line_random_coefs_diet.png")
 ```
 
-```{r}
+```{r echo=FALSE}
 knitr::include_graphics("TraitCorrelations/trait_correlations_f9_line_random_coefs.png")
 ```
 
-```{r}
+```{r echo=FALSE}
 knitr::include_graphics("TraitCorrelations/trait_correlations_fmax_line_random_coefs_diet.png")
 ```
 
-```{r}
+```{r echo=FALSE}
 knitr::include_graphics("TraitCorrelations/trait_correlations_fmax_line_random_coefs.png")
 ```
 
-```{r}
+```{r echo=FALSE}
 knitr::include_graphics("TraitCorrelations/trait_correlations_fmaxp_line_random_coefs_diet.png")
 ```
 
-```{r}
+```{r echo=FALSE}
 knitr::include_graphics("TraitCorrelations/trait_correlations_fmaxp_line_random_coefs.png")
 ```
 
-```{r}
+```{r echo=FALSE}
 knitr::include_graphics("TraitCorrelations/trait_correlations_m9_line_random_coefs_diet.png")
 ```
 
-```{r}
+```{r echo=FALSE}
 knitr::include_graphics("TraitCorrelations/trait_correlations_m9_line_random_coefs.png")
 ```
 
 ## PCA
 
-__**Notes**__
+_Notes_
+
 - Using model estimates for line rather than raw data (scaled to unit variance).
 
 - Sexes dealt with seperately
@@ -4876,8 +4903,9 @@ __**Notes**__
 
 - Loadings of traits on to PCs are considered of interest if greater than > 0.4 (or < -0.4).
 
-  - Loadings __> 0.6__ are in __bold red__
-  - Loadings from __0.4__ - __0.59__ are in __dark red__
+  - Loadings `r colorize("__> 0.6__", "red")` are in `r colorize("bold red", "red")`
+  
+  - Loadings from `r colorize("0.4 - 0.59", "darkred")`  are in `r colorize("dark red", "darkred")`
 
 ```{r echo=FALSE}
 knitr::include_graphics("EnvironmentalAnalysis/PCA_Results/PCA_4_Rmd/PCA_4_Rmd_Page_1.png")
@@ -4910,6 +4938,9 @@ knitr::include_graphics("EnvironmentalAnalysis/PCA_Results/PCA_4_Rmd/PCA_4_Rmd_P
 
 ```{r, echo=FALSE}
 knitr::include_graphics("EnvironmentalAnalysis/PCA_Results/PCA_4_Rmd/PCA_4_Rmd_Page_2.png")
+```
+
+```{r, echo=FALSE}
 knitr::include_graphics("EnvironmentalAnalysis/PCA_Results/PCA_4_Rmd/PCA_4_Rmd_Page_3.png")
 ```
 
@@ -4949,6 +4980,9 @@ knitr::include_graphics("EnvironmentalAnalysis/PCA_Results/PCA_4_Rmd/PCA_4_Rmd_P
 
 ```{r, echo=FALSE}
 knitr::include_graphics("EnvironmentalAnalysis/PCA_Results/PCA_4_Rmd/PCA_4_Rmd_Page_4.png")
+```
+
+```{r, echo=FALSE}
 knitr::include_graphics("EnvironmentalAnalysis/PCA_Results/PCA_4_Rmd/PCA_4_Rmd_Page_5.png")
 ```
 
@@ -4989,6 +5023,10 @@ knitr::include_graphics("EnvironmentalAnalysis/PCA_Results/PCA_4_Rmd/PCA_4_Rmd_P
 
 ```{r echo=FALSE}
 knitr::include_graphics("EnvironmentalAnalysis/PCA_Results/PCA_4_Rmd/PCA_4_Rmd_Page_6.png")
+```
+
+
+```{r echo=FALSE}
 knitr::include_graphics("EnvironmentalAnalysis/PCA_Results/PCA_4_Rmd/PCA_4_Rmd_Page_7.png")
 ```
 
@@ -5078,42 +5116,39 @@ knitr::include_graphics("EnvironmentalAnalysis/PCA_Results/PCA_4_Rmd/PCA_4_Rmd_P
 
 ### Females 
 
-```{r out.width="50%"}
+```{r out.width="50%", echo=FALSE}
 knitr::include_graphics("TraitCorrelations/FromMR/FemaleParCor.png")
 knitr::include_graphics("TraitCorrelations/FromMR/FemaleDis.png")
 ```
 
 ### Males
 
-```{r out.width="50%"}
+```{r out.width="50%", echo=FALSE}
 knitr::include_graphics("TraitCorrelations/FromMR/MaleCor.png")
 knitr::include_graphics("TraitCorrelations/FromMR/MaleParCor.png")
 knitr::include_graphics("TraitCorrelations/FromMR/MaleDis.png")
 ```
 
-# Results : Climatic variables _add AB results_
+# Results : Climatic variables 
 
-```{r eval=FALSE, include=FALSE}
-VT_results <- readxl::read_xlsx("EnvironmentalAnalysis/PCA_clim/TraitsCombined/summary_all_traits_compare_30y_vs_30d.xlsx")
-DT::datatable(VT_results, options = list(pageLength = 10))
-```
+## From Venera 
 
 For the analyses of the climatic variables, two time periods were chosen: 30 years (to trace the long-lasting climatic effects) and 30 days (short weather effect, on average over a couple generations for different localities, to account for maternal/grand-maternal effects). 14 climatic variables data (see the list below) was downloaded from the NASA database using R package “nasapower” and PCA analysis was done with “FactoMineR” package.
 
-```{r}
+```{r echo=FALSE}
 ClimVarPCA <- read.csv("EnvironmentalAnalysis/PCA_clim/TraitsCombined/ClimVar4PCA_4Rmd.csv")
 knitr::kable(ClimVarPCA, caption = 'Table X: List of the climatic variables used in PCA.')
 ```
 
 __PCA for 30 days data__ 
 
-```{r}
+```{r echo=FALSE}
 knitr::include_graphics("EnvironmentalAnalysis/PCA_clim/TraitsCombined/graphs/30d_PCA.png")
 ```
 
 __PCA for 30 years data__ 
 
-```{r}
+```{r echo=FALSE}
 knitr::include_graphics("EnvironmentalAnalysis/PCA_clim/TraitsCombined/graphs/30y_PCA.png")
 ```
 
@@ -5122,13 +5157,13 @@ First two PCs in both datasets had eigen values >1 explaining 94.7% (30 days) an
 
 __PCA for 30 days data__ 
 
-```{r}
+```{r echo=FALSE}
 knitr::include_graphics("EnvironmentalAnalysis/PCA_clim/TraitsCombined/graphs/30d_scree_plot.png")
 ```
 
 __PCA for 30 years data__ 
 
-```{r}
+```{r echo=FALSE}
 knitr::include_graphics("EnvironmentalAnalysis/PCA_clim/TraitsCombined/graphs/30y_scree_plot.png")
 ```
 
@@ -5137,13 +5172,13 @@ The populations are separated in two dimensions rather differently in two datase
 
 __PCA for 30 days data__ 
 
-```{r}
+```{r echo=FALSE}
 knitr::include_graphics("EnvironmentalAnalysis/PCA_clim/TraitsCombined/graphs/30d_PCA_pops.png")
 ```
 
 __PCA for 30 years data__ 
 
-```{r}
+```{r echo=FALSE}
 knitr::include_graphics("EnvironmentalAnalysis/PCA_clim/TraitsCombined/graphs/30y_PCA_pops.png")
 ```
 
@@ -5153,14 +5188,14 @@ PC1 is mostly affected by the temperature values (but not only), while precipita
 
 __PCA for 30 days data__ 
 
-```{r}
+```{r echo=FALSE}
 knitr::include_graphics("EnvironmentalAnalysis/PCA_clim/TraitsCombined/graphs/30d_PC1_contr.png")
 knitr::include_graphics("EnvironmentalAnalysis/PCA_clim/TraitsCombined/graphs/30d_PC2_contr.png")
 ```
 
 __PCA for 30 years data__ 
 
-```{r}
+```{r echo=FALSE}
 knitr::include_graphics("EnvironmentalAnalysis/PCA_clim/TraitsCombined/graphs/30y_PC1_contr.png")
 knitr::include_graphics("EnvironmentalAnalysis/PCA_clim/TraitsCombined/graphs/30y_PC2_contr.png")
 ```
@@ -5169,25 +5204,74 @@ Correlation with geographical coordinates
 
 __PCA for 30 days data__ 
 
-```{r}
+```{r echo=FALSE}
 knitr::include_graphics("EnvironmentalAnalysis/PCA_clim/TraitsCombined/graphs/30d_correlations.png")
 ```
 
 __PCA for 30 years data__ 
 
-```{r}
+```{r echo=FALSE}
 knitr::include_graphics("EnvironmentalAnalysis/PCA_clim/TraitsCombined/graphs/30y_correlations.png")
 ```
 
 Analysis of the trait PCA (Ewan) with the climate data PCA (above). 
 
-```{r}
+```{r echo=FALSE}
 knitr::include_graphics("EnvironmentalAnalysis/PCA_clim/TraitsCombined/ClimVarTable_4Rmd.png")
 ```
 
 There is a strong association of trait PC2 with climate PCs in both datasets. However, the association of the trait PC3 with climate PCs is clear in 30-years dataset (in 30-day dataset - only clim PC2 shows association in F9 set).
 
+## From Alan
 
+_Goal_: Test whether phenotypic variation in isofemale lines collected at different locations is correlated with aspects of weather and climate prior to sampling. To perform this analysis, I propose that 
+
+_Dataset_: 
+- Phenotype data: metaanalysis estimates of phenotypes, individual phenotypes + PCA reduction of phenotype space
+
+- Environmental data: NASApower data
+    - Temperature, Rainfall, Humidity. What else?
+
+_Strategy_: 
+- The goal is to build a large number of models for each phenotype. Each model will regress phenotype (or PCA projection) onto one of the environmental variables, or summarizations of the environmental variables. 
+
+- For each phenotype and model, we can assess whether the environmental model is:
+  - “Significant” p<0.05
+  - “Significant after multiple testing correction” depends on how many environmental models
+  - Has normalized effect size with confidence intervals that do not overlap 
+  
+- We can also assess whether the direction of the environmental effect is consistent with a priori expectations. For instance we can predict that cold-shock-mortality will be lower in locations that more recently experienced a cold shock.
+
+_Data transformations_:
+- Normalize phenotype data & environmental data: `(Estimate-mean(Estimate, na.rm=T))/sd(Estimate, na.rm=T)`
+- Do we use the population means? Or do we use the line means?
+  - Line means give us more power, but population means is a more conservative model
+- How do we summarize environmental data?
+  - Windows of time: 
+    - I suggest that we keep things relatively simple, e.g., 1 day prior to collection, 1 week prior, 1 month prior, 6 months prior, 12 months prior.
+- Summarization functions:
+  - The mean, min, max
+  - Number of days above or below a pre-defined threshold
+  - Other more sophisticated functions (e.g., those that Vera used)
+
+_Problems_:
+- Model selection and multiple testing
+
+Here is an analysis that highlights some of the ways I have been looking at the data. Some aspects are clear, some are less so. I’d be curious to hear your thoughts and also to work with you both to sort out any analyses.
+
+```{r echo=FALSE}
+knitr::include_graphics("EnvironmentalAnalysis/FromAB/DriveDoc1.jpg")
+```
+
+The color represents eta-squared, which is a standardized estimate of effect size. Like, R2. Orange boxes mean that this model is the best model by AIC. Green boxes mean that this model has delta-AIC < 2 from the best model. A dot means that the confidence intervals for eta2 do not overlap 0. A blue dot means that the slope of the relationship between the phenotype and the environment is positive. A red dot means that it is negative.
+
+Heat shock mortality makes sense. The best model is the proportion of days in the 30 days prior to sampling when the maximum temp is about ~35°C. There is a negative relationship that means that the more days of high temp, the lower the HSM. 
+
+CSM is less clear: cold shock mortality in females is best predicted by the minimum temperature in the 30 days prior to sampling. There is a negative relationship meaning that CSM is higher when the minimum temp is lower. 
+
+```{r echo=FALSE}
+knitr::include_graphics("EnvironmentalAnalysis/FromAB/MailDoc1.jpg")
+```
 
 # Results : GDM
 
@@ -5210,12 +5294,12 @@ knitr::kable(GDM_table2, caption = 'Table 2: Proportion of variation in phenotyp
 
 _Table 3: Result of generalized dissimilarity model for phenotypic variables, the most important predictor variables were shown in bold._
 
-```{r}
+```{r echo=FALSE}
 knitr::include_graphics("GDM/GDM_Table3_4Rmd.png")
 ```
 
 ## Dry weight
-```{r, out.width="50%"}
+```{r echo=FALSE, out.width="40%", out.height="40%"}
 knitr::include_graphics("GDM/GDM_Worldclim/DW_M/DW_M_vapr7_i-spline.jpeg")
 ```
 
