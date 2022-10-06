@@ -19,7 +19,7 @@ setwd("~/Work/UNIFR/GitHub/DrosEU_PhenotypingWG/")
 
 
 ##### make new ouput directory #####
-dir.create("Diets")
+dir.create("Diets", showWarnings = FALSE)
 
 ##### source functions #####
 source("Code/functions.R")
@@ -60,7 +60,7 @@ p1 <- select(d, Lab, PC, Diet, Group) %>%
   theme(plot.title = element_text(size = 15))
 
 ggsave(p1,
-  filename = "Diets/DrosEU_Diets_PC_ratios_facets.pdf",
+  filename = "Diets/DrosEU_Diets_PC_ratios_facets.png",
   width = 6,
   height = 6
 )
@@ -90,7 +90,7 @@ p3 <- select(d, Lab, PC, Diet, Group) %>%
   theme(plot.title = element_text(size = 15))
 
 ggsave(ggarrange(p2, p3),
-  filename = "Diets/DrosEU_Diets_PC_ratios.pdf",
+  filename = "Diets/DrosEU_Diets_PC_ratios.png",
   width = 6,
   height = 6
 )
@@ -110,7 +110,7 @@ p4 <- ggplot(data = d, aes(x = PC, y = Trait_long, color = Diet)) +
   theme(plot.title = element_text(size = 15))
 
 ggsave(p4,
-  filename = "Diets/DrosEU_Diets_PC_ratios_traits_facets.pdf",
+  filename = "Diets/DrosEU_Diets_PC_ratios_traits_facets.png",
   width = 8,
   height = 6
 )
@@ -124,7 +124,10 @@ p5 <- ggplot(data = d, aes(x = PC, y = Trait_short, color = Diet)) +
   theme(panel.grid.major.y = element_line(size = 0.5)) +
   theme(plot.title = element_text(size = 15))
 
-p6 <- ggplot(data = d, aes(x = PC, y = Trait_short, color = Diet)) +
+p6 <- d %>%
+  filter(Group == "P/C < 1") %>%
+  distinct() %>%
+  ggplot(aes(x = PC, y = Trait_short, color = Diet)) +
   geom_point(size = 3, alpha = 0.5) +
   theme_bw(base_size = 18) +
   labs(y = "Traits", x = "P/C", title = "Without extreme ratios") +
@@ -132,7 +135,7 @@ p6 <- ggplot(data = d, aes(x = PC, y = Trait_short, color = Diet)) +
   theme(plot.title = element_text(size = 15))
 
   ggsave(ggarrange(p5, p6, common.legend = TRUE),
-    filename = "Diets/DrosEU_Diets_PC_ratios_traits.pdf",
+    filename = "Diets/DrosEU_Diets_PC_ratios_traits.png",
     width = 6,
     height = 6
   )
@@ -253,7 +256,7 @@ for (i in seq_len(length(pop_coefs_list))) {
 
     ggsave(p,
       filename = paste("Diets/DrosEU_Diets_PC_ratios_", unique(trait$Trait),
-        "_pop_facets.pdf", sep = ""),
+        "_pop_facets.png", sep = ""),
       width = 7, height = 6
     )
   }
@@ -279,7 +282,7 @@ pop_estimates_labs_facets <- pop_coefs %>%
     labs(x = "Lab (ordered by increasing P/C ratio)", y = "Population estimate")
 
 ggsave(pop_estimates_labs_facets,
-  filename = "Diets/DrosEU_Diets_lab_traits_pop_facets.pdf",
+  filename = "Diets/DrosEU_Diets_lab_traits_pop_facets.png",
   width = 14,
   height = 10
 )
@@ -300,7 +303,7 @@ pop_estimates_pc_facets <- pop_coefs %>%
   labs(x = "Lab P/C ratio", y = "Population estimate")
 
 ggsave(pop_estimates_pc_facets,
-  filename = "Diets/DrosEU_Diets_PC_ratios_traits_pop_facets.pdf",
+  filename = "Diets/DrosEU_Diets_PC_ratios_traits_pop_facets.png",
   width = 14,
   height = 10
 )
@@ -309,7 +312,7 @@ ggsave(pop_estimates_pc_facets,
 
 ####### META REGRESSION WITH LAB AND DIET
 
-dir.create("MetaRegressionDiet")
+dir.create("MetaRegressionDiet", showWarnings = FALSE)
 
 ##### get all the line estimates, from all the traits
 
@@ -343,6 +346,8 @@ trait_dirs <- data.frame(Trait = traits, Dir = directories)
 
 
 ##### loop over estimates per trait and sex
+
+r2 <- list()
 
 for (i in seq_len(length(estimates_list))) {
 
@@ -422,8 +427,27 @@ for (i in seq_len(length(estimates_list))) {
 
   write.csv(output, file = sub(".rds", "_r2.csv", out_path))
 
+  r2[[i]] <- output
+
 }
 
+r2_all <- bind_rows(r2)
+
+r2_facets <- r2_all %>%
+  mutate(
+    Group = paste(Trait, Sex),
+    Moderator = str_replace(Moderator, "Population", "Pop")) %>%
+  ggplot(aes(x = Moderator, y = R2, fill = Moderator)) +
+    geom_bar(stat = "identity") +
+    facet_wrap(Group ~ .) +
+    theme_bw(14) +
+    theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1))
 
 
-# stil needs to combine all that in a table
+
+ggsave(r2_facets,
+  filename = "MetaRegressionDiet/all_models_pop_meta_reg_diets_facets.png",
+  width = 14,
+  height = 10
+)
+

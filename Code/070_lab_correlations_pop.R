@@ -21,7 +21,7 @@ source("Functions/lab_correlations_functions.R")
 
 ##### create output directory
 cor_dir <- "LabCorrelations"
-dir.create(cor_dir, showWarnings = F) 
+dir.create(cor_dir, showWarnings = FALSE)
 
 
 
@@ -55,7 +55,7 @@ for (i in 1:length(estimates)){
     }
   }
 }
-  
+
 
 
 ##### LINE LEVEL
@@ -168,13 +168,13 @@ pop_cor <- ggplot(cor_pearson, aes(x = R, y = -log10(P))) +
   facet_wrap(Group ~ ., ncol = 7) +
   scale_x_continuous(breaks = c(-0.5, 0, 0.5, 1)) +
   theme_bw(14) +
-  labs(x = "Pearson's correlation coefficient", title = "Pairwise lab correlations - Population level - Pearson's coefficients") +
+  labs(x = "Pearson's correlation coefficient", title = "Pairwise lab correlations - Population level - Pearson's coefficients", subtitle = "n, number of labs; nc, number of pairwise lab combinations; ncs, number of significant correlations") +
   theme(legend.position = "none",
         panel.grid = element_blank()) +
   geom_text(data = stats_text, aes(label = paste(nl, nc, ncs, sep = "\n"), x = xmin, y = ymax), hjust = 0, vjust = 1, size = 3.5)
 
 ##### save facet plot
-ggsave(pop_cor, filename = "LabCorrelations/lab_correlation_pop_pearson.pdf", width = 11.69, height = 8.27)
+ggsave(pop_cor, filename = "LabCorrelations/lab_correlation_pop_pearson.png", width = 11.69, height = 8.27)
 
 
 
@@ -258,14 +258,14 @@ pop_cor <- ggplot(cor_spearman, aes(x = R, y = -log10(P))) +
   facet_wrap(Group ~ ., ncol = 7) +
   scale_x_continuous(breaks = c(-0.5, 0, 0.5, 1)) +
   theme_bw(14) +
-  labs(x = "Spearman's correlation coefficient", title = "Pairwise lab correlations - Population level - Spearman's coefficients") +
+  labs(x = "Spearman's correlation coefficient", title = "Pairwise lab correlations - Population level - Spearman's coefficients", subtitle = "n, number of labs; nc, number of pairwise lab combinations; ncs, number of significant correlations") +
   theme(legend.position = "none",
         panel.grid = element_blank()) +
   geom_text(data = stats_text, aes(label = paste(nl, nc, ncs, sep = "\n"), x = xmin, y = ymax), hjust = 0, vjust = 1, size = 3.5)
 
 
 ##### save facet plot
-ggsave(pop_cor, filename = "LabCorrelations/lab_correlation_pop_spearman.pdf", width = 11.69, height = 8.27)
+ggsave(pop_cor, filename = "LabCorrelations/lab_correlation_pop_spearman.png", width = 11.69, height = 8.27)
 
 
 
@@ -351,14 +351,14 @@ line_cor <- ggplot(cor_pearson, aes(x = R, y = -log10(P))) +
   facet_wrap(Group ~ ., ncol = 7) +
   scale_x_continuous(breaks = c(-0.5, 0, 0.5)) +
   theme_bw(14) +
-  labs(x = "Pearson's correlation coefficient", title = "Pairwise lab correlations - Line level - Pearson's coefficients") +
+  labs(x = "Pearson's correlation coefficient", title = "Pairwise lab correlations - Line level - Pearson's coefficients", subtitle = "n, number of labs; nc, number of pairwise lab combinations; ncs, number of significant correlations") +
   theme(legend.position = "none",
         panel.grid = element_blank()) +
   geom_text(data = stats_text, aes(label = paste(nl, nc, ncs, sep = "\n"), x = xmin, y = ymax), hjust = 0, vjust = 1, size = 3.5)
 
 
 
-ggsave(line_cor, filename = "LabCorrelations/lab_correlation_line_pearson.pdf", width = 11.69, height = 8.27)
+ggsave(line_cor, filename = "LabCorrelations/lab_correlation_line_pearson.png", width = 11.69, height = 8.27)
 
 
 
