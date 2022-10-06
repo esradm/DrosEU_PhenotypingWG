@@ -195,7 +195,7 @@ pvalue_plot <- all_metas_pvalues_adj %>%
   annotate("text", x = max(all_metas_pvalues_adj$Q), y = -log10(bh_thresh) + 0.2, label = "BH threshold", hjust = 1, vjust = 0) +
   theme(plot.title = element_text(size = 16))
 
-ggsave(pvalue_plot, filename = file.path(meta_dir, "all_models_pop_meta_pvalues.png"), height = 5, width = 5)
+ggsave(pvalue_plot, filename = file.path(meta_dir, "all_models_pop_meta_pvalues.png"), height = 5, width = 5, dpi = 120)
 
 
 
@@ -248,7 +248,7 @@ p_meta_CI_facet <- ggplot(data = meta_pops, aes(x = Estimate, y = y, color = Pop
 
 ##### save facet plot
 ggsave(p_meta_CI_facet, filename = "MetaAnalyses/all_models_pop_meta_summary_effect.pdf", width = 8.27, height = 11.69)
-ggsave(p_meta_CI_facet, filename = "MetaAnalyses/all_models_pop_meta_summary_effect.png", width = 8.27, height = 11.69)
+ggsave(p_meta_CI_facet, filename = "MetaAnalyses/all_models_pop_meta_summary_effect.png", width = 8.27, height = 11.69, dpi = 120)
 
 
 
@@ -291,6 +291,6 @@ for (i in 1:length(metas_pop_trait)){
             legend.position = "none")
     # save plot
     ggsave(p_meta_CI, filename = p_out_pdf, width = 5, height = 5)
-    ggsave(p_meta_CI, filename = p_out_png, width = 5, height = 5)
+    ggsave(p_meta_CI, filename = p_out_png, width = 5, height = 5, dpi = 120)
   }
 }
