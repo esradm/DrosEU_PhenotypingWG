@@ -4458,7 +4458,7 @@ print(lc_wide[1:30, 1:8])
 knitr::include_graphics("MetaAnalyses/all_models_pop_meta_summary_effect.png")
 ```
 
-```{r echo=FALSE}
+```{r echo=FALSE, out.width="50%"}
 knitr::include_graphics("MetaAnalyses/all_models_pop_meta_pvalues.png")
 ```
 
@@ -4508,26 +4508,25 @@ knitr::include_graphics("MetaAnalyses/ThoraxLength/TL_F_lmers_pop_meta_summary_e
 
 ### Wing area
 
-_Left_
-_Females_
+_Left Females_
 
 ```{r echo=FALSE, out.width="50%"}
 knitr::include_graphics("MetaAnalyses/WingArea/WA_L_F_lmers_pop_meta_summary_effect.png")
 ```
 
-_Males_
+_Left Males_
 
 ```{r echo=FALSE, out.width="50%"}
 knitr::include_graphics("MetaAnalyses/WingArea/WA_L_M_lmers_pop_meta_summary_effect.png")
 ```
 
-_Right_
-_Females_
+_Right Females_
+
 ```{r echo=FALSE, out.width="50%"}
 knitr::include_graphics("MetaAnalyses/WingArea/WA_R_F_lmers_pop_meta_summary_effect.png")
 ```
 
-_Males_
+_Right Males_
 
 ```{r echo=FALSE, out.width="50%"}
 knitr::include_graphics("MetaAnalyses/WingArea/WA_R_M_lmers_pop_meta_summary_effect.png")
@@ -4544,7 +4543,7 @@ knitr::include_graphics("MetaAnalyses/Fecundity/Fec_F_lmers_pop_meta_summary_eff
 _Females_
 
 ```{r echo=FALSE, out.width="50%"}
-knitr::include_graphics("MetaAnalyses/Lifespan/LS_F_lmers_pop_meta_summary_effect.pdf")
+knitr::include_graphics("MetaAnalyses/Lifespan/LS_F_lmers_pop_meta_summary_effect.png")
 ```
 
 _Males_
@@ -4600,6 +4599,7 @@ knitr::include_graphics("MetaAnalyses/HeatShock/HSM_M_lmers_pop_meta_summary_eff
 ### Diapause
 
 Using GLMER estimates
+
 ```{r echo=FALSE, out.width="50%"}
 knitr::include_graphics("MetaAnalyses/Diapause/Dia_F_glmers_pop_meta_summary_effect.png")
 ```
@@ -4704,232 +4704,7 @@ knitr::include_graphics("GeoCorrelations/pop_lon_pearson_correlations_facets.png
 knitr::include_graphics("GeoCorrelations/pop_lon_pearson_correlations.png")
 ```
 
-# Results : Diet
 
-## Overview
-
-```{r echo=FALSE, out.width="50%"}
-knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_facets.png")
-```
-
-```{r echo=FALSE, out.width="75%"}
-knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_traits_facets.png")
-```
-
-```{r echo=FALSE}
-knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_traits_pop_facets.png")
-```
-
-```{r echo=FALSE}
-knitr::include_graphics("Diets/DrosEU_Diets_lab_traits_pop_facets.png")
-```
-
-### Plots by trait
-
-#### Viability
-```{r echo=FALSE, out.width="50%"}
-knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_Via_pop_facets.png")
-```
-
-#### Development time
-```{r echo=FALSE, out.width="50%"}
-knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_DT_A_pop_facets.png")
-```
-
-#### Dry weight
-```{r echo=FALSE, out.width="50%"}
-knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_DW_pop_facets.png")
-```
-
-#### Thorax length
-```{r echo=FALSE, out.width="50%"}
-knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_TL_pop_facets.png")
-```
-
-#### Wing area
-```{r echo=FALSE, out.width="50%"}
-knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_WA_L_pop_facets.png")
-```
-
-#### Fecundity
-```{r echo=FALSE, out.width="50%"}
-knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_Fec_pop_facets.png")
-```
-
-#### Lifespan
-```{r echo=FALSE, out.width="50%"}
-knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_LS_pop_facets.png")
-```
-
-#### Cold-shock mortality
-```{r echo=FALSE, out.width="50%"}
-knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_CSM_pop_facets.png")
-```
-
-#### Heat-shock mortality
-```{r echo=FALSE, out.width="50%"}
-knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_HSM_pop_facets.png")
-```
-
-#### Diapause
-```{r echo=FALSE, out.width="50%"}
-knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_Dia_pop_facets.png")
-```
-
-#### Starvation resistance 
-```{r echo=FALSE, out.width="50%"}
-knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_SR_pop_facets.png")
-```
-
-```{r echo=FALSE, out.width="50%"}
-knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_WA_R_pop_facets.png")
-```
-
-#### Pigmentation
-```{r echo=FALSE, out.width="50%"}
-knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_Pgm_T4_pop_facets.png")
-```
-
-```{r echo=FALSE, out.width="50%"}
-knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_Pgm_T5_pop_facets.png")
-```
-
-```{r echo=FALSE, out.width="50%"}
-knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_Pgm_T6_pop_facets.pdf")
-```
-
-```{r echo=FALSE, out.width="50%"}
-knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_Pgm_Total_pop_facets.png")
-```
-
-## PCAs with ~similar P:C ratio datasets 
-
-
-```{r include=FALSE}
-colorize <- function(x, color) {
-  if (knitr::is_latex_output()) {
-    sprintf("\\textcolor{%s}{%s}", color, x)
-  } else if (knitr::is_html_output()) {
-    sprintf("<span style='color: %s;'>%s</span>", color,
-      x)
-  } else x
-}
-```
-
-_Notes_
-
-- Using model estimates for line rather than raw data (scaled to
-unit variance).
-
-- Comparing all data (i.e. the previous analysis) with estimates
-from a single lab but with similar P:C ratio in diet.
-
-- TL is missing from males
-
-- Lmer estimates (rather than glmer estimates used for dia)
-
-- Sexes dealt with separately
-
-  - PCA1 (M9) – male PCA with 9 traits
-  
-  - PCA2 (F9) – female PCA with 9 traits equivalent to males
-  
-  - PCA3 (Fmax) – female PCA with all 12 female traits
-  
-  - PCA4 (FmaxPlus) – female PCA with 13 traits (12 female traits + via)
-  
-- Loadings of traits on to PCs are considered of interest if greater than > 0.4 (or < -0.4).
-
-  - Loadings `r colorize("__> 0.6__", "red")` are in `r colorize("bold red", "red")`
-  
-  - Loadings from `r colorize("0.4 - 0.59", "darkred")`  are in `r colorize("dark red", "darkred")`
-  
-```{r echo=FALSE}
-knitr::include_graphics("LinearModelsPop/PCA_ControlledDiet/PCAd_4_Rmd/PCAd_r_Rmd1.pdf")
-```
-
-```{r echo=FALSE}
-knitr::include_graphics("LinearModelsPop/PCA_ControlledDiet/PCAd_4_Rmd/PCAd_r_Rmd2.pdf")
-```
-
-### PCA 1 differences
-
-- The main axes of variation have ‘swapped’.  
-  - In the all data analysis, CCRT + CSM (-ve) and DW + WA (+ve) load on to PC1, in the P:C control, they load onto PC2.  
-  - In all data, HSM + LS (-ve) and WA (+ve) load on to PC2, in the P:C control they load onto PC1  
-  - A direct inverse correlation between HSM and CSM + SR has strengthened for PC3 in the P:C control  
-- What could be driving changes?  
-  - There is no TL in P:C control, so the body size correlations may be less strong?  
-  - In the P:C control DT_A loads onto PC1 (but in all data it only loads
-strongly onto PC4)
-
-```{r echo=FALSE}
-knitr::include_graphics("LinearModelsPop/PCA_ControlledDiet/PCAd_4_Rmd/PCAd_r_Rmd3.pdf")
-```
-
-```{r echo=FALSE}
-knitr::include_graphics("LinearModelsPop/PCA_ControlledDiet/PCAd_4_Rmd/PCAd_r_Rmd4.pdf")
-```
-
-### PCA 2 results
-- The main axis of variation (PC1) is fairly similar  
-    - In both all data and P:C control size traits (DW, TL and WA) positively correlate. In all data they negatively correlate to LS, and in P:C control they positively correlate with DT_A.  
-
-- The negative correlation between CCRT and CSM moves from PC2 in all data to PC3 in P:C control, and the negative correlation between CSM and HSM is weaker (loading < 0.4)
-
-- Some trait correlations along PC2 and PC3 appear to have broken down
-
-- Again, it seems like DT_A is driving these changes (it correlates with both PC1 and PC2 in P:C control, but only PC4 in all data
-
-```{r echo=FALSE}
-knitr::include_graphics("LinearModelsPop/PCA_ControlledDiet/PCAd_4_Rmd/PCAd_r_Rmd5.pdf")
-```
-
-```{r echo=FALSE}
-knitr::include_graphics("LinearModelsPop/PCA_ControlledDiet/PCAd_4_Rmd/PCAd_r_Rmd6.pdf")
-```
-
-### PCA 3 results 
-- Similar to PCA 2 results in some ways: the main axis of variation (PC1) is again a size correlation:
-
-  - In both all data and P:C control size traits (DW, TL and WA) positively correlate. In all data they negatively correlate to LS, and in P:C control they positively correlate with DT_A and Pigm.
-  
-- The negative correlation between CCRT and CSM moves from PC3 in all data to PC2 in P:C control (similar but inverse to PCA 2 result).
-
-- Possible negative correlation between CSM and HSM, bu 
-weaker (loading < 0.4)
-
-- DT_A effect? Loss of fecundity correlations?
-
-```{r echo=FALSE}
-knitr::include_graphics("LinearModelsPop/PCA_ControlledDiet/PCAd_4_Rmd/PCAd_r_Rmd7.pdf")
-```
-
-```{r echo=FALSE}
-knitr::include_graphics("LinearModelsPop/PCA_ControlledDiet/PCAd_4_Rmd/PCAd_r_Rmd8.pdf")
-```
-
-### PCA 4 results
-
-- Similar results to PCA 2 and PCA 3.
-
-- Negative correlation between CSM and HSM on PC3 is now maintained with highish loadings (> 0.4), although correlation of dia has switched signs.
-  
-  - Across PCA 3 and PCA 4 there is a disassociation of the all data PC3 (+CCRT +dia +HSM –CSM)
-
-- Again, DT_A is strong, viability and fecundity do not retain high loading for PC1, 2 or 3
-
-### Summary
-
-- Some important changes to trait correlations between all data and P:C controlled data. Some patterns remain similar, but the North/South divide (at least in females) is less clear.
-
-- Strong effect of development time, suggesting that DT_A variability may be more influenced by diet than other traits? Perhaps not surprising, given nutritional/resource thresholds for metamorphosis?
-
-- On the other hand, fecundity, viability (and to a lesser extent life span) lose importance 
-
-– why might this be?
-
-  - Could inter-line (genotypic) variability be more important in these traits than diet-induced variability?
   
 # Results : Lab Correlations
 
@@ -4962,39 +4737,58 @@ knitr::include_graphics("LabCorrelations/lab_correlation_pop_spearman.png")
 (iii) PCAs
 
 ## Pearson's 
-```{r echo=FALSE}
-knitr::include_graphics("TraitCorrelations/trait_correlations_f9_line_random_coefs_diet.png")
-```
 
-```{r echo=FALSE}
+The different trait subsets used for lab correlations are described in the next section about PCAs.
+
+```{r echo=FALSE, fig.cap="Trait correlations in females for the nine traits that were measured on both sexes using line compound estimates from all labs", fig.align='center'}
 knitr::include_graphics("TraitCorrelations/trait_correlations_f9_line_random_coefs.png")
 ```
 
-```{r echo=FALSE}
-knitr::include_graphics("TraitCorrelations/trait_correlations_fmax_line_random_coefs_diet.png")
+```{r echo=FALSE, fig.cap="Trait correlations in females for the nine traits that were measured on both sexes using line estimates from labs with similar P/C ratios", fig.align='center'}
+knitr::include_graphics("TraitCorrelations/trait_correlations_f9_line_random_coefs_diet.png")
 ```
 
-```{r echo=FALSE}
+
+```{r echo=FALSE, fig.cap="Trait correlations for all 12 female traits using line compound estimates from all labs", fig.align='center'}
 knitr::include_graphics("TraitCorrelations/trait_correlations_fmax_line_random_coefs.png")
 ```
 
-```{r echo=FALSE}
-knitr::include_graphics("TraitCorrelations/trait_correlations_fmaxp_line_random_coefs_diet.png")
+```{r echo=FALSE, fig.cap="Trait correlations for all 12 female traits using line estimates from labs from labs with similar P/C ratios", fig.align='center'}
+knitr::include_graphics("TraitCorrelations/trait_correlations_fmax_line_random_coefs_diet.png")
 ```
 
-```{r echo=FALSE}
+
+```{r echo=FALSE, fig.cap="Trait correlations for all 12 female traits plus viability using line compound estimates from all labs", fig.align='center'}
 knitr::include_graphics("TraitCorrelations/trait_correlations_fmaxp_line_random_coefs.png")
 ```
 
-```{r echo=FALSE}
+```{r echo=FALSE, fig.cap="Trait correlations for all 12 female traits plus viability using line estimates from labs from labs with similar P/C ratios", fig.align='center'}
+knitr::include_graphics("TraitCorrelations/trait_correlations_fmaxp_line_random_coefs_diet.png")
+```
+
+
+
+```{r echo=FALSE, fig.cap="Trait correlations in males for the nine traits that were measured on both sexes using line compound estimates from all labs", fig.align='center'}
 knitr::include_graphics("TraitCorrelations/trait_correlations_m9_line_random_coefs_diet.png")
 ```
 
-```{r echo=FALSE}
+```{r echo=FALSE, fig.cap="Trait correlations in males for the nine traits that were measured on both sexes using line estimates from labs from labs with similar P/C ratios", fig.align='center'}
 knitr::include_graphics("TraitCorrelations/trait_correlations_m9_line_random_coefs.png")
 ```
 
 ## PCA
+
+```{r include=FALSE}
+colorize <- function(x, color) {
+  if (knitr::is_latex_output()) {
+    sprintf("\\textcolor{%s}{%s}", color, x)
+  } else if (knitr::is_html_output()) {
+    sprintf("<span style='color: %s;'>%s</span>", color,
+      x)
+  } else x
+}
+```
+
 
 _Notes_
 
@@ -5237,6 +5031,241 @@ knitr::include_graphics("TraitCorrelations/FromMR/MaleCor.png")
 knitr::include_graphics("TraitCorrelations/FromMR/MaleParCor.png")
 knitr::include_graphics("TraitCorrelations/FromMR/MaleDis.png")
 ```
+
+
+# Results : Diet
+
+## Overview
+
+```{r echo=FALSE, out.width="50%"}
+knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_facets.png")
+```
+
+```{r echo=FALSE, out.width="75%"}
+knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_traits_facets.png")
+```
+
+```{r echo=FALSE}
+knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_traits_pop_facets.png")
+```
+
+```{r echo=FALSE}
+knitr::include_graphics("Diets/DrosEU_Diets_lab_traits_pop_facets.png")
+```
+
+```{r echo=FALSE, fig.cap="Effect of lab and P/C ratio on population estimates. Red dots and lines represent PC/ratios. P/C ratios are scaled within but not between traits.", fig.align = "center"}
+knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_lab_traits_pop_facets.png")
+```
+
+
+### Plots by trait
+
+#### Viability
+```{r echo=FALSE, out.width="50%"}
+knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_Via_pop_facets.png")
+```
+
+#### Development time
+```{r echo=FALSE, out.width="50%"}
+knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_DT_A_pop_facets.png")
+```
+
+#### Dry weight
+```{r echo=FALSE, out.width="50%"}
+knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_DW_pop_facets.png")
+```
+
+#### Thorax length
+```{r echo=FALSE, out.width="50%"}
+knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_TL_pop_facets.png")
+```
+
+#### Wing area
+```{r echo=FALSE, out.width="50%"}
+knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_WA_L_pop_facets.png")
+```
+
+#### Fecundity
+```{r echo=FALSE, out.width="50%"}
+knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_Fec_pop_facets.png")
+```
+
+#### Lifespan
+```{r echo=FALSE, out.width="50%"}
+knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_LS_pop_facets.png")
+```
+
+#### Cold-shock mortality
+```{r echo=FALSE, out.width="50%"}
+knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_CSM_pop_facets.png")
+```
+
+#### Heat-shock mortality
+```{r echo=FALSE, out.width="50%"}
+knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_HSM_pop_facets.png")
+```
+
+#### Diapause
+```{r echo=FALSE, out.width="50%"}
+knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_Dia_pop_facets.png")
+```
+
+#### Starvation resistance 
+```{r echo=FALSE, out.width="50%"}
+knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_SR_pop_facets.png")
+```
+
+```{r echo=FALSE, out.width="50%"}
+knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_WA_R_pop_facets.png")
+```
+
+#### Pigmentation
+```{r echo=FALSE, out.width="50%"}
+knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_Pgm_T4_pop_facets.png")
+```
+
+```{r echo=FALSE, out.width="50%"}
+knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_Pgm_T5_pop_facets.png")
+```
+
+```{r echo=FALSE, out.width="50%"}
+knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_Pgm_T6_pop_facets.png")
+```
+
+```{r echo=FALSE, out.width="50%"}
+knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_Pgm_Total_pop_facets.png")
+```
+
+## PCAs with ~similar P:C ratio datasets 
+
+
+```{r include=FALSE}
+colorize <- function(x, color) {
+  if (knitr::is_latex_output()) {
+    sprintf("\\textcolor{%s}{%s}", color, x)
+  } else if (knitr::is_html_output()) {
+    sprintf("<span style='color: %s;'>%s</span>", color,
+      x)
+  } else x
+}
+```
+
+_Notes_
+
+- Using model estimates for line rather than raw data (scaled to
+unit variance).
+
+- Comparing all data (i.e. the previous analysis) with estimates
+from a single lab but with similar P:C ratio in diet.
+
+- TL is missing from males
+
+- Lmer estimates (rather than glmer estimates used for dia)
+
+- Sexes dealt with separately
+
+  - PCA1 (M9) – male PCA with 9 traits
+  
+  - PCA2 (F9) – female PCA with 9 traits equivalent to males
+  
+  - PCA3 (Fmax) – female PCA with all 12 female traits
+  
+  - PCA4 (FmaxPlus) – female PCA with 13 traits (12 female traits + via)
+  
+- Loadings of traits on to PCs are considered of interest if greater than > 0.4 (or < -0.4).
+
+  - Loadings `r colorize("__> 0.6__", "red")` are in `r colorize("bold red", "red")`
+  
+  - Loadings from `r colorize("0.4 - 0.59", "darkred")`  are in `r colorize("dark red", "darkred")`
+  
+```{r echo=FALSE}
+knitr::include_graphics("LinearModelsPop/PCA_ControlledDiet/PCAd_4_Rmd/PCAd_r_Rmd1.pdf")
+```
+
+```{r echo=FALSE}
+knitr::include_graphics("LinearModelsPop/PCA_ControlledDiet/PCAd_4_Rmd/PCAd_r_Rmd2.pdf")
+```
+
+### PCA 1 differences
+
+- The main axes of variation have ‘swapped’.  
+  - In the all data analysis, CCRT + CSM (-ve) and DW + WA (+ve) load on to PC1, in the P:C control, they load onto PC2.  
+  - In all data, HSM + LS (-ve) and WA (+ve) load on to PC2, in the P:C control they load onto PC1  
+  - A direct inverse correlation between HSM and CSM + SR has strengthened for PC3 in the P:C control  
+- What could be driving changes?  
+  - There is no TL in P:C control, so the body size correlations may be less strong?  
+  - In the P:C control DT_A loads onto PC1 (but in all data it only loads
+strongly onto PC4)
+
+```{r echo=FALSE}
+knitr::include_graphics("LinearModelsPop/PCA_ControlledDiet/PCAd_4_Rmd/PCAd_r_Rmd3.pdf")
+```
+
+```{r echo=FALSE}
+knitr::include_graphics("LinearModelsPop/PCA_ControlledDiet/PCAd_4_Rmd/PCAd_r_Rmd4.pdf")
+```
+
+### PCA 2 results
+- The main axis of variation (PC1) is fairly similar  
+    - In both all data and P:C control size traits (DW, TL and WA) positively correlate. In all data they negatively correlate to LS, and in P:C control they positively correlate with DT_A.  
+
+- The negative correlation between CCRT and CSM moves from PC2 in all data to PC3 in P:C control, and the negative correlation between CSM and HSM is weaker (loading < 0.4)
+
+- Some trait correlations along PC2 and PC3 appear to have broken down
+
+- Again, it seems like DT_A is driving these changes (it correlates with both PC1 and PC2 in P:C control, but only PC4 in all data
+
+```{r echo=FALSE}
+knitr::include_graphics("LinearModelsPop/PCA_ControlledDiet/PCAd_4_Rmd/PCAd_r_Rmd5.pdf")
+```
+
+```{r echo=FALSE}
+knitr::include_graphics("LinearModelsPop/PCA_ControlledDiet/PCAd_4_Rmd/PCAd_r_Rmd6.pdf")
+```
+
+### PCA 3 results 
+- Similar to PCA 2 results in some ways: the main axis of variation (PC1) is again a size correlation:
+
+  - In both all data and P:C control size traits (DW, TL and WA) positively correlate. In all data they negatively correlate to LS, and in P:C control they positively correlate with DT_A and Pigm.
+  
+- The negative correlation between CCRT and CSM moves from PC3 in all data to PC2 in P:C control (similar but inverse to PCA 2 result).
+
+- Possible negative correlation between CSM and HSM, bu 
+weaker (loading < 0.4)
+
+- DT_A effect? Loss of fecundity correlations?
+
+```{r echo=FALSE}
+knitr::include_graphics("LinearModelsPop/PCA_ControlledDiet/PCAd_4_Rmd/PCAd_r_Rmd7.pdf")
+```
+
+```{r echo=FALSE}
+knitr::include_graphics("LinearModelsPop/PCA_ControlledDiet/PCAd_4_Rmd/PCAd_r_Rmd8.pdf")
+```
+
+### PCA 4 results
+
+- Similar results to PCA 2 and PCA 3.
+
+- Negative correlation between CSM and HSM on PC3 is now maintained with highish loadings (> 0.4), although correlation of dia has switched signs.
+  
+  - Across PCA 3 and PCA 4 there is a disassociation of the all data PC3 (+CCRT +dia +HSM –CSM)
+
+- Again, DT_A is strong, viability and fecundity do not retain high loading for PC1, 2 or 3
+
+### Summary
+
+- Some important changes to trait correlations between all data and P:C controlled data. Some patterns remain similar, but the North/South divide (at least in females) is less clear.
+
+- Strong effect of development time, suggesting that DT_A variability may be more influenced by diet than other traits? Perhaps not surprising, given nutritional/resource thresholds for metamorphosis?
+
+- On the other hand, fecundity, viability (and to a lesser extent life span) lose importance 
+
+– why might this be?
+
+  - Could inter-line (genotypic) variability be more important in these traits than diet-induced variability?
+
+
 
 # Results : Climatic variables 
 
@@ -5502,26 +5531,28 @@ knitr::include_graphics("GDM/GDM_Worldclim/WA_R_M/WA_R_M_vapr06_i-spline.jpeg")
 
 # Results : Heritability
 
-* Input data line means per lab and each lab is a replicate
-* Input data line means for each lab
+* Within lab H2: raw data, when lines are replicated
+* Between labs H2: input data either line random coefs from linear models for each lab or raw data
 * Intraclass correlations (David et al. 2005)
 * Evolvability 
 
+_Whitin lab H2_
+```{r echo=FALSE, message=FALSE}
+h2_data_withinlabs <- read.csv("Heritability/H2_line_raw_data_within_labs.csv")
+DT::datatable(h2_data_withinlabs, options = list(pageLength = 10)) %>% formatRound(4:7, 3)
+```
 
+_Bwtween lab H2 with random coefs_
 ```{r echo=FALSE, message=FALSE}
 h2_rc_btwlabs <- read.csv("Heritability/H2_line_random_coefs_between_labs.csv")
 DT::datatable(h2_rc_btwlabs, options = list(pageLength = 10)) %>% formatRound(4:6, 3)
 
 ```
 
+_Bwtween lab H2 with raw data_
 ```{r echo=FALSE, message=FALSE}
 h2_data_btwlabs <- read.csv("Heritability/H2_line_raw_data_between_labs.csv")
 DT::datatable(h2_data_btwlabs, options = list(pageLength = 10)) %>% formatRound(4:6, 3)
-```
-
-```{r echo=FALSE, message=FALSE}
-h2_data_withinlabs <- read.csv("Heritability/H2_line_raw_data_within_labs.csv")
-DT::datatable(h2_data_withinlabs, options = list(pageLength = 10)) %>% formatRound(4:7, 3)
 ```
 
 

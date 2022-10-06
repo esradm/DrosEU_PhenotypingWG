@@ -338,12 +338,75 @@ ggsave(pop_estimates_pc_facets,
 
 
 
-# facet plot with Lab and Diet at the same time
+### facet plot with Lab and Diet at the same time
 
 
 
+# need to transform diet range
+# per group get min and max estimate and join with diet
+
+rescale_pc <- function(x = estimate_range) {
+  require(scales)
+  x$PC_rescaled <- rescale(x$PC, to = c(
+    unique(x$Min) + unique(x$Min) * 0.0,
+    unique(x$Max) - unique(x$Max) * 0.0
+  ))
+  return(x)
+}
+
+rescaled_pc <- pop_coefs %>%
+  mutate(
+    Group = paste(Trait, Sex),
+    Lab = str_replace(Lab, "StamenkovicRadak", "S-R")
+  ) %>%
+  group_by(Group) %>%
+  mutate(Min = min(Estimate), Max = max(Estimate)) %>%
+  dplyr::select(Group, Lab, Min, Max) %>%
+  inner_join(select(diets, Lab, PC) %>%
+    mutate(Lab = str_replace(Lab, "StamenkovicRadak", "S-R"))) %>%
+  distinct() %>%
+    group_split() %>%
+    lapply(., rescale_pc) %>%
+    bind_rows() %>%
+    filter(!is.na(PC))
+
+pop_coefs_prep <- pop_coefs %>%
+  arrange(PC) %>%
+  mutate(
+    Group = paste(Trait, Sex),
+    Lab = str_replace(Lab, "StamenkovicRadak", "S-R"),
+    Lab = factor(Lab, levels = (unique(Lab))))
 
 
+
+pop_estimates_labs_facets2 <- ggplot() +
+  geom_quasirandom(
+    data = pop_coefs_prep,
+    aes(x = Lab, y = Estimate),
+    size = 1.5, width = .3
+  ) +
+  geom_point(
+    data = rescaled_pc,
+    aes(x = Lab, y = PC_rescaled),
+    size = 3, pch = 1, color = "red"
+  ) +
+  geom_line(
+    data = rescaled_pc,
+    aes(x = Lab, y = PC_rescaled, group = Group)
+  , color = "red") +
+  facet_wrap(Group ~ ., scale = "free", ncol = 7) +
+  theme_bw(base_size = 14) +
+  theme(legend.position = "none") +
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1)) +
+  labs(x = "Lab (ordered by increasing P/C ratio)", y = "Population estimate")
+
+
+ggsave(pop_estimates_labs_facets2,
+  filename = "Diets/DrosEU_Diets_PC_ratios_lab_traits_pop_facets.png",
+  width = 14,
+  height = 10,
+  dpi = 120
+)
 
 
 
