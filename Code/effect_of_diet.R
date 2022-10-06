@@ -62,7 +62,8 @@ p1 <- select(d, Lab, PC, Diet, Group) %>%
 ggsave(p1,
   filename = "Diets/DrosEU_Diets_PC_ratios_facets.png",
   width = 6,
-  height = 6
+  height = 6,
+  dpi = 120
 )
 
 ### same as above but different layout
@@ -92,7 +93,8 @@ p3 <- select(d, Lab, PC, Diet, Group) %>%
 ggsave(ggarrange(p2, p3),
   filename = "Diets/DrosEU_Diets_PC_ratios.png",
   width = 6,
-  height = 6
+  height = 6,
+  dpi = 120
 )
 
 
@@ -112,7 +114,8 @@ p4 <- ggplot(data = d, aes(x = PC, y = Trait_long, color = Diet)) +
 ggsave(p4,
   filename = "Diets/DrosEU_Diets_PC_ratios_traits_facets.png",
   width = 8,
-  height = 6
+  height = 6,
+  dpi = 120
 )
 
 ### same as above but different layout
@@ -137,7 +140,8 @@ p6 <- d %>%
   ggsave(ggarrange(p5, p6, common.legend = TRUE),
     filename = "Diets/DrosEU_Diets_PC_ratios_traits.png",
     width = 6,
-    height = 6
+    height = 6,
+    dpi = 120
   )
 
 
@@ -278,7 +282,7 @@ for (i in seq_len(length(pop_coefs_list))) {
     ggsave(p,
       filename = paste("Diets/DrosEU_Diets_PC_ratios_", unique(trait$Trait),
         "_pop_facets.png", sep = ""),
-      width = 7, height = 6
+      width = 7, height = 6, dpi = 120
     )
   }
 }
@@ -306,7 +310,7 @@ ggsave(pop_estimates_labs_facets,
   filename = "Diets/DrosEU_Diets_lab_traits_pop_facets2.png",
   width = 14,
   height = 10,
-  dpi = 100
+  dpi = 120
 )
  
 
@@ -327,7 +331,8 @@ pop_estimates_pc_facets <- pop_coefs %>%
 ggsave(pop_estimates_pc_facets,
   filename = "Diets/DrosEU_Diets_PC_ratios_traits_pop_facets.png",
   width = 14,
-  height = 10
+  height = 10,
+  dpi = 120
 )
 
 
