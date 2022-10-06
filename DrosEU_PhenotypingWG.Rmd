@@ -7832,7 +7832,7 @@ knitr::include_graphics("LabCorrelations/lab_correlation_pop_pearson.pdf")
 knitr::include_graphics("LabCorrelations/lab_correlation_pop_spearman.pdf")
 ```
 
-# Results : Trait Correlations _add MR results_
+# Results : Trait Correlations 
 
 * Input data : line means
 * Input data : line means extracted either from models with Lab as a random effect or from meta analyses estimates (or both)
@@ -8091,6 +8091,22 @@ knitr::include_graphics("EnvironmentalAnalysis/PCA_Results/PCA_4_Rmd/PCA_4_Rmd_P
 
   - Interestingly, in males HSM and CCRT negatively correlate with one another on PC3….
 
+## Trait Correlations & Discriminant Function Analyses
+
+### Females 
+
+```{r out.width="50%"}
+knitr::include_graphics("TraitCorrelations/FromMR/FemaleParCor.png")
+knitr::include_graphics("TraitCorrelations/FromMR/FemaleDis.png")
+```
+
+### Males
+
+```{r out.width="50%"}
+knitr::include_graphics("TraitCorrelations/FromMR/MaleCor.png")
+knitr::include_graphics("TraitCorrelations/FromMR/MaleParCor.png")
+knitr::include_graphics("TraitCorrelations/FromMR/MaleDis.png")
+```
 
 # Results : Climatic variables _add AB results_
 
