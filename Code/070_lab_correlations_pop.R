@@ -48,7 +48,7 @@ for (i in 1:length(estimates)){
         scatterPlotMatrix(filter(ts[[j]], Trait == unique(ts[[j]]$Trait), Sex == unique(ts[[j]]$Sex)))
         dev.off()
         ts_out_png <- sub("pdf", "png", ts_out_pdf)
-        png(ts_out_png, 2100, 2100, res = 120)
+        png(ts_out_png, 800, 800, res = 120)
         scatterPlotMatrix(filter(ts[[j]], Trait == unique(ts[[j]]$Trait), Sex == unique(ts[[j]]$Sex)))
         dev.off()
       }
