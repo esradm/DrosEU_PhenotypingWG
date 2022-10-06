@@ -1,6 +1,11 @@
 # ewan.harney@gmail.com
 
 #################################
+# 06/10/22 - UPDATE: Checking how P:C ratio affects the PCA of traits
+
+# Using a different data subset for a second version of this analysis, and deleting the old version. To save space, I am only uploading the rscript, rdata for each PC object, pngs with vector/co-ordinate plots and the pdf summary
+
+#################################
 # 05/10/22 - Checking how P:C ratio affects the PCA of traits
 
 # As previosuly there are 4 versions of the analysis
