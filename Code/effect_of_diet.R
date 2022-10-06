@@ -208,6 +208,33 @@ write.csv(
 )
 
 
+######### IDENTIFY SUBSETS OF TRAITS WITH SIMILAR PCR RATIOS WITH MAXIMIZING NUMBER OF LABS ########
+
+sel_labs <- filter(diets, PC_control2 == 1) %>%
+  mutate(
+    Trait_lab = paste(Trait_short, Lab, sep = "_"),
+    Trait_lab = str_replace(Trait_lab, "wa", "wa_l"),
+    Trait_lab = str_replace(Trait_lab, "dta", "dt_a"),
+    Trait_lab = str_replace(Trait_lab, "pgm", "pgm_total")
+  )
+
+rc_trait_lab <- random_coefs %>%
+  mutate(Trait_lab = paste(tolower(Trait), Lab, sep = "_")) %>%
+  filter(Trait_lab %in% sel_labs$Trait_lab) %>%
+  select(-Trait_lab) %>%
+  filter(!(Trait == "Dia" & Model == "lmer_pop"))
+
+write.csv(
+  rc_trait_lab,
+  "LinearModelsPop/all_models_line_random_coefs_similar_diet_v2.csv",
+  row.names = FALSE
+)
+
+
+
+
+
+
 
 
 
