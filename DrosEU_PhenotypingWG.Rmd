@@ -554,15 +554,15 @@ pval_table <- read.csv("InfoTables/models_metas_pvalues_summary_table.csv")
 DT::datatable(pval_table, options = list(pageLength = 25)) %>% formatRound(5:9, 4)
 ```
 
-```{r}
+```{r, echo=FALSE}
 knitr::include_graphics("LabCorrelations/lab_correlation_line_pearson.pdf")
 ```
 
-```{r}
+```{r, echo=FALSE}
 knitr::include_graphics("LabCorrelations/lab_correlation_pop_pearson.pdf")
 ```
 
-```{r}
+```{r, echo=FALSE}
 knitr::include_graphics("LabCorrelations/lab_correlation_pop_spearman.pdf")
 ```
 
