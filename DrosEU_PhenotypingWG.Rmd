@@ -5155,8 +5155,7 @@ _Notes_
 - Using model estimates for line rather than raw data (scaled to
 unit variance).
 
-- Comparing all data (i.e. the previous analysis) with estimates
-from a single lab but with similar P:C ratio in diet.
+- Comparing `r colorize("all data", "blue")` (i.e. the previous analysis) with estimates from a single lab but with similar  `r colorize("P:C ratio", "green")` in diet.
 
 - TL is missing from males
 
@@ -5179,92 +5178,85 @@ from a single lab but with similar P:C ratio in diet.
   - Loadings from `r colorize("0.4 - 0.59", "darkred")`  are in `r colorize("dark red", "darkred")`
   
 ```{r echo=FALSE}
-knitr::include_graphics("LinearModelsPop/PCA_ControlledDiet/PCAd_4_Rmd/PCAd_r_Rmd1.pdf")
+knitr::include_graphics("LinearModelsPop/PCA_ControlledDiet/PCAd_4_Rmd/PCAd_r_Rmd1.png")
 ```
 
 ```{r echo=FALSE}
-knitr::include_graphics("LinearModelsPop/PCA_ControlledDiet/PCAd_4_Rmd/PCAd_r_Rmd2.pdf")
+knitr::include_graphics("LinearModelsPop/PCA_ControlledDiet/PCAd_4_Rmd/PCAd_r_Rmd2.png")
 ```
 
 ### PCA 1 differences
 
-- The main axes of variation have ‘swapped’.  
-  - In the all data analysis, CCRT + CSM (-ve) and DW + WA (+ve) load on to PC1, in the P:C control, they load onto PC2.  
-  - In all data, HSM + LS (-ve) and WA (+ve) load on to PC2, in the P:C control they load onto PC1  
-  - A direct inverse correlation between HSM and CSM + SR has strengthened for PC3 in the P:C control  
-- What could be driving changes?  
-  - There is no TL in P:C control, so the body size correlations may be less strong?  
-  - In the P:C control DT_A loads onto PC1 (but in all data it only loads
-strongly onto PC4)
+- Whether using `r colorize("all data", "blue")` or `r colorize("P:C control", "green")` the result is similar
+
+- There is a slight difference in PC1: in the `r colorize("P:C control", "green")` analysis, WA no longer loads on to PC1, but HSM does
+
+- For PC2 the result is similar (negative correlation of LS and WA).
+
+- For PC3 the negative correlation between CCRT and HSM is less strong in `r colorize("P:C control", "green")` than `r colorize("all data", "blue")`, but the positive correlation between CCRT and SR is maintained
 
 ```{r echo=FALSE}
-knitr::include_graphics("LinearModelsPop/PCA_ControlledDiet/PCAd_4_Rmd/PCAd_r_Rmd3.pdf")
+knitr::include_graphics("LinearModelsPop/PCA_ControlledDiet/PCAd_4_Rmd/PCAd_r_Rmd3.png")
 ```
 
 ```{r echo=FALSE}
-knitr::include_graphics("LinearModelsPop/PCA_ControlledDiet/PCAd_4_Rmd/PCAd_r_Rmd4.pdf")
+knitr::include_graphics("LinearModelsPop/PCA_ControlledDiet/PCAd_4_Rmd/PCAd_r_Rmd4.png")
 ```
 
 ### PCA 2 results
-- The main axis of variation (PC1) is fairly similar  
-    - In both all data and P:C control size traits (DW, TL and WA) positively correlate. In all data they negatively correlate to LS, and in P:C control they positively correlate with DT_A.  
+- The main axis of variation (PC1) is fairly similar
 
-- The negative correlation between CCRT and CSM moves from PC2 in all data to PC3 in P:C control, and the negative correlation between CSM and HSM is weaker (loading < 0.4)
+- In both `r colorize("all data", "blue")` and `r colorize("P:C control", "green")` size traits (DW, TL and WA) positively correlate. In `r colorize("all data", "blue")` they also negatively correlate to LS
 
-- Some trait correlations along PC2 and PC3 appear to have broken down
+- The negative correlation between SR and TL moves from PC2 in `r colorize("all data", "blue")` to PC3 in `r colorize("P:C control", "green")`. In `r colorize("P:C control", "green")` the positive correlation of LS (with SR) is weaker, but there is now a positive correlation between DT_A, HSM and SR.
 
-- Again, it seems like DT_A is driving these changes (it correlates with both PC1 and PC2 in P:C control, but only PC4 in all data
+- The negative correlation of CSM and HSM has moved from PC3 in `r colorize("all data", "blue")` to PC4 in `r colorize("P:C control", "green")` (and is weaker)
+
+- Some trait correlations along PC2 and PC3 are weaker or have broken down, e.g. positive correlation between CCRT and HSM in `r colorize("all data", "blue")` PC3 is now negative correlation in `r colorize("P:C control", "green")` PC2
 
 ```{r echo=FALSE}
-knitr::include_graphics("LinearModelsPop/PCA_ControlledDiet/PCAd_4_Rmd/PCAd_r_Rmd5.pdf")
+knitr::include_graphics("LinearModelsPop/PCA_ControlledDiet/PCAd_4_Rmd/PCAd_r_Rmd5.png")
 ```
 
 ```{r echo=FALSE}
-knitr::include_graphics("LinearModelsPop/PCA_ControlledDiet/PCAd_4_Rmd/PCAd_r_Rmd6.pdf")
+knitr::include_graphics("LinearModelsPop/PCA_ControlledDiet/PCAd_4_Rmd/PCAd_r_Rmd6.png")
 ```
 
 ### PCA 3 results 
 - Similar to PCA 2 results in some ways: the main axis of variation (PC1) is again a size correlation:
-
-  - In both all data and P:C control size traits (DW, TL and WA) positively correlate. In all data they negatively correlate to LS, and in P:C control they positively correlate with DT_A and Pigm.
+  - In both `r colorize("all data", "blue")` and `r colorize("P:C control", "green")` size traits (DW, TL and WA) positively correlate. In `r colorize("all data", "blue")` they negatively correlate to LS, and in `r colorize("P:C control", "green")` they positively correlate with Pigm.
   
-- The negative correlation between CCRT and CSM moves from PC3 in all data to PC2 in P:C control (similar but inverse to PCA 2 result).
+- The positive correlation between CCRT and Dia moves from PC3 in `r colorize("all data", "blue")` to PC2 in `r colorize("P:C control", "green")`
 
-- Possible negative correlation between CSM and HSM, bu 
-weaker (loading < 0.4)
+- The positive correlation between Fec and Pigm moves from PC2 in `r colorize("all data", "blue")` to PC3 in `r colorize("P:C control", "green")`
 
-- DT_A effect? Loss of fecundity correlations?
+- Loss of some other trait correlations (including LS correlations)
 
 ```{r echo=FALSE}
-knitr::include_graphics("LinearModelsPop/PCA_ControlledDiet/PCAd_4_Rmd/PCAd_r_Rmd7.pdf")
+knitr::include_graphics("LinearModelsPop/PCA_ControlledDiet/PCAd_4_Rmd/PCAd_r_Rmd7.png")
 ```
 
 ```{r echo=FALSE}
-knitr::include_graphics("LinearModelsPop/PCA_ControlledDiet/PCAd_4_Rmd/PCAd_r_Rmd8.pdf")
+knitr::include_graphics("LinearModelsPop/PCA_ControlledDiet/PCAd_4_Rmd/PCAd_r_Rmd8.png")
 ```
 
 ### PCA 4 results
 
 - Similar results to PCA 2 and PCA 3.
 
-- Negative correlation between CSM and HSM on PC3 is now maintained with highish loadings (> 0.4), although correlation of dia has switched signs.
-  
-  - Across PCA 3 and PCA 4 there is a disassociation of the all data PC3 (+CCRT +dia +HSM –CSM)
+- Positive correlation between HSM and Via maintained for PC2
 
-- Again, DT_A is strong, viability and fecundity do not retain high loading for PC1, 2 or 3
+- Negative correlation between CCRT and Dia maintained in PC3
+
+- Negative correlation between LS and SR moves from PC1 in `r colorize("all data", "blue")` to PC4 in `r colorize("P:C control", "green")`
+
+- Loss of some other trait correlations
 
 ### Summary
 
-- Some important changes to trait correlations between all data and P:C controlled data. Some patterns remain similar, but the North/South divide (at least in females) is less clear.
+- Some important changes to trait correlations between `r colorize("all data", "blue")` and `r colorize("P:C control", "green")`led data. Some patterns remain similar, but the North/South divide (at least in females) is less clear.
 
-- Strong effect of development time, suggesting that DT_A variability may be more influenced by diet than other traits? Perhaps not surprising, given nutritional/resource thresholds for metamorphosis?
-
-- On the other hand, fecundity, viability (and to a lesser extent life span) lose importance 
-
-– why might this be?
-
-  - Could inter-line (genotypic) variability be more important in these traits than diet-induced variability?
-
+- Development time has a stronger effect. Could withinpopulation DT_A variability be more influenced by diet than other traits? Perhaps not surprising, given nutritional/resource thresholds for metamorphosis?
 
 
 # Results : Climatic variables 
