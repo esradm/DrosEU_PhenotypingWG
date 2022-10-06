@@ -1,4 +1,4 @@
-setwd("C:/Users/Венера/Dropbox/UoL/other/ClimateComponents/NASA/results/traits_combined/")
+setwd("")
 
 library(nasapower)
 #Recarei - 05/10/2018
@@ -135,7 +135,7 @@ all_climatology[9,6:19] <- Valday_ag$ANN
 write.csv(all_climatology,"all_param_30y.csv", row.names = F)
 
 #PCA
-setwd("C:/Users/Венера/Dropbox/UoL/other/ClimateComponents/NASA/results/traits_combined/")
+setwd("")
 all_climatology <- read.csv("all_param_30y.csv")
 all_climatology <- all_climatology[,6:19]
 rownames(all_climatology) <- c("Recarei", "Gimenells", "Karensminde", "Munich", "Mauternbach", "Akaa", "Uman", "Yesiloz", "Valday")
@@ -172,10 +172,10 @@ fviz_pca_var(all_ann_clim_pca, col.var = "contrib", # Color by contributions to 
 )
 
 # Contributions of variables to PC1
-fviz_contrib(all_ann_clim_pca, choice = "var", axes = 1, top = 19, title="Contribution of variables to PC1")
+fviz_contrib(all_ann_clim_pca, choice = "var", axes = 1, top = 14, title="Contribution of variables to PC1")
 
 # Contributions of variables to PC2
-fviz_contrib(all_ann_clim_pca, choice = "var", axes = 2, top = 19, title="Contribution of variables to PC2")
+fviz_contrib(all_ann_clim_pca, choice = "var", axes = 2, top = 14, title="Contribution of variables to PC2")
 
 #pca result dataframe
 all_climatology <- read.csv("all_param_30y.csv")
@@ -200,10 +200,10 @@ corrplot(cor(cor_df), type = "upper", order = "hclust", tl.col = "black", tl.srt
 #
 #females 9 traits
 #
-setwd("/Users/Венера/Dropbox/UoL/other/ClimateComponents/NASA/results/traits_combined/")
-F9_all_PC <- read.csv("/Users/Венера/Dropbox/UoL/other/ClimateComponents/NASA/results/Ewan/F9_drosEU_PCcoords.csv")
-F9_data <- F9_all_PC[,1:5]
-colnames(F9_data) <- c("Country", "Population", "Line", "PC1_F9", "PC2_F9")
+#setwd("")
+F9_all_PC <- read.csv("F9_drosEU_PCcoords.csv")
+F9_data <- F9_all_PC[,1:6]
+colnames(F9_data) <- c("Country", "Population", "Line", "PC1_F9", "PC2_F9", "PC3_F9")
 climate_data <- read.csv("all_30y_PCA.csv")
 clim <- climate_data[ -c(5) ]
 
@@ -211,67 +211,59 @@ new_cols <- c("Longitude", "Latitude", "Altitude","Location", "PC1_clim", "PC2_c
 F9_data[ , new_cols] <- NA
 for (i in 1:nrow(F9_data)){
   if (F9_data[i,"Population"] == "RE"){ #Portugal
-    F9_data[i, 6:11] <- clim[1,]
+    F9_data[i, 7:12] <- clim[1,]
   }
   if (F9_data[i,"Population"] == "GI"){ #Spain
-    F9_data[i, 6:11] <- clim[2,]
+    F9_data[i, 7:12] <- clim[2,]
   }
   if (F9_data[i,"Population"] == "KA"){ #Denmark
-    F9_data[i, 6:11] <- clim[3,]
+    F9_data[i, 7:12] <- clim[3,]
   }
   if (F9_data[i,"Population"] == "MU"){ #Germany
-    F9_data[i, 6:11] <- clim[4,]
+    F9_data[i, 7:12] <- clim[4,]
   }
   if (F9_data[i,"Population"] == "MA"){ #Austria
-    F9_data[i, 6:11] <- clim[5,]
+    F9_data[i, 7:12] <- clim[5,]
   }
   if (F9_data[i,"Population"] == "AK"){ #Finland
-    F9_data[i, 6:11] <- clim[6,]
+    F9_data[i, 7:12] <- clim[6,]
   }
   if (F9_data[i,"Population"] == "UM"){ #Ukraine
-    F9_data[i, 6:11] <- clim[7,]
+    F9_data[i, 7:12] <- clim[7,]
   }
   if (F9_data[i,"Population"] == "YE"){ #Turkey
-    F9_data[i, 6:11] <- clim[8,]
+    F9_data[i, 7:12] <- clim[8,]
   }
   if (F9_data[i,"Population"] == "VA"){ #Russia
-    F9_data[i, 6:11] <- clim[9,]
+    F9_data[i, 7:12] <- clim[9,]
   }
 } 
 write.csv(F9_data,"F9_30y_data.csv", row.names =F)
 
 #phenotypes
 #PC1
-F9_PC1_1 <- lmer(F9_data$PC1_F9 ~ F9_data$PC1_clim + F9_data$PC2_clim +(1|(as.factor(F9_data$Population))),data = F9_data)
+F9_PC1_1 <- glm(F9_data$PC1_F9 ~ F9_data$PC1_clim + F9_data$PC2_clim,data = F9_data)
 summary(F9_PC1_1)
-F9_PC1_2 <- lmer(F9_data$PC1_F9 ~ F9_data$PC2_clim +(1|(as.factor(F9_data$Population))),data = F9_data)
+F9_PC1_2 <- glm(F9_data$PC1_F9 ~ F9_data$PC1_clim + F9_data$PC1_clim,data = F9_data)
 summary(F9_PC1_2)
 
-F9_PC1_3 <- glm(F9_data$PC1_F9 ~ F9_data$PC1_clim + F9_data$PC2_clim,data = F9_data)
-summary(F9_PC1_3)
-F9_PC1_4 <- glm(F9_data$PC1_F9 ~ F9_data$PC1_clim + F9_data$PC2_clim,data = F9_data)
-summary(F9_PC1_4)
-anova(F9_PC1_1,F9_PC1_2,F9_PC1_3,F9_PC1_4, test="Chisq")
-
-
 #PC2
-F9_PC2_1 <- lmer(F9_data$PC2_F9 ~ F9_data$PC1_clim + F9_data$PC2_clim +(1|(as.factor(F9_data$Population))),data = F9_data)
+F9_PC2_1 <- glm(F9_data$PC2_F9 ~ F9_data$PC1_clim + F9_data$PC2_clim,data = F9_data)
 summary(F9_PC2_1)
-F9_PC2_2 <- lmer(F9_data$PC2_F9 ~ F9_data$PC2_clim +(1|(as.factor(F9_data$Population))),data = F9_data)
-summary(F9_PC2_2)
 
-F9_PC2_3 <- glm(F9_data$PC2_F9 ~ F9_data$PC1_clim + F9_data$PC2_clim,data = F9_data)
-summary(F9_PC2_3)
-anova(F9_PC2_1,F9_PC2_2,F9_PC2_3, test="Chisq")
-
+#PC3
+F9_PC3_1 <- glm(F9_data$PC3_F9 ~ F9_data$PC1_clim + F9_data$PC2_clim,data = F9_data)
+summary(F9_PC3_1)
+F9_PC3_2 <- glm(F9_data$PC3_F9 ~ F9_data$PC1_clim ,data = F9_data)
+summary(F9_PC3_2)
 
 #
 #males 9 traits
 #
-setwd("/Users/Венера/Dropbox/UoL/other/ClimateComponents/NASA/results/traits_combined/")
-M9_all_PC <- read.csv("/Users/Венера/Dropbox/UoL/other/ClimateComponents/NASA/results/Ewan/M9_drosEU_PCcoords.csv")
-M9_data <- M9_all_PC[,1:5]
-colnames(M9_data) <- c("Country", "Population", "Line", "PC1_M9", "PC2_M9")
+#setwd("")
+M9_all_PC <- read.csv("M9_drosEU_PCcoords.csv")
+M9_data <- M9_all_PC[,1:6]
+colnames(M9_data) <- c("Country", "Population", "Line", "PC1_M9", "PC2_M9", "PC3_M9")
 climate_data <- read.csv("all_30y_PCA.csv")
 clim <- climate_data[ -c(5) ]
 
@@ -279,31 +271,31 @@ new_cols <- c("Longitude", "Latitude", "Altitude","Location", "PC1_clim", "PC2_c
 M9_data[ , new_cols] <- NA
 for (i in 1:nrow(M9_data)){
   if (M9_data[i,"Population"] == "RE"){ #Portugal
-    M9_data[i, 6:11] <- clim[1,]
+    M9_data[i, 7:12] <- clim[1,]
   }
   if (M9_data[i,"Population"] == "GI"){ #Spain
-    M9_data[i, 6:11] <- clim[2,]
+    M9_data[i, 7:12] <- clim[2,]
   }
   if (M9_data[i,"Population"] == "KA"){ #Denmark
-    M9_data[i, 6:11] <- clim[3,]
+    M9_data[i, 7:12] <- clim[3,]
   }
   if (M9_data[i,"Population"] == "MU"){ #Germany
-    M9_data[i, 6:11] <- clim[4,]
+    M9_data[i, 7:12] <- clim[4,]
   }
   if (M9_data[i,"Population"] == "MA"){ #Austria
-    M9_data[i, 6:11] <- clim[5,]
+    M9_data[i, 7:12] <- clim[5,]
   }
   if (M9_data[i,"Population"] == "AK"){ #Finland
-    M9_data[i, 6:11] <- clim[6,]
+    M9_data[i, 7:12] <- clim[6,]
   }
   if (M9_data[i,"Population"] == "UM"){ #Ukraine
-    M9_data[i, 6:11] <- clim[7,]
+    M9_data[i, 7:12] <- clim[7,]
   }
   if (M9_data[i,"Population"] == "YE"){ #Turkey
-    M9_data[i, 6:11] <- clim[8,]
+    M9_data[i, 7:12] <- clim[8,]
   }
   if (M9_data[i,"Population"] == "VA"){ #Russia
-    M9_data[i, 6:11] <- clim[9,]
+    M9_data[i, 7:12] <- clim[9,]
   }
 } 
 
@@ -311,34 +303,24 @@ write.csv(M9_data,"M9_30y_data.csv", row.names =F)
 
 #phenotypes
 #PC1
-M9_PC1_1 <- lmer(M9_data$PC1_M9 ~ M9_data$PC1_clim + M9_data$PC2_clim +(1|(as.factor(M9_data$Population))),data = M9_data)
+M9_PC1_1 <- glm(M9_data$PC1_M9 ~ M9_data$PC1_clim + M9_data$PC2_clim,data = M9_data)
 summary(M9_PC1_1)
-M9_PC1_2 <- lmer(M9_data$PC1_M9 ~ M9_data$PC2_clim +(1|(as.factor(M9_data$Population))),data = M9_data)
+M9_PC1_2 <- glm(M9_data$PC1_M9 ~ M9_data$PC2_clim,data = M9_data)
 summary(M9_PC1_2)
 
-M9_PC1_3 <- glm(M9_data$PC1_M9 ~ M9_data$PC1_clim + M9_data$PC2_clim,data = M9_data)
-summary(M9_PC1_3)
-M9_PC1_4 <- glm(M9_data$PC1_M9 ~ M9_data$PC2_clim,data = M9_data)
-summary(M9_PC1_4)
-
-anova(M9_PC1_1,M9_PC1_2,M9_PC1_3,M9_PC1_4, test="Chisq")
-
 #PC2
-M9_PC2_1 <- lmer(M9_data$PC2_M9 ~ M9_data$PC1_clim + M9_data$PC2_clim +(1|(as.factor(M9_data$Population))),data = M9_data)
+M9_PC2_1 <- glm(M9_data$PC2_M9 ~ M9_data$PC1_clim + M9_data$PC2_clim,data = M9_data)
 summary(M9_PC2_1)
-M9_PC2_2 <- lmer(M9_data$PC2_M9 ~ M9_data$PC1_clim +(1|(as.factor(M9_data$Population))),data = M9_data)
-summary(M9_PC2_2)
 
-M9_PC2_3 <- glm(M9_data$PC2_M9 ~ M9_data$PC1_clim + M9_data$PC2_clim,data = M9_data)
-summary(M9_PC2_3)
-
-anova(M9_PC2_1,M9_PC2_2,M9_PC2_3, test="Chisq")
+#PC3
+M9_PC3_1 <- glm(M9_data$PC3_M9 ~ M9_data$PC1_clim + M9_data$PC2_clim,data = M9_data)
+summary(M9_PC3_1)
 
 #females max
-setwd("/Users/Венера/Dropbox/UoL/other/ClimateComponents/NASA/results/traits_combined/")
-F9max_all_PC <- read.csv("/Users/Венера/Dropbox/UoL/other/ClimateComponents/NASA/results/Ewan/Fmax_drosEU_PCcoords.csv")
-F9max_data <- F9max_all_PC[,1:5]
-colnames(F9max_data) <- c("Country", "Population", "Line", "PC1_F9max", "PC2_F9max")
+#setwd("")
+F9max_all_PC <- read.csv("Fmax_drosEU_PCcoords.csv")
+F9max_data <- F9max_all_PC[,1:6]
+colnames(F9max_data) <- c("Country", "Population", "Line", "PC1_F9max", "PC2_F9max", "PC3_F9max")
 climate_data <- read.csv("all_30y_PCA.csv")
 clim <- climate_data[ -c(5) ]
 
@@ -346,67 +328,56 @@ new_cols <- c("Longitude", "Latitude", "Altitude","Location", "PC1_clim", "PC2_c
 F9max_data[ , new_cols] <- NA
 for (i in 1:nrow(F9max_data)){
   if (F9max_data[i,"Population"] == "RE"){ #Portugal
-    F9max_data[i, 6:11] <- clim[1,]
+    F9max_data[i, 7:12] <- clim[1,]
   }
   if (F9max_data[i,"Population"] == "GI"){ #Spain
-    F9max_data[i, 6:11] <- clim[2,]
+    F9max_data[i, 7:12] <- clim[2,]
   }
   if (F9max_data[i,"Population"] == "KA"){ #Denmark
-    F9max_data[i, 6:11] <- clim[3,]
+    F9max_data[i, 7:12] <- clim[3,]
   }
   if (F9max_data[i,"Population"] == "MU"){ #Germany
-    F9max_data[i, 6:11] <- clim[4,]
+    F9max_data[i, 7:12] <- clim[4,]
   }
   if (F9max_data[i,"Population"] == "MA"){ #Austria
-    F9max_data[i, 6:11] <- clim[5,]
+    F9max_data[i, 7:12] <- clim[5,]
   }
   if (F9max_data[i,"Population"] == "AK"){ #Finland
-    F9max_data[i, 6:11] <- clim[6,]
+    F9max_data[i, 7:12] <- clim[6,]
   }
   if (F9max_data[i,"Population"] == "UM"){ #Ukraine
-    F9max_data[i, 6:11] <- clim[7,]
+    F9max_data[i, 7:12] <- clim[7,]
   }
   if (F9max_data[i,"Population"] == "YE"){ #Turkey
-    F9max_data[i, 6:11] <- clim[8,]
+    F9max_data[i, 7:12] <- clim[8,]
   }
   if (F9max_data[i,"Population"] == "VA"){ #Russia
-    F9max_data[i, 6:11] <- clim[9,]
+    F9max_data[i, 7:12] <- clim[9,]
   }
 } 
 write.csv(F9max_data,"F9max_30y_data.csv", row.names =F)
 
 
 #phenotypes
-library(lme4)
-library(lmerTest)
 #PC1
-F9max_PC1_1 <- lmer(F9max_data$PC1_F9max ~ F9max_data$PC1_clim + F9max_data$PC2_clim +(1|(as.factor(F9max_data$Population))),data = F9max_data)
+F9max_PC1_1 <- glm(F9max_data$PC1_F9max ~ F9max_data$PC1_clim + F9max_data$PC2_clim,data = F9max_data)
 summary(F9max_PC1_1)
-F9max_PC1_2 <- lmer(F9max_data$PC1_F9max ~ F9max_data$PC1_clim +(1|(as.factor(F9max_data$Population))),data = F9max_data)
+F9max_PC1_2 <- glm(F9max_data$PC1_F9max ~ F9max_data$PC1_clim,data = F9max_data)
 summary(F9max_PC1_2)
 
-F9max_PC1_3 <- glm(F9max_data$PC1_F9max ~ F9max_data$PC1_clim + F9max_data$PC2_clim,data = F9max_data)
-summary(F9max_PC1_3)
-F9max_PC1_4 <- glm(F9max_data$PC1_F9max ~ F9max_data$PC1_clim,data = F9max_data)
-summary(F9max_PC1_4)
-
-anova(F9max_PC1_1,F9max_PC1_2,F9max_PC1_3, F9max_PC1_4, test="Chisq")
-
-
 #PC2
-F9max_PC2_1 <- lmer(F9max_data$PC2_F9max ~ F9max_data$PC1_clim + F9max_data$PC2_clim +(1|(as.factor(F9max_data$Population))),data = F9max_data)
+F9max_PC2_1 <- glm(F9max_data$PC2_F9max ~ F9max_data$PC1_clim + F9max_data$PC2_clim,data = F9max_data)
 summary(F9max_PC2_1)
 
-F9max_PC2_2 <- glm(F9max_data$PC2_F9max ~ F9max_data$PC1_clim + F9max_data$PC2_clim,data = F9max_data)
-summary(F9max_PC2_2)
-
-anova(F9max_PC2_1,F9max_PC2_2,test="Chisq")
+#PC3
+F9max_PC3_1 <- glm(F9max_data$PC3_F9max ~ F9max_data$PC1_clim + F9max_data$PC2_clim,data = F9max_data)
+summary(F9max_PC3_1)
 
 #females max+
-setwd("/Users/Венера/Dropbox/UoL/other/ClimateComponents/NASA/results/traits_combined/")
-F9maxP_all_PC <- read.csv("/Users/Венера/Dropbox/UoL/other/ClimateComponents/NASA/results/Ewan/FmaxP_drosEU_PCcoords.csv")
-F9maxP_data <- F9maxP_all_PC[,1:5]
-colnames(F9maxP_data) <- c("Country", "Population", "Line", "PC1_F9maxP", "PC2_F9maxP")
+#setwd("")
+F9maxP_all_PC <- read.csv("FmaxP_drosEU_PCcoords.csv")
+F9maxP_data <- F9maxP_all_PC[,1:6]
+colnames(F9maxP_data) <- c("Country", "Population", "Line", "PC1_F9maxP", "PC2_F9maxP", "PC3_F9maxP")
 climate_data <- read.csv("all_30y_PCA.csv")
 clim <- climate_data[ -c(5) ]
 
@@ -414,28 +385,28 @@ new_cols <- c("Longitude", "Latitude", "Altitude","Location", "PC1_clim", "PC2_c
 F9maxP_data[ , new_cols] <- NA
 for (i in 1:nrow(F9maxP_data)){
   if (F9maxP_data[i,"Population"] == "RE"){ #Portugal
-    F9maxP_data[i, 6:11] <- clim[1,]
+    F9maxP_data[i, 7:12] <- clim[1,]
   }
   if (F9maxP_data[i,"Population"] == "GI"){ #Spain
-    F9maxP_data[i, 6:11] <- clim[2,]
+    F9maxP_data[i, 7:12] <- clim[2,]
   }
   if (F9maxP_data[i,"Population"] == "KA"){ #Denmark
-    F9maxP_data[i, 6:11] <- clim[3,]
+    F9maxP_data[i, 7:12] <- clim[3,]
   }
   if (F9maxP_data[i,"Population"] == "MU"){ #Germany
-    F9maxP_data[i, 6:11] <- clim[4,]
+    F9maxP_data[i, 7:12] <- clim[4,]
   }
   if (F9maxP_data[i,"Population"] == "MA"){ #Austria
-    F9maxP_data[i, 6:11] <- clim[5,]
+    F9maxP_data[i, 7:12] <- clim[5,]
   }
   if (F9maxP_data[i,"Population"] == "AK"){ #Finland
-    F9maxP_data[i, 6:11] <- clim[6,]
+    F9maxP_data[i, 7:12] <- clim[6,]
   }
   if (F9maxP_data[i,"Population"] == "UM"){ #Ukraine
-    F9maxP_data[i, 6:11] <- clim[7,]
+    F9maxP_data[i, 7:12] <- clim[7,]
   }
   if (F9maxP_data[i,"Population"] == "YE"){ #Turkey
-    F9maxP_data[i, 6:11] <- clim[8,]
+    F9maxP_data[i, 7:12] <- clim[8,]
   }
   if (F9maxP_data[i,"Population"] == "VA"){ #Russia
     F9maxP_data[i, 6:11] <- clim[9,]
@@ -446,23 +417,15 @@ write.csv(F9maxP_data,"F9maxP_30y_data.csv", row.names =F)
 
 #phenotypes
 #PC1
-F9maxP_PC1_1 <- lmer(F9maxP_data$PC1_F9maxP ~F9maxP_data$PC1_clim+ F9maxP_data$PC1_clim + F9maxP_data$PC2_clim +(1|(as.factor(F9maxP_data$Population))),data = F9maxP_data)
+F9maxP_PC1_1 <- glm(F9maxP_data$PC1_F9maxP ~ F9maxP_data$PC1_clim + F9maxP_data$PC2_clim,data = F9maxP_data)
 summary(F9maxP_PC1_1)
-F9maxP_PC1_2 <- lmer(F9maxP_data$PC1_F9maxP ~ F9maxP_data$PC1_clim +(1|(as.factor(F9maxP_data$Population))),data = F9maxP_data)
+F9maxP_PC1_2 <- glm(F9maxP_data$PC1_F9maxP ~ F9maxP_data$PC1_clim,data = F9maxP_data)
 summary(F9maxP_PC1_2)
 
-F9maxP_PC1_3 <- glm(F9maxP_data$PC1_F9maxP ~ F9maxP_data$PC1_clim + F9maxP_data$PC2_clim,data = F9maxP_data)
-summary(F9maxP_PC1_3)
-F9maxP_PC1_4 <- glm(F9maxP_data$PC1_F9maxP ~ F9maxP_data$PC1_clim,data = F9maxP_data)
-summary(F9maxP_PC1_4)
-
-anova(F9maxP_PC1_1,F9maxP_PC1_2,F9maxP_PC1_3,F9maxP_PC1_4, test="Chisq")
-
 #PC2
-F9maxP_PC2_1 <- lmer(F9maxP_data$PC2_F9maxP ~ F9maxP_data$PC1_clim + F9maxP_data$PC2_clim +(1|(as.factor(F9maxP_data$Population))),data = F9maxP_data)
+F9maxP_PC2_1 <- glm(F9maxP_data$PC2_F9maxP ~ F9maxP_data$PC1_clim + F9maxP_data$PC2_clim,data = F9maxP_data)
 summary(F9maxP_PC2_1)
 
-F9maxP_PC2_2 <- glm(F9maxP_data$PC2_F9maxP ~ F9maxP_data$PC1_clim + F9maxP_data$PC2_clim,data = F9maxP_data)
-summary(F9maxP_PC2_2)
-
-anova(F9maxP_PC2_1,F9maxP_PC2_2,test="Chisq")
+#PC3
+F9maxP_PC3_1 <- glm(F9maxP_data$PC3_F9maxP ~ F9maxP_data$PC1_clim + F9maxP_data$PC2_clim,data = F9maxP_data)
+summary(F9maxP_PC3_1)

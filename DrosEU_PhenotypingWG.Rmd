@@ -466,6 +466,18 @@ Please refer to the .pdf file below ( _README_META.pdf_ ) for details.
 knitr::include_graphics("MetaAnalyses/README_META.pdf")
 ```
 
+### Generalized Dissimilarity Model (GDM)
+
+We used the WorldClim database (www.worldclim.org) which includes 19 bioclimatic variables, monthly precipitation, minimum, maximum and average monthly temperature, wind, vapor and solar radiation. Those variables that are identified as important in the model are shown in table 1 (_Refer to Results V_).
+
+__Generalized dissimilarity model__
+
+The generalized dissimilarity model here after GDM is a matrix regression technique (Ferrier et al., 2007) to analyze and predict primarily beta diversity patterns. However, it was shown that GDM could be used to explore relationship between morphological traits variation and environmental variation (Thomassen et al., 2010; Baldassarre et al., 2013).
+
+In GDM we use matrix correlation among biotic and environmental dissimilarity plus geographic distance between sample sites to predict biotic dissimilarity across landscape. One of the advantages of GDM is that it can fit nonlinear relationship of variables by the help of I-spline function. GDM consists of two steps; in the first step using all pairwise combinations of sampling sites, it fits dissimilarities in predictor variables (environmental variables) to dissimilarities in response variables (phenotypic variables). In this step all environmental predictors with sum of I-spline coefficients of zero were removed then the remaining environmental data were permuted and introduced in the random order to the model. GDM were fitted with these permuted data, and the result of deviance explained by this model compared with deviance explained by GDM fitted to unpermuted data. Predictors importance is calculated based on the difference in deviance explained between permuted model and unpermuted model. In this step backward elimination could be used so that less important predictors were dropped from the model (Ferrier et al., 2007). In the final step, using the result of above procedures spatial prediction of response variables pattern across the entire range of study areas were made. 
+
+For each response variable we ran four different models. Ful model that includes environmental and geographic distance as predictor variables. To examine possible correlation between geographic distance and environmental dissimilarity, we ran two additional models each selecting only one of them (geographic distance and environmental dissimilarity) as predator variables. We also ran a random model to compare with fitted models to make sure null hypothesis were not rejected randomly. To run random model, we produced random values of environmental variables for each location and as we have few locations, we produced 100000 random models. Then we used mean deviance explained by these random models and compared them with full, environment and geographic distance models. If the difference between deviance explained by random model were lower than any other three models, we consider the relationship of response variables with predictor variables not random (Thomassen et al., 2010; Baldassarre et al., 2013). 
+
 
 **Reading the data, tables and model outputs in R**
 ```{r load_Rdas, include=TRUE}
@@ -485,7 +497,7 @@ coxme_sum <- readRDS("SurvivalAnalyses/all_coxmes_pop_summary_list.rds")
 
 **_Please note that "Plots and Linear Models by Lab" are presented in alphabetical order._** 
 
-# Results I : Linear Models  {#anchor}
+# Results : Linear Models  {#anchor}
 
 ## Overview 
 
@@ -497,6 +509,18 @@ pval_table <- read.csv("InfoTables/models_metas_pvalues_summary_table.csv")
 
 ```{r, echo=FALSE}
 DT::datatable(pval_table, options = list(pageLength = 25)) %>% formatRound(5:9, 4)
+```
+
+```{r}
+knitr::include_graphics("LabCorrelations/lab_correlation_line_pearson.pdf")
+```
+
+```{r}
+knitr::include_graphics("LabCorrelations/lab_correlation_pop_pearson.pdf")
+```
+
+```{r}
+knitr::include_graphics("LabCorrelations/lab_correlation_pop_spearman.pdf")
 ```
 
 ## Viability
@@ -7114,20 +7138,245 @@ _For a detailed description of tables, plots, linear models and outputs, please 
 
 Hrcek Lab : Vincent Montbel, Somayeh Rasouli Dogaheh, Jan Hrcek
 
-# Results II : Meta-Analyses
-
+# Results : Meta-Analyses
 
 ```{r echo=FALSE}
+# Full .pdf can be downloaded at /MetaAnalyses directory.
 knitr::include_graphics("MetaAnalyses/README_META.pdf")
 ```
 
-## Overview 
 
+The aim of the meta analysis approach is to combine effects from different studies to identify an overall effect. Here, for a given trait, we consider each lab as being a study in which the effect of _Population_ has been assessed via a linear mixed-effect model. However, as we are not directly interested in finding overall effects and because _Population_ has 9 levels, we perform a subgroup meta analysis that allows to test for differences between populations (each population being considered as a subgroup). In a way, this is conceptually similar to performing a regression analysis to test for the effect of _Population_ on a given trait. 
+
+The input data for the subgroup meta analysis consists of the estimates and standard errors obtained for _Population_ in the trait- and lab-specific linear mixed-effect models. Estimates are used as populations effects, and standard errors of those estimates are used as weights --- to give more or less weight to labs depending on sample size and replication level.
+
+This approach can be used to assess differences between populations and generate compound population estimates as input data for downstream analyses. Similarly, this approach can be applied to line random coefficents extracted from the mixed-effect models (in which _Line_ is a random-effect variable) to generate compound line estimates --- note that we are not interested in finding differences between lines here.
+
+## Population differentiation and compound estimates
+
+### Input data
+
+Linear models population estimates are located in the LinearModelsPop directory and trait sub directories. Files with identical names but different extensions contain the same data, they are just in different formats to simplify data handling and browsing. 
+
+```{r echo=FALSE}
+dir("../..", recursive = T)[grep("pop_estimates", dir("../..", recursive = T))]
+```
+Population estimates are available as a list (File 1), in which each element contains estimates for a given trait, or as a table (collapsed list, File 2 and 3). These files contain the population estimates for all the traits.
+
+Alternatively, population estimates are available for each trait separately, for example for Viability:
+
+```{r echo=FALSE}
+f <- dir("../..", recursive = T)[grep("pop_model_estimates", dir("../..", recursive = T))]
+f[grep("LinearModelsPop/Viability/", f)]
+```
+
+
+
+```{r load data table}
+# read in models estimates for a specific trait, Viability, as a table
+estimates_via <- readRDS("LinearModelsPop/Viability/Via_lmers_pop_model_estimates.rds")
+print(estimates_via)
+```
+
+
+
+## Meta analyses model
+
+We run meta analyses trait- and sex-wise using a random-effect model since we assume that effects measured in each lab do not only deviate because of sampling error alone but also because of other sources of variance --- such as lab effect.
+
+```{r wa meta libs}
+# packages and function
+library(meta)
+library(metafor)
+source("Code/functions.R") # get makeEffects
+```
+
+```{r wa meta}
+# read in models estimates for all models as a list
+estimates_list <- readRDS("LinearModelsPop/all_models_pop_estimates_list.rds")
+
+# meta analysis
+meta_via <- metagen(data = makeEffects(estimates_list$via_lmer), 
+                    TE = Y, 
+                    seTE = SE, 
+                    studlab = Study, 
+                    fixed = FALSE, 
+                    random = TRUE, 
+                    method.tau = "REML")
+```
+
+```{r wa subgroup}
+# subgroup meta analysis
+meta_via_sub <- update.meta(meta_via, subgroup = Population, tau.common = FALSE)
+```
+
+As discussed in early September 2022 at the "analyses task force" meeting, partial data (incomple data sets) from Posnien lab has been removed prior to running analyses for Wing Area and Thorax Length. 
+
+Importantly meta analyses have been run for all the traits, including those that have been measured in single labs (Locomotor Activity and Egg-to-pupa Development Time) and thus for which there is no data to combine. Obviously, results from these analyses are not relevant but it allows us to keep those traits in the loop and to streamline the generation of compound estimates --- they will be equal to linear model estimates in the case of the aforementioned traits. The same applies to Thorax Length males, a trait for which some populations have been measured only in one lab. _Population_ subgroup meta analyses have been run for the following 33 traits / sub traits / sex combinations (only 26 of them are actually relevant):
+
+```{r echo=FALSE}
+ce <- readRDS("MetaAnalyses/all_models_pop_meta_compound_estimates_list.rds")
+print(gsub("MetaAnalyses/_pop_meta_compound_estimates", "", names(ce) ))
+```
+Also note that glmer estimates (not lmer) were used as input for the Diapause meta analysis.
+
+
+## Meta analyses output
+
+All meta analyses related outputs are saved in the MetaAnalyses directory and trait sub directories. For example all the _Population_ subgroup analysis files for Viability are listed below:
+
+```{r echo=FALSE}
+f <- dir("../..", recursive = T)[grep("pop_meta", dir("../..", recursive = T))]
+rev(f[grep("MetaAnalyses/Viability/", f)])
+#rev(dir("Viability/")[grep("pop_meta", dir("Viability/"))])
+```
+File naming is consistent between traits. The _trait_ or _sub trait_ abbrevation (Via for Viability, for other traits such as Wing Area Left it will be WA_L) is followed by _sex_ (NA because not available for Viability, otherwise F or M, and sometimes B when measurements were done on both sexes at the same time) and by the type of _models_ the input data comes from (lmers, can also be glmers). Files with identical names but with different extensions contain the same data but are saved in different formats to facilitate both data handling and browsing. Raw results of the subgroup analysis are stored in Files 1 and 2, which are then used to extract population summary effects (compound estimates) and analysis statistics (Files 5 and 6). Files 3 and 4 are graphic representations of the subgroup analysis results.
+
+
+### Model results
+
+Below are shown the raw results of the Viabilty meta analysis (files 1 and 2):
+```{r}
+# meta results for Viability
+meta_via <- readRDS("MetaAnalyses/Viability/Via_NA_lmers_pop_meta.rds")
+print(meta_via)
+```
+
+We are mainly interested in the second part of the meta analysis output, starting from the "Results for subgroups (random effects model)" table. For each population one can extract a summary effect (compound estimate) with its 95% confidence interval as well as the number of labs that have contributed to phenoytyping (k). Differences between populations can be assessed with the _Q_ statistic shown in the "Test for subgroup differences (random effects model)" part of the model output. In short, the _Q_ statistic quantifies the heterogeneity between the different subgroups, the higher the _Q_ value the greater the heterogeneity. Under the null hypothesis of no differences between subgroups, _Q_ follows a central $\chi^2$ distribution with degrees of freedom equal to k subgroups - 1, so one can report a _p_ value for any observed value of _Q_. In the case of Viability, _Q_ = 100.09 and is statistically significant (_p_ < 0.0001), meaning that _Population_ does have a significant effect on Viability.
+
+### Compound population estimates
+
+Compound population estimates (population summary effects) and their 95% confidence intervals were extracted from the meta analyses results and stored in Files 5 and 6. Below is an example for Viability:
+
+```{r load comp pop via}
+# read in population compound estimates
+comp_pop_via <- readRDS("MetaAnalyses/Viability/Via_NA_lmers_pop_meta_compound_estimates.rds")
+print(select(comp_pop_via, -c(Models, Sex, SE, N_lab_av))) # for clarity
+```
+
+
+### Visualisation of the meta analyses results
+
+Results can be represented with a simplified forest plot (Files 3 and 4) where population summary effects (compound estimates) and populations are represented on x and y axis, respectively (Figure \@ref(fig:meta-plot-example)).
+
+
+```{r meta-plot-example, echo=FALSE, out.width="50%", fig.cap="Subgroup meta analysis for Viability. N indicates the average number of labs that have phenotyped the different populations.", fig.align = "center"}
+knitr::include_graphics("MetaAnalyses/Viability/Via_NA_lmers_pop_meta_summary_effect.pdf")
+```
+
+
+### Compiled data for all traits
+
+Compiled population compound estimates, meta analyses statistics and composite figures for all traits are available in the MetaAnalyses directory:
+
+```{r echo=FALSE}
+dir("../..", recursive = T)[grep("all_models_pop_meta", dir("../..", recursive = T))]
+
+#dir()[grep("pop", dir())]
+```
+
+All meta analyses main statistics are compiled in a single table (Files 4 and 6). _P_ values were corrected for multiple testing using Bonferroni and Benjamini Hochberg procedures (For Bonferroni n= 26 which corresponds to the number of "relevant" meta analyses that have been performed, see above). As mentioned earlier in the document, statistics for Locomotor Activity, Egg-to-pupa Development Time and Thorax Length in males should not be considered and have been filtered out from this table, leaving results for only 26 traits.
+
+```{r}
+# meta compiled statistics
+meta_stats <- readRDS("MetaAnalyses/all_models_pop_meta_pvalues.rds")
+print(meta_stats %>% mutate_at(vars(contains(c("P", "Q"))), round, 3))
+```
+
+Statistics such as _Q_ and _p_ values for all traits can be visualised on a single graph (File 5 and Figure \@ref(fig:meta-plot-pvalues)). 
+
+```{r meta-plot-pvalues, echo=FALSE, out.width="50%", fig.cap="All meta analyses Q statistics and p values.", fig.align = "center"}
+knitr::include_graphics("MetaAnalyses/all_models_pop_meta_pvalues.pdf")
+```
+
+
+Compiled compound population estimates for all traits are available both as a list (File 1) or a table (collapsed list, Files 2 and 3).
+```{r}
+# population compoud estimates as list
+comp_pop_list <- readRDS("MetaAnalyses/all_models_pop_meta_compound_estimates_list.rds")
+lapply(comp_pop_list, function(x) select(x, -c(Models, SE, N_lab_av))) %>% head(4)
+```
+
+
+Finally population summary effects for all traits can be visualized with a composite figure of all the meta analyses results (Files 7 and 8, Figure \@ref(fig:meta-fig-main)).
+
+
+```{r meta-fig-main, echo=FALSE, fig.cap="Meta analyses population summary effects for all 26 traits.", fig.align = "center"}
+knitr::include_graphics("MetaAnalyses/all_models_pop_meta_summary_effect.pdf")
+```
+
+## Compound line estimates
+
+The meta analysis approach described for _Population_ has also been used to generate line compound estimates.
+
+### Input data
+
+Compiled line random coefficients extracted from the linear models outputs:
+```{r echo=FALSE}
+dir("../..", recursive = T)[grep("all_models_line_random_coefs", dir("../..", recursive = T))]
+```
+
+Trait-specific line random coefficients extracted from the linear models outputs, for example for Viability:
+```{r echo=FALSE}
+f <- dir("../..", recursive = T)[grep("line_random_coefs", dir("../..", recursive = T))]
+f[grep("LinearModelsPop/Viability/", f)]
+```
+
+### Meta analyses model
+
+The only difference with the _Population_ subgroup meta analyses is that here subgroups are defined by the _Line_ variable.
+
+Importantly, as previously mentionned in the _Population_ meta analyses section, meta analyses for _Line_ have been run for all the traits, including those that have been measured in single labs (Locomotor Activity and Egg-to-pupa Development Time). In addition, even for traits involving several labs, some lines might have been measured only once. Again, results from these analyses are meaningless and should not be considered but it allows us to keep those traits in the loop and to streamline the generation of compound estimates. _Line_ subgroup meta analyses have been run for the following 32 traits to generate line compound estimates:
+
+```{r echo=FALSE}
+rc <- readRDS("MetaAnalyses/all_models_line_meta_compound_random_coefs_list.rds")
+print(gsub("MetaAnalyses/_line_meta_compound_random_coefs", "", names(rc) ))
+```
+
+Note that we could not run the analysis for Locomotor Activity AbsPhase since line random coefficients are not available for that particular trait --- _Line_ could not be included as a random-effect factor in the linear model. For Diapause, we ran the meta analysis using the glmer models estimates only.
+
+Finally partial data (incomple data sets) from Posnien lab has been removed prior to running analyses for Wing Area and Thorax Length, to match what has been done in the _Population_ meta analyses.
+
+### Meta analyses output
+
+We are not interested in testing for differences between lines, we just want to extract line summary effects (compound estimates), so there is not much to be shown here. However analyses raw results are still available for each trait, for example for Viability:
+
+```{r echo=FALSE}
+f <- dir("../..", recursive = T)[grep("line_meta", dir("../..", recursive = T))]
+f <- f[grep("MetaAnalyses/Viability/", f)]
+rev(f[grep("random_coefs", f, invert = T)])
+#rev(dir("Viability/")[grep("pop_meta", dir("Viability/"))])
+```
+
+#### Compound line estimates
+
+Compound line estimates (line summary effects) and their 95% confidence intervals were extracted from the meta analyses raw results for each trait. Below are listed the files for Viability:
+```{r echo=FALSE}
+f <- dir("../..", recursive = T)[grep("line_meta_compound", dir("../..", recursive = T))]
+rev(f[grep("MetaAnalyses/Viability/", f)])
+#rev(dir("Viability/")[grep("pop_meta", dir("Viability/"))])
+```
+
+#### Compiled data for all traits
+
+Line compound estimates for all traits have been exported as a list, table and wide table:
+
+```{r echo=FALSE}
+dir("../..", recursive = T)[grep("all_models_line_meta", dir("../..", recursive = T))]
+
+#dir()[grep("pop", dir())]
+```
+```{r}
+# wide table, showing the first 30 lines and first 6 traits
+lc_wide <- read.csv("MetaAnalyses/all_models_line_meta_compound_random_coefs_wide.csv")
+print(lc_wide[1:30, 1:8])
+```
+
+## Results overview 
 
 ```{r echo=FALSE}
 knitr::include_graphics("MetaAnalyses/all_models_pop_meta_summary_effect.pdf")
 ```
-
 
 ```{r echo=FALSE}
 knitr::include_graphics("MetaAnalyses/all_models_pop_meta_pvalues.pdf")
@@ -7295,9 +7544,11 @@ knitr::include_graphics("MetaAnalyses/Starvation/SR_M_lmers_pop_meta_summary_eff
 knitr::include_graphics("MetaAnalyses/Pigmentation/Pgm_Total_F_lmers_pop_meta_summary_effect.pdf")
 ```
 
-# Results III : Environmental Variables  
+# Results : Environmental Variables  
 
-```{r}
+```{r eval=FALSE, echo=TRUE}
+# All model outputs can be found in :
+
 lmers_lat <- readRDS("LinearModelsLat/all_lmers_lat_anova_list.rds")
 lmers_lon <- readRDS("LinearModelsLon/all_lmers_lon_anova_list.rds")
 lmers_alt <- readRDS("LinearModelsAlt/all_lmers_alt_anova_list.rds")
@@ -7305,1635 +7556,283 @@ lmers_alt <- readRDS("LinearModelsAlt/all_lmers_alt_anova_list.rds")
 
 ## Geography - Latitude 
 
-### Viability
-
-#### Gibert Lab
-
-```{r}
-lmers_lat$Via_Gibert_lmer_lat
-```
-
-#### Grath Lab
-
-```{r}
-lmers_lat$Via_Grath_lmer_lat
-```
-
-#### Hoedjes Lab
-
-```{r}
-lmers_lat$Via_Hoedjes_lmer_lat
-```
-
-#### Schmidt Lab
-
-```{r}
-lmers_lat$Via_Schmidt_lmer_lat
-```
-
-#### Stamenkovic-Radak Lab
-
-```{r}
-lmers_lat$Via_StamenkovicRadak_lmer_lat
-```
-
-#### Zwaan Lab
-
-```{r}
-lmers_lat$Via_Zwaan_lmer_lat
-```
-
-### Developmental time
-
-### Egg-to-pupa developmental time
-
-##### Schmidt Lab
-
-```{r}
-lmers_lat$DT_P_Schmidt_lmer_lat
-```
-
-### Egg-to-adult developmental time
-
-##### Gibert Lab
-
-```{r}
-lmers_lat$DT_A_F_Gibert_lmer_lat
-```
-
-```{r}
-lmers_lat$DT_A_M_Gibert_lmer_lat
-```
-
-##### Grath Lab
-
-```{r}
-lmers_lat$DT_A_F_Grath_lmer_lat
-```
-
-```{r}
-lmers_lat$DT_A_M_Grath_lmer_lat
-```
-
-##### Hoedjes Lab
-
-```{r}
-lmers_lat$DT_A_F_Hoedjes_lmer_lat
-```
-
-```{r}
-lmers_lat$DT_A_M_Hoedjes_lmer_lat
-```
-
-##### Schmidt Lab
-
-```{r}
-lmers_lat$DT_A_F_Schmidt_lmer_lat
-```
-
-```{r}
-lmers_lat$DT_A_M_Schmidt_lmer_lat
-```
-
-##### Stamenkovic-Radak Lab
-
-```{r}
-lmers_lat$DT_A_F_StamenkovicRadak_lmer_lat
-```
-
-```{r}
-lmers_lat$DT_A_M_StamenkovicRadak_lmer_lat
-```
-
-##### Zwaan Lab
-
-```{r}
-lmers_lat$DT_A_F_Zwaan_lmer_lat
-```
-
-```{r}
-lmers_lat$DT_A_M_Zwaan_lmer_lat
-```
-
-### Dry weight
-
-#### Colinet Lab
-
-```{r}
-lmers_lat$DW_F_Colinet_lmer_lat
-```
-
-```{r}
-lmers_lat$DW_M_Colinet_lmer_lat
-```
-
-#### Hoedjes Lab 
-```{r}
-lmers_lat$DW_F_Hoedjes_lmer_lat
-```
-
-```{r}
-lmers_lat$DW_M_Hoedjes_lmer_lat
-```
-
-#### Onder Lab
-
-```{r}
-lmers_lat$DW_F_Onder_lmer_lat
-```
-
-```{r}
-lmers_lat$DW_M_Onder_lmer_lat
-```
-
-### Thorax length
-
-#### Kozeretska Lab
-
-```{r}
-lmers_lat$TL_F_Kozeretska_lmer_lat
-```
-
-```{r}
-lmers_lat$TL_M_Kozeretska_lmer_lat
-```
-
-#### Posnien Lab 
-
-```{r}
-lmers_lat$TL_F_Posnien_lmer_lat
-```
-
-```{r}
-lmers_lat$TL_M_Posnien_lmer_lat
-```
-
-#### Ritchie Lab
-
-```{r}
-lmers_lat$TL_F_Ritchie_lmer_lat
-```
-
-```{r}
-lmers_lat$TL_M_Ritchie_lmer_lat
-```
-
-#### Schmidt Lab
-
-```{r}
-lmers_lat$TL_F_Schmidt_lmer_lat
-```
-
-### Wing area
-
-### _Left_
-
-#### Onder Lab
-
-```{r}
-lmers_lat$WA_L_F_Onder_lmer_lat
-```
-
-```{r}
-lmers_lat$WA_L_M_Onder_lmer_lat
-```
-
-#### Posnien Lab 
-
-```{r}
-lmers_lat$WA_L_F_Posnien_lmer_lat
-```
-
-```{r}
-lmers_lat$WA_L_M_Posnien_lmer_lat
-```
-
-#### Ritchie Lab
-
-```{r}
-lmers_lat$WA_L_F_Ritchie_lmer_lat
-```
-
-```{r}
-lmers_lat$WA_L_M_Ritchie_lmer_lat
-```
-
-#### Stamenkovic-Radak Lab
-
-```{r}
-lmers_lat$WA_L_F_StamenkovicRadak_lmer_lat
-```
-
-```{r}
-lmers_lat$WA_L_M_StamenkovicRadak_lmer_lat
-```
-
-### _Right_
-
-#### Onder Lab
-
-```{r}
-lmers_lat$WA_R_F_Onder_lmer_lat
-```
-
-```{r}
-lmers_lat$WA_R_M_Onder_lmer_lat
-```
-
-#### Posnien Lab 
-
-```{r}
-lmers_lat$WA_R_F_Posnien_lmer_lat
-```
-
-```{r}
-lmers_lat$WA_R_M_Posnien_lmer_lat
-```
-
-#### Ritchie Lab
-
-```{r}
-lmers_lat$WA_R_F_Ritchie_lmer_lat
-```
-
-```{r}
-lmers_lat$WA_R_M_Ritchie_lmer_lat
-```
-
-#### Stamenkovic-Radak Lab
-
-```{r}
-lmers_lat$WA_R_F_StamenkovicRadak_lmer_lat
-```
-
-```{r}
-lmers_lat$WA_R_M_StamenkovicRadak_lmer_lat
-```
-
-### Fecundity
-
-#### Billeter Lab
-
-```{r}
-lmers_lat$Fec_Billeter_lmer_lat
-```
-
-#### Fricke Lab 
-
-```{r}
-lmers_lat$Fec_Fricke_lmer_lat
-```
-
-### Lifespan
-
-#### Flatt Lab
-
-```{r}
-lmers_lat$LS_F_Flatt_lmer_lat
-```
-
-```{r}
-lmers_lat$LS_M_Flatt_lmer_lat
-```
-
-#### Parsch Lab 
-
-```{r}
-lmers_lat$LS_F_Parsch_lmer_lat
-```
-
-```{r}
-lmers_lat$LS_M_Parsch_lmer_lat
-```
-
-#### Pasyukova Lab
-
-```{r}
-lmers_lat$LS_F_Pasyukova_lmer_lat
-```
-
-```{r}
-lmers_lat$LS_M_Pasyukova_lmer_lat
-```
-
-### Cold-shock mortality
-
-#### Gonzalez Lab
-
-```{r}
-lmers_lat$CSM_F_Gonzalez_lmer_lat
-```
-
-```{r}
-lmers_lat$CSM_M_Gonzalez_lmer_lat
-```
-
-#### Kozeretska Lab 
-
-```{r}
-lmers_lat$CSM_F_Kozeretska_lmer_lat
-```
-
-```{r}
-lmers_lat$CSM_M_Kozeretska_lmer_lat
-```
-
-#### Vieira Lab
-
-```{r}
-lmers_lat$CSM_F_Vieira_lmer_lat
-```
-
-```{r}
-lmers_lat$CSM_M_Vieira_lmer_lat
-```
-
-### Chill-coma recovery time
-
-#### Mensch Lab 
-
-```{r}
-lmers_lat$CCRT_F_Mensch_lmer_lat
-```
-
-```{r}
-lmers_lat$CCRT_M_Mensch_lmer_lat
-```
-
-#### Vieira Lab
-
-```{r}
-lmers_lat$CCRT_F_Vieira_lmer_lat
-```
-
-```{r}
-lmers_lat$CCRT_M_Vieira_lmer_lat
-```
-
-### Heat-shock mortality
-
-#### Parsch Lab
-
-```{r}
-lmers_lat$HSM_F_Parsch_lmer_lat
-```
-
-```{r}
-lmers_lat$HSM_M_Parsch_lmer_lat
-```
-
-#### Vieira Lab 
-
-```{r}
-lmers_lat$HSM_F_Vieira_lmer_lat
-```
-
-```{r}
-lmers_lat$HSM_M_Vieira_lmer_lat
-```
-
-### Diapause
-
-#### Bergland Lab
-```{r}
-lmers_lat$Dia_Bergland_lmer_lat
-```
-
-#### Flatt Lab 
-
-```{r}
-lmers_lat$Dia_Flatt_lm_lat
-```
-
-#### Schlotterer Lab
-
-```{r}
-lmers_lat$Dia_Schlotterer_lmer_lat
-```
-
-### Circadian eclosion timing
-
-### Locomotor activity
-
-#### Tauber Lab
-
-```{r include=FALSE}
-lmers_lat_la <- readRDS("LinearModelsLat/Locomotor/LA_lmers_lat_anova.rds")
-```
-
-_ND_
-```{r}
-lmers_lat_la$LA_NDlog2_Tauber_lmer_lat
-```
-
-_CircPhase_
-
-```{r}
-lmers_lat_la$LA_CircPhase_Tauber_lmer_lat
-```
-
-_Activity_
-
-```{r}
-lmers_lat_la$LA_Activity_Tauber_lmer_lat
-```
-
-### Starvation resistance
-
-#### Gonzalez Lab
-
-```{r}
-lmers_lat$SR_F_Gonzalez_lmer_lat
-```
-
-```{r}
-lmers_lat$SR_M_Gonzalez_lmer_lat
-```
-
-#### Onder Lab 
-
-```{r}
-lmers_lat$SR_F_Onder_lmer_lat
-```
-
-```{r}
-lmers_lat$SR_M_Onder_lmer_lat
-```
-
-#### Pasyukova Lab
-
-```{r}
-lmers_lat$SR_F_Pasyukova_lmer_lat
-```
-
-```{r}
-lmers_lat$SR_M_Pasyukova_lmer_lat
-```
-
-### Pigmentation
-
-#### Abbott Lab
-_PercT4_
-
-```{r}
-lmers_lat$Pgm_T4_Abbott_lmer_lat
-```
-
-_PercT5_
-
-```{r}
-lmers_lat$Pgm_T5_Abbott_lmer_lat
-```
-
-_PercT6_
-
-```{r}
-lmers_lat$Pgm_T6_Abbott_lmer_lat
-```
-
-_TotalPerc_
-
-```{r}
-lmers_lat$Pgm_Total_Abbott_lmer_lat
-```
-
-#### Gibert Lab 
-_PercT4_
-
-```{r}
-lmers_lat$Pgm_T4_Gibert_lmer_lat
-```
-
-_PercT5_
-
-```{r}
-lmers_lat$Pgm_T5_Gibert_lmer_lat
-```
-
-_PercT6_
-
-```{r}
-lmers_lat$Pgm_T6_Gibert_lmer_lat
-```
-
-_TotalPerc_
-
-```{r}
-lmers_lat$Pgm_Total_Gibert_lmer_lat
-```
-
-#### Schmidt Lab
-_PercT4_
-
-```{r}
-lmers_lat$Pgm_T4_Schmidt_lmer_lat
-```
-
-_PercT5_
-
-```{r}
-lmers_lat$Pgm_T5_Schmidt_lmer_lat
-```
-
-_PercT6_
-
-```{r}
-lmers_lat$Pgm_T6_Schmidt_lmer_lat
+```{r, echo=FALSE}
+pval_table_lat <- read.csv("LinearModelsLat/all_models_lat_pvalues.csv")
 ```
-
-_TotalPerc_
 
-```{r}
-lmers_lat$Pgm_Total_Schmidt_lmer_lat
+```{r, echo=FALSE}
+DT::datatable(pval_table_lat, options = list(pageLength = 25)) %>% formatRound(6, 4)
 ```
 
 ## Geography - Longitude
 
-### Viability
-
-#### Gibert Lab
-
-```{r}
-lmers_lon$Via_Gibert_lmer_lon
-```
-
-#### Grath Lab
-
-```{r}
-lmers_lon$Via_Grath_lmer_lon
-```
-
-#### Hoedjes Lab
-
-```{r}
-lmers_lon$Via_Hoedjes_lmer_lon
-```
-
-#### Schmidt Lab
-
-```{r}
-lmers_lon$Via_Schmidt_lmer_lon
-```
-
-#### Stamenkovic-Radak Lab
-
-```{r}
-lmers_lon$Via_StamenkovicRadak_lmer_lon
-```
-
-#### Zwaan Lab
-
-```{r}
-lmers_lon$Via_Zwaan_lmer_lon
-```
-
-### Developmental time
-
-### Egg-to-pupa developmental time
-
-##### Schmidt Lab
-
-```{r}
-lmers_lon$DT_P_Schmidt_lmer_lon
-```
-
-### Egg-to-adult developmental time
-
-##### Gibert Lab
-
-```{r}
-lmers_lon$DT_A_F_Gibert_lmer_lon
-```
-
-```{r}
-lmers_lon$DT_A_M_Gibert_lmer_lon
-```
-
-##### Grath Lab
-
-```{r}
-lmers_lon$DT_A_F_Grath_lmer_lon
-```
-
-```{r}
-lmers_lon$DT_A_M_Grath_lmer_lon
-```
-
-##### Hoedjes Lab
-
-```{r}
-lmers_lon$DT_A_F_Hoedjes_lmer_lon
-```
-
-```{r}
-lmers_lon$DT_A_M_Hoedjes_lmer_lon
-```
-
-##### Schmidt Lab
-
-```{r}
-lmers_lon$DT_A_F_Schmidt_lmer_lon
-```
-
-```{r}
-lmers_lon$DT_A_M_Schmidt_lmer_lon
-```
-
-##### Stamenkovic-Radak Lab
-
-```{r}
-lmers_lon$DT_A_F_StamenkovicRadak_lmer_lon
-```
-
-```{r}
-lmers_lon$DT_A_M_StamenkovicRadak_lmer_lon
-```
-
-##### Zwaan Lab
-
-```{r}
-lmers_lon$DT_A_F_Zwaan_lmer_lon
-```
-
-```{r}
-lmers_lon$DT_A_M_Zwaan_lmer_lon
-```
-
-### Dry weight
-
-#### Colinet Lab
-
-```{r}
-lmers_lon$DW_F_Colinet_lmer_lon
-```
-
-```{r}
-lmers_lon$DW_M_Colinet_lmer_lon
-```
-
-#### Hoedjes Lab 
-```{r}
-lmers_lon$DW_F_Hoedjes_lmer_lon
-```
-
-```{r}
-lmers_lon$DW_M_Hoedjes_lmer_lon
-```
-
-#### Onder Lab
-
-```{r}
-lmers_lon$DW_F_Onder_lmer_lon
-```
-
-```{r}
-lmers_lon$DW_M_Onder_lmer_lon
-```
-
-### Thorax length
-
-#### Kozeretska Lab
-
-```{r}
-lmers_lon$TL_F_Kozeretska_lmer_lon
-```
-
-```{r}
-lmers_lon$TL_M_Kozeretska_lmer_lon
-```
-
-#### Posnien Lab 
-
-```{r}
-lmers_lon$TL_F_Posnien_lmer_lon
-```
-
-```{r}
-lmers_lon$TL_M_Posnien_lmer_lon
-```
-
-#### Ritchie Lab
-
-```{r}
-lmers_lon$TL_F_Ritchie_lmer_lon
-```
-
-```{r}
-lmers_lon$TL_M_Ritchie_lmer_lon
-```
-
-#### Schmidt Lab
-
-```{r}
-lmers_lon$TL_F_Schmidt_lmer_lon
-```
-
-### Wing area
-
-### _Left_
-
-#### Onder Lab
-
-```{r}
-lmers_lon$WA_L_F_Onder_lmer_lon
-```
-
-```{r}
-lmers_lon$WA_L_M_Onder_lmer_lon
-```
-
-#### Posnien Lab 
-
-```{r}
-lmers_lon$WA_L_F_Posnien_lmer_lon
-```
-
-```{r}
-lmers_lon$WA_L_M_Posnien_lmer_lon
-```
-
-#### Ritchie Lab
-
-```{r}
-lmers_lon$WA_L_F_Ritchie_lmer_lon
-```
-
-```{r}
-lmers_lon$WA_L_M_Ritchie_lmer_lon
-```
-
-#### Stamenkovic-Radak Lab
-
-```{r}
-lmers_lon$WA_L_F_StamenkovicRadak_lmer_lon
-```
-
-```{r}
-lmers_lon$WA_L_M_StamenkovicRadak_lmer_lon
-```
-
-### _Right_
-
-#### Onder Lab
-
-```{r}
-lmers_lon$WA_R_F_Onder_lmer_lon
-```
-
-```{r}
-lmers_lon$WA_R_M_Onder_lmer_lon
-```
-
-#### Posnien Lab 
-
-```{r}
-lmers_lon$WA_R_F_Posnien_lmer_lon
-```
-
-```{r}
-lmers_lon$WA_R_M_Posnien_lmer_lon
-```
-
-#### Ritchie Lab
-
-```{r}
-lmers_lon$WA_R_F_Ritchie_lmer_lon
-```
-
-```{r}
-lmers_lon$WA_R_M_Ritchie_lmer_lon
-```
-
-#### Stamenkovic-Radak Lab
-
-```{r}
-lmers_lon$WA_R_F_StamenkovicRadak_lmer_lon
-```
-
-```{r}
-lmers_lon$WA_R_M_StamenkovicRadak_lmer_lon
-```
-
-### Fecundity
-
-#### Billeter Lab
-
-```{r}
-lmers_lon$Fec_Billeter_lmer_lon
-```
-
-#### Fricke Lab 
-
-```{r}
-lmers_lon$Fec_Fricke_lmer_lon
-```
-
-### Lifespan
-
-#### Flatt Lab
-
-```{r}
-lmers_lon$LS_F_Flatt_lmer_lon
-```
-
-```{r}
-lmers_lon$LS_M_Flatt_lmer_lon
-```
-
-#### Parsch Lab 
-
-```{r}
-lmers_lon$LS_F_Parsch_lmer_lon
-```
-
-```{r}
-lmers_lon$LS_M_Parsch_lmer_lon
-```
-
-#### Pasyukova Lab
-
-```{r}
-lmers_lon$LS_F_Pasyukova_lmer_lon
-```
-
-```{r}
-lmers_lon$LS_M_Pasyukova_lmer_lon
-```
-
-### Cold-shock mortality
-
-#### Gonzalez Lab
-
-```{r}
-lmers_lon$CSM_F_Gonzalez_lmer_lon
-```
-
-```{r}
-lmers_lon$CSM_M_Gonzalez_lmer_lon
-```
-
-#### Kozeretska Lab 
-
-```{r}
-lmers_lon$CSM_F_Kozeretska_lmer_lon
-```
-
-```{r}
-lmers_lon$CSM_M_Kozeretska_lmer_lon
-```
-
-#### Vieira Lab
-
-```{r}
-lmers_lon$CSM_F_Vieira_lmer_lon
-```
-
-```{r}
-lmers_lon$CSM_M_Vieira_lmer_lon
-```
-
-### Chill-coma recovery time
-
-#### Mensch Lab 
-```{r}
-lmers_lon$CCRT_F_Mensch_lmer_lon
-```
-
-```{r}
-lmers_lon$CCRT_M_Mensch_lmer_lon
-```
-
-#### Vieira Lab
-
-```{r}
-lmers_lon$CCRT_F_Vieira_lmer_lon
-```
-
-```{r}
-lmers_lon$CCRT_M_Vieira_lmer_lon
-```
-
-### Heat-shock mortality
-
-#### Parsch Lab
-
-```{r}
-lmers_lon$HSM_F_Parsch_lmer_lon
-```
-
-```{r}
-lmers_lon$HSM_M_Parsch_lmer_lon
-```
-
-#### Vieira Lab 
-
-```{r}
-lmers_lon$HSM_F_Vieira_lmer_lon
-```
-
-```{r}
-lmers_lon$HSM_M_Vieira_lmer_lon
-```
-
-### Diapause
-
-#### Bergland Lab
-```{r}
-lmers_lon$Dia_Bergland_lmer_lon
-```
-
-#### Flatt Lab 
-
-```{r}
-lmers_lon$Dia_Flatt_lm_lon
-```
-
-#### Schlotterer Lab
-
-```{r}
-lmers_lon$Dia_Schlotterer_lmer_lon
-```
-
-### Circadian eclosion timing
-
-### Locomotor activity
-
-#### Tauber Lab
-
-
-```{r include=FALSE}
-lmers_lon_la <- readRDS("LinearModelsLon/Locomotor/LA_lmers_lon_anova.rds")
-```
-
-_ND_
-```{r}
-lmers_lon_la$LA_NDlog2_Tauber_lmer_lon
-```
-
-_CircPhase_
-
-```{r}
-lmers_lon_la$LA_CircPhase_Tauber_lmer_lon
-```
-
-_Activity_
-
-```{r}
-lmers_lon_la$LA_Activity_Tauber_lmer_lon
-```
-
-### Starvation resistance
-
-#### Gonzalez Lab
-
-```{r}
-lmers_lon$SR_F_Gonzalez_lmer_lon
-```
-
-```{r}
-lmers_lon$SR_M_Gonzalez_lmer_lon
-```
-
-#### Onder Lab 
-
-```{r}
-lmers_lon$SR_F_Onder_lmer_lon
-```
-
-```{r}
-lmers_lon$SR_M_Onder_lmer_lon
-```
-
-#### Pasyukova Lab
-
-```{r}
-lmers_lon$SR_F_Pasyukova_lmer_lon
-```
-
-```{r}
-lmers_lon$SR_M_Pasyukova_lmer_lon
-```
-
-### Pigmentation
-
-#### Abbott Lab
-_PercT4_
-
-```{r}
-lmers_lon$Pgm_T4_Abbott_lmer_lon
-```
-
-_PercT5_
-
-```{r}
-lmers_lon$Pgm_T5_Abbott_lmer_lon
-```
-
-_PercT6_
-
-```{r}
-lmers_lon$Pgm_T6_Abbott_lmer_lon
-```
-
-_TotalPerc_
-
-```{r}
-lmers_lon$Pgm_Total_Abbott_lmer_lon
-```
-
-#### Gibert Lab 
-_PercT4_
-
-```{r}
-lmers_lon$Pgm_T4_Gibert_lmer_lon
-```
-
-_PercT5_
-
-```{r}
-lmers_lon$Pgm_T5_Gibert_lmer_lon
+```{r, echo=FALSE}
+pval_table_lon <- read.csv("LinearModelsLon/all_models_lon_pvalues.csv")
 ```
 
-_PercT6_
-
-```{r}
-lmers_lon$Pgm_T6_Gibert_lmer_lon
-```
-
-_TotalPerc_
-
-```{r}
-lmers_lon$Pgm_Total_Gibert_lmer_lon
-```
-
-#### Schmidt Lab
-_PercT4_
-
-```{r}
-lmers_lon$Pgm_T4_Schmidt_lmer_lon
-```
-
-_PercT5_
-
-```{r}
-lmers_lon$Pgm_T5_Schmidt_lmer_lon
-```
-
-_PercT6_
-
-```{r}
-lmers_lon$Pgm_T6_Schmidt_lmer_lon
-```
-
-_TotalPerc_
-
-```{r}
-lmers_lon$Pgm_Total_Schmidt_lmer_lon
+```{r, echo=FALSE}
+DT::datatable(pval_table_lon, options = list(pageLength = 25)) %>% formatRound(6, 4)
 ```
-
 
 ## Geography - Altitude
 
-### Viability
-
-#### Gibert Lab
-
-```{r}
-lmers_alt$Via_Gibert_lmer_alt
+```{r, echo=FALSE}
+pval_table_alt <- read.csv("LinearModelsAlt/all_models_alt_pvalues.csv")
 ```
 
-#### Grath Lab
-
-```{r}
-lmers_alt$Via_Grath_lmer_alt
+```{r, echo=FALSE}
+DT::datatable(pval_table_alt, options = list(pageLength = 25)) %>% formatRound(6, 4)
 ```
 
-#### Hoedjes Lab
+## Geography - Altitude
 
+# Results : GeoCorrelations
+
+## Latitude - Line
 ```{r}
-lmers_alt$Via_Hoedjes_lmer_alt
-```
-
-#### Schmidt Lab
-
-```{r}
-lmers_alt$Via_Schmidt_lmer_alt
-```
-
-#### Stamenkovic-Radak Lab
-
-```{r}
-lmers_alt$Via_StamenkovicRadak_lmer_alt
-```
-
-#### Zwaan Lab
-
-```{r}
-lmers_alt$Via_Zwaan_lmer_alt
-```
-
-### Developmental time
-
-### Egg-to-pupa developmental time
-
-##### Schmidt Lab
-
-```{r}
-lmers_alt$DT_P_Schmidt_lmer_alt
-```
-
-### Egg-to-adult developmental time
-
-##### Gibert Lab
-
-```{r}
-lmers_alt$DT_A_F_Gibert_lmer_alt
+knitr::include_graphics("GeoCorrelations/line_lat_pearson_correlations_facets.pdf")
 ```
 
 ```{r}
-lmers_alt$DT_A_M_Gibert_lmer_alt
+knitr::include_graphics("GeoCorrelations/line_lat_pearson_correlations.pdf")
 ```
 
-##### Grath Lab
-
+## Latitude - Population
 ```{r}
-lmers_alt$DT_A_F_Grath_lmer_alt
-```
-
-```{r}
-lmers_alt$DT_A_M_Grath_lmer_alt
-```
-
-##### Hoedjes Lab
-
-```{r}
-lmers_alt$DT_A_F_Hoedjes_lmer_alt
+knitr::include_graphics("GeoCorrelations/pop_lat_pearson_correlations_facets.pdf")
 ```
 
 ```{r}
-lmers_alt$DT_A_M_Hoedjes_lmer_alt
+knitr::include_graphics("GeoCorrelations/pop_lat_pearson_correlations.pdf")
 ```
 
-##### Schmidt Lab
-
+## Longtitude - Line
 ```{r}
-lmers_alt$DT_A_F_Schmidt_lmer_alt
-```
-
-```{r}
-lmers_alt$DT_A_M_Schmidt_lmer_alt
-```
-
-##### Stamenkovic-Radak Lab
-
-```{r}
-lmers_alt$DT_A_F_StamenkovicRadak_lmer_alt
+knitr::include_graphics("GeoCorrelations/line_lon_pearson_correlations_facets.pdf")
 ```
 
 ```{r}
-lmers_alt$DT_A_M_StamenkovicRadak_lmer_alt
+knitr::include_graphics("GeoCorrelations/line_lon_pearson_correlations.pdf")
 ```
 
-##### Zwaan Lab
-
+## Longtitude - Population
 ```{r}
-lmers_alt$DT_A_F_Zwaan_lmer_alt
-```
-
-```{r}
-lmers_alt$DT_A_M_Zwaan_lmer_alt
-```
-
-### Dry weight
-
-#### Colinet Lab
-
-```{r}
-lmers_alt$DW_F_Colinet_lmer_alt
+knitr::include_graphics("GeoCorrelations/pop_lon_pearson_correlations_facets.pdf")
 ```
 
 ```{r}
-lmers_alt$DW_M_Colinet_lmer_alt
+knitr::include_graphics("GeoCorrelations/pop_lon_pearson_correlations.pdf")
 ```
 
-#### Hoedjes Lab 
-```{r}
-lmers_alt$DW_F_Hoedjes_lmer_alt
-```
+# Results : Diet
+
+## Overview
 
 ```{r}
-lmers_alt$DW_M_Hoedjes_lmer_alt
-```
-
-#### Onder Lab
-
-```{r}
-lmers_alt$DW_F_Onder_lmer_alt
+knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_facets.pdf")
 ```
 
 ```{r}
-lmers_alt$DW_M_Onder_lmer_alt
-```
-
-### Thorax length
-
-#### Kozeretska Lab
-
-```{r}
-lmers_alt$TL_F_Kozeretska_lmer_alt
+knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_traits_facets.pdf")
 ```
 
 ```{r}
-lmers_alt$TL_M_Kozeretska_lmer_alt
-```
-
-#### Posnien Lab 
-
-```{r}
-lmers_alt$TL_F_Posnien_lmer_alt
+knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_traits_pop_facets.pdf")
 ```
 
 ```{r}
-lmers_alt$TL_M_Posnien_lmer_alt
-```
-
-#### Ritchie Lab
-
-```{r}
-lmers_alt$TL_F_Ritchie_lmer_alt
-```
-
-```{r}
-lmers_alt$TL_M_Ritchie_lmer_alt
-```
-
-#### Schmidt Lab
-
-```{r}
-lmers_alt$TL_F_Schmidt_lmer_alt
-```
-
-### Wing area
-
-### _Left_
-
-#### Onder Lab
-
-```{r}
-lmers_alt$WA_L_F_Onder_lmer_alt
-```
-
-```{r}
-lmers_alt$WA_L_M_Onder_lmer_alt
-```
-
-#### Posnien Lab 
-
-```{r}
-lmers_alt$WA_L_F_Posnien_lmer_alt
-```
-
-```{r}
-lmers_alt$WA_L_M_Posnien_lmer_alt
-```
-
-#### Ritchie Lab
-
-```{r}
-lmers_alt$WA_L_F_Ritchie_lmer_alt
-```
-
-```{r}
-lmers_alt$WA_L_M_Ritchie_lmer_alt
-```
-
-#### Stamenkovic-Radak Lab
-
-```{r}
-lmers_alt$WA_L_F_StamenkovicRadak_lmer_alt
-```
-
-```{r}
-lmers_alt$WA_L_M_StamenkovicRadak_lmer_alt
-```
-
-### _Right_
-
-#### Onder Lab
-
-```{r}
-lmers_alt$WA_R_F_Onder_lmer_alt
-```
-
-```{r}
-lmers_alt$WA_R_M_Onder_lmer_alt
-```
-
-#### Posnien Lab 
-
-```{r}
-lmers_alt$WA_R_F_Posnien_lmer_alt
-```
-
-```{r}
-lmers_alt$WA_R_M_Posnien_lmer_alt
-```
-
-#### Ritchie Lab
-
-```{r}
-lmers_alt$WA_R_F_Ritchie_lmer_alt
-```
-
-```{r}
-lmers_alt$WA_R_M_Ritchie_lmer_alt
-```
-
-#### Stamenkovic-Radak Lab
-
-```{r}
-lmers_alt$WA_R_F_StamenkovicRadak_lmer_alt
-```
-
-```{r}
-lmers_alt$WA_R_M_StamenkovicRadak_lmer_alt
-```
-
-### Fecundity
-
-#### Billeter Lab
-
-```{r}
-lmers_alt$Fec_Billeter_lmer_alt
-```
-
-#### Fricke Lab 
-
-```{r}
-lmers_alt$Fec_Fricke_lmer_alt
-```
-
-### Lifespan
-
-#### Flatt Lab
-
-```{r}
-lmers_alt$LS_F_Flatt_lmer_alt
-```
-
-```{r}
-lmers_alt$LS_M_Flatt_lmer_alt
-```
-
-#### Parsch Lab 
-
-```{r}
-lmers_alt$LS_F_Parsch_lmer_alt
-```
-
-```{r}
-lmers_alt$LS_M_Parsch_lmer_alt
-```
-
-#### Pasyukova Lab
-
-```{r}
-lmers_alt$LS_F_Pasyukova_lmer_alt
-```
-
-```{r}
-lmers_alt$LS_M_Pasyukova_lmer_alt
+knitr::include_graphics("Diets/DrosEU_Diets_lab_traits_pop_facets.pdf")
 ```
 
 ### Cold-shock mortality
-
-#### Gonzalez Lab
-
 ```{r}
-lmers_alt$CSM_F_Gonzalez_lmer_alt
-```
-
-```{r}
-lmers_alt$CSM_M_Gonzalez_lmer_alt
-```
-
-#### Kozeretska Lab 
-
-```{r}
-lmers_alt$CSM_F_Kozeretska_lmer_alt
-```
-
-```{r}
-lmers_alt$CSM_M_Kozeretska_lmer_alt
-```
-
-#### Vieira Lab
-
-```{r}
-lmers_alt$CSM_F_Vieira_lmer_alt
-```
-
-```{r}
-lmers_alt$CSM_M_Vieira_lmer_alt
-```
-
-### Chill-coma recovery time
-
-#### Mensch Lab 
-```{r}
-lmers_alt$CCRT_F_Mensch_lmer_alt
-```
-
-```{r}
-lmers_alt$CCRT_M_Mensch_lmer_alt
-```
-
-#### Vieira Lab
-
-```{r}
-lmers_alt$CCRT_F_Vieira_lmer_alt
-```
-
-```{r}
-lmers_alt$CCRT_M_Vieira_lmer_alt
-```
-
-### Heat-shock mortality
-
-#### Parsch Lab
-
-```{r}
-lmers_alt$HSM_F_Parsch_lmer_alt
-```
-
-```{r}
-lmers_alt$HSM_M_Parsch_lmer_alt
-```
-
-#### Vieira Lab 
-
-```{r}
-lmers_alt$HSM_F_Vieira_lmer_alt
-```
-
-```{r}
-lmers_alt$HSM_M_Vieira_lmer_alt
+knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_CSM_pop_facets.pdf")
 ```
 
 ### Diapause
-
-#### Bergland Lab
 ```{r}
-lmers_alt$Dia_Bergland_lmer_alt
+knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_Dia_pop_facets.pdf")
 ```
 
-#### Flatt Lab 
-
+### Development time
 ```{r}
-lmers_alt$Dia_Flatt_lm_alt
+knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_DT_A_pop_facets.pdf")
 ```
 
-#### Schlotterer Lab
-
+### Dry weight
 ```{r}
-lmers_alt$Dia_Schlotterer_lmer_alt
+knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_DW_pop_facets.pdf")
 ```
 
-### Circadian eclosion timing
-
-### Locomotor activity
-
-#### Tauber Lab
-
-```{r include=FALSE}
-lmers_alt_la <- readRDS("LinearModelsAlt/Locomotor/LA_lmers_alt_anova.rds")
+### Fecundity
+```{r}
+knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_Fec_pop_facets.pdf")
 ```
 
-_ND_
+### Heat-shock mortality
 ```{r}
-lmers_alt_la$LA_NDlog2_Tauber_lmer_alt
+knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_HSM_pop_facets.pdf")
 ```
 
-_CircPhase_
+### Lifespan
 ```{r}
-lmers_alt_la$LA_CircPhase_Tauber_lmer_alt
-```
-
-_Activity_
-```{r}
-lmers_alt_la$LA_Activity_Tauber_lmer_alt
-```
-
-### Starvation resistance
-
-#### Gonzalez Lab
-
-```{r}
-lmers_alt$SR_F_Gonzalez_lmer_alt
-```
-
-```{r}
-lmers_alt$SR_M_Gonzalez_lmer_alt
-```
-
-#### Onder Lab 
-
-```{r}
-lmers_alt$SR_F_Onder_lmer_alt
-```
-
-```{r}
-lmers_alt$SR_M_Onder_lmer_alt
-```
-
-#### Pasyukova Lab
-
-```{r}
-lmers_alt$SR_F_Pasyukova_lmer_alt
-```
-
-```{r}
-lmers_alt$SR_M_Pasyukova_lmer_alt
+knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_LS_pop_facets.pdf")
 ```
 
 ### Pigmentation
-
-#### Abbott Lab
-_PercT4_
-
 ```{r}
-lmers_alt$Pgm_T4_Abbott_lmer_alt
+knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_Pgm_T4_pop_facets.pdf")
 ```
 
-_PercT5_
-
 ```{r}
-lmers_alt$Pgm_T5_Abbott_lmer_alt
+knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_Pgm_T5_pop_facets.pdf")
 ```
 
-_PercT6_
-
 ```{r}
-lmers_alt$Pgm_T6_Abbott_lmer_alt
+knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_Pgm_T6_pop_facets.pdf")
 ```
 
-_TotalPerc_
-
 ```{r}
-lmers_alt$Pgm_Total_Abbott_lmer_alt
+knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_Pgm_Total_pop_facets.pdf")
 ```
 
-#### Gibert Lab 
-_PercT4_
-
+### Starvation resistance 
 ```{r}
-lmers_alt$Pgm_T4_Gibert_lmer_alt
+knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_SR_pop_facets.pdf")
 ```
 
-_PercT5_
-
+### Thorax length
 ```{r}
-lmers_alt$Pgm_T5_Gibert_lmer_alt
+knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_TL_pop_facets.pdf")
 ```
 
-_PercT6_
-
+### Viability
 ```{r}
-lmers_alt$Pgm_T6_Gibert_lmer_alt
+knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_Via_pop_facets.pdf")
 ```
 
-_TotalPerc_
-
+### Wing area
 ```{r}
-lmers_alt$Pgm_Total_Gibert_lmer_alt
+knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_WA_L_pop_facets.pdf")
 ```
 
-#### Schmidt Lab
-_PercT4_
-
 ```{r}
-lmers_alt$Pgm_T4_Schmidt_lmer_alt
+knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_WA_R_pop_facets.pdf")
 ```
 
-_PercT5_
+## PCAs with ~similar P:C ratio datasets 
 
-```{r}
-lmers_alt$Pgm_T5_Schmidt_lmer_alt
+Notes
+- Using model estimates for line rather than raw data (scaled to
+unit variance).
+- Comparing all data (i.e. the previous analysis) with estimates
+from a single lab but with similar P:C ratio in diet.
+- TL is missing from males
+- Lmer estimates (rather than glmer estimates used for dia)
+- Sexes dealt with separately
+  - PCA1 (M9) – male PCA with 9 traits
+  - PCA2 (F9) – female PCA with 9 traits equivalent to males
+  - PCA3 (Fmax) – female PCA with all 12 female traits
+  - PCA4 (FmaxPlus) – female PCA with 13 traits (12 female traits + via)
+- Loadings of traits on to PCs are considered of interest if greater
+than > 0.4 (or < -0.4).
+  - Loadings > 0.6 are in bold red
+  - Lodings from 0.4 - 0.59 are in dark red
+
+```{r echo=FALSE}
+knitr::include_graphics("LinearModelsPop/PCA_ControlledDiet/PCAd_4_Rmd/PCAd_r_Rmd1.pdf")
+knitr::include_graphics("LinearModelsPop/PCA_ControlledDiet/PCAd_4_Rmd/PCAd_r_Rmd2.pdf")
 ```
 
-_PercT6_
+### PCA 1 differences
 
-```{r}
-lmers_alt$Pgm_T6_Schmidt_lmer_alt
+- The main axes of variation have ‘swapped’.  
+  - In the all data analysis, CCRT + CSM (-ve) and DW + WA (+ve) load on to PC1, in the P:C control, they load onto PC2.  
+  - In all data, HSM + LS (-ve) and WA (+ve) load on to PC2, in the P:C control they load onto PC1  
+  - A direct inverse correlation between HSM and CSM + SR has strengthened for PC3 in the P:C control  
+- What could be driving changes?  
+  - There is no TL in P:C control, so the body size correlations may be less strong?  
+  - In the P:C control DT_A loads onto PC1 (but in all data it only loads
+strongly onto PC4)
+
+```{r echo=FALSE}
+knitr::include_graphics("LinearModelsPop/PCA_ControlledDiet/PCAd_4_Rmd/PCAd_r_Rmd3.pdf")
+knitr::include_graphics("LinearModelsPop/PCA_ControlledDiet/PCAd_4_Rmd/PCAd_r_Rmd4.pdf")
 ```
 
-_TotalPerc_
+### PCA 2 results
+- The main axis of variation (PC1) is fairly similar  
+    - In both all data and P:C control size traits (DW, TL and WA) positively correlate. In all data they negatively correlate to LS, and in P:C control they positively correlate with DT_A.  
 
-```{r}
-lmers_alt$Pgm_Total_Schmidt_lmer_alt
+- The negative correlation between CCRT and CSM moves from PC2 in all data to PC3 in P:C control, and the negative correlation between CSM and HSM is weaker (loading < 0.4)
+
+- Some trait correlations along PC2 and PC3 appear to have broken down
+
+- Again, it seems like DT_A is driving these changes (it correlates with both PC1 and PC2 in P:C control, but only PC4 in all data
+
+```{r echo=FALSE}
+knitr::include_graphics("LinearModelsPop/PCA_ControlledDiet/PCAd_4_Rmd/PCAd_r_Rmd5.pdf")
+knitr::include_graphics("LinearModelsPop/PCA_ControlledDiet/PCAd_4_Rmd/PCAd_r_Rmd6.pdf")
 ```
 
-# Results IV : Trait Correlations _tbd_
+### PCA 3 results 
+- Similar to PCA 2 results in some ways: the main axis of variation (PC1) is again a size correlation:
+
+  - In both all data and P:C control size traits (DW, TL and WA) positively correlate. In all data they negatively correlate to LS, and in P:C control they positively correlate with DT_A and Pigm.
+  
+- The negative correlation between CCRT and CSM moves from PC3 in all data to PC2 in P:C control (similar but inverse to PCA 2 result).
+
+- Possible negative correlation between CSM and HSM, bu 
+weaker (loading < 0.4)
+
+- DT_A effect? Loss of fecundity correlations?
+
+```{r echo=FALSE}
+knitr::include_graphics("LinearModelsPop/PCA_ControlledDiet/PCAd_4_Rmd/PCAd_r_Rmd7.pdf")
+knitr::include_graphics("LinearModelsPop/PCA_ControlledDiet/PCAd_4_Rmd/PCAd_r_Rmd8.pdf")
+```
+
+### PCA 4 results
+
+- Similar results to PCA 2 and PCA 3.
+
+- Negative correlation between CSM and HSM on PC3 is now maintained with highish loadings (> 0.4), although correlation of dia has switched signs.
+  
+  - Across PCA 3 and PCA 4 there is a disassociation of the all data PC3 (+CCRT +dia +HSM –CSM)
+
+- Again, DT_A is strong, viability and fecundity do not retain high loading for PC1, 2 or 3
+
+### Summary
+
+Summary
+- Some important changes to trait correlations between all data and P:C controlled data. Some patterns remain similar, but the North/South divide (at least in females) is less clear.
+
+- Strong effect of development time, suggesting that DT_A variability may be more influenced by diet than other traits? Perhaps not surprising, given nutritional/resource thresholds for metamorphosis?
+
+- On the other hand, fecundity, viability (and to a lesser extent life span) lose importance 
+
+– why might this be?
+
+  - Could inter-line (genotypic) variability be more important in these traits than diet-induced variability?
+  
+# Results : Lab Correlations
+
+## Pearson's - Line
+```{r echo=FALSE, out.width="50%"}
+knitr::include_graphics("LabCorrelations/lab_correlation_line_pearson.pdf")
+```
+
+## Pearson's - Population
+```{r echo=FALSE}
+knitr::include_graphics("LabCorrelations/lab_correlation_pop_pearson.pdf")
+```
+
+## Spearman's - Line
+```{r echo=FALSE}
+knitr::include_graphics("LabCorrelations/lab_correlation_pop_spearman.pdf")
+```
+
+# Results : Trait Correlations _add MR results_
 
 * Input data : line means
 * Input data : line means extracted either from models with Lab as a random effect or from meta analyses estimates (or both)
@@ -8944,21 +7843,495 @@ lmers_alt$Pgm_Total_Schmidt_lmer_alt
 (ii) MANOVA on line means 
 (iii) PCAs
 
+## Pearson's 
+```{r}
+knitr::include_graphics("TraitCorrelations/trait_correlations_f9_line_random_coefs_diet.pdf")
+```
 
-## Stress related traits
-## Temperature related traits
-## Size related traits
+```{r}
+knitr::include_graphics("TraitCorrelations/trait_correlations_f9_line_random_coefs.pdf")
+```
 
-# Results V : Qst - Fst  _tbd_
+```{r}
+knitr::include_graphics("TraitCorrelations/trait_correlations_fmax_line_random_coefs_diet.pdf")
+```
 
-# Results VI : Heritability  _tbd_
+```{r}
+knitr::include_graphics("TraitCorrelations/trait_correlations_fmax_line_random_coefs.pdf")
+```
+
+```{r}
+knitr::include_graphics("TraitCorrelations/trait_correlations_fmaxp_line_random_coefs_diet.pdf")
+```
+
+```{r}
+knitr::include_graphics("TraitCorrelations/trait_correlations_fmaxp_line_random_coefs.pdf")
+```
+
+```{r}
+knitr::include_graphics("TraitCorrelations/trait_correlations_m9_line_random_coefs_diet.pdf")
+```
+
+```{r}
+knitr::include_graphics("TraitCorrelations/trait_correlations_m9_line_random_coefs.pdf")
+```
+
+## PCA
+
+__**Notes**__
+- Using model estimates for line rather than raw data (scaled to unit variance).
+
+- Sexes dealt with seperately
+
+- PCA1 (M9) – male PCA with 9 traits
+
+- PCA2 (F9) – female PCA with 9 traits equivalent to males
+
+- PCA3 (Fmax) – female PCA with all 12 female traits
+
+- PCA4 (FmaxPlus) – female PCA with 13 traits (12 female traits + viability)
+
+- Loadings of traits on to PCs are considered of interest if greater than > 0.4 (or < -0.4).
+
+  - Loadings __> 0.6__ are in __bold red__
+  - Loadings from __0.4__ - __0.59__ are in __dark red__
+
+```{r echo=FALSE}
+knitr::include_graphics("EnvironmentalAnalysis/PCA_Results/PCA_4_Rmd/PCA_4_Rmd_Page_1.png")
+```
+
+### PCA 1 results
+
+- PC1 accounts for 25.23% of the variance
+
+- PC1: high trait loading values (>0.5):
+  
+  - WA, DW, SR = +ve PC1
+  
+  - CCRT, CSM = –ve PC1.
+  
+  - Por/Aus/Ukr/Rus = +ve PC1 (large, resistant to starvation & cold)
+  
+  - Tur/Spa = –ve PC1 (small, susceptible to starvation & cold)
+
+- PC2: high trait loading values (>0.5):
+  
+  - TL, WA +ve PC2,
+  
+  - LS, HSM –ve PC2
+  
+  - Por/Tur/Spa = +ve PC2 (large, short-lived, resistant to heat)
+  
+  - Den/Fin. = -ve PC2 (small, long-lived, susceptible to heat)
+
+
+```{r, echo=FALSE}
+knitr::include_graphics("EnvironmentalAnalysis/PCA_Results/PCA_4_Rmd/PCA_4_Rmd_Page_2.png")
+knitr::include_graphics("EnvironmentalAnalysis/PCA_Results/PCA_4_Rmd/PCA_4_Rmd_Page_3.png")
+```
+
+### PCA 2 results
+
+- PC1 accounts for 23.61% of the variance
+
+- PC1: high trait loading values (>0.4):
+
+  - DW, WA, TL, SR = +ve PC1
+
+  - LS = –ve PC1.
+
+  - Por/Aus = +ve PC1 (large, resistant to starvation)
+
+  - Tur/Fin/Spa = –ve PC1 (small, susceptible to starvation)
+
+- PC2: high trait loading values (>0.4):
+
+  - LS, SR +ve PC2,
+
+  - TL –ve PC2
+
+  - Den/Rus/Fin = +ve PC2 (small, long-lived, resistant to starvation)
+
+  - Tur/Ukr/Por = -ve PC2 (large, short-lived, susceptible to starvation)
+
+- PC3: high trait loading values (>0.5):
+
+  - CCRT, HSM +ve PC3,
+
+  - CSM –ve PC3
+
+  - Ukr/Fin = +ve PC3 (resistance to cold, susceptible to heat)
+
+  - Tur/Spa/Den = -ve PC3 (susceptible to cold, resistant to heat)
+
+```{r, echo=FALSE}
+knitr::include_graphics("EnvironmentalAnalysis/PCA_Results/PCA_4_Rmd/PCA_4_Rmd_Page_4.png")
+knitr::include_graphics("EnvironmentalAnalysis/PCA_Results/PCA_4_Rmd/PCA_4_Rmd_Page_5.png")
+```
+
+### PCA 3 results
+
+- PC1 accounts for 18.61% of the variance
+
+- PC1: high trait loading values (>0.4):
+
+  - DW, WA, TL, SR = +ve PC1
+
+  - LS = –ve PC1.
+
+  - Por/Aus/Ukr = +ve PC1 (large, resistant to starvation)
+
+  - Tur/Fin/Spa = –ve PC1 (small, susceptible to starvation)
+
+- PC2: high trait loading values (>0.4):
+
+  - Fec, SR, LS +ve PC2,
+
+  - TL –ve PC2
+
+  - Den/Rus/Fin = +ve PC2 (small, long-lived, resistant to starvation)
+
+  - Tur/Ukr/Por = -ve PC2 (large, short-lived, susceptible to starvation)
+
+- PC3: high trait loading values (>0.4):
+
+  - HSM, Pigm, dia, CCRT +ve PC3,
+
+  - CSM –ve PC3
+
+  - Ukr/Aus = +ve PC3 (resist cold, suscept heat, higher diap, more pigm)
+
+  - Spa/Den/Por = -ve PC3 (suscept cold, resist heat, lower diap, less pigm)
+
+
+```{r echo=FALSE}
+knitr::include_graphics("EnvironmentalAnalysis/PCA_Results/PCA_4_Rmd/PCA_4_Rmd_Page_6.png")
+knitr::include_graphics("EnvironmentalAnalysis/PCA_Results/PCA_4_Rmd/PCA_4_Rmd_Page_7.png")
+```
+
+
+### PCA 4 results
+
+- PC1 accounts for 16.73% of the variance
+
+- PC1: high trait loading values (>0.4):
+
+  - WA, DW, TL, SR = +ve PC1
+
+  - LS = –ve PC1.
+
+  - Por/Aus/Ukr = +ve PC1 (large, resistant to starvation)
+
+  - Fin/Spa/Tur = –ve PC1 (small, susceptible to starvation)
+
+- PC2: high trait loading values (>0.4):
+
+  - Via, Fec, SR, HSM, LS +ve PC2,
+
+  - 0 traits –ve PC2
+
+  - Fin/Den/Ger = +ve PC2 (High via & fec, long-lived, resist starve, suscept. heat)
+
+  - Tur/Spa/Por = -ve PC2 (Low via & fec, short-lived, suscept. starve, resist heat)
+
+- PC3: high trait loading values (>0.4):
+
+  - HSM, dia, Pigm, CCRT +ve PC3,
+
+  - CSM –ve PC3
+
+  - Ukr/Aus = +ve PC3 (resist cold, suscept heat, higher diapause, more pigm)
+
+  - Spa/Den/Rus = -ve PC3 (suscept cold, resist heat, lower diapause, less pigm)
+
+
+###Summary
+
+- PC1 always includes positive correlation of dry weight, wing area and starvation resistance as well as….
+
+  - … negative corr. with CSM in males
+  
+  - … negative corr. with life span in females
+  
+  - Por/Aus (+ Ukr/Rus) are positive
+  
+  - Tur/Spa (+ Fin) are negative
+
+- PC2 differs somewhat between males and females (note ‘+’ and ‘–’ switch)
+
+  - In males:
+
+    - +ve correlation with thorax length and wing area
+
+    - -ve correlation with HSM and lifespan
+
+    - Por/Tur/Spa are positive
+
+    - Den/Fin are negative
+
+  - In females:
+
+    - -ve correlation with thorax length
+
+    - +ve correlation with lifespan and starvation resistance (+ fecundity and viability)
+
+    - Tur/Por (+ Ukr/Spa) are negative
+
+    - Den/Fin (+ Rus/Ger) are positive
+
+- PC3 potentially interesting in females…
+
+  - Positive correlation between HSM and CCRT (+ diapause and pigmentation)
+
+  - Negative correlation with CSM
+
+  - Ukr (+Aus/Fin) are positive
+
+  - Spa/Den (+Tur/Rus/Por) are negative
+
+  - Interestingly, in males HSM and CCRT negatively correlate with one another on PC3….
+
+
+# Results : Climatic variables _add AB results_
+
+```{r eval=FALSE, include=FALSE}
+VT_results <- readxl::read_xlsx("EnvironmentalAnalysis/PCA_clim/TraitsCombined/summary_all_traits_compare_30y_vs_30d.xlsx")
+DT::datatable(VT_results, options = list(pageLength = 10))
+```
+
+For the analyses of the climatic variables, two time periods were chosen: 30 years (to trace the long-lasting climatic effects) and 30 days (short weather effect, on average over a couple generations for different localities, to account for maternal/grand-maternal effects). 14 climatic variables data (see the list below) was downloaded from the NASA database using R package “nasapower” and PCA analysis was done with “FactoMineR” package.
+
+```{r}
+ClimVarPCA <- read.csv("EnvironmentalAnalysis/PCA_clim/TraitsCombined/ClimVar4PCA_4Rmd.csv")
+knitr::kable(ClimVarPCA, caption = 'Table X: List of the climatic variables used in PCA.')
+```
+
+__PCA for 30 days data__ 
+
+```{r}
+knitr::include_graphics("EnvironmentalAnalysis/PCA_clim/TraitsCombined/graphs/30d_PCA.png")
+```
+
+__PCA for 30 years data__ 
+
+```{r}
+knitr::include_graphics("EnvironmentalAnalysis/PCA_clim/TraitsCombined/graphs/30y_PCA.png")
+```
+
+First two PCs in both datasets had eigen values >1 explaining 94.7% (30 days) and 89.8% (30 years) and were used in the further analyses.
+
+
+__PCA for 30 days data__ 
+
+```{r}
+knitr::include_graphics("EnvironmentalAnalysis/PCA_clim/TraitsCombined/graphs/30d_scree_plot.png")
+```
+
+__PCA for 30 years data__ 
+
+```{r}
+knitr::include_graphics("EnvironmentalAnalysis/PCA_clim/TraitsCombined/graphs/30y_scree_plot.png")
+```
+
+The populations are separated in two dimensions rather differently in two datasets - possibly because the short-term climate data (30 days) does not include winter (cold season).
+
+
+__PCA for 30 days data__ 
+
+```{r}
+knitr::include_graphics("EnvironmentalAnalysis/PCA_clim/TraitsCombined/graphs/30d_PCA_pops.png")
+```
+
+__PCA for 30 years data__ 
+
+```{r}
+knitr::include_graphics("EnvironmentalAnalysis/PCA_clim/TraitsCombined/graphs/30y_PCA_pops.png")
+```
+
+Contribution of PCs
+
+PC1 is mostly affected by the temperature values (but not only), while precipitation/humidity is among strongest contributors to PC2.
+
+__PCA for 30 days data__ 
+
+```{r}
+knitr::include_graphics("EnvironmentalAnalysis/PCA_clim/TraitsCombined/graphs/30d_PC1_contr.png")
+knitr::include_graphics("EnvironmentalAnalysis/PCA_clim/TraitsCombined/graphs/30d_PC2_contr.png")
+```
+
+__PCA for 30 years data__ 
+
+```{r}
+knitr::include_graphics("EnvironmentalAnalysis/PCA_clim/TraitsCombined/graphs/30y_PC1_contr.png")
+knitr::include_graphics("EnvironmentalAnalysis/PCA_clim/TraitsCombined/graphs/30y_PC2_contr.png")
+```
+
+Correlation with geographical coordinates
+
+__PCA for 30 days data__ 
+
+```{r}
+knitr::include_graphics("EnvironmentalAnalysis/PCA_clim/TraitsCombined/graphs/30d_correlations.png")
+```
+
+__PCA for 30 years data__ 
+
+```{r}
+knitr::include_graphics("EnvironmentalAnalysis/PCA_clim/TraitsCombined/graphs/30y_correlations.png")
+```
+
+Analysis of the trait PCA (Ewan) with the climate data PCA (above). 
+
+```{r}
+knitr::include_graphics("EnvironmentalAnalysis/PCA_clim/TraitsCombined/ClimVarTable_4Rmd.png")
+```
+
+There is a strong association of trait PC2 with climate PCs in both datasets. However, the association of the trait PC3 with climate PCs is clear in 30-years dataset (in 30-day dataset - only clim PC2 shows association in F9 set).
+
+
+
+# Results : GDM
+
+_**Please refer to /GDM folder for details.**_
+
+
+```{r echo=FALSE}
+GDM_table1 <- read.csv("GDM/GDM_table1.csv")
+GDM_table2 <- read.csv("GDM/GDM_table2.csv")
+GDM_table3 <- read.csv("GDM/GDM_table3.csv")
+```
+
+```{r echo=FALSE, message=FALSE}
+knitr::kable(GDM_table1, caption = 'Table 1: Predictor variables identified as important in GDMs.')
+```
+
+```{r echo=FALSE, message=FALSE}
+knitr::kable(GDM_table2, caption = 'Table 2: Proportion of variation in phenotypic variables that explained by each model')
+```
+
+```{r echo=FALSE, message=FALSE}
+knitr::kable(GDM_table3, caption = 'Table 3: Result of generalized dissimilarity model for phenotypic variables, the most important predictor variables were shown in bold. ')
+```
+
+## Dry weight
+```{r, out.width="50%"}
+knitr::include_graphics("GDM/GDM_Worldclim/DW_M/DW_M_vapr7_i-spline.jpeg")
+```
+
+```{r, out.width="50%"}
+knitr::include_graphics("GDM/GDM_Worldclim/DW_M/DW_M_bio2_i-spline.jpeg")
+```
+
+## Fecundity
+```{r, out.width="50%"}
+knitr::include_graphics("GDM/GDM_Worldclim/Fec/Fec_srad01_i-spline.jpeg")
+```
+
+```{r, out.width="50%"}
+knitr::include_graphics("GDM/GDM_Worldclim/Fec/Fec_wind07_i-spline.jpeg")
+```
+
+## Lifespan
+```{r, out.width="50%"}
+knitr::include_graphics("GDM/GDM_Worldclim/LS_F/LS_F_srad05_i-spline.jpeg")
+```
+
+```{r, out.width="50%"}
+knitr::include_graphics("GDM/GDM_Worldclim/LS_F/LS_F_bio10_i-spline.jpeg")
+```
+
+```{r, out.width="50%"}
+knitr::include_graphics("GDM/GDM_Worldclim/LS_F/LS_F_vapr06_i-spline.jpeg")
+```
+
+```{r, out.width="50%"}
+knitr::include_graphics("GDM/GDM_Worldclim/LS_F/LS_F_wind08_ispline.jpeg")
+```
+
+```{r, out.width="50%"}
+knitr::include_graphics("GDM/GDM_Worldclim/LS_M/LS_M_GDM_srad05_i-spline.jpeg")
+```
+
+```{r, out.width="50%"}
+knitr::include_graphics("GDM/GDM_Worldclim/LS_M/LS_M_GDM_srad06_i-spline.jpeg")
+```
+
+```{r, out.width="50%"}
+knitr::include_graphics("GDM/GDM_Worldclim/LS_M/LS_M_GDM_prec10_i-spline.jpeg")
+```
+
+```{r, out.width="50%"}
+knitr::include_graphics("GDM/GDM_Worldclim/LS_M/LS_M_GDM_wind12_i-spline.jpeg")
+```
+
+## Thorax length
+```{r, out.width="50%"}
+knitr::include_graphics("GDM/GDM_Worldclim/TL_F/TL_F_perc05_i-spline.jpeg")
+```
+
+```{r, out.width="50%"}
+  knitr::include_graphics("GDM/GDM_Worldclim/TL_F/TL_F_srad06_i-spline.jpeg")
+```
+
+```{r, out.width="50%"}
+  knitr::include_graphics("GDM/GDM_Worldclim/TL_F/TL_F_wind12_i-spline.jpeg")
+```
+
+## Wing area
+```{r, out.width="50%"}
+knitr::include_graphics("GDM/GDM_Worldclim/WA_L_M/WA_L_M_wind08_i-spline.jpeg")
+```
+
+```{r, out.width="50%"}
+knitr::include_graphics("GDM/GDM_Worldclim/WA_L_M/WA_L_M_vapr06_i-spline.jpeg")
+```
+
+```{r, out.width="50%"}
+knitr::include_graphics("GDM/GDM_Worldclim/WA_R_F/WA_R_F_wind8_i-spline.jpeg")
+```
+
+```{r, out.width="50%"}
+knitr::include_graphics("GDM/GDM_Worldclim/WA_R_F/WA_R_F_vapr8_i-spline.jpeg")
+```
+
+```{r, out.width="50%"}
+knitr::include_graphics("GDM/GDM_Worldclim/WA_R_F/WA_R_F_bio8_i-spline.jpeg")
+```
+
+```{r, out.width="50%"}
+knitr::include_graphics("GDM/GDM_Worldclim/WA_R_M/WA_R_M_wind08_i-spline.jpeg")
+```
+
+```{r, out.width="50%"}
+knitr::include_graphics("GDM/GDM_Worldclim/WA_R_M/WA_R_M_vapr06_i-spline.jpeg")
+```
+
+# Results : Heritability
 
 * Input data line means per lab and each lab is a replicate
 * Input data line means for each lab
 * Intraclass correlations (David et al. 2005)
 * Evolvability 
 
-# Results VII : Wolbachia
+
+```{r echo=FALSE, message=FALSE}
+h2_rc_btwlabs <- read.csv("Heritability/H2_line_random_coefs_between_labs.csv")
+DT::datatable(h2_rc_btwlabs, options = list(pageLength = 10)) %>% formatRound(4:6, 3)
+
+```
+
+```{r echo=FALSE, message=FALSE}
+h2_data_btwlabs <- read.csv("Heritability/H2_line_raw_data_between_labs.csv")
+DT::datatable(h2_data_btwlabs, options = list(pageLength = 10)) %>% formatRound(4:6, 3)
+```
+
+```{r echo=FALSE, message=FALSE}
+h2_data_withinlabs <- read.csv("Heritability/H2_line_raw_data_within_labs.csv")
+DT::datatable(h2_data_withinlabs, options = list(pageLength = 10)) %>% formatRound(4:7, 3)
+```
+
+
+# Results : Wolbachia
 
 ## Population
 
@@ -8967,14 +8340,12 @@ pval_Wolb_pop <- read.csv("LinearModelsPop_Wolb/all_models_pop_pvalues_Wolb.csv"
 ```
 
 ```{r, echo=FALSE}
-DT::datatable(pval_Wolb_pop, options = list(pageLength = 25)) %>% formatRound(6:6, 4)
+DT::datatable(pval_Wolb_pop, options = list(pageLength = 10)) %>% formatRound(6:6, 3)
 ```
-
 
 ```{r echo=FALSE}
 knitr::include_graphics("LinearModelsPop_Wolb/all_models_pop_pvalues_Wolb.pdf")
 ```
-
 
 ## Latitude 
 
@@ -8983,14 +8354,12 @@ pval_Wolb_lat <- read.csv("LinearModelsLat_Wolb/all_models_lat_pvalues_Wolb.csv"
 ```
 
 ```{r, echo=FALSE}
-DT::datatable(pval_Wolb_lat, options = list(pageLength = 25)) %>% formatRound(6:6, 4)
+DT::datatable(pval_Wolb_lat, options = list(pageLength = 10)) %>% formatRound(6:6, 3)
 ```
 
 ```{r echo=FALSE}
 knitr::include_graphics("LinearModelsLat_Wolb/all_models_lat_pvalues_Wolb.pdf")
 ```
-
-
 
 ## Longitude
 
@@ -8999,7 +8368,7 @@ pval_Wolb_lon <- read.csv("LinearModelsLon_Wolb/all_models_lon_pvalues_Wolb.csv"
 ```
 
 ```{r, echo=FALSE}
-DT::datatable(pval_Wolb_lon, options = list(pageLength = 25)) %>% formatRound(6:6, 4)
+DT::datatable(pval_Wolb_lon, options = list(pageLength = 10)) %>% formatRound(6:6, 4)
 ```
 
 
@@ -9015,7 +8384,7 @@ pval_Wolb_alt <- read.csv("LinearModelsAlt_Wolb/all_models_alt_pvalues_Wolb.csv"
 ```
 
 ```{r, echo=FALSE}
-DT::datatable(pval_Wolb_alt, options = list(pageLength = 25)) %>% formatRound(6:6, 4)
+DT::datatable(pval_Wolb_alt, options = list(pageLength = 10)) %>% formatRound(6:6, 3)
 ```
 
 
@@ -9024,39 +8393,78 @@ knitr::include_graphics("LinearModelsAlt_Wolb/all_models_alt_pvalues_Wolb.pdf")
 ```
 
 
-# Results VIII : UPGMA trees 
+# Results : UPGMA trees 
 
 Here are some example UPGMA trees from Jorge and Cristina -- please refer to /UPGMATrees folder for all of the trees. 
 
 _CCRT Female_
 
-```{r echo=FALSE}
+```{r echo=FALSE, out.width="50%"}
 knitr::include_graphics("UPGMATrees/CCRT_F_meta_summary.txt.Mensch.png")
 ```
 
 _CSM Female_
-```{r echo=FALSE}
+
+```{r echo=FALSE, out.width="50%"}
 knitr::include_graphics("UPGMATrees/CSM_F_meta_summary.txt.Gonzalez.png")
 ```
 
 _DT_A Female_
-```{r echo=FALSE}
+
+```{r echo=FALSE, out.width="50%"}
 knitr::include_graphics("UPGMATrees/DT_A_F_meta_summary.txt.Hoedjes.png")
 ```
 
 _DW Male_
-```{r echo=FALSE}
+
+```{r echo=FALSE, out.width="50%"}
 knitr::include_graphics("UPGMATrees/DW_M_meta_summary.txt.Colinet.png")
 ```
 
 _SR Female_
-```{r echo=FALSE}
+
+```{r echo=FALSE, out.width="50%"}
 knitr::include_graphics("UPGMATrees/SR_F_meta_summary.txt.Pasyukova.png")
 ```
 
 _WA_R Female_
-```{r echo=FALSE}
+
+```{r echo=FALSE, out.width="50%"}
 knitr::include_graphics("UPGMATrees/WA_R_F_meta_summary.txt.StamenkovicRadak.png")
 ```
 
-# Results IX : Climatic variables _tbd_
+# Results : Qst - Fst  _tbd_
+# _Extra : Species Distribution Model_
+
+## SDM_Maxent_WorldClim
+
+```{r eval=FALSE, include=FALSE}
+htmltools::includeHTML("SDM_Maxent_worldclime/Results/Dmelanogaster.html")
+```
+
+```{r echo=FALSE}
+knitr::include_graphics("SDM_Maxent_worldclime/SDM_4_Rmd/DrosEU_PhenotypingWG_Page_1.png")
+knitr::include_graphics("SDM_Maxent_worldclime/SDM_4_Rmd/DrosEU_PhenotypingWG_Page_2.png")
+knitr::include_graphics("SDM_Maxent_worldclime/SDM_4_Rmd/DrosEU_PhenotypingWG_Page_3.png")
+knitr::include_graphics("SDM_Maxent_worldclime/SDM_4_Rmd/DrosEU_PhenotypingWG_Page_4.png")
+knitr::include_graphics("SDM_Maxent_worldclime/SDM_4_Rmd/DrosEU_PhenotypingWG_Page_5.png")
+knitr::include_graphics("SDM_Maxent_worldclime/SDM_4_Rmd/DrosEU_PhenotypingWG_Page_6.png")
+```
+
+# References
+
+## GDM
+
+- Baldassarre, D. T., Thomassen, H. A., Karubian, J., & Webster, M. S. (2013). The role of ecological variation in driving divergence of sexual and non-sexual traits in the red-backed fairy-wren (Malurus melanocephalus). BMC Evolutionary Biology, 13(1), 75. doi:10.1186/1471-2148-13-75
+
+- Ferrier, S., Manion, G., Elith, J., & Richardson, K. (2007). Using generalized dissimilarity modelling to analyse and predict patterns of beta diversity in regional biodiversity assessment. Diversity and Distributions, 13(3), 252-264. doi:https://doi.org/10.1111/j.1472-4642.2007.00341.x
+
+- Thomassen, H. A., Buermann, W., Milá, B., . . . Smith, T. B. (2010). Modeling environmentally associated morphological and genetic variation in a rainforest bird, and its application to conservation prioritization. Evolutionary Applications, 3(1), 1-16. doi:https://doi.org/10.1111/j.1752-4571.2009.00093.x
+
+## Heritability
+
+- David, J., Gibert, P., Legout, H. et al. Isofemale lines in Drosophila: an empirical approach to quantitative trait analysis in natural populations. Heredity 94, 3–12 (2005). https://doi.org/10.1038/sj.hdy.6800562
+
+## SDM
+
+- Mina Hojat Ansari, Steven J.B. Cooper, Michael P. Schwarz, Mehregan Ebrahimi, Gaynor Dolman, Leah Reinberger, Kathleen M. Saint, Stephen C. Donnellan, C. Michael Bull, Michael G. Gardner, Plio-Pleistocene diversification and biogeographic barriers in southern Australia reflected in the phylogeography of a widespread and common lizard species, Molecular Phylogenetics and Evolution, Volume 133, 2019, Pages 107-119, ISSN 1055-7903, https://doi.org/10.1016/j.ympev.2018.12.014.
