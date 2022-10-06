@@ -120,7 +120,10 @@ longToWide2 <- function(estimates) {
     #mutate(Population = factor(Population, levels = c("YE","RE","GI","MU","MA","UM","KA","VA","AK"))) %>%
     arrange(Population) %>% 
     dplyr::select(!Population) 
-  if ("Line" %in% colnames(ltw)) { dplyr::select(ltw, !Line) }
+  if ("Line" %in% colnames(ltw)) {
+    ltw <- dplyr::select(ltw, !Line)
+  }
+  ltw
 }
 
 
