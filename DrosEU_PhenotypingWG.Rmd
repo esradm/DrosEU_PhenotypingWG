@@ -165,112 +165,86 @@ _Contributors and methods for experiments_
 ### Viability
 ##### Gibert, Grath, Hoedjes, Schmidt, Stamenkovic-Radak and Zwaan Labs
 
-
-3-5 day old adults (at least 25 pairs) are allowed to lay eggs en masse. Yeast is provided to stimulate egg laying (for at least 2 hours). Eggs are collected, and 40 are placed in each vial. Viability is calculated per vial, as the percentage of individuals that emerged from the 40 eggs.
-
-Schmidt Lab : Females were allowed to lay eggs in vials and total number of eggs were recorded. Viability is calculated as the percentage of individuals that emerged from total number of eggs, per vial.
+Egg-to-adult viability was determined in parallel with developmental time (see below). For this purpose, groups of 3-5 day old adults (at least 25 pairs) are allowed to lay eggs for at least two hours. Yeast was provided to stimulate egg laying . Immediately thereafter, 40 eggs were collected, and placed in a vial with 5mL medium. Three replicate vials were prepared per isofemale line. Viability was calculated per vial as the percentage of individuals that emerged from the 40 eggs. The Schmidt lab followed an alternative procedure in which females were allowed to lay eggs directly in vials and the total number of eggs was recorded afterwards. Viability was calculated as the percentage of individuals that emerged from the total number of eggs per vial.
 
 ### Developmental time
 
 #### Egg-to-pupa developmental time
 ##### Schmidt Lab
-
+Egg-to-pupa developmental time was scored twice per day , when the chamber lights were turned on and two hours before they were turned off, by counting the numbers of individuals that had pupated. The spot where a pupa is found was marked with a permanent marker to keep track of which pupae had emerged each day. 
 
 #### Egg-to-adult developmental time
 ##### Gibert, Grath, Hoedjes, Schmidt, Stamenkovic-Radak and Zwaan Labs
 
-
-Developmental time is scored as both the egg-to-pupa and egg-to-adult development time. Both were scored twice a day, when the chamber lights are turned on and two hours before they are turned off. In order to measure the egg-to-pupa developmental time, the spot where a pupa is found is marked with a permanent marker to keep track of which pupae have emerged in each day. The egg-to-adult developmental time is estimated by counting all emerged adults from the vial, and by sexing them.
-
+Egg-to-adult developmental time was scored  twice per day, similar to egg-to-pupa development time. For this, all adults that had emerged from a vial were collected for  counting and sexing.
 
 ### Dry weight
 ##### Colinet, Hoedjes and Onder Labs
 
-At day 7 after emergence, flies are killed by snap freezing them in liquid nitrogen, by putting them at -20ºC or by putting them into an ethyl acetate solution and stored at -20ºC. Then they are sexed and placed into 96 wells plates, and placed in an oven set at 60-70 °C, for at least 3 days. At this point flies can be stored at room temperature using a protective cover. If this is the case, the day before measurements are made dry flies are again placed for 24h in the oven (60-70 °C) to ensure material is well dehydrated. Flies are then placed on a small piece of aluminium foil for direct weight measurement on microbalance (accuracy 1µg).
+On day 7 after emergence, adult flies from density-controlled rearing (50 eggs/5 mL of food) were killed either by placing them in -20°C or by putting them into a vial with ethyl acetate solution in a cotton at the bottom of the vial, and then stored at -20ºC. Then they were sexed and placed individually into 96 well plates, and placed in an oven set at 60-70 °C, for at least 3 days. At this point flies could be stored at room temperature using a protective cover. If this was the case, the day before the weight measurements the plates with (previously dried) flies were placed in the oven (60-70 °C) for another 24 h to ensure that they were well dehydrated. Flies were then transferred individually  with a mouth aspirator tube connected to a 200 µL pipette tip onto a small piece of aluminium foil for direct weight measurement on microbalance with an accuracy of 1µ).
 
 
 ### Thorax length
 ##### Kozeretska, Posnien, Ritchie and Schmidt Labs
 
-Five to seven days old flies are placed onto a double-sided sticky tape attached to a microscope slide and a picture of the thorax taken using a digital camera connected to a dissecting microscope. The same magnification and resolution is always used to increase reproducibility, and a scale bar inserted on each photo to allow transforming pixels into µm units. Thorax length is defined as the distance from the anterior margin of the thorax to the posterior tip of the scutellum and it is measured using the “Straight Line” in ImageJ/Fiji.
+Five to ten days old flies are placed onto a double-sided sticky tape attached to a microscope slide or tape directly to the slide, flies are always laid out on the right side and a picture of the thorax taken using a digital camera connected to a dissecting microscope. The same magnification and resolution is always used to increase reproducibility, and a scale bar inserted on each photo to allow transforming pixels into µm units. Thorax length is defined as the distance from the anterior margin of the thorax to the posterior tip of the scutellum and it is measured using the “Straight Line” in ImageJ/Fiji (Figure XA).
+
+Posnien Lab:
+All ﬂies and larvae were kept on standard food-medium at 25◦C under a 12 h/12 h light/dark cycle and at 60% relative air humidity. Cages with apple-agar plates with a minimum of 20 and a maximum of 100 individuals were set up for 24 h to accustom the ﬂies to the cages. After approximately 24 h fresh apple-agar plates were applied and the ﬂies were left in cages for another 1-3 h for oviposition. Oviposition was repeated several times, if necessary, to collect enough larvae. Approximately 22 h after oviposition L1 larvae were collected and transferred to small food vials containing 10 mL of food. To control for density, exactly 30 L1 larvae were transferred into each vial. Due to the high yeast content of the food-medium, no additional dry yeast was provided. Imagos were collected 5-7 days after eclosion. They were frozen at -20◦C to kill and store them for later dissection.
+Prior to the dissection, the frozen ﬂies were transferred to an apple-agar plate and spread out to prevent the wings from sticking to the body while thawing. For each strain 15 individuals of each sex were dissected to make sure that at least 10 high quality samples were available for measurements. The wings and legs were removed, and the remaining body was glued to a slide with double-sided adhesive tape (Figure XA).
+Pictures of thoraces were taken at a magniﬁcation of 50x with a QImaging MicroPublisher 5.0 digital camera mounted to a Leica M205 FA stereo microscope. Furthermore, a picture of a scale bar (ruler) was taken with the same settings as for the rest of the pictures during every photo session, to allow the conversion from (square) pixels to (square) micrometers. The pictures were analyzed with Fiji (https://ﬁji.sc/). Thorax length was deﬁned as the distance from the anterior margin of the thorax to the posterior tip of the scutellum (Figure XA) measured with the "Straight Line" tool. 
+
+```{r}
+knitr::include_graphics("ThoraxLength/Figure_PosnienLab.png")
+```
+_Figure X_. Thorax and wing measurements (Posnien Lab). (_A_) Thorax length from the anterior margin of the thorax to the posterior tip of the scutellum. (_B_) Area measurement of the wing. (_B’_) Landmarks utilized to exclude the posterior part of the wing for area measurements.
 
 
 ### Wing area
 ##### Onder, Posnien, Ritchie and Stamenkovic-Radak Labs
 
-Both the left and right wings of five to seven days old flies (10 flies per sex per replicate) are removed and placed into a drop of Entellan®Merck, Hoyer’s Medium, sticked to a double-side sticky tape, or taped directly to the slide. Pictures of the wing preparations are taken using a digital camera connected to a dissecting microscope. The same magnification and resolution is always used to increase reproducibility. A scale bar is placed on each photo to allow transforming pixels into µm units. Manual measurements of wing length and wing area are performed using the “Straight Line” and “Polygon Selection” tools, respectively of ImageJ/Fiji (10.1371/journal.pone.0000007).
+Both the left and right wings of five to ten days old flies (either 10 flies per sex per replicate or 30 flies pooled across replicates) are removed and placed into a drop of Entellan®Merck, Hoyer’s Medium, sticked to a double-side sticky tape, or taped directly to the slide. Pictures of the wing preparations are taken using a digital camera connected to a dissecting microscope. The same magnification and resolution is always used to increase reproducibility. A scale bar is placed on each photo to allow transforming pixels into µm units. Manual measurements of wing length and wing area are performed using the “Straight Line” and “Polygon Selection” tools, respectively of ImageJ/Fiji (10.1371/journal.pone.0000007) and software package tpsDig2.
 
 
 ### Fecundity
 ##### Billeter and Fricke Labs
 
-For each isofemale line, 10 males and 10 females are placed together in single-sex groups and allowed to mature for five days. Then, they are placed together (5-7 pairs), and mating interactions observed to ensure successful mating (at least 10 min copulation duration) to ensure that we have five successfully mated females. After a successful mating, males are discarded and females allowed to oviposit alone for 48 hours, moved to another vial, and allowed to oviposit for four days, and again moved to another vial and allowed to oviposit for two days to check that of egg-laying stopped. Vials are incubated until all offspring is born. Individuals are then frozen and the offspring counted.
+For each isofemale line, up to 10 males and 10 females are placed together in single-sex groups and allowed to mature for five days. Then, individual pairs are placed together in a vial (5-7 pairs), and mating interactions observed to ensure successful mating (at least 10 min copulation duration). We aim to have five successfully mated females per isofemale line. After a successful mating, males are discarded and females allowed to oviposit alone for 48 hours, moved to another vial, and allowed to oviposit for four days, and again moved to another vial and allowed to oviposit for two days. Thus our measure of fecundity is the sum of offspring produced for a maximum of 8 days after a single mating. Vacated vials are incubated for at least 12 days until all offspring eclosed. Afterwards vials are frozen and the offspring counted.
 
 
 ### Lifespan
 ##### Flatt, Parsch and Pasyukova Labs
 
-Line level lifespan: Ten flies per sex/line are placed in each vial. The age at death will be scored when changing the food, at least three times a week. Five replicates are used.
+Line level measurements (Parsch and Pasyukova labs): Lifespan was measured for at least 15 isofemale lines per population. For each isofemale line, 5–6 replicates, each consisting of a vial with ten flies per sex (20 flies total), were performed. Replicates were performed in 2 blocks with at least 1 replicate per line in each block. Food vials were changed and mortality was recorded every 2–3 days on Monday, Wednesday, and Friday.
 
-Population level lifespan: Flies are kept in 1L demography cages (5 flies per line/sex for each population). The age at death will be scored when changing the food, at least three times a week. Ten replicates were performed.
-
+Population level measurements (Flatt lab): Flies are kept in 1L demography cages (5 flies per line/sex for each population). The age at death will be scored when changing the food, at least three times a week. Ten replicates were performed.
 
 ### Cold-shock mortality
 ##### Gonzalez, Kozeretska and Vieira Labs
 
-Batches of 15-20 seven days old flies are placed for 18 hours in an empty vial immersed in an ice-water slurry box placed at a 4°C room for 18 hours. Then the vials are removed to a bench in a 25°C room and mortality scored 24 hours later.
+Three groups of 15-20 flies collected from the peak eclosion time are sorted by sex using CO2 (Gonzalez Lab) or diethyl ether (Kozeretska Lab) at least one day before the experiment and place in vials with fresh food. 20 individuals of 5-7 days-old flies previously sorted by sex are then placed for 18 hours in an empty vial immersed in an ice-water slurry box at a 4°C room. After 18 hours of cold-shock, vials are moved to a 25°C room, and cold-shock mortality is scored in a single time point 24 hours later.
 
 
 ### Chill-coma recovery time
 ##### Vieira and Mensch Labs
 
-Sexed flies are placed in an empty vial immersed in an ice-water slurry box placed at a 4°C room in the morning. Six hours later, flies are removed from the tube to individual wells of 24 well plates while being kept on ice. A timer is started once the plate is moved from the ice to a bench in a 25°C room. Each fly is checked by eye for recovery for a maximum of 60 minutes. Flies that are able to stand on their legs are considered recovered and the CCRT (in seconds) recorded.
+Sexed 7 days-old flies were placed in an empty vial immersed in an ice-water slurry box placed in a 4°C room in the morning. Six hours later, flies were removed from the tube to individual wells of 24 well plates while being kept on ice. A timer is started once the plate is moved from the ice to a bench in a 25°C room. Each fly is checked by eye for recovery for a maximum of 60 minutes. Flies that are able to stand on their legs were considered recovered and the CCRT (in seconds) recorded.
 
 
 ### Heat-shock mortality
 ##### Parsch and Vieira Labs
 
-Batches of 15-20 seven days old flies are placed in empty vials inside a 37ºC incubator and mortality checked for 7 hours every 30 minutes.
-
+Batches of 15-20 single sex seven days old flies were placed in empty vials inside a 37ºC incubator and mortality was scored for 7 hours every 30 minutes, or for 8–8.5 hours approximately every 45 minutes (for a total of 10–11 observations) in the Parsch lab.
 
 ### Diapause
 ##### Bergland, Flatt and Schlotterer Labs
 
-In order to induce diapause, two hour old 'phenotypic virgins' (pharate or melanized with meconium visible) female flies are exposed to 12°C and 10:14 light/dark hours for 3 weeks, using an incubator that allows temperature tracking. Vials are changed once per week. After three weeks under diapause conditions, flies are frozen at -80C until dissection. Both ovaries will be examined and classified according to the following simplified 'classification': 1) < stage 10: diapause; 2) stage 10-13: intermediate; 3) stage 14: non-diapause.
-
-
-- Standard diapause conditions: 12°C at 10:14 hrs L:D (under these conditions we might expect around 50% dipause frequency)
-- duration of exposure: 3 weeks
-- assays will be done in incubators (Percival or Memmert); temperature conditions will be tracked using data loggers / iButtons
-- Try to have haphazard standardization; similar conditions coupled with consistent tracking of temperature (multiple iButtons, for example)
-- We will use egg lays in bottles to be able to collect more flies for the assay (approx. 1-2 bottles per line)
-- Larval density will be controlled (approximately) prior to assays: we will do this by letting a fixed number of (approx. 10-20) females (housed together with 5-10 males) oviposit over night (fixed time window) - how many females and the duration of egg laying might need to be adjusted a bit depending on the fertility of the lines (to be determined when lines are being amplified prior to assays)
-- The Bergland and Flatt labs will standardize their fly food according to the Gulbenkian recipe (in terms of amounts / proportions); Manolis from the Schlötterer lab will not standardize the food and use their local diet; importantly, flies for the assays will not be exposed to any (additional) live yeast (i.e., the diet will contain liophilized yeast but no live yeast sprinkled on top).
-- From the bottles we will collect upon eclosion 'phenotypic virgins' (=pharate adults or melanized with meconium visible), approx. within 2 hours after eclosion
-- Flies will be kept in vials for assay (15-20 flies in the same vial to account for mortality); we aim to measure a minimum of 10 females per line (from approx. 10-15 lines x 10 populations, yielding about 1000-1500 flies for dissections in total)
-- The food in the assays will be changed once per week
-- To keep the workload and effort manageable the assays will be performed in 2-3 blocks (optimally only 2) over time: e.g., from each population we will measure a subset of all lines (e.g., 5-7 lines, i.e. 1/2 or 1/3 of all lines) in each of the 2-3 blocks. 
-- After 3 weeks under diapause conditions, flies will either be dissected or kept frozen until dissection (dry, at -80C; can be stored for a few months) 
-- We will adopt a simplified diapause 'classification':
-- Stage 10 will be defined as the checkpoint
-- < Stage 10: diapause
-- Stage 10-13: intermediate
-- Stage 14: non-diapause
-- We will examine both ovaries.
-
+In order to induce diapause, two hour old ‘phenotypic virgins’ (pharate or melanized with meconium visible) female flies are exposed to 12°C and 10:14 light/dark hours for 3 weeks. Vials are changed once per week. After three weeks under diapause conditions, flies are frozen at -80C until dissection. Both ovaries will be examined and an individual was classified as diapausing if all all oocytes were less than stage 10 and no mature eggs were present; individuals were classified as non-diapausing if at least one oocyte was greater than stage 10 or mature eggs were present.  Data were analysed using a generalised linear mixed model with population as a fixed effect and isofemale line, nested within isofemale line, as a random effect for each lab separately. The number of flies scored was used as the weights and a binomial error distribution was used.
 
 ### Circadian eclosion timing
 ##### Wegener Lab
 
-The eclosion rhythmicity has been measured in outcrossed Munich, Akaa, Gimenells, Uman, Mauternbach, Karensminde, Valday, Yesiloz and Recarei strains at:
-
-1) LD14:10 @ 29°C, flies raised at 29°C
-
-2) DD 29°C after LD14:10 entrainment, flies raised at 29°C
-
-3) LD14:10 @ 18°C, flies raised at 18°C
-
-4) DD 18°C after LD14:10 entrainment, flies raised at 18°C
+Eclosion rhythmicity was measured in outcrossed Munich, Akaa, Gimenells, Uman, Mauternbach, Karensminde, Valday, Yesiloz and Recarei strains. Flies were raised on standard food at a light-dark cycle of 14:10 hours (LD 14:10) in a climate chamber at either 18°C or 29°C, depending on the experiment. Age-mixed puparia were collected and glued to a circular perspex disk using fungicide-free methyl cellulose glue (Tapetenkleister Nr. 389, Auro, Germany; 1:30 diluted in water). Eclosion was monitored for one week under LD14:10 or constant darkness (DD) at either 18° or 29°C using Drosophila eclosion monitors (Trikinetics Inc., Waltham, MA, USA). The eclosion data were processed into 1h bins. Phase and period was calculated by MESA, and rhythmicity was assessed by Lomb-Scargle periodogramme analysis as well as JTK-Cycle with Benjamini-Hochberg correction, implemented in BioDare2 (https://biodare2.ed.ac.uk) (Zielinski, T., Moore, A. M., Troup, E., Halliday, K. J., and Millar, A. J. (2014). Strengths and Limitations of Period Estimation Methods for Circadian Data. PLOS ONE 9, e96462. doi: 10.1371/journal.pone.0096462)
 
 ### Locomotor activity
 ##### Tauber Lab
@@ -286,14 +260,35 @@ Batches of 10 sexed flies are transferred to glass vials filled with 5 mL of 2% 
 ### Pigmentation
 ##### Abbott, Gibert and Schmidt Labs
 
-Abbott and Gibert Labs : For each line, 10 females, 13-15 days old, either alive or stored in 95% ethanol, are air dried and placed on their left side, and pictures taken using a dissecting microscope. Images are then analysed in ImageJ 1.46r, using the Area Fraction measurement in the Analyze menu. Area Fraction measures the percentage of pixels in a selected area that have been highlighted in red using the Threshold tool. This gives an estimate of the percentage of dark pigmentation on the three terminal tergites of the abdomen (4, 5 and 6). 
+Abbott, Gibert Labs
 
-Schmidt Lab : The last three tergites were scored according to David et al. 1990.  
+For each line, 10 females, 13-15 days old, either alive or stored in 95% ethanol, are air dried and placed on their left side, and pictures taken using a dissecting microscope. Images are then analysed in ImageJ 1.46r, using the Area Fraction measurement in the Analyze menu. Area Fraction measures the percentage of pixels in a selected area that have been highlighted in red using the Threshold tool. This gives an estimate of the percentage of dark pigmentation on the three terminal tergites of the abdomen (4, 5 and 6).
+
+Schmidt Lab
+
+The last three tergites of females were scored according to David et al. 1990
+
 
 ### Parasitoid resistance 
 ##### Hrcek Lab
 
-The resistance of the lines to parasitoids will be measured using _Leptopilina boulard_. 
+3-5 day old adults (at least 25 pairs) are allowed to lay eggs en masse. Yeast paste is provided to stimulate egg laying (for at least 2 hours). Eggs are collected and 40 are placed in each vial, 8 replicate vials per ILs. In 4 of the vials, 48h after eggs collection, a single female parasitoid _Leptopilina boulardi_ is introduced for 24h. Parasitoid resistance is calculated as the percentage of individuals that emerged compared to the mean of emerged adults from the 4 control vials.
+
+### Wolbachia infection status
+
+#### Sucena Lab
+		
+DNA extractions were done using an adapted protocol from the one in Miller SA, Dykes DD, Polesky HF (1988). Briefly, pools of 3-5 flies were crunched in 200 µl of Homogenization buffer with proteinase K (0.10mg/ml) and incubated overnight at 58 ºC. Next, 100 µl of 4.5 M NaCl and 225 µl chloroform were added and, after centrifugation, the upper phase containing nucleic acids was isolated. Finally, 500 µl of isopropanol were added, decanted out, DNA was washed with 70% EtOH and eluted in MiliQ.
+
+After DNA extraction, a multiplex PCR reaction was performed in 96-well plates using 1μL of diluted DNA, GoTaq G2 Flexi DNA polymerase (Promega) in a 10μL total reaction volume per well, with the primers: Slif (Fwd – 5 ́GTTAGCGCCTATTAGCACAT 3’; Rev – 5 ́ CGGGACAACTCAGTCTGTAA 3’) to diagnose the fly species between D.melanogaster or D. simulans; and wsp (81Fwd 5 ́ TGGTCCAATAAGTGATGAAGAAAC 3’; 691Rev 5 ́AAAAATTAAACGCTACTCCA 3’), to diagnose for the presence or absence of Wolbachia. The PCR program was used as follows: 95 ºC for 10 min; 30 cycles at 95 ºC for 30s (denaturation), 60 ºC for 1 min (annealing), 72 ºC for 1 min (elongation) and a final extension step at 72 ºC for 10 min. PCR amplification products were visualised after electrophoresis in agarose gel (1.5% in TAE supplied with 1% RedSafe).
+
+
+Pasyukova Lab
+
+DNA was extracted from batches of 20 flies from each line using a standard phenol-chloroform procedure (Sambrook et al., 1989).
+
+After DNA extraction, qPCR was performed in triplicates using 1μL of diluted DNA, HotStart Taq (Sibenzyme) and SYBR Green I in a 20μL total reaction volume per well, with the W-Spec primers (Fwd 5’ CATACCTATTCGAAGGGATAG 3’; Rev 5’ AGCTTCGAGTGAAACCAATTC 3’), to diagnose for the presence or absence of Wolbachia. The qPCR program was performed in the MiniOpticon real-time PCR detection system (Bio-Rad) as follows: 94 ºC for 2.5 min; 50 cycles at 94 ºC for 20s (denaturation), 64 ºC for 20s (annealing), 72 ºC for 30s (elongation) with plate reading after each cycle. The melting curve protocol followed the amplification with 5 seconds each step at 0.5°C increments from 60°C to 95°C to determine the specificity of detected products.
+
 
 ## Data reformatting 
 
@@ -501,6 +496,54 @@ coxme_sum <- readRDS("SurvivalAnalyses/all_coxmes_pop_summary_list.rds")
 
 ## Overview 
 
+__“Big picture” summary of results / analyses below__
+
+- 96 individual linear models (i.e., combinations of labs, traits and sexes).
+The great majority of these individual models (= 67/96 = 69.8%) reveal a significant effect of population.
+
+- Thus, these results indicate that there is pervasive phenotypic differentiation among European populations for most of the traits measured, many of which include major fitness components.
+
+- However, there is also a very significant amount of variation among labs in whether the effect of population was significant or not. This is likely due to major differences in assay conditions and measurement noise.
+
+- The meta-analysis of these models across labs reveals significant effects of population differentiation for viability and lifespan at alpha= 0.05.
+
+- Viability and lifespan are two complex, polygenic fitness components for which we have the strongest and consistent evidence for population differentiation in Europe.
+
+- Two traits (heat shock mortality; dry weight) are marginally non-significant (p ≈ 0.06). Other traits are not supported by the meta-analysis, likely because there is too much variation / noise between labs.
+
+- In general, the meta-analysis seems underpowered, probably due to a relatively small number of labs and populations measured. The results for viability, a trait measured by 6 different labs, is a notable exception.
+
+- (Side comment: for the meta-analyses, it might also be interesting to consider Fisher’s method for combining p-values - to be done.)
+
+- Several labs also identified individual significant effects of latitude for particular traits (sometimes depending on sex), e.g., for developmental time, viability, wing area, thorax length, fecundity, starvation resistance, heat shock mortality and lifespan.
+
+- Thus, several major fitness components seem to be varying clinally across latitude in Europe.
+
+- However, these results are in many cases not consistent across labs, again likely due to measurement noise among labs.
+
+- The clearest results are for viability, with consistent effects of latitude across 3 labs, suggesting the existence of a positive latitudinal cline for viability.
+
+- This is supported by the meta-analysis: the estimated meta-values for viability are significantly positively correlated with latitude (Spearman’s rank correlation coeffcient, rs = 0.77).
+
+- Multiple labs also found individual significant effects of longitude for particular traits (sometimes depending on sex), e.g., developmental time, pigmentation, CCRT, and diapause.
+
+- Thus, some traits / fitness components seem to be varying clinally across longitude in Europe.
+
+- Again, however, many of these results are not consistent across labs, likely due to measurement noise across labs.
+
+- The clearest result is for egg-to-adult developmental time, with consistent significant effects across 2 labs and with evidence for both sexes (and across 3 labs when considering the marginally non-significant p –value p= 0.06 for the third lab).
+
+- Developmental time thus seems to vary longitudinally in Europe.
+
+- Despite the fact that the results, in terms of their statistical significance, are often inconsistent among labs (probably due to differences in assay conditions), and as is reflected in the non-significant meta-analyses, in the vast majority cases, the between-lab correlation coefficients for traits are positive, albeit not always significantly so (analyses by Alan Bergland, based on population means – still to be done for line means).
+
+- In particular, population means for dry weight, starvation resistance and wing area are significantly positively correlated among all labs that measured these traits. Thus, there is a very high reproducibility for dry weight, starvation resistance and wing area.
+
+- Alan also checked whether some populations are intrinsically more noisy that others by looking at the absolute values of the residuals of the rank correlation from the 1:1 line. These analyses suggest that populations do not differ markedly in their ‘noisiness’.
+
+- Sexual dimorphism for individual traits and sex-biased population variation
+
+
 Here is a summary table with p-values for all the analyses below. p-value adjustments are only made on meta analyses (Bonferroni correction for n = 20 traits). 
 
 ```{r, echo=FALSE}
@@ -575,6 +618,8 @@ DT::datatable(table_pop_wobatch$Via, options = list(pageLength = 10)) %>% format
 ### Plots and Linear Models by Lab  
 
 #### Overview 
+
+A positive correlation in the viability dataset was observed among all labs, ranging  between 0.17 to 0.9 for the pairwise comparisons. We detected significant differences in egg-to-adult viability among populations in all datasets (all P<.0001), except for the Grath lab (F=1.95, P=0.16) which only analysed the populations from Akaa, Munich and Recarei and may therefore be underpowered to detect significant differences. . In all other labs, the Yesiloz (Turkey) population had a significantly lower viability compared to the population from Karensminde (Denmark)  (P<0.05 for all). Pairwise comparisons also indicated aa lower viability of the Yesiloz population compared to the populations from Akaa (Finland) and Munich (Germany) (Gibert, Hoedjes, Stamenkovic-Radak and Zwaan); a lower viability compared to the Mauternbach (Austria) population (Gibert, Hoedjes and Zwaan) and to the Uman (Ukraine) and Valday (Russia) populations (Gibert, and Zwaan). Other significant pairwise comparisons indicate a higher viability of the Akaa population compared to the Gimenells population (Gibert and Hoedjes), the Mauternbach population and the Valday population (Gibert and Stamenkovic-Radak). Given the many similarities in the outcomes as described above, it is not surprising that the meta-analysis that included all datasets indicated highly significant differences between populations for viability (Q= 100.39, P<.0001, Pbonf<.0001), suggesting that the  patterns of viability variation are consistent and independent of variation among labs. Overall, the variation in viability appears to have a latitudinal distribution, with a higher viability on average in populations from a higher latitude. This correlation was significant for three of the labs (Gibert F=5.8309, p=0.046; Hoedjes F=12.375, p=0.009 and Zwaan F=9.6762, p=0.02). A significant correlation of viability with altitude was detected by the Hoedjes lab only (F=9.6762, P=0.02), while there was no evidence for a correlation of viability with longitudes for any of the datasets. . 
 
 ```{r min_max_Via, echo=TRUE}
 min_Via <- min(droseu$via$ProportionEggtoAdultSurvival)
@@ -833,6 +878,8 @@ DT::datatable(table_pop_wobatch$DT_A, options = list(pageLength = 10)) %>% forma
 #### Plots and Linear Models by Lab
 
 ##### Overview 
+
+We observed a very wide range in pairwise correlations among egg-to-adult development time between the different labs, ranging from 0.02 to 0.99 for females, and even negative correlations of -0.45 to 0.70 for males. This indicates a very high level of inter-laboratory variation, e.g. either due to dietary differences or laboratory conditions, which limits inferences on variation in developmental time across labs. Given the observed correlations, it is not surprising that the meta-analysis did not indicate significant differences between populations (females: Q=7.69, P=0.464, Pbonf=1; males Q=8.80, P=0.360, Pbonf=1), indicating that there were no consistent overall patterns among the different datasets. Linear analyses on variation between populations of individual datasets did, however, indicate significant differences in development time in almost all datasets (P<.05), except in the dataset on female developmental time from the Zwaan lab (P=0.051) and the data from the Grath lab (females: P=0.28, males: P=0.39). The Grath lab only analysed the populations from Akaa, Munich and Recarei, however. f. Although the patterns in variation among the different labs were mostly inconsistent,  some shared differences among populations can be observed. A significantly higher development time for both sexes was observed for the Recarei (Portugal) population compared to the Karensminde (Denmark) population by both iHoedjes and Stamenkovic-Radak; and for the Valday (Russia) population compared to Karensminde by both Schmidt and Stamenkovic-Radak. Females from the Recarei population had a higher development time than females from the Akaa population (Hoedjes and Stamenkovic-Radak),while males of the Valday population had a higher development time than bothe Akaa and Munich males (Schmidt and Stamenkovic-Radak).  . Few of the labs also detected latitudinal (Hoedjes, females only:  F=6.746, p= 0.04; males F= 5.7584, p=0.04847) or longitudinal (Hoedjes, males only: F=5.6936, p=0.047; Zwaan, males only: F=7.8178, P=0.023), although these patterns were not consistent among the different sexes and labs.
 
 ```{r min_max_DT_A, echo=TRUE}
 min_DT_A <- min(droseu$dta$DT_EggAdult)
@@ -1159,6 +1206,8 @@ DT::datatable(table_pop_wobatch$DW, options = list(pageLength = 10))  %>% format
 
 #### Overview 
 
+We observed moderate to high correlations in the adult dry weights measured by the different labs, ranging from 0.61 to 0.92 in females and from 0.42 to 0.78 in males. Yet, although significant differences among the nine populations were observed, these effects were not consistent among all labs, as also illustrated by the non-significant outcomes of the meta-analyses (females: Q=10.6, P=0.22, Pbonf=1; males: Q=23.1, P=0.0032, Pbonf=0.064). Both the Colinet and Onder labs observed differences in female dry weight  among the populations (Colinet: F=2.34, P=0.021; Onder: F=5.36, P<.0001), whereas this differences was only marginally significant for the Hoedjes lab (F=1.92, P=0.060). For males, significant differences between the populations were only observed for the Colinet lab (F=4.81, P<.0001), while this was marginally significant for the Onder lab (F=1.95, P=0.057). Post-hoc tests revealed several pairwise differences between populations, of which only a single one was shared between the Colinet and Onder datasets: a significant difference in female dry weight between the Akaa (Finland) and Recarei (Portugal) populations. Overall, most significant pairwise comparisons indicate a difference in dry weight of the Yesiloz (Turkey) population (5 significant pairwise comparisons in males, 3 in females) and the Akaa population (5 significant pairwise comparisons in females). Flies from these two populations, both females and to a lesser extent males, have a lower adult dry weight on average than the other populations. There was no evidence for correlations of adult dry weight and altitude, latitude and longitude for either sex.
+
 ```{r min_max_DW}
 min_DW <- min(droseu$dw$DW_micrograms)
 max_DW <- max(droseu$dw$DW_micrograms)
@@ -1355,6 +1404,12 @@ DT::datatable(table_pop_wobatch$TL, options = list(pageLength = 10))  %>% format
 ### Plots and Linear Models by Lab  
 
 #### Overview 
+
+Correlations among labs were 0.34 to 0.82 for females and 0.78 for males if data from Posnien Lab was excluded. Correlations of Posnien Lab data with other labs were extremely low or even negative with 0.28 to -0.35 for females and -0.33 to -0.53 for males. Significant differences among populations were observed for females in two of four labs (i.e. Kozeretska and Schmidt) and for males in one of three labs (i.e. Kozeretska). Ritchie and Posnien labs did not find population differences. Flies from the Finland (Akaa, AK) population were the smallest (Schmidt lab) and among the smallest (Kozeretska lab) in two labs, while flies from the Portugal (Recarei, RE) and Austria (Mauternbach, MA) populations were consistently among the largest flies in the Kozeretska and Schmidt labs. In Posnien lab data most obvious differences were observed in males between Germany (Munich, MU) and Spain (Gimenells, GI), with the GI population being the largest (GI was second largest in Schmidt lab female data).
+In one of four labs (i.e. Schmidt lab), we found a marginally significant correlation of female thorax length with latitude (F1, 6.67 = 6.0178, p = 0.04557). No correlations between thorax length and longitude or altitude, respectively, were found.
+
+Wing area, thorax length and dry weight: Tendency towards larger flies in Spain/Portugal and smallest flies in Finland. That would be against Bergmann’s rule, right. Based on lab experiments for flies raised at different temperatures, I’d expect larger body size at lower temperature. 
+
 
 ```{r}
 min_TL <- min(droseu$tl$TL_micrometers)
@@ -1592,6 +1647,9 @@ DT::datatable(table_pop_wobatch$WA_Left, options = list(pageLength = 10))  %>% f
 ### Plots and Linear Models by Lab  
 
 #### Overview 
+
+Correlations among labs range from 0.07 to 0.92 in females and 0.03 to 0.92 in males. Significant differences among populations in female and male wing areas are not consistent among labs (Table WA). There are no significant pairwise differences among population in the Posnien and Ritchie data. However, some pairwise differences among population present in Onder and Stamenkovic-Radak dataset. Most of the pairwise differences are shared between the two dataset. Where Recarei population have the largest centroid size and significantly differ from Akaa, Gimenells, Karensminde, Munich, Valday and Yesiloz in both sexes. The other shared significant differences are among Akaa and Mauterbach, Akaa and Uman, and among Uman and Yesiloz population.
+There was no evidence for any correlation between wing area and altitude, latitude and longitude. There was only a weak but significant relationship between female wing area and latitude in the Posnien dataset (female left wing area F1, 25 = 6.5631, p = 0.0168; female right wing area F1, 25 = 6.6129, p = 0.0165).
 
 ```{r}
 
@@ -2069,6 +2127,9 @@ DT::datatable(table_pop_wobatch$Fec, options = list(pageLength = 10)) %>% format
 
 #### Overview 
 
+Fecundity data was collected for the nine populations by two different laboratories and was determined based on the total number of adult offspring produced from a single mating. No clear clinal pattern was observed for fecundity, neither along altitude nor longitude. Interpopulation variation in fecundity was found across latitude in one measuring condition that used non-standardized nutritionally rich food (Billeter group: ANOVA F1,6.85 = 6.565, p = 0.038), but this latitudinal variation was not observed in the measuring condition using standardized food (Fricke group: ANOVA F1,161.9 = 0.161, p = 0.689). In fact,  the nine populations did not differ in fecundity when tested  on standardized food (Fricke group, ANOVA: F8,146.3 = 0.458, p = 0.884), but did  when tested on non-standard nutritionally rich food (Billeter group: ANOVA: F8,148.39 = 2.799, p = 0.0065). However post-hoc tests revealed that differences between populations in the non-standard food treatment were mainly driven by the two divergent population from Karensminde, Denmark and Yesiloz, Turkey (z.ratio =3.56, p =0.011) and one near-significant comparison between Karensminde, Denmark and Recarei, Portugal (z.ratio = 2.96, p = 0.075). The non- standardized food was expected to lead to higher fecundity because of its higher quantity of yeast than the standardized food, leading to higher egg production and hence explaining higher fecundity. However, as fecundity data were only collected in two laboratories with different food conditions, the data are confounded by two variables; lab and diet.
+
+
 ```{r echo=TRUE}
 min_Fec <- min(droseu$fec$NumberOfAdultsEclosed)
 max_Fec <- max(droseu$fec$NumberOfAdultsEclosed)
@@ -2193,6 +2254,13 @@ DT::datatable(table_pop_wobatch$LS_M, options = list(pageLength = 10)) %>% forma
 ### Plots and Linear Models by Lab  
 
 #### Overview 
+
+We detected subtle but significant lifespan differences among populations for both sexes in all labs (mixed-effects linear model and Cox mixed effects model; P <  0.014 for all), suggesting that European populations are phenotypically and genetically differentiated for this trait. However, the effect of the individual populations varied depending upon the sex and lab (make Supplementary Table?). Briefly, of 36 pairwise comparisons between populations, in females, 26, 14, and 1 population pairs were detected as significantly different in the Flatt, Parsch, and Pasyukova labs, respectively, of which 10 were detected by both the Flatt and Parsch labs (P < 0.04 for all) and 1 was detected by the Parsch and Pasyukova labs (P < 0.002 for both). The direction of the detected significant difference was in agreement for all population pairs with the exception of the Gimenells and Mauternbach comparison, which was detected by the Flatt and Parsch labs. In males, 7, 9, and 4 population pairs were detected as significantly different in the Flatt, Parsch, and Pasyukova labs, respectively, of which 1 was detected by both the Flatt and Parsch labs (P < 0.007 for both). This pair, Munich and Recarei, was also detected as significantly different in females by the Flatt and Parsch labs (P < 0.025 for both), with the direction of the detected significant difference in agreement for both labs and sexes. Using meta-analysis performed on all data across all labs, we found evidence for consistent population differences in lifespan for males (P = 0.02; albeit non-significant after multiple testing correction) but not for females (P = 1). Could perhaps consider to say something about whether, on average, females lived longer than males or not, etc.
+
+We observed a significant positive relationship between lifespan and latitude for the Flatt lab in females (P = 0.004) and for the Parsch lab in males (P = 0.004). None of the labs found a significant effect of longitude or altitude on lifespan for either sex (mixed-effects linear model; P > 0.128 for all). 
+
+Pairwise correlations between labs for population means of lifespan were generally positive and higher for males (0.40–0.52) than for females (0.20–0.57). Correlations between the Flatt lab, who measured lifespan at the population level, and the Parsch and Pasyukova labs, who measured lifespan at the line level, were qualitatively comparable to the correlations between the Parsch and Pasyukova labs, suggesting that lifespan estimates from population cages and individual line measurements were fairly congruent.
+
 
 ```{r}
 min_LS <- min(droseu$lsm$LSM_AgeAtDeath_days)
@@ -2448,6 +2516,15 @@ DT::datatable(table_pop_wobatch$CSM, options = list(pageLength = 10)) %>% format
 
 #### Overview 
 
+To check the variability in response to cold, we performed cold-shock mortality assays in all the strains from the nine European populations in three different labs. We measured the number of deaths for both males and females 24 hours after a cold shock of 4ºC for 18 hours (see Material and Methods). 
+
+We found that the correlation between data obtained in different labs was quite strong, ranging from r2=0.22 to r2=0.55 in males, and from r2=0.40 to r2=0.70 in females (Figure X). In the three lab-replicates, we observed high variability within populations and strains. Moreover, female flies tend to be more resistant to cold-shock compared to males. 
+
+Results also showed no evidence for correlation with the spatial variables altitude, latitude, and longitude for any of the three cold-shock lab-replicates obtained in the different labs (all p-values > 0.05). Moreover, using a meta-analysis approach, we found that there are no statistically significant differences between populations. However, when analysing the results of the three labs individually, we observed that only the Vieira dataset showed evidence of population differences in males (p-value = 0.025). After Bonferroni correction for multiple testing (N=3), this difference becomes non-significant (p-value > 0.05).
+
+Overall, these results suggest that cold-shock mortality is a moderately replicable phenotype across lab-replicates. However, we could not detect any correlation with spatial variables or population difference, likely due to the use of isofemale lines. 
+
+
 ```{r min_max_CSM, echo=TRUE}
 min_CSM <- min(droseu$csm$CSM_PropDead_ED)
 max_CSM <- max(droseu$csm$CSM_PropDead_ED)
@@ -2647,6 +2724,8 @@ DT::datatable(table_pop_wobatch$CCRT, options = list(pageLength = 10)) %>% forma
 
 #### Overview 
 
+We detected significant differences among populations for both sexes in all labs (using mixed-effects linear model and Cox mixed-effects model), except for males in the Mensch dataset using the mixed-effects linear model, suggesting that European populations are genetically differentiated for this trait. Correlations between labs for population means were positive and higher for females (0.3) than for males (0.09). Males and females of Mauterbach population showed the fastest chill coma recovery time (i.e. higher cold tolerance) in the Viera dataset, and this population significantly differs from Akaa and Umam, in females, and from Munich, Yesiloz and Gimenells, in males. In the Mensch dataset, the fastest chill coma recovery time was found for females of Gimenells population, which significantly differ from Yesiloz. We observed a significant negative relationship between female chill coma recovery time and longitude in the Mensch dataset (F= 7.372, p = 0.0287). No significant effects of latitude or altitude on chill coma for either sex were found. 
+
 ```{r min_max_CCRT, echo=TRUE}
 min_CCRT <- min(droseu$ccrt$CCRT_seconds)
 max_CCRT <- max(droseu$ccrt$CCRT_seconds)
@@ -2832,6 +2911,9 @@ DT::datatable(table_pop_wobatch$HSM, options = list(pageLength = 10)) %>% format
 
 #### Overview 
 
+Correlations in heatshock mortality between labs were very low with no correlation in females (-0.03) and relatively low correlation in males (0.25). We found no evidence for an effect of longitude on heatshock mortality in either sex or lab (Mixed linear model; P > 0.412 for all).  In the Parsch lab, we detected a significant negative relationship between altitude and female heatshock mortality (P = 0.0089), a significant positive relationship between latitude and male heatshock mortality (P = 0.0163), and a marginally non-significant positive relationship between latitude and female heathshock mortality (P = 0.05358). We detected subtle but significant differences among populations for both sexes in both labs (Mixed linear model and Cox mixed effects model; P < 0.0025 for all). Of 36 pairwise comparisons between populations, in females, 12 and 13 population pairs were significantly different in the Parsch and Vieira labs, respectively. In both labs, Munich was significantly different from Recarei and Yesiloz (P < 0.004 for both), but the effects were in the opposite direction for both pairs. In males, 14 and 3 population pairs were significantly different in the Parsch and Vieira labs, respectively. In both labs, Akaa was significantly different from Gimenells (P < 0.003 for both) in the same direction. When we analyzed the data from both labs meta-analyses, we could not find evidence of any consistent significant differences between populations for either sex (P > 0.05 for both).
+
+
 ```{r}
 min_HSM <- min(droseu$hsm$TimeDeath_min)
 max_HSM <- max(droseu$hsm$TimeDeath_min)
@@ -3013,6 +3095,13 @@ DT::datatable(table_pop_wobatch$Dia_Prop_Max_Stage9, options = list(pageLength =
 ### Plots and Linear Models by Lab
 
 #### Overview
+
+We observe a significant effect of population on diapause status measured in two of the three labs. Significant among-population effects were observed in the Bergland lab (Chisq=17, DF=8, p=0.02) and the Schlotterer lab (Chisq=22, DF=8, p=0.004). There was no among-population effect observed in the Flatt lab (Chisq=5.3, DF=8, p=0.71). We do not observe any significant correlation between population model estimates and latitude, altitude, or longitude of any of the individual labs.
+
+We observed significant positive correlation between population model estimates between the Bergland lab and the Schlotterer lab (Pearson correlation coefficient = 0.866, p=0.0025). We observed a marginal positive correlation between population model estimates between the Flatt lab and the Schlotterer lab (Pearson correlation coefficient = 0.65, p=0.057). We do not observe a significant correlation between population model estimates between the Flatt lab and the Bergland lab (Pearson correlation coefficient = 0.421, p=0.26). 
+
+We observe a significant positive correlation between isofemale line model estimates between the Bergland lab and the Schlotter lab (Pearson correlation coefficient = 0.34, p=1.5e-5). We observe a significant positive correlation between isofemale line model estimates between the Flatt lab and the Schlotterer lab (Pearson correlation coefficient = 0.27, p=0.00047). We observe a significant positive correlation between the isofemale line estimates between the Flatt lab and the Bergland lab (Pearson correlation coefficient = 0.31, p=0.00012). 
+
 
 ```{r}
 min_Dia <- min(droseu$dia$Prop_Max_Stage9)
@@ -3250,6 +3339,11 @@ DT::datatable(table_pop_wbatch$CETS_29_LD_LD_Rhythmicity_JTK_p_BH_corrected, opt
 
 #### Overview 
 
+Eclosion was rhythmic for all populations under LD14:10 and DD conditions at 18° or 29°C (Lomb-Scargle periodogram analysis, JTK-Cycle), with some differences in the period (MESA), rhythmicity power (Lomb-Scargle periodogram analysis, JTK-Cycle) and eclosion peak phase (MESA). These differences were not statistically analysed as rhythmic eclosion can only be assessed on the population level and requires high number of flies (n=378-3506 in our assays), and N essentially equals 1 for every condition*population. The observed differences were uncorrelated with latitude or longitude (Spearman correlation analysis); geographical patterns in the time of peak eclosion, rhythmicity or period were not found.
+These results speaks against a geographic adaption of the time of eclosion or eclosion rhythmicity in Drosophila melanogaster, in contrast to systematic North to South variations observed in other European Drosophila species (D. subobscura: Lankinen P (1993) North South Differences in Circadian Eclosion Rhythm in European Populations of Drosophila-Subobscura. Heredity 71:210–218. https://doi.org/10.1038/hdy.1993.126. D. littoralis: Lankinen P (1986) Geographical variation in circadian eclosion rhythm and photoperiodic adult diapause inDrosophila littoralis. J Comp Physiol 159:123–142. https://doi.org/10.1007/BF00612503).
+Table CET: Phase of eclosion peak (MESA), period (MESA) and rhythmicity (Lomb-Scargle periodogram analysis amplitude) for the outcrossed populations (N=1, n=(1)2-3(4), 378-3506 eclosed flies, total 39.733 flies). Animals were entrained at LD 14:10 at the indicated temperature, then glued and assayed either at LD14:10 or in DD. 
+
+
 #### Wegener Lab
 
 From Chris :
@@ -3372,6 +3466,8 @@ DT::datatable(table_pop_wobatch$LA_CircPhase, options = list(pageLength = 10)) %
 ### Plots and Linear Models by Lab  
 
 #### Overview 
+
+The free-running period (the periodicity in DD) differed significantly among populations (mixed linear model, F8,83 = 2.29, p = 0.029), median ranging from 23.66 (GI) to 24.44 (AK; Figure X). The acrophase (timing of peak activity under DD) also differed significantly among populations (Mardia-Watson-Wheeler test: W =51.36, p =1.39E-5). About 13 hr differed between the acrophase of the earliest population (AK) and that of the latest (MA, Figure X). Under LD conditions, we detected a substantial difference in daily amount of activity exhibited by each population (Fig. X). Populations UM and MU showing the lowest activity, while MA and RE being most active. The difference was highly significant (mixed linear model, F8,83 = 4.59, p < 0.0001). The nocturnal-diurnal ratio (measuring diurnal preference) did not differ significantly among populations. 
 
 #### Tauber Lab
 
@@ -3507,6 +3603,10 @@ DT::datatable(table_pop_wobatch$SR, options = list(pageLength = 10)) %>% formatR
 ### Plots and Linear Models by Lab  
 
 #### Overview 
+
+Correlations among labs ranging from 0.82 to 0.94 in males and 0.69 to 0.92 in females, where correlations among labs were higher for males. Significant differences among populations in female and male starvation resistance are consistent among labs (Table SR). Pairwise comparisons show that the Yesiloz population significantly differs from Munich and Valday in both sexes and in all labs.
+There was no evidence for any correlation between starvation resistance and altitude, latitude and longitude.
+
 
 ```{r}
 min_SR <- min(droseu$sr$AgeAtDeath_hours)
@@ -3830,6 +3930,15 @@ DT::datatable(table_pop_wobatch$Pgm_TotalPerc, options = list(pageLength = 10))%
 ```
 
 #### Overview 
+
+Correlations among labs were higher and less variable for the more posterior parts of the abdomen compared to the more anterior parts of the abdomen (ranging from -0.13 to 0.69 for tergite 4, 0.33 to 0.62 for tergite 5, and 0.44 to 0.62 for tergite 6). Correlations among labs were also generally higher for total pigmentation area compared to the individual tergites (ranging from 0.41 to 0.72).
+
+There was very limited evidence for any correlation between pigmentation and the spatial variables altitude, latitude, and longitude. There was a weak but significant positive relationship between black area on tergite 5 and altitude in the Gibert dataset (F1, 6.310 = 9.054, p = 0.0223), as well as a weak but significant positive relationship between black area on tergite 4 and longitude in the Gibert data (F1, 7.923 = 8.5328, p = 0.01946). However given the weak nature of these relationships and the fact that they were only present in one dataset, they do not seem to represent a robust pattern.
+
+There was somewhat better evidence of significant differences among populations in pigmentation, although the magnitude and direction was not completely consistent between datasets (see table XX). When analysed using a meta-analysis approach, there was no evidence of any consistent significant differences between populations.
+
+Collectively, these results suggest that although pigmentation is moderately repeatable across datasets, there is considerable individual heterogeneity within isofemale lines which make possible differences between populations difficult to detect.
+
 
 ### Plots and Linear Models by Lab  
 
@@ -5303,91 +5412,91 @@ knitr::include_graphics("GDM/GDM_Table3_4Rmd.png")
 knitr::include_graphics("GDM/GDM_Worldclim/DW_M/DW_M_vapr7_i-spline.jpeg")
 ```
 
-```{r, out.width="50%"}
+```{r echo=FALSE, out.width="40%", out.height="40%"}
 knitr::include_graphics("GDM/GDM_Worldclim/DW_M/DW_M_bio2_i-spline.jpeg")
 ```
 
 ## Fecundity
-```{r, out.width="50%"}
+```{r echo=FALSE, out.width="40%", out.height="40%"}
 knitr::include_graphics("GDM/GDM_Worldclim/Fec/Fec_srad01_i-spline.jpeg")
 ```
 
-```{r, out.width="50%"}
+```{r echo=FALSE, out.width="40%", out.height="40%"}
 knitr::include_graphics("GDM/GDM_Worldclim/Fec/Fec_wind07_i-spline.jpeg")
 ```
 
 ## Lifespan
-```{r, out.width="50%"}
+```{r echo=FALSE, out.width="40%", out.height="40%"}
 knitr::include_graphics("GDM/GDM_Worldclim/LS_F/LS_F_srad05_i-spline.jpeg")
 ```
 
-```{r, out.width="50%"}
+```{r echo=FALSE, out.width="40%", out.height="40%"}
 knitr::include_graphics("GDM/GDM_Worldclim/LS_F/LS_F_bio10_i-spline.jpeg")
 ```
 
-```{r, out.width="50%"}
+```{r echo=FALSE, out.width="40%", out.height="40%"}
 knitr::include_graphics("GDM/GDM_Worldclim/LS_F/LS_F_vapr06_i-spline.jpeg")
 ```
 
-```{r, out.width="50%"}
+```{r echo=FALSE, out.width="40%", out.height="40%"}
 knitr::include_graphics("GDM/GDM_Worldclim/LS_F/LS_F_wind08_ispline.jpeg")
 ```
 
-```{r, out.width="50%"}
+```{r echo=FALSE, out.width="40%", out.height="40%"}
 knitr::include_graphics("GDM/GDM_Worldclim/LS_M/LS_M_GDM_srad05_i-spline.jpeg")
 ```
 
-```{r, out.width="50%"}
+```{r echo=FALSE, out.width="40%", out.height="40%"}
 knitr::include_graphics("GDM/GDM_Worldclim/LS_M/LS_M_GDM_srad06_i-spline.jpeg")
 ```
 
-```{r, out.width="50%"}
+```{r echo=FALSE, out.width="40%", out.height="40%"}
 knitr::include_graphics("GDM/GDM_Worldclim/LS_M/LS_M_GDM_prec10_i-spline.jpeg")
 ```
 
-```{r, out.width="50%"}
+```{r echo=FALSE, out.width="40%", out.height="40%"}
 knitr::include_graphics("GDM/GDM_Worldclim/LS_M/LS_M_GDM_wind12_i-spline.jpeg")
 ```
 
 ## Thorax length
-```{r, out.width="50%"}
+```{r echo=FALSE, out.width="40%", out.height="40%"}
 knitr::include_graphics("GDM/GDM_Worldclim/TL_F/TL_F_perc05_i-spline.jpeg")
 ```
 
-```{r, out.width="50%"}
-  knitr::include_graphics("GDM/GDM_Worldclim/TL_F/TL_F_srad06_i-spline.jpeg")
+```{r echo=FALSE, out.width="40%", out.height="40%"}
+knitr::include_graphics("GDM/GDM_Worldclim/TL_F/TL_F_srad06_i-spline.jpeg")
 ```
 
-```{r, out.width="50%"}
-  knitr::include_graphics("GDM/GDM_Worldclim/TL_F/TL_F_wind12_i-spline.jpeg")
+```{r echo=FALSE, out.width="40%", out.height="40%"}
+knitr::include_graphics("GDM/GDM_Worldclim/TL_F/TL_F_wind12_i-spline.jpeg")
 ```
 
 ## Wing area
-```{r, out.width="50%"}
+```{r echo=FALSE, out.width="40%", out.height="40%"}
 knitr::include_graphics("GDM/GDM_Worldclim/WA_L_M/WA_L_M_wind08_i-spline.jpeg")
 ```
 
-```{r, out.width="50%"}
+```{r echo=FALSE, out.width="40%", out.height="40%"}
 knitr::include_graphics("GDM/GDM_Worldclim/WA_L_M/WA_L_M_vapr06_i-spline.jpeg")
 ```
 
-```{r, out.width="50%"}
+```{r echo=FALSE, out.width="40%", out.height="40%"}
 knitr::include_graphics("GDM/GDM_Worldclim/WA_R_F/WA_R_F_wind8_i-spline.jpeg")
 ```
 
-```{r, out.width="50%"}
+```{r echo=FALSE, out.width="40%", out.height="40%"}
 knitr::include_graphics("GDM/GDM_Worldclim/WA_R_F/WA_R_F_vapr8_i-spline.jpeg")
 ```
 
-```{r, out.width="50%"}
+```{r echo=FALSE, out.width="40%", out.height="40%"}
 knitr::include_graphics("GDM/GDM_Worldclim/WA_R_F/WA_R_F_bio8_i-spline.jpeg")
 ```
 
-```{r, out.width="50%"}
+```{r echo=FALSE, out.width="40%", out.height="40%"}
 knitr::include_graphics("GDM/GDM_Worldclim/WA_R_M/WA_R_M_wind08_i-spline.jpeg")
 ```
 
-```{r, out.width="50%"}
+```{r echo=FALSE, out.width="40%", out.height="40%"}
 knitr::include_graphics("GDM/GDM_Worldclim/WA_R_M/WA_R_M_vapr06_i-spline.jpeg")
 ```
 
@@ -5539,6 +5648,10 @@ knitr::include_graphics("SDM_Maxent_worldclime/SDM_4_Rmd/DrosEU_PhenotypingWG_Pa
 
 # References
 
+## Circadian eclosion timing
+
+- BioDare2 (https://biodare2.ed.ac.uk) (Zielinski, T., Moore, A. M., Troup, E., Halliday, K. J., and Millar, A. J. (2014). Strengths and Limitations of Period Estimation Methods for Circadian Data. PLOS ONE 9, e96462. doi: 10.1371/journal.pone.0096462)
+
 ## GDM
 
 - Baldassarre, D. T., Thomassen, H. A., Karubian, J., & Webster, M. S. (2013). The role of ecological variation in driving divergence of sexual and non-sexual traits in the red-backed fairy-wren (Malurus melanocephalus). BMC Evolutionary Biology, 13(1), 75. doi:10.1186/1471-2148-13-75
@@ -5554,3 +5667,7 @@ knitr::include_graphics("SDM_Maxent_worldclime/SDM_4_Rmd/DrosEU_PhenotypingWG_Pa
 ## SDM
 
 - Mina Hojat Ansari, Steven J.B. Cooper, Michael P. Schwarz, Mehregan Ebrahimi, Gaynor Dolman, Leah Reinberger, Kathleen M. Saint, Stephen C. Donnellan, C. Michael Bull, Michael G. Gardner, Plio-Pleistocene diversification and biogeographic barriers in southern Australia reflected in the phylogeography of a widespread and common lizard species, Molecular Phylogenetics and Evolution, Volume 133, 2019, Pages 107-119, ISSN 1055-7903, https://doi.org/10.1016/j.ympev.2018.12.014.
+
+## Morphometrics
+
+- Rohlf, F. J. (2006). tpsDig, Digitize Landmarks and Outlines, Version 2.05. Stony Brook, NY: Department of Ecology and Evolution, State University of New York
