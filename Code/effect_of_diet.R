@@ -233,12 +233,6 @@ write.csv(
 
 
 
-
-
-
-
-
-
 ######### EFFECT OF LAB AND DIET ON TRAITS ##########
 
 # get data in
@@ -309,11 +303,12 @@ pop_estimates_labs_facets <- pop_coefs %>%
     labs(x = "Lab (ordered by increasing P/C ratio)", y = "Population estimate")
 
 ggsave(pop_estimates_labs_facets,
-  filename = "Diets/DrosEU_Diets_lab_traits_pop_facets.png",
+  filename = "Diets/DrosEU_Diets_lab_traits_pop_facets2.png",
   width = 14,
-  height = 10
+  height = 10,
+  dpi = 100
 )
-
+ 
 
 
 # facet plot for pop estimates and PC ratios
@@ -337,7 +332,27 @@ ggsave(pop_estimates_pc_facets,
 
 
 
-####### META REGRESSION WITH LAB AND DIET
+
+# facet plot with Lab and Diet at the same time
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+####### META REGRESSION WITH LAB AND DIET #######
 
 dir.create("MetaRegressionDiet", showWarnings = FALSE)
 
