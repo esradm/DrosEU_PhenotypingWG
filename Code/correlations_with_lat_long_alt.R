@@ -88,7 +88,7 @@ pop_lat_pearson_plot <- ggplot(data = pop_lat_pearson, aes(x = R, y = -log10(P))
                    segment.color = 'grey50', max.overlaps = 60, min.segment.length = 0,
                    seed = 1, force = 5)
   
-ggsave(pop_lat_pearson_plot, filename = "GeoCorrelations/pop_lat_pearson_correlations.png", height = 7, width = 7)
+ggsave(pop_lat_pearson_plot, filename = "GeoCorrelations/pop_lat_pearson_correlations.png", height = 7, width = 7, dpi = 120)
 
 
 pop_lat_pearson_facet <- bind_rows(pop_geo_list) %>%
@@ -102,7 +102,7 @@ pop_lat_pearson_facet <- bind_rows(pop_geo_list) %>%
   labs(title = "Pearson correlations with Latitude - Population level", y = "Population estimates") +
   theme_bw(14)
 
-ggsave(pop_lat_pearson_facet, filename = "GeoCorrelations/pop_lat_pearson_correlations_facets.png", height = 10, width = 14)
+ggsave(pop_lat_pearson_facet, filename = "GeoCorrelations/pop_lat_pearson_correlations_facets.png", height = 10, width = 14, dpi = 120)
   
 
 
@@ -140,7 +140,7 @@ pop_lon_pearson_plot <- ggplot(data = pop_lon_pearson, aes(x = R, y = -log10(P))
                    segment.color = 'grey50', max.overlaps = 60, min.segment.length = 0,
                    seed = 1, force = 5)
 
-ggsave(pop_lon_pearson_plot, filename = "GeoCorrelations/pop_lon_pearson_correlations.png", height = 7, width = 7)
+ggsave(pop_lon_pearson_plot, filename = "GeoCorrelations/pop_lon_pearson_correlations.png", height = 7, width = 7, dpi = 120)
 
 
 pop_lon_pearson_facet <- bind_rows(pop_geo_list) %>%
@@ -154,7 +154,7 @@ pop_lon_pearson_facet <- bind_rows(pop_geo_list) %>%
   labs(title = "Pearson correlations with Longitude - Population level", y = "Population estimates") +
   theme_bw(14)
 
-ggsave(pop_lon_pearson_facet, filename = "GeoCorrelations/pop_lon_pearson_correlations_facets.png", height = 10, width = 14)
+ggsave(pop_lon_pearson_facet, filename = "GeoCorrelations/pop_lon_pearson_correlations_facets.png", height = 10, width = 14, dpi = 120)
 
 
 
@@ -205,7 +205,7 @@ line_lat_pearson_plot <- ggplot(data = line_lat_pearson, aes(x = R, y = -log10(P
                    segment.color = 'grey50', max.overlaps = 60, min.segment.length = 0,
                    seed = 1, force = 5)
 
-ggsave(line_lat_pearson_plot, filename = "GeoCorrelations/line_lat_pearson_correlations.png", height = 7, width = 7)
+ggsave(line_lat_pearson_plot, filename = "GeoCorrelations/line_lat_pearson_correlations.png", height = 7, width = 7, dpi = 120)
 
 
 
@@ -221,7 +221,7 @@ line_lat_pearson_facet <- bind_rows(line_geo_list) %>%
   labs(title = "Pearson correlations with Latitude - Line level", y = "Line random coefficients") +
   theme_bw(14)
 
-ggsave(line_lat_pearson_facet, filename = "GeoCorrelations/line_lat_pearson_correlations_facets.png", height = 10, width = 14)
+ggsave(line_lat_pearson_facet, filename = "GeoCorrelations/line_lat_pearson_correlations_facets.png", height = 10, width = 14, dpi = 120)
 
 
 
@@ -256,7 +256,7 @@ line_lon_pearson_plot <- ggplot(data = line_lon_pearson, aes(x = R, y = -log10(P
                    segment.color = 'grey50', max.overlaps = 60, min.segment.length = 0,
                    seed = 1, force = 10)
 
-ggsave(line_lon_pearson_plot, filename = "GeoCorrelations/line_lon_pearson_correlations.png", height = 7, width = 7)
+ggsave(line_lon_pearson_plot, filename = "GeoCorrelations/line_lon_pearson_correlations.png", height = 7, width = 7, dpi = 120)
 
 
 
@@ -272,7 +272,7 @@ line_lon_pearson_facet <- bind_rows(line_geo_list) %>%
   labs(title = "Pearson correlations with Longitude - Line level", y = "Line random coefficients") +
   theme_bw(14)
 
-ggsave(line_lon_pearson_facet, filename = "GeoCorrelations/line_lon_pearson_correlations_facets.png", height = 10, width = 14)
+ggsave(line_lon_pearson_facet, filename = "GeoCorrelations/line_lon_pearson_correlations_facets.png", height = 10, width = 14, dpi = 120)
 
 
 
