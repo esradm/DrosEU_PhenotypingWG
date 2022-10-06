@@ -48,7 +48,7 @@ for (i in 1:length(estimates)){
         scatterPlotMatrix(filter(ts[[j]], Trait == unique(ts[[j]]$Trait), Sex == unique(ts[[j]]$Sex)))
         dev.off()
         ts_out_png <- sub("pdf", "png", ts_out_pdf)
-        png(ts_out_png, 2100, 2100, res = 300)
+        png(ts_out_png, 2100, 2100, res = 120)
         scatterPlotMatrix(filter(ts[[j]], Trait == unique(ts[[j]]$Trait), Sex == unique(ts[[j]]$Sex)))
         dev.off()
       }
@@ -81,7 +81,7 @@ for (i in 1:length(line_estimates)){
         scatterPlotMatrix(filter(ts[[j]], Trait == unique(ts[[j]]$Trait), Sex == unique(ts[[j]]$Sex)))
         dev.off()
         ts_out_png <- sub("pdf", "png", ts_out_pdf)
-        png(ts_out_png, 2100, 2100, res = 300)
+        png(ts_out_png, 840, 840, res = 120)
         scatterPlotMatrix(filter(ts[[j]], Trait == unique(ts[[j]]$Trait), Sex == unique(ts[[j]]$Sex)))
         dev.off()
       }
@@ -174,7 +174,7 @@ pop_cor <- ggplot(cor_pearson, aes(x = R, y = -log10(P))) +
   geom_text(data = stats_text, aes(label = paste(nl, nc, ncs, sep = "\n"), x = xmin, y = ymax), hjust = 0, vjust = 1, size = 3.5)
 
 ##### save facet plot
-ggsave(pop_cor, filename = "LabCorrelations/lab_correlation_pop_pearson.png", width = 11.69, height = 8.27)
+ggsave(pop_cor, filename = "LabCorrelations/lab_correlation_pop_pearson.png", width = 11.69, height = 8.27, dpi = 120)
 
 
 
@@ -265,7 +265,7 @@ pop_cor <- ggplot(cor_spearman, aes(x = R, y = -log10(P))) +
 
 
 ##### save facet plot
-ggsave(pop_cor, filename = "LabCorrelations/lab_correlation_pop_spearman.png", width = 11.69, height = 8.27)
+ggsave(pop_cor, filename = "LabCorrelations/lab_correlation_pop_spearman.png", width = 11.69, height = 8.27, dpi = 120)
 
 
 
@@ -358,7 +358,7 @@ line_cor <- ggplot(cor_pearson, aes(x = R, y = -log10(P))) +
 
 
 
-ggsave(line_cor, filename = "LabCorrelations/lab_correlation_line_pearson.png", width = 11.69, height = 8.27)
+ggsave(line_cor, filename = "LabCorrelations/lab_correlation_line_pearson.png", width = 11.69, height = 8.27, dpi = 120)
 
 
 
