@@ -5354,15 +5354,19 @@ There is a strong association of trait PC2 with climate PCs in both datasets. Ho
 
 ## From Alan
 
-_Goal_: Test whether phenotypic variation in isofemale lines collected at different locations is correlated with aspects of weather and climate prior to sampling. To perform this analysis, I propose that 
+__Goal__: 
 
-_Dataset_: 
+Test whether phenotypic variation in isofemale lines collected at different locations is correlated with aspects of weather and climate prior to sampling. To perform this analysis, I propose that 
+
+__Dataset__: 
+
 - Phenotype data: metaanalysis estimates of phenotypes, individual phenotypes + PCA reduction of phenotype space
 
 - Environmental data: NASApower data
     - Temperature, Rainfall, Humidity. What else?
 
-_Strategy_: 
+__Strategy__: 
+
 - The goal is to build a large number of models for each phenotype. Each model will regress phenotype (or PCA projection) onto one of the environmental variables, or summarizations of the environmental variables. 
 
 - For each phenotype and model, we can assess whether the environmental model is:
@@ -5372,7 +5376,8 @@ _Strategy_:
   
 - We can also assess whether the direction of the environmental effect is consistent with a priori expectations. For instance we can predict that cold-shock-mortality will be lower in locations that more recently experienced a cold shock.
 
-_Data transformations_:
+__Data transformations__:
+
 - Normalize phenotype data & environmental data: `(Estimate-mean(Estimate, na.rm=T))/sd(Estimate, na.rm=T)`
 - Do we use the population means? Or do we use the line means?
   - Line means give us more power, but population means is a more conservative model
@@ -5384,7 +5389,8 @@ _Data transformations_:
   - Number of days above or below a pre-defined threshold
   - Other more sophisticated functions (e.g., those that Vera used)
 
-_Problems_:
+__Problems__:
+
 - Model selection and multiple testing
 
 Here is an analysis that highlights some of the ways I have been looking at the data. Some aspects are clear, some are less so. I’d be curious to hear your thoughts and also to work with you both to sort out any analyses.
