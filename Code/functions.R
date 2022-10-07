@@ -37,11 +37,11 @@ plotResiduals <- function(f) {
   qq_out_png <- paste0(f_out, "_qq_plot_residuals.png")
   hist_out_png <- paste0(f_out, "_hist_residuals.png")
   for (j in 1:length(n)) {
-    png(filename = qq_out_png[j], height = 2100, width = 2100, res = 300)
+    png(filename = qq_out_png[j], height = 840, width = 840, res = 120)
     qqnorm(resid(m[[j]]), main = n[j])
     qqline(resid(m[[j]]))
     dev.off()
-    png(filename = hist_out_png[j], height = 2100, width = 2100, res = 300)
+    png(filename = hist_out_png[j], height = 840, width = 840, res = 120)
     hist(resid(m[[j]]), main = n[j], xlab = "Residuals")
     dev.off() }
 }
