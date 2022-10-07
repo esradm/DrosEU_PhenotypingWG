@@ -543,6 +543,12 @@ for (i in seq_len(length(estimates_list))) {
 
 r2_all <- bind_rows(r2)
 
+write.csv(r2_all, "MetaRegressionDiet/all_models_pop_meta_reg_diets_r2.csv",
+  row.names = FALSE
+)
+
+
+
 r2_facets <- r2_all %>%
   mutate(
     Group = paste(Trait, Sex),
@@ -560,4 +566,5 @@ ggsave(r2_facets,
   width = 14,
   height = 10
 )
+
 

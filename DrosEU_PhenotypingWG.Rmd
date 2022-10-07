@@ -61,6 +61,13 @@ caption {
 ```
 
 
+<style>
+p.caption {
+  font-size: 0.9em;
+}
+</style>
+
+
 ```{r echo=FALSE}
 knitr::include_graphics("InfoTables/samples_map_2-1.png")
 ```
@@ -75,7 +82,7 @@ droseu_labs <- data.frame(read.csv("InfoTables/DrosEU_Labs.csv"))
 
 ## Contributors (phenotyping)
 
-Contributed labs are `r unique(droseu_labs$PI)` and detailed list below :
+Contributed labs are `r unique(droseu_labs$PI)` and detailed list below:
 
 ```{r echo=FALSE}
 knitr::kable(droseu_labs, allign = "llll", caption = "Table X. Contributed labs and traits, sorted by trait") 
@@ -322,7 +329,7 @@ All proportion data has been arcsin transformed prior to the analyses. For other
 
 For each trait and lab, we ran counts for sex, population, line and replicate vial (if applicable). If we could spot anything suspicious or unusual (typos, shifts, etc.), I have contacted you already. Please let me know if there is anything that you have spotted and we missed. Thanks! 
 
-# Results : Examples & Directories & Legends {#anchor}
+# Results: Examples & Directories & Legends {#anchor}
 
 ### Tables 
 
@@ -342,7 +349,7 @@ estimate_mode <- function(v) {
 
 ```{r, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE}
 
-# Then compute descriptive statistics (mean, median, minimum, maximum, standard error, coefficient of variation and mode) at the defined levels (line with batch information example below) : 
+# Then compute descriptive statistics (mean, median, minimum, maximum, standard error, coefficient of variation and mode) at the defined levels (line with batch information example below): 
 
 table_Via_Line_wbatch <- write.csv(d_Via %>% group_by(Supervisor.PI, Batch, Population, Line) %>% summarise_at(vars(ProportionEggtoAdultSurvival), list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, SE = std_err, CV = coef_var, Mode = estimate_mode)), file = "Viability/table_Via_Line_wbatch.csv", row.names = T)
 
@@ -409,7 +416,7 @@ DT_A_M_lmer_Gibert <- lmer(DT_EggAdult ~ Population +
                              #Line (random) is nested in Population (fixed)
                              (1|Batch) +
                              #Batch is a random effect 
-                             (1|ReplicateVial : Line),
+                             (1|ReplicateVial:Line),
                             #Replicate vial (random) is nested in Line (random)
                            data = d_DT_A_M[d_DT_A_M$Supervisor.PI == "Gibert",]) 
                             #Filter by Lab in development time, males data 
@@ -492,7 +499,7 @@ coxme_sum <- readRDS("SurvivalAnalyses/all_coxmes_pop_summary_list.rds")
 
 **_Please note that "Plots and Linear Models by Lab" are presented in alphabetical order._** 
 
-# Results : Linear Models  {#anchor}
+# Results: Linear Models  {#anchor}
 
 ## Overview 
 
@@ -554,17 +561,6 @@ pval_table <- read.csv("InfoTables/models_metas_pvalues_summary_table.csv")
 DT::datatable(pval_table, options = list(pageLength = 25)) %>% formatRound(5:9, 4)
 ```
 
-```{r, echo=FALSE}
-knitr::include_graphics("LabCorrelations/lab_correlation_line_pearson.pdf")
-```
-
-```{r, echo=FALSE}
-knitr::include_graphics("LabCorrelations/lab_correlation_pop_pearson.pdf")
-```
-
-```{r, echo=FALSE}
-knitr::include_graphics("LabCorrelations/lab_correlation_pop_spearman.pdf")
-```
 
 ## Viability
 
@@ -576,17 +572,17 @@ _For a detailed description of tables, plots, linear models and outputs, please 
 
 ### Contributors  
 
-Gibert Lab : Cristina Vieira, Laurence Mouton, Natacha Kremer, Sonia Martinez, Patricia Gibert
+Gibert Lab: Cristina Vieira, Laurence Mouton, Natacha Kremer, Sonia Martinez, Patricia Gibert
 
-Grath Lab : Ingo Müller, Sonja Grath
+Grath Lab: Ingo Müller, Sonja Grath
 
-Hoedjes Lab : Hristina Kostic, Katja Hoedjes
+Hoedjes Lab: Hristina Kostic, Katja Hoedjes
 
-Schmidt Lab : Ozan Kiratli, Yonatan Babore, Liam Forsythe, Paul Schmidt
+Schmidt Lab: Ozan Kiratli, Yonatan Babore, Liam Forsythe, Paul Schmidt
 
-Stamenkovic-Radak Lab : Marija Savic Veselinovic, Marija Tanaskovic, Aleksandra Patenkovic, Mihailo Jelic, Katarina Eric, Pavle Eric, Slobodan Davidovic, Marina Stamenkovic-Radak
+Stamenkovic-Radak Lab: Marija Savic Veselinovic, Marija Tanaskovic, Aleksandra Patenkovic, Mihailo Jelic, Katarina Eric, Pavle Eric, Slobodan Davidovic, Marina Stamenkovic-Radak
 
-Zwaan Lab : Joost van den Heuvel, Bas Zwaan
+Zwaan Lab: Joost van den Heuvel, Bas Zwaan
 
 
 ```{r}
@@ -595,22 +591,22 @@ str(droseu$via)
 
 ### Descriptive Statistics
 
-Descriptive statistics at the line level, with batch information : 
+Descriptive statistics at the line level, with batch information: 
 ```{r, echo=FALSE}
 DT::datatable(table_line_wbatch$Via, options = list(pageLength = 10)) %>% formatRound(5:12, 3)
 ```
 
-Descriptive statistics at the line level, without batch information : 
+Descriptive statistics at the line level, without batch information: 
 ```{r, echo=FALSE}
 DT::datatable(table_line_wobatch$Via, options = list(pageLength = 10)) %>% formatRound(4:11, 3)
 ```
 
-Descriptive statistics at the population level, with batch information : 
+Descriptive statistics at the population level, with batch information: 
 ```{r, echo=FALSE}
 DT::datatable(table_pop_wbatch$Via, options = list(pageLength = 10))  %>% formatRound(4:11, 3)
 ```
 
-Descriptive statistics at the population level, without batch information : 
+Descriptive statistics at the population level, without batch information: 
 ```{r, echo=FALSE}
 DT::datatable(table_pop_wobatch$Via, options = list(pageLength = 10)) %>% formatRound(3:10, 3)
 ```
@@ -781,7 +777,7 @@ _For a detailed description of tables, plots, linear models and outputs, please 
 
 #### Contributors  
 
-Schmidt Lab : Paul Schmidt
+Schmidt Lab: Paul Schmidt
 
 #### Data Reformatting
 
@@ -795,7 +791,7 @@ str(droseu$dtp)
 # Note that the trait has been phenotyped only in Schmidt lab and in one batch.
 ```
 
-Descriptive statistics at the line level :  
+Descriptive statistics at the line level:  
 ```{r, echo=FALSE}
 DT::datatable(table_line_wobatch$DT_P, options = list(pageLength = 10)) %>% formatRound(4:11, 3)
 ```
@@ -834,17 +830,17 @@ _For a detailed description of tables, plots, linear models and outputs, please 
 
 #### Contributors  
 
-Gibert Lab : Cristina Vieira, Laurence Mouton, Natacha Kremer, Sonia Martinez, Patricia Gibert
+Gibert Lab: Cristina Vieira, Laurence Mouton, Natacha Kremer, Sonia Martinez, Patricia Gibert
 
-Grath Lab : Ingo Müller, Sonja Grath
+Grath Lab: Ingo Müller, Sonja Grath
 
-Hoedjes Lab : Hristina Kostic, Katja Hoedjes
+Hoedjes Lab: Hristina Kostic, Katja Hoedjes
 
-Schmidt Lab : Ozan Kiratli, Yonatan Babore, Liam Forsythe, Paul Schmidt
+Schmidt Lab: Ozan Kiratli, Yonatan Babore, Liam Forsythe, Paul Schmidt
 
-Stamenkovic-Radak Lab : Marija Savic Veselinovic, Marija Tanaskovic, Aleksandra Patenkovic, Mihailo Jelic, Katarina Eric, Pavle Eric, Slobodan Davidovic, Marina Stamenkovic-Radak
+Stamenkovic-Radak Lab: Marija Savic Veselinovic, Marija Tanaskovic, Aleksandra Patenkovic, Mihailo Jelic, Katarina Eric, Pavle Eric, Slobodan Davidovic, Marina Stamenkovic-Radak
 
-Zwaan Lab : Joost van den Heuvel, Bas Zwaan
+Zwaan Lab: Joost van den Heuvel, Bas Zwaan
 
 #### Data Reformatting
 
@@ -855,22 +851,22 @@ str(droseu$dta)
 
 #### Descriptive Statistics
 
-Descriptive statistics at the line level, with batch information : 
+Descriptive statistics at the line level, with batch information: 
 ```{r, echo=FALSE}
 DT::datatable(table_line_wbatch$DT_A, options = list(pageLength = 10)) %>% formatRound(6:13, 3)
 ```
 
-Descriptive statistics at the line level, without batch information : 
+Descriptive statistics at the line level, without batch information: 
 ```{r, echo=FALSE}
 DT::datatable(table_line_wobatch$DT_A, options = list(pageLength = 10)) %>% formatRound(5:12, 3)
 ```
 
-Descriptive statistics at the population level, with batch information : 
+Descriptive statistics at the population level, with batch information: 
 ```{r, echo=FALSE}
 DT::datatable(table_pop_wbatch$DT_A, options = list(pageLength = 10))  %>% formatRound(5:12, 3)
 ```
 
-Descriptive statistics at the population level, without batch information : 
+Descriptive statistics at the population level, without batch information: 
 ```{r, echo=FALSE}
 DT::datatable(table_pop_wobatch$DT_A, options = list(pageLength = 10)) %>% formatRound(4:11, 3)
 ```
@@ -1064,6 +1060,7 @@ knitr::include_graphics("DevelopmentTime/p_DT_A_M_pop_Zwaan.pdf")
 
 ##### Gibert Lab
 _Females_
+
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_models_residuals/DT_A_F_Gibert_lmer_pop_hist_residuals.png")
 
@@ -1072,6 +1069,7 @@ knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_models_residuals
 
 
 _Males_
+
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_models_residuals/DT_A_M_Gibert_lmer_pop_hist_residuals.png")
 
@@ -1081,6 +1079,7 @@ knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_models_residuals
 ##### Grath Lab
 
 _Females_
+
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_models_residuals/DT_A_F_Grath_lmer_pop_hist_residuals.png")
 
@@ -1088,6 +1087,7 @@ knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_models_residuals
 ```
 
 _Males_
+
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_models_residuals/DT_A_M_Grath_lmer_pop_hist_residuals.png")
 
@@ -1097,6 +1097,7 @@ knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_models_residuals
 ##### Hoedjes Lab
 
 _Females_
+
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_models_residuals/DT_A_F_Hoedjes_lmer_pop_hist_residuals.png")
 
@@ -1104,6 +1105,7 @@ knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_models_residuals
 ```
 
 _Males_
+
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_models_residuals/DT_A_M_Hoedjes_lmer_pop_hist_residuals.png")
 
@@ -1113,6 +1115,7 @@ knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_models_residuals
 ##### Schmidt Lab
 
 _Females_
+
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_models_residuals/DT_A_F_Schmidt_lmer_pop_hist_residuals.png")
 
@@ -1120,6 +1123,7 @@ knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_models_residuals
 ```
 
 _Males_
+
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_models_residuals/DT_A_M_Schmidt_lmer_pop_hist_residuals.png")
 
@@ -1129,6 +1133,7 @@ knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_models_residuals
 ##### Stamenkovic-Radak Lab
 
 _Females_
+
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_models_residuals/DT_A_F_StamenkovicRadak_lmer_pop_hist_residuals.png")
 
@@ -1136,6 +1141,7 @@ knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_models_residuals
 ```
 
 _Males_
+
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_models_residuals/DT_A_M_StamenkovicRadak_lmer_pop_hist_residuals.png")
 
@@ -1145,6 +1151,7 @@ knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_models_residuals
 ##### Zwaan Lab
 
 _Females_
+
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_models_residuals/DT_A_F_Zwaan_lmer_pop_hist_residuals.png")
 
@@ -1152,6 +1159,7 @@ knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_models_residuals
 ```
 
 _Males_
+
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_models_residuals/DT_A_M_Zwaan_lmer_pop_hist_residuals.png")
 
@@ -1168,11 +1176,11 @@ _For a detailed description of tables, plots, linear models and outputs, please 
 
 ### Contributors  
 
-Colinet Lab : Sapho-Lou Marti , Hervé Colinet
+Colinet Lab: Sapho-Lou Marti , Hervé Colinet
 
-Hoedjes Lab : Hristina Kostic, Katja Hoedjes
+Hoedjes Lab: Hristina Kostic, Katja Hoedjes
 
-Onder Lab : Seda Coskun, Senel Selin Senkal, Dogus Can, Banu Sebnem Onder
+Onder Lab: Seda Coskun, Senel Selin Senkal, Dogus Can, Banu Sebnem Onder
 
 ### Data Reformatting
 
@@ -1182,22 +1190,22 @@ str(droseu$dw)
 
 ### Descriptive Statistics
 
-Descriptive statistics at the line level, with batch information : 
+Descriptive statistics at the line level, with batch information: 
 ```{r table_DW_Line_wobatch, echo=FALSE}
 DT::datatable(table_line_wbatch$DW, options = list(pageLength = 10)) %>% formatRound(6:13, 3)
 ```
 
-Descriptive statistics at the line level, without batch information : 
+Descriptive statistics at the line level, without batch information: 
 ```{r, echo=FALSE}
 DT::datatable(table_line_wobatch$DW, options = list(pageLength = 10)) %>% formatRound(5:12, 3)
 ```
 
-Descriptive statistics at the population level, with batch information : 
+Descriptive statistics at the population level, with batch information: 
 ```{r, echo=FALSE}
 DT::datatable(table_pop_wbatch$DW, options = list(pageLength = 10))  %>% formatRound(5:12, 3)
 ```
 
-Descriptive statistics at the population level, without batch information : 
+Descriptive statistics at the population level, without batch information: 
 ```{r, echo=FALSE}
 DT::datatable(table_pop_wobatch$DW, options = list(pageLength = 10))  %>% formatRound(4:11, 3)
 ```
@@ -1309,6 +1317,7 @@ knitr::include_graphics("DryWeight/p_DW_M_pop_Onder.pdf")
 #### Colinet Lab
 
 _Females_
+
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("LinearModelsPop/DryWeight/by_lab_models_residuals/DW_F_Colinet_lmer_pop_hist_residuals.png")
 
@@ -1316,6 +1325,7 @@ knitr::include_graphics("LinearModelsPop/DryWeight/by_lab_models_residuals/DW_F_
 ```
 
 _Males_
+
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("LinearModelsPop/DryWeight/by_lab_models_residuals/DW_M_Colinet_lmer_pop_hist_residuals.png")
 
@@ -1325,6 +1335,7 @@ knitr::include_graphics("LinearModelsPop/DryWeight/by_lab_models_residuals/DW_M_
 #### Hoedjes Lab
 
 _Females_
+
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("LinearModelsPop/DryWeight/by_lab_models_residuals/DW_F_Hoedjes_lmer_pop_hist_residuals.png")
 
@@ -1332,6 +1343,7 @@ knitr::include_graphics("LinearModelsPop/DryWeight/by_lab_models_residuals/DW_F_
 ```
 
 _Males_
+
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("LinearModelsPop/DryWeight/by_lab_models_residuals/DW_M_Hoedjes_lmer_pop_hist_residuals.png")
 
@@ -1341,6 +1353,7 @@ knitr::include_graphics("LinearModelsPop/DryWeight/by_lab_models_residuals/DW_M_
 #### Onder Lab
 
 _Females_
+
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("LinearModelsPop/DryWeight/by_lab_models_residuals/DW_F_Onder_lmer_pop_hist_residuals.png")
 
@@ -1348,6 +1361,7 @@ knitr::include_graphics("LinearModelsPop/DryWeight/by_lab_models_residuals/DW_F_
 ```
 
 _Males_
+
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("LinearModelsPop/DryWeight/by_lab_models_residuals/DW_M_Onder_lmer_pop_hist_residuals.png")
 
@@ -1365,13 +1379,13 @@ _For a detailed description of tables, plots, linear models and outputs, please 
 
 ### Contributors  
 
-Kozeretska Lab : Svitlana Serga, Alexandra Protsenko, Oleksandr Maistrenko, Iryna Kozeretska
+Kozeretska Lab: Svitlana Serga, Alexandra Protsenko, Oleksandr Maistrenko, Iryna Kozeretska
 
-Posnien Lab : Micael Reis, Lennart Hüper
+Posnien Lab: Micael Reis, Lennart Hüper
 
-Ritchie Lab : Megan Mcgunnigle, Nicola  Cook, Teresa Abaurrea, Michael Ritchie
+Ritchie Lab: Megan Mcgunnigle, Nicola  Cook, Teresa Abaurrea, Michael Ritchie
 
-Schmidt Lab : Amy Goldfischer, Paul Schmidt
+Schmidt Lab: Amy Goldfischer, Paul Schmidt
 
 ### Data Reformatting
 
@@ -1381,22 +1395,22 @@ str(droseu$tl)
 
 ### Descriptive Statistics
 
-Descriptive statistics at the line level, with batch information :
+Descriptive statistics at the line level, with batch information:
 ```{r, echo=FALSE}
 DT::datatable(table_line_wbatch$TL, options = list(pageLength = 10)) %>% formatRound(6:13, 3)
 ```
 
-Descriptive statistics at the line level, without batch information : 
+Descriptive statistics at the line level, without batch information: 
 ```{r, echo=FALSE}
 DT::datatable(table_line_wobatch$TL, options = list(pageLength = 10)) %>% formatRound(5:12, 3)
 ```
 
-Descriptive statistics at the population level, with batch information : 
+Descriptive statistics at the population level, with batch information: 
 ```{r, echo=FALSE}
 DT::datatable(table_pop_wbatch$TL, options = list(pageLength = 10))  %>% formatRound(5:12, 3)
 ```
 
-Descriptive statistics at the population level, without batch information : 
+Descriptive statistics at the population level, without batch information: 
 ```{r, echo=FALSE}
 DT::datatable(table_pop_wobatch$TL, options = list(pageLength = 10))  %>% formatRound(4:11, 3)
 ```
@@ -1527,6 +1541,7 @@ knitr::include_graphics("ThoraxLength/p_TL_F_pop_Schmidt.pdf")
 #### Kozeretska Lab
 
 _Females_
+
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("LinearModelsPop/ThoraxLength/by_lab_models_residuals/TL_F_Kozeretska_lmer_pop_hist_residuals.png")
 
@@ -1534,6 +1549,7 @@ knitr::include_graphics("LinearModelsPop/ThoraxLength/by_lab_models_residuals/TL
 ```
 
 _Males_
+
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("LinearModelsPop/ThoraxLength/by_lab_models_residuals/TL_M_Kozeretska_lmer_pop_hist_residuals.png")
 
@@ -1543,6 +1559,7 @@ knitr::include_graphics("LinearModelsPop/ThoraxLength/by_lab_models_residuals/TL
 #### Posnien Lab
 
 _Females_
+
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("LinearModelsPop/ThoraxLength/by_lab_models_residuals/TL_F_Posnien_lmer_pop_hist_residuals.png")
 
@@ -1550,6 +1567,7 @@ knitr::include_graphics("LinearModelsPop/ThoraxLength/by_lab_models_residuals/TL
 ```
 
 _Males_
+
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("LinearModelsPop/ThoraxLength/by_lab_models_residuals/TL_M_Posnien_lmer_pop_hist_residuals.png")
 
@@ -1559,6 +1577,7 @@ knitr::include_graphics("LinearModelsPop/ThoraxLength/by_lab_models_residuals/TL
 #### Ritchie Lab
 
 _Females_
+
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("LinearModelsPop/ThoraxLength/by_lab_models_residuals/TL_F_Ritchie_lmer_pop_hist_residuals.png")
 
@@ -1566,6 +1585,7 @@ knitr::include_graphics("LinearModelsPop/ThoraxLength/by_lab_models_residuals/TL
 ```
 
 _Males_
+
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("LinearModelsPop/ThoraxLength/by_lab_models_residuals/TL_M_Ritchie_lmer_pop_hist_residuals.png")
 
@@ -1575,6 +1595,7 @@ knitr::include_graphics("LinearModelsPop/ThoraxLength/by_lab_models_residuals/TL
 #### Schmidt Lab
 
 _Females_
+
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("LinearModelsPop/ThoraxLength/by_lab_models_residuals/TL_F_Schmidt_lmer_pop_hist_residuals.png")
 
@@ -1598,13 +1619,13 @@ _For a detailed description of tables, plots, linear models and outputs, please 
 
 ### Contributors  
 
-Onder Lab : Cansu Aksoy, Ekin Demir, Ezgi Cobanoglu, Banu Sebnem Onder
+Onder Lab: Cansu Aksoy, Ekin Demir, Ezgi Cobanoglu, Banu Sebnem Onder
 
-Posnien Lab : Micael Reis, Lennart Hüper, Nico Posnien
+Posnien Lab: Micael Reis, Lennart Hüper, Nico Posnien
 
-Ritchie Lab : Megan Mcgunnigle, Nicola  Cook, Teresa Abaurrea, Marija Tanaskovic, Michael Ritchie
+Ritchie Lab: Megan Mcgunnigle, Nicola  Cook, Teresa Abaurrea, Marija Tanaskovic, Michael Ritchie
 
-Stamenkovic-Radak Lab : Marija Savic Veselinovic, Marija Tanaskovic, Aleksandra Patenkovic, Filip Filopovski, Mihailo Jelic, Katarina Eric, Pavle Eric, Slobodan Davidovic, Marina Stamenkovic-Radak
+Stamenkovic-Radak Lab: Marija Savic Veselinovic, Marija Tanaskovic, Aleksandra Patenkovic, Filip Filopovski, Mihailo Jelic, Katarina Eric, Pavle Eric, Slobodan Davidovic, Marina Stamenkovic-Radak
 
 ### Data Reformatting
 
@@ -1624,22 +1645,22 @@ for (i in dev.list()[1]:dev.list()[length(dev.list())]) {
 
 ### Descriptive Statistics
 
-Descriptive statistics at the line level, with batch information : 
+Descriptive statistics at the line level, with batch information: 
 ```{r, echo=FALSE}
 DT::datatable(table_line_wbatch$WA_Left, options = list(pageLength = 10)) %>% formatRound(6:13, 3)
 ```
 
-Descriptive statistics at the line level, without batch information : 
+Descriptive statistics at the line level, without batch information: 
 ```{r, echo=FALSE}
 DT::datatable(table_line_wobatch$WA_Left, options = list(pageLength = 10)) %>% formatRound(5:12, 3)
 ```
 
-Descriptive statistics at the population level, with batch information : 
+Descriptive statistics at the population level, with batch information: 
 ```{r, echo=FALSE}
 DT::datatable(table_pop_wbatch$WA_Left, options = list(pageLength = 10))  %>% formatRound(5:12, 3)
 ```
 
-Descriptive statistics at the population level, without batch information : 
+Descriptive statistics at the population level, without batch information: 
 ```{r, echo=FALSE}
 DT::datatable(table_pop_wobatch$WA_Left, options = list(pageLength = 10))  %>% formatRound(4:11, 3)
 ```
@@ -1783,22 +1804,22 @@ knitr::include_graphics("WingArea/p_WA_M_L_pop_StamenkovicRadak.pdf")
 
 ### Descriptive Statistics
 
-Descriptive statistics at the line level, with batch information : 
+Descriptive statistics at the line level, with batch information: 
 ```{r, echo=FALSE}
 DT::datatable(table_line_wbatch$WA_Right, options = list(pageLength = 10)) %>% formatRound(6:13, 3)
 ```
 
-Descriptive statistics at the line level, without batch information : 
+Descriptive statistics at the line level, without batch information: 
 ```{r, echo=FALSE}
 DT::datatable(table_line_wobatch$WA_Right, options = list(pageLength = 10)) %>% formatRound(5:12, 3)
 ```
 
-Descriptive statistics at the population level, with batch information : 
+Descriptive statistics at the population level, with batch information: 
 ```{r, echo=FALSE}
 DT::datatable(table_pop_wbatch$WA_Right, options = list(pageLength = 10))  %>% formatRound(5:12, 3)
 ```
 
-Descriptive statistics at the population level, without batch information : 
+Descriptive statistics at the population level, without batch information: 
 ```{r, echo=FALSE}
 DT::datatable(table_pop_wobatch$WA_Right, options = list(pageLength = 10))  %>% formatRound(4:11, 3)
 ```
@@ -1943,6 +1964,7 @@ knitr::include_graphics("WingArea/p_WA_M_R_pop_StamenkovicRadak.pdf")
 #### Onder Lab
 
 _Females_
+
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("LinearModelsPop/WingArea/by_lab_models_residuals/WA_L_F_Onder_lmer_pop_hist_residuals.png")
 
@@ -1950,6 +1972,7 @@ knitr::include_graphics("LinearModelsPop/WingArea/by_lab_models_residuals/WA_L_F
 ```
 
 _Males_
+
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("LinearModelsPop/WingArea/by_lab_models_residuals/WA_L_M_Onder_lmer_pop_hist_residuals.png")
 
@@ -1959,6 +1982,7 @@ knitr::include_graphics("LinearModelsPop/WingArea/by_lab_models_residuals/WA_L_M
 #### Posnien Lab
 
 _Females_
+
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("LinearModelsPop/WingArea/by_lab_models_residuals/WA_L_F_Posnien_lmer_pop_hist_residuals.png")
 
@@ -1966,6 +1990,7 @@ knitr::include_graphics("LinearModelsPop/WingArea/by_lab_models_residuals/WA_L_F
 ```
 
 _Males_
+
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("LinearModelsPop/WingArea/by_lab_models_residuals/WA_L_M_Posnien_lmer_pop_hist_residuals.png")
 
@@ -1975,6 +2000,7 @@ knitr::include_graphics("LinearModelsPop/WingArea/by_lab_models_residuals/WA_L_M
 #### Ritchie Lab
 
 _Females_
+
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("LinearModelsPop/WingArea/by_lab_models_residuals/WA_L_F_Ritchie_lmer_pop_hist_residuals.png")
 
@@ -1982,6 +2008,7 @@ knitr::include_graphics("LinearModelsPop/WingArea/by_lab_models_residuals/WA_L_F
 ```
 
 _Males_
+
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("LinearModelsPop/WingArea/by_lab_models_residuals/WA_L_M_Ritchie_lmer_pop_hist_residuals.png")
 
@@ -1991,6 +2018,7 @@ knitr::include_graphics("LinearModelsPop/WingArea/by_lab_models_residuals/WA_L_M
 #### Stamenkovic-Radak Lab
 
 _Females_
+
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("LinearModelsPop/WingArea/by_lab_models_residuals/WA_L_F_StamenkovicRadak_lmer_pop_hist_residuals.png")
 
@@ -1998,6 +2026,7 @@ knitr::include_graphics("LinearModelsPop/WingArea/by_lab_models_residuals/WA_L_F
 ```
 
 _Males_
+
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("LinearModelsPop/WingArea/by_lab_models_residuals/WA_L_M_StamenkovicRadak_lmer_pop_hist_residuals.png")
 
@@ -2009,6 +2038,7 @@ knitr::include_graphics("LinearModelsPop/WingArea/by_lab_models_residuals/WA_L_M
 #### Onder Lab
 
 _Females_
+
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("LinearModelsPop/WingArea/by_lab_models_residuals/WA_R_F_Onder_lmer_pop_hist_residuals.png")
 
@@ -2016,6 +2046,7 @@ knitr::include_graphics("LinearModelsPop/WingArea/by_lab_models_residuals/WA_R_F
 ```
 
 _Males_
+
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("LinearModelsPop/WingArea/by_lab_models_residuals/WA_R_M_Onder_lmer_pop_hist_residuals.png")
 
@@ -2025,6 +2056,7 @@ knitr::include_graphics("LinearModelsPop/WingArea/by_lab_models_residuals/WA_R_M
 #### Posnien Lab
 
 _Females_
+
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("LinearModelsPop/WingArea/by_lab_models_residuals/WA_R_F_Posnien_lmer_pop_hist_residuals.png")
 
@@ -2032,6 +2064,7 @@ knitr::include_graphics("LinearModelsPop/WingArea/by_lab_models_residuals/WA_R_F
 ```
 
 _Males_
+
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("LinearModelsPop/WingArea/by_lab_models_residuals/WA_R_M_Posnien_lmer_pop_hist_residuals.png")
 
@@ -2041,6 +2074,7 @@ knitr::include_graphics("LinearModelsPop/WingArea/by_lab_models_residuals/WA_R_M
 #### Ritchie Lab
 
 _Females_
+
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("LinearModelsPop/WingArea/by_lab_models_residuals/WA_R_F_Ritchie_lmer_pop_hist_residuals.png")
 
@@ -2048,6 +2082,7 @@ knitr::include_graphics("LinearModelsPop/WingArea/by_lab_models_residuals/WA_R_F
 ```
 
 _Males_
+
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("LinearModelsPop/WingArea/by_lab_models_residuals/WA_R_M_Ritchie_lmer_pop_hist_residuals.png")
 
@@ -2057,6 +2092,7 @@ knitr::include_graphics("LinearModelsPop/WingArea/by_lab_models_residuals/WA_R_M
 #### Stamenkovic-Radak Lab
 
 _Females_
+
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("LinearModelsPop/WingArea/by_lab_models_residuals/WA_R_F_StamenkovicRadak_lmer_pop_hist_residuals.png")
 
@@ -2064,6 +2100,7 @@ knitr::include_graphics("LinearModelsPop/WingArea/by_lab_models_residuals/WA_R_F
 ```
 
 _Males_
+
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("LinearModelsPop/WingArea/by_lab_models_residuals/WA_R_M_StamenkovicRadak_lmer_pop_hist_residuals.png")
 
@@ -2091,9 +2128,9 @@ _For a detailed description of tables, plots, linear models and outputs, please 
 
 ### Contributors  
 
-Billeter Lab : Xiaocui Wang, Tiphaine Bailly, Mario Mira, Jean-Christophe Billeter
+Billeter Lab: Xiaocui Wang, Tiphaine Bailly, Mario Mira, Jean-Christophe Billeter
 
-Fricke Lab : Claudia Fricke
+Fricke Lab: Claudia Fricke
 
 ### Data Reformatting
 
@@ -2103,22 +2140,22 @@ str(droseu$fec)
 
 ### Descriptive Statistics
 
-Descriptive statistics at the line level, with batch information : 
+Descriptive statistics at the line level, with batch information: 
 ```{r tables_fec, echo=FALSE}
 DT::datatable(table_line_wbatch$Fec, options = list(pageLength = 10)) %>% formatRound(6:13, 3)
 ```
 
-Descriptive statistics for fecundity at the line level, without batch information : 
+Descriptive statistics for fecundity at the line level, without batch information: 
 ```{r, echo=FALSE}
 DT::datatable(table_line_wobatch$Fec, options = list(pageLength = 10)) %>% formatRound(5:12, 3)
 ```
 
-Descriptive statistics at the population level, with batch information : 
+Descriptive statistics at the population level, with batch information: 
 ```{r, echo=FALSE}
 DT::datatable(table_pop_wbatch$Fec, options = list(pageLength = 10))  %>% formatRound(5:12, 3)
 ```
 
-Descriptive statistics at the population level, without batch information : 
+Descriptive statistics at the population level, without batch information: 
 ```{r, echo=FALSE}
 DT::datatable(table_pop_wobatch$Fec, options = list(pageLength = 10)) %>% formatRound(4:11, 3)
 ```
@@ -2207,11 +2244,11 @@ for (i in dev.list()[1]:dev.list()[length(dev.list())]) {
 
 ### Contributors  
 
-Flatt Lab : Esra Durmaz, Envel Kerdaffrec, Thibault Schowing, Virginie Thieu, Marisa Rodrigues, Thomas Flatt
+Flatt Lab: Esra Durmaz, Envel Kerdaffrec, Thibault Schowing, Virginie Thieu, Marisa Rodrigues, Thomas Flatt
 
-Parsch Lab : Amanda Glaser-Schmitt, Eliza Argyridou, John Parsch
+Parsch Lab: Amanda Glaser-Schmitt, Eliza Argyridou, John Parsch
 
-Pasyukova Lab : Natalia Roshina, Alexander Symonenko, Mikhail Trostnikov, Evgenia Tsybul'ko, Ekaterina Veselkina, Olga Rybina, Elena Pasyukova
+Pasyukova Lab: Natalia Roshina, Alexander Symonenko, Mikhail Trostnikov, Evgenia Tsybul'ko, Ekaterina Veselkina, Olga Rybina, Elena Pasyukova
 
 ### Data Reformatting
 
@@ -2229,24 +2266,24 @@ str(droseu$lsm)
 
 ### Descriptive Statistics
 
-Descriptive statistics at the line level, with batch information :
+Descriptive statistics at the line level, with batch information:
 
 ```{r tbales_ls, echo=FALSE}
 DT::datatable(table_line_wbatch$LS_L, options = list(pageLength = 10)) %>% formatRound(6:13, 3)
 ```
 
-Descriptive statistics at the line level, without batch information :
+Descriptive statistics at the line level, without batch information:
 
 ```{r, echo=FALSE}
 DT::datatable(table_line_wobatch$LS_L, options = list(pageLength = 10)) %>% formatRound(5:12, 3)
 ```
 
-Descriptive statistics at the population level, with batch information :
+Descriptive statistics at the population level, with batch information:
 ```{r, echo=FALSE}
 DT::datatable(table_pop_wbatch$LS_M, options = list(pageLength = 10)) %>% formatRound(5:12, 3)
 ```
 
-Descriptive statistics at the population level, without batch information :
+Descriptive statistics at the population level, without batch information:
 ```{r, echo=FALSE}
 DT::datatable(table_pop_wobatch$LS_M, options = list(pageLength = 10)) %>% formatRound(4:11, 3)
 ```
@@ -2421,6 +2458,7 @@ knitr::include_graphics("SurvivalAnalyses/Lifespan/p_LS_M_Pasyukova_survival_cur
 #### Flatt Lab
 
 _Females_
+
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("LinearModelsPop/Lifespan/by_lab_models_residuals/LS_F_Flatt_lmer_pop_hist_residuals.png")
 
@@ -2428,6 +2466,7 @@ knitr::include_graphics("LinearModelsPop/Lifespan/by_lab_models_residuals/LS_F_F
 ```
 
 _Males_
+
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("LinearModelsPop/Lifespan/by_lab_models_residuals/LS_M_Flatt_lmer_pop_hist_residuals.png")
 
@@ -2435,7 +2474,9 @@ knitr::include_graphics("LinearModelsPop/Lifespan/by_lab_models_residuals/LS_M_F
 ```
 
 #### Parsch Lab
+
 _Females_
+
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("LinearModelsPop/Lifespan/by_lab_models_residuals/LS_F_Parsch_lmer_pop_hist_residuals.png")
 
@@ -2453,6 +2494,7 @@ knitr::include_graphics("LinearModelsPop/Lifespan/by_lab_models_residuals/LS_M_P
 #### Pasyukova Lab
 
 _Females_
+
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("LinearModelsPop/Lifespan/by_lab_models_residuals/LS_F_Pasyukova_lmer_pop_hist_residuals.png")
 
@@ -2460,6 +2502,7 @@ knitr::include_graphics("LinearModelsPop/Lifespan/by_lab_models_residuals/LS_F_P
 ```
 
 _Males_
+
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("LinearModelsPop/Lifespan/by_lab_models_residuals/LS_M_Pasyukova_lmer_pop_hist_residuals.png")
 
@@ -2476,11 +2519,11 @@ _For a detailed description of tables, plots, linear models and outputs, please 
 
 ### Contributors  
 
-Gonzalez Lab : Llewellyn Green, Josefa Gonzalez, Miriam Merenciano
+Gonzalez Lab: Llewellyn Green, Josefa Gonzalez, Miriam Merenciano
 
-Kozeretska Lab : Svitlana Serga, Alexandra Protsenko, Oleksandr Maistrenko, Iryna Kozeretska
+Kozeretska Lab: Svitlana Serga, Alexandra Protsenko, Oleksandr Maistrenko, Iryna Kozeretska
 
-Vieira Lab : Jorge Vieira, Cristina P. Vieira, Pedro Duque, Tânia Dias
+Vieira Lab: Jorge Vieira, Cristina P. Vieira, Pedro Duque, Tânia Dias
 
 
 ### Data Reformatting
@@ -2492,22 +2535,22 @@ str(droseu$csm)
 ### Descriptive Statistics
 
 
-Descriptive statistics at the line level, with batch information :
+Descriptive statistics at the line level, with batch information:
 ```{r, echo=FALSE}
 DT::datatable(table_line_wbatch$CSM, options = list(pageLength = 10)) %>% formatRound(6:13, 3)
 ```
 
-Descriptive statistics at the line level, without batch information :
+Descriptive statistics at the line level, without batch information:
 ```{r, echo=FALSE}
 DT::datatable(table_line_wobatch$CSM, options = list(pageLength = 10)) %>% formatRound(5:12, 3)
 ```
 
-Descriptive statistics at the population level, with batch information :
+Descriptive statistics at the population level, with batch information:
 ```{r, echo=FALSE}
 DT::datatable(table_pop_wbatch$CSM, options = list(pageLength = 10)) %>% formatRound(5:12, 3)
 ```
 
-Descriptive statistics at the population level, without batch information :
+Descriptive statistics at the population level, without batch information:
 ```{r, echo=FALSE}
 DT::datatable(table_pop_wobatch$CSM, options = list(pageLength = 10)) %>% formatRound(4:11, 3)
 ```
@@ -2625,6 +2668,7 @@ knitr::include_graphics("ColdShock/p_CSM_M_pop_Vieira.pdf")
 #### Gonzalez Lab
 
 _Females_
+
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("LinearModelsPop/ColdShock/by_lab_models_residuals/CSM_F_Gonzalez_lmer_pop_hist_residuals.png")
 
@@ -2632,6 +2676,7 @@ knitr::include_graphics("LinearModelsPop/ColdShock/by_lab_models_residuals/CSM_F
 ```
 
 _Males_
+
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("LinearModelsPop/ColdShock/by_lab_models_residuals/CSM_M_Gonzalez_lmer_pop_hist_residuals.png")
 
@@ -2641,6 +2686,7 @@ knitr::include_graphics("LinearModelsPop/ColdShock/by_lab_models_residuals/CSM_M
 #### Kozeretska Lab
 
 _Females_
+
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("LinearModelsPop/ColdShock/by_lab_models_residuals/CSM_F_Kozeretska_lmer_pop_hist_residuals.png")
 
@@ -2648,6 +2694,7 @@ knitr::include_graphics("LinearModelsPop/ColdShock/by_lab_models_residuals/CSM_F
 ```
 
 _Males_
+
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("LinearModelsPop/ColdShock/by_lab_models_residuals/CSM_M_Kozeretska_lmer_pop_hist_residuals.png")
 
@@ -2657,6 +2704,7 @@ knitr::include_graphics("LinearModelsPop/ColdShock/by_lab_models_residuals/CSM_M
 #### Vieira Lab
 
 _Females_
+
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("LinearModelsPop/ColdShock/by_lab_models_residuals/CSM_F_Vieira_lmer_pop_hist_residuals.png")
 
@@ -2664,6 +2712,7 @@ knitr::include_graphics("LinearModelsPop/ColdShock/by_lab_models_residuals/CSM_F
 ```
 
 _Males_
+
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("LinearModelsPop/ColdShock/by_lab_models_residuals/CSM_M_Vieira_lmer_pop_hist_residuals.png")
 
@@ -2687,9 +2736,9 @@ _For a detailed description of tables, plots, linear models and outputs, please 
 
 ### Contributors  
 
-Mensch Lab : Florencia Putero, Lucas Kreiman, Julian Mensch
+Mensch Lab: Florencia Putero, Lucas Kreiman, Julian Mensch
 
-Vieira Lab : Jorge Vieira, Cristina P. Vieira, Pedro Duque, Tânia Dias
+Vieira Lab: Jorge Vieira, Cristina P. Vieira, Pedro Duque, Tânia Dias
 
 
 ### Data Reformatting
@@ -2700,22 +2749,22 @@ str(droseu$ccrt)
 
 ### Descriptive Statistics
 
-Descriptive statistics at the line level, with batch information :
+Descriptive statistics at the line level, with batch information:
 ```{r, echo=FALSE}
 DT::datatable(table_line_wbatch$CCRT, options = list(pageLength = 10)) %>% formatRound(6:13, 3)
 ```
 
-Descriptive statistics at the line level, without batch information :
+Descriptive statistics at the line level, without batch information:
 ```{r, echo=FALSE}
 DT::datatable(table_line_wobatch$CCRT, options = list(pageLength = 10)) %>% formatRound(5:12, 3)
 ```
 
-Descriptive statistics at the population level, with batch information :
+Descriptive statistics at the population level, with batch information:
 ```{r, echo=FALSE}
 DT::datatable(table_pop_wbatch$CCRT, options = list(pageLength = 10)) %>% formatRound(5:12, 3)
 ```
 
-Descriptive statistics at the population level, without batch information :
+Descriptive statistics at the population level, without batch information:
 ```{r, echo=FALSE}
 DT::datatable(table_pop_wobatch$CCRT, options = list(pageLength = 10)) %>% formatRound(4:11, 3)
 ```
@@ -2836,6 +2885,7 @@ knitr::include_graphics("SurvivalAnalyses/ChillComa/p_CCRT_M_Vieira_survival_cur
 #### Mensch Lab
 
 _Females_
+
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("LinearModelsPop/ChillComa/by_lab_models_residuals/CCRT_F_Mensch_lmer_pop_hist_residuals.png")
 
@@ -2843,6 +2893,7 @@ knitr::include_graphics("LinearModelsPop/ChillComa/by_lab_models_residuals/CCRT_
 ```
 
 _Males_
+
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("LinearModelsPop/ChillComa/by_lab_models_residuals/CCRT_M_Mensch_lmer_pop_hist_residuals.png")
 
@@ -2852,6 +2903,7 @@ knitr::include_graphics("LinearModelsPop/ChillComa/by_lab_models_residuals/CCRT_
 #### Vieira Lab
 
 _Females_
+
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("LinearModelsPop/ChillComa/by_lab_models_residuals/CCRT_F_Vieira_lmer_pop_hist_residuals.png")
 
@@ -2859,6 +2911,7 @@ knitr::include_graphics("LinearModelsPop/ChillComa/by_lab_models_residuals/CCRT_
 ```
 
 _Males_
+
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("LinearModelsPop/ChillComa/by_lab_models_residuals/CCRT_M_Vieira_lmer_pop_hist_residuals.png")
 
@@ -2875,9 +2928,9 @@ _For a detailed description of tables, plots, linear models and outputs, please 
 
 ### Contributors  
 
-Parsch Lab : Eliza Argyridou, Amanda Glaser-Schmitt, John Parsch
+Parsch Lab: Eliza Argyridou, Amanda Glaser-Schmitt, John Parsch
 
-Vieira Lab : Jorge Vieira, Cristina P. Vieira, Pedro Duque, Tânia Dias
+Vieira Lab: Jorge Vieira, Cristina P. Vieira, Pedro Duque, Tânia Dias
 
 ### Data Reformatting
 
@@ -2887,22 +2940,22 @@ str(droseu$hsm)
 
 ### Descriptive Statistics
 
-Descriptive statistics at the line level, with batch information :
+Descriptive statistics at the line level, with batch information:
 ```{r, echo=FALSE}
 DT::datatable(table_line_wbatch$HSM, options = list(pageLength = 10)) %>% formatRound(6:13, 3)
 ```
 
-Descriptive statistics at the line level, without batch information :
+Descriptive statistics at the line level, without batch information:
 ```{r, echo=FALSE}
 DT::datatable(table_line_wobatch$HSM, options = list(pageLength = 10)) %>% formatRound(5:12, 3)
 ```
 
-Descriptive statistics at the population level, with batch information :
+Descriptive statistics at the population level, with batch information:
 ```{r, echo=FALSE}
 DT::datatable(table_pop_wbatch$HSM, options = list(pageLength = 10)) %>% formatRound(5:11, 3)
 ```
 
-Descriptive statistics at the population level, without batch information :
+Descriptive statistics at the population level, without batch information:
 ```{r, echo=FALSE}
 DT::datatable(table_pop_wobatch$HSM, options = list(pageLength = 10)) %>% formatRound(4:11, 3)
 ```
@@ -3029,6 +3082,7 @@ knitr::include_graphics("SurvivalAnalyses/HeatShock/p_HSM_M_Vieira_survival_curv
 #### Parsch Lab
 
 _Females_
+
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("LinearModelsPop/HeatShock/by_lab_models_residuals/HSM_F_Parsch_lmer_pop_hist_residuals.png")
 
@@ -3036,6 +3090,7 @@ knitr::include_graphics("LinearModelsPop/HeatShock/by_lab_models_residuals/HSM_F
 ```
 
 _Males_
+
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("LinearModelsPop/HeatShock/by_lab_models_residuals/HSM_M_Parsch_lmer_pop_hist_residuals.png")
 
@@ -3045,6 +3100,7 @@ knitr::include_graphics("LinearModelsPop/HeatShock/by_lab_models_residuals/HSM_M
 #### Vieria Lab
 
 _Females_
+
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("LinearModelsPop/HeatShock/by_lab_models_residuals/HSM_F_Vieira_lmer_pop_hist_residuals.png")
 
@@ -3052,6 +3108,7 @@ knitr::include_graphics("LinearModelsPop/HeatShock/by_lab_models_residuals/HSM_F
 ```
 
 _Males_
+
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("LinearModelsPop/HeatShock/by_lab_models_residuals/HSM_M_Vieira_lmer_pop_hist_residuals.png")
 
@@ -3068,11 +3125,11 @@ _For a detailed description of tables, plots, linear models and outputs, please 
 
 ### Contributors  
 
-Bergland Lab : Liam Miller, Alan Bergland, Priscilla Erickson
+Bergland Lab: Liam Miller, Alan Bergland, Priscilla Erickson
 
-Flatt Lab : Esra Durmaz, Envel Kerdaffrec, Thibault Schowing, Virginie Thieu, Marisa Rodrigues, Thomas Flatt
+Flatt Lab: Esra Durmaz, Envel Kerdaffrec, Thibault Schowing, Virginie Thieu, Marisa Rodrigues, Thomas Flatt
 
-Schlotterer Lab : Manolis Lyrakis, Christian Schlötterer
+Schlotterer Lab: Manolis Lyrakis, Christian Schlötterer
 
 ### Data Reformatting
 
@@ -3082,12 +3139,12 @@ str(droseu$dia)
 
 ### Descriptive Statistics
 
-Descriptive statistics at the population level, with batch information :
+Descriptive statistics at the population level, with batch information:
 ```{r echo=FALSE}
 DT::datatable(table_pop_wbatch$Dia_Prop_Max_Stage9, options = list(pageLength = 10)) %>% formatRound(5:12, 3)
 ```
 
-Descriptive statistics at the population level, without batch information :
+Descriptive statistics at the population level, without batch information:
 ```{r echo=FALSE}
 DT::datatable(table_pop_wobatch$Dia_Prop_Max_Stage9, options = list(pageLength = 10)) %>% formatRound(4:11, 3)
 ```
@@ -3197,7 +3254,7 @@ _For a detailed description of tables, plots, linear models and outputs, please 
 
 ### Contributors  
 
-Wegener Lab : Susanne Klühspies, Christian Wegener
+Wegener Lab: Susanne Klühspies, Christian Wegener
 
 ### Data Reformatting
 
@@ -3209,128 +3266,128 @@ str(droseu$cets)
 
 #### 18_LD_DD
 
-Descriptive statistics for ZT_hours_MESA :
+Descriptive statistics for ZT_hours_MESA:
 ```{r echo=FALSE}
 DT::datatable(table_pop_wbatch$CETS_18_LD_DD_ZT_hours_MESA, options = list(pageLength = 10)) %>% formatRound(5:5, 3)
 ```
 
-Descriptive statistics for ZT_hours_LSPR :
+Descriptive statistics for ZT_hours_LSPR:
 ```{r echo=FALSE}
 DT::datatable(table_pop_wbatch$CETS_18_LD_DD_ZT_hours_LSPR, options = list(pageLength = 10)) %>% formatRound(5:5, 3)
 ```
 
-Descriptive statistics for Period_MESA :
+Descriptive statistics for Period_MESA:
 ```{r echo=FALSE}
 DT::datatable(table_pop_wbatch$CETS_18_LD_DD_Period_MESA, options = list(pageLength = 10)) %>% formatRound(5:5, 3)
 ```
 
-Descriptive statistics for Period_LSPR :
+Descriptive statistics for Period_LSPR:
 ```{r echo=FALSE}
 DT::datatable(table_pop_wbatch$CETS_18_LD_DD_Period_LSPR, options = list(pageLength = 10)) %>% formatRound(5:5, 3)
 ```
 
-Descriptive statistics for Rhythmicity_LSPR_amplitude :
+Descriptive statistics for Rhythmicity_LSPR_amplitude:
 ```{r echo=FALSE}
 DT::datatable(table_pop_wbatch$CETS_18_LD_DD_Rhythmicity_LSPR_amplitude, options = list(pageLength = 10)) %>% formatRound(5:5, 3)
 ```
 
-Descriptive statistics for Rhythmicity_JTK_p_BH_corrected :
+Descriptive statistics for Rhythmicity_JTK_p_BH_corrected:
 ```{r echo=FALSE}
 DT::datatable(table_pop_wbatch$CETS_18_LD_DD_Rhythmicity_JTK_p_BH_corrected, options = list(pageLength = 10)) %>% formatRound(5:5, 3)
 ```
 
 #### 18_LD_LD
 
-Descriptive statistics for ZT_hours_MESA :
+Descriptive statistics for ZT_hours_MESA:
 ```{r echo=FALSE}
 DT::datatable(table_pop_wbatch$CETS_18_LD_LD_ZT_hours_MESA, options = list(pageLength = 10)) %>% formatRound(5:5, 3)
 ```
 
-Descriptive statistics for ZT_hours_LSPR :
+Descriptive statistics for ZT_hours_LSPR:
 ```{r echo=FALSE}
 DT::datatable(table_pop_wbatch$CETS_18_LD_LD_ZT_hours_LSPR, options = list(pageLength = 10)) %>% formatRound(5:5, 3)
 ```
 
-Descriptive statistics for Period_MESA :
+Descriptive statistics for Period_MESA:
 ```{r echo=FALSE}
 DT::datatable(table_pop_wbatch$CETS_18_LD_LD_Period_MESA, options = list(pageLength = 10)) %>% formatRound(5:5, 3)
 ```
 
-Descriptive statistics for Period_LSPR :
+Descriptive statistics for Period_LSPR:
 ```{r echo=FALSE}
 DT::datatable(table_pop_wbatch$CETS_18_LD_LD_Period_LSPR, options = list(pageLength = 10)) %>% formatRound(5:5, 3)
 ```
 
-Descriptive statistics for Rhythmicity_LSPR_amplitude :
+Descriptive statistics for Rhythmicity_LSPR_amplitude:
 ```{r echo=FALSE}
 DT::datatable(table_pop_wbatch$CETS_18_LD_LD_Rhythmicity_LSPR_amplitude, options = list(pageLength = 10)) %>% formatRound(5:5, 3)
 ```
 
-Descriptive statistics for Rhythmicity_JTK_p_BH_corrected :
+Descriptive statistics for Rhythmicity_JTK_p_BH_corrected:
 ```{r echo=FALSE}
 DT::datatable(table_pop_wbatch$CETS_18_LD_LD_Rhythmicity_JTK_p_BH_corrected, options = list(pageLength = 10)) %>% formatRound(5:5, 3)
 ```
 
 #### 29_LD_DD
 
-Descriptive statistics for ZT_hours_MESA :
+Descriptive statistics for ZT_hours_MESA:
 ```{r echo=FALSE}
 DT::datatable(table_pop_wbatch$CETS_29_LD_DD_ZT_hours_MESA, options = list(pageLength = 10)) %>% formatRound(5:5, 3)
 ```
 
-Descriptive statistics for ZT_hours_LSPR :
+Descriptive statistics for ZT_hours_LSPR:
 ```{r echo=FALSE}
 DT::datatable(table_pop_wbatch$CETS_29_LD_DD_ZT_hours_LSPR, options = list(pageLength = 10)) %>% formatRound(5:5, 3)
 ```
 
-Descriptive statistics for Period_MESA :
+Descriptive statistics for Period_MESA:
 ```{r echo=FALSE}
 DT::datatable(table_pop_wbatch$CETS_29_LD_DD_Period_MESA, options = list(pageLength = 10)) %>% formatRound(5:5, 3)
 ```
 
-Descriptive statistics for Period_LSPR :
+Descriptive statistics for Period_LSPR:
 ```{r echo=FALSE}
 DT::datatable(table_pop_wbatch$CETS_29_LD_DD_Period_LSPR, options = list(pageLength = 10)) %>% formatRound(5:5, 3)
 ```
 
-Descriptive statistics for Rhythmicity_LSPR_amplitude :
+Descriptive statistics for Rhythmicity_LSPR_amplitude:
 ```{r echo=FALSE}
 DT::datatable(table_pop_wbatch$CETS_29_LD_DD_Rhythmicity_LSPR_amplitude, options = list(pageLength = 10)) %>% formatRound(5:5, 3)
 ```
 
-Descriptive statistics for Rhythmicity_JTK_p_BH_corrected :
+Descriptive statistics for Rhythmicity_JTK_p_BH_corrected:
 ```{r echo=FALSE}
 DT::datatable(table_pop_wbatch$CETS_29_LD_DD_Rhythmicity_JTK_p_BH_corrected, options = list(pageLength = 10)) %>% formatRound(5:5, 3)
 ```
 
 #### 29_LD_LD
 
-Descriptive statistics for ZT_hours_MESA :
+Descriptive statistics for ZT_hours_MESA:
 ```{r echo=FALSE}
 DT::datatable(table_pop_wbatch$CETS_29_LD_LD_ZT_hours_MESA, options = list(pageLength = 10)) %>% formatRound(5:5, 3)
 ```
 
-Descriptive statistics for ZT_hours_LSPR :
+Descriptive statistics for ZT_hours_LSPR:
 ```{r echo=FALSE}
 DT::datatable(table_pop_wbatch$CETS_29_LD_LD_ZT_hours_LSPR, options = list(pageLength = 10)) %>% formatRound(5:5, 3)
 ```
 
-Descriptive statistics for Period_MESA :
+Descriptive statistics for Period_MESA:
 ```{r echo=FALSE}
 DT::datatable(table_pop_wbatch$CETS_29_LD_LD_Period_MESA, options = list(pageLength = 10)) %>% formatRound(5:5, 3)
 ```
 
-Descriptive statistics for Period_LSPR :
+Descriptive statistics for Period_LSPR:
 ```{r echo=FALSE}
 DT::datatable(table_pop_wbatch$CETS_29_LD_LD_Period_LSPR, options = list(pageLength = 10)) %>% formatRound(5:5, 3)
 ```
 
-Descriptive statistics for Rhythmicity_LSPR_amplitude :
+Descriptive statistics for Rhythmicity_LSPR_amplitude:
 ```{r echo=FALSE}
 DT::datatable(table_pop_wbatch$CETS_29_LD_LD_Rhythmicity_LSPR_amplitude, options = list(pageLength = 10)) %>% formatRound(5:5, 3)
 ```
 
-Descriptive statistics for Rhythmicity_JTK_p_BH_corrected :
+Descriptive statistics for Rhythmicity_JTK_p_BH_corrected:
 ```{r echo=FALSE}
 DT::datatable(table_pop_wbatch$CETS_29_LD_LD_Rhythmicity_JTK_p_BH_corrected, options = list(pageLength = 10)) %>% formatRound(5:5, 3)
 ```
@@ -3346,7 +3403,7 @@ Table CET: Phase of eclosion peak (MESA), period (MESA) and rhythmicity (Lomb-Sc
 
 #### Wegener Lab
 
-From Chris :
+From Chris:
 
 ```{r echo=FALSE}
 knitr::include_graphics("CircadianEclosion/FromChris/Graphs_plate_MESA.png")
@@ -3364,7 +3421,7 @@ knitr::include_graphics("CircadianEclosion/FromChris/Graphs_DrosEU_eclosion/Slid
 knitr::include_graphics("CircadianEclosion/FromChris/Graphs_DrosEU_eclosion/Slide3.png")
 ```
 
-From Eran :
+From Eran:
 
 ```{r}
 knitr::include_graphics("CircadianEclosion/FromEran/eclosion_data_Christian_Page_1.png")
@@ -3388,7 +3445,7 @@ _For a detailed description of tables, plots, linear models and outputs, please 
 
 ### Contributors  
 
-Tauber Lab : Bettina Fishman, Eran Tauber
+Tauber Lab: Bettina Fishman, Eran Tauber
 
 ### Data Reformatting
 
@@ -3399,66 +3456,66 @@ str(droseu$la)
 
 #### LA - Activity
 
-Descriptive statistics at the line level, with batch information :
+Descriptive statistics at the line level, with batch information:
 ```{r, echo=FALSE}
 DT::datatable(table_line_wbatch$LA_Activity, options = list(pageLength = 10)) %>% formatRound(6:13, 3)
 ```
 
-Descriptive statistics at the line level, without batch information :
+Descriptive statistics at the line level, without batch information:
 ```{r, echo=FALSE}
 DT::datatable(table_line_wobatch$LA_Activity, options = list(pageLength = 10)) %>% formatRound(5:12, 3)
 ```
 
-Descriptive statistics at the population level, with batch information :
+Descriptive statistics at the population level, with batch information:
 ```{r, echo=FALSE}
 DT::datatable(table_pop_wbatch$LA_Activity, options = list(pageLength = 10)) %>% formatRound(5:12, 3)
 ```
 
-Descriptive statistics at the population level, without batch information :
+Descriptive statistics at the population level, without batch information:
 ```{r, echo=FALSE}
 DT::datatable(table_pop_wbatch$LA_Activity, options = list(pageLength = 10)) %>% formatRound(4:11, 3)
 ```
 
 #### LA - ND ratio
 
-Descriptive statistics at the line level, with batch information :
+Descriptive statistics at the line level, with batch information:
 ```{r, echo=FALSE}
 DT::datatable(table_line_wbatch$LA_ND, options = list(pageLength = 10)) %>% formatRound(6:13, 3)
 ```
 
-Descriptive statistics at the line level, without batch information :
+Descriptive statistics at the line level, without batch information:
 ```{r, echo=FALSE}
 DT::datatable(table_line_wobatch$LA_ND, options = list(pageLength = 10)) %>% formatRound(5:12, 3)
 ```
 
-Descriptive statistics at the population level, with batch information :
+Descriptive statistics at the population level, with batch information:
 ```{r, echo=FALSE}
 DT::datatable(table_pop_wbatch$LA_ND, options = list(pageLength = 10)) %>% formatRound(5:12, 3)
 ```
 
-Descriptive statistics at the population level, without batch information :
+Descriptive statistics at the population level, without batch information:
 ```{r, echo=FALSE}
 DT::datatable(table_pop_wobatch$LA_ND, options = list(pageLength = 10)) %>% formatRound(4:11, 3)
 ```
 
 #### LA - Circadian Phase
 
-Descriptive statistics at the line level, with batch information :
+Descriptive statistics at the line level, with batch information:
 ```{r, echo=FALSE}
 DT::datatable(table_line_wbatch$LA_CircPhase, options = list(pageLength = 10)) %>% formatRound(6:13, 3)
 ```
 
-Descriptive statistics at the line level, without batch information :
+Descriptive statistics at the line level, without batch information:
 ```{r, echo=FALSE}
 DT::datatable(table_line_wobatch$LA_CircPhase, options = list(pageLength = 10)) %>% formatRound(5:12, 3)
 ```
 
-Descriptive statistics at the population level, with batch information :
+Descriptive statistics at the population level, with batch information:
 ```{r, echo=FALSE}
 DT::datatable(table_pop_wbatch$LA_CircPhase, options = list(pageLength = 10)) %>% formatRound(5:12, 3)
 ```
 
-Descriptive statistics at the population level, without batch information :
+Descriptive statistics at the population level, without batch information:
 ```{r, echo=FALSE}
 DT::datatable(table_pop_wobatch$LA_CircPhase, options = list(pageLength = 10)) %>% formatRound(4:11, 3)
 ```
@@ -3498,7 +3555,7 @@ lmers_anova$LA_Activity_Tauber_lmer_pop
 lmers_sum$LA_Activity_Tauber_lmer_pop
 ```
 
-From Eran :
+From Eran:
 
 Red letters denote significant difference by Multiple Comparisons of Means: Tukey Contrasts
 
@@ -3528,30 +3585,34 @@ knitr::include_graphics("Locomotor/FromEran/pheno2022_Page_5.png")
 
 ### Linear Models / Residuals 
 
+
 _Activity_
-```{r echo=FALSE}
+
+```{r echo=FALSE, out.width="50%"}
 knitr::include_graphics("LinearModelsPop/Locomotor/by_lab_models_residuals/LA_Activity_Tauber_lmer_pop_hist_residuals.png")
 ```
 
-```{r echo=FALSE}
+```{r echo=FALSE, out.width="50%"}
 knitr::include_graphics("LinearModelsPop/Locomotor/by_lab_models_residuals/LA_Activity_Tauber_lmer_pop_hist_residuals.png")
 ```
 
 _ND Ratio_
-```{r echo=FALSE}
+
+```{r echo=FALSE, out.width="50%"}
 knitr::include_graphics("LinearModelsPop/Locomotor/by_lab_models_residuals/LA_NDlog2_Tauber_lmer_pop_hist_residuals.png")
 ```
 
-```{r echo=FALSE}
+```{r echo=FALSE, out.width="50%"}
 knitr::include_graphics("LinearModelsPop/Locomotor/by_lab_models_residuals/LA_NDlog2_Tauber_lmer_pop_qq_plot_residuals.png")
 ```
 
 _Circadian Phase_
-```{r echo=FALSE}
+
+```{r echo=FALSE, out.width="50%"}
 knitr::include_graphics("LinearModelsPop/Locomotor/by_lab_models_residuals/LA_CircPhase_Tauber_lmer_pop_hist_residuals.png")
 ```
 
-```{r echo=FALSE}
+```{r echo=FALSE, out.width="50%"}
 knitr::include_graphics("LinearModelsPop/Locomotor/by_lab_models_residuals/LA_CircPhase_Tauber_lmer_pop_qq_plot_residuals.png")
 ```
 
@@ -3565,11 +3626,11 @@ _For a detailed description of tables, plots, linear models and outputs, please 
 
 ### Contributors  
 
-Gonzalez Lab : Llewellyn Green, Josefa Gonzalez, Miriam Merenciano
+Gonzalez Lab: Llewellyn Green, Josefa Gonzalez, Miriam Merenciano
 
-Onder Lab : Seda Coskun, Ekin Demir, Senel Selin Senkal, Cansu Aksoy
+Onder Lab: Seda Coskun, Ekin Demir, Senel Selin Senkal, Cansu Aksoy
 
-Pasyukova Lab : Alexander Symonenko, Natalia Roshina, Mikhail Trostnokov, Ekaterina Veselkina, Evgenia Tsybul'ko, Olga Rybina, Elena Pasyukova
+Pasyukova Lab: Alexander Symonenko, Natalia Roshina, Mikhail Trostnokov, Ekaterina Veselkina, Evgenia Tsybul'ko, Olga Rybina, Elena Pasyukova
 
 
 ### Data Reformatting
@@ -3580,22 +3641,22 @@ str(droseu$sr)
 
 ### Descriptive Statistics
 
-Descriptive statistics at the line level, with batch information :
+Descriptive statistics at the line level, with batch information:
 ```{r, echo=FALSE}
 DT::datatable(table_line_wbatch$SR, options = list(pageLength = 10)) %>% formatRound(6:13, 3)
 ```
 
-Descriptive statistics at the line level, without batch information :
+Descriptive statistics at the line level, without batch information:
 ```{r, echo=FALSE}
 DT::datatable(table_line_wobatch$SR, options = list(pageLength = 10)) %>% formatRound(5:12, 3)
 ```
 
-Descriptive statistics at the population level, with batch information :
+Descriptive statistics at the population level, with batch information:
 ```{r, echo=FALSE}
 DT::datatable(table_pop_wbatch$SR, options = list(pageLength = 10)) %>% formatRound(5:12, 3)
 ```
 
-Descriptive statistics at the population level, without batch information :
+Descriptive statistics at the population level, without batch information:
 ```{r, echo=FALSE}
 DT::datatable(table_pop_wobatch$SR, options = list(pageLength = 10)) %>% formatRound(4:11, 3)
 ```
@@ -3772,6 +3833,7 @@ knitr::include_graphics("SurvivalAnalyses/Starvation/p_SR_M_Pasyukova_survival_c
 #### Gonzalez Lab
 
 _Females_
+
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("LinearModelsPop/Starvation/by_lab_models_residuals/SR_F_Gonzalez_lmer_pop_hist_residuals.png")
 
@@ -3779,6 +3841,7 @@ knitr::include_graphics("LinearModelsPop/Starvation/by_lab_models_residuals/SR_F
 ```
 
 _Males_
+
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("LinearModelsPop/Starvation/by_lab_models_residuals/SR_M_Gonzalez_lmer_pop_hist_residuals.png")
 
@@ -3788,6 +3851,7 @@ knitr::include_graphics("LinearModelsPop/Starvation/by_lab_models_residuals/SR_M
 #### Onder Lab
 
 _Females_
+
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("LinearModelsPop/Starvation/by_lab_models_residuals/SR_F_Onder_lmer_pop_hist_residuals.png")
 
@@ -3795,6 +3859,7 @@ knitr::include_graphics("LinearModelsPop/Starvation/by_lab_models_residuals/SR_F
 ```
 
 _Males_
+
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("LinearModelsPop/Starvation/by_lab_models_residuals/SR_M_Onder_lmer_pop_hist_residuals.png")
 
@@ -3804,6 +3869,7 @@ knitr::include_graphics("LinearModelsPop/Starvation/by_lab_models_residuals/SR_M
 #### Pasyukova Lab
 
 _Females_
+
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("LinearModelsPop/Starvation/by_lab_models_residuals/SR_F_Pasyukova_lmer_pop_hist_residuals.png")
 
@@ -3811,6 +3877,7 @@ knitr::include_graphics("LinearModelsPop/Starvation/by_lab_models_residuals/SR_F
 ```
 
 _Males_
+
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("LinearModelsPop/Starvation/by_lab_models_residuals/SR_M_Pasyukova_lmer_pop_hist_residuals.png")
 
@@ -3827,11 +3894,11 @@ _For a detailed description of tables, plots, linear models and outputs, please 
 
 ### Contributors  
 
-Abbott Lab : Jessica Abbott, Qinyang Li, Shahzad Khan
+Abbott Lab: Jessica Abbott, Qinyang Li, Shahzad Khan
 
-Gibert Lab :Cristina Vieira, Laurence Mouton, Natacha Kremer, Sonia Martinez, Camille Mermet, Patricia Gibert
+Gibert Lab:Cristina Vieira, Laurence Mouton, Natacha Kremer, Sonia Martinez, Camille Mermet, Patricia Gibert
 
-Schmidt Lab : Amy Goldfischer, Paul Schmidt 
+Schmidt Lab: Amy Goldfischer, Paul Schmidt 
 
 ### Data Reformatting
 
@@ -3842,89 +3909,89 @@ str(droseu$pgm)
 ### Descriptive Statistics
 
 ### _T4_
-Descriptive statistics at the line level, with batch information :
+Descriptive statistics at the line level, with batch information:
 ```{r, echo=FALSE}
 DT::datatable(table_line_wbatch$Pgm_PercT4, options = list(pageLength = 10)) %>% formatRound(6:13, 3)
 ```
 
-Descriptive statistics at the line level, without batch information :
+Descriptive statistics at the line level, without batch information:
 ```{r table_Pgm_Line_PercT4_wobatch, echo=FALSE}
 DT::datatable(table_line_wobatch$Pgm_PercT4, options = list(pageLength = 10)) %>% formatRound(5:12, 3)
 ```
 
-Descriptive statistics at the population level, with batch information :
+Descriptive statistics at the population level, with batch information:
 ```{r table_Pgm_Pop_PercT4_wbatch, echo=FALSE}
 DT::datatable(table_pop_wbatch$Pgm_PercT4, options = list(pageLength = 10)) %>% formatRound(5:12, 3)
 ```
 
-Descriptive statistics at the population level, without batch information :
+Descriptive statistics at the population level, without batch information:
 ```{r table_Pgm_Pop_PercT4_wobatch, echo=FALSE}
 DT::datatable(table_pop_wobatch$Pgm_PercT4, options = list(pageLength = 10))%>% formatRound(4:11, 3)
 ```
 
 ### _T5_
 
-Descriptive statistics at the line level, with batch information :
+Descriptive statistics at the line level, with batch information:
 ```{r, echo=FALSE}
 DT::datatable(table_line_wbatch$Pgm_PercT5, options = list(pageLength = 10)) %>% formatRound(6:13, 3)
 ```
 
-Descriptive statistics at the line level, without batch information :
+Descriptive statistics at the line level, without batch information:
 ```{r table_Pgm_Line_PercT5_wobatch, echo=FALSE}
 DT::datatable(table_line_wobatch$Pgm_PercT5, options = list(pageLength = 10)) %>% formatRound(5:12, 3)
 ```
 
-Descriptive statistics at the population level, with batch information :
+Descriptive statistics at the population level, with batch information:
 ```{r table_Pgm_Pop_PercT5_wbatch, echo=FALSE}
 DT::datatable(table_pop_wbatch$Pgm_PercT5, options = list(pageLength = 10)) %>% formatRound(5:12, 3)
 ```
 
-Descriptive statistics at the population level, without batch information :
+Descriptive statistics at the population level, without batch information:
 ```{r table_Pgm_Pop_PercT5_wobatch, echo=FALSE}
 DT::datatable(table_pop_wobatch$Pgm_PercT5, options = list(pageLength = 10))%>% formatRound(4:11, 3)
 ```
 
 ### _T6_
 
-Descriptive statistics at the line level, with batch information :
+Descriptive statistics at the line level, with batch information:
 ```{r, echo=FALSE}
 DT::datatable(table_line_wbatch$Pgm_PercT6, options = list(pageLength = 10)) %>% formatRound(6:13, 3)
 ```
 
-Descriptive statistics at the line level, without batch information :
+Descriptive statistics at the line level, without batch information:
 ```{r table_Pgm_Line_PercT6_wobatch, echo=FALSE}
 DT::datatable(table_line_wobatch$Pgm_PercT6, options = list(pageLength = 10)) %>% formatRound(5:12, 3)
 ```
 
-Descriptive statistics at the population level, with batch information :
+Descriptive statistics at the population level, with batch information:
 ```{r table_Pgm_Pop_PercT6_wbatch, echo=FALSE}
 DT::datatable(table_pop_wbatch$Pgm_PercT6, options = list(pageLength = 10)) %>% formatRound(5:12, 3)
 ```
 
-Descriptive statistics at the population level, without batch information :
+Descriptive statistics at the population level, without batch information:
 ```{r table_Pgm_Pop_PercT6_wobatch, echo=FALSE}
 DT::datatable(table_pop_wobatch$Pgm_PercT6, options = list(pageLength = 10))%>% formatRound(4:11, 3)
 ```
 
 ### _Total_
 
-Descriptive statistics at the line level, with batch information :
+Descriptive statistics at the line level, with batch information:
 
 ```{r, echo=FALSE}
 DT::datatable(table_line_wbatch$Pgm_TotalPerc, options = list(pageLength = 10)) %>% formatRound(6:13, 3)
 ```
 
-Descriptive statistics at the line level, without batch information :
+Descriptive statistics at the line level, without batch information:
 ```{r table_Pgm_Line_PercT_wobatch, echo=FALSE}
 DT::datatable(table_line_wobatch$Pgm_TotalPerc, options = list(pageLength = 10)) %>% formatRound(5:12, 3)
 ```
 
-Descriptive statistics at the population level, with batch information :
+Descriptive statistics at the population level, with batch information:
 ```{r table_Pgm_Pop_PercT_wbatch, echo=FALSE}
 DT::datatable(table_pop_wbatch$Pgm_TotalPerc, options = list(pageLength = 10)) %>% formatRound(5:12, 3)
 ```
 
-Descriptive statistics at the population level, without batch information :
+Descriptive statistics at the population level, without batch information:
 ```{r table_Pgm_Pop_PercT_wobatch, echo=FALSE}
 DT::datatable(table_pop_wobatch$Pgm_TotalPerc, options = list(pageLength = 10))%>% formatRound(4:11, 3)
 ```
@@ -4216,9 +4283,9 @@ _For a detailed description of tables, plots, linear models and outputs, please 
 
 ### Contributors  
 
-Hrcek Lab : Vincent Montbel, Somayeh Rasouli Dogaheh, Jan Hrcek
+Hrcek Lab: Vincent Montbel, Somayeh Rasouli Dogaheh, Jan Hrcek
 
-# Results : Meta-Analyses
+# Results: Meta-Analyses
 
 ```{r echo=FALSE}
 # Full .pdf can be downloaded at /MetaAnalyses directory.
@@ -4458,7 +4525,7 @@ print(lc_wide[1:30, 1:8])
 knitr::include_graphics("MetaAnalyses/all_models_pop_meta_summary_effect.png")
 ```
 
-```{r echo=FALSE, out.width="50%"}
+```{r echo=FALSE, out.width="50%", fig.align='center'}
 knitr::include_graphics("MetaAnalyses/all_models_pop_meta_pvalues.png")
 ```
 
@@ -4472,162 +4539,188 @@ knitr::include_graphics("MetaAnalyses/Viability/Via_NA_lmers_pop_meta_summary_ef
 
 ### Development Time
 
-_Females_
 
-```{r echo=FALSE, out.width="50%"}
+
+```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("MetaAnalyses/DevelopmentTime/DT_A_F_lmers_pop_meta_summary_effect.png")
-```
-
-_Males_
-
-```{r echo=FALSE, out.width="50%"}
 knitr::include_graphics("MetaAnalyses/DevelopmentTime/DT_A_M_lmers_pop_meta_summary_effect.png")
 ```
 
+
+
+
 ### Dry weight
 
-_Females_
 
-```{r echo=FALSE, out.width="50%"}
+```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("MetaAnalyses/DryWeight/DW_F_lmers_pop_meta_summary_effect.png")
-```
-
-_Males_
-
-```{r echo=FALSE, out.width="50%"}
 knitr::include_graphics("MetaAnalyses/DryWeight/DW_M_lmers_pop_meta_summary_effect.png")
 ```
 
+
+
 ### Thorax length
 
-_Females_
-
-```{r echo=FALSE, out.width="50%"}
+```{r echo=FALSE, out.width="49%"}
 knitr::include_graphics("MetaAnalyses/ThoraxLength/TL_F_lmers_pop_meta_summary_effect.png")
 ```
 
 ### Wing area
 
-_Left Females_
+_Left Wings_
 
-```{r echo=FALSE, out.width="50%"}
+```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("MetaAnalyses/WingArea/WA_L_F_lmers_pop_meta_summary_effect.png")
-```
-
-_Left Males_
-
-```{r echo=FALSE, out.width="50%"}
 knitr::include_graphics("MetaAnalyses/WingArea/WA_L_M_lmers_pop_meta_summary_effect.png")
 ```
 
-_Right Females_
+_Right Wings_
 
-```{r echo=FALSE, out.width="50%"}
+```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("MetaAnalyses/WingArea/WA_R_F_lmers_pop_meta_summary_effect.png")
-```
-
-_Right Males_
-
-```{r echo=FALSE, out.width="50%"}
 knitr::include_graphics("MetaAnalyses/WingArea/WA_R_M_lmers_pop_meta_summary_effect.png")
 ```
 
+
+
 ### Fecundity
 
-```{r echo=FALSE, out.width="50%"}
+```{r echo=FALSE, out.width="49%"}
 knitr::include_graphics("MetaAnalyses/Fecundity/Fec_F_lmers_pop_meta_summary_effect.png")
 ```
 
 ### Lifespan
 
-_Females_
 
-```{r echo=FALSE, out.width="50%"}
+
+```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("MetaAnalyses/Lifespan/LS_F_lmers_pop_meta_summary_effect.png")
-```
-
-_Males_
-
-```{r echo=FALSE, out.width="50%"}
 knitr::include_graphics("MetaAnalyses/Lifespan/LS_M_lmers_pop_meta_summary_effect.png")
 ```
 
+
 ### Cold-shock mortality
 
-_Females_
 
-```{r echo=FALSE, out.width="50%"}
+```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("MetaAnalyses/ColdShock/CSM_F_lmers_pop_meta_summary_effect.png")
-```
-
-_Males_
-
-```{r echo=FALSE, out.width="50%"}
 knitr::include_graphics("MetaAnalyses/ColdShock/CSM_M_lmers_pop_meta_summary_effect.png")
 ```
 
 
+
 ### Chill-coma recovery time
 
-_Females_
 
-```{r echo=FALSE, out.width="50%"}
+
+```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("MetaAnalyses/ChillComa/CCRT_F_lmers_pop_meta_summary_effect.png")
-```
-
-_Males_
-
-```{r echo=FALSE, out.width="50%"}
 knitr::include_graphics("MetaAnalyses/ChillComa/CCRT_M_lmers_pop_meta_summary_effect.png")
 ```
 
 
+
 ### Heat-shock mortality
 
-_Females_
 
-```{r echo=FALSE, out.width="50%"}
+
+```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("MetaAnalyses/HeatShock/HSM_F_lmers_pop_meta_summary_effect.png")
-```
-
-_Males_
-
-```{r echo=FALSE, out.width="50%"}
 knitr::include_graphics("MetaAnalyses/HeatShock/HSM_M_lmers_pop_meta_summary_effect.png")
 ```
+
+
 
 ### Diapause
 
 Using GLMER estimates
 
-```{r echo=FALSE, out.width="50%"}
+```{r echo=FALSE, out.width="49%"}
 knitr::include_graphics("MetaAnalyses/Diapause/Dia_F_glmers_pop_meta_summary_effect.png")
 ```
 
 ### Starvation resistance
 
-_Females_
 
-```{r echo=FALSE, out.width="50%"}
+
+```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("MetaAnalyses/Starvation/SR_F_lmers_pop_meta_summary_effect.png")
-```
-
-_Males_
-
-```{r echo=FALSE, out.width="50%"}
 knitr::include_graphics("MetaAnalyses/Starvation/SR_M_lmers_pop_meta_summary_effect.png")
+
 ```
+
 
 ### Pigmentation
 
-```{r echo=FALSE, out.width="50%"}
+```{r echo=FALSE, out.width="49%"}
 knitr::include_graphics("MetaAnalyses/Pigmentation/Pgm_Total_F_lmers_pop_meta_summary_effect.png")
 ```
 
-# Results : Environmental Variables  
+
+
+  
+# Results: Lab Correlations
+
+_**Please refer to /LabCorrelations folder for trait-specific plots**_
+
+Input data are populations estimates and lines random coefficients extracted from each single linear model. On the composite figures below, the red dashed lines represent the 0.05 significance threshold. 
+
+
+## Pearson's - Population level
+```{r echo=FALSE}
+knitr::include_graphics("LabCorrelations/lab_correlation_pop_pearson.png")
+```
+
+## Spearman's - Population level
+```{r echo=FALSE}
+knitr::include_graphics("LabCorrelations/lab_correlation_pop_spearman.png")
+```
+
+## Pearson's - Line level
+```{r echo=FALSE}
+knitr::include_graphics("LabCorrelations/lab_correlation_line_pearson.png")
+```
+
+## Spearman's - Line level
+```{r echo=FALSE}
+knitr::include_graphics("LabCorrelations/lab_correlation_line_spearman.png")
+```
+
+
+
+# Results: Heritability
+
+* Within lab H2: input data raw data, when lines are replicated (to be optimized)
+* Between labs H2: input data either line random coefs from linear models for each lab or raw data (to be optimized)
+* Intraclass correlations (David et al. 2005) (to be done)
+* Evolvability (to be done)
+
+_Whitin lab H2_
+```{r echo=FALSE, message=FALSE}
+h2_data_withinlabs <- read.csv("Heritability/H2_line_raw_data_within_labs.csv")
+DT::datatable(h2_data_withinlabs, options = list(pageLength = 10)) %>% formatRound(4:7, 3)
+```
+
+_Bwtween lab H2 with random coefs_
+```{r echo=FALSE, message=FALSE}
+h2_rc_btwlabs <- read.csv("Heritability/H2_line_random_coefs_between_labs.csv")
+DT::datatable(h2_rc_btwlabs, options = list(pageLength = 10)) %>% formatRound(4:6, 3)
+
+```
+
+_Bwtween lab H2 with raw data_
+```{r echo=FALSE, message=FALSE}
+h2_data_btwlabs <- read.csv("Heritability/H2_line_raw_data_between_labs.csv")
+DT::datatable(h2_data_btwlabs, options = list(pageLength = 10)) %>% formatRound(4:6, 3)
+```
+
+
+
+
+# Results: Linear Models with Geographical Variables  
 
 ```{r eval=FALSE, echo=TRUE}
-# All model outputs can be found in :
+# All model outputs can be found in:
 
 lmers_lat <- readRDS("LinearModelsLat/all_lmers_lat_anova_list.rds")
 lmers_lon <- readRDS("LinearModelsLon/all_lmers_lon_anova_list.rds")
@@ -4664,79 +4757,60 @@ pval_table_alt <- read.csv("LinearModelsAlt/all_models_alt_pvalues.csv")
 DT::datatable(pval_table_alt, options = list(pageLength = 10)) %>% formatRound(6, 4)
 ```
 
-## Geography - Altitude
 
-# Results : GeoCorrelations
+# Results: Correlations with Geographical Variables
 
-## Latitude - Line
+
+
+## Latitude - Line level
 ```{r echo=FALSE}
 knitr::include_graphics("GeoCorrelations/line_lat_pearson_correlations_facets.png")
 ```
 
-```{r echo=FALSE, out.width="50%"}
+```{r echo=FALSE, out.width="50%", fig.align='center', fig.cap="Dashed black and red lines represent uncorrected and corrected for multiple testing (Bonferroni) significance thresholds, respectively."}
 knitr::include_graphics("GeoCorrelations/line_lat_pearson_correlations.png")
 ```
 
-## Latitude - Population
+## Latitude - Population level
 ```{r echo=FALSE}
 knitr::include_graphics("GeoCorrelations/pop_lat_pearson_correlations_facets.png")
 ```
 
-```{r echo=FALSE, out.width="50%"}
+```{r echo=FALSE, out.width="50%", fig.align='center', fig.cap="Dashed black and red lines represent uncorrected and corrected for multiple testing (Bonferroni) significance thresholds, respectively."}
 knitr::include_graphics("GeoCorrelations/pop_lat_pearson_correlations.png")
 ```
 
-## Longtitude - Line
+## Longtitude - Line level
 ```{r echo=FALSE}
 knitr::include_graphics("GeoCorrelations/line_lon_pearson_correlations_facets.png")
 ```
 
-```{r echo=FALSE, out.width="50%"}
+```{r echo=FALSE, out.width="50%", fig.align='center', fig.cap="Dashed black and red lines represent uncorrected and corrected for multiple testing (Bonferroni) significance thresholds, respectively."}
 knitr::include_graphics("GeoCorrelations/line_lon_pearson_correlations.png")
 ```
 
-## Longtitude - Population
+## Longtitude - Population level
 ```{r echo=FALSE}
 knitr::include_graphics("GeoCorrelations/pop_lon_pearson_correlations_facets.png")
 ```
 
-```{r echo=FALSE, out.width="50%"}
+```{r echo=FALSE, out.width="50%", fig.align='center', fig.cap="Dashed black and red lines represent uncorrected and corrected for multiple testing (Bonferroni) significance thresholds, respectively."}
 knitr::include_graphics("GeoCorrelations/pop_lon_pearson_correlations.png")
 ```
 
 
-  
-# Results : Lab Correlations
 
-_**Please refer to /LabCorrelations folder for trait-specific plots*_
+# Results: Trait Correlations 
 
-## Pearson's - Line
-```{r echo=FALSE, out.width="100%", out.height="100%"}
-knitr::include_graphics("LabCorrelations/lab_correlation_line_pearson.png")
-```
-
-## Pearson's - Population
-```{r echo=FALSE}
-knitr::include_graphics("LabCorrelations/lab_correlation_pop_pearson.png")
-```
-
-## Spearman's - Line
-```{r echo=FALSE}
-knitr::include_graphics("LabCorrelations/lab_correlation_pop_spearman.png")
-```
-
-# Results : Trait Correlations 
-
-* Input data : line means
-* Input data : line means extracted either from models with Lab as a random effect or from meta analyses estimates (or both)
+* Input data: line compound estimates from meta analyses outputs and line random coefficients from linear models for P/C controlled correlations
 (i) Correlations between all pairs of traits using 
 - Pearson’s 
-- Spearman’s
-- Distance correlations
-(ii) MANOVA on line means 
+- Spearman’s (to be done)
+- Distance correlations (to be done)
+(ii) MANOVA on line means (to be done)
 (iii) PCAs
 
-## Pearson's 
+## Pearson pairwise correlations
 
 The different trait subsets used for lab correlations are described in the next section about PCAs.
 
@@ -4753,7 +4827,7 @@ knitr::include_graphics("TraitCorrelations/trait_correlations_f9_line_random_coe
 knitr::include_graphics("TraitCorrelations/trait_correlations_fmax_line_random_coefs.png")
 ```
 
-```{r echo=FALSE, fig.cap="Trait correlations for all 12 female traits using line estimates from labs from labs with similar P/C ratios", fig.align='center'}
+```{r echo=FALSE, fig.cap="Trait correlations for all 12 female traits using line estimates from labs with similar P/C ratios", fig.align='center'}
 knitr::include_graphics("TraitCorrelations/trait_correlations_fmax_line_random_coefs_diet.png")
 ```
 
@@ -4762,7 +4836,7 @@ knitr::include_graphics("TraitCorrelations/trait_correlations_fmax_line_random_c
 knitr::include_graphics("TraitCorrelations/trait_correlations_fmaxp_line_random_coefs.png")
 ```
 
-```{r echo=FALSE, fig.cap="Trait correlations for all 12 female traits plus viability using line estimates from labs from labs with similar P/C ratios", fig.align='center'}
+```{r echo=FALSE, fig.cap="Trait correlations for all 12 female traits plus viability using line estimates from labs with similar P/C ratios", fig.align='center'}
 knitr::include_graphics("TraitCorrelations/trait_correlations_fmaxp_line_random_coefs_diet.png")
 ```
 
@@ -4772,9 +4846,15 @@ knitr::include_graphics("TraitCorrelations/trait_correlations_fmaxp_line_random_
 knitr::include_graphics("TraitCorrelations/trait_correlations_m9_line_random_coefs_diet.png")
 ```
 
-```{r echo=FALSE, fig.cap="Trait correlations in males for the nine traits that were measured on both sexes using line estimates from labs from labs with similar P/C ratios", fig.align='center'}
+```{r echo=FALSE, fig.cap="Trait correlations in males for the nine traits that were measured on both sexes using line estimates from labs with similar P/C ratios", fig.align='center'}
 knitr::include_graphics("TraitCorrelations/trait_correlations_m9_line_random_coefs.png")
 ```
+
+
+## Spearman pairwise correlations (tba)
+
+
+
 
 ## PCA
 
@@ -5033,23 +5113,25 @@ knitr::include_graphics("TraitCorrelations/FromMR/MaleDis.png")
 ```
 
 
-# Results : Diet
+# Results: Effect of Diet and Lab
 
 ## Overview
 
-```{r echo=FALSE, out.width="50%"}
+
+
+```{r echo=FALSE, out.width="50%", fig.cap="Protein to carbohydrate (P/C) ratio variation among labs.", fig.align = "center"}
 knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_facets.png")
 ```
 
-```{r echo=FALSE, out.width="75%"}
+```{r echo=FALSE, out.width="70%", fig.cap="Protein to carbohydrate (P/C) ratio variation between and within traits.", fig.align = "center"}
 knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_traits_facets.png")
 ```
 
-```{r echo=FALSE}
+```{r echo=FALSE, fig.cap="Effect of protein to carbohydrate (P/C) ratio on population estimates for each trait.", fig.align = "center"}
 knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_traits_pop_facets.png")
 ```
 
-```{r echo=FALSE}
+```{r echo=FALSE, fig.cap="Effect of lab on population estimates for each trait.", fig.align = "center"}
 knitr::include_graphics("Diets/DrosEU_Diets_lab_traits_pop_facets.png")
 ```
 
@@ -5059,6 +5141,8 @@ knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_lab_traits_pop_facets.png"
 
 
 ### Plots by trait
+
+Lab P/C ratios are indicated at the bottom of the y axis.
 
 #### Viability
 ```{r echo=FALSE, out.width="50%"}
@@ -5134,6 +5218,21 @@ knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_Pgm_T6_pop_facets.png")
 
 ```{r echo=FALSE, out.width="50%"}
 knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_Pgm_Total_pop_facets.png")
+```
+
+## Meta regressions
+
+In a meta analysis framework (similiar to what has been used to generate compound estimates) one can run meta regressions to test for the effect of different variables (called moderators) on trait variation. Here one can regress out the effect of _Population_ alone (similar to the subgroup analyses carried out previously) or in combination with other moderators such as _Lab_ and _Diet_. This allow us to roughly estimate how much variance is explained by the different moderators, which would help interpret the lab correlations and the main subgroup meta analyses resuts. However, given our small samples sizes, these meta regressions will be even more underpowered than the subgroup analyses and resuts should be interpreted with caution.
+
+```{r echo=FALSE, fig.align='center', fig.cap="Variance explained (R2) by Population, Lab and P/C ratio for each trait. Note that some P/C infomation is missing in some cases and that these analyses could be run only when at least two labs have phenotyped the same trait." }
+knitr::include_graphics("MetaRegressionDiet/all_models_pop_meta_reg_diets_facets.png")
+```
+
+Below is a summary table recapitulating the data presented in the previous figure.
+
+```{r, echo=FALSE}
+meta_reg_diet <- read.csv("MetaRegressionDiet/all_models_pop_meta_reg_diets_r2.csv")
+DT::datatable(meta_reg_diet, options = list(pageLength = 20)) %>% formatRound(4:5, c(2,4))
 ```
 
 ## PCAs with ~similar P:C ratio datasets 
@@ -5259,7 +5358,7 @@ knitr::include_graphics("LinearModelsPop/PCA_ControlledDiet/PCAd_4_Rmd/PCAd_r_Rm
 - Development time has a stronger effect. Could withinpopulation DT_A variability be more influenced by diet than other traits? Perhaps not surprising, given nutritional/resource thresholds for metamorphosis?
 
 
-# Results : Climatic variables 
+# Results: Climatic Variables 
 
 ## From Venera 
 
@@ -5409,7 +5508,7 @@ CSM is less clear: cold shock mortality in females is best predicted by the mini
 knitr::include_graphics("EnvironmentalAnalysis/FromAB/MailDoc1.jpg")
 ```
 
-# Results : GDM
+# Results: GDM
 
 _**Please refer to /GDM folder for details.**_
 
@@ -5527,34 +5626,7 @@ knitr::include_graphics("GDM/GDM_Worldclim/WA_R_M/WA_R_M_wind08_i-spline.jpeg")
 knitr::include_graphics("GDM/GDM_Worldclim/WA_R_M/WA_R_M_vapr06_i-spline.jpeg")
 ```
 
-# Results : Heritability
-
-* Within lab H2: raw data, when lines are replicated
-* Between labs H2: input data either line random coefs from linear models for each lab or raw data
-* Intraclass correlations (David et al. 2005)
-* Evolvability 
-
-_Whitin lab H2_
-```{r echo=FALSE, message=FALSE}
-h2_data_withinlabs <- read.csv("Heritability/H2_line_raw_data_within_labs.csv")
-DT::datatable(h2_data_withinlabs, options = list(pageLength = 10)) %>% formatRound(4:7, 3)
-```
-
-_Bwtween lab H2 with random coefs_
-```{r echo=FALSE, message=FALSE}
-h2_rc_btwlabs <- read.csv("Heritability/H2_line_random_coefs_between_labs.csv")
-DT::datatable(h2_rc_btwlabs, options = list(pageLength = 10)) %>% formatRound(4:6, 3)
-
-```
-
-_Bwtween lab H2 with raw data_
-```{r echo=FALSE, message=FALSE}
-h2_data_btwlabs <- read.csv("Heritability/H2_line_raw_data_between_labs.csv")
-DT::datatable(h2_data_btwlabs, options = list(pageLength = 10)) %>% formatRound(4:6, 3)
-```
-
-
-# Results : Wolbachia
+# Results: Wolbachia
 
 ## Population
 
@@ -5616,7 +5688,7 @@ knitr::include_graphics("LinearModelsAlt_Wolb/all_models_alt_pvalues_Wolb.pdf")
 ```
 
 
-# Results : UPGMA trees 
+# Results: UPGMA trees 
 
 Here are some example UPGMA trees from Jorge and Cristina -- please refer to /UPGMATrees folder for all of the trees. 
 
@@ -5656,9 +5728,9 @@ _WA_R Female_
 knitr::include_graphics("UPGMATrees/WA_R_F_meta_summary.txt.StamenkovicRadak.png")
 ```
 
-# Results : Qst - Fst  _tbd_
+# Results: Qst - Fst  _tbd_
 
-# _Results : Species Distribution Model_
+# _Results: Species Distribution Model_
 
 ## SDM_Maxent_WorldClim
 
