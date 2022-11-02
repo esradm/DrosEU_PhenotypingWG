@@ -61,16 +61,16 @@
     flip_Fmax_30d <- -1
     Fmax_30d_traitPC_load <- ggplot(data=FMax_traitPC) +
                   geom_segment( aes(x=0, xend=Dim.2, y=ordDim2, yend=ordDim2), arrow = arrow(length = unit(0.15, "cm"))) +
-                  geom_text(data=FMax_traitPC[Dim.2<0], aes(y=ordDim2, x=flip_Fmax_30d*.05, label=trait), size=2.5, angle=90, hjust=0) +
-                  geom_text(data=FMax_traitPC[Dim.2>0], aes(y=ordDim2, x=flip_Fmax_30d*-.05, label=trait), size=2.5, angle=90, hjust=1) +
+                  geom_text(data=FMax_traitPC[Dim.2<0], aes(y=ordDim2, x=.05, label=trait), size=2.5, angle=90, hjust=0) +
+                  geom_text(data=FMax_traitPC[Dim.2>0], aes(y=ordDim2, x=-.05, label=trait), size=2.5, angle=90, hjust=1) +
                   coord_flip() + xlim(-.5, 1) + ylim(-0, 13.5) +
                   xlab("Phenotype PC2 loadings") + ylab("") +
                   theme_bw()
 
     Fmax_30d_phenoPC_load <- ggplot(data=d30_envPC) +
-                  geom_segment(aes(x=0, xend=flip*Dim.2, y=ordDim2, yend=ordDim2), arrow = arrow(length = unit(0.15, "cm"))) +
-                  geom_text(data=d30_envPC[Dim.2<0], aes(y=ordDim2, x=.05, label=trait), size=2.5, hjust=0) +
-                  geom_text(data=d30_envPC[Dim.2>0], aes(y=ordDim2, x=-.05, label=trait), size=2.5, hjust=1) +
+                  geom_segment(aes(x=0, xend=flip_Fmax_30d*Dim.2, y=ordDim2, yend=ordDim2), arrow = arrow(length = unit(0.15, "cm"))) +
+                  geom_text(data=d30_envPC[Dim.2<0], aes(y=ordDim2, x=flip_Fmax_30d*.05, label=trait), size=2.5, hjust=0) +
+                  geom_text(data=d30_envPC[Dim.2>0], aes(y=ordDim2, x=flip_Fmax_30d*-.05, label=trait), size=2.5, hjust=1) +
                   xlim(-1, 1)  + ylim(-0, 15.5) +
                   xlab("Environment PC2 loadings") + ylab("") +
                   theme_bw()
@@ -89,15 +89,15 @@
     flip_Fmax_30y <- 1
     Fmax_30y_traitPC_load <- ggplot(data=FMax_traitPC) +
                   geom_segment( aes(x=0, xend=Dim.2, y=ordDim2, yend=ordDim2), arrow = arrow(length = unit(0.15, "cm"))) +
-                  geom_text(data=FMax_traitPC[Dim.2<0], aes(y=ordDim2, x=flip_Fmax_30y*.05, label=trait), size=2.5, angle=90, hjust=0) +
-                  geom_text(data=FMax_traitPC[Dim.2>0], aes(y=ordDim2, x=flip_Fmax_30y*-.05, label=trait), size=2.5, angle=90, hjust=1) +
+                  geom_text(data=FMax_traitPC[Dim.2<0], aes(y=ordDim2, x=.05, label=trait), size=2.5, angle=90, hjust=0) +
+                  geom_text(data=FMax_traitPC[Dim.2>0], aes(y=ordDim2, x=-.05, label=trait), size=2.5, angle=90, hjust=1) +
                   coord_flip() + xlim(-.5, 1) + ylim(-0, 13.5) +
                   xlab("Phenotype PC2 loadings") + ylab("") +
                   theme_bw()
     Fmax_30y_phenoPC_load <- ggplot(data=y30_envPC) +
-                  geom_segment(aes(x=0, xend=flip*Dim.2, y=ordDim2, yend=ordDim2), arrow = arrow(length = unit(0.15, "cm"))) +
-                  geom_text(data=y30_envPC[Dim.2<0], aes(y=ordDim2, x=.05, label=trait), size=2.5, hjust=0) +
-                  geom_text(data=y30_envPC[Dim.2>0], aes(y=ordDim2, x=-.05, label=trait), size=2.5, hjust=1) +
+                  geom_segment(aes(x=0, xend=flip_Fmax_30y*Dim.2, y=ordDim2, yend=ordDim2), arrow = arrow(length = unit(0.15, "cm"))) +
+                  geom_text(data=y30_envPC[Dim.2<0], aes(y=ordDim2, x=flip_Fmax_30y*.05, label=trait), size=2.5, hjust=0) +
+                  geom_text(data=y30_envPC[Dim.2>0], aes(y=ordDim2, x=flip_Fmax_30y*-.05, label=trait), size=2.5, hjust=1) +
                   xlim(-1, 1)  + ylim(-0, 15.5) +
                   xlab("Environment PC2 loadings") + ylab("") +
                   theme_bw()
@@ -121,15 +121,15 @@
     flip_M9_30d <- -1
     M9_30d_traitPC_load <- ggplot(data=M9_traitPC) +
                   geom_segment( aes(x=0, xend=Dim.2, y=ordDim2, yend=ordDim2), arrow = arrow(length = unit(0.15, "cm"))) +
-                  geom_text(data=M9_traitPC[Dim.2<0], aes(y=ordDim2, x=flip_M9_30d.05, label=trait), size=2.5, angle=90, hjust=0) +
-                  geom_text(data=M9_traitPC[Dim.2>0], aes(y=ordDim2, x=flip_M9_30d-.05, label=trait), size=2.5, angle=90, hjust=1) +
+                  geom_text(data=M9_traitPC[Dim.2<0], aes(y=ordDim2, x=.05, label=trait), size=2.5, angle=90, hjust=0) +
+                  geom_text(data=M9_traitPC[Dim.2>0], aes(y=ordDim2, x=-.05, label=trait), size=2.5, angle=90, hjust=1) +
                   coord_flip() + xlim(-.5, 1) + ylim(-0, 13.5) +
                   xlab("Phenotype PC2 loadings") + ylab("") +
                   theme_bw()
     M9_30d_phenoPC_load <- ggplot(data=d30_envPC) +
-                  geom_segment(aes(x=0, xend=flip*Dim.2, y=ordDim2, yend=ordDim2), arrow = arrow(length = unit(0.15, "cm"))) +
-                  geom_text(data=d30_envPC[Dim.2<0], aes(y=ordDim2, x=.05, label=trait), size=2.5, hjust=0) +
-                  geom_text(data=d30_envPC[Dim.2>0], aes(y=ordDim2, x=-.05, label=trait), size=2.5, hjust=1) +
+                  geom_segment(aes(x=0, xend=flip_M9_30d*Dim.2, y=ordDim2, yend=ordDim2), arrow = arrow(length = unit(0.15, "cm"))) +
+                  geom_text(data=d30_envPC[Dim.2<0], aes(y=ordDim2, x=flip_M9_30d*.05, label=trait), size=2.5, hjust=0) +
+                  geom_text(data=d30_envPC[Dim.2>0], aes(y=ordDim2, x=flip_M9_30d*-.05, label=trait), size=2.5, hjust=1) +
                   xlim(-1, 1)  + ylim(-0, 15.5) +
                   xlab("Environment PC2 loadings") + ylab("") +
                   theme_bw()
@@ -150,15 +150,15 @@
     flip_M9_30y <- 1
     M9_30y_traitPC_load <- ggplot(data=M9_traitPC) +
                   geom_segment( aes(x=0, xend=Dim.2, y=ordDim2, yend=ordDim2), arrow = arrow(length = unit(0.15, "cm"))) +
-                  geom_text(data=M9_traitPC[Dim.2<0], aes(y=ordDim2, x=flip_M9_30y*.05, label=trait), size=2.5, angle=90, hjust=0) +
-                  geom_text(data=M9_traitPC[Dim.2>0], aes(y=ordDim2, x=flip_M9_30y*-.05, label=trait), size=2.5, angle=90, hjust=1) +
+                  geom_text(data=M9_traitPC[Dim.2<0], aes(y=ordDim2, x=.05, label=trait), size=2.5, angle=90, hjust=0) +
+                  geom_text(data=M9_traitPC[Dim.2>0], aes(y=ordDim2, x=-.05, label=trait), size=2.5, angle=90, hjust=1) +
                   coord_flip() + xlim(-.5, 1) + ylim(-0, 13.5) +
                   xlab("Phenotype PC2 loadings") + ylab("") +
                   theme_bw()
     M9_30y_phenoPC_load <- ggplot(data=y30_envPC) +
-                  geom_segment(aes(x=0, xend=flip*Dim.2, y=ordDim2, yend=ordDim2), arrow = arrow(length = unit(0.15, "cm"))) +
-                  geom_text(data=y30_envPC[Dim.2<0], aes(y=ordDim2, x=.05, label=trait), size=2.5, hjust=0) +
-                  geom_text(data=y30_envPC[Dim.2>0], aes(y=ordDim2, x=-.05, label=trait), size=2.5, hjust=1) +
+                  geom_segment(aes(x=0, xend=flip_M9_30y*Dim.2, y=ordDim2, yend=ordDim2), arrow = arrow(length = unit(0.15, "cm"))) +
+                  geom_text(data=y30_envPC[Dim.2<0], aes(y=ordDim2, x=flip_M9_30y*.05, label=trait), size=2.5, hjust=0) +
+                  geom_text(data=y30_envPC[Dim.2>0], aes(y=ordDim2, x=flip_M9_30y*-.05, label=trait), size=2.5, hjust=1) +
                   xlim(-1, 1)  + ylim(-0, 15.5) +
                   xlab("Environment PC2 loadings") + ylab("") +
                   theme_bw()
