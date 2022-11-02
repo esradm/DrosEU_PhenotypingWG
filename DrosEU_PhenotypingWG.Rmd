@@ -5457,7 +5457,7 @@ There is a strong association of trait PC2 with climate PCs in both datasets. Ho
 ```{r echo=FALSE}
 knitr::include_graphics("EnvironmentalAnalysis/DualPCA/DualPCA_Fmax_d30.png")
 knitr::include_graphics("EnvironmentalAnalysis/DualPCA/DualPCA_Fmax_y30.png")
-knitr::include_graphics("EnvironmentalAnalysis/DualPCA/DualPCA_M9_y30.png")
+knitr::include_graphics("EnvironmentalAnalysis/DualPCA/DualPCA_M9_d30.png")
 knitr::include_graphics("EnvironmentalAnalysis/DualPCA/DualPCA_M9_y30.png")
 
 ```
