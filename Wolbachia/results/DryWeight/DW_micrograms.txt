@@ -20,7 +20,7 @@ Analysis of Deviance Table (Type III Wald chisquare tests)
 
 Response: DW_micrograms
                            Chisq Df Pr(>Chisq)    
-(Intercept)           14778.8956  1  < 2.2e-16 ***
+(Intercept)           14778.8959  1  < 2.2e-16 ***
 Wolbachia                 2.3452  1   0.125671    
 Country                  10.3645  4   0.034716 *  
 Sex                   41065.4297  1  < 2.2e-16 ***

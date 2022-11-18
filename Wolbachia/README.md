@@ -12,8 +12,8 @@ In addition, I plotted the mean trait values for each Wolbachia type in the cont
 
 ### Chill Coma
 
-![ChillComa](results/ChillComa/CCRT_seconds_raw.pdf)
-![ChillComa2](results/ChillComa/CCRT_seconds_raw2.pdf)
+![ChillComa](results/ChillComa/CCRT_seconds_raw.png)
+![ChillComa2](results/ChillComa/CCRT_seconds_raw2.png)
 
 | Factor                | Chisq     | Df  | Pr(>Chisq)  |        |
 | --------------------- | --------- | --- | ----------- | ------ |
@@ -28,8 +28,8 @@ In addition, I plotted the mean trait values for each Wolbachia type in the cont
 
 ### Cold Shock Mortality
 
-![Cold Shock Mortality](results/ColdShockMortality/CSM_PropDead_raw.pdf)
-![Cold Shock Mortality](results/ColdShockMortality/CSM_PropDead_raw2.pdf)
+![Cold Shock Mortality](results/ColdShockMortality/CSM_PropDead_raw.png)
+![Cold Shock Mortality](results/ColdShockMortality/CSM_PropDead_raw2.png)
 
 | Factor                | Chisq    | Df  | Pr(>Chisq)  |        |
 | --------------------- | -------- | --- | ----------- | ------ |
@@ -45,8 +45,8 @@ In addition, I plotted the mean trait values for each Wolbachia type in the cont
 
 ### Development Time (ETA)
 
-![ETA](results/DevelopmentTime_ETA/DT_EggAdult_raw.pdf)
-![ETA2](results/DevelopmentTime_ETA/DT_EggAdult_raw2.pdf)
+![ETA](results/DevelopmentTime_ETA/DT_EggAdult_raw.png)
+![ETA2](results/DevelopmentTime_ETA/DT_EggAdult_raw2.png)
 
 | Factor                | Chisq    | Df  | Pr(>Chisq)  |        |
 | --------------------- | -------- | --- | ----------- | ------ |
@@ -62,8 +62,8 @@ In addition, I plotted the mean trait values for each Wolbachia type in the cont
 
 ### Diapause
 
-![Diapause](results/Diapause/Prop_Max_Stage8_asin_raw.pdf)
-![Diapause2](results/Diapause/Prop_Max_Stage8_asin_raw2.pdf)
+![Diapause](results/Diapause/Prop_Max_Stage8_asin_raw.png)
+![Diapause2](results/Diapause/Prop_Max_Stage8_asin_raw2.png)
 
 | Factor            | Chisq   | Df  | Pr(>Chisq) |     |
 | ----------------- | ------- | --- | ---------- | --- |
@@ -75,8 +75,8 @@ In addition, I plotted the mean trait values for each Wolbachia type in the cont
 
 ### Dry weight
 
-![Weight](results/DryWeight/DW_micrograms_raw.pdf)
-![Weight](results/DryWeight/DW_micrograms_raw2.pdf)
+![Weight](results/DryWeight/DW_micrograms_raw.png)
+![Weight](results/DryWeight/DW_micrograms_raw2.png)
 
 | Factor                | Chisq      | Df  | Pr(>Chisq)  |        |
 | --------------------- | ---------- | --- | ----------- | ------ |
@@ -92,8 +92,8 @@ In addition, I plotted the mean trait values for each Wolbachia type in the cont
 
 ### Fecundity
 
-![Fecundity](results/Fecundity/NumberOfAdultsEclosed_raw.pdf)
-![Fecundity](results/Fecundity/NumberOfAdultsEclosed_raw2.pdf)
+![Fecundity](results/Fecundity/NumberOfAdultsEclosed_raw.png)
+![Fecundity](results/Fecundity/NumberOfAdultsEclosed_raw2.png)
 
 | Factor            | Chisq  | Df  | Pr(>Chisq) |     |
 | ----------------- | ------ | --- | ---------- | --- |
@@ -105,8 +105,8 @@ In addition, I plotted the mean trait values for each Wolbachia type in the cont
 
 ### Heat Shock
 
-![Heat](results/HeatShock/TimeDeath_min_raw.pdf)
-![Heat2](results/HeatShock/TimeDeath_min_raw2.pdf)
+![Heat](results/HeatShock/TimeDeath_min_raw.png)
+![Heat2](results/HeatShock/TimeDeath_min_raw2.png)
 
 | Factor                | Chisq     | Df  | Pr(>Chisq)  |        |
 | --------------------- | --------- | --- | ----------- | ------ |
@@ -122,8 +122,8 @@ In addition, I plotted the mean trait values for each Wolbachia type in the cont
 
 ### Lifespan
 
-![Lifespan](results/Lifespan/LSL_AgeAtDeath_days_raw.pdf)
-![Lifespan2](results/Lifespan/LSL_AgeAtDeath_days_raw2.pdf)
+![Lifespan](results/Lifespan/LSL_AgeAtDeath_days_raw.png)
+![Lifespan2](results/Lifespan/LSL_AgeAtDeath_days_raw2.png)
 
 | Factor                | Chisq    | Df  | Pr(>Chisq)  |        |
 | --------------------- | -------- | --- | ----------- | ------ |
@@ -139,8 +139,8 @@ In addition, I plotted the mean trait values for each Wolbachia type in the cont
 
 ### Pigmentation
 
-![Pigmentation](results/Pigmentation/TotalPerc_asin_raw.pdf)
-![Pigmentation2](results/Pigmentation/TotalPerc_asin_raw2.pdf)
+![Pigmentation](results/Pigmentation/TotalPerc_asin_raw.png)
+![Pigmentation2](results/Pigmentation/TotalPerc_asin_raw2.png)
 
 | Factor            | Chisq   | Df  | Pr(>Chisq) |        |
 | ----------------- | ------- | --- | ---------- | ------ |
@@ -152,8 +152,8 @@ In addition, I plotted the mean trait values for each Wolbachia type in the cont
 
 ### Starvation
 
-![Starvation](results/Starvation/AgeAtDeath_hours_raw.pdf)
-![Starvation2](results/Starvation/AgeAtDeath_hours_raw2.pdf)
+![Starvation](results/Starvation/AgeAtDeath_hours_raw.png)
+![Starvation2](results/Starvation/AgeAtDeath_hours_raw2.png)
 
 | Factor                | Chisq      | Df  | Pr(>Chisq)  |        |
 | --------------------- | ---------- | --- | ----------- | ------ |
@@ -169,8 +169,8 @@ In addition, I plotted the mean trait values for each Wolbachia type in the cont
 
 ### Thorax Length
 
-![Thorax](results/ThoraxLength/TL_micrometers_raw.pdf)
-![Thorax2](results/ThoraxLength/TL_micrometers_raw2.pdf)
+![Thorax](results/ThoraxLength/TL_micrometers_raw.png)
+![Thorax2](results/ThoraxLength/TL_micrometers_raw2.png)
 
 | Factor        | Chisq     | Df  | Pr(>Chisq) |        |
 | ------------- | --------- | --- | ---------- | ------ |
@@ -182,8 +182,8 @@ In addition, I plotted the mean trait values for each Wolbachia type in the cont
 
 ### Viability
 
-![Viability](results/Viability/ProportionEggtoAdultSurvival_raw.pdf)
-![Viability2](results/Viability/ProportionEggtoAdultSurvival_raw.pdf)
+![Viability](results/Viability/ProportionEggtoAdultSurvival_raw.png)
+![Viability2](results/Viability/ProportionEggtoAdultSurvival_raw.png)
 
 | Factor            | Chisq    | Df  | Pr(>Chisq)  |        |
 | ----------------- | -------- | --- | ----------- | ------ |
@@ -197,8 +197,8 @@ In addition, I plotted the mean trait values for each Wolbachia type in the cont
 
 #### Average Size
 
-![AvArea](results/WingArea/AvArea_raw.pdf)
-![AvArea2](results/WingArea/AvArea_raw2.pdf)
+![AvArea](results/WingArea/AvArea_raw.png)
+![AvArea2](results/WingArea/AvArea_raw2.png)
 
 | Factor                | Chisq     | Df  | Pr(>Chisq) |        |
 | --------------------- | --------- | --- | ---------- | ------ |
@@ -214,8 +214,8 @@ In addition, I plotted the mean trait values for each Wolbachia type in the cont
 
 #### Developmental Assymetry
 
-![DevAssym](results/WingArea/DevAssym_raw.pdf)
-![DevAssym2](results/WingArea/DevAssym_raw2.pdf)
+![DevAssym](results/WingArea/DevAssym_raw.png)
+![DevAssym2](results/WingArea/DevAssym_raw2.png)
 
 | Factor                | Chisq   | Df  | Pr(>Chisq) |      |
 | --------------------- | ------- | --- | ---------- | ---- |

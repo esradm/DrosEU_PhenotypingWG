@@ -242,6 +242,11 @@ for (i in seq(1,length(Phenotype),1)){
         width=15,
         height=10)
 
+      ggsave(paste0(out_dir,"/",PH,"/",TRt,"_raw.png"),
+        DATA.p,
+        width=15,
+        height=10)
+
       ## Make plot averaging across PIs.Note that the Error bars are SE
       DATA.p2=ggplot(DATA, aes(x=Country, y=Trait,col=Wolbachia)) +
       stat_summary(fun.data=data_summary_se,aes(group=Wolbachia,color=Wolbachia),geom="line",linewidth=0.2,show.legend=F)+
@@ -258,6 +263,11 @@ for (i in seq(1,length(Phenotype),1)){
         xlab("Country")
 
       ggsave(paste0(out_dir,"/",PH,"/",TRt,"_raw2.pdf"),
+        DATA.p2,
+        width=15,
+        height=10)
+
+      ggsave(paste0(out_dir,"/",PH,"/",TRt,"_raw2.png"),
         DATA.p2,
         width=15,
         height=10)

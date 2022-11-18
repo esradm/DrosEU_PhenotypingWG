@@ -20,13 +20,13 @@ Analysis of Deviance Table (Type III Wald chisquare tests)
 
 Response: DT_EggAdult
                          Chisq Df Pr(>Chisq)    
-(Intercept)            15.8424  1  6.884e-05 ***
-Wolbachia               2.3727  1   0.123476    
-Country                16.4695  4   0.002450 ** 
+(Intercept)            15.8431  1  6.882e-05 ***
+Wolbachia               2.3727  1   0.123472    
+Country                16.4698  4   0.002449 ** 
 Sex                   317.2622  1  < 2.2e-16 ***
-PC.ratio                0.0613  1   0.804380    
-Wolbachia:Country       6.5635  4   0.160832    
-Wolbachia:Sex           0.0137  1   0.906705    
+PC.ratio                0.0613  1   0.804376    
+Wolbachia:Country       6.5637  4   0.160823    
+Wolbachia:Sex           0.0137  1   0.906706    
 Country:Sex            14.7101  4   0.005342 ** 
 Wolbachia:Country:Sex   2.2248  4   0.694487    
 ---

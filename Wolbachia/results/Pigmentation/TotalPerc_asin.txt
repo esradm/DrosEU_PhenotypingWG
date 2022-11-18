@@ -15,7 +15,7 @@ Analysis of Deviance Table (Type III Wald chisquare tests)
 
 Response: TotalPerc_asin
                     Chisq Df Pr(>Chisq)    
-(Intercept)       18.3491  1  1.839e-05 ***
+(Intercept)       18.3489  1  1.839e-05 ***
 Wolbachia          0.4498  1    0.50242    
 Country           12.6608  4    0.01306 *  
 PC.ratio           0.6794  1    0.40979    

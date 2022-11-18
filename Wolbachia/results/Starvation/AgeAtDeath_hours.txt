@@ -20,14 +20,14 @@ Analysis of Deviance Table (Type III Wald chisquare tests)
 
 Response: AgeAtDeath_hours
                            Chisq Df Pr(>Chisq)    
-(Intercept)              13.4597  1  0.0002437 ***
-Wolbachia                 0.0177  1  0.8942880    
-Country                  17.2913  4  0.0016965 ** 
-Sex                   13936.4179  1  < 2.2e-16 ***
-PC.ratio                  2.5622  1  0.1094428    
-Wolbachia:Country         0.9866  4  0.9118229    
+(Intercept)              13.4572  1  0.0002441 ***
+Wolbachia                 0.0177  1  0.8942854    
+Country                  17.2922  4  0.0016959 ** 
+Sex                   13936.4166  1  < 2.2e-16 ***
+PC.ratio                  2.5618  1  0.1094765    
+Wolbachia:Country         0.9866  4  0.9118156    
 Wolbachia:Sex             6.0875  1  0.0136141 *  
 Country:Sex              69.6422  4  2.701e-14 ***
-Wolbachia:Country:Sex     9.9410  4  0.0414338 *  
+Wolbachia:Country:Sex     9.9410  4  0.0414339 *  
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1

@@ -20,11 +20,11 @@ Analysis of Deviance Table (Type III Wald chisquare tests)
 
 Response: LSL_AgeAtDeath_days
                          Chisq Df Pr(>Chisq)    
-(Intercept)             8.4862  1  0.0035784 ** 
+(Intercept)             8.4865  1  0.0035778 ** 
 Wolbachia               0.8254  1  0.3636129    
-Country                 1.6020  4  0.8084274    
+Country                 1.6020  4  0.8084273    
 Sex                   126.2562  1  < 2.2e-16 ***
-PC.ratio                0.7508  1  0.3862209    
+PC.ratio                0.7508  1  0.3862122    
 Wolbachia:Country       5.4552  4  0.2436999    
 Wolbachia:Sex           0.0033  1  0.9540255    
 Country:Sex            22.0584  4  0.0001951 ***
