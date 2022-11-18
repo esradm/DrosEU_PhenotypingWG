@@ -1,0 +1,32 @@
+[1] "__________________CCRT_seconds_______________"
+[1] "______ Table with line counts per country_________"
+# A tibble: 10 × 4
+# Groups:   Country [5]
+   Country  Sex     `-`   `+`
+   <fct>    <chr> <int> <int>
+ 1 Austria  F         4    15
+ 2 Austria  M         4    15
+ 3 Portugal F         7     6
+ 4 Portugal M         7     6
+ 5 Spain    F         5     7
+ 6 Spain    M         5     7
+ 7 Turkey   F         3    17
+ 8 Turkey   M         3    17
+ 9 Ukraine  F         7    10
+10 Ukraine  M         7    10
+[1] "_______________ LMM __________________"
+[1] "Wolbachia * Country * Sex + (1|Line:Country)+(1|Batch)"
+Analysis of Deviance Table (Type III Wald chisquare tests)
+
+Response: CCRT_seconds
+                          Chisq Df Pr(>Chisq)    
+(Intercept)           3781.1494  1  < 2.2e-16 ***
+Wolbachia                0.0049  1  0.9444345    
+Country                 24.7465  4  5.657e-05 ***
+Sex                      9.9067  1  0.0016468 ** 
+Wolbachia:Country        8.8236  4  0.0656628 .  
+Wolbachia:Sex            0.0047  1  0.9454932    
+Country:Sex             22.3480  4  0.0001709 ***
+Wolbachia:Country:Sex    6.5071  4  0.1643463    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1

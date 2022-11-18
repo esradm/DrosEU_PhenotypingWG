@@ -1,0 +1,33 @@
+[1] "__________________DW_micrograms_______________"
+[1] "______ Table with line counts per country_________"
+# A tibble: 10 × 4
+# Groups:   Country [5]
+   Country  Sex     `-`   `+`
+   <fct>    <chr> <int> <int>
+ 1 Austria  F         4    15
+ 2 Austria  M         4    15
+ 3 Portugal F         7     6
+ 4 Portugal M         7     6
+ 5 Spain    F         5     9
+ 6 Spain    M         5     9
+ 7 Turkey   F         3    17
+ 8 Turkey   M         3    17
+ 9 Ukraine  F         7    10
+10 Ukraine  M         7    10
+[1] "_______________ LMM __________________"
+[1] "Wolbachia * Country * Sex + PC.ratio+(1|Lab)+(1|Line:Country)+(1|Batch)"
+Analysis of Deviance Table (Type III Wald chisquare tests)
+
+Response: DW_micrograms
+                           Chisq Df Pr(>Chisq)    
+(Intercept)           14778.8956  1  < 2.2e-16 ***
+Wolbachia                 2.3452  1   0.125671    
+Country                  10.3645  4   0.034716 *  
+Sex                   41065.4297  1  < 2.2e-16 ***
+PC.ratio                313.9711  1  < 2.2e-16 ***
+Wolbachia:Country         2.7430  4   0.601714    
+Wolbachia:Sex             8.1435  1   0.004322 ** 
+Country:Sex              26.9587  4  2.026e-05 ***
+Wolbachia:Country:Sex    12.9142  4   0.011703 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1

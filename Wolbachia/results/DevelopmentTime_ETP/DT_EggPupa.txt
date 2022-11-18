@@ -1,0 +1,13 @@
+[1] "__________________DT_EggPupa_______________"
+[1] "______ Table with line counts per country_________"
+# A tibble: 5 × 4
+# Groups:   Country [5]
+  Country  Sex     `-`   `+`
+  <fct>    <chr> <int> <int>
+1 Austria  F         4    14
+2 Portugal F         7     6
+3 Spain    F         5     7
+4 Turkey   F         3    17
+5 Ukraine  F         5     9
+[1] "_______________ LMM __________________"
+[1] "Wolbachia * Country + (1|Line:Country)+(1|Batch)"

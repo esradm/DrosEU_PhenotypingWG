@@ -1,0 +1,29 @@
+[1] "__________________AvArea_______________"
+[1] "______ Table with line counts per country_________"
+# A tibble: 6 × 4
+# Groups:   Country [3]
+  Country  Sex     `-`   `+`
+  <fct>    <chr> <int> <int>
+1 Austria  F         3     4
+2 Austria  M         3     4
+3 Portugal F         5     2
+4 Portugal M         5     2
+5 Spain    F         5     5
+6 Spain    M         5     5
+[1] "Wolbachia * Country * Sex + PC.ratio+(1|Supervisor.PI)+(1|Line:Country)+(1|Batch)"
+[1] "_______________ LMM __________________"
+Analysis of Deviance Table (Type III Wald chisquare tests)
+
+Response: AvArea
+                          Chisq Df Pr(>Chisq)    
+(Intercept)            148.1305  1    < 2e-16 ***
+Wolbachia                2.4846  1    0.11497    
+Country                  8.2861  2    0.01587 *  
+Sex                   9133.5741  1    < 2e-16 ***
+PC.ratio                 1.1974  1    0.27385    
+Wolbachia:Country        3.4554  2    0.17769    
+Wolbachia:Sex            0.3384  1    0.56078    
+Country:Sex              0.9356  2    0.62639    
+Wolbachia:Country:Sex    5.3901  2    0.06754 .  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1

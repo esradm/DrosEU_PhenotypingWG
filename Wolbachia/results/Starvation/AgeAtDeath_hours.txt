@@ -1,0 +1,33 @@
+[1] "__________________AgeAtDeath_hours_______________"
+[1] "______ Table with line counts per country_________"
+# A tibble: 10 × 4
+# Groups:   Country [5]
+   Country  Sex     `-`   `+`
+   <fct>    <chr> <int> <int>
+ 1 Austria  F         4    15
+ 2 Austria  M         4    15
+ 3 Portugal F         7     7
+ 4 Portugal M         7     7
+ 5 Spain    F         5     9
+ 6 Spain    M         5     9
+ 7 Turkey   F         3    17
+ 8 Turkey   M         3    17
+ 9 Ukraine  F         6    10
+10 Ukraine  M         6    10
+[1] "_______________ LMM __________________"
+[1] "Wolbachia * Country * Sex + PC.ratio+(1|Lab)+(1|Line:Country)+(1|Batch)"
+Analysis of Deviance Table (Type III Wald chisquare tests)
+
+Response: AgeAtDeath_hours
+                           Chisq Df Pr(>Chisq)    
+(Intercept)              13.4597  1  0.0002437 ***
+Wolbachia                 0.0177  1  0.8942880    
+Country                  17.2913  4  0.0016965 ** 
+Sex                   13936.4179  1  < 2.2e-16 ***
+PC.ratio                  2.5622  1  0.1094428    
+Wolbachia:Country         0.9866  4  0.9118229    
+Wolbachia:Sex             6.0875  1  0.0136141 *  
+Country:Sex              69.6422  4  2.701e-14 ***
+Wolbachia:Country:Sex     9.9410  4  0.0414338 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1

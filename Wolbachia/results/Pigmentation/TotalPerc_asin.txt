@@ -1,0 +1,24 @@
+[1] "__________________TotalPerc_asin_______________"
+[1] "______ Table with line counts per country_________"
+# A tibble: 5 × 4
+# Groups:   Country [5]
+  Country  Sex     `-`   `+`
+  <fct>    <chr> <int> <int>
+1 Austria  F         4    14
+2 Portugal F         7     7
+3 Spain    F         5     9
+4 Turkey   F         3    17
+5 Ukraine  F         7    10
+[1] "_______________ LMM __________________"
+[1] "Wolbachia * Country + PC.ratio+(1|Lab)+(1|Line:Country)+(1|Batch)"
+Analysis of Deviance Table (Type III Wald chisquare tests)
+
+Response: TotalPerc_asin
+                    Chisq Df Pr(>Chisq)    
+(Intercept)       18.3491  1  1.839e-05 ***
+Wolbachia          0.4498  1    0.50242    
+Country           12.6608  4    0.01306 *  
+PC.ratio           0.6794  1    0.40979    
+Wolbachia:Country  0.8059  4    0.93766    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1

@@ -1,0 +1,1 @@
+Supervisor.PI Diet Batch Population Line Condition TotalNumberOfFlies ZT_hours_MESA ZT_hours_LSPR Period_MESA Period_LSPR Rhythmicity_LSPR_amplitude Rhythmicity_JTK_p_BH_corrected Country Latitude Longitude Altitude Population_Lat Population_Lon Population_Alt Color StatusT StatusM Wolbachia
