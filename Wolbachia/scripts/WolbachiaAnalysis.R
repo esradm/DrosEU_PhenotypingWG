@@ -53,8 +53,8 @@ Trait=list(
   list("DevAssym","AvArea"))
 
 ## set working directory
-setwd("/media/inter/mkapun/projects/DrosEU_PhenotypingWG/")
-
+#setwd("/media/inter/mkapun/projects/DrosEU_PhenotypingWG/")
+setwd("/Users/martinkapun/Documents/GitHub/DrosEU_PhenotypingWG/")
 ## Function to plot lineplots with Standard Deviations using ggplot
 data_summary <- function(x) {
   m <- mean(x)
@@ -155,7 +155,7 @@ for (i in seq(1,length(Phenotype),1)){
 
     ## only continue if any data left after filtering;-)
     if (nrow(DATA)>0){
-
+      # prepare final table for printing
       tmp<-DATA %>%
       group_by(Country,Wolbachia, Sex,Line)%>%
       summarise(N=length(Line))
@@ -206,7 +206,7 @@ for (i in seq(1,length(Phenotype),1)){
 
         ## include line connecting the labs
         DATA.p=ggplot(DATA, aes(x=Lab, y=Trait,col=Wolbachia)) +
-        stat_summary(fun.data=data_summary,aes(group=Wolbachia,color=Wolbachia),geom="line",linewidth=0.2,show.legend=F)+
+        stat_summary(fun.data=data_summary,aes(group=Wolbachia,color=Wolbachia),geom="line",size=0.2,show.legend=F)+
         stat_summary(fun.data=data_summary,aes(colour=Wolbachia,pch=Wolbachia),size=1)+
           theme_bw()+
           facet_grid(FACET,scales="free_y")+
@@ -249,7 +249,7 @@ for (i in seq(1,length(Phenotype),1)){
 
       ## Make plot averaging across PIs.Note that the Error bars are SE
       DATA.p2=ggplot(DATA, aes(x=Country, y=Trait,col=Wolbachia)) +
-      stat_summary(fun.data=data_summary_se,aes(group=Wolbachia,color=Wolbachia),geom="line",linewidth=0.2,show.legend=F)+
+      stat_summary(fun.data=data_summary_se,aes(group=Wolbachia,color=Wolbachia),geom="line",size=0.2,show.legend=F)+
       stat_summary(fun.data=data_summary_se,aes(colour=Wolbachia,pch=Wolbachia),size=1)+
         theme_bw()+
         facet_grid(~Sex, scales="free_y")+
