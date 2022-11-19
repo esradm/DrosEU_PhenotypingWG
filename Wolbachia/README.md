@@ -1,4 +1,4 @@
-# DrosEU_Wolbachia
+# _Wolbachia_ analysis
 
 Here, I am reporting an updated analysis of the DrosEU phenotyping focusing on potential effects of _Wolbachia_ infections on trait variation. I therefore tested for the effect of presence/absence of _Wolbachia_ on trait variation in different populations (hereafter called "Countries") taking into account that certain traits were measured in more than one lab. I only included countries that were polymorphic for _Wolbachia_ infections, i.e., I had to exclude "Russia" and "Finland", since all lines in these countries were _Wolbachia_-positive. To avoid biases, I excluded countries with less than two lines for each infection type (infected [wol+] and uninfected [wol-]) and only retained lines that were analyzed in at least n-1 labs (where _n_ is the number of labs analyzing a given phenotype) for each trait.
 
