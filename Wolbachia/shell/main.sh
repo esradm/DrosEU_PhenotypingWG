@@ -11,3 +11,7 @@ Rscript Wolbachia/scripts/GetData.R
 
 ## Perform Wolbachia-specific analysis for all phenotypes
 Rscript Wolbachia/scripts/WolbachiaAnalysis.R
+
+## convert README.md to pdf
+cd Wolbachia
+pandoc -s -o DrosEU_Wolbachia.pdf README.md --pdf-engine=/Library/TeX/texbin/pdflatex
