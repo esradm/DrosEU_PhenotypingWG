@@ -240,12 +240,12 @@ for (i in seq(1,length(Phenotype),1)){
       ggsave(paste0(out_dir,"/",PH,"/",TRt,"_raw.pdf"),
         DATA.p,
         width=15,
-        height=10)
+        height=5)
 
       ggsave(paste0(out_dir,"/",PH,"/",TRt,"_raw.png"),
         DATA.p,
         width=15,
-        height=10)
+        height=5)
 
       ## Make plot averaging across PIs.Note that the Error bars are SE
       DATA.p2=ggplot(DATA, aes(x=Country, y=Trait,col=Wolbachia)) +
@@ -265,12 +265,12 @@ for (i in seq(1,length(Phenotype),1)){
       ggsave(paste0(out_dir,"/",PH,"/",TRt,"_raw2.pdf"),
         DATA.p2,
         width=15,
-        height=10)
+        height=5)
 
       ggsave(paste0(out_dir,"/",PH,"/",TRt,"_raw2.png"),
         DATA.p2,
         width=15,
-        height=10)
+        height=5)
 
       print("_______________ LMM __________________")
       print(FIXED)
