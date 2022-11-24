@@ -19,14 +19,14 @@
 Analysis of Deviance Table (Type III Wald chisquare tests)
 
 Response: CCRT_seconds
-                          Chisq Df Pr(>Chisq)    
-(Intercept)           3781.1494  1  < 2.2e-16 ***
-Wolbachia                0.0049  1  0.9444345    
-Country                 24.7465  4  5.657e-05 ***
-Sex                      9.9067  1  0.0016468 ** 
-Wolbachia:Country        8.8236  4  0.0656628 .  
-Wolbachia:Sex            0.0047  1  0.9454932    
-Country:Sex             22.3480  4  0.0001709 ***
-Wolbachia:Country:Sex    6.5071  4  0.1643463    
+                         Chisq Df Pr(>Chisq)    
+(Intercept)           230.5060  1  < 2.2e-16 ***
+Wolbachia               1.1639  1  0.2806573    
+Country                20.0452  4  0.0004892 ***
+Sex                     1.4539  1  0.2278964    
+Wolbachia:Country       3.7033  4  0.4476423    
+Wolbachia:Sex           0.1215  1  0.7273732    
+Country:Sex             9.1938  4  0.0564338 .  
+Wolbachia:Country:Sex   6.5071  4  0.1643463    
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1

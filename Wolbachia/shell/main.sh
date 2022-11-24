@@ -14,8 +14,6 @@ Rscript Wolbachia/scripts/WolbachiaAnalysis.R
 
 ## In a second type of analyses, I specifically focus on fecundity
 
-
-
 ## convert README.md to pdf
 cd Wolbachia
 pandoc -s -o DrosEU_Wolbachia.pdf README.md --pdf-engine=/Library/TeX/texbin/pdflatex

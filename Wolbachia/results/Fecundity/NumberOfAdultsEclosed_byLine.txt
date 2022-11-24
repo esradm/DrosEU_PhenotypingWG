@@ -1,0 +1,33 @@
+Analysis of Deviance Table (Type III Wald chisquare tests)
+
+Response: NumberOfAdultsEclosed
+                    Chisq Df Pr(>Chisq)    
+(Intercept)       26.1759  1  3.117e-07 ***
+Country            3.4376  6     0.7523    
+Wolbachia          0.0646  1     0.7994    
+Country:Wolbachia  3.2030  6     0.7830    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+[1] "Test by Lab"
+[1] "Billeter"
+Analysis of Deviance Table (Type III Wald chisquare tests)
+
+Response: NumberOfAdultsEclosed
+                    Chisq Df Pr(>Chisq)    
+(Intercept)       25.6849  1   4.02e-07 ***
+Country            1.5530  6     0.9559    
+Wolbachia          2.6054  1     0.1065    
+Country:Wolbachia  5.6842  6     0.4595    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+[1] "Fricke"
+Analysis of Deviance Table (Type III Wald chisquare tests)
+
+Response: NumberOfAdultsEclosed
+                    Chisq Df Pr(>Chisq)    
+(Intercept)       26.1759  1  3.117e-07 ***
+Country            3.4376  6     0.7523    
+Wolbachia          0.0646  1     0.7994    
+Country:Wolbachia  3.2030  6     0.7830    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1

@@ -15,19 +15,19 @@
  9 Ukraine  F         6    10
 10 Ukraine  M         6    10
 [1] "_______________ LMM __________________"
-[1] "Wolbachia * Country * Sex + PC.ratio+(1|Lab)+(1|Line:Country)+(1|Batch)"
+[1] "Wolbachia * Country * Sex + PC.ratio+(1|Lab)+(1|Line:Country)+(1|Batch:Lab)"
 Analysis of Deviance Table (Type III Wald chisquare tests)
 
 Response: LSL_AgeAtDeath_days
-                         Chisq Df Pr(>Chisq)    
-(Intercept)             8.4865  1  0.0035778 ** 
-Wolbachia               0.8254  1  0.3636129    
-Country                 1.6020  4  0.8084273    
-Sex                   126.2562  1  < 2.2e-16 ***
-PC.ratio                0.7508  1  0.3862122    
-Wolbachia:Country       5.4552  4  0.2436999    
-Wolbachia:Sex           0.0033  1  0.9540255    
-Country:Sex            22.0584  4  0.0001951 ***
-Wolbachia:Country:Sex   7.2346  4  0.1239979    
+                        Chisq Df Pr(>Chisq)    
+(Intercept)           15.6371  1  7.673e-05 ***
+Wolbachia              0.4443  1    0.50506    
+Country                1.5752  4    0.81324    
+Sex                   42.7545  1  6.206e-11 ***
+PC.ratio               1.5123  1    0.21879    
+Wolbachia:Country      4.3279  4    0.36345    
+Wolbachia:Sex          2.7652  1    0.09634 .  
+Country:Sex           10.3852  4    0.03442 *  
+Wolbachia:Country:Sex  7.2175  4    0.12483    
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1

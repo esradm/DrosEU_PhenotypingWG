@@ -10,15 +10,15 @@
 4 Turkey   F         3    17
 5 Ukraine  F         7    10
 [1] "_______________ LMM __________________"
-[1] "Wolbachia * Country + PC.ratio+(1|Lab)+(1|Line:Country)+(1|Batch)"
+[1] "Wolbachia * Country + PC.ratio+(1|Lab)+(1|Line:Country)+(1|Batch:Lab)"
 Analysis of Deviance Table (Type III Wald chisquare tests)
 
 Response: NumberOfAdultsEclosed
                    Chisq Df Pr(>Chisq)  
-(Intercept)       5.6540  1    0.01742 *
-Wolbachia         1.8068  1    0.17890  
-Country           3.0578  4    0.54821  
-PC.ratio          2.2413  1    0.13436  
-Wolbachia:Country 0.3586  4    0.98573  
+(Intercept)       3.4323  1    0.06393 .
+Wolbachia         0.9537  1    0.32878  
+Country           0.8750  4    0.92811  
+PC.ratio          1.5667  1    0.21068  
+Wolbachia:Country 0.3585  4    0.98573  
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
