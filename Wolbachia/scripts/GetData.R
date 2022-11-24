@@ -7,7 +7,7 @@ library(tidyverse)
 library(lme4)
 
 ##### set working directory
-setwd("/media/inter/mkapun/projects/DrosEU_PhenotypingWG/")
+setwd("/Users/martinkapun/Documents/GitHub/DrosEU_PhenotypingWG")
 
 ##### source functions
 source("Code/functions.R")
