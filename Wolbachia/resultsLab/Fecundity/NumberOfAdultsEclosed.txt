@@ -1,0 +1,27 @@
+[1] "__________________NumberOfAdultsEclosed_______________"
+[1] "______ Table with line counts per country_________"
+# A tibble: 5 × 4
+# Groups:   Country [5]
+  Country  Sex     `-`   `+`
+  <fct>    <chr> <int> <int>
+1 Austria  F         4    15
+2 Portugal F         7     7
+3 Spain    F         5     9
+4 Turkey   F         3    17
+5 Ukraine  F         7    10
+[1] "_______________ LMM __________________"
+[1] "Wolbachia * Country * Lab+(1|Line:Country)+(1|Batch:Lab)"
+Analysis of Deviance Table (Type III Wald chisquare tests)
+
+Response: NumberOfAdultsEclosed
+                         Chisq Df Pr(>Chisq)    
+(Intercept)           382.4526  1  < 2.2e-16 ***
+Wolbachia               1.5749  1   0.209498    
+Country                 3.7319  4   0.443497    
+Lab                    59.4547  1  1.251e-14 ***
+Wolbachia:Country       0.4911  4   0.974363    
+Wolbachia:Lab           0.4334  1   0.510307    
+Country:Lab            15.5488  4   0.003688 ** 
+Wolbachia:Country:Lab   9.3318  4   0.053320 .  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1

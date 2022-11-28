@@ -1,0 +1,40 @@
+[1] "__________________LSL_AgeAtDeath_days_______________"
+[1] "______ Table with line counts per country_________"
+# A tibble: 10 × 4
+# Groups:   Country [5]
+   Country  Sex     `-`   `+`
+   <fct>    <chr> <int> <int>
+ 1 Austria  F         4    15
+ 2 Austria  M         4    15
+ 3 Portugal F         7     7
+ 4 Portugal M         7     7
+ 5 Spain    F         5     9
+ 6 Spain    M         5     9
+ 7 Turkey   F         3    17
+ 8 Turkey   M         3    17
+ 9 Ukraine  F         6    10
+10 Ukraine  M         6    10
+[1] "_______________ LMM __________________"
+[1] "Wolbachia * Country * Sex * Lab+(1|Line:Country)+(1|Batch:Lab)"
+Analysis of Deviance Table (Type III Wald chisquare tests)
+
+Response: LSL_AgeAtDeath_days
+                              Chisq Df Pr(>Chisq)    
+(Intercept)               2499.1636  1  < 2.2e-16 ***
+Wolbachia                    0.2802  1  0.5965670    
+Country                      0.3982  4  0.9826254    
+Sex                         97.9274  1  < 2.2e-16 ***
+Lab                         12.9166  1  0.0003257 ***
+Wolbachia:Country            4.3001  4  0.3669095    
+Wolbachia:Sex                0.1672  1  0.6825887    
+Country:Sex                 35.4203  4  3.808e-07 ***
+Wolbachia:Lab                1.9293  1  0.1648335    
+Country:Lab                175.0415  4  < 2.2e-16 ***
+Sex:Lab                      6.8699  1  0.0087659 ** 
+Wolbachia:Country:Sex        6.4603  4  0.1673113    
+Wolbachia:Country:Lab       53.9862  4  5.298e-11 ***
+Wolbachia:Sex:Lab            1.4262  1  0.2323846    
+Country:Sex:Lab             33.1107  4  1.134e-06 ***
+Wolbachia:Country:Sex:Lab   13.1127  4  0.0107381 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1

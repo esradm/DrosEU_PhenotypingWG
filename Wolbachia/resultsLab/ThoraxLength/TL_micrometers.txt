@@ -1,0 +1,24 @@
+[1] "__________________TL_micrometers_______________"
+[1] "______ Table with line counts per country_________"
+# A tibble: 2 × 4
+# Groups:   Country [1]
+  Country Sex     `-`   `+`
+  <fct>   <chr> <int> <int>
+1 Austria F         3     4
+2 Austria M         3     4
+[1] "_______________ LMM __________________"
+[1] "Wolbachia * Sex * Lab+(1|Line:Country)+(1|Batch:Lab)"
+Analysis of Deviance Table (Type III Wald chisquare tests)
+
+Response: TL_micrometers
+                      Chisq Df Pr(>Chisq)    
+(Intercept)       2122.2548  1  < 2.2e-16 ***
+Wolbachia            0.0560  1     0.8129    
+Sex                739.0868  1  < 2.2e-16 ***
+Lab                  5.1838  3     0.1588    
+Wolbachia:Sex        0.0771  1     0.7813    
+Wolbachia:Lab        3.1833  3     0.3642    
+Sex:Lab             34.2404  2  3.671e-08 ***
+Wolbachia:Sex:Lab    2.4314  2     0.2965    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1

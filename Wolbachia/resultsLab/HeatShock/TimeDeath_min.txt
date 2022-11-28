@@ -1,0 +1,40 @@
+[1] "__________________TimeDeath_min_______________"
+[1] "______ Table with line counts per country_________"
+# A tibble: 10 × 4
+# Groups:   Country [5]
+   Country  Sex     `-`   `+`
+   <fct>    <chr> <int> <int>
+ 1 Austria  F         4    15
+ 2 Austria  M         4    15
+ 3 Portugal F         7     6
+ 4 Portugal M         7     6
+ 5 Spain    F         5     9
+ 6 Spain    M         5     9
+ 7 Turkey   F         3    17
+ 8 Turkey   M         3    17
+ 9 Ukraine  F         7    10
+10 Ukraine  M         7    10
+[1] "_______________ LMM __________________"
+[1] "Wolbachia * Country * Sex * Lab+(1|Line:Country)+(1|Batch:Lab)"
+Analysis of Deviance Table (Type III Wald chisquare tests)
+
+Response: TimeDeath_min
+                              Chisq Df Pr(>Chisq)    
+(Intercept)                529.5969  1  < 2.2e-16 ***
+Wolbachia                    0.4972  1  0.4807403    
+Country                    105.8312  4  < 2.2e-16 ***
+Sex                       3182.3185  1  < 2.2e-16 ***
+Lab                          0.1601  1  0.6890345    
+Wolbachia:Country            9.1863  4  0.0566082 .  
+Wolbachia:Sex                0.0974  1  0.7549891    
+Country:Sex                 11.2396  4  0.0239989 *  
+Wolbachia:Lab                6.9249  1  0.0085005 ** 
+Country:Lab                191.8821  4  < 2.2e-16 ***
+Sex:Lab                      0.6224  1  0.4301733    
+Wolbachia:Country:Sex       27.9869  4  1.255e-05 ***
+Wolbachia:Country:Lab      261.8192  4  < 2.2e-16 ***
+Wolbachia:Sex:Lab            0.4995  1  0.4797013    
+Country:Sex:Lab             20.9377  4  0.0003258 ***
+Wolbachia:Country:Sex:Lab   68.5370  4  4.621e-14 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1

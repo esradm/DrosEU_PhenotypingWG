@@ -1,0 +1,27 @@
+[1] "__________________Prop_Max_Stage8_asin_______________"
+[1] "______ Table with line counts per country_________"
+# A tibble: 5 × 4
+# Groups:   Country [5]
+  Country  Sex     `-`   `+`
+  <fct>    <chr> <int> <int>
+1 Austria  F         4    15
+2 Portugal F         7     6
+3 Spain    F         5     9
+4 Turkey   F         3    17
+5 Ukraine  F         5    10
+[1] "_______________ LMM __________________"
+[1] "Wolbachia * Country * Lab+(1|Line:Country)+(1|Batch:Lab)"
+Analysis of Deviance Table (Type III Wald chisquare tests)
+
+Response: Prop_Max_Stage8_asin
+                          Chisq Df Pr(>Chisq)    
+(Intercept)           1056.9351  1    < 2e-16 ***
+Wolbachia                0.0867  1    0.76838    
+Country                  9.0790  4    0.05915 .  
+Lab                     80.8246  2    < 2e-16 ***
+Wolbachia:Country        4.0229  4    0.40292    
+Wolbachia:Lab            3.9489  2    0.13884    
+Country:Lab             11.1051  8    0.19581    
+Wolbachia:Country:Lab   11.6015  8    0.16989    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1

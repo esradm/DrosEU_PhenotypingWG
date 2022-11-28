@@ -1,0 +1,36 @@
+[1] "__________________DevAssym_______________"
+[1] "______ Table with line counts per country_________"
+# A tibble: 6 × 4
+# Groups:   Country [3]
+  Country  Sex     `-`   `+`
+  <fct>    <chr> <int> <int>
+1 Austria  F         3     4
+2 Austria  M         3     4
+3 Portugal F         5     2
+4 Portugal M         5     2
+5 Spain    F         5     5
+6 Spain    M         5     5
+[1] "_______________ LMM __________________"
+[1] "Wolbachia * Country * Sex * Lab+(1|Line:Country)+(1|Batch:Lab)"
+Analysis of Deviance Table (Type III Wald chisquare tests)
+
+Response: DevAssym
+                             Chisq Df Pr(>Chisq)    
+(Intercept)               438.2132  1  < 2.2e-16 ***
+Wolbachia                   0.5587  1   0.454769    
+Country                     1.1782  2   0.554813    
+Sex                         1.1171  1   0.290547    
+Lab                       162.3803  2  < 2.2e-16 ***
+Wolbachia:Country           3.7624  2   0.152408    
+Wolbachia:Sex               0.5027  1   0.478309    
+Country:Sex                 0.0528  2   0.973933    
+Wolbachia:Lab               0.7205  2   0.697485    
+Country:Lab                 6.7947  4   0.147146    
+Sex:Lab                     1.7568  2   0.415446    
+Wolbachia:Country:Sex       0.1578  2   0.924113    
+Wolbachia:Country:Lab       9.8414  2   0.007294 ** 
+Wolbachia:Sex:Lab           3.0504  2   0.217577    
+Country:Sex:Lab             2.6313  4   0.621296    
+Wolbachia:Country:Sex:Lab   0.5773  2   0.749261    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1

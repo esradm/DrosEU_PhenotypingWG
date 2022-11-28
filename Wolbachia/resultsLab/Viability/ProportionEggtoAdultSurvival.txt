@@ -1,0 +1,27 @@
+[1] "__________________ProportionEggtoAdultSurvival_______________"
+[1] "______ Table with line counts per country_________"
+# A tibble: 5 × 4
+# Groups:   Country [5]
+  Country  Sex     `-`   `+`
+  <fct>    <chr> <int> <int>
+1 Austria  F         4    13
+2 Portugal F         7     6
+3 Spain    F         5     9
+4 Turkey   F         3    17
+5 Ukraine  F         4     8
+[1] "_______________ LMM __________________"
+[1] "Wolbachia * Country * Lab+(1|Line:Country)+(1|Batch:Lab)"
+Analysis of Deviance Table (Type III Wald chisquare tests)
+
+Response: ProportionEggtoAdultSurvival
+                         Chisq Df Pr(>Chisq)    
+(Intercept)           373.1318  1    < 2e-16 ***
+Wolbachia               2.4674  1    0.11623    
+Country                12.3157  4    0.01515 *  
+Lab                     7.1831  4    0.12653    
+Wolbachia:Country       5.8614  4    0.20974    
+Wolbachia:Lab          16.3183  4    0.00262 ** 
+Country:Lab            16.1861 12    0.18286    
+Wolbachia:Country:Lab  15.0065 12    0.24108    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
