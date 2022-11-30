@@ -326,3 +326,20 @@ for (i in seq(1,length(Phenotype),1)){
       }
     }
   }
+
+
+echo '''
+  library(tidyverse)
+  DATA = read.table("/media/inter/mkapun/projects/DrosEU_PhenotypingWG/Data/Wolbachia.txt",
+  header=T)
+  DATA$Country <- toupper(substr(DATA$Line,1,2))
+  NewDat<-DATA %>% 
+  group_by(Country, Wolbachia)%>%
+  summarise(N=n()) %>%
+  spread(Wolbachia, N, 
+    fill=0)
+  write.table(NewDat,
+  file="/media/inter/mkapun/projects/DrosEU_PhenotypingWG/Wolbachia/data/Wolb_condensed.txt",
+  quote=FALSE,
+  row.names=FALSE)
+'''
