@@ -197,10 +197,6 @@ droseu_fill_scale_pop <- scale_fill_manual(name = "Population", values = droseu_
 # droseu official country colors
 suppressWarnings(require(MetBrewer))
 droseu_colors <- met.brewer("Johnson", 9)
-names(droseu_colors) <- as.factor(c("FIN", "ESP", "DNK", "AUT", "DEU", "PRT", "UKR", "RUS", "TUR"))
+names(droseu_colors) <- as.factor(c("FI", "ES", "DK", "AT", "DE", "PT", "UA", "RU", "TR"))
 droseu_color_scale_country <- scale_colour_manual(name = "Country_code", values = droseu_colors)
 droseu_fill_scale_country <- scale_fill_manual(name = "Country_code", values = droseu_colors)
-
-
-
-

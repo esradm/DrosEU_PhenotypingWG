@@ -1,10 +1,10 @@
 ﻿Country,Country_code,Location,Latitude,Longitude,Altitude
-Portugal,PRT,Recarei,41.15,-8.41,175
-Spain,ESP,Gimenells (Lleida),41.618,0.62,173
-Denmark,DNK,Karensminde,55.945,10.213,15
-Germany,DEU,Munich,48.18,11.61,520
-Austria,AUT,Mauternbach,48.375,15.56,572
-Finland,FIN,Akaa,61.1,23.52,88
-Ukraine,UKR,Uman,48.753,30.206,214
-Turkey,TUR,Yesiloz,40.231,32.26,680
-Russia,RUS,Valday,57.979,33.244,217
+Portugal,PT,Recarei,41.15,-8.41,175
+Spain,ES,Gimenells (Lleida),41.618,0.62,173
+Denmark,DK,Karensminde,55.945,10.213,15
+Germany,DE,Munich,48.18,11.61,520
+Austria,AT,Mauternbach,48.375,15.56,572
+Finland,FI,Akaa,61.1,23.52,88
+Ukraine,UA,Uman,48.753,30.206,214
+Turkey,TR,Yesiloz,40.231,32.26,680
+Russia,RU,Valday,57.979,33.244,217

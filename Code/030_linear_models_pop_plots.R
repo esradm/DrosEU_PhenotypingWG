@@ -110,7 +110,7 @@ for (i in seq_along(droseu_trait)) {
     droseu_trait[[i]],
     aes(x = Country_code, y = Value, color = Lab, fill = Country_code)
   ) +
-  geom_boxplot() +
+  geom_boxplot(outlier.shape = NA, position = position_dodge(0.9)) +
   labs(
     x = "Country (by increasing latitude)",
     y = unique(droseu_trait[[i]]$Legend),
@@ -126,9 +126,53 @@ for (i in seq_along(droseu_trait)) {
   )
 
   ggsave(
-    print(p),
+    p,
     filename = file.path(lmer_plots_dir, out_file_png),
     width = 10, height = 6
+  )
+
+}
+
+
+##### same as above but with flipped coords
+
+
+for (i in seq_along(droseu_trait)) {
+
+  title_text <- paste(unique(droseu_trait[[i]]$Title), unique(droseu_trait[[i]]$Sex), sep = " - ")
+  title_text <- sub(" - F", " - Females", title_text)
+  title_text <- sub(" - M", " - Males", title_text)
+  title_text <- sub(" - NA", "", title_text)
+
+  out_file_png <- paste(
+    "p_", unique(droseu_trait[[i]]$Trait), "_",
+    unique(droseu_trait[[i]]$Sex), "_flipped.png", sep = ""
+  )
+
+  p <- ggplot(
+    droseu_trait[[i]],
+    aes(x = Country_code, y = Value, color = Lab, fill = Country_code)
+  ) +
+  geom_boxplot(outlier.shape = NA, position = position_dodge(0.9)) +
+  labs(
+    x = "Country (by latitude)",
+    y = unique(droseu_trait[[i]]$Legend),
+    title = title_text) +
+  droseu_fill_scale_country +
+    scale_color_grey(start = 0, end = 0) +
+    theme_classic() +
+    theme(
+      legend.position = "none",
+      axis.text = element_text(size = 22),
+      axis.title = element_text(size = 22),
+      plot.title = element_text(size = 22)
+  ) +
+  coord_flip()
+
+  ggsave(
+    p,
+    filename = file.path(lmer_plots_dir, out_file_png),
+    width = 6, height = 8
   )
 
 }
