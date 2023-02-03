@@ -100,6 +100,7 @@ for (i in seq_along(droseu_trait)) {
   title_text <- paste(unique(droseu_trait[[i]]$Title), unique(droseu_trait[[i]]$Sex), sep = " - ")
   title_text <- sub(" - F", " - Females", title_text)
   title_text <- sub(" - M", " - Males", title_text)
+  title_text <- sub(" - NA", "", title_text)
 
   out_file_png <- paste(
     "p_", unique(droseu_trait[[i]]$Trait), "_",
@@ -112,9 +113,10 @@ for (i in seq_along(droseu_trait)) {
   ) +
   geom_boxplot(outlier.shape = NA, position = position_dodge(0.9)) +
   labs(
-    x = "Country (by increasing latitude)",
+    x = "Population",
     y = unique(droseu_trait[[i]]$Legend),
-    title = title_text) +
+    title = title_text
+  ) +
   droseu_fill_scale_country +
   scale_color_grey(start = 0, end = 0) +
   theme_classic() +
@@ -155,9 +157,11 @@ for (i in seq_along(droseu_trait)) {
   ) +
   geom_boxplot(outlier.shape = NA, position = position_dodge(0.9)) +
   labs(
-    x = "Country (by latitude)",
+    x = "Population",
     y = unique(droseu_trait[[i]]$Legend),
-    title = title_text) +
+    title = title_text,
+    subtitle = "Raw data split by lab"
+    ) +
   droseu_fill_scale_country +
     scale_color_grey(start = 0, end = 0) +
     theme_classic() +
@@ -165,7 +169,8 @@ for (i in seq_along(droseu_trait)) {
       legend.position = "none",
       axis.text = element_text(size = 22),
       axis.title = element_text(size = 22),
-      plot.title = element_text(size = 22)
+      plot.title = element_text(size = 22),
+      plot.subtitle = element_text(size = 18)
   ) +
   coord_flip()
 

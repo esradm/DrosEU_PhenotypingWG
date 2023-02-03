@@ -251,7 +251,7 @@ ggsave(p_meta_CI_facet, filename = "MetaAnalyses/all_models_pop_meta_summary_eff
 
 
 
-############# INDVIDUAL PLOTS ############# 
+############# INDVIDUAL PLOTS, LOW RES FOR HTML ############# 
 
 # re usage of facet plot stats_text
 
@@ -294,5 +294,65 @@ for (i in 1:length(metas_pop_trait)){
     # save plot
     ggsave(p_meta_CI, filename = p_out_pdf, width = 5, height = 5)
     ggsave(p_meta_CI, filename = p_out_png, width = 5, height = 5, dpi = 120)
+  }
+}
+
+
+############# INDVIDUAL PLOTS FOR PAPER FIGURES ############# 
+
+# re usage of facet plot stats_text
+
+
+trait_names <- read.csv("InfoTables/trait_names.csv") %>%
+  dplyr::select(Trait_handle, Trait, Trait_name_raw, Legend, Title) %>%
+  rename(Trait_name = Trait_name_raw)
+
+
+##### list all metas
+metas_pop_trait <- list.files(path = meta_dir, recursive = T, full.names = T, pattern = "lmers_pop_meta_compound_estimates.rds")
+
+for (i in 1:length(metas_pop_trait)){
+  fpath <- metas_pop_trait[i]
+  # set output names
+  p_out_pdf <- sub("compound_estimates.rds", "summary_effect_high_res.pdf", fpath)
+  p_out_png <- sub(".pdf", ".png", p_out_pdf)
+  # read compound estimates in and define variables
+  m <- readRDS(fpath) %>%
+    inner_join(pops$by_lat) %>%
+    mutate(Group = paste(Trait, Sex, Models),
+           y = as.numeric(Country_code))
+  # get stats defined before
+  m <- inner_join(m, stats_text)
+  m <- inner_join(m, trait_names)
+  # plot relevant metas
+  if (nrow(m) > 0) {
+    title_text <- paste(unique(m$Title), unique(m$Sex), sep = " - ")
+    title_text <- sub(" - F", " - Females", title_text)
+    title_text <- sub(" - M", " - Males", title_text)
+    title_text <- sub(" - NA", "", title_text)
+    sub_title_text <- bquote(italic("Q") == .(m$Q) ~ italic("p") == .(m$P) ~ N == .(m$N_lab_av))
+    qvalue <- unique(m$Q_plot)
+    pvalue <- unique(m$P_bonf_plot)
+    nvalue <- unique(m$N_plot)
+    # plot
+    p_meta_CI <- ggplot(data = m, aes(x = Estimate, y = Country_code, color = Country_code)) +
+      theme_classic() +
+      geom_point(shape = 15, size = 6) +
+      geom_errorbarh(aes(xmin = LLEst, xmax = ULEst), height = 0, lwd = 1.5) +
+      droseu_color_scale_country +
+      labs(
+        x = "Summary effect with 95% CI", y = "Population",
+        title = title_text, subtitle = sub_title_text
+      ) +
+      theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank()) +
+      theme(legend.position = "none",
+        axis.text = element_text(size = 22),
+        axis.title = element_text(size = 22),
+        plot.title = element_text(size = 22),
+        plot.subtitle = element_text(size = 18)
+      )
+    # save plot
+    ggsave(p_meta_CI, filename = p_out_pdf, width = 6, height = 8)
+    ggsave(p_meta_CI, filename = p_out_png, width = 6, height = 8)
   }
 }
