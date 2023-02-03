@@ -204,19 +204,18 @@ ggsave(pvalue_plot, filename = file.path(meta_dir, "all_models_pop_meta_pvalues.
 ############# FACET PLOT ############# 
 
 
-##### read in population info
+##### read in population info and pop compound estimates
 pops <- readRDS("InfoTables/DrosEU_Populations.rds")
+meta_pops <- readRDS(file.path(meta_dir, "all_models_pop_meta_compound_estimates.rds")) 
 
-
-##### get all metas pop compound estimates and add define variables for plotting
-meta_pops <- readRDS(file.path(meta_dir, "all_models_pop_meta_compound_estimates.rds")) %>%
+##### define variables for plotting
+meta_country <- inner_join(meta_pops, pops$by_lat) %>%
   mutate(Group = paste(Trait, Sex, Models)) %>%
   group_by(Group) %>% 
-  mutate(Population = factor(Population, levels = pops$by_lat$Population),
-         y = as.numeric(Population),
-         xpos = min(LLEst), 
-         ypos_qp = 11.2, 
-         ypos_n = 10.2, 
+  mutate(y = as.numeric(Country_code),
+         xpos = min(LLEst),
+         ypos_qp = 11.2,
+         ypos_n = 10.2,
          N_plot = paste("N ==", round(N_lab_av, 1))) %>%
   filter(N_lab_av >= 2)
 
@@ -224,20 +223,20 @@ meta_pops <- readRDS(file.path(meta_dir, "all_models_pop_meta_compound_estimates
 meta_pops_pvalues <- readRDS(file.path(meta_dir, "all_models_pop_meta_pvalues.rds")) %>% 
   mutate(Group = paste(Trait, Sex, Models),
          Q_plot = paste0("italic(Q) == ", round(Q, 2)),
-         P_bonf_plot = ifelse(P_bonf < 0.001, "italic(p) < 0.001", paste0("italic(p) == ", round(P_bonf, 3)))) 
+         P_bonf_plot = ifelse(P_bonf < 0.001, "italic(p) < 0.001", paste0("italic(p) == ", round(P_bonf, 3))))
 
 
 ##### prepare text plotting
-stats_text <- inner_join(select(meta_pops_pvalues, Group, Q_plot, P_bonf_plot), select(meta_pops, Group, N_plot, xpos, ypos_qp, ypos_n) %>% distinct())
+stats_text <- inner_join(select(meta_pops_pvalues, Group, Q_plot, P_bonf_plot), select(meta_country, Group, N_plot, xpos, ypos_qp, ypos_n) %>% distinct())
 
 ##### facet plot
-p_meta_CI_facet <- ggplot(data = meta_pops, aes(x = Estimate, y = y, color = Population)) +
+p_meta_CI_facet <- ggplot(data = meta_country, aes(x = Estimate, y = y, color = Country_code)) +
   facet_wrap(Group ~ ., scales = "free_x", ncol = 5) +
   theme_bw() +
   geom_point(shape = 15, size = 2) +
   geom_errorbarh(aes(xmin = LLEst, xmax = ULEst), height = 0) +
-  droseu_color_scale +
-  scale_y_continuous(name = "Population", breaks = 1:max(meta_pops$y), labels = unique(meta_pops$Population)) +
+  droseu_color_scale_country +
+  scale_y_continuous(name = "Population", breaks = 1:max(meta_country$y), labels = unique(meta_country$Country_code)) +
   labs(x = "Population summary effect", y = "Population", title = "Subgroup meta analyses results", subtitle = "Populations summary effects with 95% CI, Q and P values and average number of labs (N)") +
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank()) +
   geom_text(data = stats_text, aes(x = xpos, y = ypos_qp, label = paste(Q_plot, P_bonf_plot, sep = "~~")), color = "black", parse = T, hjust = 0, size = 3, vjust = 1) +
@@ -265,10 +264,10 @@ for (i in 1:length(metas_pop_trait)){
   p_out_pdf <- sub("compound_estimates.rds", "summary_effect.pdf", fpath)
   p_out_png <- sub(".pdf", ".png", p_out_pdf)
   # read compound estimates in and define variables
-  m <- readRDS(fpath) %>% 
+  m <- readRDS(fpath) %>%
+    inner_join(pops$by_lat) %>%
     mutate(Group = paste(Trait, Sex, Models),
-           Population = factor(Population, levels = pops$by_lat$Population),
-           y = as.numeric(Population))
+           y = as.numeric(Country_code))
   # get stats defined before
   m <- inner_join(m, stats_text)
   # plot relevant metas
@@ -278,12 +277,15 @@ for (i in 1:length(metas_pop_trait)){
     pvalue <- unique(m$P_bonf_plot)
     nvalue <- unique(m$N_plot)
     # plot
-    p_meta_CI <- ggplot(data = m, aes(x = Estimate, y = y, color = Population)) +
+    p_meta_CI <- ggplot(data = m, aes(x = Estimate, y = y, color = Country_code)) +
       theme_bw(16) +
       geom_point(shape = 15, size = 6) +
       geom_errorbarh(aes(xmin = LLEst, xmax = ULEst), height = 0, lwd = 1.5) +
-      droseu_color_scale +
-      scale_y_continuous(name = "Population", breaks = 1:max(m$y), labels = unique(m$Population)) +
+      droseu_color_scale_country +
+      scale_y_continuous(
+        name = "Population", breaks = 1:max(m$y),
+        labels = unique(m$Country_code)
+      ) +
       labs(x = "Population summary effect", y = "Population", title = title_text) +
       theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank()) +
       geom_text(aes(x = unique(xpos), y = unique(ypos_n)), label = paste(qvalue, pvalue, nvalue, sep = "~~"), color = "black", parse = T, hjust = 0, size = 5, vjust = 1) +
