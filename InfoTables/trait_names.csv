@@ -1,32 +1,32 @@
-﻿Trait_handle,Trait,Trait_name_raw
-ccrt,CCRT,CCRT_seconds
-cets,CETS,ZT_hours_MESA
-cets,CETS,ZT_hours_LSPR
-cets,CETS,Period_MESA
-cets,CETS,Period_LSPR
-cets,CETS,Rhythmicity_LSPR_amplitude
-cets,CETS,Rhythmicity_JTK_p_BH_corrected
-csm,CSM,CSM_PropDead_ED_asin
-dia,Dia,Prop_Max_Stage9_asin
-dta,DT_A,DT_EggAdult
-dtp,DT_P,DT_EggPupa
-dw,DW,DW_micrograms
-fec,Fec,NumberOfAdultsEclosed
-hsm,HSM,TimeDeath_min
-la,LA_Period,Period
-la,LA_CircPhase,CircPhase
-la,LA_AbsPhase,AbsPhase
-la,LA_ND_log2,ND_log2
-la,LA_Activity,Activity
-lsl,LSL,LSL_AgeAtDeath_days
-lsm,LSM,LSM_AgeAtDeath_days
-lsp,LSP,LSP_AgeAtDeath_days
-pgm,Pgm_T4,PercT4_asin
-pgm,Pgm_T5,PercT5_asin
-pgm,Pgm_T6,PercT6_asin
-pgm,Pgm_Total,TotalPerc_asin
-sr,SR,AgeAtDeath_hours
-tl,TL,TL_micrometers
-via,Via,ProportionEggtoAdultSurvival_asin
-wa,WA_L,CentroidSizeLeft_micrometers
-wa,WA_R,CentroidSizeRight_micrometers
+﻿Trait_handle,Trait,Trait_name_raw,Trait_name_transformed,,Legend,Title
+ccrt,CCRT,CCRT_seconds,CCRT_seconds,,Recovery time (seconds),Chill-coma recovery time
+cets,CETS,ZT_hours_MESA,ZT_hours_MESA,,ZT_hours_MESA,Circadian eclosion timing
+cets,CETS,ZT_hours_LSPR,ZT_hours_LSPR,,ZT_hours_LSPR,Circadian eclosion timing
+cets,CETS,Period_MESA,Period_MESA,,Period_MESA,Circadian eclosion timing
+cets,CETS,Period_LSPR,Period_LSPR,,Period_LSPR,Circadian eclosion timing
+cets,CETS,Rhythmicity_LSPR_amplitude,Rhythmicity_LSPR_amplitude,,Rhythmicity_LSPR_amplitude,Circadian eclosion timing
+cets,CETS,Rhythmicity_JTK_p_BH_corrected,Rhythmicity_JTK_p_BH_corrected,,Rhythmicity_JTK_p_BH_corrected,Circadian eclosion timing
+csm,CSM,CSM_PropDead_ED,CSM_PropDead_ED_asin,,Proportion survival,Cold shock mortality
+dia,Dia,Prop_Max_Stage9,Prop_Max_Stage9_asin,,Proportion diapause,Diapause
+dta,DT_A,DT_EggAdult,DT_EggAdult,,Development time (hours),Egg-to-adult development time
+dtp,DT_P,DT_EggPupa,DT_EggPupa,,Development time (hours),Egg-to-pupae development time
+dw,DW,DW_micrograms,DW_micrograms,,Dry weight (microgram),Dry weight
+fec,Fec,NumberOfAdultsEclosed,NumberOfAdultsEclosed,,Number of eclosed adults,Fecundity
+hsm,HSM,TimeDeath_min,TimeDeath_min,,Age at death (minutes),Heat shock mortality
+la,LA_Period,Period,Period,,Period,Locomotor activity - Period
+la,LA_CircPhase,CircPhase,CircPhase,,CircPhase,Locomotor activity - Circadian phase
+la,LA_AbsPhase,AbsPhase,AbsPhase,,AbsPhase,Locomotor activity - Absolute phase
+la,LA_ND,ND,ND_log2,,ND_log2,Locomotor activity - ND
+la,LA_Activity,Activity,Activity,,Activity,Locomotor activity - Activity
+lsl,LSL,LSL_AgeAtDeath_days,LSL_AgeAtDeath_days,,Age at death (days),Lifespan
+lsm,LSM,LSM_AgeAtDeath_days,LSM_AgeAtDeath_days,,Age at death (days),Lifespan
+lsp,LSP,LSP_AgeAtDeath_days,LSP_AgeAtDeath_days,,Age at death (days),Lifespan
+pgm,Pgm_T4,PercT4,PercT4_asin,,pigmentation (%),Pigmentation - 4th tergite
+pgm,Pgm_T5,PercT5,PercT5_asin,,pigmentation (%),Pigmentation - 5th tergite
+pgm,Pgm_T6,PercT6,PercT6_asin,,pigmentation (%),Pigmentation - 6th tergite
+pgm,Pgm_Total,TotalPerc,TotalPerc_asin,,pigmentation (%),Pigmentation - Total
+sr,SR,AgeAtDeath_hours,AgeAtDeath_hours,,Age at death (hours),Starvation resistance
+tl,TL,TL_micrometers,TL_micrometers,,Thorax length (micrometers),Thorax length
+via,Via,ProportionEggtoAdultSurvival,ProportionEggtoAdultSurvival_asin,,Proportion viability,Viability
+wa,WA_L,CentroidSizeLeft_micrometers,CentroidSizeLeft_micrometers,,Wing area (micrometers),Wing area - Left
+wa,WA_R,CentroidSizeRight_micrometers,CentroidSizeRight_micrometers,,Wing area (micrometers),Wing area - Right

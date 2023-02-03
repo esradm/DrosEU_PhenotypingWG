@@ -190,7 +190,17 @@ makeEffects <- function(x, pop.order = c("YE","RE","GI","MU","MA","UM","KA","VA"
 suppressWarnings(require(MetBrewer))
 droseu_colors <- met.brewer("Johnson", 9)
 names(droseu_colors) <- as.factor(c("AK", "GI", "KA", "MA", "MU", "RE", "UM", "VA", "YE"))
-droseu_color_scale <- scale_colour_manual(name = "Population", values = droseu_colors)
+droseu_color_scale_pop <- scale_colour_manual(name = "Population", values = droseu_colors)
+droseu_fill_scale_pop <- scale_fill_manual(name = "Population", values = droseu_colors)
+
+
+# droseu official country colors
+suppressWarnings(require(MetBrewer))
+droseu_colors <- met.brewer("Johnson", 9)
+names(droseu_colors) <- as.factor(c("FIN", "ESP", "DNK", "AUT", "DEU", "PRT", "UKR", "RUS", "TUR"))
+droseu_color_scale_country <- scale_colour_manual(name = "Country_code", values = droseu_colors)
+droseu_fill_scale_country <- scale_fill_manual(name = "Country_code", values = droseu_colors)
+
 
 
 
