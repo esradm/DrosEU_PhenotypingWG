@@ -110,7 +110,7 @@ for (i in seq_along(droseu_trait)) {
     droseu_trait[[i]],
     aes(x = Country_code, y = Value, color = Lab, fill = Country_code)
   ) +
-  geom_boxplot() +
+  geom_boxplot(outlier.shape = NA) +
   labs(
     x = "Country (by increasing latitude)",
     y = unique(droseu_trait[[i]]$Legend),
@@ -153,7 +153,7 @@ for (i in seq_along(droseu_trait)) {
     droseu_trait[[i]],
     aes(x = Country_code, y = Value, color = Lab, fill = Country_code)
   ) +
-  geom_boxplot() +
+  geom_boxplot(outlier.shape = NA, position = position_dodge(0.9)) +
   labs(
     x = "Country (by latitude)",
     y = unique(droseu_trait[[i]]$Legend),
@@ -170,7 +170,7 @@ for (i in seq_along(droseu_trait)) {
   coord_flip()
 
   ggsave(
-    print(p),
+    p,
     filename = file.path(lmer_plots_dir, out_file_png),
     width = 6, height = 8
   )
