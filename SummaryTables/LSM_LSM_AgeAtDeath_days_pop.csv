@@ -1,0 +1,7 @@
+"Lab","Diet","Sex","Population_count","Population_ids","Line_count","Line_ids","Replicate_count","Replicate_ids","Observation_count","Batch_count","Batch_ids"
+"Flatt","S","F",9,"AK; GI; KA; MA; MU; RE; UM; VA; YE",1,"",1,"",5327,1,"1"
+"Flatt","S","M",9,"AK; GI; KA; MA; MU; RE; UM; VA; YE",1,"",1,"",5285,1,"1"
+"Parsch","NS","F",9,"AK; GI; KA; MA; MU; RE; UM; VA; YE",1,"",1,"",6540,2,"1; 2"
+"Parsch","NS","M",9,"AK; GI; KA; MA; MU; RE; UM; VA; YE",1,"",1,"",6264,2,"1; 2"
+"Pasyukova","S","F",9,"AK; GI; KA; MA; MU; RE; UM; VA; YE",1,"",1,"",13520,2,"1; 2"
+"Pasyukova","S","M",9,"AK; GI; KA; MA; MU; RE; UM; VA; YE",1,"",1,"",13520,2,"1; 2"
