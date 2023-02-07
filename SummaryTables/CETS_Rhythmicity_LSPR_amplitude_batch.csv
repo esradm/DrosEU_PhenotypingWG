@@ -1,0 +1,5 @@
+"Lab","Diet","Sex","Batch","Population_count","Population_ids","Line_count","Line_ids","Replicate_count","Replicate_ids","Observation_count"
+"Wegener","NS",NA,"1",2,"MU; UM",1,"mixed population",1,"",2
+"Wegener","NS",NA,"2",9,"AK; GI; KA; MA; MU; RE; UM; VA; YE",1,"mixed population",1,"",19
+"Wegener","NS",NA,"3",8,"GI; KA; MA; MU; RE; UM; VA; YE",1,"mixed population",1,"",13
+"Wegener","NS",NA,"4",2,"RE; VA",1,"mixed population",1,"",2
