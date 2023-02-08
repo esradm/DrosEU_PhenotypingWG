@@ -29,6 +29,7 @@ library(lsmeans)
 library(afex)
 library(multcomp)
 library(foreach)
+library(performance)
 
 ##### set working directory
 setwd("~/Work/UNIFR/GitHub/DrosEU_PhenotypingWG/")
@@ -41,7 +42,7 @@ droseu <- readRDS("Data/droseu_master_list_2022-05-02.rds")
 
 ##### create output directory
 lmer_dir <- "LinearModelsPop"
-dir.create(lmer_dir, showWarnings = F) 
+dir.create(lmer_dir, showWarnings = FALSE)
 
 
 
@@ -50,7 +51,7 @@ dir.create(lmer_dir, showWarnings = F)
 
 # create output directory
 out_dir <- "Viability"
-dir.create(file.path(lmer_dir, out_dir), showWarnings = F) 
+dir.create(file.path(lmer_dir, out_dir), showWarnings = FALSE)
 
 # initialize output list
 Via_lmers_pop <- list()
@@ -798,7 +799,7 @@ write.csv(bind_rows(all_models_estimates), file = file.path(lmer_dir, "all_model
 
 
 
-############# OUTPUT ALL MODELS POPULATION ESTIMATES BY TRAIT ############# 
+############# OUTPUT ALL MODELS POPULATION ESTIMATES BY TRAIT #############
 
 # estimates are the fitted Population values and their corresponding SE
 
@@ -814,7 +815,7 @@ for (i in 1:length(models)){
 }
 
 
-############# OUTPUT ALL MODELS P VALUES ############# 
+############# OUTPUT ALL MODELS P VALUES #############
 
 all_lmers_pop_anova <- readRDS(file.path(lmer_dir, "all_lmers_pop_anova_list.rds"))
 all_glmers_pop_anova <- readRDS(file.path(lmer_dir, "all_glmers_pop_anova_list.rds"))
@@ -832,5 +833,127 @@ write.csv(pvalues, file = file.path(lmer_dir, "all_models_pop_pvalues.csv"), row
 
 
 
+############# R2 EXPLAINED BY FIXED EFFECTS (POPULATION) IN LMERS AND GLMERS #############
+
+# Marginal R-Squared: Proportion of the total variance explained by the fixed effects.
+# Conditional R-Squared: Proportion of the total variance explained by the fixed and random effects.
 
 
+#### LMERS
+
+lmers <- readRDS(file.path(lmer_dir, "all_lmers_pop_list.rds"))
+lmers_to_keep <- grepl("lmer", names(lmers)) & !grepl("Dia", names(lmers)) # remove lm and dia lmers
+lmers <- lmers[lmers_to_keep]
+
+r2_lmers <- lapply(lmers, r2_nakagawa)
+r2_lmers_num <- lapply(r2_lmers, unlist) %>%
+  bind_rows() %>%
+  rename(
+    Cond_r2 = `R2_conditional.Conditional R2`,
+    Marg_r2 = `R2_marginal.Marginal R2`
+  )
+r2_lmers_num$Name <- names(r2_lmers)
+
+
+info_lmers <- lapply(names(r2_lmers), get_info_from_names) %>%
+  bind_rows()
+
+
+#### GLMERS
+
+glmers <- readRDS(file.path(lmer_dir, "all_glmers_pop_list.rds"))
+
+r2_glmers <- list(
+  r2_nakagawa(glmers$Dia_Bergland_glmer_pop),
+  r2_nakagawa(glmers$Dia_Flatt_glmer_pop, tolerance = 2),
+  r2_nakagawa(glmers$Dia_Schlotterer_glmer_pop)
+)
+
+r2_glmers_num <- lapply(r2_glmers, unlist) %>%
+  bind_rows() %>%
+  rename(
+    Cond_r2 = `R2_conditional.Conditional R2`,
+    Marg_r2 = `R2_marginal.Marginal R2`
+  )
+r2_glmers_num$Name <- names(glmers)
+
+info_glmers <- lapply(names(glmers), get_info_from_names) %>%
+  bind_rows()
+
+
+#### ALSO NEED TO GET IT FROM LMS
+# Schmidt and co
+
+
+#### ALL MODELS
+
+r2 <- bind_rows(
+  inner_join(info_lmers, r2_lmers_num),
+  inner_join(info_glmers, r2_glmers_num)
+)
+
+saveRDS(r2, file = file.path(lmer_dir, "all_models_pop_r2.rds"))
+write.csv(r2, file = file.path(lmer_dir, "all_models_pop_r2.csv"), row.names = FALSE)
+
+
+
+
+
+############# FIGURES TO SUMMARISE MODELS #############
+
+r2s <- readRDS(file.path(lmer_dir, "all_models_pop_r2.rds"))
+pvals <- readRDS(file.path(lmer_dir, "all_models_pop_pvalues.rds"))
+
+pr2 <- inner_join(r2s, pvals) %>%
+  mutate(
+    Trait_sex = paste(Trait, Sex, sep = "_"),
+    Sig = as.factor(ifelse(P < 0.05, 1, 0))
+  )
+
+marg_r2_pvals <- ggplot(data = pr2, aes(x = Marg_r2, y = -log10(P), fill = Sig)) +
+  geom_point(size = 7, shape = 21, alpha = 0.5) +
+  theme_classic() +
+  scale_fill_manual(values = c("grey50", "red")) +
+  theme(
+    panel.grid.major.y = element_line(size = 0.5),
+    legend.position = "none",
+    axis.text = element_text(size = 20),
+    axis.title = element_text(size = 20),
+    plot.title = element_text(size = 22),
+    plot.subtitle = element_text(size = 18)
+  ) +
+  labs(
+    x = "Marginal R2", y = "-log(10)P",
+    title = "Linear models P values and variance explained by Population"
+  )
+
+ggsave(
+  marg_r2_pvals,
+  filename = file.path(lmer_dir, "marginal_r2_pvalues.pdf"), width = 10, height = 10
+)
+ggsave(
+  marg_r2_pvals,
+  filename = file.path(lmer_dir, "marginal_r2_pvalues.png"), width = 10, height = 10
+)
+
+
+
+marg_r2 <- ggplot(data = pr2, aes(x = Marg_r2, y = Trait_sex, fill = Sig)) +
+  geom_point(size = 7, shape = 21, alpha = 0.5) +
+  theme_classic() +
+  scale_fill_manual(values = c("grey50", "red")) +
+  theme(
+    panel.grid.major.y = element_line(size = 0.5),
+    legend.position = "none",
+    axis.text = element_text(size = 20),
+    axis.title = element_text(size = 20),
+    plot.title = element_text(size = 22),
+    plot.subtitle = element_text(size = 18)
+  ) +
+  labs(
+    x = "Marginal R2", y = "Trait",
+    title = "Variance explained by Population – by trait"
+  )
+
+ggsave(marg_r2, filename = file.path(lmer_dir, "marginal_r2.pdf"), width = 10, height = 12)
+ggsave(marg_r2, filename = file.path(lmer_dir, "marginal_r2.png"), width = 10, height = 12)
