@@ -141,7 +141,7 @@ combinePValues <- function(x) {
     if (!info$Sex %in% c("F", "M")) info$Sex <- "NA"
     if (info$Trait %in% c("Dia", "Fec")) info$Sex <- "F"
     if (grepl("Pgm_", info$Trait)) info$Sex <- "F"
-    if (grepl("LA_", info$Trait)) info$Sex <- "B"
+    if (grepl("LA_", info$Trait)) info$Sex <- "M"
     pvals[[a]] <- info }
   bind_rows(pvals) }
 
@@ -200,3 +200,26 @@ droseu_colors <- met.brewer("Johnson", 9)
 names(droseu_colors) <- as.factor(c("FI", "ES", "DK", "AT", "DE", "PT", "UA", "RU", "TR"))
 droseu_color_scale_country <- scale_colour_manual(name = "Country_code", values = droseu_colors)
 droseu_fill_scale_country <- scale_fill_manual(name = "Country_code", values = droseu_colors)
+
+
+
+# get info from list names
+get_info_from_names <- function(x) {
+  info <- str_split(x, "_") %>% unlist
+  if (length(info) >= 5) info[1] <- paste(info[1], info[2], sep = "_")
+  info[1] <- sub("_F", "", info[1])
+  info[1] <- sub("_M", "", info[1])
+  info <- data.frame(
+    Lab = info[length(info)-2],
+    Trait = info[1],
+    Sex = info[length(info)-3],
+    Model = info[length(info)-1],
+    Predictor = info[length(info)],
+    Name = x
+  )
+  if (!info$Sex %in% c("F", "M")) info$Sex <- "NA"
+  if (info$Trait %in% c("Dia", "Fec")) info$Sex <- "F"
+  if (grepl("Pgm_", info$Trait)) info$Sex <- "F"
+  if (grepl("LA_", info$Trait)) info$Sex <- "M"
+  return(info)
+}
