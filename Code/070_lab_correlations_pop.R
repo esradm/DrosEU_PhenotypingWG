@@ -184,6 +184,8 @@ lab_correlation <- function(estimates_path = estimates,
 
 pop_pearson_list <- lab_correlation(estimates, "pearson")
 
+saveRDS(pop_pearson_list, file.path(cor_dir, "lab_correlation_pop_pearson_list.rds"))
+
 ##### combine to data.frame
 
 pop_pearson <- bind_rows(pop_pearson_list) %>%
@@ -248,9 +250,6 @@ ggsave(
   filename = "LabCorrelations/lab_correlation_pop_pearson.pdf",
   width = 11.69, height = 8.27
 )
-
-
-
 
 
 
@@ -343,6 +342,11 @@ line_estimates <- line_estimates[-grep("Dia_lmers", line_estimates)]
 
 line_pearson_list <- lab_correlation(line_estimates, "pearson")
 
+
+saveRDS(line_pearson_list, file.path(cor_dir, "lab_correlation_line_pearson_list.rds"))
+
+
+
 line_pearson <- bind_rows(line_pearson_list) %>%
   mutate(
     Method = "Pearson",
@@ -398,6 +402,42 @@ ggsave(line_pearson_facet,
   filename = "LabCorrelations/lab_correlation_line_pearson.pdf",
   width = 11.69, height = 8.27
 )
+
+
+
+
+##### alternate plot for paper
+
+line_pearson_alt <- ggplot(line_pearson, aes(x = R, y = Group)) +
+  geom_vline(xintercept = 0, size = 0.5, col = "grey80") +
+  geom_point(aes(fill = Cutoff), size = 7, pch = 21, alpha = 0.5) +
+  scale_x_continuous(breaks = c(-0.5, 0, 0.5, 1)) +
+  theme_classic() +
+  labs(
+    x = "Pearson's correlation coefficient", y = "Trait",
+    title = "Pairwise lab correlations - Line level - Pearson's R"
+  ) +
+  theme(
+    legend.position = "none",
+    axis.text = element_text(size = 20),
+    axis.title = element_text(size = 20),
+    plot.title = element_text(size = 22),
+    panel.grid.major.y = element_line(size = 0.5)
+  )
+
+
+ggsave(line_pearson_alt,
+  filename = file.path(cor_dir, "lab_correlation_line_pearson_v2.pdf"),
+  width = 10, height = 12
+)
+
+ggsave(line_pearson_alt,
+  filename = file.path(cor_dir, "lab_correlation_line_pearson_v2.png"),
+  width = 10, height = 12
+)
+
+
+
 
 
 ########### LINE LEVEL SPEARMAN FOR ALL TRAITS ##########
