@@ -19,7 +19,7 @@ dir.create("SummaryTables", showWarnings = FALSE)
 
 ##### merge with population info
 
-common_var <- c("Lab", "Diet", "Batch", "Population", "Line", "Sex", "ReplicateVial", "Individual")
+common_var <- c("Lab", "Diet", "Batch", "Population", "Line", "Sex", "Replicate", "Individual")
 trait_var <- traits$Trait_name_raw
 
 
@@ -29,12 +29,13 @@ droseu_long <- droseu
 for (i in seq_along(droseu_long)){
   d <- droseu_long[[i]]
   colnames(d)[colnames(d) == "Supervisor.PI"] <- "Lab"
-  colnames(d)[colnames(d) == "ReplicateCage"] <- "ReplicateVial"
-  colnames(d)[colnames(d) == "ReplicateChamber"] <- "ReplicateVial"
+  colnames(d)[colnames(d) == "ReplicateVial"] <- "Replicate"
+  colnames(d)[colnames(d) == "ReplicateCage"] <- "Replicate"
+  colnames(d)[colnames(d) == "ReplicateChamber"] <- "Replicate"
   if (!"Line" %in% colnames(d)) d$Line <- NA
   if (!"Batch" %in% colnames(d)) d$Batch <- NA
   if (!"Sex" %in% colnames(d)) d$Sex <- NA
-  if (!"ReplicateVial" %in% colnames(d)) d$ReplicateVial <- NA
+  if (!"ReplicateVial" %in% colnames(d)) d$Replicate <- NA
   if (!"Individual" %in% colnames(d)) d$Individual <- NA
   d <- d[, colnames(d) %in% c(common_var, trait_var)]
   d <- pivot_longer(d, cols = -all_of(common_var), names_to = "Trait_name", values_to = "Value")
