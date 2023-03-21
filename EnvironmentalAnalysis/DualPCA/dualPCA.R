@@ -6,7 +6,7 @@
   library(patchwork)
   library(ggpubr)
 
-### F9max - 30 day
+### F9max
   ### Load FMax Trait PC
     load("/Users/alanbergland/Documents/GitHub/DrosEU_PhenotypingWG/EnvironmentalAnalysis/PCA_Results/Fmax_drosEU.RData")
 
@@ -17,7 +17,7 @@
       FMax_traitPC[,ordDim1:=rank(Dim.1)]
       FMax_traitPC[,ordDim2:=rank(Dim.2)]
 
-### Load M9 Trait PC
+  ### Load M9 Trait PC
     load("/Users/alanbergland/Documents/GitHub/DrosEU_PhenotypingWG/EnvironmentalAnalysis/PCA_Results/M9_drosEU.RData")
 
     ### trait PCA loadings
@@ -182,6 +182,10 @@
   ggsave(M9_y30_mega,   file="/Users/alanbergland/Documents/GitHub/DrosEU_PhenotypingWG/EnvironmentalAnalysis/DualPCA/DualPCA_M9_y30.pdf", h=8, w=8)
 
 
+  ggsave(Fmax_d30_mega, file="/Users/alanbergland/Documents/GitHub/DrosEU_PhenotypingWG/EnvironmentalAnalysis/DualPCA/DualPCA_Fmax_d30.png", h=8, w=8)
+  ggsave(Fmax_y30_mega, file="/Users/alanbergland/Documents/GitHub/DrosEU_PhenotypingWG/EnvironmentalAnalysis/DualPCA/DualPCA_Fmax_y30.png", h=8, w=8)
+  ggsave(M9_d30_mega,     file="/Users/alanbergland/Documents/GitHub/DrosEU_PhenotypingWG/EnvironmentalAnalysis/DualPCA/DualPCA_M9_d30.png", h=8, w=8)
+  ggsave(M9_y30_mega,     file="/Users/alanbergland/Documents/GitHub/DrosEU_PhenotypingWG/EnvironmentalAnalysis/DualPCA/DualPCA_M9_y30.png", h=8, w=8)
 
 
 
