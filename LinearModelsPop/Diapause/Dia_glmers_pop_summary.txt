@@ -1,6 +1,6 @@
 $Dia_Bergland_glmer_pop
-Generalized linear mixed model fit by maximum likelihood (Laplace Approximation) [
-glmerMod]
+Generalized linear mixed model fit by maximum likelihood (Laplace
+  Approximation) [glmerMod]
  Family: binomial  ( logit )
 Formula: Prop_Max_Stage9 ~ Population + (1 | Line:Population)
    Data: filter(dia, Supervisor.PI == pi)
@@ -44,8 +44,8 @@ PopulatinVA -0.693  0.471  0.506  0.491  0.484  0.448  0.459
 PopulatinYE -0.728  0.495  0.531  0.512  0.508  0.470  0.480  0.506
 
 $Dia_Flatt_glmer_pop
-Generalized linear mixed model fit by maximum likelihood (Laplace Approximation) [
-glmerMod]
+Generalized linear mixed model fit by maximum likelihood (Laplace
+  Approximation) [glmerMod]
  Family: binomial  ( logit )
 Formula: Prop_Max_Stage9 ~ Population + (1 | Line:Population)
    Data: filter(dia, Supervisor.PI == pi)
@@ -92,8 +92,8 @@ Model failed to converge with max|grad| = 0.430014 (tol = 0.002, component 1)
 
 
 $Dia_Schlotterer_glmer_pop
-Generalized linear mixed model fit by maximum likelihood (Laplace Approximation) [
-glmerMod]
+Generalized linear mixed model fit by maximum likelihood (Laplace
+  Approximation) [glmerMod]
  Family: binomial  ( logit )
 Formula: Prop_Max_Stage9 ~ Population + (1 | Line:Population)
    Data: filter(dia, Supervisor.PI == pi)

@@ -1,0 +1,14 @@
+$PR_HR_Hrcek_glmer_pop
+Data: filter(pr, HostResistance <= 1 & HostResistance >= 0)
+Models:
+PR_HR_null: HostResistance ~ +(1 | Line:Population) + (1 | Batch)
+PR_glmers_pop$PR_HR_Hrcek_glmer_pop: HostResistance ~ Population + (1 | Line:Population) + (1 | Batch)
+                                    npar    AIC    BIC  logLik deviance
+PR_HR_null                             3 3708.5 3719.8 -1851.2   3702.5
+PR_glmers_pop$PR_HR_Hrcek_glmer_pop   11 3708.6 3750.0 -1843.3   3686.6
+                                     Chisq Df Pr(>Chisq)  
+PR_HR_null                                                
+PR_glmers_pop$PR_HR_Hrcek_glmer_pop 15.852  8    0.04455 *
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+

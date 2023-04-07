@@ -415,11 +415,11 @@ saveRDS(CSM_lmers_pop, file = file.path(lmer_dir, out_dir, "CSM_lmers_pop.rds"))
 
 
 
-############# CHILL-COMA RECOVERY TIME ############# 
+############# CHILL-COMA RECOVERY TIME #############
 
 # create output directory
 out_dir <- "ChillComa"
-dir.create(file.path(lmer_dir, out_dir), showWarnings = F) 
+dir.create(file.path(lmer_dir, out_dir), showWarnings = F)
 
 # initialize output list
 CCRT_lmers_pop <- list()
@@ -485,7 +485,9 @@ saveRDS(HSM_lmers_pop, file = file.path(lmer_dir, out_dir, "HSM_lmers_pop.rds"))
 
 
 
-############# DIAPAUSE ############# 
+
+
+############# DIAPAUSE #############
 
 # create output directory
 out_dir <- "Diapause"
@@ -518,8 +520,8 @@ saveRDS(Dia_lmers_pop, file = file.path(lmer_dir, out_dir, "Dia_lmers_pop.rds"))
 dia <- read.csv("Data/MasterSheets_May22_git/DIA_MasterSheet_Feb22.csv")
 
 dia <- group_by(dia, Supervisor.PI, Diet, Batch, Population, Line) %>%
-  summarise(Prop_Max_Stage9 = mean(MostAdvancedStage <= 9 & NumberOfEggs == 0), 
-            Prop_Max_Stage9_asin = asin(sqrt(Prop_Max_Stage9)),          
+  summarise(Prop_Max_Stage9 = mean(MostAdvancedStage <= 9 & NumberOfEggs == 0),
+            Prop_Max_Stage9_asin = asin(sqrt(Prop_Max_Stage9)),
             n = n())
 
 Dia_glmers_pop <- foreach(pi = unique(dia$Supervisor.PI)) %do% {
@@ -558,7 +560,7 @@ CET_lmers_pop <- list()
 
 
 
-############# LOCOMOTOR ACTIVITY ############# 
+############# LOCOMOTOR ACTIVITY #############
 
 # create output directory
 out_dir <- "Locomotor"
@@ -676,10 +678,44 @@ saveRDS(Pgm_lmers_pop, file = file.path(lmer_dir, out_dir, "Pgm_lmers_pop.rds"))
 
 
 
+############# PARASITOID RESISTANCE #############
+
+# create output directory
+out_dir <- "ParasitoidResistance"
+dir.create(file.path(lmer_dir, out_dir), showWarnings = F) 
+
+# initialize output list
+PR_glmers_pop <- list()
+
+
+pr <- read.csv("Data/MasterSheets_Apr23_git/PR_MasterSheet_Apr23.csv") %>%
+  mutate(
+    Population = as.factor(Population),
+    Line = as.factor(Line)
+  )
+
+ PR_glmers_pop$PR_HR_Hrcek_glmer_pop <- glmer(
+  HostResistance ~ Population + (1|Line:Population) + (1|Batch),
+  weights = FliesControl, family = binomial(),
+  data = filter(pr, HostResistance <= 1 & HostResistance >= 0)
+)
+
+PR_HR_null <- glmer(
+  HostResistance ~ + (1|Line:Population) + (1|Batch),
+  weights = FliesControl, family = binomial(),
+  data = filter(pr, HostResistance <= 1 & HostResistance >= 0)
+)
+
+PR_glmers_pop_anova <- list(anova(PR_glmers_pop$PR_HR_Hrcek_glmer_pop, PR_HR_null))
+names(PR_glmers_pop_anova) <- "PR_HR_Hrcek_glmer_pop"
+
+saveRDS(PR_glmers_pop, file = file.path(lmer_dir, out_dir, "PR_glmers_pop.rds"))
+saveRDS(PR_glmers_pop_anova, file = file.path(lmer_dir, out_dir, "PR_glmers_pop_anova.rds"))
+capture.output(PR_glmers_pop_anova, file = file.path(lmer_dir, out_dir, "PR_glmers_pop_anova.txt"))
 
 
 
-############# COMBINE LMM AND GLMM OUTPUTS INTO LISTS ############# 
+############# COMBINE LMM AND GLMM OUTPUTS INTO LISTS #############
 
 # combine all linear models into global lists, one for all LMERs and one for all GLMERs (currently diapause only)
 
@@ -696,7 +732,7 @@ names(all_lmers_pop) <- str_split(names(all_lmers_pop), "\\.", simplify = T)[,2]
 saveRDS(all_lmers_pop, file = file.path(lmer_dir, "all_lmers_pop_list.rds"))
 
 
-### GLMERs - currently for diapause only
+### GLMERs - currently for diapause and parasitoid resistance only
 
 # list with 2 levels where each element is a trait and sub element is a lab
 all_glmers_pop <- rdsBatchReaderToList(path = lmer_dir, recursive = T, full.names = T, pattern = "_glmers_pop.rds")
@@ -866,7 +902,8 @@ glmers <- readRDS(file.path(lmer_dir, "all_glmers_pop_list.rds"))
 r2_glmers <- list(
   r2_nakagawa(glmers$Dia_Bergland_glmer_pop),
   r2_nakagawa(glmers$Dia_Flatt_glmer_pop, tolerance = 2),
-  r2_nakagawa(glmers$Dia_Schlotterer_glmer_pop)
+  r2_nakagawa(glmers$Dia_Schlotterer_glmer_pop),
+  r2_nakagawa(glmers$PR_HR_Hrcek_glmer_pop)
 )
 
 r2_glmers_num <- lapply(r2_glmers, unlist) %>%
@@ -901,59 +938,59 @@ write.csv(r2, file = file.path(lmer_dir, "all_models_pop_r2.csv"), row.names = F
 
 ############# FIGURES TO SUMMARISE MODELS #############
 
-r2s <- readRDS(file.path(lmer_dir, "all_models_pop_r2.rds"))
-pvals <- readRDS(file.path(lmer_dir, "all_models_pop_pvalues.rds"))
+#r2s <- readRDS(file.path(lmer_dir, "all_models_pop_r2.rds"))
+#pvals <- readRDS(file.path(lmer_dir, "all_models_pop_pvalues.rds"))
 
-pr2 <- inner_join(r2s, pvals) %>%
-  mutate(
-    Trait_sex = paste(Trait, Sex, sep = "_"),
-    Sig = as.factor(ifelse(P < 0.05, 1, 0))
-  )
+#pr2 <- inner_join(r2s, pvals) %>%
+#  mutate(
+#    Trait_sex = paste(Trait, Sex, sep = "_"),
+#    Sig = as.factor(ifelse(P < 0.05, 1, 0))
+#  )
 
-marg_r2_pvals <- ggplot(data = pr2, aes(x = Marg_r2, y = -log10(P), fill = Sig)) +
-  geom_point(size = 7, shape = 21, alpha = 0.5) +
-  theme_classic() +
-  scale_fill_manual(values = c("grey50", "red")) +
-  theme(
-    panel.grid.major.y = element_line(size = 0.5),
-    legend.position = "none",
-    axis.text = element_text(size = 20),
-    axis.title = element_text(size = 20),
-    plot.title = element_text(size = 22),
-    plot.subtitle = element_text(size = 18)
-  ) +
-  labs(
-    x = "Marginal R2", y = "-log(10)P",
-    title = "Linear models P values and variance explained by Population"
-  )
+#marg_r2_pvals <- ggplot(data = pr2, aes(x = Marg_r2, y = -log10(P), fill = Sig)) +
+#  geom_point(size = 7, shape = 21, alpha = 0.5) +
+#  theme_classic() +
+#  scale_fill_manual(values = c("grey50", "red")) +
+#  theme(
+#    panel.grid.major.y = element_line(size = 0.5),
+#    legend.position = "none",
+#    axis.text = element_text(size = 20),
+#    axis.title = element_text(size = 20),
+#    plot.title = element_text(size = 22),
+#    plot.subtitle = element_text(size = 18)
+#  ) +
+#  labs(
+#    x = "Marginal R2", y = "-log(10)P",
+#    title = "Linear models P values and variance explained by Population"
+#  )
 
-ggsave(
-  marg_r2_pvals,
-  filename = file.path(lmer_dir, "marginal_r2_pvalues.pdf"), width = 10, height = 10
-)
-ggsave(
-  marg_r2_pvals,
-  filename = file.path(lmer_dir, "marginal_r2_pvalues.png"), width = 10, height = 10
-)
+#ggsave(
+#  marg_r2_pvals,
+#  filename = file.path(lmer_dir, "marginal_r2_pvalues.pdf"), width = 10, height = 10
+#)
+#ggsave(
+#  marg_r2_pvals,
+#  filename = file.path(lmer_dir, "marginal_r2_pvalues.png"), width = 10, height = 10
+#)
 
 
 
-marg_r2 <- ggplot(data = pr2, aes(x = Marg_r2, y = Trait_sex, fill = Sig)) +
-  geom_point(size = 7, shape = 21, alpha = 0.5) +
-  theme_classic() +
-  scale_fill_manual(values = c("grey50", "red")) +
-  theme(
-    panel.grid.major.y = element_line(size = 0.5),
-    legend.position = "none",
-    axis.text = element_text(size = 20),
-    axis.title = element_text(size = 20),
-    plot.title = element_text(size = 22),
-    plot.subtitle = element_text(size = 18)
-  ) +
-  labs(
-    x = "Marginal R2", y = "Trait",
-    title = "Variance explained by Population – by trait"
-  )
+#marg_r2 <- ggplot(data = pr2, aes(x = Marg_r2, y = Trait_sex, fill = Sig)) +
+#  geom_point(size = 7, shape = 21, alpha = 0.5) +
+#  theme_classic() +
+#  scale_fill_manual(values = c("grey50", "red")) +
+#  theme(
+#    panel.grid.major.y = element_line(size = 0.5),
+#    legend.position = "none",
+#    axis.text = element_text(size = 20),
+#    axis.title = element_text(size = 20),
+#    plot.title = element_text(size = 22),
+#    plot.subtitle = element_text(size = 18)
+#  ) +
+#  labs(
+#    x = "Marginal R2", y = "Trait",
+#    title = "Variance explained by Population – by trait"
+#  )
 
-ggsave(marg_r2, filename = file.path(lmer_dir, "marginal_r2.pdf"), width = 10, height = 12)
-ggsave(marg_r2, filename = file.path(lmer_dir, "marginal_r2.png"), width = 10, height = 12)
+#ggsave(marg_r2, filename = file.path(lmer_dir, "marginal_r2.pdf"), width = 10, height = 12)
+#ggsave(marg_r2, filename = file.path(lmer_dir, "marginal_r2.png"), width = 10, height = 12)

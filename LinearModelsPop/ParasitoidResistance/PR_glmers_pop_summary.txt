@@ -1,0 +1,50 @@
+$PR_HR_Hrcek_glmer_pop
+Generalized linear mixed model fit by maximum likelihood (Laplace
+  Approximation) [glmerMod]
+ Family: binomial  ( logit )
+Formula: 
+HostResistance ~ Population + (1 | Line:Population) + (1 | Batch)
+   Data: filter(pr, HostResistance <= 1 & HostResistance >= 0)
+Weights: FliesControl
+
+     AIC      BIC   logLik deviance df.resid 
+  3708.6   3750.0  -1843.3   3686.6      306 
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-7.5896 -1.6826 -0.4963  1.4033 12.4253 
+
+Random effects:
+ Groups          Name        Variance  Std.Dev. 
+ Line:Population (Intercept) 4.304e-01 0.6560486
+ Batch           (Intercept) 3.082e-07 0.0005552
+Number of obs: 317, groups:  Line:Population, 58; Batch, 3
+
+Fixed effects:
+             Estimate Std. Error z value Pr(>|z|)    
+(Intercept)  -1.47430    0.25537  -5.773 7.78e-09 ***
+PopulationGI -0.42105    0.39973  -1.053   0.2922    
+PopulationKA -0.31764    0.39685  -0.800   0.4235    
+PopulationMA  0.67175    0.34820   1.929   0.0537 .  
+PopulationMU  0.07735    0.39657   0.195   0.8454    
+PopulationRE  0.13685    0.35160   0.389   0.6971    
+PopulationUM  0.73333    0.36061   2.034   0.0420 *  
+PopulationVA  0.42569    0.35954   1.184   0.2364    
+PopulationYE -0.11323    0.38341  -0.295   0.7677    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+            (Intr) PpltGI PpltKA PpltMA PpltMU PpltRE PpltUM PpltVA
+PopulatinGI -0.639                                                 
+PopulatinKA -0.643  0.411                                          
+PopulatinMA -0.733  0.468  0.472                                   
+PopulatinMU -0.644  0.411  0.414  0.472                            
+PopulatinRE -0.726  0.464  0.467  0.533  0.468                     
+PopulatinUM -0.708  0.452  0.456  0.519  0.456  0.514              
+PopulatinVA -0.710  0.454  0.457  0.521  0.457  0.516  0.503       
+PopulatinYE -0.666  0.426  0.429  0.488  0.429  0.484  0.472  0.473
+optimizer (Nelder_Mead) convergence code: 0 (OK)
+Model failed to converge with max|grad| = 0.0114665 (tol = 0.002, component 1)
+
+
