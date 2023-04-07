@@ -409,7 +409,7 @@ for (i in 1:nrow(F9maxP_data)){
     F9maxP_data[i, 7:12] <- clim[8,]
   }
   if (F9maxP_data[i,"Population"] == "VA"){ #Russia
-    F9maxP_data[i, 6:11] <- clim[9,]
+    F9maxP_data[i, 7:11] <- clim[9,]
   }
 } 
 write.csv(F9maxP_data,"F9maxP_30y_data.csv", row.names =F)
