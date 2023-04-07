@@ -1,260 +1,620 @@
-                                 95%-CI %W(random) Line
-YE_Parsch    45.4976 [38.3017; 52.6934]        0.3 YE11
-YE_Pasyukova 34.8414 [28.7876; 40.8953]        0.3 YE11
-YE_Parsch    54.8496 [47.6230; 62.0761]        0.3 YE13
-YE_Pasyukova 45.7124 [39.6569; 51.7680]        0.3 YE13
-YE_Pasyukova 51.0094 [44.9556; 57.0633]        0.3 YE14
-YE_Parsch    51.5406 [44.2687; 58.8124]        0.3 YE15
-YE_Pasyukova 42.2524 [36.1986; 48.3063]        0.3 YE15
-YE_Parsch    58.2586 [50.9559; 65.5612]        0.3 YE19
-YE_Pasyukova 41.8034 [35.7496; 47.8573]        0.3 YE19
-YE_Pasyukova 45.3554 [39.3016; 51.4093]        0.3 YE20
-YE_Parsch    52.8806 [45.7891; 59.9720]        0.3 YE21
-YE_Pasyukova 43.1684 [37.1146; 49.2223]        0.3 YE21
-YE_Parsch    55.3176 [48.0393; 62.5959]        0.3 YE22
-YE_Pasyukova 46.8744 [40.8206; 52.9283]        0.3 YE22
-YE_Parsch    49.9516 [42.7573; 57.1458]        0.3 YE23
-YE_Pasyukova 42.6914 [36.6376; 48.7453]        0.3 YE23
-YE_Parsch    52.0656 [44.7921; 59.3390]        0.3 YE24
-YE_Pasyukova 40.4374 [34.3836; 46.4913]        0.3 YE24
-YE_Parsch    55.8676 [48.1193; 63.6158]        0.3 YE26
-YE_Pasyukova 42.9964 [36.9426; 49.0503]        0.3 YE26
-YE_Pasyukova 44.2474 [38.1936; 50.3013]        0.3 YE27
-YE_Parsch    53.4966 [46.1939; 60.7992]        0.3 YE33
-YE_Pasyukova 43.9134 [37.8596; 49.9673]        0.3 YE33
-YE_Parsch    45.3176 [37.8534; 52.7817]        0.3 YE40
-YE_Pasyukova 47.8574 [41.8036; 53.9113]        0.3 YE40
-YE_Pasyukova 48.1254 [42.0716; 54.1793]        0.3 YE41
-YE_Parsch    49.4246 [42.1154; 56.7337]        0.3 YE48
-YE_Pasyukova 40.4754 [34.4216; 46.5293]        0.3 YE48
-YE_Pasyukova 49.2904 [43.2366; 55.3443]        0.3 YE49
-YE_Parsch    45.3646 [37.9201; 52.8090]        0.3 YE51
-YE_Pasyukova 42.7584 [36.7046; 48.8123]        0.3 YE51
-YE_Parsch    49.8426 [42.4308; 57.2543]        0.3 YE69
-YE_Pasyukova 45.3074 [39.2536; 51.3613]        0.3 YE69
-YE_Parsch    55.4576 [48.3405; 62.5746]        0.3 YE80
-YE_Pasyukova 46.5114 [40.4576; 52.5653]        0.3 YE80
-RE_Pasyukova 42.2395 [36.0235; 48.4555]        0.3  RE1
-RE_Parsch    52.1817 [44.9929; 59.3704]        0.3 RE10
-RE_Pasyukova 51.0535 [44.8375; 57.2695]        0.3 RE10
-RE_Parsch    50.0587 [42.9728; 57.1445]        0.3 RE11
-RE_Pasyukova 56.8985 [50.6825; 63.1145]        0.3 RE11
-RE_Parsch    59.1427 [51.9878; 66.2976]        0.3 RE12
-RE_Pasyukova 49.2875 [43.0715; 55.5035]        0.3 RE12
-RE_Parsch    53.9347 [46.8200; 61.0494]        0.3 RE13
-RE_Pasyukova 48.5995 [42.3835; 54.8155]        0.3 RE13
-RE_Parsch    59.5337 [52.4398; 66.6275]        0.3 RE15
-RE_Pasyukova 52.5335 [46.3175; 58.7495]        0.3 RE15
-RE_Parsch    47.0927 [39.6469; 54.5385]        0.3 RE16
-RE_Pasyukova 46.2885 [40.0725; 52.5045]        0.3 RE16
-RE_Parsch    43.5647 [36.3840; 50.7454]        0.3 RE17
-RE_Pasyukova 46.0875 [39.8715; 52.3035]        0.3 RE17
-RE_Parsch    51.1027 [43.4225; 58.7828]        0.3 RE18
-RE_Pasyukova 43.1085 [36.8925; 49.3245]        0.3 RE18
-RE_Parsch    39.5107 [32.1287; 46.8927]        0.3  RE2
-RE_Pasyukova 45.2095 [38.9935; 51.4255]        0.3  RE2
-RE_Parsch    43.9577 [37.0010; 50.9143]        0.3  RE3
-RE_Pasyukova 43.7865 [37.5705; 50.0025]        0.3  RE3
-RE_Parsch    52.6167 [45.2771; 59.9562]        0.3  RE4
-RE_Pasyukova 48.4845 [42.2685; 54.7005]        0.3  RE4
-RE_Parsch    51.6887 [44.5048; 58.8726]        0.3  RE5
-RE_Pasyukova 54.8355 [48.6195; 61.0515]        0.3  RE5
-RE_Parsch    47.3837 [40.1173; 54.6501]        0.3  RE6
-RE_Pasyukova 45.7535 [39.5375; 51.9695]        0.3  RE6
-RE_Parsch    44.9867 [37.7947; 52.1787]        0.3  RE7
-RE_Pasyukova 51.7125 [45.4965; 57.9285]        0.3  RE7
-RE_Parsch    41.5547 [34.1498; 48.9595]        0.3  RE8
-RE_Pasyukova 43.9205 [37.7045; 50.1365]        0.3  RE8
-GI_Parsch    53.1237 [45.7305; 60.5169]        0.3  GI1
-GI_Pasyukova 40.6693 [34.2714; 47.0672]        0.3  GI1
-GI_Parsch    50.4597 [43.1869; 57.7326]        0.3 GI10
-GI_Pasyukova 51.3363 [44.9384; 57.7342]        0.3 GI10
-GI_Parsch    45.7897 [38.3818; 53.1976]        0.3 GI11
-GI_Pasyukova 46.4653 [40.0674; 52.8632]        0.3 GI11
-GI_Parsch    44.6567 [37.3075; 52.0059]        0.3 GI12
-GI_Parsch    58.9917 [51.7884; 66.1951]        0.3 GI13
-GI_Pasyukova 58.1253 [51.7274; 64.5232]        0.3 GI13
-GI_Parsch    54.6607 [47.5057; 61.8157]        0.3 GI14
-GI_Pasyukova 46.2933 [39.8954; 52.6912]        0.3 GI14
-GI_Parsch    53.0887 [45.6038; 60.5736]        0.3 GI15
-GI_Parsch    50.8337 [43.7156; 57.9518]        0.3  GI2
-GI_Pasyukova 46.8473 [40.4494; 53.2452]        0.3  GI2
-GI_Parsch    45.1287 [37.8169; 52.4405]        0.3  GI3
-GI_Pasyukova 51.8043 [45.4064; 58.2022]        0.3  GI3
-GI_Parsch    51.9817 [44.6651; 59.2984]        0.3  GI4
-GI_Pasyukova 36.8013 [30.4034; 43.1992]        0.3  GI4
-GI_Parsch    41.6077 [34.3349; 48.8806]        0.3  GI5
-GI_Pasyukova 35.7703 [29.3724; 42.1682]        0.3  GI5
-GI_Parsch    59.2827 [52.1935; 66.3720]        0.3  GI6
-GI_Pasyukova 50.0563 [43.6584; 56.4542]        0.3  GI6
-GI_Parsch    58.2547 [50.6711; 65.8384]        0.3  GI7
-GI_Pasyukova 45.4443 [39.0464; 51.8422]        0.3  GI7
-GI_Parsch    43.0547 [35.6599; 50.4496]        0.3  GI8
-GI_Pasyukova 49.9413 [43.5434; 56.3392]        0.3  GI8
-GI_Parsch    59.6157 [52.4108; 66.8207]        0.3  GI9
-GI_Pasyukova 58.8323 [52.4344; 65.2302]        0.3  GI9
-MU_Parsch    62.8784 [55.6169; 70.1399]        0.3  MU1
-MU_Pasyukova 50.0200 [43.9661; 56.0739]        0.3  MU1
-MU_Parsch    52.6664 [45.3626; 59.9701]        0.3 MU10
-MU_Pasyukova 55.7980 [49.7441; 61.8519]        0.3 MU10
-MU_Parsch    57.1114 [49.8125; 64.4103]        0.3 MU11
-MU_Pasyukova 52.0740 [46.0201; 58.1279]        0.3 MU11
-MU_Pasyukova 49.6860 [43.6321; 55.7399]        0.3 MU12
-MU_Pasyukova 44.8730 [38.8191; 50.9269]        0.3 MU13
-MU_Parsch    63.1804 [55.9981; 70.3626]        0.3 MU14
-MU_Pasyukova 51.3480 [45.2941; 57.4019]        0.3 MU14
-MU_Parsch    52.7354 [45.5838; 59.8870]        0.3 MU15
-MU_Pasyukova 57.2970 [51.2431; 63.3509]        0.3 MU15
-MU_Pasyukova 51.5770 [45.5231; 57.6309]        0.3 MU16
-MU_Parsch    54.8184 [47.7375; 61.8993]        0.3 MU17
-MU_Pasyukova 45.8660 [39.8121; 51.9199]        0.3 MU17
-MU_Parsch    63.2994 [55.9956; 70.6031]        0.3 MU18
-MU_Pasyukova 54.6330 [48.5791; 60.6869]        0.3 MU18
-MU_Pasyukova 48.1390 [42.0851; 54.1929]        0.3 MU19
-MU_Parsch    63.8594 [56.4594; 71.2594]        0.3  MU2
-MU_Pasyukova 55.5500 [49.4961; 61.6039]        0.3  MU2
-MU_Parsch    54.8334 [47.2988; 62.3680]        0.3 MU20
-MU_Pasyukova 41.7500 [35.6961; 47.8039]        0.3 MU20
-MU_Parsch    61.7444 [54.5654; 68.9234]        0.3  MU3
-MU_Pasyukova 50.2300 [44.1761; 56.2839]        0.3  MU3
-MU_Parsch    51.4314 [44.2427; 58.6201]        0.3  MU4
-MU_Pasyukova 48.2060 [42.1521; 54.2599]        0.3  MU4
-MU_Parsch    59.4334 [52.4052; 66.4615]        0.3  MU5
-MU_Pasyukova 49.0370 [42.9831; 55.0909]        0.3  MU5
-MU_Parsch    65.4564 [58.3434; 72.5694]        0.3  MU6
-MU_Pasyukova 55.2730 [49.2191; 61.3269]        0.3  MU6
-MU_Parsch    53.9364 [46.7364; 61.1364]        0.3  MU7
-MU_Pasyukova 44.2430 [38.1891; 50.2969]        0.3  MU7
-MU_Pasyukova 51.3760 [45.3221; 57.4299]        0.3  MU8
-MU_Parsch    61.6354 [54.3365; 68.9343]        0.3  MU9
-MU_Pasyukova 51.2240 [45.1701; 57.2779]        0.3  MU9
-MA_Parsch    49.3833 [42.1875; 56.5790]        0.3 MA12
-MA_Pasyukova 44.6890 [38.6351; 50.7429]        0.3 MA12
-MA_Pasyukova 53.9710 [47.9171; 60.0249]        0.3 MA13
-MA_Parsch    43.4423 [36.1138; 50.7707]        0.3 MA16
-MA_Pasyukova 57.8010 [51.7471; 63.8549]        0.3 MA16
-MA_Parsch    56.8673 [49.6667; 64.0678]        0.3 MA18
-MA_Pasyukova 55.1840 [49.1301; 61.2379]        0.3 MA18
-MA_Parsch    49.5783 [42.1324; 57.0242]        0.3 MA19
-MA_Pasyukova 60.1690 [54.1151; 66.2229]        0.3 MA19
-MA_Parsch    49.0883 [41.7175; 56.4590]        0.3 MA20
-MA_Pasyukova 45.4440 [39.3901; 51.4979]        0.3 MA20
-MA_Parsch    55.6093 [48.3344; 62.8842]        0.3 MA21
-MA_Pasyukova 49.5310 [43.4771; 55.5849]        0.3 MA21
-MA_Parsch    49.2993 [42.2143; 56.3842]        0.3 MA23
-MA_Pasyukova 49.5400 [43.4861; 55.5939]        0.3 MA23
-MA_Parsch    50.0913 [42.5945; 57.5880]        0.3 MA26
-MA_Pasyukova 39.4460 [33.3921; 45.4999]        0.3 MA26
-MA_Pasyukova 38.9120 [32.8581; 44.9659]        0.3 MA27
-MA_Pasyukova 52.0810 [46.0271; 58.1349]        0.3 MA28
-MA_Parsch    53.5383 [46.4133; 60.6632]        0.3  MA3
-MA_Pasyukova 41.5760 [35.5221; 47.6299]        0.3  MA3
-MA_Parsch    49.7173 [42.1794; 57.2551]        0.3 MA30
-MA_Pasyukova 49.4350 [43.3811; 55.4889]        0.3 MA30
-MA_Pasyukova 37.6890 [31.6351; 43.7429]        0.3 MA31
-MA_Pasyukova 52.5200 [46.4661; 58.5739]        0.3 MA32
-MA_Parsch    45.7833 [38.5553; 53.0112]        0.3 MA33
-MA_Pasyukova 39.3220 [33.2681; 45.3759]        0.3 MA33
-MA_Parsch    57.9943 [50.8997; 65.0888]        0.3  MA5
-MA_Pasyukova 43.0180 [36.9641; 49.0719]        0.3  MA5
-MA_Parsch    46.8583 [39.6803; 54.0363]        0.3  MA6
-MA_Pasyukova 38.8450 [32.7911; 44.8989]        0.3  MA6
-MA_Parsch    53.1333 [45.2383; 61.0282]        0.3  MA7
-MA_Pasyukova 49.0150 [42.9611; 55.0689]        0.3  MA7
-MA_Parsch    53.9903 [46.6845; 61.2960]        0.3  MA9
-MA_Pasyukova 49.1110 [43.0571; 55.1649]        0.3  MA9
-UM_Parsch    62.4290 [55.0797; 69.7783]        0.3 UM13
-UM_Pasyukova 48.2371 [42.1107; 54.3636]        0.3 UM13
-UM_Parsch    56.8160 [49.5073; 64.1247]        0.3 UM17
-UM_Pasyukova 41.2561 [35.1297; 47.3826]        0.3 UM17
-UM_Parsch    49.5110 [42.2849; 56.7371]        0.3 UM18
-UM_Pasyukova 44.1491 [38.0227; 50.2756]        0.3 UM18
-UM_Parsch    52.6510 [45.4894; 59.8126]        0.3  UM2
-UM_Pasyukova 43.5961 [37.4697; 49.7226]        0.3  UM2
-UM_Parsch    65.7060 [58.5781; 72.8339]        0.3 UM20
-UM_Pasyukova 43.2141 [37.0877; 49.3406]        0.3 UM20
-UM_Parsch    51.7730 [44.3356; 59.2104]        0.3 UM21
-UM_Pasyukova 46.8231 [40.6967; 52.9496]        0.3 UM21
-UM_Pasyukova 42.2201 [36.0937; 48.3466]        0.3 UM22
-UM_Parsch    54.7740 [47.3251; 62.2229]        0.3 UM23
-UM_Pasyukova 44.7611 [38.6347; 50.8876]        0.3 UM23
-UM_Pasyukova 44.5121 [38.3857; 50.6386]        0.3 UM24
-UM_Parsch    61.9940 [54.5418; 69.4462]        0.3 UM25
-UM_Pasyukova 39.0601 [32.9337; 45.1866]        0.3 UM25
-UM_Parsch    48.3110 [40.9828; 55.6391]        0.3 UM26
-UM_Pasyukova 38.7921 [32.6657; 44.9186]        0.3 UM26
-UM_Parsch    60.9750 [53.7651; 68.1849]        0.3 UM28
-UM_Pasyukova 36.9301 [30.8037; 43.0566]        0.3 UM28
-UM_Parsch    60.9550 [53.4175; 68.4925]        0.3 UM29
-UM_Pasyukova 42.4971 [36.3707; 48.6236]        0.3 UM29
-UM_Parsch    59.0630 [51.9720; 66.1540]        0.3  UM4
-UM_Pasyukova 44.6271 [38.5007; 50.7536]        0.3  UM4
-UM_Parsch    49.2150 [41.8103; 56.6197]        0.3  UM5
-UM_Pasyukova 46.0021 [39.8757; 52.1286]        0.3  UM5
-UM_Pasyukova 43.3951 [37.2687; 49.5216]        0.3  UM6
-UM_Parsch    62.1090 [54.6666; 69.5513]        0.3  UM7
-UM_Pasyukova 45.9831 [39.8567; 52.1096]        0.3  UM7
-UM_Parsch    56.8140 [49.5248; 64.1032]        0.3  UM9
-UM_Pasyukova 45.5061 [39.3797; 51.6326]        0.3  UM9
-KA_Parsch    59.8478 [52.7252; 66.9703]        0.3  KA1
-KA_Pasyukova 54.0480 [47.9941; 60.1019]        0.3  KA1
-KA_Parsch    53.6078 [46.6447; 60.5708]        0.3 KA10
-KA_Pasyukova 64.1420 [58.0881; 70.1959]        0.3 KA10
-KA_Parsch    52.2008 [44.6520; 59.7495]        0.3 KA11
-KA_Pasyukova 53.6090 [47.5551; 59.6629]        0.3 KA11
-KA_Pasyukova 50.4200 [44.3661; 56.4739]        0.3 KA13
-KA_Parsch    49.8758 [42.6792; 57.0723]        0.3 KA14
-KA_Pasyukova 54.8600 [48.8061; 60.9139]        0.3 KA14
-KA_Parsch    55.4868 [48.1704; 62.8031]        0.3 KA15
-KA_Pasyukova 54.6120 [48.5581; 60.6659]        0.3 KA15
-KA_Pasyukova 47.7550 [41.7011; 53.8089]        0.3 KA16
-KA_Parsch    60.0258 [52.7613; 67.2902]        0.3 KA17
-KA_Pasyukova 54.2010 [48.1471; 60.2549]        0.3 KA17
-KA_Parsch    65.4708 [58.2435; 72.6980]        0.3 KA18
-KA_Pasyukova 49.5790 [43.5251; 55.6329]        0.3 KA18
-KA_Pasyukova 58.5370 [52.4831; 64.5909]        0.3  KA2
-KA_Parsch    47.0248 [39.6237; 54.4258]        0.3 KA23
-KA_Pasyukova 50.2190 [44.1651; 56.2729]        0.3 KA23
-KA_Parsch    53.5958 [46.2452; 60.9463]        0.3 KA24
-KA_Pasyukova 53.7240 [47.6701; 59.7779]        0.3 KA24
-KA_Pasyukova 46.6280 [40.5741; 52.6819]        0.3 KA25
-KA_Parsch    51.5038 [44.2020; 58.8055]        0.3 KA28
-KA_Pasyukova 52.8260 [46.7721; 58.8799]        0.3 KA28
-KA_Parsch    60.5288 [53.2643; 67.7932]        0.3 KA29
-KA_Pasyukova 48.3850 [42.3311; 54.4389]        0.3 KA29
-KA_Parsch    61.5448 [54.3546; 68.7349]        0.3  KA3
-KA_Pasyukova 55.0890 [49.0351; 61.1429]        0.3  KA3
-KA_Parsch    56.9448 [49.4059; 64.4836]        0.3  KA5
-KA_Pasyukova 47.0490 [40.9951; 53.1029]        0.3  KA5
-KA_Pasyukova 54.1340 [48.0801; 60.1879]        0.3  KA6
-KA_Parsch    63.1138 [55.8493; 70.3782]        0.3  KA7
-KA_Pasyukova 60.8000 [54.7461; 66.8539]        0.3  KA7
-KA_Parsch    61.1488 [53.6231; 68.6744]        0.3  KA9
-KA_Pasyukova 55.6810 [49.6271; 61.7349]        0.3  KA9
-VA_Parsch    55.4954 [48.2195; 62.7714]        0.3  VA1
-VA_Pasyukova 53.3377 [47.2839; 59.3916]        0.3  VA1
-VA_Pasyukova 45.1437 [39.0899; 51.1976]        0.3 VA11
-VA_Pasyukova 54.0727 [48.0189; 60.1266]        0.3 VA15
-VA_Parsch    60.5864 [53.5852; 67.5876]        0.3 VA18
-VA_Pasyukova 48.8107 [42.7569; 54.8646]        0.3 VA18
-VA_Parsch    59.1524 [51.4828; 66.8220]        0.3 VA22
-VA_Pasyukova 44.6567 [38.6029; 50.7106]        0.3 VA22
-VA_Parsch    63.7254 [56.3764; 71.0745]        0.3 VA26
-VA_Pasyukova 47.8177 [41.7639; 53.8716]        0.3 VA26
-VA_Parsch    56.3744 [49.1131; 63.6358]        0.3 VA30
-VA_Pasyukova 45.0767 [39.0229; 51.1306]        0.3 VA30
-VA_Parsch    60.1304 [52.3877; 67.8731]        0.3 VA34
-VA_Pasyukova 48.5527 [42.4989; 54.6066]        0.3 VA34
-VA_Pasyukova 48.6487 [42.5949; 54.7026]        0.3 VA35
-VA_Pasyukova 51.2937 [45.2399; 57.3476]        0.3 VA44
-VA_Pasyukova 44.2937 [38.2399; 50.3476]        0.3 VA46
-VA_Parsch    62.2054 [55.1164; 69.2944]        0.3 VA47
- [ reached getOption("max.print") -- omitted 54 rows ]
+                                 95%-CI %W(random)
+YE_Parsch    45.4976 [38.3017; 52.6934]        0.3
+YE_Pasyukova 34.8414 [28.7876; 40.8953]        0.3
+YE_Parsch    54.8496 [47.6230; 62.0761]        0.3
+YE_Pasyukova 45.7124 [39.6569; 51.7680]        0.3
+YE_Pasyukova 51.0094 [44.9556; 57.0633]        0.3
+YE_Parsch    51.5406 [44.2687; 58.8124]        0.3
+YE_Pasyukova 42.2524 [36.1986; 48.3063]        0.3
+YE_Parsch    58.2586 [50.9559; 65.5612]        0.3
+YE_Pasyukova 41.8034 [35.7496; 47.8573]        0.3
+YE_Pasyukova 45.3554 [39.3016; 51.4093]        0.3
+YE_Parsch    52.8806 [45.7891; 59.9720]        0.3
+YE_Pasyukova 43.1684 [37.1146; 49.2223]        0.3
+YE_Parsch    55.3176 [48.0393; 62.5959]        0.3
+YE_Pasyukova 46.8744 [40.8206; 52.9283]        0.3
+YE_Parsch    49.9516 [42.7573; 57.1458]        0.3
+YE_Pasyukova 42.6914 [36.6376; 48.7453]        0.3
+YE_Parsch    52.0656 [44.7921; 59.3390]        0.3
+YE_Pasyukova 40.4374 [34.3836; 46.4913]        0.3
+YE_Parsch    55.8676 [48.1193; 63.6158]        0.3
+YE_Pasyukova 42.9964 [36.9426; 49.0503]        0.3
+YE_Pasyukova 44.2474 [38.1936; 50.3013]        0.3
+YE_Parsch    53.4966 [46.1939; 60.7992]        0.3
+YE_Pasyukova 43.9134 [37.8596; 49.9673]        0.3
+YE_Parsch    45.3176 [37.8534; 52.7817]        0.3
+YE_Pasyukova 47.8574 [41.8036; 53.9113]        0.3
+YE_Pasyukova 48.1254 [42.0716; 54.1793]        0.3
+YE_Parsch    49.4246 [42.1154; 56.7337]        0.3
+YE_Pasyukova 40.4754 [34.4216; 46.5293]        0.3
+YE_Pasyukova 49.2904 [43.2366; 55.3443]        0.3
+YE_Parsch    45.3646 [37.9201; 52.8090]        0.3
+YE_Pasyukova 42.7584 [36.7046; 48.8123]        0.3
+YE_Parsch    49.8426 [42.4308; 57.2543]        0.3
+YE_Pasyukova 45.3074 [39.2536; 51.3613]        0.3
+YE_Parsch    55.4576 [48.3405; 62.5746]        0.3
+YE_Pasyukova 46.5114 [40.4576; 52.5653]        0.3
+RE_Pasyukova 42.2395 [36.0235; 48.4555]        0.3
+RE_Parsch    52.1817 [44.9929; 59.3704]        0.3
+RE_Pasyukova 51.0535 [44.8375; 57.2695]        0.3
+RE_Parsch    50.0587 [42.9728; 57.1445]        0.3
+RE_Pasyukova 56.8985 [50.6825; 63.1145]        0.3
+RE_Parsch    59.1427 [51.9878; 66.2976]        0.3
+RE_Pasyukova 49.2875 [43.0715; 55.5035]        0.3
+RE_Parsch    53.9347 [46.8200; 61.0494]        0.3
+RE_Pasyukova 48.5995 [42.3835; 54.8155]        0.3
+RE_Parsch    59.5337 [52.4398; 66.6275]        0.3
+RE_Pasyukova 52.5335 [46.3175; 58.7495]        0.3
+RE_Parsch    47.0927 [39.6469; 54.5385]        0.3
+RE_Pasyukova 46.2885 [40.0725; 52.5045]        0.3
+RE_Parsch    43.5647 [36.3840; 50.7454]        0.3
+RE_Pasyukova 46.0875 [39.8715; 52.3035]        0.3
+RE_Parsch    51.1027 [43.4225; 58.7828]        0.3
+RE_Pasyukova 43.1085 [36.8925; 49.3245]        0.3
+RE_Parsch    39.5107 [32.1287; 46.8927]        0.3
+RE_Pasyukova 45.2095 [38.9935; 51.4255]        0.3
+RE_Parsch    43.9577 [37.0010; 50.9143]        0.3
+RE_Pasyukova 43.7865 [37.5705; 50.0025]        0.3
+RE_Parsch    52.6167 [45.2771; 59.9562]        0.3
+RE_Pasyukova 48.4845 [42.2685; 54.7005]        0.3
+RE_Parsch    51.6887 [44.5048; 58.8726]        0.3
+RE_Pasyukova 54.8355 [48.6195; 61.0515]        0.3
+RE_Parsch    47.3837 [40.1173; 54.6501]        0.3
+RE_Pasyukova 45.7535 [39.5375; 51.9695]        0.3
+RE_Parsch    44.9867 [37.7947; 52.1787]        0.3
+RE_Pasyukova 51.7125 [45.4965; 57.9285]        0.3
+RE_Parsch    41.5547 [34.1498; 48.9595]        0.3
+RE_Pasyukova 43.9205 [37.7045; 50.1365]        0.3
+GI_Parsch    53.1237 [45.7305; 60.5169]        0.3
+GI_Pasyukova 40.6693 [34.2714; 47.0672]        0.3
+GI_Parsch    50.4597 [43.1869; 57.7326]        0.3
+GI_Pasyukova 51.3363 [44.9384; 57.7342]        0.3
+GI_Parsch    45.7897 [38.3818; 53.1976]        0.3
+GI_Pasyukova 46.4653 [40.0674; 52.8632]        0.3
+GI_Parsch    44.6567 [37.3075; 52.0059]        0.3
+GI_Parsch    58.9917 [51.7884; 66.1951]        0.3
+GI_Pasyukova 58.1253 [51.7274; 64.5232]        0.3
+GI_Parsch    54.6607 [47.5057; 61.8157]        0.3
+GI_Pasyukova 46.2933 [39.8954; 52.6912]        0.3
+GI_Parsch    53.0887 [45.6038; 60.5736]        0.3
+GI_Parsch    50.8337 [43.7156; 57.9518]        0.3
+GI_Pasyukova 46.8473 [40.4494; 53.2452]        0.3
+GI_Parsch    45.1287 [37.8169; 52.4405]        0.3
+GI_Pasyukova 51.8043 [45.4064; 58.2022]        0.3
+GI_Parsch    51.9817 [44.6651; 59.2984]        0.3
+GI_Pasyukova 36.8013 [30.4034; 43.1992]        0.3
+GI_Parsch    41.6077 [34.3349; 48.8806]        0.3
+GI_Pasyukova 35.7703 [29.3724; 42.1682]        0.3
+GI_Parsch    59.2827 [52.1935; 66.3720]        0.3
+GI_Pasyukova 50.0563 [43.6584; 56.4542]        0.3
+GI_Parsch    58.2547 [50.6711; 65.8384]        0.3
+GI_Pasyukova 45.4443 [39.0464; 51.8422]        0.3
+GI_Parsch    43.0547 [35.6599; 50.4496]        0.3
+GI_Pasyukova 49.9413 [43.5434; 56.3392]        0.3
+GI_Parsch    59.6157 [52.4108; 66.8207]        0.3
+GI_Pasyukova 58.8323 [52.4344; 65.2302]        0.3
+MU_Parsch    62.8784 [55.6169; 70.1399]        0.3
+MU_Pasyukova 50.0200 [43.9661; 56.0739]        0.3
+MU_Parsch    52.6664 [45.3626; 59.9701]        0.3
+MU_Pasyukova 55.7980 [49.7441; 61.8519]        0.3
+MU_Parsch    57.1114 [49.8125; 64.4103]        0.3
+MU_Pasyukova 52.0740 [46.0201; 58.1279]        0.3
+MU_Pasyukova 49.6860 [43.6321; 55.7399]        0.3
+MU_Pasyukova 44.8730 [38.8191; 50.9269]        0.3
+MU_Parsch    63.1804 [55.9981; 70.3626]        0.3
+MU_Pasyukova 51.3480 [45.2941; 57.4019]        0.3
+MU_Parsch    52.7354 [45.5838; 59.8870]        0.3
+MU_Pasyukova 57.2970 [51.2431; 63.3509]        0.3
+MU_Pasyukova 51.5770 [45.5231; 57.6309]        0.3
+MU_Parsch    54.8184 [47.7375; 61.8993]        0.3
+MU_Pasyukova 45.8660 [39.8121; 51.9199]        0.3
+MU_Parsch    63.2994 [55.9956; 70.6031]        0.3
+MU_Pasyukova 54.6330 [48.5791; 60.6869]        0.3
+MU_Pasyukova 48.1390 [42.0851; 54.1929]        0.3
+MU_Parsch    63.8594 [56.4594; 71.2594]        0.3
+MU_Pasyukova 55.5500 [49.4961; 61.6039]        0.3
+MU_Parsch    54.8334 [47.2988; 62.3680]        0.3
+MU_Pasyukova 41.7500 [35.6961; 47.8039]        0.3
+MU_Parsch    61.7444 [54.5654; 68.9234]        0.3
+MU_Pasyukova 50.2300 [44.1761; 56.2839]        0.3
+MU_Parsch    51.4314 [44.2427; 58.6201]        0.3
+MU_Pasyukova 48.2060 [42.1521; 54.2599]        0.3
+MU_Parsch    59.4334 [52.4052; 66.4615]        0.3
+MU_Pasyukova 49.0370 [42.9831; 55.0909]        0.3
+MU_Parsch    65.4564 [58.3434; 72.5694]        0.3
+MU_Pasyukova 55.2730 [49.2191; 61.3269]        0.3
+MU_Parsch    53.9364 [46.7364; 61.1364]        0.3
+MU_Pasyukova 44.2430 [38.1891; 50.2969]        0.3
+MU_Pasyukova 51.3760 [45.3221; 57.4299]        0.3
+MU_Parsch    61.6354 [54.3365; 68.9343]        0.3
+MU_Pasyukova 51.2240 [45.1701; 57.2779]        0.3
+MA_Parsch    49.3833 [42.1875; 56.5790]        0.3
+MA_Pasyukova 44.6890 [38.6351; 50.7429]        0.3
+MA_Pasyukova 53.9710 [47.9171; 60.0249]        0.3
+MA_Parsch    43.4423 [36.1138; 50.7707]        0.3
+MA_Pasyukova 57.8010 [51.7471; 63.8549]        0.3
+MA_Parsch    56.8673 [49.6667; 64.0678]        0.3
+MA_Pasyukova 55.1840 [49.1301; 61.2379]        0.3
+MA_Parsch    49.5783 [42.1324; 57.0242]        0.3
+MA_Pasyukova 60.1690 [54.1151; 66.2229]        0.3
+MA_Parsch    49.0883 [41.7175; 56.4590]        0.3
+MA_Pasyukova 45.4440 [39.3901; 51.4979]        0.3
+MA_Parsch    55.6093 [48.3344; 62.8842]        0.3
+MA_Pasyukova 49.5310 [43.4771; 55.5849]        0.3
+MA_Parsch    49.2993 [42.2143; 56.3842]        0.3
+MA_Pasyukova 49.5400 [43.4861; 55.5939]        0.3
+MA_Parsch    50.0913 [42.5945; 57.5880]        0.3
+MA_Pasyukova 39.4460 [33.3921; 45.4999]        0.3
+MA_Pasyukova 38.9120 [32.8581; 44.9659]        0.3
+MA_Pasyukova 52.0810 [46.0271; 58.1349]        0.3
+MA_Parsch    53.5383 [46.4133; 60.6632]        0.3
+MA_Pasyukova 41.5760 [35.5221; 47.6299]        0.3
+MA_Parsch    49.7173 [42.1794; 57.2551]        0.3
+MA_Pasyukova 49.4350 [43.3811; 55.4889]        0.3
+MA_Pasyukova 37.6890 [31.6351; 43.7429]        0.3
+MA_Pasyukova 52.5200 [46.4661; 58.5739]        0.3
+MA_Parsch    45.7833 [38.5553; 53.0112]        0.3
+MA_Pasyukova 39.3220 [33.2681; 45.3759]        0.3
+MA_Parsch    57.9943 [50.8997; 65.0888]        0.3
+MA_Pasyukova 43.0180 [36.9641; 49.0719]        0.3
+MA_Parsch    46.8583 [39.6803; 54.0363]        0.3
+MA_Pasyukova 38.8450 [32.7911; 44.8989]        0.3
+MA_Parsch    53.1333 [45.2383; 61.0282]        0.3
+MA_Pasyukova 49.0150 [42.9611; 55.0689]        0.3
+MA_Parsch    53.9903 [46.6845; 61.2960]        0.3
+MA_Pasyukova 49.1110 [43.0571; 55.1649]        0.3
+UM_Parsch    62.4290 [55.0797; 69.7783]        0.3
+UM_Pasyukova 48.2371 [42.1107; 54.3636]        0.3
+UM_Parsch    56.8160 [49.5073; 64.1247]        0.3
+UM_Pasyukova 41.2561 [35.1297; 47.3826]        0.3
+UM_Parsch    49.5110 [42.2849; 56.7371]        0.3
+UM_Pasyukova 44.1491 [38.0227; 50.2756]        0.3
+UM_Parsch    52.6510 [45.4894; 59.8126]        0.3
+UM_Pasyukova 43.5961 [37.4697; 49.7226]        0.3
+UM_Parsch    65.7060 [58.5781; 72.8339]        0.3
+UM_Pasyukova 43.2141 [37.0877; 49.3406]        0.3
+UM_Parsch    51.7730 [44.3356; 59.2104]        0.3
+UM_Pasyukova 46.8231 [40.6967; 52.9496]        0.3
+UM_Pasyukova 42.2201 [36.0937; 48.3466]        0.3
+UM_Parsch    54.7740 [47.3251; 62.2229]        0.3
+UM_Pasyukova 44.7611 [38.6347; 50.8876]        0.3
+UM_Pasyukova 44.5121 [38.3857; 50.6386]        0.3
+UM_Parsch    61.9940 [54.5418; 69.4462]        0.3
+UM_Pasyukova 39.0601 [32.9337; 45.1866]        0.3
+UM_Parsch    48.3110 [40.9828; 55.6391]        0.3
+UM_Pasyukova 38.7921 [32.6657; 44.9186]        0.3
+UM_Parsch    60.9750 [53.7651; 68.1849]        0.3
+UM_Pasyukova 36.9301 [30.8037; 43.0566]        0.3
+UM_Parsch    60.9550 [53.4175; 68.4925]        0.3
+UM_Pasyukova 42.4971 [36.3707; 48.6236]        0.3
+UM_Parsch    59.0630 [51.9720; 66.1540]        0.3
+UM_Pasyukova 44.6271 [38.5007; 50.7536]        0.3
+UM_Parsch    49.2150 [41.8103; 56.6197]        0.3
+UM_Pasyukova 46.0021 [39.8757; 52.1286]        0.3
+UM_Pasyukova 43.3951 [37.2687; 49.5216]        0.3
+UM_Parsch    62.1090 [54.6666; 69.5513]        0.3
+UM_Pasyukova 45.9831 [39.8567; 52.1096]        0.3
+UM_Parsch    56.8140 [49.5248; 64.1032]        0.3
+UM_Pasyukova 45.5061 [39.3797; 51.6326]        0.3
+KA_Parsch    59.8478 [52.7252; 66.9703]        0.3
+KA_Pasyukova 54.0480 [47.9941; 60.1019]        0.3
+KA_Parsch    53.6078 [46.6447; 60.5708]        0.3
+KA_Pasyukova 64.1420 [58.0881; 70.1959]        0.3
+KA_Parsch    52.2008 [44.6520; 59.7495]        0.3
+KA_Pasyukova 53.6090 [47.5551; 59.6629]        0.3
+KA_Pasyukova 50.4200 [44.3661; 56.4739]        0.3
+KA_Parsch    49.8758 [42.6792; 57.0723]        0.3
+KA_Pasyukova 54.8600 [48.8061; 60.9139]        0.3
+KA_Parsch    55.4868 [48.1704; 62.8031]        0.3
+KA_Pasyukova 54.6120 [48.5581; 60.6659]        0.3
+KA_Pasyukova 47.7550 [41.7011; 53.8089]        0.3
+KA_Parsch    60.0258 [52.7613; 67.2902]        0.3
+KA_Pasyukova 54.2010 [48.1471; 60.2549]        0.3
+KA_Parsch    65.4708 [58.2435; 72.6980]        0.3
+KA_Pasyukova 49.5790 [43.5251; 55.6329]        0.3
+KA_Pasyukova 58.5370 [52.4831; 64.5909]        0.3
+KA_Parsch    47.0248 [39.6237; 54.4258]        0.3
+KA_Pasyukova 50.2190 [44.1651; 56.2729]        0.3
+KA_Parsch    53.5958 [46.2452; 60.9463]        0.3
+KA_Pasyukova 53.7240 [47.6701; 59.7779]        0.3
+KA_Pasyukova 46.6280 [40.5741; 52.6819]        0.3
+KA_Parsch    51.5038 [44.2020; 58.8055]        0.3
+KA_Pasyukova 52.8260 [46.7721; 58.8799]        0.3
+KA_Parsch    60.5288 [53.2643; 67.7932]        0.3
+KA_Pasyukova 48.3850 [42.3311; 54.4389]        0.3
+KA_Parsch    61.5448 [54.3546; 68.7349]        0.3
+KA_Pasyukova 55.0890 [49.0351; 61.1429]        0.3
+KA_Parsch    56.9448 [49.4059; 64.4836]        0.3
+KA_Pasyukova 47.0490 [40.9951; 53.1029]        0.3
+KA_Pasyukova 54.1340 [48.0801; 60.1879]        0.3
+KA_Parsch    63.1138 [55.8493; 70.3782]        0.3
+KA_Pasyukova 60.8000 [54.7461; 66.8539]        0.3
+KA_Parsch    61.1488 [53.6231; 68.6744]        0.3
+KA_Pasyukova 55.6810 [49.6271; 61.7349]        0.3
+VA_Parsch    55.4954 [48.2195; 62.7714]        0.3
+VA_Pasyukova 53.3377 [47.2839; 59.3916]        0.3
+VA_Pasyukova 45.1437 [39.0899; 51.1976]        0.3
+VA_Pasyukova 54.0727 [48.0189; 60.1266]        0.3
+VA_Parsch    60.5864 [53.5852; 67.5876]        0.3
+VA_Pasyukova 48.8107 [42.7569; 54.8646]        0.3
+VA_Parsch    59.1524 [51.4828; 66.8220]        0.3
+VA_Pasyukova 44.6567 [38.6029; 50.7106]        0.3
+VA_Parsch    63.7254 [56.3764; 71.0745]        0.3
+VA_Pasyukova 47.8177 [41.7639; 53.8716]        0.3
+VA_Parsch    56.3744 [49.1131; 63.6358]        0.3
+VA_Pasyukova 45.0767 [39.0229; 51.1306]        0.3
+VA_Parsch    60.1304 [52.3877; 67.8731]        0.3
+VA_Pasyukova 48.5527 [42.4989; 54.6066]        0.3
+VA_Pasyukova 48.6487 [42.5949; 54.7026]        0.3
+VA_Pasyukova 51.2937 [45.2399; 57.3476]        0.3
+VA_Pasyukova 44.2937 [38.2399; 50.3476]        0.3
+VA_Parsch    62.2054 [55.1164; 69.2944]        0.3
+VA_Pasyukova 52.7457 [46.6919; 58.7996]        0.3
+VA_Parsch    65.9184 [58.6425; 73.1944]        0.3
+VA_Pasyukova 52.7167 [46.6629; 58.7706]        0.3
+VA_Parsch    58.3554 [51.2006; 65.5102]        0.3
+VA_Pasyukova 43.3007 [37.2469; 49.3546]        0.3
+VA_Parsch    61.4734 [54.0296; 68.9172]        0.3
+VA_Pasyukova 41.0757 [35.0219; 47.1296]        0.3
+VA_Parsch    65.4334 [58.2834; 72.5834]        0.3
+VA_Pasyukova 56.7277 [50.6739; 62.7816]        0.3
+VA_Parsch    50.3854 [43.1887; 57.5821]        0.3
+VA_Pasyukova 58.2937 [52.2399; 64.3476]        0.3
+VA_Parsch    52.4894 [45.0063; 59.9726]        0.3
+VA_Pasyukova 45.2677 [39.2139; 51.3216]        0.3
+VA_Parsch    58.0514 [50.7868; 65.3160]        0.3
+VA_Pasyukova 55.5907 [49.5369; 61.6446]        0.3
+VA_Parsch    66.3444 [59.3623; 73.3265]        0.3
+VA_Pasyukova 44.3507 [38.2969; 50.4046]        0.3
+AK_Parsch    58.5689 [51.2222; 65.9156]        0.3
+AK_Pasyukova 49.1498 [43.1560; 55.1436]        0.3
+AK_Parsch    61.1179 [53.5105; 68.7253]        0.3
+AK_Pasyukova 41.4338 [35.4400; 47.4276]        0.3
+AK_Parsch    53.1729 [45.8944; 60.4514]        0.3
+AK_Pasyukova 45.2058 [39.2120; 51.1996]        0.3
+AK_Pasyukova 50.5058 [44.5120; 56.4996]        0.3
+AK_Parsch    62.3339 [55.1426; 69.5251]        0.3
+AK_Pasyukova 47.1828 [41.1890; 53.1766]        0.3
+AK_Parsch    59.9429 [52.7838; 67.1019]        0.3
+AK_Pasyukova 55.7388 [49.7450; 61.7326]        0.3
+AK_Pasyukova 47.9658 [41.9720; 53.9596]        0.3
+AK_Pasyukova 60.5038 [54.5100; 66.4976]        0.3
+AK_Parsch    56.6499 [49.6188; 63.6809]        0.3
+AK_Pasyukova 44.0698 [38.0760; 50.0636]        0.3
+AK_Parsch    63.3529 [55.9980; 70.7077]        0.3
+AK_Pasyukova 56.5408 [50.5470; 62.5346]        0.3
+AK_Pasyukova 41.4048 [35.4110; 47.3986]        0.3
+AK_Pasyukova 55.8058 [49.8120; 61.7996]        0.3
+AK_Parsch    63.6799 [56.1417; 71.2181]        0.3
+AK_Pasyukova 45.5968 [39.6030; 51.5906]        0.3
+AK_Parsch    62.5439 [55.2475; 69.8402]        0.3
+AK_Pasyukova 51.0408 [45.0470; 57.0346]        0.3
+AK_Pasyukova 53.7818 [47.7880; 59.7756]        0.3
+AK_Parsch    63.6799 [56.2222; 71.1376]        0.3
+AK_Pasyukova 56.9808 [50.9870; 62.9746]        0.3
+AK_Parsch    56.1869 [49.1702; 63.2036]        0.3
+AK_Pasyukova 51.4508 [45.4570; 57.4446]        0.3
+AK_Pasyukova 52.7408 [46.7470; 58.7346]        0.3
+AK_Parsch    52.8299 [45.4147; 60.2451]        0.3
+AK_Pasyukova 49.3218 [43.3280; 55.3156]        0.3
+AK_Parsch    63.1829 [55.6907; 70.6750]        0.3
+AK_Pasyukova 50.9258 [44.9320; 56.9196]        0.3
+AK_Parsch    66.8789 [59.5598; 74.1979]        0.3
+AK_Pasyukova 50.8398 [44.8460; 56.8336]        0.3
+AK_Parsch    62.9689 [55.6205; 70.3172]        0.3
+AK_Pasyukova 48.0138 [42.0200; 54.0076]        0.3
+             Line
+YE_Parsch    YE11
+YE_Pasyukova YE11
+YE_Parsch    YE13
+YE_Pasyukova YE13
+YE_Pasyukova YE14
+YE_Parsch    YE15
+YE_Pasyukova YE15
+YE_Parsch    YE19
+YE_Pasyukova YE19
+YE_Pasyukova YE20
+YE_Parsch    YE21
+YE_Pasyukova YE21
+YE_Parsch    YE22
+YE_Pasyukova YE22
+YE_Parsch    YE23
+YE_Pasyukova YE23
+YE_Parsch    YE24
+YE_Pasyukova YE24
+YE_Parsch    YE26
+YE_Pasyukova YE26
+YE_Pasyukova YE27
+YE_Parsch    YE33
+YE_Pasyukova YE33
+YE_Parsch    YE40
+YE_Pasyukova YE40
+YE_Pasyukova YE41
+YE_Parsch    YE48
+YE_Pasyukova YE48
+YE_Pasyukova YE49
+YE_Parsch    YE51
+YE_Pasyukova YE51
+YE_Parsch    YE69
+YE_Pasyukova YE69
+YE_Parsch    YE80
+YE_Pasyukova YE80
+RE_Pasyukova  RE1
+RE_Parsch    RE10
+RE_Pasyukova RE10
+RE_Parsch    RE11
+RE_Pasyukova RE11
+RE_Parsch    RE12
+RE_Pasyukova RE12
+RE_Parsch    RE13
+RE_Pasyukova RE13
+RE_Parsch    RE15
+RE_Pasyukova RE15
+RE_Parsch    RE16
+RE_Pasyukova RE16
+RE_Parsch    RE17
+RE_Pasyukova RE17
+RE_Parsch    RE18
+RE_Pasyukova RE18
+RE_Parsch     RE2
+RE_Pasyukova  RE2
+RE_Parsch     RE3
+RE_Pasyukova  RE3
+RE_Parsch     RE4
+RE_Pasyukova  RE4
+RE_Parsch     RE5
+RE_Pasyukova  RE5
+RE_Parsch     RE6
+RE_Pasyukova  RE6
+RE_Parsch     RE7
+RE_Pasyukova  RE7
+RE_Parsch     RE8
+RE_Pasyukova  RE8
+GI_Parsch     GI1
+GI_Pasyukova  GI1
+GI_Parsch    GI10
+GI_Pasyukova GI10
+GI_Parsch    GI11
+GI_Pasyukova GI11
+GI_Parsch    GI12
+GI_Parsch    GI13
+GI_Pasyukova GI13
+GI_Parsch    GI14
+GI_Pasyukova GI14
+GI_Parsch    GI15
+GI_Parsch     GI2
+GI_Pasyukova  GI2
+GI_Parsch     GI3
+GI_Pasyukova  GI3
+GI_Parsch     GI4
+GI_Pasyukova  GI4
+GI_Parsch     GI5
+GI_Pasyukova  GI5
+GI_Parsch     GI6
+GI_Pasyukova  GI6
+GI_Parsch     GI7
+GI_Pasyukova  GI7
+GI_Parsch     GI8
+GI_Pasyukova  GI8
+GI_Parsch     GI9
+GI_Pasyukova  GI9
+MU_Parsch     MU1
+MU_Pasyukova  MU1
+MU_Parsch    MU10
+MU_Pasyukova MU10
+MU_Parsch    MU11
+MU_Pasyukova MU11
+MU_Pasyukova MU12
+MU_Pasyukova MU13
+MU_Parsch    MU14
+MU_Pasyukova MU14
+MU_Parsch    MU15
+MU_Pasyukova MU15
+MU_Pasyukova MU16
+MU_Parsch    MU17
+MU_Pasyukova MU17
+MU_Parsch    MU18
+MU_Pasyukova MU18
+MU_Pasyukova MU19
+MU_Parsch     MU2
+MU_Pasyukova  MU2
+MU_Parsch    MU20
+MU_Pasyukova MU20
+MU_Parsch     MU3
+MU_Pasyukova  MU3
+MU_Parsch     MU4
+MU_Pasyukova  MU4
+MU_Parsch     MU5
+MU_Pasyukova  MU5
+MU_Parsch     MU6
+MU_Pasyukova  MU6
+MU_Parsch     MU7
+MU_Pasyukova  MU7
+MU_Pasyukova  MU8
+MU_Parsch     MU9
+MU_Pasyukova  MU9
+MA_Parsch    MA12
+MA_Pasyukova MA12
+MA_Pasyukova MA13
+MA_Parsch    MA16
+MA_Pasyukova MA16
+MA_Parsch    MA18
+MA_Pasyukova MA18
+MA_Parsch    MA19
+MA_Pasyukova MA19
+MA_Parsch    MA20
+MA_Pasyukova MA20
+MA_Parsch    MA21
+MA_Pasyukova MA21
+MA_Parsch    MA23
+MA_Pasyukova MA23
+MA_Parsch    MA26
+MA_Pasyukova MA26
+MA_Pasyukova MA27
+MA_Pasyukova MA28
+MA_Parsch     MA3
+MA_Pasyukova  MA3
+MA_Parsch    MA30
+MA_Pasyukova MA30
+MA_Pasyukova MA31
+MA_Pasyukova MA32
+MA_Parsch    MA33
+MA_Pasyukova MA33
+MA_Parsch     MA5
+MA_Pasyukova  MA5
+MA_Parsch     MA6
+MA_Pasyukova  MA6
+MA_Parsch     MA7
+MA_Pasyukova  MA7
+MA_Parsch     MA9
+MA_Pasyukova  MA9
+UM_Parsch    UM13
+UM_Pasyukova UM13
+UM_Parsch    UM17
+UM_Pasyukova UM17
+UM_Parsch    UM18
+UM_Pasyukova UM18
+UM_Parsch     UM2
+UM_Pasyukova  UM2
+UM_Parsch    UM20
+UM_Pasyukova UM20
+UM_Parsch    UM21
+UM_Pasyukova UM21
+UM_Pasyukova UM22
+UM_Parsch    UM23
+UM_Pasyukova UM23
+UM_Pasyukova UM24
+UM_Parsch    UM25
+UM_Pasyukova UM25
+UM_Parsch    UM26
+UM_Pasyukova UM26
+UM_Parsch    UM28
+UM_Pasyukova UM28
+UM_Parsch    UM29
+UM_Pasyukova UM29
+UM_Parsch     UM4
+UM_Pasyukova  UM4
+UM_Parsch     UM5
+UM_Pasyukova  UM5
+UM_Pasyukova  UM6
+UM_Parsch     UM7
+UM_Pasyukova  UM7
+UM_Parsch     UM9
+UM_Pasyukova  UM9
+KA_Parsch     KA1
+KA_Pasyukova  KA1
+KA_Parsch    KA10
+KA_Pasyukova KA10
+KA_Parsch    KA11
+KA_Pasyukova KA11
+KA_Pasyukova KA13
+KA_Parsch    KA14
+KA_Pasyukova KA14
+KA_Parsch    KA15
+KA_Pasyukova KA15
+KA_Pasyukova KA16
+KA_Parsch    KA17
+KA_Pasyukova KA17
+KA_Parsch    KA18
+KA_Pasyukova KA18
+KA_Pasyukova  KA2
+KA_Parsch    KA23
+KA_Pasyukova KA23
+KA_Parsch    KA24
+KA_Pasyukova KA24
+KA_Pasyukova KA25
+KA_Parsch    KA28
+KA_Pasyukova KA28
+KA_Parsch    KA29
+KA_Pasyukova KA29
+KA_Parsch     KA3
+KA_Pasyukova  KA3
+KA_Parsch     KA5
+KA_Pasyukova  KA5
+KA_Pasyukova  KA6
+KA_Parsch     KA7
+KA_Pasyukova  KA7
+KA_Parsch     KA9
+KA_Pasyukova  KA9
+VA_Parsch     VA1
+VA_Pasyukova  VA1
+VA_Pasyukova VA11
+VA_Pasyukova VA15
+VA_Parsch    VA18
+VA_Pasyukova VA18
+VA_Parsch    VA22
+VA_Pasyukova VA22
+VA_Parsch    VA26
+VA_Pasyukova VA26
+VA_Parsch    VA30
+VA_Pasyukova VA30
+VA_Parsch    VA34
+VA_Pasyukova VA34
+VA_Pasyukova VA35
+VA_Pasyukova VA44
+VA_Pasyukova VA46
+VA_Parsch    VA47
+VA_Pasyukova VA47
+VA_Parsch    VA48
+VA_Pasyukova VA48
+VA_Parsch    VA55
+VA_Pasyukova VA55
+VA_Parsch    VA57
+VA_Pasyukova VA57
+VA_Parsch     VA6
+VA_Pasyukova  VA6
+VA_Parsch    VA66
+VA_Pasyukova VA66
+VA_Parsch    VA67
+VA_Pasyukova VA67
+VA_Parsch    VA71
+VA_Pasyukova VA71
+VA_Parsch     VA9
+VA_Pasyukova  VA9
+AK_Parsch     AK1
+AK_Pasyukova  AK1
+AK_Parsch    AK10
+AK_Pasyukova AK10
+AK_Parsch    AK11
+AK_Pasyukova AK11
+AK_Pasyukova AK12
+AK_Parsch    AK13
+AK_Pasyukova AK13
+AK_Parsch    AK14
+AK_Pasyukova AK14
+AK_Pasyukova AK15
+AK_Pasyukova AK16
+AK_Parsch    AK17
+AK_Pasyukova AK17
+AK_Parsch    AK18
+AK_Pasyukova AK18
+AK_Pasyukova AK19
+AK_Pasyukova  AK2
+AK_Parsch    AK20
+AK_Pasyukova AK20
+AK_Parsch    AK21
+AK_Pasyukova AK21
+AK_Pasyukova AK24
+AK_Parsch     AK3
+AK_Pasyukova  AK3
+AK_Parsch     AK4
+AK_Pasyukova  AK4
+AK_Pasyukova  AK5
+AK_Parsch     AK6
+AK_Pasyukova  AK6
+AK_Parsch     AK7
+AK_Pasyukova  AK7
+AK_Parsch     AK8
+AK_Pasyukova  AK8
+AK_Parsch     AK9
+AK_Pasyukova  AK9
 
 Number of studies combined: k = 304
 
-                                         95%-CI      z p-value
-Random effects model 51.1744 [50.4101; 51.9387] 131.23       0
+                                         95%-CI
+Random effects model 51.1744 [50.4101; 51.9387]
+                          z p-value
+Random effects model 131.23       0
 
 Quantifying heterogeneity:
  tau^2 = 34.7959 [28.4228; 43.4959]; tau = 5.8988 [5.3313; 6.5951]
@@ -265,150 +625,350 @@ Test of heterogeneity:
  1228.87  303 < 0.0001
 
 Results for subgroups (random effects model):
-              k                     95%-CI    tau^2     tau     Q   I^2
-Line = YE11   2 39.9847 [29.5482; 50.4212]  45.2665  6.7280  4.93 79.7%
-Line = YE13   2 50.0595 [41.1158; 59.0031]  30.1732  5.4930  3.61 72.3%
-Line = YE14   1 51.0094 [44.9556; 57.0633]       --      --  0.00    --
-Line = YE15   2 46.6691 [37.5778; 55.7603]  31.4816  5.6108  3.70 73.0%
-Line = YE19   2 49.8991 [33.7754; 66.0227] 123.6740 11.1209 11.56 91.3%
-Line = YE20   1 45.3554 [39.3016; 51.4093]       --      --  0.00    --
-Line = YE21   2 47.8417 [38.3308; 57.3527]  35.8469  5.9872  4.17 76.0%
-Line = YE22   2 50.8443 [42.5850; 59.1037]  23.9779  4.8967  3.06 67.3%
-Line = YE23   2 46.0506 [38.9557; 53.1456]  14.8477  3.8533  2.29 56.3%
-Line = YE24   2 46.0696 [34.6798; 57.4593]  55.9505  7.4800  5.80 82.8%
-Line = YE26   2 49.1955 [36.5906; 61.8004]  70.2483  8.3814  6.58 84.8%
-Line = YE27   1 44.2474 [38.1936; 50.3013]       --      --  0.00    --
-Line = YE33   2 48.4785 [39.0977; 57.8592]  34.2066  5.8486  3.92 74.5%
-Line = YE40   2 46.8496 [42.1478; 51.5514]        0       0  0.27  0.0%
-Line = YE41   1 48.1254 [42.0716; 54.1793]       --      --  0.00    --
-Line = YE48   2 44.7060 [35.9491; 53.4630]  28.3196  5.3216  3.42 70.7%
-Line = YE49   1 49.2904 [43.2366; 55.3443]       --      --  0.00    --
-Line = YE51   2 43.7958 [39.0990; 48.4927]        0       0  0.28  0.0%
-Line = YE69   2 47.1223 [42.4337; 51.8109]        0       0  0.86  0.0%
-Line = YE80   2 50.7808 [42.0228; 59.5387]  28.6533  5.3529  3.52 71.6%
-Line = RE1    1 42.2395 [36.0235; 48.4555]       --      --  0.00    --
-Line = RE10   2 51.5361 [46.8342; 56.2381]        0       0  0.05  0.0%
-Line = RE11   2 53.6988 [47.0098; 60.3878]  11.8273  3.4391  2.02 50.6%
-Line = RE12   2 54.0493 [44.3969; 63.7017]  36.8699  6.0721  4.15 75.9%
-Line = RE13   2 50.9748 [45.7779; 56.1717]   2.6144  1.6169  1.23 18.4%
-Line = RE15   2 55.8163 [48.9695; 62.6631]  12.9222  3.5947  2.12 52.7%
-Line = RE16   2 46.6188 [41.8470; 51.3905]        0       0  0.03  0.0%
-Line = RE17   2 45.0068 [40.3071; 49.7065]        0       0  0.27  0.0%
-Line = RE18   2 46.7743 [38.9671; 54.5815]  19.2469  4.3871  2.51 60.2%
-Line = RE2    2 42.7222 [37.1828; 48.2617]   4.1163  2.0289  1.34 25.3%
-Line = RE3    2 43.8625 [39.2273; 48.4977]        0       0  0.00  0.0%
-Line = RE4    2 50.2104 [45.4670; 54.9538]        0       0  0.71  0.0%
-Line = RE5    2 53.4882 [48.7876; 58.1888]        0       0  0.42  0.0%
-Line = RE6    2 46.4423 [41.7189; 51.1658]        0       0  0.11  0.0%
-Line = RE7    2 48.6028 [42.0304; 55.1753]  10.8568  3.2950  1.92 48.0%
-Line = RE8    2 42.9425 [38.1816; 47.7034]        0       0  0.23  0.0%
-Line = GI1    2 46.7530 [34.5511; 58.9549]  65.1144  8.0694  6.23 84.0%
-Line = GI10   2 50.9539 [46.1501; 55.7576]        0       0  0.03  0.0%
-Line = GI11   2 46.1767 [41.3346; 51.0187]        0       0  0.02  0.0%
-Line = GI12   1 44.6567 [37.3075; 52.0059]       --      --  0.00    --
-Line = GI13   2 58.5074 [53.7238; 63.2909]        0       0  0.03  0.0%
-Line = GI14   2 50.3174 [42.1234; 58.5114]  23.0159  4.7975  2.92 65.7%
-Line = GI15   1 53.0887 [45.6038; 60.5736]       --      --  0.00    --
-Line = GI2    2 48.6287 [43.8704; 53.3870]        0       0  0.67  0.0%
-Line = GI3    2 48.7108 [42.1864; 55.2352]   9.9950  3.1615  1.81 44.9%
-Line = GI4    2 44.2835 [29.4084; 59.1585] 102.9274 10.1453  9.37 89.3%
-Line = GI5    2 38.4223 [32.7256; 44.1190]   4.8254  2.1967  1.40 28.3%
-Line = GI6    2 54.5380 [45.4999; 63.5760]  30.6945  5.5403  3.59 72.1%
-Line = GI7    2 51.6811 [39.1314; 64.2307]  69.2404  8.3211  6.40 84.4%
-Line = GI8    2 46.7579 [40.0285; 53.4873]  11.2668  3.3566  1.91 47.5%
-Line = GI9    2 59.1777 [54.3937; 63.9617]        0       0  0.03  0.0%
-Line = MU1    2 56.2864 [43.6895; 68.8834]  71.0356  8.4283  7.11 85.9%
-Line = MU10   2 54.5227 [49.8618; 59.1836]        0       0  0.42  0.0%
-Line = MU11   2 54.1631 [49.2989; 59.0274]   0.9834  0.9917  1.08  7.8%
-Line = MU12   1 49.6860 [43.6321; 55.7399]       --      --  0.00    --
-Line = MU13   1 44.8730 [38.8191; 50.9269]       --      --  0.00    --
-Line = MU14   2 57.0999 [45.5088; 68.6910]  58.5183  7.6497  6.10 83.6%
-Line = MU15   2 55.3928 [50.7722; 60.0134]        0       0  0.91  0.0%
-Line = MU16   1 51.5770 [45.5231; 57.6309]       --      --  0.00    --
-Line = MU17   2 50.1461 [41.3813; 58.9108]  28.7763  5.3644  3.55 71.8%
-Line = MU18   2 58.7154 [50.2368; 67.1941]  25.8396  5.0833  3.21 68.8%
-Line = MU19   1 48.1390 [42.0851; 54.1929]       --      --  0.00    --
-Line = MU2    2 59.4210 [51.2970; 67.5451]  22.6253  4.7566  2.90 65.5%
-Line = MU20   2 48.0915 [35.2760; 60.9070]  73.4281  8.5690  7.04 85.8%
-Line = MU3    2 55.8189 [44.5398; 67.0980]  54.8122  7.4035  5.78 82.7%
-Line = MU4    2 49.5443 [44.9137; 54.1749]        0       0  0.45  0.0%
-Line = MU5    2 54.0756 [43.8922; 64.2591]  42.8430  6.5455  4.83 79.3%
-Line = MU6    2 60.1864 [50.2130; 70.1599]  40.4951  6.3636  4.57 78.1%
-Line = MU7    2 48.8857 [39.3948; 58.3766]  35.4632  5.9551  4.08 75.5%
-Line = MU8    1 51.3760 [45.3221; 57.4299]       --      --  0.00    --
-Line = MU9    2 56.2219 [46.0270; 66.4167]  42.4942  6.5188  4.63 78.4%
-Line = MA12   2 46.6346 [42.0021; 51.2670]        0       0  0.96  0.0%
-Line = MA13   1 53.9710 [47.9171; 60.0249]       --      --  0.00    --
-Line = MA16   2 50.7762 [36.7082; 64.8443]  91.3262  9.5565  8.77 88.6%
-Line = MA18   2 55.8811 [51.2473; 60.5148]        0       0  0.12  0.0%
-Line = MA19   2 55.1046 [44.7357; 65.4734]  44.0955  6.6404  4.68 78.6%
-Line = MA20   2 46.9120 [42.2339; 51.5902]        0       0  0.56  0.0%
-Line = MA21   2 52.2216 [46.3043; 58.1389]   6.8138  2.6103  1.58 36.9%
-Line = MA23   2 49.4384 [44.8359; 54.0409]        0       0  0.00  0.0%
-Line = MA26   2 44.5296 [34.1079; 54.9512]  44.5755  6.6765  4.69 78.7%
-Line = MA27   1 38.9120 [32.8581; 44.9659]       --      --  0.00    --
-Line = MA28   1 52.0810 [46.0271; 58.1349]       --      --  0.00    --
-Line = MA3    2 47.4035 [35.6846; 59.1225]  60.1700  7.7569  6.29 84.1%
-Line = MA30   2 49.5457 [44.8256; 54.2657]        0       0  0.00  0.0%
-Line = MA31   1 37.6890 [31.6351; 43.7429]       --      --  0.00    --
-Line = MA32   1 52.5200 [46.4661; 58.5739]       --      --  0.00    --
-Line = MA33   2 42.2385 [35.9366; 48.5404]   9.3037  3.0502  1.80 44.6%
-Line = MA5    2 50.3872 [35.7126; 65.0618] 100.8227 10.0410  9.91 89.9%
-Line = MA6    2 42.6100 [34.7715; 50.4486]  20.6296  4.5420  2.80 64.3%
-Line = MA7    2 50.5399 [45.7358; 55.3439]        0       0  0.66  0.0%
-Line = MA9    2 51.1045 [46.4035; 55.8054]   0.1863  0.4317  1.02  1.6%
-Line = UM13   2 55.1819 [41.2773; 69.0865]  88.7888  9.4228  8.45 88.2%
-Line = UM17   2 48.9032 [33.6571; 64.1493] 109.2165 10.4507 10.23 90.2%
-Line = UM18   2 46.4736 [41.2658; 51.6815]   2.6930  1.6410  1.23 18.7%
-Line = UM2    2 47.9258 [39.0607; 56.7910]  29.4342  5.4253  3.55 71.8%
-Line = UM20   2 54.3833 [32.3422; 76.4243] 241.4434 15.5384 22.00 95.5%
-Line = UM21   2 48.8305 [44.0671; 53.5939]   0.1654  0.4067  1.01  1.4%
-Line = UM22   1 42.2201 [36.0937; 48.3466]       --      --  0.00    --
-Line = UM23   2 49.5342 [39.7324; 59.3359]  38.0213  6.1661  4.14 75.8%
-Line = UM24   1 44.5121 [38.3857; 50.6386]       --      --  0.00    --
-Line = UM25   2 50.4249 [27.9510; 72.8988] 250.8671 15.8388 21.71 95.4%
-Line = UM26   2 43.3305 [34.0122; 52.6487]  33.4292  5.7818  3.82 73.8%
-Line = UM28   2 48.8743 [25.3113; 72.4374] 277.4260 16.6561 24.81 96.0%
-Line = UM29   2 51.5901 [33.5037; 69.6765] 158.0659 12.5724 13.87 92.8%
-Line = UM4    2 51.7301 [37.5850; 65.8752]  92.7669  9.6316  9.12 89.0%
-Line = UM5    2 47.3077 [42.5874; 52.0280]        0       0  0.43  0.0%
-Line = UM6    1 43.3951 [37.2687; 49.5216]       --      --  0.00    --
-Line = UM7    2 53.9019 [38.1014; 69.7025] 117.9269 10.8594 10.75 90.7%
-Line = UM9    2 50.9805 [39.9046; 62.0564]  52.1328  7.2203  5.42 81.5%
-Line = KA1    2 56.6319 [50.9820; 62.2817]   5.4453  2.3335  1.48 32.4%
-Line = KA10   2 59.0211 [48.7017; 69.3405]  44.4043  6.6637  5.01 80.0%
-Line = KA11   2 53.0578 [48.3351; 57.7805]        0       0  0.08  0.0%
-Line = KA13   1 50.4200 [44.3661; 56.4739]       --      --  0.00    --
-Line = KA14   2 52.7633 [47.9407; 57.5859]   0.9101  0.9540  1.08  7.3%
-Line = KA15   2 54.9675 [50.3033; 59.6317]        0       0  0.03  0.0%
-Line = KA16   1 47.7550 [41.7011; 53.8089]       --      --  0.00    --
-Line = KA17   2 56.7531 [51.0888; 62.4174]   5.3249  2.3076  1.46 31.4%
-Line = KA18   2 57.3972 [41.8256; 72.9689] 114.7052 10.7101 10.92 90.8%
-Line = KA2    1 58.5370 [52.4831; 64.5909]       --      --  0.00    --
-Line = KA23   2 48.9385 [44.2526; 53.6245]        0       0  0.43  0.0%
-Line = KA24   2 53.6722 [48.9992; 58.3452]        0       0  0.00  0.0%
-Line = KA25   1 46.6280 [40.5741; 52.6819]       --      --  0.00    --
-Line = KA28   2 52.2874 [47.6270; 56.9478]        0       0  0.07  0.0%
-Line = KA29   2 54.2841 [42.3882; 66.1799]  62.0965  7.8801  6.34 84.2%
-Line = KA3    2 58.0135 [51.7150; 64.3120]   9.3393  3.0560  1.81 44.8%
-Line = KA5    2 51.7314 [42.0477; 61.4151]  36.7954  6.0659  4.02 75.1%
-Line = KA6    1 54.1340 [48.0801; 60.1879]       --      --  0.00    --
-Line = KA7    2 61.7483 [57.0976; 66.3989]        0       0  0.23  0.0%
-Line = KA9    2 57.9391 [52.6626; 63.2156]   2.8063  1.6752  1.23 18.8%
-Line = VA1    2 54.2204 [49.5668; 58.8741]        0       0  0.20  0.0%
-Line = VA11   1 45.1437 [39.0899; 51.1976]       --      --  0.00    --
-Line = VA15   1 54.0727 [48.0189; 60.1266]       --      --  0.00    --
-Line = VA18   2 54.5619 [43.0250; 66.0987]  58.1830  7.6278  6.22 83.9%
-Line = VA22   2 51.7055 [37.5053; 65.9056]  92.6357  9.6247  8.45 88.2%
-Line = VA26   2 55.6295 [40.0428; 71.2163] 114.7271 10.7111 10.72 90.7%
-Line = VA30   2 50.5404 [39.4748; 61.6059]  52.1856  7.2240  5.49 81.8%
-Line = VA34   2 54.0796 [42.7453; 65.4139]  54.4480  7.3789  5.33 81.2%
-Line = VA35   1 48.6487 [42.5949; 54.7026]       --      --  0.00    --
-Line = VA44   1 51.2937 [45.2399; 57.3476]       --      --  0.00    --
-Line = VA46   1 44.2937 [38.2399; 50.3476]       --      --  0.00    --
-Line = VA47   2 57.2884 [48.0253; 66.5514]  33.4315  5.7820  3.96 74.7%
-Line = VA48   2 59.1570 [46.2234; 72.0905]  75.4813  8.6880  7.47 86.6%
- [ reached getOption("max.print") -- omitted 29 rows ]
+              k                     95%-CI    tau^2
+Line = YE11   2 39.9847 [29.5482; 50.4212]  45.2665
+Line = YE13   2 50.0595 [41.1158; 59.0031]  30.1732
+Line = YE14   1 51.0094 [44.9556; 57.0633]       --
+Line = YE15   2 46.6691 [37.5778; 55.7603]  31.4816
+Line = YE19   2 49.8991 [33.7754; 66.0227] 123.6740
+Line = YE20   1 45.3554 [39.3016; 51.4093]       --
+Line = YE21   2 47.8417 [38.3308; 57.3527]  35.8469
+Line = YE22   2 50.8443 [42.5850; 59.1037]  23.9779
+Line = YE23   2 46.0506 [38.9557; 53.1456]  14.8477
+Line = YE24   2 46.0696 [34.6798; 57.4593]  55.9505
+Line = YE26   2 49.1955 [36.5906; 61.8004]  70.2483
+Line = YE27   1 44.2474 [38.1936; 50.3013]       --
+Line = YE33   2 48.4785 [39.0977; 57.8592]  34.2066
+Line = YE40   2 46.8496 [42.1478; 51.5514]        0
+Line = YE41   1 48.1254 [42.0716; 54.1793]       --
+Line = YE48   2 44.7060 [35.9491; 53.4630]  28.3196
+Line = YE49   1 49.2904 [43.2366; 55.3443]       --
+Line = YE51   2 43.7958 [39.0990; 48.4927]        0
+Line = YE69   2 47.1223 [42.4337; 51.8109]        0
+Line = YE80   2 50.7808 [42.0228; 59.5387]  28.6533
+Line = RE1    1 42.2395 [36.0235; 48.4555]       --
+Line = RE10   2 51.5361 [46.8342; 56.2381]        0
+Line = RE11   2 53.6988 [47.0098; 60.3878]  11.8273
+Line = RE12   2 54.0493 [44.3969; 63.7017]  36.8699
+Line = RE13   2 50.9748 [45.7779; 56.1717]   2.6144
+Line = RE15   2 55.8163 [48.9695; 62.6631]  12.9222
+Line = RE16   2 46.6188 [41.8470; 51.3905]        0
+Line = RE17   2 45.0068 [40.3071; 49.7065]        0
+Line = RE18   2 46.7743 [38.9671; 54.5815]  19.2469
+Line = RE2    2 42.7222 [37.1828; 48.2617]   4.1163
+Line = RE3    2 43.8625 [39.2273; 48.4977]        0
+Line = RE4    2 50.2104 [45.4670; 54.9538]        0
+Line = RE5    2 53.4882 [48.7876; 58.1888]        0
+Line = RE6    2 46.4423 [41.7189; 51.1658]        0
+Line = RE7    2 48.6028 [42.0304; 55.1753]  10.8568
+Line = RE8    2 42.9425 [38.1816; 47.7034]        0
+Line = GI1    2 46.7530 [34.5511; 58.9549]  65.1144
+Line = GI10   2 50.9539 [46.1501; 55.7576]        0
+Line = GI11   2 46.1767 [41.3346; 51.0187]        0
+Line = GI12   1 44.6567 [37.3075; 52.0059]       --
+Line = GI13   2 58.5074 [53.7238; 63.2909]        0
+Line = GI14   2 50.3174 [42.1234; 58.5114]  23.0159
+Line = GI15   1 53.0887 [45.6038; 60.5736]       --
+Line = GI2    2 48.6287 [43.8704; 53.3870]        0
+Line = GI3    2 48.7108 [42.1864; 55.2352]   9.9950
+Line = GI4    2 44.2835 [29.4084; 59.1585] 102.9274
+Line = GI5    2 38.4223 [32.7256; 44.1190]   4.8254
+Line = GI6    2 54.5380 [45.4999; 63.5760]  30.6945
+Line = GI7    2 51.6811 [39.1314; 64.2307]  69.2404
+Line = GI8    2 46.7579 [40.0285; 53.4873]  11.2668
+Line = GI9    2 59.1777 [54.3937; 63.9617]        0
+Line = MU1    2 56.2864 [43.6895; 68.8834]  71.0356
+Line = MU10   2 54.5227 [49.8618; 59.1836]        0
+Line = MU11   2 54.1631 [49.2989; 59.0274]   0.9834
+Line = MU12   1 49.6860 [43.6321; 55.7399]       --
+Line = MU13   1 44.8730 [38.8191; 50.9269]       --
+Line = MU14   2 57.0999 [45.5088; 68.6910]  58.5183
+Line = MU15   2 55.3928 [50.7722; 60.0134]        0
+Line = MU16   1 51.5770 [45.5231; 57.6309]       --
+Line = MU17   2 50.1461 [41.3813; 58.9108]  28.7763
+Line = MU18   2 58.7154 [50.2368; 67.1941]  25.8396
+Line = MU19   1 48.1390 [42.0851; 54.1929]       --
+Line = MU2    2 59.4210 [51.2970; 67.5451]  22.6253
+Line = MU20   2 48.0915 [35.2760; 60.9070]  73.4281
+Line = MU3    2 55.8189 [44.5398; 67.0980]  54.8122
+Line = MU4    2 49.5443 [44.9137; 54.1749]        0
+Line = MU5    2 54.0756 [43.8922; 64.2591]  42.8430
+Line = MU6    2 60.1864 [50.2130; 70.1599]  40.4951
+Line = MU7    2 48.8857 [39.3948; 58.3766]  35.4632
+Line = MU8    1 51.3760 [45.3221; 57.4299]       --
+Line = MU9    2 56.2219 [46.0270; 66.4167]  42.4942
+Line = MA12   2 46.6346 [42.0021; 51.2670]        0
+Line = MA13   1 53.9710 [47.9171; 60.0249]       --
+Line = MA16   2 50.7762 [36.7082; 64.8443]  91.3262
+Line = MA18   2 55.8811 [51.2473; 60.5148]        0
+Line = MA19   2 55.1046 [44.7357; 65.4734]  44.0955
+Line = MA20   2 46.9120 [42.2339; 51.5902]        0
+Line = MA21   2 52.2216 [46.3043; 58.1389]   6.8138
+Line = MA23   2 49.4384 [44.8359; 54.0409]        0
+Line = MA26   2 44.5296 [34.1079; 54.9512]  44.5755
+Line = MA27   1 38.9120 [32.8581; 44.9659]       --
+Line = MA28   1 52.0810 [46.0271; 58.1349]       --
+Line = MA3    2 47.4035 [35.6846; 59.1225]  60.1700
+Line = MA30   2 49.5457 [44.8256; 54.2657]        0
+Line = MA31   1 37.6890 [31.6351; 43.7429]       --
+Line = MA32   1 52.5200 [46.4661; 58.5739]       --
+Line = MA33   2 42.2385 [35.9366; 48.5404]   9.3037
+Line = MA5    2 50.3872 [35.7126; 65.0618] 100.8227
+Line = MA6    2 42.6100 [34.7715; 50.4486]  20.6296
+Line = MA7    2 50.5399 [45.7358; 55.3439]        0
+Line = MA9    2 51.1045 [46.4035; 55.8054]   0.1863
+Line = UM13   2 55.1819 [41.2773; 69.0865]  88.7888
+Line = UM17   2 48.9032 [33.6571; 64.1493] 109.2165
+Line = UM18   2 46.4736 [41.2658; 51.6815]   2.6930
+Line = UM2    2 47.9258 [39.0607; 56.7910]  29.4342
+Line = UM20   2 54.3833 [32.3422; 76.4243] 241.4434
+Line = UM21   2 48.8305 [44.0671; 53.5939]   0.1654
+Line = UM22   1 42.2201 [36.0937; 48.3466]       --
+Line = UM23   2 49.5342 [39.7324; 59.3359]  38.0213
+Line = UM24   1 44.5121 [38.3857; 50.6386]       --
+Line = UM25   2 50.4249 [27.9510; 72.8988] 250.8671
+Line = UM26   2 43.3305 [34.0122; 52.6487]  33.4292
+Line = UM28   2 48.8743 [25.3113; 72.4374] 277.4260
+Line = UM29   2 51.5901 [33.5037; 69.6765] 158.0659
+Line = UM4    2 51.7301 [37.5850; 65.8752]  92.7669
+Line = UM5    2 47.3077 [42.5874; 52.0280]        0
+Line = UM6    1 43.3951 [37.2687; 49.5216]       --
+Line = UM7    2 53.9019 [38.1014; 69.7025] 117.9269
+Line = UM9    2 50.9805 [39.9046; 62.0564]  52.1328
+Line = KA1    2 56.6319 [50.9820; 62.2817]   5.4453
+Line = KA10   2 59.0211 [48.7017; 69.3405]  44.4043
+Line = KA11   2 53.0578 [48.3351; 57.7805]        0
+Line = KA13   1 50.4200 [44.3661; 56.4739]       --
+Line = KA14   2 52.7633 [47.9407; 57.5859]   0.9101
+Line = KA15   2 54.9675 [50.3033; 59.6317]        0
+Line = KA16   1 47.7550 [41.7011; 53.8089]       --
+Line = KA17   2 56.7531 [51.0888; 62.4174]   5.3249
+Line = KA18   2 57.3972 [41.8256; 72.9689] 114.7052
+Line = KA2    1 58.5370 [52.4831; 64.5909]       --
+Line = KA23   2 48.9385 [44.2526; 53.6245]        0
+Line = KA24   2 53.6722 [48.9992; 58.3452]        0
+Line = KA25   1 46.6280 [40.5741; 52.6819]       --
+Line = KA28   2 52.2874 [47.6270; 56.9478]        0
+Line = KA29   2 54.2841 [42.3882; 66.1799]  62.0965
+Line = KA3    2 58.0135 [51.7150; 64.3120]   9.3393
+Line = KA5    2 51.7314 [42.0477; 61.4151]  36.7954
+Line = KA6    1 54.1340 [48.0801; 60.1879]       --
+Line = KA7    2 61.7483 [57.0976; 66.3989]        0
+Line = KA9    2 57.9391 [52.6626; 63.2156]   2.8063
+Line = VA1    2 54.2204 [49.5668; 58.8741]        0
+Line = VA11   1 45.1437 [39.0899; 51.1976]       --
+Line = VA15   1 54.0727 [48.0189; 60.1266]       --
+Line = VA18   2 54.5619 [43.0250; 66.0987]  58.1830
+Line = VA22   2 51.7055 [37.5053; 65.9056]  92.6357
+Line = VA26   2 55.6295 [40.0428; 71.2163] 114.7271
+Line = VA30   2 50.5404 [39.4748; 61.6059]  52.1856
+Line = VA34   2 54.0796 [42.7453; 65.4139]  54.4480
+Line = VA35   1 48.6487 [42.5949; 54.7026]       --
+Line = VA44   1 51.2937 [45.2399; 57.3476]       --
+Line = VA46   1 44.2937 [38.2399; 50.3476]       --
+Line = VA47   2 57.2884 [48.0253; 66.5514]  33.4315
+Line = VA48   2 59.1570 [46.2234; 72.0905]  75.4813
+Line = VA55   2 50.7024 [35.9511; 65.4536] 101.8883
+Line = VA57   2 51.1549 [31.1669; 71.1428] 196.0501
+Line = VA6    2 60.8642 [52.3433; 69.3851]  26.4701
+Line = VA66   2 54.5888 [46.8542; 62.3234]  19.7594
+Line = VA67   2 48.5299 [41.4858; 55.5739]  14.0175
+Line = VA71   2 56.5992 [51.9485; 61.2499]        0
+Line = VA9    2 55.2760 [33.7230; 76.8289] 230.7453
+Line = AK1    2 53.6099 [44.3924; 62.8275]  32.6581
+Line = AK10   2 51.1307 [31.8428; 70.4187] 181.5224
+Line = AK11   2 48.9108 [41.1223; 56.6992]  20.1656
+Line = AK12   1 50.5058 [44.5120; 56.4996]       --
+Line = AK13   2 54.6227 [39.7773; 69.4681] 103.3702
+Line = AK14   2 57.4713 [52.8755; 62.0671]        0
+Line = AK15   1 47.9658 [41.9720; 53.9596]       --
+Line = AK16   1 60.5038 [54.5100; 66.4976]       --
+Line = AK17   2 50.2201 [37.8949; 62.5453]  68.0184
+Line = AK18   2 59.5997 [52.9588; 66.2406]  11.4852
+Line = AK19   1 41.4048 [35.4110; 47.3986]       --
+Line = AK2    1 55.8058 [49.8120; 61.7996]       --
+Line = AK20   2 54.4879 [36.7693; 72.2065] 151.4263
+Line = AK21   2 56.5965 [45.3302; 67.8627]  54.5549
+Line = AK24   1 53.7818 [47.7880; 59.7756]       --
+Line = AK3    2 59.9477 [53.4258; 66.4697]  10.5235
+Line = AK4    2 53.4531 [48.8675; 58.0387]   0.1308
+Line = AK5    1 52.7408 [46.7470; 58.7346]       --
+Line = AK6    2 50.7081 [46.0467; 55.3695]        0
+Line = AK7    2 56.8398 [44.8354; 68.8441]  63.1355
+Line = AK8    2 58.7162 [43.0007; 74.4317] 116.9772
+Line = AK9    2 55.3341 [40.6816; 69.9865] 100.1225
+                tau     Q   I^2
+Line = YE11  6.7280  4.93 79.7%
+Line = YE13  5.4930  3.61 72.3%
+Line = YE14      --  0.00    --
+Line = YE15  5.6108  3.70 73.0%
+Line = YE19 11.1209 11.56 91.3%
+Line = YE20      --  0.00    --
+Line = YE21  5.9872  4.17 76.0%
+Line = YE22  4.8967  3.06 67.3%
+Line = YE23  3.8533  2.29 56.3%
+Line = YE24  7.4800  5.80 82.8%
+Line = YE26  8.3814  6.58 84.8%
+Line = YE27      --  0.00    --
+Line = YE33  5.8486  3.92 74.5%
+Line = YE40       0  0.27  0.0%
+Line = YE41      --  0.00    --
+Line = YE48  5.3216  3.42 70.7%
+Line = YE49      --  0.00    --
+Line = YE51       0  0.28  0.0%
+Line = YE69       0  0.86  0.0%
+Line = YE80  5.3529  3.52 71.6%
+Line = RE1       --  0.00    --
+Line = RE10       0  0.05  0.0%
+Line = RE11  3.4391  2.02 50.6%
+Line = RE12  6.0721  4.15 75.9%
+Line = RE13  1.6169  1.23 18.4%
+Line = RE15  3.5947  2.12 52.7%
+Line = RE16       0  0.03  0.0%
+Line = RE17       0  0.27  0.0%
+Line = RE18  4.3871  2.51 60.2%
+Line = RE2   2.0289  1.34 25.3%
+Line = RE3        0  0.00  0.0%
+Line = RE4        0  0.71  0.0%
+Line = RE5        0  0.42  0.0%
+Line = RE6        0  0.11  0.0%
+Line = RE7   3.2950  1.92 48.0%
+Line = RE8        0  0.23  0.0%
+Line = GI1   8.0694  6.23 84.0%
+Line = GI10       0  0.03  0.0%
+Line = GI11       0  0.02  0.0%
+Line = GI12      --  0.00    --
+Line = GI13       0  0.03  0.0%
+Line = GI14  4.7975  2.92 65.7%
+Line = GI15      --  0.00    --
+Line = GI2        0  0.67  0.0%
+Line = GI3   3.1615  1.81 44.9%
+Line = GI4  10.1453  9.37 89.3%
+Line = GI5   2.1967  1.40 28.3%
+Line = GI6   5.5403  3.59 72.1%
+Line = GI7   8.3211  6.40 84.4%
+Line = GI8   3.3566  1.91 47.5%
+Line = GI9        0  0.03  0.0%
+Line = MU1   8.4283  7.11 85.9%
+Line = MU10       0  0.42  0.0%
+Line = MU11  0.9917  1.08  7.8%
+Line = MU12      --  0.00    --
+Line = MU13      --  0.00    --
+Line = MU14  7.6497  6.10 83.6%
+Line = MU15       0  0.91  0.0%
+Line = MU16      --  0.00    --
+Line = MU17  5.3644  3.55 71.8%
+Line = MU18  5.0833  3.21 68.8%
+Line = MU19      --  0.00    --
+Line = MU2   4.7566  2.90 65.5%
+Line = MU20  8.5690  7.04 85.8%
+Line = MU3   7.4035  5.78 82.7%
+Line = MU4        0  0.45  0.0%
+Line = MU5   6.5455  4.83 79.3%
+Line = MU6   6.3636  4.57 78.1%
+Line = MU7   5.9551  4.08 75.5%
+Line = MU8       --  0.00    --
+Line = MU9   6.5188  4.63 78.4%
+Line = MA12       0  0.96  0.0%
+Line = MA13      --  0.00    --
+Line = MA16  9.5565  8.77 88.6%
+Line = MA18       0  0.12  0.0%
+Line = MA19  6.6404  4.68 78.6%
+Line = MA20       0  0.56  0.0%
+Line = MA21  2.6103  1.58 36.9%
+Line = MA23       0  0.00  0.0%
+Line = MA26  6.6765  4.69 78.7%
+Line = MA27      --  0.00    --
+Line = MA28      --  0.00    --
+Line = MA3   7.7569  6.29 84.1%
+Line = MA30       0  0.00  0.0%
+Line = MA31      --  0.00    --
+Line = MA32      --  0.00    --
+Line = MA33  3.0502  1.80 44.6%
+Line = MA5  10.0410  9.91 89.9%
+Line = MA6   4.5420  2.80 64.3%
+Line = MA7        0  0.66  0.0%
+Line = MA9   0.4317  1.02  1.6%
+Line = UM13  9.4228  8.45 88.2%
+Line = UM17 10.4507 10.23 90.2%
+Line = UM18  1.6410  1.23 18.7%
+Line = UM2   5.4253  3.55 71.8%
+Line = UM20 15.5384 22.00 95.5%
+Line = UM21  0.4067  1.01  1.4%
+Line = UM22      --  0.00    --
+Line = UM23  6.1661  4.14 75.8%
+Line = UM24      --  0.00    --
+Line = UM25 15.8388 21.71 95.4%
+Line = UM26  5.7818  3.82 73.8%
+Line = UM28 16.6561 24.81 96.0%
+Line = UM29 12.5724 13.87 92.8%
+Line = UM4   9.6316  9.12 89.0%
+Line = UM5        0  0.43  0.0%
+Line = UM6       --  0.00    --
+Line = UM7  10.8594 10.75 90.7%
+Line = UM9   7.2203  5.42 81.5%
+Line = KA1   2.3335  1.48 32.4%
+Line = KA10  6.6637  5.01 80.0%
+Line = KA11       0  0.08  0.0%
+Line = KA13      --  0.00    --
+Line = KA14  0.9540  1.08  7.3%
+Line = KA15       0  0.03  0.0%
+Line = KA16      --  0.00    --
+Line = KA17  2.3076  1.46 31.4%
+Line = KA18 10.7101 10.92 90.8%
+Line = KA2       --  0.00    --
+Line = KA23       0  0.43  0.0%
+Line = KA24       0  0.00  0.0%
+Line = KA25      --  0.00    --
+Line = KA28       0  0.07  0.0%
+Line = KA29  7.8801  6.34 84.2%
+Line = KA3   3.0560  1.81 44.8%
+Line = KA5   6.0659  4.02 75.1%
+Line = KA6       --  0.00    --
+Line = KA7        0  0.23  0.0%
+Line = KA9   1.6752  1.23 18.8%
+Line = VA1        0  0.20  0.0%
+Line = VA11      --  0.00    --
+Line = VA15      --  0.00    --
+Line = VA18  7.6278  6.22 83.9%
+Line = VA22  9.6247  8.45 88.2%
+Line = VA26 10.7111 10.72 90.7%
+Line = VA30  7.2240  5.49 81.8%
+Line = VA34  7.3789  5.33 81.2%
+Line = VA35      --  0.00    --
+Line = VA44      --  0.00    --
+Line = VA46      --  0.00    --
+Line = VA47  5.7820  3.96 74.7%
+Line = VA48  8.6880  7.47 86.6%
+Line = VA55 10.0940  9.91 89.9%
+Line = VA57 14.0018 17.36 94.2%
+Line = VA6   5.1449  3.32 69.9%
+Line = VA66  4.4452  2.72 63.2%
+Line = VA67  3.7440  2.16 53.8%
+Line = VA71       0  0.26  0.0%
+Line = VA9  15.1903 21.76 95.4%
+Line = AK1   5.7147  3.79 73.6%
+Line = AK10 13.4730 15.87 93.7%
+Line = AK11  4.4906  2.74 63.5%
+Line = AK12      --  0.00    --
+Line = AK13 10.1671 10.06 90.1%
+Line = AK14       0  0.78  0.0%
+Line = AK15      --  0.00    --
+Line = AK16      --  0.00    --
+Line = AK17  8.2473  7.12 86.0%
+Line = AK18  3.3890  1.98 49.5%
+Line = AK19      --  0.00    --
+Line = AK2       --  0.00    --
+Line = AK20 12.3055 13.54 92.6%
+Line = AK21  7.3861  5.70 82.5%
+Line = AK24      --  0.00    --
+Line = AK3   3.2440  1.88 46.9%
+Line = AK4   0.3617  1.01  1.2%
+Line = AK5       --  0.00    --
+Line = AK6        0  0.52  0.0%
+Line = AK7   7.9458  6.27 84.0%
+Line = AK8  10.8156 11.04 90.9%
+Line = AK9  10.0061  9.55 89.5%
 
 Test for subgroup differences (random effects model):
                       Q d.f.  p-value
