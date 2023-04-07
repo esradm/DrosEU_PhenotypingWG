@@ -1,8 +1,11 @@
 $WA_L_F_Onder_lmer_lat
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: CentroidSizeLeft_micrometers ~ Latitude + (1 | Population) +  
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: 
+CentroidSizeLeft_micrometers ~ Latitude + (1 | Population) +  
     (1 | Line:Population)
-   Data: filter(droseu$wa, Supervisor.PI == "Onder" & Sex == "F")
+   Data: 
+filter(droseu$wa, Supervisor.PI == "Onder" & Sex == "F")
 
 REML criterion at convergence: 61400.1
 
@@ -15,7 +18,8 @@ Random effects:
  Line:Population (Intercept) 3378     58.12   
  Population      (Intercept) 1610     40.12   
  Residual                    6453     80.33   
-Number of obs: 5247, groups:  Line:Population, 167; Population, 9
+Number of obs: 5247, groups:  
+Line:Population, 167; Population, 9
 
 Fixed effects:
             Estimate Std. Error       df t value Pr(>|t|)    
@@ -29,9 +33,12 @@ Correlation of Fixed Effects:
 Latitude -0.989
 
 $WA_L_F_Posnien_lmer_lat
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: CentroidSizeLeft_micrometers ~ Latitude + (1 | Line:Population)
-   Data: filter(droseu$wa, Supervisor.PI == "Posnien" & Sex == "F")
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: 
+CentroidSizeLeft_micrometers ~ Latitude + (1 | Line:Population)
+   Data: 
+filter(droseu$wa, Supervisor.PI == "Posnien" & Sex == "F")
 
 REML criterion at convergence: 3252.1
 
@@ -57,10 +64,13 @@ Correlation of Fixed Effects:
 Latitude -0.989
 
 $WA_L_F_Ritchie_lmer_lat
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: CentroidSizeLeft_micrometers ~ Latitude + (1 | Population) +  
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: 
+CentroidSizeLeft_micrometers ~ Latitude + (1 | Population) +  
     (1 | Line:Population)
-   Data: filter(droseu$wa, Supervisor.PI == "Ritchie" & Sex == "F")
+   Data: 
+filter(droseu$wa, Supervisor.PI == "Ritchie" & Sex == "F")
 
 REML criterion at convergence: 16988.9
 
@@ -73,12 +83,16 @@ Random effects:
  Line:Population (Intercept) 19943    141.22  
  Population      (Intercept)  7681     87.64  
  Residual                    12957    113.83  
-Number of obs: 1367, groups:  Line:Population, 47; Population, 9
+Number of obs: 1367, groups:  
+Line:Population, 47; Population, 9
 
 Fixed effects:
-             Estimate Std. Error        df t value Pr(>|t|)    
-(Intercept) 2747.9399   250.0123    7.6701  10.991 5.78e-06 ***
-Latitude       0.5856     5.0503    7.8260   0.116    0.911    
+             Estimate Std. Error        df t value Pr(>|t|)
+(Intercept) 2747.9399   250.0123    7.6701  10.991 5.78e-06
+Latitude       0.5856     5.0503    7.8260   0.116    0.911
+               
+(Intercept) ***
+Latitude       
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
@@ -87,10 +101,14 @@ Correlation of Fixed Effects:
 Latitude -0.989
 
 $WA_L_F_StamenkovicRadak_lmer_lat
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: CentroidSizeLeft_micrometers ~ Latitude + (1 | Population) +  
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: 
+CentroidSizeLeft_micrometers ~ Latitude + (1 | Population) +  
     (1 | Line:Population)
-   Data: filter(droseu$wa, Supervisor.PI == "StamenkovicRadak" & Sex ==      "F")
+   Data: 
+filter(droseu$wa, Supervisor.PI == "StamenkovicRadak" & Sex ==  
+    "F")
 
 REML criterion at convergence: 44955.8
 
@@ -103,7 +121,8 @@ Random effects:
  Line:Population (Intercept) 2441     49.41   
  Population      (Intercept) 1289     35.90   
  Residual                    7741     87.98   
-Number of obs: 3787, groups:  Line:Population, 124; Population, 9
+Number of obs: 3787, groups:  
+Line:Population, 124; Population, 9
 
 Fixed effects:
             Estimate Std. Error       df t value Pr(>|t|)    
@@ -117,10 +136,13 @@ Correlation of Fixed Effects:
 Latitude -0.989
 
 $WA_L_M_Onder_lmer_lat
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: CentroidSizeLeft_micrometers ~ Latitude + (1 | Population) +  
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: 
+CentroidSizeLeft_micrometers ~ Latitude + (1 | Population) +  
     (1 | Line:Population)
-   Data: filter(droseu$wa, Supervisor.PI == "Onder" & Sex == "M")
+   Data: 
+filter(droseu$wa, Supervisor.PI == "Onder" & Sex == "M")
 
 REML criterion at convergence: 60114.3
 
@@ -133,7 +155,8 @@ Random effects:
  Line:Population (Intercept) 2477     49.77   
  Population      (Intercept) 1058     32.52   
  Residual                    5258     72.51   
-Number of obs: 5230, groups:  Line:Population, 167; Population, 9
+Number of obs: 5230, groups:  
+Line:Population, 167; Population, 9
 
 Fixed effects:
             Estimate Std. Error       df t value Pr(>|t|)    
@@ -147,9 +170,12 @@ Correlation of Fixed Effects:
 Latitude -0.989
 
 $WA_L_M_Posnien_lmer_lat
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: CentroidSizeLeft_micrometers ~ Latitude + (1 | Line:Population)
-   Data: filter(droseu$wa, Supervisor.PI == "Posnien" & Sex == "M")
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: 
+CentroidSizeLeft_micrometers ~ Latitude + (1 | Line:Population)
+   Data: 
+filter(droseu$wa, Supervisor.PI == "Posnien" & Sex == "M")
 
 REML criterion at convergence: 3167
 
@@ -175,10 +201,13 @@ Correlation of Fixed Effects:
 Latitude -0.989
 
 $WA_L_M_Ritchie_lmer_lat
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: CentroidSizeLeft_micrometers ~ Latitude + (1 | Population) +  
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: 
+CentroidSizeLeft_micrometers ~ Latitude + (1 | Population) +  
     (1 | Line:Population)
-   Data: filter(droseu$wa, Supervisor.PI == "Ritchie" & Sex == "M")
+   Data: 
+filter(droseu$wa, Supervisor.PI == "Ritchie" & Sex == "M")
 
 REML criterion at convergence: 16590.7
 
@@ -191,12 +220,16 @@ Random effects:
  Line:Population (Intercept) 8278.3   90.98   
  Population      (Intercept)  226.4   15.05   
  Residual                    9819.7   99.09   
-Number of obs: 1368, groups:  Line:Population, 44; Population, 9
+Number of obs: 1368, groups:  
+Line:Population, 44; Population, 9
 
 Fixed effects:
-             Estimate Std. Error        df t value Pr(>|t|)    
-(Intercept) 2441.1935   103.8160    7.5773   23.52 2.34e-08 ***
-Latitude       0.1046     2.0965    7.7198    0.05    0.961    
+             Estimate Std. Error        df t value Pr(>|t|)
+(Intercept) 2441.1935   103.8160    7.5773   23.52 2.34e-08
+Latitude       0.1046     2.0965    7.7198    0.05    0.961
+               
+(Intercept) ***
+Latitude       
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
@@ -205,10 +238,14 @@ Correlation of Fixed Effects:
 Latitude -0.990
 
 $WA_L_M_StamenkovicRadak_lmer_lat
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: CentroidSizeLeft_micrometers ~ Latitude + (1 | Population) +  
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: 
+CentroidSizeLeft_micrometers ~ Latitude + (1 | Population) +  
     (1 | Line:Population)
-   Data: filter(droseu$wa, Supervisor.PI == "StamenkovicRadak" & Sex ==      "M")
+   Data: 
+filter(droseu$wa, Supervisor.PI == "StamenkovicRadak" & Sex ==  
+    "M")
 
 REML criterion at convergence: 42532.5
 
@@ -221,7 +258,8 @@ Random effects:
  Line:Population (Intercept) 1863.5   43.17   
  Population      (Intercept)  884.5   29.74   
  Residual                    5982.2   77.34   
-Number of obs: 3662, groups:  Line:Population, 124; Population, 9
+Number of obs: 3662, groups:  
+Line:Population, 124; Population, 9
 
 Fixed effects:
             Estimate Std. Error       df t value Pr(>|t|)    
@@ -235,10 +273,13 @@ Correlation of Fixed Effects:
 Latitude -0.989
 
 $WA_R_F_Onder_lmer_lat
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: CentroidSizeRight_micrometers ~ Latitude + (1 | Population) +  
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: 
+CentroidSizeRight_micrometers ~ Latitude + (1 | Population) +  
     (1 | Line:Population)
-   Data: filter(droseu$wa, Supervisor.PI == "Onder" & Sex == "F")
+   Data: 
+filter(droseu$wa, Supervisor.PI == "Onder" & Sex == "F")
 
 REML criterion at convergence: 61404.9
 
@@ -251,7 +292,8 @@ Random effects:
  Line:Population (Intercept) 3323     57.65   
  Population      (Intercept) 1612     40.14   
  Residual                    6462     80.39   
-Number of obs: 5247, groups:  Line:Population, 167; Population, 9
+Number of obs: 5247, groups:  
+Line:Population, 167; Population, 9
 
 Fixed effects:
             Estimate Std. Error       df t value Pr(>|t|)    
@@ -265,9 +307,12 @@ Correlation of Fixed Effects:
 Latitude -0.989
 
 $WA_R_F_Posnien_lmer_lat
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: CentroidSizeRight_micrometers ~ Latitude + (1 | Line:Population)
-   Data: filter(droseu$wa, Supervisor.PI == "Posnien" & Sex == "F")
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: 
+CentroidSizeRight_micrometers ~ Latitude + (1 | Line:Population)
+   Data: 
+filter(droseu$wa, Supervisor.PI == "Posnien" & Sex == "F")
 
 REML criterion at convergence: 3261.9
 
@@ -293,10 +338,13 @@ Correlation of Fixed Effects:
 Latitude -0.989
 
 $WA_R_F_Ritchie_lmer_lat
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: CentroidSizeRight_micrometers ~ Latitude + (1 | Population) +  
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: 
+CentroidSizeRight_micrometers ~ Latitude + (1 | Population) +  
     (1 | Line:Population)
-   Data: filter(droseu$wa, Supervisor.PI == "Ritchie" & Sex == "F")
+   Data: 
+filter(droseu$wa, Supervisor.PI == "Ritchie" & Sex == "F")
 
 REML criterion at convergence: 17005.8
 
@@ -309,12 +357,16 @@ Random effects:
  Line:Population (Intercept) 19558    139.85  
  Population      (Intercept)  7646     87.44  
  Residual                    13132    114.60  
-Number of obs: 1367, groups:  Line:Population, 47; Population, 9
+Number of obs: 1367, groups:  
+Line:Population, 47; Population, 9
 
 Fixed effects:
-             Estimate Std. Error        df t value Pr(>|t|)    
-(Intercept) 2771.3658   248.8492    7.6225  11.137 5.51e-06 ***
-Latitude       0.5428     5.0264    7.7755   0.108    0.917    
+             Estimate Std. Error        df t value Pr(>|t|)
+(Intercept) 2771.3658   248.8492    7.6225  11.137 5.51e-06
+Latitude       0.5428     5.0264    7.7755   0.108    0.917
+               
+(Intercept) ***
+Latitude       
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
@@ -323,10 +375,14 @@ Correlation of Fixed Effects:
 Latitude -0.989
 
 $WA_R_F_StamenkovicRadak_lmer_lat
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: CentroidSizeRight_micrometers ~ Latitude + (1 | Population) +  
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: 
+CentroidSizeRight_micrometers ~ Latitude + (1 | Population) +  
     (1 | Line:Population)
-   Data: filter(droseu$wa, Supervisor.PI == "StamenkovicRadak" & Sex ==      "F")
+   Data: 
+filter(droseu$wa, Supervisor.PI == "StamenkovicRadak" & Sex ==  
+    "F")
 
 REML criterion at convergence: 44941.7
 
@@ -339,7 +395,8 @@ Random effects:
  Line:Population (Intercept) 2483     49.83   
  Population      (Intercept) 1357     36.84   
  Residual                    7707     87.79   
-Number of obs: 3787, groups:  Line:Population, 124; Population, 9
+Number of obs: 3787, groups:  
+Line:Population, 124; Population, 9
 
 Fixed effects:
             Estimate Std. Error       df t value Pr(>|t|)    
@@ -353,10 +410,13 @@ Correlation of Fixed Effects:
 Latitude -0.989
 
 $WA_R_M_Onder_lmer_lat
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: CentroidSizeRight_micrometers ~ Latitude + (1 | Population) +  
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: 
+CentroidSizeRight_micrometers ~ Latitude + (1 | Population) +  
     (1 | Line:Population)
-   Data: filter(droseu$wa, Supervisor.PI == "Onder" & Sex == "M")
+   Data: 
+filter(droseu$wa, Supervisor.PI == "Onder" & Sex == "M")
 
 REML criterion at convergence: 60175.9
 
@@ -369,7 +429,8 @@ Random effects:
  Line:Population (Intercept) 2535     50.35   
  Population      (Intercept) 1053     32.45   
  Residual                    5318     72.93   
-Number of obs: 5230, groups:  Line:Population, 167; Population, 9
+Number of obs: 5230, groups:  
+Line:Population, 167; Population, 9
 
 Fixed effects:
             Estimate Std. Error       df t value Pr(>|t|)    
@@ -383,9 +444,12 @@ Correlation of Fixed Effects:
 Latitude -0.989
 
 $WA_R_M_Posnien_lmer_lat
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: CentroidSizeRight_micrometers ~ Latitude + (1 | Line:Population)
-   Data: filter(droseu$wa, Supervisor.PI == "Posnien" & Sex == "M")
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: 
+CentroidSizeRight_micrometers ~ Latitude + (1 | Line:Population)
+   Data: 
+filter(droseu$wa, Supervisor.PI == "Posnien" & Sex == "M")
 
 REML criterion at convergence: 3168.3
 
@@ -411,10 +475,13 @@ Correlation of Fixed Effects:
 Latitude -0.989
 
 $WA_R_M_Ritchie_lmer_lat
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: CentroidSizeRight_micrometers ~ Latitude + (1 | Population) +  
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: 
+CentroidSizeRight_micrometers ~ Latitude + (1 | Population) +  
     (1 | Line:Population)
-   Data: filter(droseu$wa, Supervisor.PI == "Ritchie" & Sex == "M")
+   Data: 
+filter(droseu$wa, Supervisor.PI == "Ritchie" & Sex == "M")
 
 REML criterion at convergence: 16572.4
 
@@ -427,12 +494,16 @@ Random effects:
  Line:Population (Intercept) 8093.4   89.96   
  Population      (Intercept)  374.2   19.34   
  Residual                    9687.8   98.43   
-Number of obs: 1368, groups:  Line:Population, 44; Population, 9
+Number of obs: 1368, groups:  
+Line:Population, 44; Population, 9
 
 Fixed effects:
-              Estimate Std. Error         df t value Pr(>|t|)    
-(Intercept)  2.466e+03  1.065e+02  7.540e+00  23.143 2.81e-08 ***
-Latitude    -4.389e-03  2.151e+00  7.674e+00  -0.002    0.998    
+              Estimate Std. Error         df t value Pr(>|t|)
+(Intercept)  2.466e+03  1.065e+02  7.540e+00  23.143 2.81e-08
+Latitude    -4.389e-03  2.151e+00  7.674e+00  -0.002    0.998
+               
+(Intercept) ***
+Latitude       
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
@@ -441,10 +512,14 @@ Correlation of Fixed Effects:
 Latitude -0.990
 
 $WA_R_M_StamenkovicRadak_lmer_lat
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: CentroidSizeRight_micrometers ~ Latitude + (1 | Population) +  
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: 
+CentroidSizeRight_micrometers ~ Latitude + (1 | Population) +  
     (1 | Line:Population)
-   Data: filter(droseu$wa, Supervisor.PI == "StamenkovicRadak" & Sex ==      "M")
+   Data: 
+filter(droseu$wa, Supervisor.PI == "StamenkovicRadak" & Sex ==  
+    "M")
 
 REML criterion at convergence: 42472.2
 
@@ -457,7 +532,8 @@ Random effects:
  Line:Population (Intercept) 1976.1   44.45   
  Population      (Intercept)  942.8   30.71   
  Residual                    5870.5   76.62   
-Number of obs: 3662, groups:  Line:Population, 124; Population, 9
+Number of obs: 3662, groups:  
+Line:Population, 124; Population, 9
 
 Fixed effects:
             Estimate Std. Error       df t value Pr(>|t|)    

@@ -1,5 +1,7 @@
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: PercT4_asin ~ Latitude + (1 | Population) + (1 | Line:Population)
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: 
+PercT4_asin ~ Latitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$pgm, Supervisor.PI == "Gibert")
 
 REML criterion at convergence: -2370.5
@@ -13,12 +15,16 @@ Random effects:
  Line:Population (Intercept) 0.0028369 0.05326 
  Population      (Intercept) 0.0003996 0.01999 
  Residual                    0.0132132 0.11495 
-Number of obs: 1741, groups:  Line:Population, 167; Population, 9
+Number of obs: 1741, groups:  
+Line:Population, 167; Population, 9
 
 Fixed effects:
-             Estimate Std. Error        df t value Pr(>|t|)    
-(Intercept) 0.4776166  0.0575917 6.9260206   8.293 7.68e-05 ***
-Latitude    0.0003093  0.0011532 6.8432496   0.268    0.796    
+             Estimate Std. Error        df t value Pr(>|t|)
+(Intercept) 0.4776166  0.0575917 6.9260206   8.293 7.68e-05
+Latitude    0.0003093  0.0011532 6.8432496   0.268    0.796
+               
+(Intercept) ***
+Latitude       
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 

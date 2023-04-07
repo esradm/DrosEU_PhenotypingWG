@@ -1,6 +1,8 @@
 $Via_Gibert_lmer_lat
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: ProportionEggtoAdultSurvival ~ Latitude + (1 | Population) +  
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: 
+ProportionEggtoAdultSurvival ~ Latitude + (1 | Population) +  
     (1 | Line:Population)
    Data: filter(droseu$via, Supervisor.PI == "Gibert")
 
@@ -15,7 +17,8 @@ Random effects:
  Line:Population (Intercept) 0.010710 0.10349 
  Population      (Intercept) 0.002886 0.05372 
  Residual                    0.009184 0.09583 
-Number of obs: 532, groups:  Line:Population, 169; Population, 9
+Number of obs: 532, groups:  
+Line:Population, 169; Population, 9
 
 Fixed effects:
             Estimate Std. Error       df t value Pr(>|t|)  
@@ -29,8 +32,10 @@ Correlation of Fixed Effects:
 Latitude -0.989
 
 $Via_Grath_lmer_lat
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: ProportionEggtoAdultSurvival ~ Latitude + (1 | Population) +  
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: 
+ProportionEggtoAdultSurvival ~ Latitude + (1 | Population) +  
     (1 | Line:Population)
    Data: filter(droseu$via, Supervisor.PI == "Grath")
 
@@ -45,7 +50,8 @@ Random effects:
  Line:Population (Intercept) 0.003398 0.05830 
  Population      (Intercept) 0.000322 0.01795 
  Residual                    0.016040 0.12665 
-Number of obs: 147, groups:  Line:Population, 30; Population, 3
+Number of obs: 147, groups:  
+Line:Population, 30; Population, 3
 
 Fixed effects:
             Estimate Std. Error       df t value Pr(>|t|)
@@ -57,8 +63,10 @@ Correlation of Fixed Effects:
 Latitude -0.987
 
 $Via_Hoedjes_lmer_lat
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: ProportionEggtoAdultSurvival ~ Latitude + (1 | Population) +  
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: 
+ProportionEggtoAdultSurvival ~ Latitude + (1 | Population) +  
     (1 | Line:Population)
    Data: filter(droseu$via, Supervisor.PI == "Hoedjes")
 
@@ -73,7 +81,8 @@ Random effects:
  Line:Population (Intercept) 0.012170 0.11032 
  Population      (Intercept) 0.001223 0.03497 
  Residual                    0.007148 0.08455 
-Number of obs: 501, groups:  Line:Population, 167; Population, 9
+Number of obs: 501, groups:  
+Line:Population, 167; Population, 9
 
 Fixed effects:
             Estimate Std. Error       df t value Pr(>|t|)   
@@ -87,8 +96,10 @@ Correlation of Fixed Effects:
 Latitude -0.990
 
 $Via_Schmidt_lmer_lat
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: ProportionEggtoAdultSurvival ~ Latitude + (1 | Population)
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: 
+ProportionEggtoAdultSurvival ~ Latitude + (1 | Population)
    Data: filter(droseu$via, Supervisor.PI == "Schmidt")
 
 REML criterion at convergence: -7.3
@@ -115,10 +126,13 @@ Correlation of Fixed Effects:
 Latitude -0.989
 
 $Via_StamenkovicRadak_lmer_lat
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: ProportionEggtoAdultSurvival ~ Latitude + (1 | Population) +  
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: 
+ProportionEggtoAdultSurvival ~ Latitude + (1 | Population) +  
     (1 | Line:Population)
-   Data: filter(droseu$via, Supervisor.PI == "StamenkovicRadak")
+   Data: 
+filter(droseu$via, Supervisor.PI == "StamenkovicRadak")
 
 REML criterion at convergence: -595
 
@@ -131,7 +145,8 @@ Random effects:
  Line:Population (Intercept) 0.014108 0.11878 
  Population      (Intercept) 0.003169 0.05629 
  Residual                    0.009652 0.09825 
-Number of obs: 501, groups:  Line:Population, 167; Population, 9
+Number of obs: 501, groups:  
+Line:Population, 167; Population, 9
 
 Fixed effects:
             Estimate Std. Error       df t value Pr(>|t|)  
@@ -145,8 +160,10 @@ Correlation of Fixed Effects:
 Latitude -0.990
 
 $Via_Zwaan_lmer_lat
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: ProportionEggtoAdultSurvival ~ Latitude + (1 | Population) +  
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: 
+ProportionEggtoAdultSurvival ~ Latitude + (1 | Population) +  
     (1 | Line:Population)
    Data: filter(droseu$via, Supervisor.PI == "Zwaan")
 
@@ -161,7 +178,8 @@ Random effects:
  Line:Population (Intercept) 0.010452 0.10224 
  Population      (Intercept) 0.002058 0.04536 
  Residual                    0.021832 0.14776 
-Number of obs: 524, groups:  Line:Population, 169; Population, 9
+Number of obs: 524, groups:  
+Line:Population, 169; Population, 9
 
 Fixed effects:
             Estimate Std. Error       df t value Pr(>|t|)  

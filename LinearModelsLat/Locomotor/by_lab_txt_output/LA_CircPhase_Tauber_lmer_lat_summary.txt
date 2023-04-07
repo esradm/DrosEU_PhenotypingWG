@@ -1,5 +1,7 @@
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: CircPhase ~ Latitude + (1 | Population) + (1 | Line:Population)
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: 
+CircPhase ~ Latitude + (1 | Population) + (1 | Line:Population)
    Data: droseu$la
 
 REML criterion at convergence: 4281.8
@@ -13,7 +15,8 @@ Random effects:
  Line:Population (Intercept)  0.1818  0.4263  
  Population      (Intercept)  1.3515  1.1625  
  Residual                    46.6142  6.8275  
-Number of obs: 639, groups:  Line:Population, 92; Population, 9
+Number of obs: 639, groups:  
+Line:Population, 92; Population, 9
 
 Fixed effects:
             Estimate Std. Error       df t value Pr(>|t|)   
