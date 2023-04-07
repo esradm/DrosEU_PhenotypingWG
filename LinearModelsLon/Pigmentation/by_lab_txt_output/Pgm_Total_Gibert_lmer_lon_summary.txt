@@ -1,4 +1,5 @@
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
 Formula: TotalPerc_asin ~ Longitude + (1 | Line:Population)
    Data: filter(droseu$pgm, Supervisor.PI == "Gibert")
 
@@ -15,9 +16,12 @@ Random effects:
 Number of obs: 1741, groups:  Line:Population, 167
 
 Fixed effects:
-             Estimate Std. Error        df t value Pr(>|t|)    
-(Intercept) 6.128e-01  8.844e-03 1.641e+02  69.286   <2e-16 ***
-Longitude   4.585e-04  4.050e-04 1.647e+02   1.132    0.259    
+             Estimate Std. Error        df t value Pr(>|t|)
+(Intercept) 6.128e-01  8.844e-03 1.641e+02  69.286   <2e-16
+Longitude   4.585e-04  4.050e-04 1.647e+02   1.132    0.259
+               
+(Intercept) ***
+Longitude      
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 

@@ -1,5 +1,7 @@
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: DT_EggPupa ~ Longitude + (1 | Population) + (1 | Line:Population)
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: 
+DT_EggPupa ~ Longitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$dtp, Supervisor.PI == "Schmidt")
 
 REML criterion at convergence: 26356.9
@@ -13,12 +15,16 @@ Random effects:
  Line:Population (Intercept) 157.79   12.561  
  Population      (Intercept)  18.84    4.341  
  Residual                    119.05   10.911  
-Number of obs: 3391, groups:  Line:Population, 161; Population, 9
+Number of obs: 3391, groups:  
+Line:Population, 161; Population, 9
 
 Fixed effects:
-             Estimate Std. Error        df t value Pr(>|t|)    
-(Intercept) 133.04868    2.84547   7.58955  46.758 1.29e-10 ***
-Longitude     0.00288    0.13116   7.35944   0.022    0.983    
+             Estimate Std. Error        df t value Pr(>|t|)
+(Intercept) 133.04868    2.84547   7.58955  46.758 1.29e-10
+Longitude     0.00288    0.13116   7.35944   0.022    0.983
+               
+(Intercept) ***
+Longitude      
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 

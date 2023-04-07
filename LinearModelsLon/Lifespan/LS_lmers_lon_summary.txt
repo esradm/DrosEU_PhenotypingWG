@@ -1,7 +1,9 @@
 $LS_F_Flatt_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
 Formula: LSP_AgeAtDeath_days ~ Longitude + (1 | Population)
-   Data: filter(droseu$lsp, Censor == "0" & Supervisor.PI == "Flatt" &  
+   Data: 
+filter(droseu$lsp, Censor == "0" & Supervisor.PI == "Flatt" &  
     Sex == "F")
 
 REML criterion at convergence: 36221.4
@@ -28,9 +30,12 @@ Correlation of Fixed Effects:
 Longitude -0.769
 
 $LS_F_Parsch_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: LSL_AgeAtDeath_days ~ Longitude + (1 | Population) + (1 | Line:Population)
-   Data: filter(droseu$lsl, Censor == "0" & Supervisor.PI == "Parsch" &  
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: 
+LSL_AgeAtDeath_days ~ Longitude + (1 | Population) + (1 | Line:Population)
+   Data: 
+filter(droseu$lsl, Censor == "0" & Supervisor.PI == "Parsch" &  
     Sex == "F")
 
 REML criterion at convergence: 42553.3
@@ -44,7 +49,8 @@ Random effects:
  Line:Population (Intercept)  30.09    5.486  
  Population      (Intercept)  16.58    4.072  
  Residual                    311.74   17.656  
-Number of obs: 4934, groups:  Line:Population, 135; Population, 9
+Number of obs: 4934, groups:  
+Line:Population, 135; Population, 9
 
 Fixed effects:
             Estimate Std. Error      df t value Pr(>|t|)    
@@ -58,9 +64,12 @@ Correlation of Fixed Effects:
 Longitude -0.769
 
 $LS_F_Pasyukova_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: LSL_AgeAtDeath_days ~ Longitude + (1 | Population) + (1 | Line:Population)
-   Data: filter(droseu$lsl, Censor == "0" & Supervisor.PI == "Pasyukova" &  
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: 
+LSL_AgeAtDeath_days ~ Longitude + (1 | Population) + (1 | Line:Population)
+   Data: 
+filter(droseu$lsl, Censor == "0" & Supervisor.PI == "Pasyukova" &  
     Sex == "F")
 
 REML criterion at convergence: 113225.6
@@ -74,7 +83,8 @@ Random effects:
  Line:Population (Intercept)  29.30    5.413  
  Population      (Intercept)   1.88    1.371  
  Residual                    246.36   15.696  
-Number of obs: 13520, groups:  Line:Population, 169; Population, 9
+Number of obs: 13520, groups:  
+Line:Population, 169; Population, 9
 
 Fixed effects:
             Estimate Std. Error       df t value Pr(>|t|)    
@@ -88,9 +98,11 @@ Correlation of Fixed Effects:
 Longitude -0.787
 
 $LS_M_Flatt_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
 Formula: LSP_AgeAtDeath_days ~ Longitude + (1 | Population)
-   Data: filter(droseu$lsp, Censor == "0" & Supervisor.PI == "Flatt" &  
+   Data: 
+filter(droseu$lsp, Censor == "0" & Supervisor.PI == "Flatt" &  
     Sex == "M")
 
 REML criterion at convergence: 35717
@@ -117,9 +129,12 @@ Correlation of Fixed Effects:
 Longitude -0.768
 
 $LS_M_Parsch_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: LSL_AgeAtDeath_days ~ Longitude + (1 | Population) + (1 | Line:Population)
-   Data: filter(droseu$lsl, Censor == "0" & Supervisor.PI == "Parsch" &  
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: 
+LSL_AgeAtDeath_days ~ Longitude + (1 | Population) + (1 | Line:Population)
+   Data: 
+filter(droseu$lsl, Censor == "0" & Supervisor.PI == "Parsch" &  
     Sex == "M")
 
 REML criterion at convergence: 42376.4
@@ -133,7 +148,8 @@ Random effects:
  Line:Population (Intercept)  36.73    6.060  
  Population      (Intercept)  11.07    3.327  
  Residual                    367.64   19.174  
-Number of obs: 4821, groups:  Line:Population, 135; Population, 9
+Number of obs: 4821, groups:  
+Line:Population, 135; Population, 9
 
 Fixed effects:
             Estimate Std. Error       df t value Pr(>|t|)    
@@ -147,9 +163,12 @@ Correlation of Fixed Effects:
 Longitude -0.769
 
 $LS_M_Pasyukova_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: LSL_AgeAtDeath_days ~ Longitude + (1 | Population) + (1 | Line:Population)
-   Data: filter(droseu$lsl, Censor == "0" & Supervisor.PI == "Pasyukova" &  
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: 
+LSL_AgeAtDeath_days ~ Longitude + (1 | Population) + (1 | Line:Population)
+   Data: 
+filter(droseu$lsl, Censor == "0" & Supervisor.PI == "Pasyukova" &  
     Sex == "M")
 
 REML criterion at convergence: 116907.1
@@ -163,7 +182,8 @@ Random effects:
  Line:Population (Intercept)  37.373   6.113  
  Population      (Intercept)   7.266   2.695  
  Residual                    323.465  17.985  
-Number of obs: 13520, groups:  Line:Population, 169; Population, 9
+Number of obs: 13520, groups:  
+Line:Population, 169; Population, 9
 
 Fixed effects:
             Estimate Std. Error       df t value Pr(>|t|)    

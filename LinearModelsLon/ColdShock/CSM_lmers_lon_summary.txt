@@ -1,8 +1,11 @@
 $CSM_F_Gonzalez_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: CSM_PropDead_ED_asin ~ Longitude + (1 | Line:Population) + (1 |  
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: 
+CSM_PropDead_ED_asin ~ Longitude + (1 | Line:Population) + (1 |  
     Population)
-   Data: filter(droseu$csm, Supervisor.PI == "Gonzalez" & Sex == "F")
+   Data: 
+filter(droseu$csm, Supervisor.PI == "Gonzalez" & Sex == "F")
 
 REML criterion at convergence: 20
 
@@ -15,12 +18,16 @@ Random effects:
  Line:Population (Intercept) 0.018636 0.13651 
  Population      (Intercept) 0.002133 0.04619 
  Residual                    0.045234 0.21268 
-Number of obs: 544, groups:  Line:Population, 160; Population, 9
+Number of obs: 544, groups:  
+Line:Population, 160; Population, 9
 
 Fixed effects:
-             Estimate Std. Error        df t value Pr(>|t|)    
-(Intercept) 1.2090080  0.0335137 7.4195901  36.075 1.32e-09 ***
-Longitude   0.0006486  0.0015424 7.1064827   0.421    0.687    
+             Estimate Std. Error        df t value Pr(>|t|)
+(Intercept) 1.2090080  0.0335137 7.4195901  36.075 1.32e-09
+Longitude   0.0006486  0.0015424 7.1064827   0.421    0.687
+               
+(Intercept) ***
+Longitude      
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
@@ -29,9 +36,12 @@ Correlation of Fixed Effects:
 Longitude -0.779
 
 $CSM_F_Kozeretska_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: CSM_PropDead_ED_asin ~ Longitude + (1 | Line:Population)
-   Data: filter(droseu$csm, Supervisor.PI == "Kozeretska" & Sex == "F")
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: 
+CSM_PropDead_ED_asin ~ Longitude + (1 | Line:Population)
+   Data: 
+filter(droseu$csm, Supervisor.PI == "Kozeretska" & Sex == "F")
 
 REML criterion at convergence: 254.5
 
@@ -46,9 +56,12 @@ Random effects:
 Number of obs: 244, groups:  Line:Population, 130
 
 Fixed effects:
-              Estimate Std. Error         df t value Pr(>|t|)    
-(Intercept)  7.429e-01  4.683e-02  1.155e+02  15.864   <2e-16 ***
-Longitude   -7.461e-04  2.091e-03  1.142e+02  -0.357    0.722    
+              Estimate Std. Error         df t value Pr(>|t|)
+(Intercept)  7.429e-01  4.683e-02  1.155e+02  15.864   <2e-16
+Longitude   -7.461e-04  2.091e-03  1.142e+02  -0.357    0.722
+               
+(Intercept) ***
+Longitude      
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
@@ -57,10 +70,13 @@ Correlation of Fixed Effects:
 Longitude -0.809
 
 $CSM_F_Vieira_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: CSM_PropDead_ED_asin ~ Longitude + (1 | Line:Population) + (1 |  
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: 
+CSM_PropDead_ED_asin ~ Longitude + (1 | Line:Population) + (1 |  
     Population)
-   Data: filter(droseu$csm, Supervisor.PI == "Vieira" & Sex == "F")
+   Data: 
+filter(droseu$csm, Supervisor.PI == "Vieira" & Sex == "F")
 
 REML criterion at convergence: -71.7
 
@@ -73,12 +89,16 @@ Random effects:
  Line:Population (Intercept) 0.032765 0.18101 
  Population      (Intercept) 0.002019 0.04494 
  Residual                    0.030059 0.17337 
-Number of obs: 504, groups:  Line:Population, 168; Population, 9
+Number of obs: 504, groups:  
+Line:Population, 168; Population, 9
 
 Fixed effects:
-             Estimate Std. Error        df t value Pr(>|t|)    
-(Intercept) 1.2605100  0.0356067 8.3169609  35.401 2.29e-10 ***
-Longitude   0.0007551  0.0016285 7.8423835   0.464    0.655    
+             Estimate Std. Error        df t value Pr(>|t|)
+(Intercept) 1.2605100  0.0356067 8.3169609  35.401 2.29e-10
+Longitude   0.0007551  0.0016285 7.8423835   0.464    0.655
+               
+(Intercept) ***
+Longitude      
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
@@ -87,10 +107,13 @@ Correlation of Fixed Effects:
 Longitude -0.788
 
 $CSM_M_Gonzalez_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: CSM_PropDead_ED_asin ~ Longitude + (1 | Line:Population) + (1 |  
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: 
+CSM_PropDead_ED_asin ~ Longitude + (1 | Line:Population) + (1 |  
     Population)
-   Data: filter(droseu$csm, Supervisor.PI == "Gonzalez" & Sex == "M")
+   Data: 
+filter(droseu$csm, Supervisor.PI == "Gonzalez" & Sex == "M")
 
 REML criterion at convergence: 308.6
 
@@ -103,12 +126,16 @@ Random effects:
  Line:Population (Intercept) 0.012900 0.11358 
  Population      (Intercept) 0.001376 0.03709 
  Residual                    0.088607 0.29767 
-Number of obs: 544, groups:  Line:Population, 160; Population, 9
+Number of obs: 544, groups:  
+Line:Population, 160; Population, 9
 
 Fixed effects:
-              Estimate Std. Error         df t value Pr(>|t|)    
-(Intercept)  8.970e-01  3.222e-02  8.043e+00   27.84 2.76e-09 ***
-Longitude   -5.957e-05  1.475e-03  7.530e+00   -0.04    0.969    
+              Estimate Std. Error         df t value Pr(>|t|)
+(Intercept)  8.970e-01  3.222e-02  8.043e+00   27.84 2.76e-09
+Longitude   -5.957e-05  1.475e-03  7.530e+00   -0.04    0.969
+               
+(Intercept) ***
+Longitude      
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
@@ -117,9 +144,12 @@ Correlation of Fixed Effects:
 Longitude -0.783
 
 $CSM_M_Kozeretska_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: CSM_PropDead_ED_asin ~ Longitude + (1 | Line:Population)
-   Data: filter(droseu$csm, Supervisor.PI == "Kozeretska" & Sex == "M")
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: 
+CSM_PropDead_ED_asin ~ Longitude + (1 | Line:Population)
+   Data: 
+filter(droseu$csm, Supervisor.PI == "Kozeretska" & Sex == "M")
 
 REML criterion at convergence: 246.8
 
@@ -134,9 +164,12 @@ Random effects:
 Number of obs: 244, groups:  Line:Population, 130
 
 Fixed effects:
-              Estimate Std. Error         df t value Pr(>|t|)    
-(Intercept)  1.012e+00  4.410e-02  1.145e+02  22.949   <2e-16 ***
-Longitude   -3.437e-04  1.968e-03  1.132e+02  -0.175    0.862    
+              Estimate Std. Error         df t value Pr(>|t|)
+(Intercept)  1.012e+00  4.410e-02  1.145e+02  22.949   <2e-16
+Longitude   -3.437e-04  1.968e-03  1.132e+02  -0.175    0.862
+               
+(Intercept) ***
+Longitude      
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
@@ -145,10 +178,13 @@ Correlation of Fixed Effects:
 Longitude -0.808
 
 $CSM_M_Vieira_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: CSM_PropDead_ED_asin ~ Longitude + (1 | Line:Population) + (1 |  
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: 
+CSM_PropDead_ED_asin ~ Longitude + (1 | Line:Population) + (1 |  
     Population)
-   Data: filter(droseu$csm, Supervisor.PI == "Vieira" & Sex == "M")
+   Data: 
+filter(droseu$csm, Supervisor.PI == "Vieira" & Sex == "M")
 
 REML criterion at convergence: 88.9
 
@@ -161,7 +197,8 @@ Random effects:
  Line:Population (Intercept) 0.059224 0.24336 
  Population      (Intercept) 0.007803 0.08833 
  Residual                    0.037214 0.19291 
-Number of obs: 504, groups:  Line:Population, 168; Population, 9
+Number of obs: 504, groups:  
+Line:Population, 168; Population, 9
 
 Fixed effects:
             Estimate Std. Error       df t value Pr(>|t|)    

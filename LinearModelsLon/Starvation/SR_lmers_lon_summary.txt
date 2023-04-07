@@ -1,7 +1,9 @@
 $SR_F_Gonzalez_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
 Formula: AgeAtDeath_hours ~ Longitude + (1 | Line:Population)
-   Data: filter(droseu$sr, Supervisor.PI == "Gonzalez" & Sex == "F")
+   Data: 
+filter(droseu$sr, Supervisor.PI == "Gonzalez" & Sex == "F")
 
 REML criterion at convergence: 43971.9
 
@@ -16,9 +18,12 @@ Random effects:
 Number of obs: 4900, groups:  Line:Population, 141
 
 Fixed effects:
-             Estimate Std. Error        df t value Pr(>|t|)    
-(Intercept)  80.97913    1.96174 139.39594  41.279   <2e-16 ***
-Longitude     0.04972    0.09193 139.24460   0.541    0.589    
+             Estimate Std. Error        df t value Pr(>|t|)
+(Intercept)  80.97913    1.96174 139.39594  41.279   <2e-16
+Longitude     0.04972    0.09193 139.24460   0.541    0.589
+               
+(Intercept) ***
+Longitude      
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
@@ -27,9 +32,12 @@ Correlation of Fixed Effects:
 Longitude -0.795
 
 $SR_F_Onder_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: AgeAtDeath_hours ~ Longitude + (1 | Population) + (1 | Line:Population)
-   Data: filter(droseu$sr, Supervisor.PI == "Onder" & Sex == "F")
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: 
+AgeAtDeath_hours ~ Longitude + (1 | Population) + (1 | Line:Population)
+   Data: 
+filter(droseu$sr, Supervisor.PI == "Onder" & Sex == "F")
 
 REML criterion at convergence: 149548.1
 
@@ -42,7 +50,8 @@ Random effects:
  Line:Population (Intercept) 169.13   13.005  
  Population      (Intercept)  50.29    7.092  
  Residual                    322.47   17.958  
-Number of obs: 17282, groups:  Line:Population, 168; Population, 9
+Number of obs: 17282, groups:  
+Line:Population, 168; Population, 9
 
 Fixed effects:
             Estimate Std. Error      df t value Pr(>|t|)    
@@ -56,9 +65,12 @@ Correlation of Fixed Effects:
 Longitude -0.773
 
 $SR_F_Pasyukova_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: AgeAtDeath_hours ~ Longitude + (1 | Population) + (1 | Line:Population)
-   Data: filter(droseu$sr, Supervisor.PI == "Pasyukova" & Sex == "F")
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: 
+AgeAtDeath_hours ~ Longitude + (1 | Population) + (1 | Line:Population)
+   Data: 
+filter(droseu$sr, Supervisor.PI == "Pasyukova" & Sex == "F")
 
 REML criterion at convergence: 151799.5
 
@@ -71,7 +83,8 @@ Random effects:
  Line:Population (Intercept) 125.24   11.191  
  Population      (Intercept)  33.59    5.795  
  Residual                    480.70   21.925  
-Number of obs: 16779, groups:  Line:Population, 169; Population, 9
+Number of obs: 16779, groups:  
+Line:Population, 169; Population, 9
 
 Fixed effects:
             Estimate Std. Error       df t value Pr(>|t|)    
@@ -85,9 +98,12 @@ Correlation of Fixed Effects:
 Longitude -0.776
 
 $SR_M_Gonzalez_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: AgeAtDeath_hours ~ Longitude + (1 | Population) + (1 | Line:Population)
-   Data: filter(droseu$sr, Supervisor.PI == "Gonzalez" & Sex == "M")
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: 
+AgeAtDeath_hours ~ Longitude + (1 | Population) + (1 | Line:Population)
+   Data: 
+filter(droseu$sr, Supervisor.PI == "Gonzalez" & Sex == "M")
 
 REML criterion at convergence: 44275.2
 
@@ -100,7 +116,8 @@ Random effects:
  Line:Population (Intercept)  83.30    9.127  
  Population      (Intercept)  23.11    4.808  
  Residual                    217.40   14.744  
-Number of obs: 5335, groups:  Line:Population, 156; Population, 9
+Number of obs: 5335, groups:  
+Line:Population, 156; Population, 9
 
 Fixed effects:
             Estimate Std. Error       df t value Pr(>|t|)    
@@ -114,9 +131,12 @@ Correlation of Fixed Effects:
 Longitude -0.773
 
 $SR_M_Onder_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: AgeAtDeath_hours ~ Longitude + (1 | Population) + (1 | Line:Population)
-   Data: filter(droseu$sr, Supervisor.PI == "Onder" & Sex == "M")
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: 
+AgeAtDeath_hours ~ Longitude + (1 | Population) + (1 | Line:Population)
+   Data: 
+filter(droseu$sr, Supervisor.PI == "Onder" & Sex == "M")
 
 REML criterion at convergence: 139939.9
 
@@ -129,7 +149,8 @@ Random effects:
  Line:Population (Intercept)  97.48    9.873  
  Population      (Intercept)  18.62    4.315  
  Residual                    196.17   14.006  
-Number of obs: 17158, groups:  Line:Population, 168; Population, 9
+Number of obs: 17158, groups:  
+Line:Population, 168; Population, 9
 
 Fixed effects:
             Estimate Std. Error       df t value Pr(>|t|)    
@@ -143,9 +164,12 @@ Correlation of Fixed Effects:
 Longitude -0.775
 
 $SR_M_Pasyukova_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: AgeAtDeath_hours ~ Longitude + (1 | Population) + (1 | Line:Population)
-   Data: filter(droseu$sr, Supervisor.PI == "Pasyukova" & Sex == "M")
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: 
+AgeAtDeath_hours ~ Longitude + (1 | Population) + (1 | Line:Population)
+   Data: 
+filter(droseu$sr, Supervisor.PI == "Pasyukova" & Sex == "M")
 
 REML criterion at convergence: 143586.2
 
@@ -158,7 +182,8 @@ Random effects:
  Line:Population (Intercept)  67.52    8.217  
  Population      (Intercept)  23.86    4.885  
  Residual                    282.85   16.818  
-Number of obs: 16861, groups:  Line:Population, 169; Population, 9
+Number of obs: 16861, groups:  
+Line:Population, 169; Population, 9
 
 Fixed effects:
             Estimate Std. Error       df t value Pr(>|t|)    

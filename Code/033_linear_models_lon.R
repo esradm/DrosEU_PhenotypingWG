@@ -570,14 +570,14 @@ LA_lmers_lon$LA_NDlog2_Tauber_lmer_lon <- lmer(ND_log2 ~ Longitude + (1|Populati
 #LA_lmers_lon$LA_ND_Tauber_lmer_lon <- lmer(ND ~ Longitude + (1|Population) + (1|Line:Population), data = droseu$la)
 
 
-LA_lmers_lon$LA_Period_Tauber_lmer_lon <- lmer(Period ~ Latitude + (1|Population) + (1|Line:Population), data = droseu$la)
+LA_lmers_lon$LA_Period_Tauber_lmer_lon <- lmer(Period ~ Longitude + (1|Population) + (1|Line:Population), data = droseu$la)
 
-LA_lmers_lon$LA_CircPhase_Tauber_lmer_lon <- lmer(CircPhase ~ Latitude + (1|Population) + (1|Line:Population), data = droseu$la)
+LA_lmers_lon$LA_CircPhase_Tauber_lmer_lon <- lmer(CircPhase ~ Longitude + (1|Population) + (1|Line:Population), data = droseu$la)
 
 # singular fit, removed Line
-LA_lmers_lon$LA_AbsPhase_Tauber_lmer_lon <- lmer(AbsPhase ~ Latitude + (1|Population), data = droseu$la)
+LA_lmers_lon$LA_AbsPhase_Tauber_lmer_lon <- lmer(AbsPhase ~ Longitude + (1|Population), data = droseu$la)
 
-LA_lmers_lon$LA_Activity_Tauber_lmer_lon <- lmer(Activity ~ Latitude + (1|Population) + (1|Line:Population), data = droseu$la)
+LA_lmers_lon$LA_Activity_Tauber_lmer_lon <- lmer(Activity ~ Longitude + (1|Population) + (1|Line:Population), data = droseu$la)
 
 # save output list
 saveRDS(LA_lmers_lon, file = file.path(lmer_dir, out_dir, "LA_lmers_lon.rds"))
