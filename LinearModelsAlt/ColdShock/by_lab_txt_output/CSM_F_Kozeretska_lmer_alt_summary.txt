@@ -1,6 +1,9 @@
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: CSM_PropDead_ED_asin ~ Altitude + (1 | Line:Population)
-   Data: filter(droseu$csm, Supervisor.PI == "Kozeretska" & Sex == "F")
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: 
+CSM_PropDead_ED_asin ~ Altitude + (1 | Line:Population)
+   Data: 
+filter(droseu$csm, Supervisor.PI == "Kozeretska" & Sex == "F")
 
 REML criterion at convergence: 259.9
 
@@ -15,9 +18,12 @@ Random effects:
 Number of obs: 244, groups:  Line:Population, 130
 
 Fixed effects:
-              Estimate Std. Error         df t value Pr(>|t|)    
-(Intercept)  7.509e-01  4.687e-02  1.192e+02  16.023   <2e-16 ***
-Altitude    -7.117e-05  1.252e-04  1.256e+02  -0.569    0.571    
+              Estimate Std. Error         df t value Pr(>|t|)
+(Intercept)  7.509e-01  4.687e-02  1.192e+02  16.023   <2e-16
+Altitude    -7.117e-05  1.252e-04  1.256e+02  -0.569    0.571
+               
+(Intercept) ***
+Altitude       
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 

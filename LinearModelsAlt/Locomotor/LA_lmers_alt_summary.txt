@@ -1,6 +1,8 @@
 $LA_NDlog2_Tauber_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: ND_log2 ~ Altitude + (1 | Population) + (1 | Line:Population)
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: 
+ND_log2 ~ Altitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$la, ND_log2 != -Inf)
 
 REML criterion at convergence: 1005.8
@@ -14,12 +16,16 @@ Random effects:
  Line:Population (Intercept) 0.08189  0.2862  
  Population      (Intercept) 0.01418  0.1191  
  Residual                    0.23132  0.4810  
-Number of obs: 637, groups:  Line:Population, 91; Population, 9
+Number of obs: 637, groups:  
+Line:Population, 91; Population, 9
 
 Fixed effects:
-              Estimate Std. Error         df t value Pr(>|t|)   
-(Intercept) -0.3318382  0.0910175  7.3638876  -3.646  0.00753 **
-Altitude     0.0003738  0.0002380  6.2526038   1.570  0.16537   
+              Estimate Std. Error         df t value Pr(>|t|)
+(Intercept) -0.3318382  0.0910175  7.3638876  -3.646  0.00753
+Altitude     0.0003738  0.0002380  6.2526038   1.570  0.16537
+              
+(Intercept) **
+Altitude      
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
@@ -28,117 +34,139 @@ Correlation of Fixed Effects:
 Altitude -0.801
 
 $LA_Period_Tauber_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: Period ~ Latitude + (1 | Population) + (1 | Line:Population)
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: 
+Period ~ Altitude + (1 | Population) + (1 | Line:Population)
    Data: droseu$la
 
-REML criterion at convergence: 2596.6
+REML criterion at convergence: 2604.3
 
 Scaled residuals: 
     Min      1Q  Median      3Q     Max 
--3.2458 -0.4469 -0.0417  0.3376  4.6541 
+-3.2324 -0.4518 -0.0316  0.3446  4.6496 
 
 Random effects:
  Groups          Name        Variance Std.Dev.
- Line:Population (Intercept) 0.03330  0.1825  
- Population      (Intercept) 0.05584  0.2363  
- Residual                    3.30169  1.8171  
-Number of obs: 639, groups:  Line:Population, 92; Population, 9
+ Line:Population (Intercept) 0.03236  0.1799  
+ Population      (Intercept) 0.06963  0.2639  
+ Residual                    3.30251  1.8173  
+Number of obs: 639, groups:  
+Line:Population, 92; Population, 9
 
 Fixed effects:
-            Estimate Std. Error       df t value Pr(>|t|)    
-(Intercept) 23.24693    0.75290  6.66659  30.876 1.91e-08 ***
-Latitude     0.01888    0.01506  6.58986   1.254    0.253    
+              Estimate Std. Error         df t value Pr(>|t|)
+(Intercept) 24.2982944  0.1922870  6.4903896 126.365 2.98e-12
+Altitude    -0.0003990  0.0005134  6.0271861  -0.777    0.466
+               
+(Intercept) ***
+Altitude       
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 Correlation of Fixed Effects:
          (Intr)
-Latitude -0.989
+Altitude -0.797
 
 $LA_CircPhase_Tauber_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: CircPhase ~ Latitude + (1 | Population) + (1 | Line:Population)
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: 
+CircPhase ~ Altitude + (1 | Population) + (1 | Line:Population)
    Data: droseu$la
 
-REML criterion at convergence: 4281.8
+REML criterion at convergence: 4289.8
 
 Scaled residuals: 
      Min       1Q   Median       3Q      Max 
--1.95386 -0.60903 -0.06154  0.85796  1.79809 
+-1.97405 -0.61412 -0.07293  0.86523  1.81361 
 
 Random effects:
  Groups          Name        Variance Std.Dev.
- Line:Population (Intercept)  0.1818  0.4263  
- Population      (Intercept)  1.3515  1.1625  
- Residual                    46.6142  6.8275  
-Number of obs: 639, groups:  Line:Population, 92; Population, 9
+ Line:Population (Intercept)  0.1497  0.3869  
+ Population      (Intercept)  1.6628  1.2895  
+ Residual                    46.6492  6.8300  
+Number of obs: 639, groups:  
+Line:Population, 92; Population, 9
 
 Fixed effects:
-            Estimate Std. Error       df t value Pr(>|t|)   
-(Intercept) 16.10153    3.28995  7.34279   4.894  0.00154 **
-Latitude    -0.07579    0.06586  7.26155  -1.151  0.28633   
+             Estimate Std. Error        df t value Pr(>|t|)
+(Intercept) 1.209e+01  8.493e-01 7.010e+00  14.230 1.98e-06
+Altitude    9.045e-04  2.282e-03 6.711e+00   0.396    0.704
+               
+(Intercept) ***
+Altitude       
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 Correlation of Fixed Effects:
          (Intr)
-Latitude -0.989
+Altitude -0.798
 
 $LA_AbsPhase_Tauber_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: AbsPhase ~ Latitude + (1 | Population)
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: AbsPhase ~ Altitude + (1 | Population)
    Data: droseu$la
 
-REML criterion at convergence: 3681.6
+REML criterion at convergence: 3688.8
 
 Scaled residuals: 
     Min      1Q  Median      3Q     Max 
--2.8750 -0.1706  0.0033  0.1240  3.3909 
+-2.8981 -0.1587  0.0095  0.1264  3.4145 
 
 Random effects:
  Groups     Name        Variance Std.Dev.
- Population (Intercept)  0.544   0.7376  
- Residual               21.363   4.6220  
+ Population (Intercept)  0.5927  0.7698  
+ Residual               21.3642  4.6221  
 Number of obs: 622, groups:  Population, 9
 
 Fixed effects:
-            Estimate Std. Error       df t value Pr(>|t|)    
-(Intercept) 14.08930    2.13252  6.95374   6.607 0.000311 ***
-Latitude    -0.03051    0.04270  6.87899  -0.715 0.498324    
+             Estimate Std. Error        df t value Pr(>|t|)
+(Intercept) 12.462606   0.526711  6.694061  23.661 1.06e-07
+Altitude     0.000408   0.001414  6.380525   0.289    0.782
+               
+(Intercept) ***
+Altitude       
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 Correlation of Fixed Effects:
          (Intr)
-Latitude -0.989
+Altitude -0.797
 
 $LA_Activity_Tauber_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: Activity ~ Latitude + (1 | Population) + (1 | Line:Population)
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: 
+Activity ~ Altitude + (1 | Population) + (1 | Line:Population)
    Data: droseu$la
 
-REML criterion at convergence: 4693.7
+REML criterion at convergence: 4701.7
 
 Scaled residuals: 
      Min       1Q   Median       3Q      Max 
--3.11342 -0.55686  0.09203  0.71113  2.12594 
+-3.12685 -0.55841  0.09072  0.70360  2.11980 
 
 Random effects:
  Groups          Name        Variance Std.Dev.
- Line:Population (Intercept) 39.34    6.272   
- Population      (Intercept) 19.91    4.462   
- Residual                    72.21    8.498   
-Number of obs: 639, groups:  Line:Population, 92; Population, 9
+ Line:Population (Intercept) 39.55    6.289   
+ Population      (Intercept) 24.24    4.924   
+ Residual                    72.17    8.495   
+Number of obs: 639, groups:  
+Line:Population, 92; Population, 9
 
 Fixed effects:
-            Estimate Std. Error      df t value Pr(>|t|)   
-(Intercept)  44.9234    11.5476  6.7413   3.890  0.00643 **
-Latitude     -0.2521     0.2322  6.7790  -1.086  0.31476   
+             Estimate Std. Error        df t value Pr(>|t|)
+(Intercept) 32.677537   3.032779  6.843688  10.775 1.53e-05
+Altitude    -0.000537   0.008109  6.433839  -0.066    0.949
+               
+(Intercept) ***
+Altitude       
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 Correlation of Fixed Effects:
          (Intr)
-Latitude -0.989
+Altitude -0.801
 

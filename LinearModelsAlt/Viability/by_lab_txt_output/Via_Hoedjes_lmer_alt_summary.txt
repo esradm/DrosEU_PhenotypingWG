@@ -1,5 +1,7 @@
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: ProportionEggtoAdultSurvival ~ Altitude + (1 | Line:Population)
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: 
+ProportionEggtoAdultSurvival ~ Altitude + (1 | Line:Population)
    Data: filter(droseu$via, Supervisor.PI == "Hoedjes")
 
 REML criterion at convergence: -694.3
@@ -15,9 +17,12 @@ Random effects:
 Number of obs: 501, groups:  Line:Population, 167
 
 Fixed effects:
-              Estimate Std. Error         df t value Pr(>|t|)    
-(Intercept)  7.113e-01  1.724e-02  1.650e+02  41.251   <2e-16 ***
-Altitude    -1.013e-04  4.550e-05  1.650e+02  -2.227   0.0273 *  
+              Estimate Std. Error         df t value Pr(>|t|)
+(Intercept)  7.113e-01  1.724e-02  1.650e+02  41.251   <2e-16
+Altitude    -1.013e-04  4.550e-05  1.650e+02  -2.227   0.0273
+               
+(Intercept) ***
+Altitude    *  
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 

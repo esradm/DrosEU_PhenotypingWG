@@ -1,6 +1,8 @@
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
 Formula: TL_micrometers ~ Altitude + (1 | Line:Population)
-   Data: filter(droseu$tl, Supervisor.PI == "Ritchie" & Sex == "M")
+   Data: 
+filter(droseu$tl, Supervisor.PI == "Ritchie" & Sex == "M")
 
 REML criterion at convergence: 11361.4
 
@@ -15,9 +17,12 @@ Random effects:
 Number of obs: 1024, groups:  Line:Population, 26
 
 Fixed effects:
-             Estimate Std. Error        df t value Pr(>|t|)    
-(Intercept) 816.89383   13.70103  24.04195  59.623   <2e-16 ***
-Altitude      0.05025    0.03234  24.07056   1.554    0.133    
+             Estimate Std. Error        df t value Pr(>|t|)
+(Intercept) 816.89383   13.70103  24.04195  59.623   <2e-16
+Altitude      0.05025    0.03234  24.07056   1.554    0.133
+               
+(Intercept) ***
+Altitude       
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 

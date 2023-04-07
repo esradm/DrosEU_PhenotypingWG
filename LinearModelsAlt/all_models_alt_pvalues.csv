@@ -43,11 +43,11 @@
 "Flatt","LS","M","lmer","alt",0.742185989268568
 "Parsch","LS","M","lmer","alt",0.406129779446526
 "Pasyukova","LS","M","lmer","alt",0.196041553799536
-"Tauber","LA_NDlog2","B","lmer","alt",0.165368535144286
-"Tauber","LA_Period","B","lmer","alt",0.252598504264849
-"Tauber","LA_CircPhase","B","lmer","alt",0.28632657345205
-"Tauber","LA_AbsPhase","B","lmer","alt",0.498323712575507
-"Tauber","LA_Activity","B","lmer","alt",0.314756206659679
+"Tauber","LA_NDlog2","M","lmer","alt",0.165368535144286
+"Tauber","LA_Period","M","lmer","alt",0.466390734740208
+"Tauber","LA_CircPhase","M","lmer","alt",0.704105462521912
+"Tauber","LA_AbsPhase","M","lmer","alt",0.782042576966366
+"Tauber","LA_Activity","M","lmer","alt",0.949214704669969
 "Abbott","Pgm_T4","F","lmer","alt",0.135124406331228
 "Abbott","Pgm_T5","F","lmer","alt",0.191963625375482
 "Abbott","Pgm_T6","F","lmer","alt",0.785438517432791
