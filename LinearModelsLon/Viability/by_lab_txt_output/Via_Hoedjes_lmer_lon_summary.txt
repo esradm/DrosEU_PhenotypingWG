@@ -1,5 +1,7 @@
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: ProportionEggtoAdultSurvival ~ Longitude + (1 | Population) +  
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: 
+ProportionEggtoAdultSurvival ~ Longitude + (1 | Population) +  
     (1 | Line:Population)
    Data: filter(droseu$via, Supervisor.PI == "Hoedjes")
 
@@ -14,12 +16,16 @@ Random effects:
  Line:Population (Intercept) 0.012187 0.11040 
  Population      (Intercept) 0.004660 0.06827 
  Residual                    0.007148 0.08455 
-Number of obs: 501, groups:  Line:Population, 167; Population, 9
+Number of obs: 501, groups:  
+Line:Population, 167; Population, 9
 
 Fixed effects:
-             Estimate Std. Error        df t value Pr(>|t|)    
-(Intercept) 0.6692592  0.0388716 7.3466488  17.217 3.32e-07 ***
-Longitude   0.0004932  0.0018015 7.2548999   0.274    0.792    
+             Estimate Std. Error        df t value Pr(>|t|)
+(Intercept) 0.6692592  0.0388716 7.3466488  17.217 3.32e-07
+Longitude   0.0004932  0.0018015 7.2548999   0.274    0.792
+               
+(Intercept) ***
+Longitude      
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 

@@ -1,5 +1,5 @@
-Generalized linear mixed model fit by maximum likelihood (Laplace Approximation) [
-glmerMod]
+Generalized linear mixed model fit by maximum likelihood (Laplace
+  Approximation) [glmerMod]
  Family: binomial  ( logit )
 Formula: Prop_Max_Stage9 ~ Population + (1 | Line:Population)
    Data: filter(dia, Supervisor.PI == pi)

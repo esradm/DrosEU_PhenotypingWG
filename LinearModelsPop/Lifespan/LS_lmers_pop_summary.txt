@@ -1,6 +1,8 @@
 $LS_F_Flatt_lmer_pop
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
-Formula: LSP_AgeAtDeath_days ~ Population + (1 | Population:ReplicateCage)
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: 
+LSP_AgeAtDeath_days ~ Population + (1 | Population:ReplicateCage)
    Data: filter(droseu$lsp, Censor == "0" & Supervisor.PI == "Flatt" &  
     Sex == "F")
 
@@ -42,8 +44,10 @@ PopulatinVA -0.708  0.506  0.505  0.502  0.501  0.503  0.499
 PopulatinYE -0.712  0.508  0.508  0.505  0.504  0.506  0.501  0.504
 
 $LS_F_Parsch_lmer_pop
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
-Formula: LSL_AgeAtDeath_days ~ Population + (1 | Batch) + (1 | Line:Population) +  
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: 
+LSL_AgeAtDeath_days ~ Population + (1 | Batch) + (1 | Line:Population) +  
     (1 | Line:ReplicateVial)
    Data: filter(droseu$lsl, Censor == "0" & Supervisor.PI == "Parsch" &  
     Sex == "F")
@@ -89,10 +93,12 @@ PopulatinVA -0.376  0.498  0.500  0.498  0.500  0.501  0.500
 PopulatinYE -0.374  0.495  0.497  0.495  0.497  0.498  0.497  0.499
 
 $LS_F_Pasyukova_lmer_pop
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
 Formula: LSL_AgeAtDeath_days ~ Population + (1 | Line:Population) + (1 |  
     Line:ReplicateVial)
-   Data: filter(droseu$lsl, Censor == "0" & Supervisor.PI == "Pasyukova" &  
+   Data: 
+filter(droseu$lsl, Censor == "0" & Supervisor.PI == "Pasyukova" &  
     Sex == "F")
 
 REML criterion at convergence: 112329.8
@@ -106,7 +112,8 @@ Random effects:
  Line:ReplicateVial (Intercept)  41.23    6.421  
  Line:Population    (Intercept)  24.61    4.961  
  Residual                       209.83   14.485  
-Number of obs: 13520, groups:  Line:ReplicateVial, 1352; Line:Population, 169
+Number of obs: 13520, groups:  
+Line:ReplicateVial, 1352; Line:Population, 169
 
 Fixed effects:
               Estimate Std. Error        df t value Pr(>|t|)    
@@ -134,8 +141,10 @@ PopulatinVA -0.690  0.421  0.476  0.476  0.476  0.448  0.463
 PopulatinYE -0.690  0.421  0.476  0.476  0.476  0.448  0.463  0.476
 
 $LS_M_Flatt_lmer_pop
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
-Formula: LSP_AgeAtDeath_days ~ Population + (1 | Population:ReplicateCage)
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: 
+LSP_AgeAtDeath_days ~ Population + (1 | Population:ReplicateCage)
    Data: filter(droseu$lsp, Censor == "0" & Supervisor.PI == "Flatt" &  
     Sex == "M")
 
@@ -177,8 +186,10 @@ PopulatinVA -0.705  0.505  0.504  0.505  0.500  0.505  0.504
 PopulatinYE -0.716  0.513  0.512  0.513  0.508  0.513  0.512  0.504
 
 $LS_M_Parsch_lmer_pop
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
-Formula: LSL_AgeAtDeath_days ~ Population + (1 | Batch) + (1 | Line:Population) +  
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: 
+LSL_AgeAtDeath_days ~ Population + (1 | Batch) + (1 | Line:Population) +  
     (1 | Line:ReplicateVial)
    Data: filter(droseu$lsl, Censor == "0" & Supervisor.PI == "Parsch" &  
     Sex == "M")
@@ -224,10 +235,12 @@ PopulatinVA -0.606  0.501  0.501  0.501  0.502  0.502  0.501
 PopulatinYE -0.606  0.500  0.501  0.501  0.502  0.502  0.501  0.501
 
 $LS_M_Pasyukova_lmer_pop
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
 Formula: LSL_AgeAtDeath_days ~ Population + (1 | Line:Population) + (1 |  
     Line:ReplicateVial)
-   Data: filter(droseu$lsl, Censor == "0" & Supervisor.PI == "Pasyukova" &  
+   Data: 
+filter(droseu$lsl, Censor == "0" & Supervisor.PI == "Pasyukova" &  
     Sex == "M")
 
 REML criterion at convergence: 116101.4
@@ -241,7 +254,8 @@ Random effects:
  Line:ReplicateVial (Intercept)  50.33    7.094  
  Line:Population    (Intercept)  31.65    5.625  
  Residual                       278.87   16.699  
-Number of obs: 13520, groups:  Line:ReplicateVial, 1352; Line:Population, 169
+Number of obs: 13520, groups:  
+Line:ReplicateVial, 1352; Line:Population, 169
 
 Fixed effects:
              Estimate Std. Error       df t value Pr(>|t|)    

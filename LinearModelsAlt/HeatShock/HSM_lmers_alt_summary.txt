@@ -1,7 +1,9 @@
 $HSM_F_Parsch_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
 Formula: TimeDeath_min ~ Altitude + (1 | Line:Population)
-   Data: filter(droseu$hsm, Censor == "0" & Supervisor.PI == "Parsch" &  
+   Data: 
+filter(droseu$hsm, Censor == "0" & Supervisor.PI == "Parsch" &  
     Sex == "F")
 
 REML criterion at convergence: 39668.4
@@ -17,9 +19,12 @@ Random effects:
 Number of obs: 3384, groups:  Line:Population, 133
 
 Fixed effects:
-             Estimate Std. Error        df t value Pr(>|t|)    
-(Intercept) 403.88240    8.95502 132.19284  45.101   <2e-16 ***
-Altitude     -0.06417    0.02416 129.34304  -2.656   0.0089 ** 
+             Estimate Std. Error        df t value Pr(>|t|)
+(Intercept) 403.88240    8.95502 132.19284  45.101   <2e-16
+Altitude     -0.06417    0.02416 129.34304  -2.656   0.0089
+               
+(Intercept) ***
+Altitude    ** 
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
@@ -28,9 +33,12 @@ Correlation of Fixed Effects:
 Altitude -0.799
 
 $HSM_F_Vieira_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: TimeDeath_min ~ Altitude + (1 | Population) + (1 | Line:Population)
-   Data: filter(droseu$hsm, Censor == "0" & Supervisor.PI == "Vieira" &  
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: 
+TimeDeath_min ~ Altitude + (1 | Population) + (1 | Line:Population)
+   Data: 
+filter(droseu$hsm, Censor == "0" & Supervisor.PI == "Vieira" &  
     Sex == "F")
 
 REML criterion at convergence: 57956
@@ -44,12 +52,16 @@ Random effects:
  Line:Population (Intercept)  448.9   21.19   
  Population      (Intercept)  235.6   15.35   
  Residual                    3047.6   55.21   
-Number of obs: 5310, groups:  Line:Population, 168; Population, 9
+Number of obs: 5310, groups:  
+Line:Population, 168; Population, 9
 
 Fixed effects:
-              Estimate Std. Error         df t value Pr(>|t|)    
-(Intercept) 360.300949   9.118901   6.995664  39.511 1.75e-09 ***
-Altitude     -0.006205   0.024629   6.857754  -0.252    0.808    
+              Estimate Std. Error         df t value Pr(>|t|)
+(Intercept) 360.300949   9.118901   6.995664  39.511 1.75e-09
+Altitude     -0.006205   0.024629   6.857754  -0.252    0.808
+               
+(Intercept) ***
+Altitude       
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
@@ -58,9 +70,12 @@ Correlation of Fixed Effects:
 Altitude -0.802
 
 $HSM_M_Parsch_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: TimeDeath_min ~ Altitude + (1 | Population) + (1 | Line:Population)
-   Data: filter(droseu$hsm, Censor == "0" & Supervisor.PI == "Parsch" &  
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: 
+TimeDeath_min ~ Altitude + (1 | Population) + (1 | Line:Population)
+   Data: 
+filter(droseu$hsm, Censor == "0" & Supervisor.PI == "Parsch" &  
     Sex == "M")
 
 REML criterion at convergence: 58296.8
@@ -74,12 +89,16 @@ Random effects:
  Line:Population (Intercept) 4418     66.47   
  Population      (Intercept) 1646     40.57   
  Residual                    5316     72.91   
-Number of obs: 5065, groups:  Line:Population, 135; Population, 9
+Number of obs: 5065, groups:  
+Line:Population, 135; Population, 9
 
 Fixed effects:
-             Estimate Std. Error        df t value Pr(>|t|)    
-(Intercept) 372.85857   24.56614   7.00795  15.178 1.28e-06 ***
-Altitude     -0.08850    0.06667   7.00195  -1.327    0.226    
+             Estimate Std. Error        df t value Pr(>|t|)
+(Intercept) 372.85857   24.56614   7.00795  15.178 1.28e-06
+Altitude     -0.08850    0.06667   7.00195  -1.327    0.226
+               
+(Intercept) ***
+Altitude       
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
@@ -88,9 +107,12 @@ Correlation of Fixed Effects:
 Altitude -0.801
 
 $HSM_M_Vieira_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: TimeDeath_min ~ Altitude + (1 | Population) + (1 | Line:Population)
-   Data: filter(droseu$hsm, Censor == "0" & Supervisor.PI == "Vieira" &  
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: 
+TimeDeath_min ~ Altitude + (1 | Population) + (1 | Line:Population)
+   Data: 
+filter(droseu$hsm, Censor == "0" & Supervisor.PI == "Vieira" &  
     Sex == "M")
 
 REML criterion at convergence: 95281.7
@@ -104,12 +126,16 @@ Random effects:
  Line:Population (Intercept) 1216.4   34.88   
  Population      (Intercept)  319.1   17.86   
  Residual                    2979.1   54.58   
-Number of obs: 8743, groups:  Line:Population, 168; Population, 9
+Number of obs: 8743, groups:  
+Line:Population, 168; Population, 9
 
 Fixed effects:
-             Estimate Std. Error        df t value Pr(>|t|)    
-(Intercept) 320.66711   10.96896   6.49179  29.234 3.89e-08 ***
-Altitude     -0.01199    0.02961   6.35188  -0.405    0.699    
+             Estimate Std. Error        df t value Pr(>|t|)
+(Intercept) 320.66711   10.96896   6.49179  29.234 3.89e-08
+Altitude     -0.01199    0.02961   6.35188  -0.405    0.699
+               
+(Intercept) ***
+Altitude       
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 

@@ -1,8 +1,11 @@
 $CSM_F_Gonzalez_lmer_lat
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: CSM_PropDead_ED_asin ~ Latitude + (1 | Line:Population) + (1 |  
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: 
+CSM_PropDead_ED_asin ~ Latitude + (1 | Line:Population) + (1 |  
     Population)
-   Data: filter(droseu$csm, Supervisor.PI == "Gonzalez" & Sex == "F")
+   Data: 
+filter(droseu$csm, Supervisor.PI == "Gonzalez" & Sex == "F")
 
 REML criterion at convergence: 17.6
 
@@ -15,7 +18,8 @@ Random effects:
  Line:Population (Intercept) 0.018571 0.13627 
  Population      (Intercept) 0.001574 0.03967 
  Residual                    0.045255 0.21273 
-Number of obs: 544, groups:  Line:Population, 160; Population, 9
+Number of obs: 544, groups:  
+Line:Population, 160; Population, 9
 
 Fixed effects:
             Estimate Std. Error       df t value Pr(>|t|)    
@@ -29,9 +33,12 @@ Correlation of Fixed Effects:
 Latitude -0.989
 
 $CSM_F_Kozeretska_lmer_lat
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: CSM_PropDead_ED_asin ~ Latitude + (1 | Line:Population)
-   Data: filter(droseu$csm, Supervisor.PI == "Kozeretska" & Sex == "F")
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: 
+CSM_PropDead_ED_asin ~ Latitude + (1 | Line:Population)
+   Data: 
+filter(droseu$csm, Supervisor.PI == "Kozeretska" & Sex == "F")
 
 REML criterion at convergence: 253.1
 
@@ -57,10 +64,13 @@ Correlation of Fixed Effects:
 Latitude -0.990
 
 $CSM_F_Vieira_lmer_lat
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: CSM_PropDead_ED_asin ~ Latitude + (1 | Line:Population) + (1 |  
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: 
+CSM_PropDead_ED_asin ~ Latitude + (1 | Line:Population) + (1 |  
     Population)
-   Data: filter(droseu$csm, Supervisor.PI == "Vieira" & Sex == "F")
+   Data: 
+filter(droseu$csm, Supervisor.PI == "Vieira" & Sex == "F")
 
 REML criterion at convergence: -73.9
 
@@ -73,7 +83,8 @@ Random effects:
  Line:Population (Intercept) 0.032742 0.18095 
  Population      (Intercept) 0.001493 0.03863 
  Residual                    0.030059 0.17337 
-Number of obs: 504, groups:  Line:Population, 168; Population, 9
+Number of obs: 504, groups:  
+Line:Population, 168; Population, 9
 
 Fixed effects:
             Estimate Std. Error       df t value Pr(>|t|)    
@@ -87,10 +98,13 @@ Correlation of Fixed Effects:
 Latitude -0.990
 
 $CSM_M_Gonzalez_lmer_lat
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: CSM_PropDead_ED_asin ~ Latitude + (1 | Line:Population) + (1 |  
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: 
+CSM_PropDead_ED_asin ~ Latitude + (1 | Line:Population) + (1 |  
     Population)
-   Data: filter(droseu$csm, Supervisor.PI == "Gonzalez" & Sex == "M")
+   Data: 
+filter(droseu$csm, Supervisor.PI == "Gonzalez" & Sex == "M")
 
 REML criterion at convergence: 306.5
 
@@ -103,12 +117,16 @@ Random effects:
  Line:Population (Intercept) 0.0130058 0.11404 
  Population      (Intercept) 0.0008435 0.02904 
  Residual                    0.0885640 0.29760 
-Number of obs: 544, groups:  Line:Population, 160; Population, 9
+Number of obs: 544, groups:  
+Line:Population, 160; Population, 9
 
 Fixed effects:
-             Estimate Std. Error        df t value Pr(>|t|)    
-(Intercept)  1.022863   0.126085  6.339130   8.112 0.000142 ***
-Latitude    -0.002562   0.002519  6.213802  -1.017 0.347090    
+             Estimate Std. Error        df t value Pr(>|t|)
+(Intercept)  1.022863   0.126085  6.339130   8.112 0.000142
+Latitude    -0.002562   0.002519  6.213802  -1.017 0.347090
+               
+(Intercept) ***
+Latitude       
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
@@ -117,9 +135,12 @@ Correlation of Fixed Effects:
 Latitude -0.989
 
 $CSM_M_Kozeretska_lmer_lat
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: CSM_PropDead_ED_asin ~ Latitude + (1 | Line:Population)
-   Data: filter(droseu$csm, Supervisor.PI == "Kozeretska" & Sex == "M")
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: 
+CSM_PropDead_ED_asin ~ Latitude + (1 | Line:Population)
+   Data: 
+filter(droseu$csm, Supervisor.PI == "Kozeretska" & Sex == "M")
 
 REML criterion at convergence: 245.3
 
@@ -134,9 +155,12 @@ Random effects:
 Number of obs: 244, groups:  Line:Population, 130
 
 Fixed effects:
-              Estimate Std. Error         df t value Pr(>|t|)    
-(Intercept)   1.112657   0.181368 121.439346   6.135  1.1e-08 ***
-Latitude     -0.002119   0.003559 120.956701  -0.595    0.553    
+              Estimate Std. Error         df t value Pr(>|t|)
+(Intercept)   1.112657   0.181368 121.439346   6.135  1.1e-08
+Latitude     -0.002119   0.003559 120.956701  -0.595    0.553
+               
+(Intercept) ***
+Latitude       
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
@@ -145,10 +169,13 @@ Correlation of Fixed Effects:
 Latitude -0.990
 
 $CSM_M_Vieira_lmer_lat
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: CSM_PropDead_ED_asin ~ Latitude + (1 | Line:Population) + (1 |  
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: 
+CSM_PropDead_ED_asin ~ Latitude + (1 | Line:Population) + (1 |  
     Population)
-   Data: filter(droseu$csm, Supervisor.PI == "Vieira" & Sex == "M")
+   Data: 
+filter(droseu$csm, Supervisor.PI == "Vieira" & Sex == "M")
 
 REML criterion at convergence: 87
 
@@ -161,12 +188,16 @@ Random effects:
  Line:Population (Intercept) 0.05926  0.24343 
  Population      (Intercept) 0.00654  0.08087 
  Residual                    0.03721  0.19291 
-Number of obs: 504, groups:  Line:Population, 168; Population, 9
+Number of obs: 504, groups:  
+Line:Population, 168; Population, 9
 
 Fixed effects:
-             Estimate Std. Error        df t value Pr(>|t|)    
-(Intercept)  1.365877   0.236173  7.239122   5.783 0.000597 ***
-Latitude    -0.004762   0.004724  7.126540  -1.008 0.346381    
+             Estimate Std. Error        df t value Pr(>|t|)
+(Intercept)  1.365877   0.236173  7.239122   5.783 0.000597
+Latitude    -0.004762   0.004724  7.126540  -1.008 0.346381
+               
+(Intercept) ***
+Latitude       
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 

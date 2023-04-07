@@ -1,6 +1,8 @@
 $Pgm_T4_Abbott_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: PercT4_asin ~ Altitude + (1 | Population) + (1 | Line:Population)
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: 
+PercT4_asin ~ Altitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$pgm, Supervisor.PI == "Abbott")
 
 REML criterion at convergence: -3957.7
@@ -14,12 +16,16 @@ Random effects:
  Line:Population (Intercept) 0.003782 0.06150 
  Population      (Intercept) 0.002945 0.05427 
  Residual                    0.006342 0.07964 
-Number of obs: 1953, groups:  Line:Population, 161; Population, 9
+Number of obs: 1953, groups:  
+Line:Population, 161; Population, 9
 
 Fixed effects:
-             Estimate Std. Error        df t value Pr(>|t|)    
-(Intercept) 3.318e-01  3.138e-02 7.015e+00  10.572 1.46e-05 ***
-Altitude    1.437e-04  8.509e-05 6.980e+00   1.689    0.135    
+             Estimate Std. Error        df t value Pr(>|t|)
+(Intercept) 3.318e-01  3.138e-02 7.015e+00  10.572 1.46e-05
+Altitude    1.437e-04  8.509e-05 6.980e+00   1.689    0.135
+               
+(Intercept) ***
+Altitude       
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
@@ -28,8 +34,10 @@ Correlation of Fixed Effects:
 Altitude -0.800
 
 $Pgm_T5_Abbott_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: PercT5_asin ~ Altitude + (1 | Population) + (1 | Line:Population)
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: 
+PercT5_asin ~ Altitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$pgm, Supervisor.PI == "Abbott")
 
 REML criterion at convergence: -4041.8
@@ -43,12 +51,16 @@ Random effects:
  Line:Population (Intercept) 0.002954 0.05435 
  Population      (Intercept) 0.002259 0.04753 
  Residual                    0.006171 0.07855 
-Number of obs: 1953, groups:  Line:Population, 161; Population, 9
+Number of obs: 1953, groups:  
+Line:Population, 161; Population, 9
 
 Fixed effects:
-             Estimate Std. Error        df t value Pr(>|t|)    
-(Intercept) 3.795e-01  2.754e-02 7.036e+00  13.780 2.39e-06 ***
-Altitude    1.078e-04  7.465e-05 6.999e+00   1.444    0.192    
+             Estimate Std. Error        df t value Pr(>|t|)
+(Intercept) 3.795e-01  2.754e-02 7.036e+00  13.780 2.39e-06
+Altitude    1.078e-04  7.465e-05 6.999e+00   1.444    0.192
+               
+(Intercept) ***
+Altitude       
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
@@ -57,8 +69,10 @@ Correlation of Fixed Effects:
 Altitude -0.800
 
 $Pgm_T6_Abbott_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: PercT6_asin ~ Altitude + (1 | Population) + (1 | Line:Population)
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: 
+PercT6_asin ~ Altitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$pgm, Supervisor.PI == "Abbott")
 
 REML criterion at convergence: -1499.3
@@ -72,12 +86,16 @@ Random effects:
  Line:Population (Intercept) 0.018057 0.13438 
  Population      (Intercept) 0.003641 0.06034 
  Residual                    0.021930 0.14809 
-Number of obs: 1953, groups:  Line:Population, 161; Population, 9
+Number of obs: 1953, groups:  
+Line:Population, 161; Population, 9
 
 Fixed effects:
-             Estimate Std. Error        df t value Pr(>|t|)    
-(Intercept) 6.280e-01  3.831e-02 6.921e+00  16.394 8.57e-07 ***
-Altitude    2.933e-05  1.036e-04 6.820e+00   0.283    0.785    
+             Estimate Std. Error        df t value Pr(>|t|)
+(Intercept) 6.280e-01  3.831e-02 6.921e+00  16.394 8.57e-07
+Altitude    2.933e-05  1.036e-04 6.820e+00   0.283    0.785
+               
+(Intercept) ***
+Altitude       
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
@@ -86,8 +104,10 @@ Correlation of Fixed Effects:
 Altitude -0.800
 
 $Pgm_Total_Abbott_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: TotalPerc_asin ~ Altitude + (1 | Population) + (1 | Line:Population)
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: 
+TotalPerc_asin ~ Altitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$pgm, Supervisor.PI == "Abbott")
 
 REML criterion at convergence: -4320
@@ -101,12 +121,16 @@ Random effects:
  Line:Population (Intercept) 0.003754 0.06127 
  Population      (Intercept) 0.002367 0.04865 
  Residual                    0.005198 0.07210 
-Number of obs: 1953, groups:  Line:Population, 161; Population, 9
+Number of obs: 1953, groups:  
+Line:Population, 161; Population, 9
 
 Fixed effects:
-             Estimate Std. Error        df t value Pr(>|t|)    
-(Intercept) 4.506e-01  2.836e-02 6.999e+00  15.892 9.49e-07 ***
-Altitude    8.655e-05  7.686e-05 6.957e+00   1.126    0.297    
+             Estimate Std. Error        df t value Pr(>|t|)
+(Intercept) 4.506e-01  2.836e-02 6.999e+00  15.892 9.49e-07
+Altitude    8.655e-05  7.686e-05 6.957e+00   1.126    0.297
+               
+(Intercept) ***
+Altitude       
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
@@ -115,8 +139,10 @@ Correlation of Fixed Effects:
 Altitude -0.800
 
 $Pgm_T4_Gibert_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: PercT4_asin ~ Altitude + (1 | Population) + (1 | Line:Population)
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: 
+PercT4_asin ~ Altitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$pgm, Supervisor.PI == "Gibert")
 
 REML criterion at convergence: -2366.4
@@ -130,12 +156,16 @@ Random effects:
  Line:Population (Intercept) 0.0028420 0.05331 
  Population      (Intercept) 0.0001842 0.01357 
  Residual                    0.0132127 0.11495 
-Number of obs: 1741, groups:  Line:Population, 167; Population, 9
+Number of obs: 1741, groups:  
+Line:Population, 167; Population, 9
 
 Fixed effects:
-             Estimate Std. Error        df t value Pr(>|t|)    
-(Intercept) 4.760e-01  1.122e-02 6.492e+00  42.425 3.51e-09 ***
-Altitude    5.740e-05  3.015e-05 6.258e+00   1.904    0.104    
+             Estimate Std. Error        df t value Pr(>|t|)
+(Intercept) 4.760e-01  1.122e-02 6.492e+00  42.425 3.51e-09
+Altitude    5.740e-05  3.015e-05 6.258e+00   1.904    0.104
+               
+(Intercept) ***
+Altitude       
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
@@ -144,8 +174,10 @@ Correlation of Fixed Effects:
 Altitude -0.800
 
 $Pgm_T5_Gibert_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: PercT5_asin ~ Altitude + (1 | Population) + (1 | Line:Population)
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: 
+PercT5_asin ~ Altitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$pgm, Supervisor.PI == "Gibert")
 
 REML criterion at convergence: -2403.3
@@ -159,12 +191,16 @@ Random effects:
  Line:Population (Intercept) 4.351e-03 0.065963
  Population      (Intercept) 1.063e-05 0.003261
  Residual                    1.254e-02 0.111982
-Number of obs: 1741, groups:  Line:Population, 167; Population, 9
+Number of obs: 1741, groups:  
+Line:Population, 167; Population, 9
 
 Fixed effects:
-             Estimate Std. Error        df t value Pr(>|t|)    
-(Intercept) 5.764e-01  9.796e-03 6.701e+00  58.839  2.4e-10 ***
-Altitude    7.859e-05  2.612e-05 6.309e+00   3.009   0.0223 *  
+             Estimate Std. Error        df t value Pr(>|t|)
+(Intercept) 5.764e-01  9.796e-03 6.701e+00  58.839  2.4e-10
+Altitude    7.859e-05  2.612e-05 6.309e+00   3.009   0.0223
+               
+(Intercept) ***
+Altitude    *  
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
@@ -173,8 +209,10 @@ Correlation of Fixed Effects:
 Altitude -0.799
 
 $Pgm_T6_Gibert_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: PercT6_asin ~ Altitude + (1 | Population) + (1 | Line:Population)
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: 
+PercT6_asin ~ Altitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$pgm, Supervisor.PI == "Gibert")
 
 REML criterion at convergence: -1000.4
@@ -188,12 +226,16 @@ Random effects:
  Line:Population (Intercept) 0.0225935 0.15031 
  Population      (Intercept) 0.0007437 0.02727 
  Residual                    0.0260690 0.16146 
-Number of obs: 1741, groups:  Line:Population, 167; Population, 9
+Number of obs: 1741, groups:  
+Line:Population, 167; Population, 9
 
 Fixed effects:
-              Estimate Std. Error         df t value Pr(>|t|)    
-(Intercept)  8.036e-01  2.548e-02  6.960e+00  31.539 9.04e-09 ***
-Altitude    -1.815e-05  6.822e-05  6.625e+00  -0.266    0.798    
+              Estimate Std. Error         df t value Pr(>|t|)
+(Intercept)  8.036e-01  2.548e-02  6.960e+00  31.539 9.04e-09
+Altitude    -1.815e-05  6.822e-05  6.625e+00  -0.266    0.798
+               
+(Intercept) ***
+Altitude       
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
@@ -202,7 +244,8 @@ Correlation of Fixed Effects:
 Altitude -0.800
 
 $Pgm_Total_Gibert_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
 Formula: TotalPerc_asin ~ Altitude + (1 | Line:Population)
    Data: filter(droseu$pgm, Supervisor.PI == "Gibert")
 
@@ -219,9 +262,12 @@ Random effects:
 Number of obs: 1741, groups:  Line:Population, 167
 
 Fixed effects:
-             Estimate Std. Error        df t value Pr(>|t|)    
-(Intercept) 6.095e-01  8.936e-03 1.647e+02  68.201   <2e-16 ***
-Altitude    3.755e-05  2.380e-05 1.664e+02   1.578    0.116    
+             Estimate Std. Error        df t value Pr(>|t|)
+(Intercept) 6.095e-01  8.936e-03 1.647e+02  68.201   <2e-16
+Altitude    3.755e-05  2.380e-05 1.664e+02   1.578    0.116
+               
+(Intercept) ***
+Altitude       
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
@@ -230,8 +276,10 @@ Correlation of Fixed Effects:
 Altitude -0.799
 
 $Pgm_T4_Schmidt_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: PercT4_asin ~ Altitude + (1 | Population) + (1 | Line:Population)
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: 
+PercT4_asin ~ Altitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$pgm, Supervisor.PI == "Schmidt")
 
 REML criterion at convergence: -2119.8
@@ -245,12 +293,16 @@ Random effects:
  Line:Population (Intercept) 0.007746 0.08801 
  Population      (Intercept) 0.001873 0.04328 
  Residual                    0.011447 0.10699 
-Number of obs: 1514, groups:  Line:Population, 157; Population, 9
+Number of obs: 1514, groups:  
+Line:Population, 157; Population, 9
 
 Fixed effects:
-             Estimate Std. Error        df t value Pr(>|t|)    
-(Intercept) 4.805e-01  2.723e-02 6.892e+00  17.649 5.43e-07 ***
-Altitude    4.927e-05  7.313e-05 6.616e+00   0.674    0.523    
+             Estimate Std. Error        df t value Pr(>|t|)
+(Intercept) 4.805e-01  2.723e-02 6.892e+00  17.649 5.43e-07
+Altitude    4.927e-05  7.313e-05 6.616e+00   0.674    0.523
+               
+(Intercept) ***
+Altitude       
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
@@ -259,8 +311,10 @@ Correlation of Fixed Effects:
 Altitude -0.800
 
 $Pgm_T5_Schmidt_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: PercT5_asin ~ Altitude + (1 | Population) + (1 | Line:Population)
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: 
+PercT5_asin ~ Altitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$pgm, Supervisor.PI == "Schmidt")
 
 REML criterion at convergence: -214.4
@@ -274,12 +328,16 @@ Random effects:
  Line:Population (Intercept) 0.051968 0.22796 
  Population      (Intercept) 0.002593 0.05093 
  Residual                    0.037988 0.19490 
-Number of obs: 1514, groups:  Line:Population, 157; Population, 9
+Number of obs: 1514, groups:  
+Line:Population, 157; Population, 9
 
 Fixed effects:
-             Estimate Std. Error        df t value Pr(>|t|)    
-(Intercept) 7.916e-01  4.251e-02 5.988e+00  18.620 1.58e-06 ***
-Altitude    6.563e-06  1.124e-04 5.442e+00   0.058    0.956    
+             Estimate Std. Error        df t value Pr(>|t|)
+(Intercept) 7.916e-01  4.251e-02 5.988e+00  18.620 1.58e-06
+Altitude    6.563e-06  1.124e-04 5.442e+00   0.058    0.956
+               
+(Intercept) ***
+Altitude       
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
@@ -288,8 +346,10 @@ Correlation of Fixed Effects:
 Altitude -0.801
 
 $Pgm_T6_Schmidt_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: PercT6_asin ~ Altitude + (1 | Population) + (1 | Line:Population)
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: 
+PercT6_asin ~ Altitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$pgm, Supervisor.PI == "Schmidt")
 
 REML criterion at convergence: 846.1
@@ -303,12 +363,16 @@ Random effects:
  Line:Population (Intercept) 0.078777 0.28067 
  Population      (Intercept) 0.008992 0.09483 
  Residual                    0.078737 0.28060 
-Number of obs: 1514, groups:  Line:Population, 157; Population, 9
+Number of obs: 1514, groups:  
+Line:Population, 157; Population, 9
 
 Fixed effects:
-             Estimate Std. Error        df t value Pr(>|t|)    
-(Intercept) 5.290e-01  6.597e-02 6.600e+00   8.019 0.000123 ***
-Altitude    5.695e-05  1.760e-04 6.184e+00   0.324 0.756933    
+             Estimate Std. Error        df t value Pr(>|t|)
+(Intercept) 5.290e-01  6.597e-02 6.600e+00   8.019 0.000123
+Altitude    5.695e-05  1.760e-04 6.184e+00   0.324 0.756933
+               
+(Intercept) ***
+Altitude       
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
@@ -317,8 +381,10 @@ Correlation of Fixed Effects:
 Altitude -0.801
 
 $Pgm_Total_Schmidt_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: TotalPerc_asin ~ Altitude + (1 | Population) + (1 | Line:Population)
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: 
+TotalPerc_asin ~ Altitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$pgm, Supervisor.PI == "Schmidt")
 
 REML criterion at convergence: -1249.8
@@ -332,12 +398,16 @@ Random effects:
  Line:Population (Intercept) 0.025561 0.15988 
  Population      (Intercept) 0.002211 0.04702 
  Residual                    0.019177 0.13848 
-Number of obs: 1514, groups:  Line:Population, 157; Population, 9
+Number of obs: 1514, groups:  
+Line:Population, 157; Population, 9
 
 Fixed effects:
-             Estimate Std. Error        df t value Pr(>|t|)    
-(Intercept) 6.148e-01  3.436e-02 6.365e+00  17.890 1.11e-06 ***
-Altitude    3.975e-05  9.142e-05 5.905e+00   0.435    0.679    
+             Estimate Std. Error        df t value Pr(>|t|)
+(Intercept) 6.148e-01  3.436e-02 6.365e+00  17.890 1.11e-06
+Altitude    3.975e-05  9.142e-05 5.905e+00   0.435    0.679
+               
+(Intercept) ***
+Altitude       
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 

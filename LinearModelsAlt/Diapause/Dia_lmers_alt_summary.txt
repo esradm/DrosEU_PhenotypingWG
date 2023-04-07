@@ -1,6 +1,8 @@
 $Dia_Bergland_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: Prop_Max_Stage9_asin ~ Altitude + (1 | Population) + (1 | Line:Population)
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: 
+Prop_Max_Stage9_asin ~ Altitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$dia, Supervisor.PI == "Bergland")
 
 REML criterion at convergence: 125
@@ -14,12 +16,16 @@ Random effects:
  Line:Population (Intercept) 0.034336 0.18530 
  Population      (Intercept) 0.007094 0.08423 
  Residual                    0.067122 0.25908 
-Number of obs: 189, groups:  Line:Population, 158; Population, 9
+Number of obs: 189, groups:  
+Line:Population, 158; Population, 9
 
 Fixed effects:
-             Estimate Std. Error        df t value Pr(>|t|)    
-(Intercept) 0.9199218  0.0621576 6.6415656   14.80 2.48e-06 ***
-Altitude    0.0002026  0.0001660 6.2542235    1.22    0.266    
+             Estimate Std. Error        df t value Pr(>|t|)
+(Intercept) 0.9199218  0.0621576 6.6415656   14.80 2.48e-06
+Altitude    0.0002026  0.0001660 6.2542235    1.22    0.266
+               
+(Intercept) ***
+Altitude       
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
@@ -50,8 +56,10 @@ F-statistic: 0.002449 on 1 and 161 DF,  p-value: 0.9606
 
 
 $Dia_Schlotterer_lmer_alt
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: Prop_Max_Stage9_asin ~ Altitude + (1 | Population) + (1 | Line:Population)
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: 
+Prop_Max_Stage9_asin ~ Altitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$dia, Supervisor.PI == "Schlotterer")
 
 REML criterion at convergence: 132.3
@@ -65,12 +73,16 @@ Random effects:
  Line:Population (Intercept) 0.052632 0.22942 
  Population      (Intercept) 0.009874 0.09937 
  Residual                    0.054228 0.23287 
-Number of obs: 195, groups:  Line:Population, 159; Population, 9
+Number of obs: 195, groups:  
+Line:Population, 159; Population, 9
 
 Fixed effects:
-             Estimate Std. Error        df t value Pr(>|t|)    
-(Intercept) 0.9989444  0.0694610 6.7165698  14.381 2.71e-06 ***
-Altitude    0.0001067  0.0001856 6.3252302   0.575    0.585    
+             Estimate Std. Error        df t value Pr(>|t|)
+(Intercept) 0.9989444  0.0694610 6.7165698  14.381 2.71e-06
+Altitude    0.0001067  0.0001856 6.3252302   0.575    0.585
+               
+(Intercept) ***
+Altitude       
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 

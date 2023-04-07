@@ -1,6 +1,8 @@
 $Pgm_T4_Abbott_lmer_lat
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: PercT4_asin ~ Latitude + (1 | Population) + (1 | Line:Population)
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: 
+PercT4_asin ~ Latitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$pgm, Supervisor.PI == "Abbott")
 
 REML criterion at convergence: -3964.3
@@ -14,7 +16,8 @@ Random effects:
  Line:Population (Intercept) 0.003782 0.06150 
  Population      (Intercept) 0.003065 0.05536 
  Residual                    0.006342 0.07964 
-Number of obs: 1953, groups:  Line:Population, 161; Population, 9
+Number of obs: 1953, groups:  
+Line:Population, 161; Population, 9
 
 Fixed effects:
              Estimate Std. Error        df t value Pr(>|t|)   
@@ -28,8 +31,10 @@ Correlation of Fixed Effects:
 Latitude -0.989
 
 $Pgm_T5_Abbott_lmer_lat
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: PercT5_asin ~ Latitude + (1 | Population) + (1 | Line:Population)
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: 
+PercT5_asin ~ Latitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$pgm, Supervisor.PI == "Abbott")
 
 REML criterion at convergence: -4048
@@ -43,7 +48,8 @@ Random effects:
  Line:Population (Intercept) 0.002954 0.05435 
  Population      (Intercept) 0.002487 0.04987 
  Residual                    0.006171 0.07855 
-Number of obs: 1953, groups:  Line:Population, 161; Population, 9
+Number of obs: 1953, groups:  
+Line:Population, 161; Population, 9
 
 Fixed effects:
              Estimate Std. Error        df t value Pr(>|t|)   
@@ -57,8 +63,10 @@ Correlation of Fixed Effects:
 Latitude -0.989
 
 $Pgm_T6_Abbott_lmer_lat
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: PercT6_asin ~ Latitude + (1 | Population) + (1 | Line:Population)
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: 
+PercT6_asin ~ Latitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$pgm, Supervisor.PI == "Abbott")
 
 REML criterion at convergence: -1506.3
@@ -72,7 +80,8 @@ Random effects:
  Line:Population (Intercept) 0.018058 0.13438 
  Population      (Intercept) 0.003507 0.05922 
  Residual                    0.021930 0.14809 
-Number of obs: 1953, groups:  Line:Population, 161; Population, 9
+Number of obs: 1953, groups:  
+Line:Population, 161; Population, 9
 
 Fixed effects:
              Estimate Std. Error        df t value Pr(>|t|)   
@@ -86,8 +95,10 @@ Correlation of Fixed Effects:
 Latitude -0.989
 
 $Pgm_Total_Abbott_lmer_lat
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: TotalPerc_asin ~ Latitude + (1 | Population) + (1 | Line:Population)
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: 
+TotalPerc_asin ~ Latitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$pgm, Supervisor.PI == "Abbott")
 
 REML criterion at convergence: -4326.8
@@ -101,7 +112,8 @@ Random effects:
  Line:Population (Intercept) 0.003754 0.06127 
  Population      (Intercept) 0.002374 0.04872 
  Residual                    0.005198 0.07210 
-Number of obs: 1953, groups:  Line:Population, 161; Population, 9
+Number of obs: 1953, groups:  
+Line:Population, 161; Population, 9
 
 Fixed effects:
              Estimate Std. Error        df t value Pr(>|t|)   
@@ -115,8 +127,10 @@ Correlation of Fixed Effects:
 Latitude -0.989
 
 $Pgm_T4_Gibert_lmer_lat
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: PercT4_asin ~ Latitude + (1 | Population) + (1 | Line:Population)
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: 
+PercT4_asin ~ Latitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$pgm, Supervisor.PI == "Gibert")
 
 REML criterion at convergence: -2370.5
@@ -130,12 +144,16 @@ Random effects:
  Line:Population (Intercept) 0.0028369 0.05326 
  Population      (Intercept) 0.0003996 0.01999 
  Residual                    0.0132132 0.11495 
-Number of obs: 1741, groups:  Line:Population, 167; Population, 9
+Number of obs: 1741, groups:  
+Line:Population, 167; Population, 9
 
 Fixed effects:
-             Estimate Std. Error        df t value Pr(>|t|)    
-(Intercept) 0.4776166  0.0575917 6.9260206   8.293 7.68e-05 ***
-Latitude    0.0003093  0.0011532 6.8432496   0.268    0.796    
+             Estimate Std. Error        df t value Pr(>|t|)
+(Intercept) 0.4776166  0.0575917 6.9260206   8.293 7.68e-05
+Latitude    0.0003093  0.0011532 6.8432496   0.268    0.796
+               
+(Intercept) ***
+Latitude       
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
@@ -144,8 +162,10 @@ Correlation of Fixed Effects:
 Latitude -0.989
 
 $Pgm_T5_Gibert_lmer_lat
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: PercT5_asin ~ Latitude + (1 | Population) + (1 | Line:Population)
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: 
+PercT5_asin ~ Latitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$pgm, Supervisor.PI == "Gibert")
 
 REML criterion at convergence: -2404.4
@@ -159,12 +179,16 @@ Random effects:
  Line:Population (Intercept) 0.0043549 0.06599 
  Population      (Intercept) 0.0004168 0.02042 
  Residual                    0.0125391 0.11198 
-Number of obs: 1741, groups:  Line:Population, 167; Population, 9
+Number of obs: 1741, groups:  
+Line:Population, 167; Population, 9
 
 Fixed effects:
-              Estimate Std. Error         df t value Pr(>|t|)    
-(Intercept)  6.002e-01  6.188e-02  6.985e+00   9.698 2.65e-05 ***
-Latitude    -1.508e-05  1.239e-03  6.891e+00  -0.012    0.991    
+              Estimate Std. Error         df t value Pr(>|t|)
+(Intercept)  6.002e-01  6.188e-02  6.985e+00   9.698 2.65e-05
+Latitude    -1.508e-05  1.239e-03  6.891e+00  -0.012    0.991
+               
+(Intercept) ***
+Latitude       
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
@@ -173,8 +197,10 @@ Correlation of Fixed Effects:
 Latitude -0.990
 
 $Pgm_T6_Gibert_lmer_lat
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: PercT6_asin ~ Latitude + (1 | Population) + (1 | Line:Population)
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: 
+PercT6_asin ~ Latitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$pgm, Supervisor.PI == "Gibert")
 
 REML criterion at convergence: -1007.2
@@ -188,12 +214,16 @@ Random effects:
  Line:Population (Intercept) 0.0225931 0.15031 
  Population      (Intercept) 0.0007583 0.02754 
  Residual                    0.0260690 0.16146 
-Number of obs: 1741, groups:  Line:Population, 167; Population, 9
+Number of obs: 1741, groups:  
+Line:Population, 167; Population, 9
 
 Fixed effects:
-             Estimate Std. Error        df t value Pr(>|t|)    
-(Intercept) 0.7816821  0.1063373 7.1843397   7.351 0.000137 ***
-Latitude    0.0003328  0.0021248 7.0469697   0.157 0.879925    
+             Estimate Std. Error        df t value Pr(>|t|)
+(Intercept) 0.7816821  0.1063373 7.1843397   7.351 0.000137
+Latitude    0.0003328  0.0021248 7.0469697   0.157 0.879925
+               
+(Intercept) ***
+Latitude       
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
@@ -202,7 +232,8 @@ Correlation of Fixed Effects:
 Latitude -0.990
 
 $Pgm_Total_Gibert_lmer_lat
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
 Formula: TotalPerc_asin ~ Latitude + (1 | Line:Population)
    Data: filter(droseu$pgm, Supervisor.PI == "Gibert")
 
@@ -219,9 +250,12 @@ Random effects:
 Number of obs: 1741, groups:  Line:Population, 167
 
 Fixed effects:
-             Estimate Std. Error        df t value Pr(>|t|)    
-(Intercept) 6.176e-01  3.759e-02 1.656e+02  16.432   <2e-16 ***
-Latitude    6.223e-05  7.491e-04 1.654e+02   0.083    0.934    
+             Estimate Std. Error        df t value Pr(>|t|)
+(Intercept) 6.176e-01  3.759e-02 1.656e+02  16.432   <2e-16
+Latitude    6.223e-05  7.491e-04 1.654e+02   0.083    0.934
+               
+(Intercept) ***
+Latitude       
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
@@ -230,8 +264,10 @@ Correlation of Fixed Effects:
 Latitude -0.990
 
 $Pgm_T4_Schmidt_lmer_lat
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: PercT4_asin ~ Latitude + (1 | Population) + (1 | Line:Population)
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: 
+PercT4_asin ~ Latitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$pgm, Supervisor.PI == "Schmidt")
 
 REML criterion at convergence: -2126.7
@@ -245,7 +281,8 @@ Random effects:
  Line:Population (Intercept) 0.007746 0.08801 
  Population      (Intercept) 0.001836 0.04284 
  Residual                    0.011447 0.10699 
-Number of obs: 1514, groups:  Line:Population, 157; Population, 9
+Number of obs: 1514, groups:  
+Line:Population, 157; Population, 9
 
 Fixed effects:
              Estimate Std. Error        df t value Pr(>|t|)   
@@ -259,8 +296,10 @@ Correlation of Fixed Effects:
 Latitude -0.989
 
 $Pgm_T5_Schmidt_lmer_lat
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: PercT5_asin ~ Latitude + (1 | Population) + (1 | Line:Population)
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: 
+PercT5_asin ~ Latitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$pgm, Supervisor.PI == "Schmidt")
 
 REML criterion at convergence: -221.4
@@ -274,12 +313,16 @@ Random effects:
  Line:Population (Intercept) 0.051992 0.22802 
  Population      (Intercept) 0.002518 0.05018 
  Residual                    0.037988 0.19490 
-Number of obs: 1514, groups:  Line:Population, 157; Population, 9
+Number of obs: 1514, groups:  
+Line:Population, 157; Population, 9
 
 Fixed effects:
-              Estimate Std. Error         df t value Pr(>|t|)   
-(Intercept)  0.8202125  0.1750454  5.9778053   4.686  0.00341 **
-Latitude    -0.0005367  0.0034952  5.8529217  -0.154  0.88312   
+              Estimate Std. Error         df t value Pr(>|t|)
+(Intercept)  0.8202125  0.1750454  5.9778053   4.686  0.00341
+Latitude    -0.0005367  0.0034952  5.8529217  -0.154  0.88312
+              
+(Intercept) **
+Latitude      
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
@@ -288,8 +331,10 @@ Correlation of Fixed Effects:
 Latitude -0.989
 
 $Pgm_T6_Schmidt_lmer_lat
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: PercT6_asin ~ Latitude + (1 | Population) + (1 | Line:Population)
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: 
+PercT6_asin ~ Latitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$pgm, Supervisor.PI == "Schmidt")
 
 REML criterion at convergence: 839.4
@@ -303,7 +348,8 @@ Random effects:
  Line:Population (Intercept) 0.078781 0.28068 
  Population      (Intercept) 0.009161 0.09571 
  Residual                    0.078737 0.28060 
-Number of obs: 1514, groups:  Line:Population, 157; Population, 9
+Number of obs: 1514, groups:  
+Line:Population, 157; Population, 9
 
 Fixed effects:
              Estimate Std. Error        df t value Pr(>|t|)
@@ -315,8 +361,10 @@ Correlation of Fixed Effects:
 Latitude -0.989
 
 $Pgm_Total_Schmidt_lmer_lat
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: TotalPerc_asin ~ Latitude + (1 | Population) + (1 | Line:Population)
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: 
+TotalPerc_asin ~ Latitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$pgm, Supervisor.PI == "Schmidt")
 
 REML criterion at convergence: -1256.5
@@ -330,12 +378,16 @@ Random effects:
  Line:Population (Intercept) 0.025570 0.15991 
  Population      (Intercept) 0.002253 0.04747 
  Residual                    0.019177 0.13848 
-Number of obs: 1514, groups:  Line:Population, 157; Population, 9
+Number of obs: 1514, groups:  
+Line:Population, 157; Population, 9
 
 Fixed effects:
-              Estimate Std. Error         df t value Pr(>|t|)   
-(Intercept)  0.6580130  0.1431396  6.3456105   4.597  0.00321 **
-Latitude    -0.0006321  0.0028622  6.2412109  -0.221  0.83227   
+              Estimate Std. Error         df t value Pr(>|t|)
+(Intercept)  0.6580130  0.1431396  6.3456105   4.597  0.00321
+Latitude    -0.0006321  0.0028622  6.2412109  -0.221  0.83227
+              
+(Intercept) **
+Latitude      
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 

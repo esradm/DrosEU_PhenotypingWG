@@ -1,6 +1,8 @@
 $Fec_Billeter_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: NumberOfAdultsEclosed ~ Longitude + (1 | Population) + (1 | Line:Population)
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: 
+NumberOfAdultsEclosed ~ Longitude + (1 | Population) + (1 | Line:Population)
    Data: filter(droseu$fec, Supervisor.PI == "Billeter")
 
 REML criterion at convergence: 8842.5
@@ -14,7 +16,8 @@ Random effects:
  Line:Population (Intercept) 1110.9   33.33   
  Population      (Intercept)  200.8   14.17   
  Residual                    2763.4   52.57   
-Number of obs: 805, groups:  Line:Population, 160; Population, 9
+Number of obs: 805, groups:  
+Line:Population, 160; Population, 9
 
 Fixed effects:
             Estimate Std. Error      df t value Pr(>|t|)    
@@ -28,8 +31,10 @@ Correlation of Fixed Effects:
 Longitude -0.779
 
 $Fec_Fricke_lmer_lon
-Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-Formula: NumberOfAdultsEclosed ~ Longitude + (1 | Line:Population)
+Linear mixed model fit by REML. t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: 
+NumberOfAdultsEclosed ~ Longitude + (1 | Line:Population)
    Data: filter(droseu$fec, Supervisor.PI == "Fricke")
 
 REML criterion at convergence: 9346.8
@@ -45,9 +50,12 @@ Random effects:
 Number of obs: 920, groups:  Line:Population, 161
 
 Fixed effects:
-             Estimate Std. Error        df t value Pr(>|t|)    
-(Intercept)  53.71302    3.44177 159.60766   15.61   <2e-16 ***
-Longitude    -0.05046    0.15750 161.43907   -0.32    0.749    
+             Estimate Std. Error        df t value Pr(>|t|)
+(Intercept)  53.71302    3.44177 159.60766   15.61   <2e-16
+Longitude    -0.05046    0.15750 161.43907   -0.32    0.749
+               
+(Intercept) ***
+Longitude      
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 

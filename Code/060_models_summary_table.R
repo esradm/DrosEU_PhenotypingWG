@@ -33,9 +33,9 @@ p <- bind_rows(p_pop, p_lat, p_lon, p_alt, p_coxme)
 p$Model[p$Model == "lm"] <- "lmer" # quick fix
 p <- pivot_wider(p, names_from = Predictor, values_from = P, names_prefix = "P_")
 p <- left_join(p,  p_metas %>%
-                 dplyr::select(-c(Q, P, Min_lab, Max_lab, P_bh)) %>%
-                 dplyr::rename(P_meta_adj = P_bonf, Model = Models) %>%
-                 mutate(Model = str_replace(Model, "lmers", "lmer")))
+  dplyr::select(-c(Q, P, Min_lab, Max_lab, P_bh)) %>%
+  dplyr::rename(P_meta_adj = P_bonf, Model = Models) %>%
+  mutate(Model = str_replace(Model, "lmers", "lmer")))
 p <- arrange(p, desc(Model), Trait, Lab, Sex)
 
 

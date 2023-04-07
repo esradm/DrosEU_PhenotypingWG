@@ -1,6 +1,8 @@
 $Via_Gibert_lmer_pop
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
-Formula: ProportionEggtoAdultSurvival_asin ~ Population + (1 | Line:Population) +  
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: 
+ProportionEggtoAdultSurvival_asin ~ Population + (1 | Line:Population) +  
     (1 | Batch)
    Data: filter(droseu$via, Supervisor.PI == "Gibert")
 
@@ -43,8 +45,10 @@ PopulatinVA -0.682  0.463  0.500  0.500  0.501  0.471  0.487
 PopulatinYE -0.682  0.463  0.500  0.500  0.501  0.471  0.487  0.501
 
 $Via_Grath_lmer_pop
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
-Formula: ProportionEggtoAdultSurvival_asin ~ Population + (1 | Line:Population)
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: 
+ProportionEggtoAdultSurvival_asin ~ Population + (1 | Line:Population)
    Data: filter(droseu$via, Supervisor.PI == "Grath")
 
 REML criterion at convergence: -123.8
@@ -73,8 +77,10 @@ PopulatinMU -0.713
 PopulatinRE -0.713  0.508
 
 $Via_Hoedjes_lmer_pop
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
-Formula: ProportionEggtoAdultSurvival_asin ~ Population + (1 | Line:Population)
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: 
+ProportionEggtoAdultSurvival_asin ~ Population + (1 | Line:Population)
    Data: filter(droseu$via, Supervisor.PI == "Hoedjes")
 
 REML criterion at convergence: -549.5
@@ -144,8 +150,10 @@ F-statistic:   2.7 on 8 and 153 DF,  p-value: 0.008308
 
 
 $Via_StamenkovicRadak_lmer_pop
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
-Formula: ProportionEggtoAdultSurvival_asin ~ Population + (1 | Line:Population) +  
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: 
+ProportionEggtoAdultSurvival_asin ~ Population + (1 | Line:Population) +  
     (1 | Batch)
    Data: filter(droseu$via, Supervisor.PI == "StamenkovicRadak")
 
@@ -188,8 +196,10 @@ PopulatinVA -0.612  0.445  0.500  0.499  0.500  0.470  0.485
 PopulatinYE -0.614  0.443  0.501  0.499  0.500  0.472  0.488  0.500
 
 $Via_Zwaan_lmer_pop
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [lmerModLmerTest]
-Formula: ProportionEggtoAdultSurvival_asin ~ Population + (1 | Line:Population)
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: 
+ProportionEggtoAdultSurvival_asin ~ Population + (1 | Line:Population)
    Data: filter(droseu$via, Supervisor.PI == "Zwaan")
 
 REML criterion at convergence: -124.4
