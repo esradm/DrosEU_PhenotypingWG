@@ -16,7 +16,7 @@ setwd("~/Work/UNIFR/GitHub/DrosEU_PhenotypingWG/")
 
 traits <- read.csv("InfoTables/trait_names.csv")
 
-traits <- dplyr::select(traits, Trait, Title)
+traits <- dplyr::select(traits, Trait, Title, Plot_order)
 traits$Trait[traits$Trait == "LA_ND"] <- "LA_NDlog2"
 traits$Trait[traits$Trait == "LSM"] <- "LS"
 
@@ -29,10 +29,13 @@ pr2 <- inner_join(r2s, pvals) %>%
     Group = paste(Trait, Sex, sep = " "),
     Sig = as.factor(ifelse(P < 0.05, 1, 0))
   ) %>%
-  dplyr::select(Trait, Sex, Group, Marg_r2, Sig, Title)
+  arrange(desc(Plot_order)) %>%
+  dplyr::select(Trait, Sex, Group, Marg_r2, Sig, Title, Plot_order)
+
 
 pr2$Title_sex <- paste(pr2$Title, pr2$Sex, sep = " - ")
 pr2$Title_sex <- gsub(" - NA", "", pr2$Title_sex)
+pr2$Title_sex <- factor(pr2$Title_sex, levels = unique(pr2$Title_sex))
 
 
 
@@ -109,9 +112,101 @@ line_pearson_alt <- ggplot(line_pearson, aes(x = R, y = Title_sex)) +
 
 
 
-##### output pvalues
+##### meta pvalues
 metas_pvals <- readRDS("MetaAnalyses/all_models_pop_meta_pvalues.rds")
 
+
+
+
+
+metas_pvals <- metas_pvals %>%
+  mutate(
+    Group = paste(Trait, Sex),
+    Cutoff = factor(ifelse(P_bonf < 0.05, 0, 1), levels = c(0, 1))
+  ) %>%
+  dplyr::select(Group, Q, Cutoff)
+
+
+
+
+no_metas <- data.frame(
+  Group = pr2$Group[!pr2$Group %in% metas_pvals$Group],
+  Q = -100,
+  Cutoff = as.factor(0)
+)
+
+metas_pvals <- bind_rows(metas_pvals, no_metas) %>%
+  inner_join(dplyr::select(pr2, Group, Title_sex)) %>%
+  distinct()
+
+
+
+
+metas_alt <- ggplot(metas_pvals, aes(x = Q, y = Title_sex)) +
+  geom_point(aes(fill = Cutoff), size = 2.5, pch = 21, alpha = 0.5) +
+  theme_classic() +
+  scale_fill_manual(values = c("red", "grey50")) +
+  coord_cartesian(x = c(-10, 110)) +
+  scale_x_continuous(breaks = c(0, 50, 100)) +
+  labs(x = "Q") +
+  theme(
+    legend.position = "none",
+    axis.text = element_text(size = 8),
+    axis.title = element_text(size = 8),
+    panel.grid.major.y = element_line(size = 0.5)
+  )
+
+
+
+r2 <- marg_r2 +
+  labs(x = expression(Marginal~italic(R^2))) +
+  scale_fill_manual(values = c("white", "#00ff1e"))
+
+r <- line_pearson_alt +
+  labs(x = expression(Correlation~coefficient~(italic(r)))) +
+  scale_fill_manual(values = c("#00ff1e", "white")) +
+  theme(
+    axis.text.y = element_blank(),
+    axis.ticks.y = element_blank(),
+    axis.title.y = element_blank(),
+    axis.line.y = element_blank()
+  )
+
+q <- metas_alt +
+  labs(x = expression(Heterogeneity~(italic(Q)))) +
+  scale_fill_manual(values = c("#00ff1e", "white")) +
+  theme(
+    axis.text.y = element_blank(),
+    axis.ticks.y = element_blank(),
+    axis.title.y = element_blank(),
+    axis.line.y = element_blank()
+  )
+
+aligned_plots <- align_plots(r2, r, q, align = "h")
+
+ps <- ggdraw() +
+  draw_plot(aligned_plots[[1]], x = 0, y = 0, width = 0.58, height = 1) +
+  draw_plot(aligned_plots[[2]], x = 0.59, y = 0, width = 0.25, height = 1) +
+  draw_plot(aligned_plots[[3]], x = 0.85, y = 0, width = 0.15, height = 1) +
+  draw_plot_label(c("A", "B", "C"),
+    x = c(0, 0.57, 0.83),
+    y = c(1, 1, 1), size = 12
+  )
+
+ggsave(ps,
+  filename = "Figures/figure2_v4.png",
+  width = 6.3, height = 4.2
+)
+
+
+
+
+
+
+
+
+
+############## below is deprecated
 
 ############# Q AND P VALUES PLOT #############
 
@@ -165,89 +260,13 @@ ps <- ggdraw() +
     y = c(1, 1, 0.4), size = 12
   )
 
-ggsave(ps,
-  filename = "Figures/figure2_v1.png",
-  width = 6.3, height = 6.3
-)
+#ggsave(ps,
+#  filename = "Figures/figure2_v1.png",
+#  width = 6.3, height = 6.3
+#)
 
 
 
 
 
-
-
-
-metas_pvals <- metas_pvals %>%
-  mutate(
-    Group = paste(Trait, Sex),
-    Cutoff = factor(ifelse(P_bonf < 0.05, 0, 1), levels = c(0, 1))
-  ) %>%
-  dplyr::select(Group, Q, Cutoff)
-
-
-
-
-no_metas <- data.frame(
-  Group = pr2$Group[!pr2$Group %in% metas_pvals$Group],
-  Q = -100,
-  Cutoff = as.factor(0)
-)
-
-metas_pvals <- bind_rows(metas_pvals, no_metas) %>%
-  inner_join(dplyr::select(pr2, Group, Title_sex)) %>%
-  distinct()
-
-
-
-
-metas_alt <- ggplot(metas_pvals, aes(x = Q, y = Title_sex)) +
-  geom_point(aes(fill = Cutoff), size = 2.5, pch = 21, alpha = 0.5) +
-  theme_classic() +
-  scale_fill_manual(values = c("red", "grey50")) +
-  coord_cartesian(x = c(-10, 110)) +
-  scale_x_continuous(breaks = c(0, 50, 100)) +
-  labs(x = "Q") +
-  theme(
-    legend.position = "none",
-    axis.text = element_text(size = 8),
-    axis.title = element_text(size = 8),
-    panel.grid.major.y = element_line(size = 0.5)
-  )
-
-
-
-ps <- ggdraw() +
-  draw_plot(
-    marg_r2 +
-    labs(x = "Variance explained by Population\n(Linear models marginal R2)") +
-    scale_fill_manual(values = c("white", "red")),
-    x = 0, y = 0, width = 0.58, height = 1
-  ) +
-  draw_plot(line_pearson_alt +
-  labs(x = "Between labs correlation\ncoefficient (Pearson's R)") +
-  scale_fill_manual(values = c("red", "white")) +
-    theme(
-      axis.text.y = element_blank(),
-      axis.ticks.y = element_blank(),
-      axis.title.y = element_blank(),
-      axis.line.y = element_blank()
-    ), x = 0.59, y = 0, width = 0.25, height = 1) +
-  draw_plot(metas_alt +
-    labs(x = "Meta analyses\nheterogeneity (Q)") +
-      scale_fill_manual(values = c("red", "white")) +
-    theme(
-      axis.text.y = element_blank(),
-      axis.ticks.y = element_blank(),
-      axis.title.y = element_blank(),
-      axis.line.y = element_blank()
-    ), x = 0.85, y = 0, width = 0.15, height = 1) +
-  draw_plot_label(c("A", "B", "C"),
-    x = c(0, 0.57, 0.83),
-    y = c(1, 1, 1), size = 12
-  )
-
-ggsave(ps,
-  filename = "Figures/figure2_v2.png",
-  width = 6.3, height = 4
-)
 
