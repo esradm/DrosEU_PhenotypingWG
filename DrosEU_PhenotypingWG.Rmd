@@ -14,6 +14,9 @@ output:
 
 # Phenotyping effort
 
+Author contributions can be found here 
+
+https://docs.google.com/spreadsheets/d/1SkiqZlpZlEs1nf6JJUakREYS4mpghSmgb_0QlL8o3ek/edit#gid=1616763697
 
 **Collaborative phenotyping effort of European _Drosophila melanogaster_ populations**
 
@@ -102,54 +105,26 @@ knitr::include_graphics("InfoTables/research_groups_map-1.png")
 
 _tbd_
 
-# Methods
+# Methods __*(Main text)*__
 
-## Wolbachia _work in progress_
+Female flies were collected in 2018 at nine Eurasian sampling locations previously described and characterised at the genomic level by the DrosEU consortium (Munich-MU, Germany; Akaa-AK, Finland; Gimenells-GI, Spain; Uman-UM, Ukraine; Mauternbach-MA, Austria; Karensminde-KA, Denmark; Valday-VA, Russia; Yesiloz-YE, Turkey; and Recarei-RE, Portugal; see Kapun et al. 2020; 2021) and used to establish 173 isofemale lines (Table SI.X). The following 17 phenotypic traits were measured on both sexes whenever possible: viability, egg-to-pupa developmental time, egg-to-adult developmental time, fertility, lifespan, dry weight, wing area, thorax length, chill-coma recovery time, cold-shock mortality, diapause, heat-shock mortality, starvation resistance, pigmentation, circadian eclosion timing, parasitoid resistance and locomotor activity.  All phenotyping experiments were carried out at 25ºC, 12 hours light:12 hours dark, and at a minimum relative air humidity of 60%, unless otherwise noted. The effect of the geographic variation on the observed phenotypic variation was assessed using a combination of mixed-effect modelling and meta analyses, while principal component analyses were used to investigate the effect of climatic factors on traits variation. Phenotyping protocols, trait-specific conditions and data analyses procedures are described in greater details in the online supplementary information repository.
 
-Sucena, Pasyukova, Kapun, Viera and Kozeretska Labs have genotyped the isofemale lines for Wolbachia using different methods and some discrepancies were observed, mainly due to the sensitivity differences in protocols -- we are working on it.
+# Methods __*(SI)*__
 
-Tables below were made using Sucena Lab's results.
+## Fly material
 
-```{r wolbachia-data, echo=FALSE, message=FALSE}
-droseu_wol <- data.frame(read.csv("InfoTables/DrosEU_wolbachia_2021.csv"))
-```
+## Populations and fly collection
 
-```{r, echo=FALSE}
-DT::datatable(droseu_wol, options = list(pageLength = 10))
-```
+Inseminated female flies were collected in 2018 at nine sampling locations previously characterised at the genomic level by the DrosEU consortium (Munich, Germany; Akaa, Finland; Gimenells, Spain; Uman, Ukraine; Mauternbach, Austria; Karensminde, Denmark; Valday, Russia; Yesiloz, Turkey; and Recarei, Portugal), and used to establish 173 isofemale strains (each population is represented by at least 15 strains, see Table SI.X for details).
 
-```{r Wol_Freqs, echo=FALSE}
-Wol_Freqs <- data.frame(unique(droseu_wol$Population))
+## Maintenance and shipment
 
-Wol_Pops <- c((AK_freq <- nrow(droseu_wol %>% filter(Population=="AK") %>% filter(Wolbachia=="1")) /
-  nrow(droseu_wol %>% filter(Population == "AK")) * 100),
-  (GI_freq <- nrow(droseu_wol %>% filter(Population=="GI") %>% filter(Wolbachia=="1")) /
-  nrow(droseu_wol %>% filter(Population == "GI")) * 100),
-  (KA_freq <- nrow(droseu_wol %>% filter(Population=="KA") %>% filter(Wolbachia=="1")) /
-  nrow(droseu_wol %>% filter(Population == "KA")) * 100),
-  (MA_freq <- nrow(droseu_wol %>% filter(Population=="MA") %>% filter(Wolbachia=="1")) /
-  nrow(droseu_wol %>% filter(Population == "MA")) * 100),
-  (MU_freq <- nrow(droseu_wol %>% filter(Population=="MU") %>% filter(Wolbachia=="1")) /
-  nrow(droseu_wol %>% filter(Population == "MU")) * 100),
-  (RE_freq <- nrow(droseu_wol %>% filter(Population=="RE") %>% filter(Wolbachia=="1")) /
-  nrow(droseu_wol %>% filter(Population == "RE")) * 100),
-  (UM_freq <- nrow(droseu_wol %>% filter(Population=="UM") %>% filter(Wolbachia=="1")) /
-  nrow(droseu_wol %>% filter(Population == "UM")) * 100),
-  (VA_freq <- nrow(droseu_wol %>% filter(Population=="VA") %>% filter(Wolbachia=="1")) /
-  nrow(droseu_wol %>% filter(Population == "VA")) * 100),
-  (YE_freq <- nrow(droseu_wol %>% filter(Population=="YE") %>% filter(Wolbachia=="1")) /
-  nrow(droseu_wol %>% filter(Population == "YE")) * 100))
+At the first stage of work all lines were collected in the Sucena Lab where the species was verified and all lines were tested for Wolbachia infections using the protocol in Faria & Sucena (2017). Wolbachia detection and strain identification was later repeated by regular PCR as described in Strunov et al. (2022) and by qPCR as described in Symonenko et al. (2018). At the second stage, all lines were sent to laboratories participating in phenotyping effort (Table X). All phenotyping experiments were carried out at 25ºC, 12 hours light:12 hours dark, and at a minimum relative air humidity of 60%, unless otherwise noted. The food recipes used by the different labs are shown in Table X. Strains were maintained under density controlled conditions in respective laboratories' diets at least two generations prior to the onset of the experiments, unless otherwise noted. Both males and females in mated state were phenotyped, unless otherwise noted.
 
-pop_freqs <- cbind(unique(droseu_wol$Country), Wol_Freqs, Wol_Pops)
+## Data acquisition
 
-cols <- c("Country", "Population", "Wolbachia_Freq")
-wolbachia_pop_freqs <- setnames(pop_freqs, cols)
+The following 17 phenotypic traits were measured: viability, egg-to-pupa developmental time, egg-to-adult developmental time, fertility, diapause, circadian eclosion timing, locomotor activity, lifespan, starvation resistance, chill-coma recovery time, cold-shock mortality, heat-shock mortality, parasitoid resistance, dry weight, thorax length, wing area, pigmentation. The protocols for each trait are described in detail below and specific information regarding number of phenotyping batches, experimental replication, sample sizes etc. can be found in supplementary tables xx (i.e. CSM_pop ).
 
-```
-
-```{r wolbachia_pop_freqs}
-wolbachia_pop_freqs # Wolbachia frequency by country and population abbreviation
-```
 
 ## Diets
 
@@ -162,44 +137,47 @@ DT::datatable(droseu_diets, options = list(pageLength = 10))
 ```
 
 
-## Inversion Frequencies _work in progress_
-_need to do a few more PCRs, will add them here soon_
+## Chromosomal inversion frequencies
 
-## Traits
+For each isofemale line, the presence or absence of 5 cosmopolitan inversions (In(3R)P, In(2L)t, In(3L)P, In(2R)Ns and In(3R)mo) was diagnosed by PCR using previously published primers (Corbett-Detig et al, 2012) on DNA extracted from pools of 10-15 mixed-sex flies using the Qiagen DNeasy Blood & Tissue Kit. Supplementary table xx summarizes primer sequences and assay conditions. Average inversion frequencies were derived for each population.
 
-_Contributors and methods for experiments_
+## Trait-specific assay conditions and measurements
 
 ### Viability
 ##### Gibert, Grath, Hoedjes, Schmidt, Stamenkovic-Radak and Zwaan Labs
 
-Egg-to-adult viability was determined in parallel with developmental time (see below). For this purpose, groups of 3-5 day old adults (at least 25 pairs) are allowed to lay eggs for at least two hours. Yeast was provided to stimulate egg laying . Immediately thereafter, 40 eggs were collected, and placed in a vial with 5mL medium. Three replicate vials were prepared per isofemale line. Viability was calculated per vial as the percentage of individuals that emerged from the 40 eggs. The Schmidt lab followed an alternative procedure in which females were allowed to lay eggs directly in vials and the total number of eggs was recorded afterwards. Viability was calculated as the percentage of individuals that emerged from the total number of eggs per vial.
+Egg-to-adult viability was determined in parallel with developmental time (see below). For this purpose, groups of 3 to 5-day-old adults (at least 25 pairs) per line were allowed to lay eggs for at least 2 hours. Yeast was provided to stimulate egg laying. Immediately thereafter, 40 eggs were collected, and placed in a vial with 5 mL medium. Three replicate vials were prepared per isofemale line. Viability was calculated per vial as the percentage of individuals that emerged from the 40 eggs. The Schmidt lab followed an alternative procedure in which females were allowed to lay eggs directly in vials and the total number of eggs was recorded afterwards. Viability was calculated as the percentage of individuals that emerged from the total number of eggs per vial.
+
 
 ### Developmental time
 
 #### Egg-to-pupa developmental time
 ##### Schmidt Lab
-Egg-to-pupa developmental time was scored twice per day , when the chamber lights were turned on and two hours before they were turned off, by counting the numbers of individuals that had pupated. The spot where a pupa is found was marked with a permanent marker to keep track of which pupae had emerged each day.
+Egg-to-pupa developmental time was scored twice per day, when the chamber lights were turned on and two hours before they were turned off, by counting the numbers of individuals that had pupariated. New pupae locations were marked with a permanent marker to keep track of which pupae had emerged each day. 
 
 #### Egg-to-adult developmental time
 ##### Gibert, Grath, Hoedjes, Schmidt, Stamenkovic-Radak and Zwaan Labs
 
-Egg-to-adult developmental time was scored  twice per day, similar to egg-to-pupa development time. For this, all adults that had emerged from a vial were collected for  counting and sexing.
+Egg-to-adult developmental time was scored twice per day, similar to egg-to-pupa developmental time. For this, all adults that had emerged from each vial were collected for counting and sexing.
 
 ### Dry weight
 ##### Colinet, Hoedjes and Onder Labs
 
-On day 7 after emergence, adult flies from density-controlled rearing (50 eggs/5 mL of food) were killed either by placing them in -20°C or by putting them into a vial with ethyl acetate solution in a cotton at the bottom of the vial, and then stored at -20ºC. Then they were sexed and placed individually into 96 well plates, and placed in an oven set at 60-70 °C, for at least 3 days. At this point flies could be stored at room temperature using a protective cover. If this was the case, the day before the weight measurements the plates with (previously dried) flies were placed in the oven (60-70 °C) for another 24 h to ensure that they were well dehydrated. Flies were then transferred individually  with a mouth aspirator tube connected to a 200 µL pipette tip onto a small piece of aluminium foil for direct weight measurement on microbalance with an accuracy of 1µ).
+Measurements were performed in 3, 5 and 5 batches for the Colinet, Hoedjes and Onder labs, respectively. Seven-day-old flies (average of 24 females and 24 males per isofemale line) from cultures with a highly controlled density (50 eggs/5 mL of food) were killed either by placing them directly at -20°C or by putting them first into a vial containing a piece of cotton imbibed with an ethyl acetate solution before storing them at -20ºC. Flies were sexed, placed individually into 96 well plates and transferred into an oven set at 60-70 °C for at least 72 hours. At this point flies could be stored at room temperature using a protective cover for later weighing. If this was the case, the previously dried plates were placed in the oven (60-70 °C) for another 24 hours the day before the weight measurements, to ensure that flies were well dehydrated. Flies were then transferred individually with a mouth aspirator tube connected to a 200 µL pipette tip onto a small piece of aluminium foil for direct weight measurement on a microbalance with an accuracy of 1µg (Mettler Toledo UMX2 or MT5, Sartorius Cubis Micro Balance).
 
 
 ### Thorax length
 ##### Kozeretska, Posnien, Ritchie and Schmidt Labs
 
-Five to ten days old flies are placed onto a double-sided sticky tape attached to a microscope slide or tape directly to the slide, flies are always laid out on the right side and a picture of the thorax taken using a digital camera connected to a dissecting microscope. The same magnification and resolution is always used to increase reproducibility, and a scale bar inserted on each photo to allow transforming pixels into µm units. Thorax length is defined as the distance from the anterior margin of the thorax to the posterior tip of the scutellum and it is measured using the “Straight Line” in ImageJ/Fiji (Figure XA).
+Flies used for thorax length measurements were reared in 2 batches by the Kotzeretska lab and 1 batch in the other labs. Bodies without legs and wings of 5 to 10-day-old flies (40 individuals for Kotzeretska and Ritchie labs, and 10 individuals for Posnien and Schmidt labs, on average per isofemale line and sex) were placed onto a double-sided sticky tape attached to a microscope slide or taped directly to the slide. Fly bodies were always laid out on their right side and  pictures of the thoraces were taken using a digital camera connected to a dissecting microscope (Posnien lab: QImaging MicroPublisher 5.0 digital camera mounted to a Leica M205 FA stereo microscope, Ritchie lab: Leica DFC295 camera attached to Leica M60 scope, Kozeretska lab: a digital single-lens reflex (DSLR) Sigeta MCMOS 5100 5.1Mp USB 2.0 camera mounted on MBS-10 stereo microscope , Schmidt lab: XXXXX). The same magnification (Posnien lab: 50X, Ritchie lab : 50X, Kozeretska lab: 2X, Schmidt lab: XXXXX) and resolution was always used to increase reproducibility, and a scale bar inserted on each photo allowed transforming (square) pixels into (square) micrometres. Thorax length was  defined as the distance from the anterior margin of the thorax to the posterior tip of the scutellum and was measured using the “Straight Line” tool in ImageJ/Fiji (https://ﬁji.sc/) (Figure XA).
 
-Posnien Lab:
-All ﬂies and larvae were kept on standard food-medium at 25◦C under a 12 h/12 h light/dark cycle and at 60% relative air humidity. Cages with apple-agar plates with a minimum of 20 and a maximum of 100 individuals were set up for 24 h to accustom the ﬂies to the cages. After approximately 24 h fresh apple-agar plates were applied and the ﬂies were left in cages for another 1-3 h for oviposition. Oviposition was repeated several times, if necessary, to collect enough larvae. Approximately 22 h after oviposition L1 larvae were collected and transferred to small food vials containing 10 mL of food. To control for density, exactly 30 L1 larvae were transferred into each vial. Due to the high yeast content of the food-medium, no additional dry yeast was provided. Imagos were collected 5-7 days after eclosion. They were frozen at -20◦C to kill and store them for later dissection.
-Prior to the dissection, the frozen ﬂies were transferred to an apple-agar plate and spread out to prevent the wings from sticking to the body while thawing. For each strain 15 individuals of each sex were dissected to make sure that at least 10 high quality samples were available for measurements. The wings and legs were removed, and the remaining body was glued to a slide with double-sided adhesive tape (Figure XA).
-Pictures of thoraces were taken at a magniﬁcation of 50x with a QImaging MicroPublisher 5.0 digital camera mounted to a Leica M205 FA stereo microscope. Furthermore, a picture of a scale bar (ruler) was taken with the same settings as for the rest of the pictures during every photo session, to allow the conversion from (square) pixels to (square) micrometers. The pictures were analyzed with Fiji (https://ﬁji.sc/). Thorax length was deﬁned as the distance from the anterior margin of the thorax to the posterior tip of the scutellum (Figure XA) measured with the "Straight Line" tool.
+
+
+### Wing area
+##### Onder, Posnien, Ritchie and Stamenkovic-Radak Labs
+
+Flies used for wing area measurements were reared in 7, 1, 15 and 5 batches by the Onder, Posnien, Ritchie and Stamenkovic-Radak labs, respectively. Both the left and right wings of 5 to 10-day-old flies (30 individuals in Onder, Ricthie and Stamenkovich-Radak labs, 10 individuals in Posnien lab, on average per isofemale line and sex) were removed and placed into a drop of either EntellanTM(Merck) or Hoyer’s mounting medium and sticked to a double-sided tape or directly taped to the slide. Pictures of the wing preparations were taken using a digital camera connected to a dissecting microscope (Posnien lab: QImaging MicroPublisher 5.0 digital camera mounted to a Leica M205 FA stereo microscope, Stamenkovic-Radak lab: Bresser MikroCam 5.0 MP digital camera mounted to Nikon SMZ 745T stereo microscope, Ritchie lab : Leica DFC295 camera attached to Leica M60 stereo microscope, Onder lab: Leica S9i with integrated 10 MP CMOS-camera). The same magnification (Posnien lab: 50X, Stamenkovic-Radak lab: 50X, Ritchie lab: 50X, Onder lab: 48X) and resolution was always used to increase reproducibility. A scale bar (ruler) was taken with the same settings as for the rest of the pictures during every photo session, to allow the conversion from (square) pixels to (square) micrometres. Wing area was assessed by wing centroid size (WCS) (Bookstein, 1996). To this end, fifteen landmarks (Figure X) were placed on wing images using tpsUtil and tpsDig2 (Rohlf, 2015) to obtain raw x and y landmark coordinates. WCS was calculated as the square root of the sum of squared deviations of landmarks around their centroid as implemented in MorphoJ (Klingenberg, 2011) or tpsRelw (Rohfl, 2015). To confirm that WCS represents wing area, we also manually measured wing area for the Posnien lab dataset by outlining the wings (Figure XB) using the "Polygon Selection" tool in Fiji (https://ﬁji.sc/). The most proximal part of the wing was excluded from measurements, using two distinct landmarks, since it was more susceptible to damage during dissection (Figure XB’). Linear regression analysis between WCS and manually measured wing area showed high positive correlation between both values (adjusted R2 = 0.8285, F(1, 538) = 2605, p < 2.2e-16) (Figure ??). Manual measurements of wing length and wing area were respectively performed using the “Straight Line” and “Polygon Selection” tools in ImageJ/Fiji (10.1371/journal.pone.0000007) and software package tpsDig2. 
+
 
 ```{r}
 knitr::include_graphics("ThoraxLength/Figure_PosnienLab.png")
@@ -207,99 +185,136 @@ knitr::include_graphics("ThoraxLength/Figure_PosnienLab.png")
 _Figure X_. Thorax and wing measurements (Posnien Lab). (_A_) Thorax length from the anterior margin of the thorax to the posterior tip of the scutellum. (_B_) Area measurement of the wing. (_B’_) Landmarks utilized to exclude the posterior part of the wing for area measurements.
 
 
-### Wing area
-##### Onder, Posnien, Ritchie and Stamenkovic-Radak Labs
-
-Both the left and right wings of five to ten days old flies (either 10 flies per sex per replicate or 30 flies pooled across replicates) are removed and placed into a drop of Entellan®Merck, Hoyer’s Medium, sticked to a double-side sticky tape, or taped directly to the slide. Pictures of the wing preparations are taken using a digital camera connected to a dissecting microscope. The same magnification and resolution is always used to increase reproducibility. A scale bar is placed on each photo to allow transforming pixels into µm units. Manual measurements of wing length and wing area are performed using the “Straight Line” and “Polygon Selection” tools, respectively of ImageJ/Fiji (10.1371/journal.pone.0000007) and software package tpsDig2.
-
-
-### Fecundity
+### Fertility
 ##### Billeter and Fricke Labs
 
-For each isofemale line, up to 10 males and 10 females are placed together in single-sex groups and allowed to mature for five days. Then, individual pairs are placed together in a vial (5-7 pairs), and mating interactions observed to ensure successful mating (at least 10 min copulation duration). We aim to have five successfully mated females per isofemale line. After a successful mating, males are discarded and females allowed to oviposit alone for 48 hours, moved to another vial, and allowed to oviposit for four days, and again moved to another vial and allowed to oviposit for two days. Thus our measure of fecundity is the sum of offspring produced for a maximum of 8 days after a single mating. Vacated vials are incubated for at least 12 days until all offspring eclosed. Afterwards vials are frozen and the offspring counted.
+For each isofemale line, up to 10 males and 10 virgin females were placed together in single-sex groups and allowed to mature for five days. Then, individual pairs were placed together in a vial (5-7 pairs per line), and mating interactions observed to ensure successful mating (at least 10 minutes copulation duration). Up to 5 successfully mated females per isofemale line were obtained. After a successful mating, males were discarded and females allowed to oviposit alone for 2 days, moved to another vial, and allowed to oviposit for 4 days, and again moved to another vial and allowed to oviposit for 2 days. Vials were incubated for at least 12 days until all offspring had eclosed. Afterwards vials were frozen and the offspring counted. Fertility was measured as the sum of offspring per female produced for a maximum of 8 days after a single mating.
 
 
 ### Lifespan
-##### Flatt, Parsch and Pasyukova Labs
 
-Line level measurements (Parsch and Pasyukova labs): Lifespan was measured for at least 15 isofemale lines per population. For each isofemale line, 5–6 replicates, each consisting of a vial with ten flies per sex (20 flies total), were performed. Replicates were performed in 2 blocks with at least 1 replicate per line in each block. Food vials were changed and mortality was recorded every 2–3 days on Monday, Wednesday, and Friday.
+#### Line level measurements
 
-Population level measurements (Flatt lab): Flies are kept in 1L demography cages (5 flies per line/sex for each population). The age at death will be scored when changing the food, at least three times a week. Ten replicates were performed.
+##### Parsch and Pasyukova Labs
+
+Lifespan was measured for at least 15 isofemale lines per population, with 5–8 replicate vials per line. Each vial filled with 5 mL of food contained 10 flies per sex (20 flies total), collected during the day of eclosion. Replicates were performed in two batches with at least one replicate per each line in each block. Food vials were changed and mortality was recorded every Monday, Wednesday, and Friday in Parsh Lab and every day in Pasyukova Lab, except the weekends. Flies that escaped or died from non-natural death during the course of the experiment were marked as censored for the subsequent analyses.
+
+#### Population level measurements
+
+##### Flatt Lab
+Flies were kept in 1L demography cages as 10 replicate cages per population (5 flies per line/sex for each population, see supplementary Table xx for a detailed list of lines). The age at death was scored when changing the food, every second day for the first 3 weeks of the experiment followed by scoring on Mondays, Wednesdays and Fridays until the last individual was dead. As in other laboratories, flies that escaped or died from non-natural death during the course of the experiment were marked as censored for the subsequent analyses. 
 
 ### Cold-shock mortality
 ##### Gonzalez, Kozeretska and Vieira Labs
 
-Three groups of 15-20 flies collected from the peak eclosion time are sorted by sex using CO2 (Gonzalez Lab) or diethyl ether (Kozeretska Lab) at least one day before the experiment and place in vials with fresh food. 20 individuals of 5-7 days-old flies previously sorted by sex are then placed for 18 hours in an empty vial immersed in an ice-water slurry box at a 4°C room. After 18 hours of cold-shock, vials are moved to a 25°C room, and cold-shock mortality is scored in a single time point 24 hours later.
+Measurements were performed in 32, 9 and 2 batches for the Vieira, Gonzalez and Kozeretska labs, respectively. For each isofemale line and sex, 1-8 replicates consisting of 6-25 flies collected from the peak eclosion time were placed in vials with fresh food at least one day before the experiment. Five to seven-day-old flies were then transferred into empty vials which were then immersed in an ice-water bath in a box (polystyrene or styrofoam) and stored at 4°C. After 18 hours of cold-shock, vials were moved to a 25°C room, and the number of dead flies was scored at a single time point 24 hours later. Cold-shock mortality was estimated for each vial as the proportion of dead flies, i.e. the number of dead flies divided by the number of assayed flies.
 
 
 ### Chill-coma recovery time
 ##### Vieira and Mensch Labs
 
-Sexed 7 days-old flies were placed in an empty vial immersed in an ice-water slurry box placed in a 4°C room in the morning. Six hours later, flies were removed from the tube to individual wells of 24 well plates while being kept on ice. A timer is started once the plate is moved from the ice to a bench in a 25°C room. Each fly is checked by eye for recovery for a maximum of 60 minutes. Flies that are able to stand on their legs were considered recovered and the CCRT (in seconds) recorded.
+Measurements were performed in 27 and 11 batches for the Vieira and Mensch labs, respectively. Six 7-day-old flies per sex per isofemale line were placed in an empty vial (one vial per sex per line) immersed in an ice-water bath in a polystyrene box placed in a 4°C room. Six hours later, flies were removed from tubes and placed in individual wells of 24 well plates while being kept on ice. A timer was started once the plate was moved from the ice to a bench in a 25°C room. Each fly has been monitored for recovery for a maximum of 60 minutes. Flies that were able to stand on their legs were considered recovered and the CCRT (in seconds) recorded. Flies that did not recover after 60 minutes of recovery period were marked as censored for the subsequent analyses. 
 
 
 ### Heat-shock mortality
 ##### Parsch and Vieira Labs
 
-Batches of 15-20 single sex seven days old flies were placed in empty vials inside a 37ºC incubator and mortality was scored for 7 hours every 30 minutes, or for 8–8.5 hours approximately every 45 minutes (for a total of 10–11 observations) in the Parsch lab.
+Heat-shock mortality was measured for at least 15 isofemale lines per population. Single sex groups of fifteen 5 to 7-day-old flies were placed in empty vials inside a 37ºC incubator and the number of dead flies was scored for 7 hours every 30 minutes in the Vieira lab, or for 8-8.5 hours approximately every 45 minutes (for a total of 10-11 observations) in the Parsch lab. For each isofemale line, 5 replicates were performed per sex. Replicates were performed in 32 batches for the Vieira lab, or in 9 batches during a single day for the Parsch lab. Heat-shock mortality was estimated for each vial as the proportion of dead flies, i.e. the number of dead flies divided by the number of assayed flies.
 
 ### Diapause
 ##### Bergland, Flatt and Schlotterer Labs
 
-In order to induce diapause, two hour old ‘phenotypic virgins’ (pharate or melanized with meconium visible) female flies are exposed to 12°C and 10:14 light/dark hours for 3 weeks. Vials are changed once per week. After three weeks under diapause conditions, flies are frozen at -80C until dissection. Both ovaries will be examined and an individual was classified as diapausing if all all oocytes were less than stage 10 and no mature eggs were present; individuals were classified as non-diapausing if at least one oocyte was greater than stage 10 or mature eggs were present.  Data were analysed using a generalised linear mixed model with population as a fixed effect and isofemale line, nested within isofemale line, as a random effect for each lab separately. The number of flies scored was used as the weights and a binomial error distribution was used.
+In order to induce diapause, 2-hour-old virgin females (on average 15 flies per isofemale line per lab) were exposed to 12°C and 10:14 light/dark hours for 3 weeks. Vials were changed once per week. After 3 weeks under diapause conditions, flies were frozen at -80ºC until dissection. Both ovaries were examined and an individual was classified as diapausing if all oocytes were less than stage 10 and no mature eggs were present; individuals were classified as non-diapausing if at least one oocyte was greater than stage 10 or mature eggs were present.
 
 ### Circadian eclosion timing
 ##### Wegener Lab
 
-Eclosion rhythmicity was measured in outcrossed Munich, Akaa, Gimenells, Uman, Mauternbach, Karensminde, Valday, Yesiloz and Recarei strains. Flies were raised on standard food at a light-dark cycle of 14:10 hours (LD 14:10) in a climate chamber at either 18°C or 29°C, depending on the experiment. Age-mixed puparia were collected and glued to a circular perspex disk using fungicide-free methyl cellulose glue (Tapetenkleister Nr. 389, Auro, Germany; 1:30 diluted in water). Eclosion was monitored for one week under LD14:10 or constant darkness (DD) at either 18° or 29°C using Drosophila eclosion monitors (Trikinetics Inc., Waltham, MA, USA). The eclosion data were processed into 1h bins. Phase and period was calculated by MESA, and rhythmicity was assessed by Lomb-Scargle periodogramme analysis as well as JTK-Cycle with Benjamini-Hochberg correction, implemented in BioDare2 (https://biodare2.ed.ac.uk) (Zielinski, T., Moore, A. M., Troup, E., Halliday, K. J., and Millar, A. J. (2014). Strengths and Limitations of Period Estimation Methods for Circadian Data. PLOS ONE 9, e96462. doi: 10.1371/journal.pone.0096462)
+Eclosion rhythmicity was measured at the population level using outcrossed isofemale lines for each of the 9 populations (please refer to table XX for IDs of the lines used for outcrossing). Flies were raised at a light-dark cycle of 14:10 hours (LD 14:10) in a climate chamber at either 18°C or 29°C, depending on the experiment. Puparia spanning an age difference of around 5 (18°C) or 4 days (29°C) were collected and glued to a circular perspex disk using fungicide-free methyl cellulose glue (Tapetenkleister Nr. 389, Auro, Germany; 1:30 diluted in water). Eclosion was monitored for one week under LD14:10 or constant darkness (DD) at either 18°C or 29°C using Drosophila eclosion monitors (Trikinetics Inc., Waltham, MA, USA). The eclosion data were processed into 1 hour bins. Phase and period were calculated with the MESA algorithm and rhythmicity was assessed both by using a Lomb-Scargle periodogram analysis and the JTK-Cycle model with Benjamini-Hochberg correction, all of which are implemented in the BioDare2 software (https://biodare2.ed.ac.uk) (Zielinski et al., 2014). For circular statistical comparison, we grouped the raw data in 1 hour (15°) bins and performed a Chi-square analysis using Oriana 4.02 (Kovach Computing Services, Pentraeth, Isle of Anglesey, UK).
 
 ### Locomotor activity
 ##### Tauber Lab
 
-The locomotor activity of the flies (males only) was measured using the DAM2 Drosophila monitors (Trikinetics Inc., Waltham, MA). Flies were 1-3 days old. Single flies were placed in glass tubes (10 cm × 0.5 cm) that were filled with 2 cm sugar/agar medium. The monitors were placed in light chambers driven by LED,  in an incubator at 24°C, ~30% humidity. The flies were entrained to a light-dark cycle (LD 12:12) for 5d and then allowed to free-run for 10 d in constant darkness (DD). The activity data were processed into 30 min bins, and four different variables were analysed. These included the circadian period, and the phase, which were analyzed using the FFT NLLS algorithm available at the BioDare2 server (https://biodare2.ed.ac.uk/). The other two variables, level of activity and the nocturnal/diurnal ratio were analyzed by a custom-made R script.
+Locomotor activity was measured on 1-13 males (4 on average) for each isofemale line using the DAM2 Drosophila monitors (Trikinetics Inc., Waltham, MA) in 2 batches. Single 1 to 3-day-old flies were placed in glass tubes (10 cm × 0.5 cm) filled with 2 cm sugar/agar medium. The monitors were placed in light chambers driven by LED, in an incubator at 24°C with ~30% humidity. The flies were entrained to a light-dark cycle (LD 12:12) for 5 days and then allowed to free-run for 10 days in constant darkness (DD). The activity data were processed into 30 minute bins, and four different variables were analysed. These included the circadian period and the acrophase (phase in DD), which were analyzed using the MESA algorithm available at the BioDare2 server (https://biodare2.ed.ac.uk/). The other two variables, level of activity and the nocturnal/diurnal ratio were analyzed with a custom-made R script. Except for the acrophase, data analysis was performed in R (R Development Core Team 2013). We used a mixed-model ANOVA using the lme function in the nlme package (Pinheiro et al. 2013). The isofemale line variable was treated as a random effect. The analysis of the acrophase was carried out using the Oriana software for circular statistics (Kovach Computing Services, Pentraeth, Isle of Anglesey, UK).
 
 
 ### Starvation resistance
 ##### Gonzalez, Onder and Pasyukova Labs
 
-Batches of 10 sexed flies are transferred to glass vials filled with 5 mL of 2% agar for starvation 3-7 days after eclosion. The age at death will be scored every 8 hours.
+For each isofemale line and sex, 10 replicates each consisting of a vial with 3 to 7-day-old flies collected during 8 hours, were performed. Replicates were measured in 5 batches with at least 1 replicate per line in each batch. Flies were kept in vials with 5 mL of 2% agar for the duration of the assay. The age at death was scored every 8 hours and starvation resistance has been estimated as the number of hours from the start of the experiment till death.
 
 ### Pigmentation
 ##### Abbott, Gibert and Schmidt Labs
 
-Abbott, Gibert Labs
+Abbott, Gibert and Schmidt Labs
 
-For each line, 10 females, 13-15 days old, either alive or stored in 95% ethanol, are air dried and placed on their left side, and pictures taken using a dissecting microscope. Images are then analysed in ImageJ 1.46r, using the Area Fraction measurement in the Analyze menu. Area Fraction measures the percentage of pixels in a selected area that have been highlighted in red using the Threshold tool. This gives an estimate of the percentage of dark pigmentation on the three terminal tergites of the abdomen (4, 5 and 6).
-
-Schmidt Lab
-
-The last three tergites of females were scored according to David et al. 1990
+For each line, ten 13 to 15-day-old females, either alive or stored in 95% ethanol, were air dried and placed on their left side, and pictures taken using a dissecting microscope  (Gibert lab: Axio Imager Z1, Zeiss; Abbott lab: Nikon SMZ1270, Schmidt lab: XXXXX). Images were then analysed in ImageJ 1.46r, using the Area Fraction measurement tool. Area Fraction measures the percentage of pixels in a selected area that have been highlighted in red using the Threshold tool. This gave an estimate of the percentage of dark pigmentation on the three terminal tergites of the abdomen (4, 5 and 6). The same tergites were also scored by the Schmidt lab using the procedure described by David et al. 1990. The resulting pigmentation scores were multiplied by 10 to be turned into pigmentation percentages similar to those measured by the Abbott and Gibert labs.
 
 
 ### Parasitoid resistance
 ##### Hrcek Lab
 
-3-5 day old adults (at least 25 pairs) are allowed to lay eggs en masse. Yeast paste is provided to stimulate egg laying (for at least 2 hours). Eggs are collected and 40 are placed in each vial, 8 replicate vials per ILs. In 4 of the vials, 48h after eggs collection, a single female parasitoid _Leptopilina boulardi_ is introduced for 24h. Parasitoid resistance is calculated as the percentage of individuals that emerged compared to the mean of emerged adults from the 4 control vials.
+Parasitoid resistance was measured in 5-8 isofemale lines per population in 3 batches. Groups of 3 to 5-day-old adults (at least 50 pairs) were allowed to lay eggs on an agar plate overnight for 10 hours. Yeast paste was provided to stimulate egg laying. Immediately thereafter, 80 eggs were collected, and placed in a vial with 10 mL medium. Eight to ten vials were prepared per isofemale line depending on the number of eggs collected. Two days after eggs collection, a single female parasitoid _Leptopilina boulardi_, aged between 5 to 7 days old, was introduced for 24h in each parasitized treatment vial (4 to 6 vials). Four vials were left non parasitized as control. Parasitoid resistance was estimated by comparing the number of adults emerging in parasitized vials and the mean of emerged adults in the control vials.
 
-### Wolbachia infection status
+### Wolbachia infections
 
-#### Sucena Lab
+Two complementary methods were used to screen the isofemale lines for the presence of Wolbachia; (1)  regular PCR-based screening following a modified protocol from Miller et al. (1988), and (2) quantitative real-time PCR (qPCR)-based screening following a modified protocol from Sambrook et al. (1989).
 
-DNA extractions were done using an adapted protocol from the one in Miller SA, Dykes DD, Polesky HF (1988). Briefly, pools of 3-5 flies were crunched in 200 µl of Homogenization buffer with proteinase K (0.10mg/ml) and incubated overnight at 58 ºC. Next, 100 µl of 4.5 M NaCl and 225 µl chloroform were added and, after centrifugation, the upper phase containing nucleic acids was isolated. Finally, 500 µl of isopropanol were added, decanted out, DNA was washed with 70% EtOH and eluted in MiliQ.
+For the regular PCR-based screening, whole genomic DNA was extracted from 3-5 flies per isofemale line following the protocol of Miller et al. (1988). A multiplex PCR reaction was then carried out in 96-well plates using 1μL of diluted DNA with the GoTaq G2 Flexi DNA polymerase (Promega) in a 10μL total reaction volume per well using the following diagnostic primer pairs: Slif (Fwd: 5’ GTTAGCGCCTATTAGCACAT 3’; Rev: 5’ CGGGACAACTCAGTCTGTAA 3’); and wsp (81Fwd: 5’ TGGTCCAATAAGTGATGAAGAAAC 3’; 691Rev: 5’ AAAAATTAAACGCTACTCCA 3’). The latter of the two pairs serves to diagnose the presence or absence of Wolbachia (Zhou et al. 1998). The PCR protocol was as follows: 95 ºC for 10 min; 30 cycles at 95 ºC for 30s, 60 ºC for 1 min, 72 ºC for 1 min; and a final extension step at 72 ºC for 10 min. PCR products were visualised by gel electrophoresis (1.5% agarose in TAE supplied with 1% RedSafe). In addition, we did PCRs using VNTR-141 primers (Riegler et al. 2012) using PCR conditions described in Strunov et al. (2022). This allowed us to distinguish between the two most common Wolbachia variants, wMel and wMelCS, based on a diagnostic length polymorphism in the VNTR region. 
 
-After DNA extraction, a multiplex PCR reaction was performed in 96-well plates using 1μL of diluted DNA, GoTaq G2 Flexi DNA polymerase (Promega) in a 10μL total reaction volume per well, with the primers: Slif (Fwd – 5 ́GTTAGCGCCTATTAGCACAT 3’; Rev – 5 ́ CGGGACAACTCAGTCTGTAA 3’) to diagnose the fly species between D.melanogaster or D. simulans; and wsp (81Fwd 5 ́ TGGTCCAATAAGTGATGAAGAAAC 3’; 691Rev 5 ́AAAAATTAAACGCTACTCCA 3’), to diagnose for the presence or absence of Wolbachia. The PCR program was used as follows: 95 ºC for 10 min; 30 cycles at 95 ºC for 30s (denaturation), 60 ºC for 1 min (annealing), 72 ºC for 1 min (elongation) and a final extension step at 72 ºC for 10 min. PCR amplification products were visualised after electrophoresis in agarose gel (1.5% in TAE supplied with 1% RedSafe).
-
-
-Pasyukova Lab
-
-DNA was extracted from batches of 20 flies from each line using a standard phenol-chloroform procedure (Sambrook et al., 1989).
-
-After DNA extraction, qPCR was performed in triplicates using 1μL of diluted DNA, HotStart Taq (Sibenzyme) and SYBR Green I in a 20μL total reaction volume per well, with the W-Spec primers (Fwd 5’ CATACCTATTCGAAGGGATAG 3’; Rev 5’ AGCTTCGAGTGAAACCAATTC 3’), to diagnose for the presence or absence of Wolbachia. The qPCR program was performed in the MiniOpticon real-time PCR detection system (Bio-Rad) as follows: 94 ºC for 2.5 min; 50 cycles at 94 ºC for 20s (denaturation), 64 ºC for 20s (annealing), 72 ºC for 30s (elongation) with plate reading after each cycle. The melting curve protocol followed the amplification with 5 seconds each step at 0.5°C increments from 60°C to 95°C to determine the specificity of detected products.
+For the qPCR, whole genomic DNA was extracted from pools of 20 flies per isofemale line following the procedure described by Sambrook et al. (1989). qPCR was done on a MiniOpticon real-time PCR system (Bio-Rad). The total reaction volume was 20 µl per well, with 1 µl of diluted DNA, HotStart Taq (Sibenzyme), and SYBR Green I and W-Spec primers (Fwd: 5’ CATACCTATTCGAAGGGATAG 3’; Rev 5’ AGCTTCGAGTGAAACCAATTC 3’; Werren, Windsor, 2000). The W-Spec primer set is thought to give a stronger and more specific signal than a number of other primers (Simoes et al., 2011). The PCR protocol was as follows: 94 ºC for 2.5 min; 50 cycles at 94 ºC for 20 s, 64 ºC for 20 s, 72 ºC for 30 s. The specificity of the PCR products detected was determined by melting curve analysis.
 
 
-## Data reformatting
 
-MasterSheets
+## Data analysis and statistics 
+
+### Linear models
+
+Although we aimed to generate a uniform and homogeneous data set we were faced with large data structure differences between labs and it became challenging to fit a trait-specific global model that would incorporate data from several labs. Instead, for each trait, we chose to fit lab-specific models to fit the data as precisely as possible. Sexes were also modelled separately as we were not specifically interested in sexual dimorphism questions. This resulted in 96 individual linear models (please refer to XX for circular data analyses, namely CETS and LA). Proportional data such as viability, pigmentation and cold-shock mortality has been arcsine transformed prior to running linear models. Modelling was performed in R (version 4.1.1) with the lmer function from the afex package (version 1.0-1). In all models, Population (populations IDs) was always included as a fixed-effect variable, and whenever applicable, factors such as Line (isofemale line IDs), Replicate and Batch were added as random-effect variables with appropriate nesting as in the following example:
+Trait ~ Population + (1|Line:Population) + (1|Batch) + (1|Replicate:Line:Population)
+In some rare cases (locomotor activity, viability measured by the Schmidt lab) a linear model was used in place of the linear mixed-effect model because of singularity issues or lack of line replication. Finally, diapause data was modelled using a generalised linear mixed-effect model (glmer function from the afex package) with Population as a fixed effect and Line, nested within Population, as a random effect. The number of flies scored served as weights and a binomial error distribution was used. 
+Population estimates and standard errors of those estimates were extracted from model outputs using the emmeans function from the emmeans package (version 1.7.1-1).
+Line random coefficients and their associated standard errors were derived from line random effects extracted from model outputs using the extract_random_effects function from the mixedup package (version 0.3.9) (Clark, 2022). Population coefficients were subsequently added to line random effects to obtain line random coefficients. Line random coefficients standard errors were calculated as follow:
+sqrt(Population_SE^2 + Line_random_effect_SE^2))
+
+
+### Meta analysis
+
+We used a meta analysis approach to compute populations summary effects for each trait and sex. We considered each lab as being a study in which the effect of Population has been assessed via a linear mixed-effect model (see previous section). However, because Population has 9 levels, we performed a subgroup meta analysis where each population was considered as a subgroup, which allowed us to test for differences between populations. 
+The input data for the subgroup meta analysis consisted of the estimates and standard errors of those estimates obtained for Population in the trait- and lab-specific linear mixed-effect models. Estimates were used as population effects, and standard errors were used as weights — to give more or less weight to studies (labs) depending on parameters such as sample size and replication level.
+Subgroup meta analyses were performed in R (version 4.1.1) using a random effect model implemented in the metagen (random = TRUE, method.tau = "REML") and update.meta (subgroup = Population, tau.common = FALSE) functions from the meta package (version 5.1-1) (Balduzzi et al, 2019). Population summary effects were extracted from the meta output and used as population compound estimates for downstream analyses. Meta analyses p values were corrected for multiple testing using the Bonferroni and Benjamini-Hochberg procedures (n-= 26, the total number of meta analyses performed).
+Similarly, the same approach was used to generate line compound estimates using line random coefficients and their associated standard errors extracted from the mixed-effect models in which Line was included as a random-effect variable (see previous section).
+
+###  Survival analyses _work_in_progress_
+
+### Trait correlations
+
+#### Multivariate analyses I: Discriminant Function Analysis
+
+Broad differences in population phenotypes were assessed for each sex using discriminant function analysis (DFA). Some traits without specified sex (e.g. DT_P), and/or with missing data on many lines (e.g. LA) were not included; however, viability was included in both male and female analyses. In total we estimated multivariate phenotypes for 134 male lines and 165 female lines (males: 10-17 lines per population, mean = 14.8; females: 14-20 lines per population, mean 18.33), incorporating 10 and 13 phenotypes in males and females respectively, using trait values based on model estimates. For males these traits were CCRT, CSM, DT_A, DW, HSM, LS, SR, TL, and WA_L and VIA, and in females DIA, FEC and PGM_T were additionally included. For each sex Mahalanobis distance (D2) was calculated and the observations (the 134 and 165 lines in males and females respectively) were reallocated to determine how distinct the populations were. All analyses were run in Genstat v22.1 with Genstat Procedure Library v30.1 loaded using the discriminate function.
+
+#### Multivariate analyses II: Principal Component Analysis
+
+To look in more detail at multivariate phenotypic correlations, trait values from model estimates were transformed using principal component analysis (PCA) for the same 134 male lines and 165 female lines described above. Separate PCAs were carried out for males and females. Nine phenotypes measured only in males were used (CCRT, CSM, DT_A, DW, HSM, LS, SR, TL, and WA_L). For females a greater number of phenotypic traits were measured, therefore, to get a more complete picture of multivariate phenotypic correlations, three different PCAs with different combinations of phenotypes were carried out: i) nine phenotypes corresponding to those used in the males (to allow a direct comparison with the male PCA); ii) all 12 phenotypes measured for females (the nine traits measured in males plus DIA, FEC, and PGM_T); iii) 12 measured female phenotypes plus VIA (although sex was not specified for viability, it showed strong variation between populations, suggesting that it could be a key phenotype). The 3 versions of the female PCA are termed F9, FMax and FMaxPlus. In the results section we focus on the female results from F9, as this provides the most intuitive comparison with males.
+Phenotypic traits were scaled to unit variance and transformed using the PCA function from R package FactoMineR (Lê et al 2008). Traits with greater-than-average contributions to a given principal component were considered key correlates of principal components, and phenotypic trait loadings are reported for the first 3 PCs. PCA plots with confidence ellipses were visualised with factoextra (Kassambara and Mundt, 2020). 
+
+To check for the effect of diet, all PCAs were also run with trait values derived from a single lab and chosen such that variation in diet P:C ratio was controlled (P:C ratio between X and Y, compared with A and Z when considering data from all labs). Trait loadings for P:C controlled PCAs were compared to trait loading for the PCAs containing data for all labs using Tucker’s Congruence Coefficients, implemented using the factor.congruence function in the psych package (Revelle 2022).
+
+#### Multivariate analyses III: Correlations between environment and phenotype
+
+To analyse potential effects of environmental conditions on the studied phenotypic traits, we downloaded the climatic data from NASA database (https://data.nasa.gov) for each population using the latitude and longitude with help of “nasapower” R package (Sparks, 2018). The climate data for two different periods of time was used: for 30 years to trace the long-term effect on the studied traits, and for 30 days prior the collection date to cover the variation in the weather conditions during approximate time needed for the development of the caught flies and their parental generation. In total, 14 environmental variables (Suppl. Table SXX) were used for each time period and transformed with principal component analysis (PCA) in the “FactoMineR” package (Le et al 2008). Environmental PCs with eigenvalues > 1 were then used as the predictors in linear models of multivariate phenotypes. Separate models were run for males and females for all phenotypic PCs of interest.
+We also tested if correlations between phenotype and environmental PCs were greater than expected at random using a permutation based approach. In this analysis, we permuted the environmental PC values for PC1 and PC2 among population labels and re-ran the linear models between environmental PC and phenotypic PC. 
+Wolbachia infection
+Based on the Wolbachia-infection status of all isofemale lines as assessed using the methods described earlier, we tested for phenotypic effects of Wolbachia presence in all investigated populations. For this, we conservatively focused on isofemale lines that were unambiguously identified as Wolbachia-infected (wol+) or uninfected (wol-) by both PCR approaches. We further excluded the populations from Finland and Russia, since all lines from these locations were identified as Wolbachia-infected. Furthermore, we only  included lines that were assayed in all labs that investigated a given phenotype. Finally, we only considered populations with at least three isofemale lines of each infection type (wol+ and wol-) in our statistical analyses. For each phenotype, we fitted linear mixed models in R using the lme4 package (Bates et al., 2015) to test for the fixed effects of country (i.e. sampling location) and Wolbachia infections on phenotypic variation. Whenever possible, we also included the factor sex, if both males and females were measured, and the factor “Protein to Carbohydrate ratio” (P:C-ratio) of the laboratory food, if the analysed phenotype was measured in more than one lab. To account for the fact that the latter factor is confounded by the experimentator laboratory, we additionally included the random factor lab in our models. Moreover, we fitted the random factors line (nested within country) and experimental batch (nested within lab) to account for biological and technical replication. To test for significance of the fixed factors and all possible interactions, we employed Type-III analysis of deviance using the R package car. 
+
+#### Climate correlations _work_in_progress_
+
+#### Geographical correlations _work_in_progress_
+
+#### Heritabilities _work_in_progress_
+
+## _to_be_removed_ 
+
+MasterSheets _to_be_removed_ 
 
 All data files are reformatted as so called _Master Sheets_, in which the data structure is the same for all the sub-data sets and all details/edits logged in a README sheet.
 
@@ -325,13 +340,13 @@ DT::datatable(MS_example, options = list(pageLength = 10))
 
 All proportion data has been arcsin transformed prior to the analyses. For others, please see the residual plots after linear models and let us know if you think the trait data set need transformation.
 
-## Data check
+## Data check _to_be_removed_
 
 For each trait and lab, we ran counts for sex, population, line and replicate vial (if applicable). If we could spot anything suspicious or unusual (typos, shifts, etc.), I have contacted you already. Please let me know if there is anything that you have spotted and we missed. Thanks!
 
-# Results: Examples & Directories & Legends {#anchor}
+# Results: Examples & Directories & Legends _to_be_removed_
 
-### Tables
+### Tables _to_be_removed_
 
 Here is an example code for tables (egg-to-adult viability). The very same code is used for other traits (either with or without _Batch_) by filtering the data at supervisor, batch, population and/or line levels (and also for sex, if applicable).
 
@@ -357,7 +372,7 @@ table_Via_Line_wbatch <- write.csv(d_Via %>% group_by(Supervisor.PI, Batch, Popu
 
 Tables for descriptive statistics at population and line levels can be found in the trait directory, under the file name **__table_TraitAbbreviation_Level_BatchInfo.csv__**  (_i.e. Viability/table_Via_Line_wobatch.csv_)
 
-### Figures
+### Figures _to_be_removed_
 
 Data range is calculated with `#r min()` and `#r max()` functions for each trait.
 
@@ -405,7 +420,7 @@ invisible(dev.off())
 ```
 
 
-### Linear Models
+### Linear Models _to_be_removed_
 
 Here is an example code for linear models (egg-to-adult development time, males, Gibert Lab). The very same code is used for other contributing labs and traits by filtering the data at supervisor level (for females and males separately, if applicable), adding or removing factors if they cause convergence problems or singularity (i.e. if only one replicate vial has been phenotyped per line and/or population and/or batch, the lowest level [ _replicate_vial_  in this example] has been dropped from given model).
 
@@ -447,7 +462,7 @@ capture.output(anova(DW_M_lmer_Alt_Onder),file = "DryWeight/DW_M_lmer_Alt_Onder.
 ```
 
 
-### Survival Models
+### Survival Models _to_be_removed_
 
 Here is an example code for survival analyses (starvation resistance, females, Gonzalez Lab). The very same code is used for other contributing labs and traits by filtering the data at supervisor level and sex. Please note that the level "replicate_vial" has been dropped from all survival analyses, as it clogs the models due to the volume of data.
 
@@ -460,7 +475,7 @@ capture.output(anova(SR_F_coxme_Gonzalez), file = "Starvation/SR_F_coxme_Gonzale
 
 All analyses outputs can be found in the trait directory (Analyses/Trait), under the file names  **__TraitAbbreviation_Function_Output.txt__** . The analyses at the lab level can be found in the same trait directory, under _by_lab_ folders (_i.e. LinearModelsPop/DevelopmentTime/by_lab_txt_output/DT_A_M_Gibert_lmer_pop_anova.txt_)
 
-### Meta Analyses
+### Meta Analyses _to_be_removed_
 
 Please refer to the .pdf file below ( _README_META.pdf_ ) for details.
 
@@ -468,7 +483,7 @@ Please refer to the .pdf file below ( _README_META.pdf_ ) for details.
 knitr::include_graphics("MetaAnalyses/README_META.pdf")
 ```
 
-### Generalized Dissimilarity Model (GDM)
+### Generalized Dissimilarity Model (GDM) _to_be_moved_up_
 
 We used the WorldClim database (www.worldclim.org) which includes 19 bioclimatic variables, monthly precipitation, minimum, maximum and average monthly temperature, wind, vapor and solar radiation. Those variables that are identified as important in the model are shown in table 1 (_Refer to Results V_).
 
@@ -497,59 +512,13 @@ coxme_sum <- readRDS("SurvivalAnalyses/all_coxmes_pop_summary_list.rds")
 ```
 
 
-**_Please note that "Plots and Linear Models by Lab" are presented in alphabetical order._**
+# Results: Overview _work_in_progress_
+
 
 # Results: Linear Models  {#anchor}
 
-## Overview
 
-__“Big picture” summary of results / analyses below__
-
-- 96 individual linear models (i.e., combinations of labs, traits and sexes).
-The great majority of these individual models (= 67/96 = 69.8%) reveal a significant effect of population.
-
-- Thus, these results indicate that there is pervasive phenotypic differentiation among European populations for most of the traits measured, many of which include major fitness components.
-
-- However, there is also a very significant amount of variation among labs in whether the effect of population was significant or not. This is likely due to major differences in assay conditions and measurement noise.
-
-- The meta-analysis of these models across labs reveals significant effects of population differentiation for viability and lifespan at alpha= 0.05.
-
-- Viability and lifespan are two complex, polygenic fitness components for which we have the strongest and consistent evidence for population differentiation in Europe.
-
-- Two traits (heat shock mortality; dry weight) are marginally non-significant (p ≈ 0.06). Other traits are not supported by the meta-analysis, likely because there is too much variation / noise between labs.
-
-- In general, the meta-analysis seems underpowered, probably due to a relatively small number of labs and populations measured. The results for viability, a trait measured by 6 different labs, is a notable exception.
-
-- (Side comment: for the meta-analyses, it might also be interesting to consider Fisher’s method for combining p-values - to be done.)
-
-- Several labs also identified individual significant effects of latitude for particular traits (sometimes depending on sex), e.g., for developmental time, viability, wing area, thorax length, fecundity, starvation resistance, heat shock mortality and lifespan.
-
-- Thus, several major fitness components seem to be varying clinally across latitude in Europe.
-
-- However, these results are in many cases not consistent across labs, again likely due to measurement noise among labs.
-
-- The clearest results are for viability, with consistent effects of latitude across 3 labs, suggesting the existence of a positive latitudinal cline for viability.
-
-- This is supported by the meta-analysis: the estimated meta-values for viability are significantly positively correlated with latitude (Spearman’s rank correlation coeffcient, rs = 0.77).
-
-- Multiple labs also found individual significant effects of longitude for particular traits (sometimes depending on sex), e.g., developmental time, pigmentation, CCRT, and diapause.
-
-- Thus, some traits / fitness components seem to be varying clinally across longitude in Europe.
-
-- Again, however, many of these results are not consistent across labs, likely due to measurement noise across labs.
-
-- The clearest result is for egg-to-adult developmental time, with consistent significant effects across 2 labs and with evidence for both sexes (and across 3 labs when considering the marginally non-significant p –value p= 0.06 for the third lab).
-
-- Developmental time thus seems to vary longitudinally in Europe.
-
-- Despite the fact that the results, in terms of their statistical significance, are often inconsistent among labs (probably due to differences in assay conditions), and as is reflected in the non-significant meta-analyses, in the vast majority cases, the between-lab correlation coefficients for traits are positive, albeit not always significantly so (analyses by Alan Bergland, based on population means – still to be done for line means).
-
-- In particular, population means for dry weight, starvation resistance and wing area are significantly positively correlated among all labs that measured these traits. Thus, there is a very high reproducibility for dry weight, starvation resistance and wing area.
-
-- Alan also checked whether some populations are intrinsically more noisy that others by looking at the absolute values of the residuals of the rank correlation from the 1:1 line. These analyses suggest that populations do not differ markedly in their ‘noisiness’.
-
-- Sexual dimorphism for individual traits and sex-biased population variation
-
+**_Please note that "Plots and Linear Models by Lab" are presented in alphabetical order._**
 
 Here is a summary table with p-values for all the analyses below. p-value adjustments are only made on meta analyses (Bonferroni correction for n = 20 traits).
 
