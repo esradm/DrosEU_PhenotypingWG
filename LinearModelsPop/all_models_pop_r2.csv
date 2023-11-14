@@ -94,3 +94,5 @@
 "Flatt","Dia","F","glmer","pop","Dia_Flatt_glmer_pop",NA,0.0388625403596351
 "Schlotterer","Dia","F","glmer","pop","Dia_Schlotterer_glmer_pop",0.37108992334651,0.061396299698619
 "Hrcek","PR_HR","NA","glmer","pop","PR_HR_Hrcek_glmer_pop",0.147863750624314,0.0363822406604708
+"Tauber","LA_AbsPhase","M","lm","pop","LA_AbsPhase_Tauber_lm_pop",NA,0.0320595051369791
+"Schmidt","Via","NA","lm","pop","Via_Schmidt_lm_pop",NA,0.123706655303001
