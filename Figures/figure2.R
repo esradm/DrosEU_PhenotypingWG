@@ -160,11 +160,11 @@ metas_alt <- ggplot(metas_pvals, aes(x = Q, y = Title_sex)) +
 
 r2 <- marg_r2 +
   labs(x = expression(Marginal~italic(R^2))) +
-  scale_fill_manual(values = c("white", "#00ff1e"))
+  scale_fill_manual(values = c("white","red"))
 
 r <- line_pearson_alt +
   labs(x = expression(Correlation~coefficient~(italic(r)))) +
-  scale_fill_manual(values = c("#00ff1e", "white")) +
+  scale_fill_manual(values = c("red", "white")) +
   theme(
     axis.text.y = element_blank(),
     axis.ticks.y = element_blank(),
@@ -174,7 +174,7 @@ r <- line_pearson_alt +
 
 q <- metas_alt +
   labs(x = expression(Heterogeneity~(italic(Q)))) +
-  scale_fill_manual(values = c("#00ff1e", "white")) +
+  scale_fill_manual(values = c("red", "white")) +
   theme(
     axis.text.y = element_blank(),
     axis.ticks.y = element_blank(),
@@ -194,8 +194,8 @@ ps <- ggdraw() +
   )
 
 ggsave(ps,
-  filename = "Figures/figure2_v4.png",
-  width = 6.3, height = 4.2
+  filename = "Figures/figure2_v5.png",
+  width = 6.3, height = 4.4
 )
 
 
