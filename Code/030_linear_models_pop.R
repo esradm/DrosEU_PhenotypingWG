@@ -1237,9 +1237,7 @@ info_glmers <- lapply(names(glmers), get_info_from_names) %>%
   bind_rows()
 
 
-#### ALSO NEED TO GET IT FROM LMS
-# Schmidt and co
-
+#### LMS
 
 lmers <- readRDS(file.path(lmer_dir, "all_lmers_pop_list.rds"))
 lms_to_keep <- !grepl("lmer", names(lmers)) & !grepl("Dia", names(lmers)) # keep lms
@@ -1266,7 +1264,14 @@ saveRDS(r2, file = file.path(lmer_dir, "all_models_pop_r2.rds"))
 write.csv(r2, file = file.path(lmer_dir, "all_models_pop_r2.csv"), row.names = FALSE)
 
 
+#### MEAN VARIANCE EXPLAINED
 
+r2 <- readRDS(file.path(lmer_dir, "all_models_pop_r2.rds"))
+
+mean_r2 <- group_by(r2, Trait, Sex) %>%
+  summarize(Mean_r2 = mean(Marg_r2)) %>%
+  summarise(Mean_r2 = mean(Mean_r2)) %>%
+  arrange(Mean_r2)
 
 
 ############# FIGURES TO SUMMARISE MODELS #############
