@@ -28,7 +28,6 @@ dir.create("GeoCorrelations")
 pops <- readRDS("InfoTables/DrosEU_Populations.rds")
 droseu <- readRDS("Data/droseu_master_list_2022-05-02.rds")
 pop_comp <- read.csv("MetaAnalyses/all_models_pop_meta_compound_estimates.csv")
-#pop_estimates <- read.csv("LinearModelsPop/all_models_pop_estimates.csv")
 line_comp <- read.csv("MetaAnalyses/all_models_line_meta_compound_random_coefs.csv")
 
 ##### define colors for plotting
