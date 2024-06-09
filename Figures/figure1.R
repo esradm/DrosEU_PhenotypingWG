@@ -20,6 +20,7 @@ library(ggpubr)
 ##### set working directory
 setwd("~/Work/UNIFR/GitHub/DrosEU_PhenotypingWG/")
 
+source("Code/functions.R")
 
 
 pops <- read.csv("InfoTables/DrosEU_Coordinates.csv")
@@ -34,9 +35,10 @@ pops_plot <- ggplot(data = world) +
     coord_sf(xlim = c(-12, 38), ylim = c(30, 65), expand = FALSE) +
     annotation_scale(location = "bl", text_cex = 0.5, width_hint = 0.5) +
     geom_point(
-        data = pops, aes(x = Longitude, y = Latitude),
-        size = 2, fill = "red", color = "black", shape = 21
+        data = pops, aes(x = Longitude, y = Latitude, fill = Country_code),
+        size = 2, color = "black", shape = 21
     ) +
+    droseu_fill_scale_country +
     theme_classic(8) +
     geom_label_repel(
         data = pops, aes(x = Longitude, y = Latitude, label = Country_code), size = 2,
@@ -80,7 +82,7 @@ plots <- plot_grid(
 )
 
 ggsave(plots,
-  filename = "Figures/figure1_v2.png",
+  filename = "Figures/figure1_v3.png",
   width = 6.3, height = 3.6
 )
 
