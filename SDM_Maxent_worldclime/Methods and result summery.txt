@@ -1,0 +1,39 @@
+Summary of Maxent Model Methods and Results for Drosophila melanogaster
+Methods
+The species distribution modeling for Drosophila melanogaster was performed using the Maxent software version 3.4.4. The model implementation followed a 10-fold cross-validation procedure to enhance the reliability and generalizability of the predictions. 
+Data Preparation
+Environmental variable layers were downloaded from the WorldClim database. The presence data for D. melanogaster were compiled from field observations and databases, ensuring a comprehensive coverage of the species' known range in Europ. The environmental variables were chosen based on their relevance to the species' ecological requirements and known distribution patterns.
+Model Execution
+To maximize efficiency and accuracy, Maxent was run with the following configurations:
+The impact of each environmental variable on the model's predictions was evaluated using response curves and jackknife. Ten-fold cross validation were run in order to make sure that the predictions remained stable and robust throughout several runs.
+Variable Importance Analysis
+The model used two primary techniques to assess each environmental variable's significance:
+Percent contribution: During the iterative model-training process, this metric shows the growth in the model's gain attributable to each variable.
+Permutation importance: This technique evaluates how each variable's randomization affects the predictive ability of the model, paying special attention to how each variable's permutation reduces the Area Under the Curve (AUC).
+Statistical Outputs
+The model's overall predictive accuracy was measured using the Area Under the Curve (AUC) metric, where higher values denoted better performance.
+To determine the model's accuracy in predicting presence and absence, omission/commission rates and ROC curves were examined. This analysis produced a clear visual depiction of the model's accuracy at various threshold settings.
+Model Overview
+The Maxent model for Drosophila melanogaster was executed through a 10-fold cross-validation approach to estimate species distribution based on environmental variables. The model's accuracy and predictive performance were evaluated using various metrics and visualization tools.
+
+
+Model Performance
+Area Under the Curve (AUC): Good predictive performance was indicated by the average test AUC across the replicate runs of 0.832, with a standard deviation of 0.009.
+Omission Rates: The model's prediction reliability was demonstrated by the omission rates, which closely matched the expected omission rates at various cumulative threshold levels.
+Environmental Variables and Their Contributions
+Variable Importance:
+DrosoEu_ wc2_1_30s_bio_4 (temperature seasonality) showed the highest contribution of 36.2% and a permutation importance of 6.5%, indicating its significant impact on the model's output.
+DrosoEu_wc2_1_30s_bio_7 (temperature annual range) had a notable permutation importance of 18.8%, despite a lower overall contribution of 13.6%, highlighting its critical role when isolated.
+DrosoEu_wc2_1_30s_vapr_10 (vapor pressure of October) displayed a permutation importance of 15.1%, signifying its substantial influence under model perturbation.
+Other variables like DrosoEu_wc2_1_30s_bio_3 (isothermality) and DrosoEu_wc2_1_30s_vapr_02 (vapor pressure of February) also showed significant contributions and impacts, underlining the model's dependency on a range of environmental factors.
+Response Curves and Model Dependency
+The predicted probability of a species' presence is affected by changes in each environmental variable, as shown by the response curves for each variable. These curves aid in understanding the marginal effects of distinct environmental factors on the predictions of species distribution, particularly when they display mean responses and deviations.
+Visual Outputs and Statistical Analysis
+The model generated multiple visual outputs such as point-wise mean, standard deviation, and response curves for individual variables, which illustrate the variability and sensitivity of the model to different environmental inputs.
+Conclusion
+For D. melanogaster, the Maxent model successfully combines several environmental factors to forecast species distribution with a high degree of accuracy and dependability. 
+ 
+Figure 1. Predicted Habitat Suitability for D. melanogaster across Europe.
+Based on environmental variables from WorldClim data, Figure 1 shows the outcomes of a Maxent distribution model, emphasizing areas with varying probabilities of species presence. The regions where the species' climatic conditions are most favorable are indicated by the suitability scores, which range from 0 (blue, least suitable) to 1 (red, most suitable). The warmer colors in Central and Northern Europe indicate higher habitat suitability. The map effectively depicts how climate and environmental variables influence D. melanogaster's distribution patterns.
+
+You can see figures in word version
