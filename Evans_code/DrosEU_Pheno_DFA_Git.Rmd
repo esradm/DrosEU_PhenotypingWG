@@ -1,0 +1,64 @@
+---
+title: "DrosEU_phenotype_DFA"
+author: "Ewan Harney"
+date: "2024-06-06"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(psych)
+library(knitr)
+```
+
+# Discriminant Function Analysis results
+
+```{r read PCA objects}
+## Load PCA objects
+
+## Original F13 and F9 PCA objects
+fem_mahala <- read.table("TraitCorrelations/DFA_SI/MR_female_mahala.txt", header = TRUE)
+fem_reallo <- read.table("TraitCorrelations/DFA_SI/MR_female_realloc.txt", header = TRUE)
+mal_mahala <- read.table("TraitCorrelations/DFA_SI/MR_male_mahala.txt", header = TRUE)
+mal_reallo <- read.table("TraitCorrelations/DFA_SI/MR_male_realloc.txt", header = TRUE)
+```
+
+Discriminant Function Analysis (DFA) was carried out for females using the F13 set of traits, and for males using the M9 traits plus viability. Summary data including squared Mahalanobis distances, reclassification results and distance plots are provided below. Populations in tables are labelled with both country and location (e.g. Austria, Mauternbach is labelled as AT-MA), while plots only contain location data (e.g. MA for Mauternbach).
+
+## F13 DFA
+
+```{r female mahalanobis, echo=FALSE, message=FALSE}
+knitr::kable(fem_mahala, align = "lccccccccc",
+             caption = 'Squared Mahalanobis distance between populations following DFA of female lines (F13 traits)')
+```
+
+```{r female reallocation, echo=FALSE, message=FALSE}
+knitr::kable(fem_reallo, align = "lcccccccccr",
+             caption = 'Reclassification of female lines among populations following DFA of female lines (F13 traits)')
+```
+
+
+DFA distance plot for female lines based on F13 traits plus viability  
+
+```{r female distance figure, echo=FALSE, message=FALSE}
+knitr::include_graphics("TraitCorrelations/DFA_SI/FemaleDis.png")
+```
+
+
+## M9+via DFA
+
+```{r male mahalanobis, echo=FALSE, message=FALSE}
+knitr::kable(mal_mahala, align = "lccccccccc",
+             caption = 'Squared Mahalanobis distance between populations following DFA of male lines (M9 traits plus via)')
+```
+
+```{r male reallocation, echo=FALSE, message=FALSE}
+knitr::kable(mal_reallo, align = "lcccccccccr",
+             caption = 'Reclassification of male lines among populations following DFA of male lines (M9 traits plus via)')
+```
+
+
+DFA distance plot for male lines based on M9 traits plus viability   
+```{r male distance figure, echo=FALSE, message=FALSE}
+knitr::include_graphics("TraitCorrelations/DFA_SI/MaleDis.png")
+```
