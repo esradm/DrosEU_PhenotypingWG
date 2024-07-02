@@ -1,7 +1,7 @@
 ---
-title: "**DrosEU Phenotyping Working Group Updates **"
-author: "by Esra Durmaz Mitchell & Envel Kerdaffrec"
-date: "Last updated: `r format(Sys.Date())`"
+title: "**Continent-wide differentiation of fitness traits and patterns of climate adaptation among European populations of _Drosophila melanogaster_ ** "
+author: "Esra Durmaz Mitchell, Envel Kerdaffrec, _et al._, and Thomas Flatt"
+date: "Last updated: `r format(Sys.Date())` by Esra Durmaz Mitchell and Envel Kerdaffrec"
 output:
   html_document:
     keep_md: true
@@ -11,27 +11,17 @@ output:
     theme: yeti
 ---
 
-
-# Continent-wide differentiation of fitness traits and patterns of climate adaptation among European populations of Drosophila melanogaster
-
-Esra Durmaz Mitchell, Envel Kerdaffrec, _et al._, and Thomas Flatt
-
 Author contributions can be found here 
 
 https://docs.google.com/spreadsheets/d/1SkiqZlpZlEs1nf6JJUakREYS4mpghSmgb_0QlL8o3ek/edit#gid=1616763697
 
 Correspondence: esra@bmb.sdu.dk; thomas.flatt@unifr.ch 
 
-Short Running Title: Phenomic Analysis of European D. melanogaster
+Short Running Title: Phenomic Analysis of European _D. melanogaster_
 
+_Lay Summary_
 
-Collaborative phenotyping effort of European _Drosophila melanogaster_ populations
-
-
-*Lay Summary*
-
-For over 100 years, the vinegar fly Drosophila melanogaster has been a workhorse for studying the genetic and phenotypic basis of evolutionary change. Ancestrally of southern-central African origin, this insect expanded its range, migrated out of Africa and colonized new habitats and climate zones around the globe. Recent population genomic analyses suggest that Europe was colonized from the Middle East ~1,800 years ago, yet we still know surprisingly little about how this human commensal adapted to different locales on the European continent and elsewhere. Here, we assayed fly strains isolated from 9 European populations for 16 traits in an international consortium effort, involving >100 researchers from 26 research groups in 17 countries and using semi-standardized experimental protocols. Despite differences in experimental (environmental) conditions among labs, our trait measurements agreed well across research teams, suggesting that they are robust and generalizable. European populations of the vinegar fly are markedly differentiated for several phenotypic traits that are related to Darwinian fitness and which might be subject to natural selection. Notably, flies from locations with higher humidity and rainfall and lower temperature survive better to the adult stage, lay more eggs, are better at surviving famine and, as adults, live longer than flies from drier, warmer locations; yet, as compared to flies from warmer, drier locales, they are considerably less well adapted to surviving heat stress, suggesting a trade-off between these components of fitness. Our findings begin to illuminate how this subtropical/tropical insect has adapted to different climates and habitats on the European continent and showcase the value of collaborative multi-lab studies that perform experiments in parallel.
-
+For over 100 years, the vinegar fly _Drosophila melanogaster_ has been a workhorse for studying the genetic and phenotypic basis of evolutionary change. Ancestrally of southern-central African origin, this insect expanded its range, migrated out of Africa and colonized new habitats and climate zones around the globe. Recent population genomic analyses suggest that Europe was colonized from the Middle East ~1,800 years ago, yet we still know surprisingly little about how this human commensal adapted to different locales on the European continent and elsewhere. Here, we assayed fly strains isolated from 9 European populations for 16 traits in an international consortium effort, involving >100 researchers from 26 research groups in 17 countries and using semi-standardized experimental protocols. Despite differences in experimental (environmental) conditions among labs, our trait measurements agreed well across research teams, suggesting that they are robust and generalizable. European populations of the vinegar fly are markedly differentiated for several phenotypic traits that are related to Darwinian fitness and which might be subject to natural selection. Notably, flies from locations with higher humidity and rainfall and lower temperature survive better to the adult stage, lay more eggs, are better at surviving famine and, as adults, live longer than flies from drier, warmer locations; yet, as compared to flies from warmer, drier locales, they are considerably less well adapted to surviving heat stress, suggesting a trade-off between these components of fitness. Our findings begin to illuminate how this subtropical/tropical insect has adapted to different climates and habitats on the European continent and showcase the value of collaborative multi-lab studies that perform experiments in parallel.
 
 
 *General overview of the phenotyping effort*
@@ -96,7 +86,11 @@ panmix_theme <- theme(panel.grid.major = element_blank(), panel.grid.minor = ele
 droseu_labs <- data.frame(read.csv("InfoTables/DrosEU_Labs.csv"))
 ```
 
-## Contributors (phenotyping)
+## Contributors
+
+Author contributions can be found here
+
+https://docs.google.com/spreadsheets/d/1SkiqZlpZlEs1nf6JJUakREYS4mpghSmgb_0QlL8o3ek/edit#gid=1616763697
 
 Contributed labs are `r unique(droseu_labs$PI)` and detailed list below:
 
@@ -115,16 +109,14 @@ knitr::include_graphics("InfoTables/research_groups_map-1.png")
 
 
 
-# Methods 
+# 1 - Methods 
 
-## Fly material
-
-## Drosophila population samples, isofemale lines, and stock maintenance
+## 1.1 - Drosophila population samples, isofemale lines, and stock maintenance
 
 In summer and fall 2018 we collected inseminated D. melanogaster females at 9 European locations, which had already previously been characterized at the population genomic level by the DrosEU consortium (see Figure 1 in the main text; see Kapun et al., 2020, 2021; also see Machado et al. 2021): PT, Portugal (Recarei = RE); ES, Spain (Gimenells = GI [Lleida]); TR, Turkey (Yesiloz = YE); DE, Germany (Munich = MU); AT, Austria (Mauternbach = MA); UA, Ukraine (Uman = UM); DK, Denmark (Karensminde = KA); FI, Finland (Akaa = AK); RU, Russia (Valday = VA). From these females we established 173 isofemale lines, with each population being represented by at least 15 lines (Table SI.X) – we call this collection of lines the DrosEU population panel (DPP). Lines were centralized and maintained in the lab of Élio Sucena (ES) where species status (D. melanogaster vs. D. simulans) was verified using the protocol of Faria & Sucena (2017) and where  lines were tested for Wolbachia infection (see below for methodological details). Subsequently, lines were sent to participating laboratories for phenotyping (Figure 1 in the main text; see Table X). To comply with the Nagoya protocol, material transfer agreements (MTAs) were prepared and exchanged between researchers to transport fly samples across borders.
 
 
-## Diets
+## 1.2 - Diets
 
 ```{r droseu_diets, echo=FALSE, message=FALSE}
 droseu_diets <- data.frame(read.csv("InfoTables/DrosEU_Diets_Feb22.csv"))
@@ -135,11 +127,11 @@ DT::datatable(droseu_diets, options = list(pageLength = 10))
 ```
 
 
-## Chromosomal inversion frequencies
+## 1.3 - Chromosomal inversion frequencies
 
 For each isofemale line, the presence or absence of 5 cosmopolitan inversions (In(3R)P, In(2L)t, In(3L)P, In(2R)Ns and In(3R)mo) was diagnosed by PCR using previously published primers (Corbett-Detig et al, 2012) on DNA extracted from pools of 10-15 mixed-sex flies using the Qiagen DNeasy Blood & Tissue Kit. Supplementary table xx summarizes primer sequences and assay conditions. Average inversion frequencies were derived for each population.
 
-## Trait-specific assay conditions and measurements
+## 1.4 - Trait-specific assay conditions and measurements
 
 ### Viability
 ##### Gibert, Grath, Hoedjes, Schmidt, Stamenkovic-Radak and Zwaan Labs
@@ -281,6 +273,7 @@ For each trait and lab, we estimated broad-sense heritability (H2, i.e., the tot
 To assess the extent of reproducibility (repeatability) of trait estimates across labs, we estimated pairwise Pearson’s correlations between trait values estimated by different labs that had measured the same trait. Input trait values for these analyses consisted of Line random coefficients extracted from linear mixed-effect models (see above); correlations were calculated only for traits that had been measured in more than two labs.
 
 ### Meta-analyses of population differences
+
 For each trait and sex, we used meta-analysis to compute Population summary effects. Each lab/assay in which the effect of Population on a trait was assessed with a linear mixed-effect model was considered to represent a separate “study”. Because Population has 9 levels, we carried out subgroup meta-analysis by considering each population as a subgroup, thus enabling us to test for phenotypic differences between populations which were unlikely to be caused by differences in environmental/assay conditions among labs. Input data for this analysis consisted of estimates and associated standard errors for the factor Population obtained from trait- and lab-specific linear mixed-effect models. Estimates were used as Population effects and standard errors were used as weights, i.e., to give more or less weight to “studies” (labs) depending on sample sizes and replication levels. Data from the NP lab (wing area, thorax length) were excluded as our threshold for analysis was a minimum of 5 lines per population but as only 3 lines per population had been phenotyped. The exclusion of these data, and the fact that the MR lab could only assay 5 out of 9 populations, left us with data from only a single single lab (IK), preventing us from analyzing male thorax length. Subgroup meta-analyses were performed in R (v.4.1.1) using a random-effects model implemented in the metagen (random = TRUE, method.tau = "REML") and update.meta (subgroup = Population, tau.common = FALSE) functions of the meta package (version 5.1-1) (Balduzzi et al, 2019). Cochran’s Q was used to assess heterogeneity (i.e., differences in effect sizes) between subgroups (=populations) which were unlikely due to differences in conditions among labs. Resulting p-values were corrected for multiple testing with the Bonferroni procedure (𝛼’ = 𝛼/n = 0.05/26 = 0.0019; n = 26 meta-analyses in total). Population summary effects were extracted from meta-analysis outputs and used as Population compound estimates for downstream analyses. A similar meta-analysis approach (without heterogeneity tests) was employed to generate Line compound estimates using the Line random coefficients and associated standard errors, which were both extracted from the mixed-effect models in which Line could be included as a random effect (see previous section). 
 
 ### Multivariate analyses I: Discriminant Function Analysis (DFA)
@@ -293,160 +286,10 @@ To analyze multivariate phenotypic correlations in more detail, trait values fro
 To analyze effects of environmental factors on phenotypic traits, we downloaded for each population climatic data from the NASA database (https://data.nasa.gov) using geographical coordinates (latitude, longitude) of our sampling locations with help of nasapower R package (Sparks, 2018). Climate data for two different time periods were used: 30 years, in order to test for potential long-term effects on traits, and 30 days prior to the collection (sampling) date in order to test for effects of variation in weather conditions that might have impacted the grandparental or parental populations of field-collected flies. In total, 14 environmental variables (Table SXX) were used for each time period and transformed with PCA in the FactoMineR package (Lê et al., 2008). Environmental PCs with eigenvalues > 1 were then used as predictors in linear models of multivariate phenotypes. Separate models were run for males and females for all phenotypic PCs of interest. We also tested whether correlations between phenotype PCs and environmental PCs were greater than expected by random chance by using a permutation-based approach. In this analysis, we permuted environmental PC values for PC1 and PC2 among population labels and then re-ran correlations between environmental PCs and phenotypic PCs. In addition, in order to assess the clinality of traits, we estimated Pearson’s correlations between traits and latitude, longitude, and altitude; input trait values consisted of Line compound estimates from meta-analyses (see above).
 
 
-# Results: Examples & Directories & Legends _to_be_removed_
-
-### Tables _to_be_removed_
-
-Here is an example code for tables (egg-to-adult viability). The very same code is used for other traits (either with or without _Batch_) by filtering the data at supervisor, batch, population and/or line levels (and also for sex, if applicable).
-
-```{r descriptive_stats, eval=TRUE, echo=TRUE, message=FALSE, warning=FALSE}
-
-## First defined standard error and coefficient of variation
-
-std_err <- function(x) sd(x)/sqrt(length(x))
-coef_var <- function(x) sd(x)/mean(x)
-estimate_mode <- function(v) {
-   uniqv <- unique(v)
-   uniqv[which.max(tabulate(match(v, uniqv)))]
-}
-```
-
-```{r, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE}
-
-# Then compute descriptive statistics (mean, median, minimum, maximum, standard error, coefficient of variation and mode) at the defined levels (line with batch information example below):
-
-table_Via_Line_wbatch <- write.csv(d_Via %>% group_by(Supervisor.PI, Batch, Population, Line) %>% summarise_at(vars(ProportionEggtoAdultSurvival), list(Mean = mean, SD= sd, Median = median, Min = min, Max = max, SE = std_err, CV = coef_var, Mode = estimate_mode)), file = "Viability/table_Via_Line_wbatch.csv", row.names = T)
-
-```
-
-Tables for descriptive statistics at population and line levels can be found in the trait directory, under the file name **__table_TraitAbbreviation_Level_BatchInfo.csv__**  (_i.e. Viability/table_Via_Line_wobatch.csv_)
-
-### Figures _to_be_removed_
-
-Data range is calculated with `#r min()` and `#r max()` functions for each trait.
-
-y-axis on the figures is scaled by the minimum (`#r min_trait`) and maximum (`#r max_trait`) values in the full data set for a given trait.
-
-The very same ggplot theme has been used all across the document, called _droseu_theme_
-
-```{r droseu_theme, eval=FALSE, echo=TRUE}
-myColors <- met.brewer("Johnson", 9)
-names(myColors) <- as.factor(c("AK", "GI", "KA", "MA", "MU", "RE", "UM", "VA", "YE"))
-colScale <- scale_fill_manual(name = "Population", values = myColors)
-
-droseu_theme <- theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), panel.background = element_blank(), axis.line = element_line(colour = "black",),  axis.title.x = element_text(size = 16), axis.text.x = element_text(size = 16),axis.text.y = element_text(size = 16),axis.title.y = element_text(size = 16), colScale)
-
-p_TraitAbbreviation_Lab + ylim(c(min_trait, max_trait)) + droseu_theme + colScale
-```
-
-```{r, echo=FALSE}
-## Need to run this in the background
-myColors <- met.brewer("Johnson", 9)
-names(myColors) <- as.factor(c("AK", "GI", "KA", "MA", "MU", "RE", "UM", "VA", "YE"))
-colScale <- scale_fill_manual(name = "Population", values = myColors)
-
-droseu_theme <- theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), panel.background = element_blank(), axis.line = element_line(colour = "black",),  axis.title.x = element_text(size = 16), axis.text.x = element_text(size = 16),axis.text.y = element_text(size = 16),axis.title.y = element_text(size = 16))
-```
-
-Here is an example code for figures (egg-to-adult viabiliy, Gibert Lab). The very same code is used to generate plots for other contributing labs and traits (either for _Batch_ or _Population_) by filtering the data at supervisor level (for females and males separately, if applicable).
-
-```{r plot_example, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE}
-
-p_Via_Gibert <- ggplot(data = filter(droseu$via, Supervisor.PI=='Gibert')),
-                       #subsets for supervisor
-                       aes(x=Population_Lat, y=ProportionEggtoAdultSurvival, fill=Batch)) +
-                        #define x- and y-axis and fill
-                       geom_boxplot(outlier.shape = NA, notch=FALSE) +  #boxplot
-                       labs(title="p_Via_Gibert", x="Population", y = "ProportionEggtoAdultSurvival") +
-                      ylim(c(min_Via, max_Via)) +
-                      droseu_theme #y-axis limits, axis labels and droseu_theme
-
-pdf(file="Viability/p_Via_Gibert.pdf",width=8, height=5)
-
-p_Via_Gibert
-
-invisible(dev.off())
-```
-
-
-### Linear Models _to_be_removed_
-
-Here is an example code for linear models (egg-to-adult development time, males, Gibert Lab). The very same code is used for other contributing labs and traits by filtering the data at supervisor level (for females and males separately, if applicable), adding or removing factors if they cause convergence problems or singularity (i.e. if only one replicate vial has been phenotyped per line and/or population and/or batch, the lowest level [ _replicate_vial_  in this example] has been dropped from given model).
-
-```{r lmer_example, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE}
-DT_A_M_lmer_Gibert <- lmer(DT_EggAdult ~ Population +
-                             #Population (fixed)
-                             (1|Line:Population) +
-                             #Line (random) is nested in Population (fixed)
-                             (1|Batch) +
-                             #Batch is a random effect
-                             (1|ReplicateVial:Line),
-                            #Replicate vial (random) is nested in Line (random)
-                           data = d_DT_A_M[d_DT_A_M$Supervisor.PI == "Gibert",])
-                            #Filter by Lab in development time, males data
-capture.output(summary(DT_A_M_lmer_Gibert),file = "DevelopmentTime/DT_A_M_lmer_Gibert_sum.txt") #save output summary
-capture.output(anova(DT_A_M_lmer_Gibert),file = "DevelopmentTime/DT_A_M_lmer_Gibert.txt") #save anova output
-
-```
-
-```{r tukey_example, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE}
-#need to put in tukey example here
-```
-
-```{r anova_example, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE}
-anova(DT_A_M_lmer_Gibert) #print anova output
-```
-
-```{r summary_example, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE}
-summary(DT_A_M_lmer_Gibert) #print model output summary
-```
-
-
-Here is an example code for linear models for geography (altitude, dry weight, males, Onder Lab). The very same code is used for other contributing labs and traits by filtering the data at supervisor level (for females and males separately, if applicable), adding or removing factors if they cause convergence problems or singularity (i.e. if only one replicate vial has been phenotyped per line and/or population and/or batch, the lowest level [ _replicate_vial_  in this example] has been dropped from given model) and also for latitude and longitude.
-
-```{r genography_example, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE}
-DW_M_lmer_Alt_Onder <- lmer(DW_micrograms ~ Altitude + (1|Population) + (1|Population:Line), data = d_DW_M[d_DW_M$Supervisor.PI == "Onder",])
-capture.output(summary(DW_M_lmer_Alt_Onder),file = "DryWeight/DW_M_lmer_Alt_Onder_sum.txt")
-capture.output(anova(DW_M_lmer_Alt_Onder),file = "DryWeight/DW_M_lmer_Alt_Onder.txt")
-```
-
-
-### Survival Models _to_be_removed_
-
-Here is an example code for survival analyses (starvation resistance, females, Gonzalez Lab). The very same code is used for other contributing labs and traits by filtering the data at supervisor level and sex. Please note that the level "replicate_vial" has been dropped from all survival analyses, as it clogs the models due to the volume of data.
-
-```{r coxme_example, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE}
-SR_F_coxme_Gonzalez <- coxme(Surv(AgeAtDeath_hours, Censor) ~ Population + (1|Population/Line) , data = filter(d_SR_surv, Supervisor.PI == "Gonzalez", Sex == "F"))
-capture.output(summary(SR_F_coxme_Gonzalez), file = "Starvation/SR_F_coxme_Gonzalez_sum.txt")
-capture.output(anova(SR_F_coxme_Gonzalez), file = "Starvation/SR_F_coxme_Gonzalez.txt")
-
-```
-
-All analyses outputs can be found in the trait directory (Analyses/Trait), under the file names  **__TraitAbbreviation_Function_Output.txt__** . The analyses at the lab level can be found in the same trait directory, under _by_lab_ folders (_i.e. LinearModelsPop/DevelopmentTime/by_lab_txt_output/DT_A_M_Gibert_lmer_pop_anova.txt_)
-
-### Meta Analyses _to_be_removed_
-
-Please refer to the .pdf file below ( _README_META.pdf_ ) for details.
-
-```{r echo=FALSE}
-knitr::include_graphics("MetaAnalyses/README_META.pdf")
-```
-
-### Generalized Dissimilarity Model (GDM) _to_be_moved_up_
-
-We used the WorldClim database (www.worldclim.org) which includes 19 bioclimatic variables, monthly precipitation, minimum, maximum and average monthly temperature, wind, vapor and solar radiation. Those variables that are identified as important in the model are shown in table 1 (_Refer to Results V_).
-
-__Generalized dissimilarity model__
-
-The generalized dissimilarity model here after GDM is a matrix regression technique (Ferrier et al., 2007) to analyze and predict primarily beta diversity patterns. However, it was shown that GDM could be used to explore relationship between morphological traits variation and environmental variation (Thomassen et al., 2010; Baldassarre et al., 2013).
-
-In GDM we use matrix correlation among biotic and environmental dissimilarity plus geographic distance between sample sites to predict biotic dissimilarity across landscape. One of the advantages of GDM is that it can fit nonlinear relationship of variables by the help of I-spline function. GDM consists of two steps; in the first step using all pairwise combinations of sampling sites, it fits dissimilarities in predictor variables (environmental variables) to dissimilarities in response variables (phenotypic variables). In this step all environmental predictors with sum of I-spline coefficients of zero were removed then the remaining environmental data were permuted and introduced in the random order to the model. GDM were fitted with these permuted data, and the result of deviance explained by this model compared with deviance explained by GDM fitted to unpermuted data. Predictors importance is calculated based on the difference in deviance explained between permuted model and unpermuted model. In this step backward elimination could be used so that less important predictors were dropped from the model (Ferrier et al., 2007). In the final step, using the result of above procedures spatial prediction of response variables pattern across the entire range of study areas were made.
-
-For each response variable we ran four different models. Ful model that includes environmental and geographic distance as predictor variables. To examine possible correlation between geographic distance and environmental dissimilarity, we ran two additional models each selecting only one of them (geographic distance and environmental dissimilarity) as predator variables. We also ran a random model to compare with fitted models to make sure null hypothesis were not rejected randomly. To run random model, we produced random values of environmental variables for each location and as we have few locations, we produced 100000 random models. Then we used mean deviance explained by these random models and compared them with full, environment and geographic distance models. If the difference between deviance explained by random model were lower than any other three models, we consider the relationship of response variables with predictor variables not random (Thomassen et al., 2010; Baldassarre et al., 2013).
-
+# 2 - Results
 
 **Reading the data, tables and model outputs in R**
-```{r load_Rdas, include=TRUE}
+```{r load_Rdas, include=FALSE}
 droseu <- readRDS("Data/droseu_master_list_2022-05-02.rds")
 lmers_anova <- readRDS("LinearModelsPop/all_lmers_pop_anova_list.rds")
 glmers_anova <- readRDS("LinearModelsPop/all_glmers_pop_anova_list.rds")
@@ -461,11 +304,7 @@ coxme_sum <- readRDS("SurvivalAnalyses/all_coxmes_pop_summary_list.rds")
 ```
 
 
-# Results: Overview _work_in_progress_
-
-
-# Results: Linear Models  {#anchor}
-
+## 2.1 - Linear Models  {#anchor}
 
 **_Please note that "Plots and Linear Models by Lab" are presented in alphabetical order._**
 
@@ -479,8 +318,7 @@ pval_table <- read.csv("InfoTables/models_metas_pvalues_summary_table.csv")
 DT::datatable(pval_table, options = list(pageLength = 25)) %>% formatRound(5:9, 4)
 ```
 
-
-## Viability
+### Viability
 
 ```{r include=FALSE}
 dir.create(file.path("Viability"), showWarnings = FALSE)
@@ -488,7 +326,7 @@ dir.create(file.path("Viability"), showWarnings = FALSE)
 
 _For a detailed description of tables, plots, linear models and outputs, please refer [here](#anchor) _
 
-### Contributors
+#### Contributors
 
 Gibert Lab: Cristina Vieira, Laurence Mouton, Natacha Kremer, Sonia Martinez, Patricia Gibert
 
@@ -507,7 +345,7 @@ Zwaan Lab: Joost van den Heuvel, Bas Zwaan
 str(droseu$via)
 ```
 
-### Descriptive Statistics
+#### Descriptive Statistics
 
 Descriptive statistics at the line level, with batch information:
 ```{r, echo=FALSE}
@@ -529,11 +367,8 @@ Descriptive statistics at the population level, without batch information:
 DT::datatable(table_pop_wobatch$Via, options = list(pageLength = 10)) %>% formatRound(3:10, 3)
 ```
 
-### Plots and Linear Models by Lab
+#### Plots and Linear Models by Lab
 
-#### Overview
-
-A positive correlation in the viability dataset was observed among all labs, ranging  between 0.17 to 0.9 for the pairwise comparisons. We detected significant differences in egg-to-adult viability among populations in all datasets (all P<.0001), except for the Grath lab (F=1.95, P=0.16) which only analysed the populations from Akaa, Munich and Recarei and may therefore be underpowered to detect significant differences. . In all other labs, the Yesiloz (Turkey) population had a significantly lower viability compared to the population from Karensminde (Denmark)  (P<0.05 for all). Pairwise comparisons also indicated aa lower viability of the Yesiloz population compared to the populations from Akaa (Finland) and Munich (Germany) (Gibert, Hoedjes, Stamenkovic-Radak and Zwaan); a lower viability compared to the Mauternbach (Austria) population (Gibert, Hoedjes and Zwaan) and to the Uman (Ukraine) and Valday (Russia) populations (Gibert, and Zwaan). Other significant pairwise comparisons indicate a higher viability of the Akaa population compared to the Gimenells population (Gibert and Hoedjes), the Mauternbach population and the Valday population (Gibert and Stamenkovic-Radak). Given the many similarities in the outcomes as described above, it is not surprising that the meta-analysis that included all datasets indicated highly significant differences between populations for viability (Q= 100.39, P<.0001, Pbonf<.0001), suggesting that the  patterns of viability variation are consistent and independent of variation among labs. Overall, the variation in viability appears to have a latitudinal distribution, with a higher viability on average in populations from a higher latitude. This correlation was significant for three of the labs (Gibert F=5.8309, p=0.046; Hoedjes F=12.375, p=0.009 and Zwaan F=9.6762, p=0.02). A significant correlation of viability with altitude was detected by the Hoedjes lab only (F=9.6762, P=0.02), while there was no evidence for a correlation of viability with longitudes for any of the datasets. .
 
 ```{r min_max_Via, echo=TRUE}
 min_Via <- min(droseu$via$ProportionEggtoAdultSurvival)
@@ -547,7 +382,7 @@ y-axis is scaled by the minimum (`r min_Via`) and maximum (`r max_Via`) values i
 knitr::include_graphics("Viability/p_Via_all.pdf")
 ```
 
-#### Gibert Lab
+##### Gibert Lab
 
 ```{r}
 lmers_anova$Via_Gibert_lmer_pop
@@ -563,7 +398,7 @@ knitr::include_graphics("Viability/p_Via_Gibert.pdf")
 knitr::include_graphics("Viability/p_Via_pop_Gibert.pdf")
 ```
 
-#### Grath Lab
+##### Grath Lab
 
 ```{r}
 lmers_anova$Via_Grath_lmer_pop
@@ -578,7 +413,7 @@ knitr::include_graphics("Viability/p_Via_Grath.pdf")
 knitr::include_graphics("Viability/p_Via_pop_Grath.pdf")
 ```
 
-#### Hoedjes Lab
+##### Hoedjes Lab
 
 ```{r}
 lmers_anova$Via_Hoedjes_lmer_pop
@@ -593,7 +428,7 @@ knitr::include_graphics("Viability/p_Via_Hoedjes.pdf")
 knitr::include_graphics("Viability/p_Via_pop_Hoedjes.pdf")
 ```
 
-#### Schmidt Lab
+##### Schmidt Lab
 
 ```{r}
 lmers_anova$Via_Schmidt_lm_pop
@@ -608,7 +443,7 @@ knitr::include_graphics("Viability/p_Via_Schmidt.pdf")
 knitr::include_graphics("Viability/p_Via_pop_Schmidt.pdf")
 ```
 
-#### Stamenkovic-Radak Lab
+##### Stamenkovic-Radak Lab
 
 ```{r}
 lmers_anova$Via_StamenkovicRadak_lmer_pop
@@ -623,7 +458,7 @@ knitr::include_graphics("Viability/p_Via_StamenkovicRadak.pdf")
 knitr::include_graphics("Viability/p_Via_pop_StamenkovicRadak.pdf")
 ```
 
-#### Zwaan Lab
+##### Zwaan Lab
 
 ```{r}
 lmers_anova$Via_Zwaan_lmer_pop
@@ -638,9 +473,9 @@ knitr::include_graphics("Viability/p_Via_Zwaan.pdf")
 knitr::include_graphics("Viability/p_Via_pop_Zwaan.pdf")
 ```
 
-### Linear Models / Residuals
+#### Linear Models / Residuals
 
-#### Gibert Lab
+##### Gibert Lab
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("LinearModelsPop/Viability/by_lab_models_residuals/Via_Gibert_lmer_pop_hist_residuals.png")
 
@@ -648,62 +483,62 @@ knitr::include_graphics("LinearModelsPop/Viability/by_lab_models_residuals/Via_G
 
 ```
 
-#### Grath Lab
+##### Grath Lab
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("LinearModelsPop/Viability/by_lab_models_residuals/Via_Grath_lmer_pop_hist_residuals.png")
 
 knitr::include_graphics("LinearModelsPop/Viability/by_lab_models_residuals/Via_Grath_lmer_pop_qq_plot_residuals.png")
 ```
 
-#### Hoedjes Lab
+##### Hoedjes Lab
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("LinearModelsPop/Viability/by_lab_models_residuals/Via_Hoedjes_lmer_pop_hist_residuals.png")
 
 knitr::include_graphics("LinearModelsPop/Viability/by_lab_models_residuals/Via_Hoedjes_lmer_pop_qq_plot_residuals.png")
 ```
 
-#### Schmidt Lab
+##### Schmidt Lab
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("LinearModelsPop/Viability/by_lab_models_residuals/Via_Schmidt_lm_pop_hist_residuals.png")
 
 knitr::include_graphics("LinearModelsPop/Viability/by_lab_models_residuals/Via_Schmidt_lm_pop_qq_plot_residuals.png")
 ```
 
-#### Stamenkovic-Radak Lab
+##### Stamenkovic-Radak Lab
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("LinearModelsPop/Viability/by_lab_models_residuals/Via_StamenkovicRadak_lmer_pop_hist_residuals.png")
 
 knitr::include_graphics("LinearModelsPop/Viability/by_lab_models_residuals/Via_StamenkovicRadak_lmer_pop_qq_plot_residuals.png")
 ```
 
-#### Zwaan Lab
+##### Zwaan Lab
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("LinearModelsPop/Viability/by_lab_models_residuals/Via_Zwaan_lmer_pop_hist_residuals.png")
 
 knitr::include_graphics("LinearModelsPop/Viability/by_lab_models_residuals/Via_Zwaan_lmer_pop_qq_plot_residuals.png")
 ```
 
-## Developmental time
+### Developmental time
 
 ```{r include=FALSE}
 dir.create(file.path("DevelopmentTime"), showWarnings = FALSE)
 ```
 
-### Egg-to-pupa developmental time
+#### Egg-to-pupa developmental time
 
 _For a detailed description of tables, plots, linear models and outputs, please refer [here](#anchor) _
 
-#### Contributors
+##### Contributors
 
 Schmidt Lab: Paul Schmidt
 
-#### Data Reformatting
+##### Data Reformatting
 
 ```{r}
 str(droseu$dtp)
 ```
 
-#### Descriptive Statistics
+##### Descriptive Statistics
 
 ```{r}
 # Note that the trait has been phenotyped only in Schmidt lab and in one batch.
@@ -719,8 +554,7 @@ Descriptive statistics at the population level:
 DT::datatable(table_pop_wobatch$DT_P, options = list(pageLength = 10))  %>% formatRound(3:10, 3)
 ```
 
-
-#### Plots and Linear Models by Lab
+##### Plots and Linear Models by Lab
 
 ```{r min_max_DT_P, echo=TRUE}
 min_DT_P <- min(droseu$dtp$DT_EggPupa)
@@ -729,7 +563,7 @@ max_DT_P <- max(droseu$dtp$DT_EggPupa)
 
 y-axis is scaled by the minimum (`r min_DT_P`) and maximum (`r max_DT_P`) values in the full data set.
 
-##### Schmidt Lab
+###### Schmidt Lab
 ```{r}
 lmers_anova$DT_P_Schmidt_lmer_pop
 ```
@@ -742,11 +576,11 @@ lmers_sum$DT_P_Schmidt_lmer_pop
 knitr::include_graphics("DevelopmentTime/p_DT_P_Schmidt.pdf")
 ```
 
-### Egg-to-adult developmental time
+#### Egg-to-adult developmental time
 
 _For a detailed description of tables, plots, linear models and outputs, please refer [here](#anchor) _
 
-#### Contributors
+##### Contributors
 
 Gibert Lab: Cristina Vieira, Laurence Mouton, Natacha Kremer, Sonia Martinez, Patricia Gibert
 
@@ -760,14 +594,13 @@ Stamenkovic-Radak Lab: Marija Savic Veselinovic, Marija Tanaskovic, Aleksandra P
 
 Zwaan Lab: Joost van den Heuvel, Bas Zwaan
 
-#### Data Reformatting
-
+##### Data Reformatting
 
 ```{r d_DT_A}
 str(droseu$dta)
 ```
 
-#### Descriptive Statistics
+##### Descriptive Statistics
 
 Descriptive statistics at the line level, with batch information:
 ```{r, echo=FALSE}
@@ -789,11 +622,7 @@ Descriptive statistics at the population level, without batch information:
 DT::datatable(table_pop_wobatch$DT_A, options = list(pageLength = 10)) %>% formatRound(4:11, 3)
 ```
 
-#### Plots and Linear Models by Lab
-
-##### Overview
-
-We observed a very wide range in pairwise correlations among egg-to-adult development time between the different labs, ranging from 0.02 to 0.99 for females, and even negative correlations of -0.45 to 0.70 for males. This indicates a very high level of inter-laboratory variation, e.g. either due to dietary differences or laboratory conditions, which limits inferences on variation in developmental time across labs. Given the observed correlations, it is not surprising that the meta-analysis did not indicate significant differences between populations (females: Q=7.69, P=0.464, Pbonf=1; males Q=8.80, P=0.360, Pbonf=1), indicating that there were no consistent overall patterns among the different datasets. Linear analyses on variation between populations of individual datasets did, however, indicate significant differences in development time in almost all datasets (P<.05), except in the dataset on female developmental time from the Zwaan lab (P=0.051) and the data from the Grath lab (females: P=0.28, males: P=0.39). The Grath lab only analysed the populations from Akaa, Munich and Recarei, however. f. Although the patterns in variation among the different labs were mostly inconsistent,  some shared differences among populations can be observed. A significantly higher development time for both sexes was observed for the Recarei (Portugal) population compared to the Karensminde (Denmark) population by both iHoedjes and Stamenkovic-Radak; and for the Valday (Russia) population compared to Karensminde by both Schmidt and Stamenkovic-Radak. Females from the Recarei population had a higher development time than females from the Akaa population (Hoedjes and Stamenkovic-Radak),while males of the Valday population had a higher development time than bothe Akaa and Munich males (Schmidt and Stamenkovic-Radak).  . Few of the labs also detected latitudinal (Hoedjes, females only:  F=6.746, p= 0.04; males F= 5.7584, p=0.04847) or longitudinal (Hoedjes, males only: F=5.6936, p=0.047; Zwaan, males only: F=7.8178, P=0.023), although these patterns were not consistent among the different sexes and labs.
+##### Plots and Linear Models by Lab
 
 ```{r min_max_DT_A, echo=TRUE}
 min_DT_A <- min(droseu$dta$DT_EggAdult)
@@ -807,7 +636,7 @@ knitr::include_graphics("DevelopmentTime/p_DT_A_F_all.pdf")
 knitr::include_graphics("DevelopmentTime/p_DT_A_M_all.pdf")
 ```
 
-##### Gibert Lab
+###### Gibert Lab
 
 ```{r}
 lmers_anova$DT_A_F_Gibert_lmer_pop
@@ -835,7 +664,7 @@ knitr::include_graphics("DevelopmentTime/p_DT_A_M_Gibert.pdf")
 knitr::include_graphics("DevelopmentTime/p_DT_A_M_pop_Gibert.pdf")
 ```
 
-##### Grath Lab
+###### Grath Lab
 ```{r}
 lmers_anova$DT_A_F_Grath_lmer_pop
 ```
@@ -862,7 +691,7 @@ knitr::include_graphics("DevelopmentTime/p_DT_A_M_Grath.pdf")
 knitr::include_graphics("DevelopmentTime/p_DT_A_M_pop_Grath.pdf")
 ```
 
-##### Hoedjes Lab
+###### Hoedjes Lab
 
 ```{r}
 lmers_anova$DT_A_F_Hoedjes_lmer_pop
@@ -890,7 +719,7 @@ knitr::include_graphics("DevelopmentTime/p_DT_A_M_Hoedjes.pdf")
 knitr::include_graphics("DevelopmentTime/p_DT_A_M_pop_Hoedjes.pdf")
 ```
 
-##### Schmidt Lab
+###### Schmidt Lab
 
 ```{r}
 lmers_anova$DT_A_F_Schmidt_lmer_pop
@@ -918,7 +747,7 @@ knitr::include_graphics("DevelopmentTime/p_DT_A_M_Schmidt.pdf")
 knitr::include_graphics("DevelopmentTime/p_DT_A_M_pop_Schmidt.pdf")
 ```
 
-##### Stamenkovic-Radak Lab
+###### Stamenkovic-Radak Lab
 
 ```{r}
 lmers_anova$DT_A_F_StamenkovicRadak_lmer_pop
@@ -946,7 +775,7 @@ knitr::include_graphics("DevelopmentTime/p_DT_A_M_StamenkovicRadak.pdf")
 knitr::include_graphics("DevelopmentTime/p_DT_A_M_pop_StamenkovicRadak.pdf")
 ```
 
-##### Zwaan Lab
+###### Zwaan Lab
 
 ```{r}
 lmers_anova$DT_A_F_Zwaan_lmer_pop
@@ -974,9 +803,9 @@ knitr::include_graphics("DevelopmentTime/p_DT_A_M_Zwaan.pdf")
 knitr::include_graphics("DevelopmentTime/p_DT_A_M_pop_Zwaan.pdf")
 ```
 
-#### Linear Models / Residuals
+##### Linear Models / Residuals
 
-##### Gibert Lab
+###### Gibert Lab
 _Females_
 
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
@@ -994,7 +823,7 @@ knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_models_residuals
 knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_models_residuals/DT_A_M_Gibert_lmer_pop_qq_plot_residuals.png")
 ```
 
-##### Grath Lab
+###### Grath Lab
 
 _Females_
 
@@ -1012,7 +841,7 @@ knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_models_residuals
 knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_models_residuals/DT_A_M_Grath_lmer_pop_qq_plot_residuals.png")
 ```
 
-##### Hoedjes Lab
+###### Hoedjes Lab
 
 _Females_
 
@@ -1030,7 +859,7 @@ knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_models_residuals
 knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_models_residuals/DT_A_M_Hoedjes_lmer_pop_qq_plot_residuals.png")
 ```
 
-##### Schmidt Lab
+###### Schmidt Lab
 
 _Females_
 
@@ -1048,7 +877,7 @@ knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_models_residuals
 knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_models_residuals/DT_A_M_Schmidt_lmer_pop_qq_plot_residuals.png")
 ```
 
-##### Stamenkovic-Radak Lab
+###### Stamenkovic-Radak Lab
 
 _Females_
 
@@ -1066,7 +895,7 @@ knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_models_residuals
 knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_models_residuals/DT_A_M_StamenkovicRadak_lmer_pop_qq_plot_residuals.png")
 ```
 
-##### Zwaan Lab
+###### Zwaan Lab
 
 _Females_
 
@@ -1084,7 +913,7 @@ knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_models_residuals
 knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_models_residuals/DT_A_M_Zwaan_lmer_pop_qq_plot_residuals.png")
 ```
 
-## Dry weight
+### Dry weight
 
 ```{r include=FALSE}
 dir.create(file.path("DryWeight"), showWarnings = FALSE)
@@ -1092,7 +921,7 @@ dir.create(file.path("DryWeight"), showWarnings = FALSE)
 
 _For a detailed description of tables, plots, linear models and outputs, please refer [here](#anchor) _
 
-### Contributors
+#### Contributors
 
 Colinet Lab: Sapho-Lou Marti , Hervé Colinet
 
@@ -1100,13 +929,13 @@ Hoedjes Lab: Hristina Kostic, Katja Hoedjes
 
 Onder Lab: Seda Coskun, Senel Selin Senkal, Dogus Can, Banu Sebnem Onder
 
-### Data Reformatting
+#### Data Reformatting
 
 ```{r}
 str(droseu$dw)
 ```
 
-### Descriptive Statistics
+#### Descriptive Statistics
 
 Descriptive statistics at the line level, with batch information:
 ```{r table_DW_Line_wobatch, echo=FALSE}
@@ -1128,11 +957,7 @@ Descriptive statistics at the population level, without batch information:
 DT::datatable(table_pop_wobatch$DW, options = list(pageLength = 10))  %>% formatRound(4:11, 3)
 ```
 
-### Plots and Linear Models by Lab
-
-#### Overview
-
-We observed moderate to high correlations in the adult dry weights measured by the different labs, ranging from 0.61 to 0.92 in females and from 0.42 to 0.78 in males. Yet, although significant differences among the nine populations were observed, these effects were not consistent among all labs, as also illustrated by the non-significant outcomes of the meta-analyses (females: Q=10.6, P=0.22, Pbonf=1; males: Q=23.1, P=0.0032, Pbonf=0.064). Both the Colinet and Onder labs observed differences in female dry weight  among the populations (Colinet: F=2.34, P=0.021; Onder: F=5.36, P<.0001), whereas this differences was only marginally significant for the Hoedjes lab (F=1.92, P=0.060). For males, significant differences between the populations were only observed for the Colinet lab (F=4.81, P<.0001), while this was marginally significant for the Onder lab (F=1.95, P=0.057). Post-hoc tests revealed several pairwise differences between populations, of which only a single one was shared between the Colinet and Onder datasets: a significant difference in female dry weight between the Akaa (Finland) and Recarei (Portugal) populations. Overall, most significant pairwise comparisons indicate a difference in dry weight of the Yesiloz (Turkey) population (5 significant pairwise comparisons in males, 3 in females) and the Akaa population (5 significant pairwise comparisons in females). Flies from these two populations, both females and to a lesser extent males, have a lower adult dry weight on average than the other populations. There was no evidence for correlations of adult dry weight and altitude, latitude and longitude for either sex.
+#### Plots and Linear Models by Lab
 
 ```{r min_max_DW}
 min_DW <- min(droseu$dw$DW_micrograms)
@@ -1146,7 +971,7 @@ knitr::include_graphics("DryWeight/p_DW_F_all.pdf")
 knitr::include_graphics("DryWeight/p_DW_M_all.pdf")
 ```
 
-#### Colinet Lab
+##### Colinet Lab
 
 ```{r}
 lmers_anova$DW_F_Colinet_lmer_pop
@@ -1174,7 +999,7 @@ knitr::include_graphics("DryWeight/p_DW_M_Colinet.pdf")
 knitr::include_graphics("DryWeight/p_DW_M_pop_Colinet.pdf")
 ```
 
-#### Hoedjes Lab
+##### Hoedjes Lab
 
 ```{r}
 lmers_anova$DW_F_Hoedjes_lmer_pop
@@ -1202,7 +1027,7 @@ knitr::include_graphics("DryWeight/p_DW_M_Hoedjes.pdf")
 knitr::include_graphics("DryWeight/p_DW_M_pop_Hoedjes.pdf")
 ```
 
-#### Onder Lab
+##### Onder Lab
 
 ```{r}
 lmers_anova$DW_F_Onder_lmer_pop
@@ -1230,9 +1055,9 @@ knitr::include_graphics("DryWeight/p_DW_M_Onder.pdf")
 knitr::include_graphics("DryWeight/p_DW_M_pop_Onder.pdf")
 ```
 
-### Linear Models / Residuals
+#### Linear Models / Residuals
 
-#### Colinet Lab
+##### Colinet Lab
 
 _Females_
 
@@ -1250,7 +1075,7 @@ knitr::include_graphics("LinearModelsPop/DryWeight/by_lab_models_residuals/DW_M_
 knitr::include_graphics("LinearModelsPop/DryWeight/by_lab_models_residuals/DW_M_Colinet_lmer_pop_qq_plot_residuals.png")
 ```
 
-#### Hoedjes Lab
+##### Hoedjes Lab
 
 _Females_
 
@@ -1268,7 +1093,7 @@ knitr::include_graphics("LinearModelsPop/DryWeight/by_lab_models_residuals/DW_M_
 knitr::include_graphics("LinearModelsPop/DryWeight/by_lab_models_residuals/DW_M_Hoedjes_lmer_pop_qq_plot_residuals.png")
 ```
 
-#### Onder Lab
+##### Onder Lab
 
 _Females_
 
@@ -1287,7 +1112,7 @@ knitr::include_graphics("LinearModelsPop/DryWeight/by_lab_models_residuals/DW_M_
 ```
 
 
-## Thorax length
+### Thorax length
 
 ```{r include=FALSE}
 dir.create(file.path("ThoraxLength"), showWarnings = FALSE)
@@ -1295,7 +1120,7 @@ dir.create(file.path("ThoraxLength"), showWarnings = FALSE)
 
 _For a detailed description of tables, plots, linear models and outputs, please refer [here](#anchor) _
 
-### Contributors
+#### Contributors
 
 Kozeretska Lab: Svitlana Serga, Alexandra Protsenko, Oleksandr Maistrenko, Iryna Kozeretska
 
@@ -1305,13 +1130,13 @@ Ritchie Lab: Megan Mcgunnigle, Nicola  Cook, Teresa Abaurrea, Michael Ritchie
 
 Schmidt Lab: Amy Goldfischer, Paul Schmidt
 
-### Data Reformatting
+#### Data Reformatting
 
 ```{r}
 str(droseu$tl)
 ```
 
-### Descriptive Statistics
+#### Descriptive Statistics
 
 Descriptive statistics at the line level, with batch information:
 ```{r, echo=FALSE}
@@ -1333,15 +1158,7 @@ Descriptive statistics at the population level, without batch information:
 DT::datatable(table_pop_wobatch$TL, options = list(pageLength = 10))  %>% formatRound(4:11, 3)
 ```
 
-### Plots and Linear Models by Lab
-
-#### Overview
-
-Correlations among labs were 0.34 to 0.82 for females and 0.78 for males if data from Posnien Lab was excluded. Correlations of Posnien Lab data with other labs were extremely low or even negative with 0.28 to -0.35 for females and -0.33 to -0.53 for males. Significant differences among populations were observed for females in two of four labs (i.e. Kozeretska and Schmidt) and for males in one of three labs (i.e. Kozeretska). Ritchie and Posnien labs did not find population differences. Flies from the Finland (Akaa, AK) population were the smallest (Schmidt lab) and among the smallest (Kozeretska lab) in two labs, while flies from the Portugal (Recarei, RE) and Austria (Mauternbach, MA) populations were consistently among the largest flies in the Kozeretska and Schmidt labs. In Posnien lab data most obvious differences were observed in males between Germany (Munich, MU) and Spain (Gimenells, GI), with the GI population being the largest (GI was second largest in Schmidt lab female data).
-In one of four labs (i.e. Schmidt lab), we found a marginally significant correlation of female thorax length with latitude (F1, 6.67 = 6.0178, p = 0.04557). No correlations between thorax length and longitude or altitude, respectively, were found.
-
-Wing area, thorax length and dry weight: Tendency towards larger flies in Spain/Portugal and smallest flies in Finland. That would be against Bergmann’s rule, right. Based on lab experiments for flies raised at different temperatures, I’d expect larger body size at lower temperature.
-
+#### Plots and Linear Models by Lab
 
 ```{r}
 min_TL <- min(droseu$tl$TL_micrometers)
@@ -1355,7 +1172,7 @@ knitr::include_graphics("ThoraxLength/p_TL_F.pdf")
 knitr::include_graphics("ThoraxLength/p_TL_M.pdf")
 ```
 
-#### Kozeretska Lab
+##### Kozeretska Lab
 
 ```{r}
 lmers_anova$TL_F_Kozeretska_lmer_pop
@@ -1383,7 +1200,7 @@ knitr::include_graphics("ThoraxLength/p_TL_M_Kozeretska.pdf")
 knitr::include_graphics("ThoraxLength/p_TL_M_pop_Kozeretska.pdf")
 ```
 
-#### Posnien Lab
+##### Posnien Lab
 
 ```{r}
 lmers_anova$TL_F_Posnien_lmer_pop
@@ -1411,7 +1228,7 @@ knitr::include_graphics("ThoraxLength/p_TL_M_Posnien.pdf")
 knitr::include_graphics("ThoraxLength/p_TL_M_pop_Posnien.pdf")
 ```
 
-#### Ritchie Lab
+##### Ritchie Lab
 
 ```{r}
 lmers_anova$TL_F_Ritchie_lmer_pop
@@ -1439,7 +1256,7 @@ knitr::include_graphics("ThoraxLength/p_TL_M_Ritchie.pdf")
 knitr::include_graphics("ThoraxLength/p_TL_M_pop_Ritchie.pdf")
 ```
 
-#### Schmidt Lab
+##### Schmidt Lab
 
 ```{r}
 lmers_anova$TL_F_Schmidt_lmer_pop
@@ -1454,9 +1271,9 @@ knitr::include_graphics("ThoraxLength/p_TL_F_Schmidt.pdf")
 knitr::include_graphics("ThoraxLength/p_TL_F_pop_Schmidt.pdf")
 ```
 
-### Linear Models / Residuals
+#### Linear Models / Residuals
 
-#### Kozeretska Lab
+##### Kozeretska Lab
 
 _Females_
 
@@ -1474,7 +1291,7 @@ knitr::include_graphics("LinearModelsPop/ThoraxLength/by_lab_models_residuals/TL
 knitr::include_graphics("LinearModelsPop/ThoraxLength/by_lab_models_residuals/TL_M_Kozeretska_lmer_pop_qq_plot_residuals.png")
 ```
 
-#### Posnien Lab
+##### Posnien Lab
 
 _Females_
 
@@ -1492,7 +1309,7 @@ knitr::include_graphics("LinearModelsPop/ThoraxLength/by_lab_models_residuals/TL
 knitr::include_graphics("LinearModelsPop/ThoraxLength/by_lab_models_residuals/TL_M_Posnien_lmer_pop_qq_plot_residuals.png")
 ```
 
-#### Ritchie Lab
+##### Ritchie Lab
 
 _Females_
 
@@ -1510,7 +1327,7 @@ knitr::include_graphics("LinearModelsPop/ThoraxLength/by_lab_models_residuals/TL
 knitr::include_graphics("LinearModelsPop/ThoraxLength/by_lab_models_residuals/TL_M_Ritchie_lmer_pop_qq_plot_residuals.png")
 ```
 
-#### Schmidt Lab
+##### Schmidt Lab
 
 _Females_
 
@@ -1527,7 +1344,7 @@ for (i in dev.list()[1]:dev.list()[length(dev.list())]) {
 # crashed bc tries to save lots -- need to remove some sometimes
 ```
 
-## Wing area
+### Wing area
 
 ```{r include=FALSE}
 dir.create(file.path("WingArea"), showWarnings = FALSE)
@@ -1535,7 +1352,7 @@ dir.create(file.path("WingArea"), showWarnings = FALSE)
 
 _For a detailed description of tables, plots, linear models and outputs, please refer [here](#anchor) _
 
-### Contributors
+#### Contributors
 
 Onder Lab: Cansu Aksoy, Ekin Demir, Ezgi Cobanoglu, Banu Sebnem Onder
 
@@ -1545,13 +1362,13 @@ Ritchie Lab: Megan Mcgunnigle, Nicola  Cook, Teresa Abaurrea, Marija Tanaskovic,
 
 Stamenkovic-Radak Lab: Marija Savic Veselinovic, Marija Tanaskovic, Aleksandra Patenkovic, Filip Filopovski, Mihailo Jelic, Katarina Eric, Pavle Eric, Slobodan Davidovic, Marina Stamenkovic-Radak
 
-### Data Reformatting
+#### Data Reformatting
 
 ```{r d_WA}
 str(droseu$wa)
 ```
 
-### _Left_
+#### _Left_
 
 ```{r echo=FALSE}
 for (i in dev.list()[1]:dev.list()[length(dev.list())]) {
@@ -1561,7 +1378,7 @@ for (i in dev.list()[1]:dev.list()[length(dev.list())]) {
 ```
 
 
-### Descriptive Statistics
+#### Descriptive Statistics
 
 Descriptive statistics at the line level, with batch information:
 ```{r, echo=FALSE}
@@ -1583,12 +1400,7 @@ Descriptive statistics at the population level, without batch information:
 DT::datatable(table_pop_wobatch$WA_Left, options = list(pageLength = 10))  %>% formatRound(4:11, 3)
 ```
 
-### Plots and Linear Models by Lab
-
-#### Overview
-
-Correlations among labs range from 0.07 to 0.92 in females and 0.03 to 0.92 in males. Significant differences among populations in female and male wing areas are not consistent among labs (Table WA). There are no significant pairwise differences among population in the Posnien and Ritchie data. However, some pairwise differences among population present in Onder and Stamenkovic-Radak dataset. Most of the pairwise differences are shared between the two dataset. Where Recarei population have the largest centroid size and significantly differ from Akaa, Gimenells, Karensminde, Munich, Valday and Yesiloz in both sexes. The other shared significant differences are among Akaa and Mauterbach, Akaa and Uman, and among Uman and Yesiloz population.
-There was no evidence for any correlation between wing area and altitude, latitude and longitude. There was only a weak but significant relationship between female wing area and latitude in the Posnien dataset (female left wing area F1, 25 = 6.5631, p = 0.0168; female right wing area F1, 25 = 6.6129, p = 0.0165).
+#### Plots and Linear Models by Lab
 
 ```{r}
 
@@ -1605,7 +1417,7 @@ knitr::include_graphics("WingArea/p_WA_F_L.pdf")
 knitr::include_graphics("WingArea/p_WA_M_L.pdf")
 ```
 
-#### Onder Lab
+##### Onder Lab
 
 ```{r}
 lmers_anova$WA_L_F_Onder_lmer_pop
@@ -1633,7 +1445,7 @@ knitr::include_graphics("WingArea/p_WA_M_Onder_L.pdf")
 knitr::include_graphics("WingArea/p_WA_M_L_pop_Onder.pdf")
 ```
 
-#### Posnien Lab
+##### Posnien Lab
 
 ```{r}
 lmers_anova$WA_L_F_Posnien_lmer_pop
@@ -1662,7 +1474,7 @@ knitr::include_graphics("WingArea/p_WA_M_L_Posnien.pdf")
 knitr::include_graphics("WingArea/p_WA_M_L_pop_Posnien.pdf")
 ```
 
-#### Ritchie Lab
+##### Ritchie Lab
 
 ```{r}
 lmers_anova$WA_L_F_Ritchie_lmer_pop
@@ -1690,7 +1502,7 @@ knitr::include_graphics("WingArea/p_WA_M_L_Ritchie.pdf")
 knitr::include_graphics("WingArea/p_WA_M_L_pop_Ritchie.pdf")
 ```
 
-#### Stamenkovic-Radak Lab
+##### Stamenkovic-Radak Lab
 
 ```{r}
 lmers_anova$WA_L_F_StamenkovicRadak_lmer_pop
@@ -1718,9 +1530,9 @@ knitr::include_graphics("WingArea/p_WA_M_L_StamenkovicRadak.pdf")
 knitr::include_graphics("WingArea/p_WA_M_L_pop_StamenkovicRadak.pdf")
 ```
 
-### _Right_
+#### _Right_
 
-### Descriptive Statistics
+#### Descriptive Statistics
 
 Descriptive statistics at the line level, with batch information:
 ```{r, echo=FALSE}
@@ -1742,9 +1554,9 @@ Descriptive statistics at the population level, without batch information:
 DT::datatable(table_pop_wobatch$WA_Right, options = list(pageLength = 10))  %>% formatRound(4:11, 3)
 ```
 
-### Plots and Linear Models by Lab
+#### Plots and Linear Models by Lab
 
-#### Overview
+##### Overview
 
 ```{r}
 min_WAR <- min(droseu$wa$CentroidSizeRight_micrometers)
@@ -1756,7 +1568,7 @@ knitr::include_graphics("WingArea/p_WA_F_R.pdf")
 knitr::include_graphics("WingArea/p_WA_M_R.pdf")
 ```
 
-#### Onder Lab
+##### Onder Lab
 
 ```{r include=FALSE}
 for (i in dev.list()[1]:dev.list()[length(dev.list())]) {
@@ -1791,7 +1603,7 @@ knitr::include_graphics("WingArea/p_WA_M_R_Onder.pdf")
 knitr::include_graphics("WingArea/p_WA_M_R_pop_Onder.pdf")
 ```
 
-#### Posnien Lab
+##### Posnien Lab
 
 ```{r}
 lmers_anova$WA_R_F_Posnien_lmer_pop
@@ -1820,7 +1632,7 @@ knitr::include_graphics("WingArea/p_WA_M_R_Posnien.pdf")
 knitr::include_graphics("WingArea/p_WA_M_R_pop_Posnien.pdf")
 ```
 
-#### Ritchie Lab
+##### Ritchie Lab
 
 ```{r}
 lmers_anova$WA_R_F_Ritchie_lmer_pop
@@ -1849,7 +1661,7 @@ knitr::include_graphics("WingArea/p_WA_M_R_Ritchie.pdf")
 knitr::include_graphics("WingArea/p_WA_M_R_pop_Ritchie.pdf")
 ```
 
-#### Stamenkovic-Radak Lab
+##### Stamenkovic-Radak Lab
 
 ```{r}
 lmers_anova$WA_R_F_StamenkovicRadak_lmer_pop
@@ -1877,9 +1689,9 @@ knitr::include_graphics("WingArea/p_WA_M_R_StamenkovicRadak.pdf")
 knitr::include_graphics("WingArea/p_WA_M_R_pop_StamenkovicRadak.pdf")
 ```
 
-### Linear Models / Residuals (Left)
+#### Linear Models / Residuals (Left)
 
-#### Onder Lab
+##### Onder Lab
 
 _Females_
 
@@ -1897,7 +1709,7 @@ knitr::include_graphics("LinearModelsPop/WingArea/by_lab_models_residuals/WA_L_M
 knitr::include_graphics("LinearModelsPop/WingArea/by_lab_models_residuals/WA_L_M_Onder_lmer_pop_qq_plot_residuals.png")
 ```
 
-#### Posnien Lab
+##### Posnien Lab
 
 _Females_
 
@@ -1915,7 +1727,7 @@ knitr::include_graphics("LinearModelsPop/WingArea/by_lab_models_residuals/WA_L_M
 knitr::include_graphics("LinearModelsPop/WingArea/by_lab_models_residuals/WA_L_M_Posnien_lmer_pop_qq_plot_residuals.png")
 ```
 
-#### Ritchie Lab
+##### Ritchie Lab
 
 _Females_
 
@@ -1933,7 +1745,7 @@ knitr::include_graphics("LinearModelsPop/WingArea/by_lab_models_residuals/WA_L_M
 knitr::include_graphics("LinearModelsPop/WingArea/by_lab_models_residuals/WA_L_M_Ritchie_lmer_pop_qq_plot_residuals.png")
 ```
 
-#### Stamenkovic-Radak Lab
+##### Stamenkovic-Radak Lab
 
 _Females_
 
@@ -1951,9 +1763,9 @@ knitr::include_graphics("LinearModelsPop/WingArea/by_lab_models_residuals/WA_L_M
 knitr::include_graphics("LinearModelsPop/WingArea/by_lab_models_residuals/WA_L_M_StamenkovicRadak_lmer_pop_qq_plot_residuals.png")
 ```
 
-### Linear Models / Residuals (Right)
+#### Linear Models / Residuals (Right)
 
-#### Onder Lab
+##### Onder Lab
 
 _Females_
 
@@ -1971,7 +1783,7 @@ knitr::include_graphics("LinearModelsPop/WingArea/by_lab_models_residuals/WA_R_M
 knitr::include_graphics("LinearModelsPop/WingArea/by_lab_models_residuals/WA_R_M_Onder_lmer_pop_qq_plot_residuals.png")
 ```
 
-#### Posnien Lab
+##### Posnien Lab
 
 _Females_
 
@@ -1989,7 +1801,7 @@ knitr::include_graphics("LinearModelsPop/WingArea/by_lab_models_residuals/WA_R_M
 knitr::include_graphics("LinearModelsPop/WingArea/by_lab_models_residuals/WA_R_M_Posnien_lmer_pop_qq_plot_residuals.png")
 ```
 
-#### Ritchie Lab
+##### Ritchie Lab
 
 _Females_
 
@@ -2007,7 +1819,7 @@ knitr::include_graphics("LinearModelsPop/WingArea/by_lab_models_residuals/WA_R_M
 knitr::include_graphics("LinearModelsPop/WingArea/by_lab_models_residuals/WA_R_M_Ritchie_lmer_pop_qq_plot_residuals.png")
 ```
 
-#### Stamenkovic-Radak Lab
+##### Stamenkovic-Radak Lab
 
 _Females_
 
@@ -2032,7 +1844,7 @@ for (i in dev.list()[1]:dev.list()[length(dev.list())]) {
 # crashed bc tries to save lots -- need to remove some sometimes
 ```
 
-## Fecundity
+### Fecundity
 
 ```{r include=FALSE}
 dir.create(file.path("Fecundity"), showWarnings = FALSE)
@@ -2044,19 +1856,19 @@ _For a detailed description of tables, plots, linear models and outputs, please 
 #Note that the trait has been phenotyped only in females.
 ```
 
-### Contributors
+#### Contributors
 
 Billeter Lab: Xiaocui Wang, Tiphaine Bailly, Mario Mira, Jean-Christophe Billeter
 
 Fricke Lab: Claudia Fricke
 
-### Data Reformatting
+#### Data Reformatting
 
 ```{r d_Fec}
 str(droseu$fec)
 ```
 
-### Descriptive Statistics
+#### Descriptive Statistics
 
 Descriptive statistics at the line level, with batch information:
 ```{r tables_fec, echo=FALSE}
@@ -2078,11 +1890,7 @@ Descriptive statistics at the population level, without batch information:
 DT::datatable(table_pop_wobatch$Fec, options = list(pageLength = 10)) %>% formatRound(4:11, 3)
 ```
 
-### Plots and Linear Models by Lab
-
-#### Overview
-
-Fecundity data was collected for the nine populations by two different laboratories and was determined based on the total number of adult offspring produced from a single mating. No clear clinal pattern was observed for fecundity, neither along altitude nor longitude. Interpopulation variation in fecundity was found across latitude in one measuring condition that used non-standardized nutritionally rich food (Billeter group: ANOVA F1,6.85 = 6.565, p = 0.038), but this latitudinal variation was not observed in the measuring condition using standardized food (Fricke group: ANOVA F1,161.9 = 0.161, p = 0.689). In fact,  the nine populations did not differ in fecundity when tested  on standardized food (Fricke group, ANOVA: F8,146.3 = 0.458, p = 0.884), but did  when tested on non-standard nutritionally rich food (Billeter group: ANOVA: F8,148.39 = 2.799, p = 0.0065). However post-hoc tests revealed that differences between populations in the non-standard food treatment were mainly driven by the two divergent population from Karensminde, Denmark and Yesiloz, Turkey (z.ratio =3.56, p =0.011) and one near-significant comparison between Karensminde, Denmark and Recarei, Portugal (z.ratio = 2.96, p = 0.075). The non- standardized food was expected to lead to higher fecundity because of its higher quantity of yeast than the standardized food, leading to higher egg production and hence explaining higher fecundity. However, as fecundity data were only collected in two laboratories with different food conditions, the data are confounded by two variables; lab and diet.
+#### Plots and Linear Models by Lab
 
 
 ```{r echo=TRUE}
@@ -2097,7 +1905,7 @@ y-axis is scaled by the minimum (`r min_Fec`) and maximum (`r max_Fec`) values i
 knitr::include_graphics("Fecundity/p_Fec_all.pdf")
 ```
 
-#### Billeter Lab
+##### Billeter Lab
 
 ```{r}
 lmers_anova$Fec_Billeter_lmer_pop
@@ -2112,7 +1920,7 @@ knitr::include_graphics("Fecundity/p_Fec_Billeter.pdf")
 knitr::include_graphics("Fecundity/p_Fec_pop_Billeter.pdf")
 ```
 
-#### Fricke Lab
+##### Fricke Lab
 
 ```{r}
 lmers_anova$Fec_Fricke_lmer_pop
@@ -2127,9 +1935,9 @@ knitr::include_graphics("Fecundity/p_Fec_Fricke.pdf")
 knitr::include_graphics("Fecundity/p_Fec_pop_Fricke.pdf")
 ```
 
-### Linear Models / Residuals
+#### Linear Models / Residuals
 
-#### Billeter Lab
+##### Billeter Lab
 
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("LinearModelsPop/Fecundity/by_lab_models_residuals/Fec_Billeter_lmer_pop_hist_residuals.png")
@@ -2137,7 +1945,7 @@ knitr::include_graphics("LinearModelsPop/Fecundity/by_lab_models_residuals/Fec_B
 knitr::include_graphics("LinearModelsPop/Fecundity/by_lab_models_residuals/Fec_Billeter_lmer_pop_qq_plot_residuals.png")
 ```
 
-#### Fricke Lab
+##### Fricke Lab
 
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("LinearModelsPop/Fecundity/by_lab_models_residuals/Fec_Fricke_lmer_pop_hist_residuals.png")
@@ -2145,7 +1953,7 @@ knitr::include_graphics("LinearModelsPop/Fecundity/by_lab_models_residuals/Fec_F
 knitr::include_graphics("LinearModelsPop/Fecundity/by_lab_models_residuals/Fec_Fricke_lmer_pop_qq_plot_residuals.png")
 ```
 
-## Lifespan
+### Lifespan
 
 ```{r echo=FALSE}
 dir.create(file.path("Lifespan"), showWarnings = FALSE)
@@ -2160,7 +1968,7 @@ for (i in dev.list()[1]:dev.list()[length(dev.list())]) {
 # crashed bc tries to save lots -- need to remove some
 ```
 
-### Contributors
+#### Contributors
 
 Flatt Lab: Esra Durmaz, Envel Kerdaffrec, Thibault Schowing, Virginie Thieu, Marisa Rodrigues, Thomas Flatt
 
@@ -2168,7 +1976,7 @@ Parsch Lab: Amanda Glaser-Schmitt, Eliza Argyridou, John Parsch
 
 Pasyukova Lab: Natalia Roshina, Alexander Symonenko, Mikhail Trostnikov, Evgenia Tsybul'ko, Ekaterina Veselkina, Olga Rybina, Elena Pasyukova
 
-### Data Reformatting
+#### Data Reformatting
 
 ```{r}
 str(droseu$lsl)
@@ -2182,7 +1990,7 @@ str(droseu$lsp)
 str(droseu$lsm)
 ```
 
-### Descriptive Statistics
+#### Descriptive Statistics
 
 Descriptive statistics at the line level, with batch information:
 
@@ -2206,16 +2014,7 @@ Descriptive statistics at the population level, without batch information:
 DT::datatable(table_pop_wobatch$LS_M, options = list(pageLength = 10)) %>% formatRound(4:11, 3)
 ```
 
-### Plots and Linear Models by Lab
-
-#### Overview
-
-We detected subtle but significant lifespan differences among populations for both sexes in all labs (mixed-effects linear model and Cox mixed effects model; P <  0.014 for all), suggesting that European populations are phenotypically and genetically differentiated for this trait. However, the effect of the individual populations varied depending upon the sex and lab (make Supplementary Table?). Briefly, of 36 pairwise comparisons between populations, in females, 26, 14, and 1 population pairs were detected as significantly different in the Flatt, Parsch, and Pasyukova labs, respectively, of which 10 were detected by both the Flatt and Parsch labs (P < 0.04 for all) and 1 was detected by the Parsch and Pasyukova labs (P < 0.002 for both). The direction of the detected significant difference was in agreement for all population pairs with the exception of the Gimenells and Mauternbach comparison, which was detected by the Flatt and Parsch labs. In males, 7, 9, and 4 population pairs were detected as significantly different in the Flatt, Parsch, and Pasyukova labs, respectively, of which 1 was detected by both the Flatt and Parsch labs (P < 0.007 for both). This pair, Munich and Recarei, was also detected as significantly different in females by the Flatt and Parsch labs (P < 0.025 for both), with the direction of the detected significant difference in agreement for both labs and sexes. Using meta-analysis performed on all data across all labs, we found evidence for consistent population differences in lifespan for males (P = 0.02; albeit non-significant after multiple testing correction) but not for females (P = 1). Could perhaps consider to say something about whether, on average, females lived longer than males or not, etc.
-
-We observed a significant positive relationship between lifespan and latitude for the Flatt lab in females (P = 0.004) and for the Parsch lab in males (P = 0.004). None of the labs found a significant effect of longitude or altitude on lifespan for either sex (mixed-effects linear model; P > 0.128 for all).
-
-Pairwise correlations between labs for population means of lifespan were generally positive and higher for males (0.40–0.52) than for females (0.20–0.57). Correlations between the Flatt lab, who measured lifespan at the population level, and the Parsch and Pasyukova labs, who measured lifespan at the line level, were qualitatively comparable to the correlations between the Parsch and Pasyukova labs, suggesting that lifespan estimates from population cages and individual line measurements were fairly congruent.
-
+#### Plots and Linear Models by Lab
 
 ```{r}
 min_LS <- min(droseu$lsm$LSM_AgeAtDeath_days)
@@ -2229,7 +2028,7 @@ knitr::include_graphics("Lifespan/p_LS_F.pdf")
 knitr::include_graphics("Lifespan/p_LS_M.pdf")
 ```
 
-#### Flatt Lab
+##### Flatt Lab
 
 ```{r}
 lmers_anova$LS_F_Flatt_lmer_pop
@@ -2252,7 +2051,7 @@ knitr::include_graphics("Lifespan/p_LS_F_Flatt.pdf")
 knitr::include_graphics("Lifespan/p_LS_M_Flatt.pdf")
 ```
 
-#### Parsch Lab
+##### Parsch Lab
 
 ```{r}
 lmers_anova$LS_F_Parsch_lmer_pop
@@ -2279,7 +2078,7 @@ knitr::include_graphics("Lifespan/p_LS_M_Parsch.pdf")
 knitr::include_graphics("Lifespan/p_LS_M_pop_Parsch.pdf")
 ```
 
-#### Pasyukova Lab
+##### Pasyukova Lab
 
 ```{r}
 lmers_anova$LS_F_Pasyukova_lmer_pop
@@ -2307,9 +2106,9 @@ knitr::include_graphics("Lifespan/p_LS_M_Pasyukova.pdf")
 knitr::include_graphics("Lifespan/p_LS_M_pop_Pasyukova.pdf")
 ```
 
-### Survival Analyses
+#### Survival Analyses
 
-#### Flatt Lab
+##### Flatt Lab
 
 _Females_
 ```{r}
@@ -2329,7 +2128,7 @@ coxme_anova$LS_P_M_Flatt_coxme
 knitr::include_graphics("SurvivalAnalyses/Lifespan/p_LS_M_Flatt_survival_curves.pdf")
 ```
 
-#### Parsch Lab
+##### Parsch Lab
 
 _Females_
 
@@ -2351,7 +2150,7 @@ coxme_anova$LS_L_M_Parsch_coxme
 knitr::include_graphics("SurvivalAnalyses/Lifespan/p_LS_M_Parsch_survival_curves.pdf")
 ```
 
-#### Pasyukova Lab
+##### Pasyukova Lab
 
 _Females_
 ```{r}
@@ -2371,9 +2170,9 @@ coxme_anova$LS_L_M_Pasyukova_coxme
 knitr::include_graphics("SurvivalAnalyses/Lifespan/p_LS_M_Pasyukova_survival_curves.pdf")
 ```
 
-### Linear Models / Residuals
+#### Linear Models / Residuals
 
-#### Flatt Lab
+##### Flatt Lab
 
 _Females_
 
@@ -2391,7 +2190,7 @@ knitr::include_graphics("LinearModelsPop/Lifespan/by_lab_models_residuals/LS_M_F
 knitr::include_graphics("LinearModelsPop/Lifespan/by_lab_models_residuals/LS_M_Flatt_lmer_pop_qq_plot_residuals.png")
 ```
 
-#### Parsch Lab
+##### Parsch Lab
 
 _Females_
 
@@ -2409,7 +2208,7 @@ knitr::include_graphics("LinearModelsPop/Lifespan/by_lab_models_residuals/LS_M_P
 knitr::include_graphics("LinearModelsPop/Lifespan/by_lab_models_residuals/LS_M_Parsch_lmer_pop_qq_plot_residuals.png")
 ```
 
-#### Pasyukova Lab
+##### Pasyukova Lab
 
 _Females_
 
@@ -2427,7 +2226,7 @@ knitr::include_graphics("LinearModelsPop/Lifespan/by_lab_models_residuals/LS_M_P
 knitr::include_graphics("LinearModelsPop/Lifespan/by_lab_models_residuals/LS_M_Pasyukova_lmer_pop_qq_plot_residuals.png")
 ```
 
-## Cold-shock mortality
+### Cold-shock mortality
 
 ```{r echo=FALSE}
 dir.create(file.path("ColdShock"), showWarnings = FALSE)
@@ -2435,7 +2234,7 @@ dir.create(file.path("ColdShock"), showWarnings = FALSE)
 
 _For a detailed description of tables, plots, linear models and outputs, please refer [here](#anchor) _
 
-### Contributors
+#### Contributors
 
 Gonzalez Lab: Llewellyn Green, Josefa Gonzalez, Miriam Merenciano
 
@@ -2444,13 +2243,13 @@ Kozeretska Lab: Svitlana Serga, Alexandra Protsenko, Oleksandr Maistrenko, Iryna
 Vieira Lab: Jorge Vieira, Cristina P. Vieira, Pedro Duque, Tânia Dias
 
 
-### Data Reformatting
+#### Data Reformatting
 
 ```{r}
 str(droseu$csm)
 ```
 
-### Descriptive Statistics
+#### Descriptive Statistics
 
 
 Descriptive statistics at the line level, with batch information:
@@ -2473,17 +2272,7 @@ Descriptive statistics at the population level, without batch information:
 DT::datatable(table_pop_wobatch$CSM, options = list(pageLength = 10)) %>% formatRound(4:11, 3)
 ```
 
-### Plots and Linear Models by Lab
-
-#### Overview
-
-To check the variability in response to cold, we performed cold-shock mortality assays in all the strains from the nine European populations in three different labs. We measured the number of deaths for both males and females 24 hours after a cold shock of 4ºC for 18 hours (see Material and Methods).
-
-We found that the correlation between data obtained in different labs was quite strong, ranging from r2=0.22 to r2=0.55 in males, and from r2=0.40 to r2=0.70 in females (Figure X). In the three lab-replicates, we observed high variability within populations and strains. Moreover, female flies tend to be more resistant to cold-shock compared to males.
-
-Results also showed no evidence for correlation with the spatial variables altitude, latitude, and longitude for any of the three cold-shock lab-replicates obtained in the different labs (all p-values > 0.05). Moreover, using a meta-analysis approach, we found that there are no statistically significant differences between populations. However, when analysing the results of the three labs individually, we observed that only the Vieira dataset showed evidence of population differences in males (p-value = 0.025). After Bonferroni correction for multiple testing (N=3), this difference becomes non-significant (p-value > 0.05).
-
-Overall, these results suggest that cold-shock mortality is a moderately replicable phenotype across lab-replicates. However, we could not detect any correlation with spatial variables or population difference, likely due to the use of isofemale lines.
+#### Plots and Linear Models by Lab
 
 
 ```{r min_max_CSM, echo=TRUE}
@@ -2497,7 +2286,7 @@ y-axis is scaled by the minimum (`r min_CSM`) and maximum (`r max_CSM`) values i
 knitr::include_graphics("ColdShock/p_CSM_F.pdf")
 knitr::include_graphics("ColdShock/p_CSM_M.pdf")
 ```
-#### Gonzalez Lab
+##### Gonzalez Lab
 
 ```{r}
 lmers_anova$CSM_F_Gonzalez_lmer_pop
@@ -2525,7 +2314,7 @@ knitr::include_graphics("ColdShock/p_CSM_M_Gonzalez.pdf")
 knitr::include_graphics("ColdShock/p_CSM_M_pop_Gonzalez.pdf")
 ```
 
-#### Kozeretska Lab
+##### Kozeretska Lab
 
 ```{r}
 lmers_anova$CSM_F_Kozeretska_lmer_pop
@@ -2553,7 +2342,7 @@ knitr::include_graphics("ColdShock/p_CSM_M_Kozeretska.pdf")
 knitr::include_graphics("ColdShock/p_CSM_M_pop_Kozeretska.pdf")
 ```
 
-#### Vieira Lab
+##### Vieira Lab
 
 ```{r}
 lmers_anova$CSM_F_Vieira_lmer_pop
@@ -2581,9 +2370,9 @@ knitr::include_graphics("ColdShock/p_CSM_M_Vieira.pdf")
 knitr::include_graphics("ColdShock/p_CSM_M_pop_Vieira.pdf")
 ```
 
-### Linear Models / Residuals
+#### Linear Models / Residuals
 
-#### Gonzalez Lab
+##### Gonzalez Lab
 
 _Females_
 
@@ -2601,7 +2390,7 @@ knitr::include_graphics("LinearModelsPop/ColdShock/by_lab_models_residuals/CSM_M
 knitr::include_graphics("LinearModelsPop/ColdShock/by_lab_models_residuals/CSM_M_Gonzalez_lmer_pop_qq_plot_residuals.png")
 ```
 
-#### Kozeretska Lab
+##### Kozeretska Lab
 
 _Females_
 
@@ -2619,7 +2408,7 @@ knitr::include_graphics("LinearModelsPop/ColdShock/by_lab_models_residuals/CSM_M
 knitr::include_graphics("LinearModelsPop/ColdShock/by_lab_models_residuals/CSM_M_Kozeretska_lmer_pop_qq_plot_residuals.png")
 ```
 
-#### Vieira Lab
+##### Vieira Lab
 
 _Females_
 
@@ -2644,7 +2433,7 @@ for (i in dev.list()[1]:dev.list()[length(dev.list())]) {
 # crashed bc tries to save lots -- need to remove some sometimes
 ```
 
-## Chill-coma recovery time
+### Chill-coma recovery time
 
 ```{r include=FALSE}
 dir.create(file.path("ChillComa"), showWarnings = FALSE)
@@ -2652,20 +2441,20 @@ dir.create(file.path("ChillComa"), showWarnings = FALSE)
 
 _For a detailed description of tables, plots, linear models and outputs, please refer [here](#anchor) _
 
-### Contributors
+#### Contributors
 
 Mensch Lab: Florencia Putero, Lucas Kreiman, Julian Mensch
 
 Vieira Lab: Jorge Vieira, Cristina P. Vieira, Pedro Duque, Tânia Dias
 
 
-### Data Reformatting
+#### Data Reformatting
 
 ```{r}
 str(droseu$ccrt)
 ```
 
-### Descriptive Statistics
+#### Descriptive Statistics
 
 Descriptive statistics at the line level, with batch information:
 ```{r, echo=FALSE}
@@ -2687,11 +2476,7 @@ Descriptive statistics at the population level, without batch information:
 DT::datatable(table_pop_wobatch$CCRT, options = list(pageLength = 10)) %>% formatRound(4:11, 3)
 ```
 
-### Plots and Linear Models by Lab
-
-#### Overview
-
-We detected significant differences among populations for both sexes in all labs (using mixed-effects linear model and Cox mixed-effects model), except for males in the Mensch dataset using the mixed-effects linear model, suggesting that European populations are genetically differentiated for this trait. Correlations between labs for population means were positive and higher for females (0.3) than for males (0.09). Males and females of Mauterbach population showed the fastest chill coma recovery time (i.e. higher cold tolerance) in the Viera dataset, and this population significantly differs from Akaa and Umam, in females, and from Munich, Yesiloz and Gimenells, in males. In the Mensch dataset, the fastest chill coma recovery time was found for females of Gimenells population, which significantly differ from Yesiloz. We observed a significant negative relationship between female chill coma recovery time and longitude in the Mensch dataset (F= 7.372, p = 0.0287). No significant effects of latitude or altitude on chill coma for either sex were found.
+#### Plots and Linear Models by Lab
 
 ```{r min_max_CCRT, echo=TRUE}
 min_CCRT <- min(droseu$ccrt$CCRT_seconds)
@@ -2700,7 +2485,7 @@ max_CCRT <- max(droseu$ccrt$CCRT_seconds)
 
 y-axis is scaled by the minimum (`r min_CSM`) and maximum (`r max_CSM`) values in the full data set.
 
-#### Mensch Lab
+##### Mensch Lab
 
 ```{r}
 lmers_anova$CCRT_F_Mensch_lmer_pop
@@ -2728,7 +2513,7 @@ knitr::include_graphics("ChillComa/p_CCRT_M_Mensch.pdf")
 knitr::include_graphics("ChillComa/p_CCRT_M_pop_Mensch.pdf")
 ```
 
-#### Vieira Lab
+##### Vieira Lab
 
 ```{r}
 lmers_anova$CCRT_F_Vieira_lmer_pop
@@ -2756,9 +2541,9 @@ knitr::include_graphics("ChillComa/p_CCRT_M_Vieira.pdf")
 knitr::include_graphics("ChillComa/p_CCRT_M_pop_Vieira.pdf")
 ```
 
-### Survival Analyses
+#### Survival Analyses
 
-#### Mensch Lab
+##### Mensch Lab
 
 _Females_
 ```{r}
@@ -2778,7 +2563,7 @@ coxme_anova$CCRT_M_coxme_Mensch
 knitr::include_graphics("SurvivalAnalyses/ChillComa/p_CCRT_M_Mensch_survival_curves.pdf")
 ```
 
-#### Vieira Lab
+##### Vieira Lab
 
 _Females_
 ```{r}
@@ -2798,9 +2583,9 @@ coxme_anova$CCRT_M_coxme_Vieira
 knitr::include_graphics("SurvivalAnalyses/ChillComa/p_CCRT_M_Vieira_survival_curves.pdf")
 ```
 
-### Linear Models / Residuals
+#### Linear Models / Residuals
 
-#### Mensch Lab
+##### Mensch Lab
 
 _Females_
 
@@ -2818,7 +2603,7 @@ knitr::include_graphics("LinearModelsPop/ChillComa/by_lab_models_residuals/CCRT_
 knitr::include_graphics("LinearModelsPop/ChillComa/by_lab_models_residuals/CCRT_M_Mensch_lmer_pop_qq_plot_residuals.png")
 ```
 
-#### Vieira Lab
+##### Vieira Lab
 
 _Females_
 
@@ -2836,7 +2621,7 @@ knitr::include_graphics("LinearModelsPop/ChillComa/by_lab_models_residuals/CCRT_
 knitr::include_graphics("LinearModelsPop/ChillComa/by_lab_models_residuals/CCRT_M_Vieira_lmer_pop_qq_plot_residuals.png")
 ```
 
-## Heat-shock mortality
+### Heat-shock mortality
 
 ```{r include=FALSE}
 dir.create(file.path("HeatShock"), showWarnings = FALSE)
@@ -2844,19 +2629,19 @@ dir.create(file.path("HeatShock"), showWarnings = FALSE)
 
 _For a detailed description of tables, plots, linear models and outputs, please refer [here](#anchor) _
 
-### Contributors
+#### Contributors
 
 Parsch Lab: Eliza Argyridou, Amanda Glaser-Schmitt, John Parsch
 
 Vieira Lab: Jorge Vieira, Cristina P. Vieira, Pedro Duque, Tânia Dias
 
-### Data Reformatting
+#### Data Reformatting
 
 ```{r}
 str(droseu$hsm)
 ```
 
-### Descriptive Statistics
+#### Descriptive Statistics
 
 Descriptive statistics at the line level, with batch information:
 ```{r, echo=FALSE}
@@ -2878,11 +2663,7 @@ Descriptive statistics at the population level, without batch information:
 DT::datatable(table_pop_wobatch$HSM, options = list(pageLength = 10)) %>% formatRound(4:11, 3)
 ```
 
-### Plots and Linear Models by Lab
-
-#### Overview
-
-Correlations in heatshock mortality between labs were very low with no correlation in females (-0.03) and relatively low correlation in males (0.25). We found no evidence for an effect of longitude on heatshock mortality in either sex or lab (Mixed linear model; P > 0.412 for all).  In the Parsch lab, we detected a significant negative relationship between altitude and female heatshock mortality (P = 0.0089), a significant positive relationship between latitude and male heatshock mortality (P = 0.0163), and a marginally non-significant positive relationship between latitude and female heathshock mortality (P = 0.05358). We detected subtle but significant differences among populations for both sexes in both labs (Mixed linear model and Cox mixed effects model; P < 0.0025 for all). Of 36 pairwise comparisons between populations, in females, 12 and 13 population pairs were significantly different in the Parsch and Vieira labs, respectively. In both labs, Munich was significantly different from Recarei and Yesiloz (P < 0.004 for both), but the effects were in the opposite direction for both pairs. In males, 14 and 3 population pairs were significantly different in the Parsch and Vieira labs, respectively. In both labs, Akaa was significantly different from Gimenells (P < 0.003 for both) in the same direction. When we analyzed the data from both labs meta-analyses, we could not find evidence of any consistent significant differences between populations for either sex (P > 0.05 for both).
+#### Plots and Linear Models by Lab
 
 
 ```{r}
@@ -2897,7 +2678,7 @@ knitr::include_graphics("HeatShock/p_HSM_F.pdf")
 knitr::include_graphics("HeatShock/p_HSM_M.pdf")
 ```
 
-#### Parsch Lab
+##### Parsch Lab
 
 ```{r}
 lmers_anova$HSM_F_Parsch_lmer_pop
@@ -2925,7 +2706,7 @@ knitr::include_graphics("HeatShock/p_HSM_M_Parsch.pdf")
 knitr::include_graphics("HeatShock/p_HSM_M_pop_Parsch.pdf")
 ```
 
-#### Vieira Lab
+##### Vieira Lab
 
 ```{r}
 lmers_anova$HSM_F_Vieira_lmer_pop
@@ -2953,9 +2734,9 @@ knitr::include_graphics("HeatShock/p_HSM_M_Vieira.pdf")
 knitr::include_graphics("HeatShock/p_HSM_M_pop_Vieira.pdf")
 ```
 
-### Survival Analyses
+#### Survival Analyses
 
-#### Parsch Lab
+##### Parsch Lab
 
 _Females_
 ```{r}
@@ -2975,7 +2756,7 @@ coxme_anova$HSM_M_coxme_Parsch
 knitr::include_graphics("SurvivalAnalyses/HeatShock/p_HSM_M_Parsch_survival_curves.pdf")
 ```
 
-#### Vieira Lab
+##### Vieira Lab
 
 _Females_
 ```{r}
@@ -2995,9 +2776,9 @@ coxme_anova$HSM_M_coxme_Vieira
 knitr::include_graphics("SurvivalAnalyses/HeatShock/p_HSM_M_Vieira_survival_curves.pdf")
 ```
 
-### Linear Models / Residuals
+#### Linear Models / Residuals
 
-#### Parsch Lab
+##### Parsch Lab
 
 _Females_
 
@@ -3015,7 +2796,7 @@ knitr::include_graphics("LinearModelsPop/HeatShock/by_lab_models_residuals/HSM_M
 knitr::include_graphics("LinearModelsPop/HeatShock/by_lab_models_residuals/HSM_M_Parsch_lmer_pop_qq_plot_residuals.png")
 ```
 
-#### Vieria Lab
+##### Vieria Lab
 
 _Females_
 
@@ -3033,7 +2814,7 @@ knitr::include_graphics("LinearModelsPop/HeatShock/by_lab_models_residuals/HSM_M
 knitr::include_graphics("LinearModelsPop/HeatShock/by_lab_models_residuals/HSM_M_Vieira_lmer_pop_qq_plot_residuals.png")
 ```
 
-## Diapause
+### Diapause
 
 ```{r include=FALSE}
 dir.create(file.path("Diapause"), showWarnings = FALSE)
@@ -3041,7 +2822,7 @@ dir.create(file.path("Diapause"), showWarnings = FALSE)
 
 _For a detailed description of tables, plots, linear models and outputs, please refer [here](#anchor) _
 
-### Contributors
+#### Contributors
 
 Bergland Lab: Liam Miller, Alan Bergland, Priscilla Erickson
 
@@ -3049,13 +2830,13 @@ Flatt Lab: Esra Durmaz, Envel Kerdaffrec, Thibault Schowing, Virginie Thieu, Mar
 
 Schlotterer Lab: Manolis Lyrakis, Christian Schlötterer
 
-### Data Reformatting
+#### Data Reformatting
 
 ```{r}
 str(droseu$dia)
 ```
 
-### Descriptive Statistics
+#### Descriptive Statistics
 
 Descriptive statistics at the population level, with batch information:
 ```{r echo=FALSE}
@@ -3067,16 +2848,7 @@ Descriptive statistics at the population level, without batch information:
 DT::datatable(table_pop_wobatch$Dia_Prop_Max_Stage9, options = list(pageLength = 10)) %>% formatRound(4:11, 3)
 ```
 
-### Plots and Linear Models by Lab
-
-#### Overview
-
-We observe a significant effect of population on diapause status measured in two of the three labs. Significant among-population effects were observed in the Bergland lab (Chisq=17, DF=8, p=0.02) and the Schlotterer lab (Chisq=22, DF=8, p=0.004). There was no among-population effect observed in the Flatt lab (Chisq=5.3, DF=8, p=0.71). We do not observe any significant correlation between population model estimates and latitude, altitude, or longitude of any of the individual labs.
-
-We observed significant positive correlation between population model estimates between the Bergland lab and the Schlotterer lab (Pearson correlation coefficient = 0.866, p=0.0025). We observed a marginal positive correlation between population model estimates between the Flatt lab and the Schlotterer lab (Pearson correlation coefficient = 0.65, p=0.057). We do not observe a significant correlation between population model estimates between the Flatt lab and the Bergland lab (Pearson correlation coefficient = 0.421, p=0.26).
-
-We observe a significant positive correlation between isofemale line model estimates between the Bergland lab and the Schlotter lab (Pearson correlation coefficient = 0.34, p=1.5e-5). We observe a significant positive correlation between isofemale line model estimates between the Flatt lab and the Schlotterer lab (Pearson correlation coefficient = 0.27, p=0.00047). We observe a significant positive correlation between the isofemale line estimates between the Flatt lab and the Bergland lab (Pearson correlation coefficient = 0.31, p=0.00012).
-
+#### Plots and Linear Models by Lab
 
 ```{r}
 min_Dia <- min(droseu$dia$Prop_Max_Stage9)
@@ -3087,7 +2859,7 @@ max_Dia <- max(droseu$dia$Prop_Max_Stage9)
 knitr::include_graphics("Diapause/p_Dia.pdf")
 ```
 
-#### Bergland Lab
+##### Bergland Lab
 ```{r}
 lmers_anova$Dia_Bergland_lmer_pop
 ```
@@ -3101,7 +2873,7 @@ knitr::include_graphics("Diapause/p_Dia_Pop_Bergland_wbatch.pdf")
 knitr::include_graphics("Diapause/p_Dia_Pop_Bergland_wobatch.pdf")
 ```
 
-#### Flatt Lab
+##### Flatt Lab
 
 ```{r}
 lmers_anova$Dia_Flatt_lm_pop
@@ -3116,7 +2888,7 @@ knitr::include_graphics("Diapause/p_Dia_Pop_Flatt_wbatch.pdf")
 knitr::include_graphics("Diapause/p_Dia_Pop_Flatt_wobatch.pdf")
 ```
 
-#### Schlotterer Lab
+##### Schlotterer Lab
 
 ```{r}
 lmers_anova$Dia_Schlotterer_lmer_pop
@@ -3131,9 +2903,9 @@ knitr::include_graphics("Diapause/p_Dia_Pop_Schlotterer_wbatch.pdf")
 knitr::include_graphics("Diapause/p_Dia_Pop_Schlotterer_wobatch.pdf")
 ```
 
-### Linear Models / Residuals
+#### Linear Models / Residuals
 
-#### Bergland Lab
+##### Bergland Lab
 
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("LinearModelsPop/Diapause/by_lab_models_residuals/Dia_Bergland_lmer_pop_hist_residuals.png")
@@ -3141,7 +2913,7 @@ knitr::include_graphics("LinearModelsPop/Diapause/by_lab_models_residuals/Dia_Be
 knitr::include_graphics("LinearModelsPop/Diapause/by_lab_models_residuals/Dia_Bergland_lmer_pop_qq_plot_residuals.png")
 ```
 
-#### Flatt Lab
+##### Flatt Lab
 
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("LinearModelsPop/Diapause/by_lab_models_residuals/Dia_Flatt_lm_pop_hist_residuals.png")
@@ -3149,7 +2921,7 @@ knitr::include_graphics("LinearModelsPop/Diapause/by_lab_models_residuals/Dia_Fl
 knitr::include_graphics("LinearModelsPop/Diapause/by_lab_models_residuals/Dia_Flatt_lm_pop_qq_plot_residuals.png")
 ```
 
-#### Schlotterer Lab
+##### Schlotterer Lab
 
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("LinearModelsPop/Diapause/by_lab_models_residuals/Dia_Schlotterer_lmer_pop_hist_residuals.png")
@@ -3158,7 +2930,7 @@ knitr::include_graphics("LinearModelsPop/Diapause/by_lab_models_residuals/Dia_Sc
 ```
 
 
-## Circadian eclosion timing
+### Circadian eclosion timing
 
 ```{r include=FALSE}
 dir.create(file.path("CircadianEclosion"), showWarnings = FALSE)
@@ -3170,19 +2942,19 @@ _For a detailed description of tables, plots, linear models and outputs, please 
 #Note that the trait has been phenotyped as mixed sex.
 ```
 
-### Contributors
+#### Contributors
 
 Wegener Lab: Susanne Klühspies, Christian Wegener
 
-### Data Reformatting
+#### Data Reformatting
 
 ```{r}
 str(droseu$cets)
 ```
 
-### Descriptive Statistics
+#### Descriptive Statistics
 
-#### 18_LD_DD
+##### 18_LD_DD
 
 Descriptive statistics for ZT_hours_MESA:
 ```{r echo=FALSE}
@@ -3214,7 +2986,7 @@ Descriptive statistics for Rhythmicity_JTK_p_BH_corrected:
 DT::datatable(table_pop_wbatch$CETS_18_LD_DD_Rhythmicity_JTK_p_BH_corrected, options = list(pageLength = 10)) %>% formatRound(5:5, 3)
 ```
 
-#### 18_LD_LD
+##### 18_LD_LD
 
 Descriptive statistics for ZT_hours_MESA:
 ```{r echo=FALSE}
@@ -3246,7 +3018,7 @@ Descriptive statistics for Rhythmicity_JTK_p_BH_corrected:
 DT::datatable(table_pop_wbatch$CETS_18_LD_LD_Rhythmicity_JTK_p_BH_corrected, options = list(pageLength = 10)) %>% formatRound(5:5, 3)
 ```
 
-#### 29_LD_DD
+##### 29_LD_DD
 
 Descriptive statistics for ZT_hours_MESA:
 ```{r echo=FALSE}
@@ -3278,7 +3050,7 @@ Descriptive statistics for Rhythmicity_JTK_p_BH_corrected:
 DT::datatable(table_pop_wbatch$CETS_29_LD_DD_Rhythmicity_JTK_p_BH_corrected, options = list(pageLength = 10)) %>% formatRound(5:5, 3)
 ```
 
-#### 29_LD_LD
+##### 29_LD_LD
 
 Descriptive statistics for ZT_hours_MESA:
 ```{r echo=FALSE}
@@ -3310,16 +3082,9 @@ Descriptive statistics for Rhythmicity_JTK_p_BH_corrected:
 DT::datatable(table_pop_wbatch$CETS_29_LD_LD_Rhythmicity_JTK_p_BH_corrected, options = list(pageLength = 10)) %>% formatRound(5:5, 3)
 ```
 
-### Plots and Linear Models by Lab
+#### Plots and Linear Models by Lab
 
-#### Overview
-
-Eclosion was rhythmic for all populations under LD14:10 and DD conditions at 18° or 29°C (Lomb-Scargle periodogram analysis, JTK-Cycle), with some differences in the period (MESA), rhythmicity power (Lomb-Scargle periodogram analysis, JTK-Cycle) and eclosion peak phase (MESA). These differences were not statistically analysed as rhythmic eclosion can only be assessed on the population level and requires high number of flies (n=378-3506 in our assays), and N essentially equals 1 for every condition*population. The observed differences were uncorrelated with latitude or longitude (Spearman correlation analysis); geographical patterns in the time of peak eclosion, rhythmicity or period were not found.
-These results speaks against a geographic adaption of the time of eclosion or eclosion rhythmicity in Drosophila melanogaster, in contrast to systematic North to South variations observed in other European Drosophila species (D. subobscura: Lankinen P (1993) North South Differences in Circadian Eclosion Rhythm in European Populations of Drosophila-Subobscura. Heredity 71:210–218. https://doi.org/10.1038/hdy.1993.126. D. littoralis: Lankinen P (1986) Geographical variation in circadian eclosion rhythm and photoperiodic adult diapause inDrosophila littoralis. J Comp Physiol 159:123–142. https://doi.org/10.1007/BF00612503).
-Table CET: Phase of eclosion peak (MESA), period (MESA) and rhythmicity (Lomb-Scargle periodogram analysis amplitude) for the outcrossed populations (N=1, n=(1)2-3(4), 378-3506 eclosed flies, total 39.733 flies). Animals were entrained at LD 14:10 at the indicated temperature, then glued and assayed either at LD14:10 or in DD.
-
-
-#### Wegener Lab
+##### Wegener Lab
 
 From Chris:
 
@@ -3349,7 +3114,7 @@ knitr::include_graphics("CircadianEclosion/FromEran/eclosion_data_Christian_Page
 knitr::include_graphics("CircadianEclosion/FromEran/eclosion_data_Christian_Page_2.png")
 ```
 
-## Locomotor activity
+### Locomotor activity
 
 ```{r include=FALSE}
 dir.create(file.path("Locomotor"), showWarnings = FALSE)
@@ -3361,18 +3126,18 @@ _For a detailed description of tables, plots, linear models and outputs, please 
 #Note that the trait has been phenotyped only in males.
 ```
 
-### Contributors
+#### Contributors
 
 Tauber Lab: Bettina Fishman, Eran Tauber
 
-### Data Reformatting
+#### Data Reformatting
 
 ```{r}
 str(droseu$la)
 ```
-### Descriptive Statistics
+#### Descriptive Statistics
 
-#### LA - Activity
+##### LA - Activity
 
 Descriptive statistics at the line level, with batch information:
 ```{r, echo=FALSE}
@@ -3394,7 +3159,7 @@ Descriptive statistics at the population level, without batch information:
 DT::datatable(table_pop_wbatch$LA_Activity, options = list(pageLength = 10)) %>% formatRound(4:11, 3)
 ```
 
-#### LA - ND ratio
+##### LA - ND ratio
 
 Descriptive statistics at the line level, with batch information:
 ```{r, echo=FALSE}
@@ -3416,7 +3181,7 @@ Descriptive statistics at the population level, without batch information:
 DT::datatable(table_pop_wobatch$LA_ND, options = list(pageLength = 10)) %>% formatRound(4:11, 3)
 ```
 
-#### LA - Circadian Phase
+##### LA - Circadian Phase
 
 Descriptive statistics at the line level, with batch information:
 ```{r, echo=FALSE}
@@ -3438,13 +3203,9 @@ Descriptive statistics at the population level, without batch information:
 DT::datatable(table_pop_wobatch$LA_CircPhase, options = list(pageLength = 10)) %>% formatRound(4:11, 3)
 ```
 
-### Plots and Linear Models by Lab
+#### Plots and Linear Models by Lab
 
-#### Overview
-
-The free-running period (the periodicity in DD) differed significantly among populations (mixed linear model, F8,83 = 2.29, p = 0.029), median ranging from 23.66 (GI) to 24.44 (AK; Figure X). The acrophase (timing of peak activity under DD) also differed significantly among populations (Mardia-Watson-Wheeler test: W =51.36, p =1.39E-5). About 13 hr differed between the acrophase of the earliest population (AK) and that of the latest (MA, Figure X). Under LD conditions, we detected a substantial difference in daily amount of activity exhibited by each population (Fig. X). Populations UM and MU showing the lowest activity, while MA and RE being most active. The difference was highly significant (mixed linear model, F8,83 = 4.59, p < 0.0001). The nocturnal-diurnal ratio (measuring diurnal preference) did not differ significantly among populations.
-
-#### Tauber Lab
+##### Tauber Lab
 
 _ND_
 ```{r}
@@ -3501,7 +3262,7 @@ Oriana 3 (Stacked circular).
 knitr::include_graphics("Locomotor/FromEran/pheno2022_Page_5.png")
 ```
 
-### Linear Models / Residuals
+#### Linear Models / Residuals
 
 
 _Activity_
@@ -3534,7 +3295,7 @@ knitr::include_graphics("LinearModelsPop/Locomotor/by_lab_models_residuals/LA_Ci
 knitr::include_graphics("LinearModelsPop/Locomotor/by_lab_models_residuals/LA_CircPhase_Tauber_lmer_pop_qq_plot_residuals.png")
 ```
 
-## Starvation resistance
+### Starvation resistance
 
 ```{r include=FALSE}
 dir.create(file.path("Starvation"), showWarnings = FALSE)
@@ -3542,7 +3303,7 @@ dir.create(file.path("Starvation"), showWarnings = FALSE)
 
 _For a detailed description of tables, plots, linear models and outputs, please refer [here](#anchor) _
 
-### Contributors
+#### Contributors
 
 Gonzalez Lab: Llewellyn Green, Josefa Gonzalez, Miriam Merenciano
 
@@ -3551,13 +3312,13 @@ Onder Lab: Seda Coskun, Ekin Demir, Senel Selin Senkal, Cansu Aksoy
 Pasyukova Lab: Alexander Symonenko, Natalia Roshina, Mikhail Trostnokov, Ekaterina Veselkina, Evgenia Tsybul'ko, Olga Rybina, Elena Pasyukova
 
 
-### Data Reformatting
+#### Data Reformatting
 
 ```{r}
 str(droseu$sr)
 ```
 
-### Descriptive Statistics
+#### Descriptive Statistics
 
 Descriptive statistics at the line level, with batch information:
 ```{r, echo=FALSE}
@@ -3579,13 +3340,7 @@ Descriptive statistics at the population level, without batch information:
 DT::datatable(table_pop_wobatch$SR, options = list(pageLength = 10)) %>% formatRound(4:11, 3)
 ```
 
-### Plots and Linear Models by Lab
-
-#### Overview
-
-Correlations among labs ranging from 0.82 to 0.94 in males and 0.69 to 0.92 in females, where correlations among labs were higher for males. Significant differences among populations in female and male starvation resistance are consistent among labs (Table SR). Pairwise comparisons show that the Yesiloz population significantly differs from Munich and Valday in both sexes and in all labs.
-There was no evidence for any correlation between starvation resistance and altitude, latitude and longitude.
-
+#### Plots and Linear Models by Lab
 
 ```{r}
 min_SR <- min(droseu$sr$AgeAtDeath_hours)
@@ -3597,7 +3352,7 @@ knitr::include_graphics("Starvation/p_SR_F.pdf")
 knitr::include_graphics("Starvation/p_SR_M.pdf")
 ```
 
-#### Gonzalez Lab
+##### Gonzalez Lab
 
 ```{r}
 lmers_anova$SR_F_Gonzalez_lmer_pop
@@ -3625,7 +3380,7 @@ knitr::include_graphics("Starvation/p_SR_M_Gonzalez.pdf")
 knitr::include_graphics("Starvation/p_SR_M_pop_Gonzalez.pdf")
 ```
 
-#### Onder Lab
+##### Onder Lab
 
 ```{r}
 lmers_anova$SR_F_Onder_lmer_pop
@@ -3653,7 +3408,7 @@ knitr::include_graphics("Starvation/p_SR_M_Onder.pdf")
 knitr::include_graphics("Starvation/p_SR_M_pop_Onder.pdf")
 ```
 
-#### Pasyukova Lab
+##### Pasyukova Lab
 
 ```{r}
 lmers_anova$SR_F_Pasyukova_lmer_pop
@@ -3681,9 +3436,9 @@ knitr::include_graphics("Starvation/p_SR_M_Pasyukova.pdf")
 knitr::include_graphics("Starvation/p_SR_M_pop_Pasyukova.pdf")
 ```
 
-### Survival Analyses
+#### Survival Analyses
 
-#### Gonzalez Lab
+##### Gonzalez Lab
 
 _Females_
 ```{r}
@@ -3703,7 +3458,7 @@ coxme_anova$SR_M_Gonzalez_coxme
 knitr::include_graphics("SurvivalAnalyses/Starvation/p_SR_M_Gonzalez_survival_curves.pdf")
 ```
 
-#### Onder Lab
+##### Onder Lab
 
 _Females_
 ```{r}
@@ -3724,7 +3479,7 @@ coxme_anova$SR_M_Onder_coxme
 knitr::include_graphics("SurvivalAnalyses/Starvation/p_SR_M_Onder_survival_curves.pdf")
 ```
 
-#### Pasyukova Lab
+##### Pasyukova Lab
 
 _Females_
 ```{r}
@@ -3744,11 +3499,11 @@ coxme_anova$SR_M_Pasyukova_coxme
 knitr::include_graphics("SurvivalAnalyses/Starvation/p_SR_M_Pasyukova_survival_curves.pdf")
 ```
 
-#### coxme
+##### coxme
 
-### Linear Models / Residuals
+#### Linear Models / Residuals
 
-#### Gonzalez Lab
+##### Gonzalez Lab
 
 _Females_
 
@@ -3766,7 +3521,7 @@ knitr::include_graphics("LinearModelsPop/Starvation/by_lab_models_residuals/SR_M
 knitr::include_graphics("LinearModelsPop/Starvation/by_lab_models_residuals/SR_M_Gonzalez_lmer_pop_qq_plot_residuals.png")
 ```
 
-#### Onder Lab
+##### Onder Lab
 
 _Females_
 
@@ -3784,7 +3539,7 @@ knitr::include_graphics("LinearModelsPop/Starvation/by_lab_models_residuals/SR_M
 knitr::include_graphics("LinearModelsPop/Starvation/by_lab_models_residuals/SR_M_Onder_lmer_pop_qq_plot_residuals.png")
 ```
 
-#### Pasyukova Lab
+##### Pasyukova Lab
 
 _Females_
 
@@ -3802,7 +3557,7 @@ knitr::include_graphics("LinearModelsPop/Starvation/by_lab_models_residuals/SR_M
 knitr::include_graphics("LinearModelsPop/Starvation/by_lab_models_residuals/SR_M_Pasyukova_lmer_pop_qq_plot_residuals.png")
 ```
 
-## Pigmentation
+### Pigmentation
 
 ```{r include=FALSE}
 dir.create(file.path("Pigmentation"), showWarnings = FALSE)
@@ -3810,7 +3565,7 @@ dir.create(file.path("Pigmentation"), showWarnings = FALSE)
 
 _For a detailed description of tables, plots, linear models and outputs, please refer [here](#anchor) _
 
-### Contributors
+#### Contributors
 
 Abbott Lab: Jessica Abbott, Qinyang Li, Shahzad Khan
 
@@ -3818,15 +3573,15 @@ Gibert Lab:Cristina Vieira, Laurence Mouton, Natacha Kremer, Sonia Martinez, Cam
 
 Schmidt Lab: Amy Goldfischer, Paul Schmidt
 
-### Data Reformatting
+#### Data Reformatting
 
 ```{r}
 str(droseu$pgm)
 ```
 
-### Descriptive Statistics
+#### Descriptive Statistics
 
-### _T4_
+#### _T4_
 Descriptive statistics at the line level, with batch information:
 ```{r, echo=FALSE}
 DT::datatable(table_line_wbatch$Pgm_PercT4, options = list(pageLength = 10)) %>% formatRound(6:13, 3)
@@ -3847,7 +3602,7 @@ Descriptive statistics at the population level, without batch information:
 DT::datatable(table_pop_wobatch$Pgm_PercT4, options = list(pageLength = 10))%>% formatRound(4:11, 3)
 ```
 
-### _T5_
+#### _T5_
 
 Descriptive statistics at the line level, with batch information:
 ```{r, echo=FALSE}
@@ -3869,7 +3624,7 @@ Descriptive statistics at the population level, without batch information:
 DT::datatable(table_pop_wobatch$Pgm_PercT5, options = list(pageLength = 10))%>% formatRound(4:11, 3)
 ```
 
-### _T6_
+#### _T6_
 
 Descriptive statistics at the line level, with batch information:
 ```{r, echo=FALSE}
@@ -3891,7 +3646,7 @@ Descriptive statistics at the population level, without batch information:
 DT::datatable(table_pop_wobatch$Pgm_PercT6, options = list(pageLength = 10))%>% formatRound(4:11, 3)
 ```
 
-### _Total_
+#### _Total_
 
 Descriptive statistics at the line level, with batch information:
 
@@ -3914,20 +3669,9 @@ Descriptive statistics at the population level, without batch information:
 DT::datatable(table_pop_wobatch$Pgm_TotalPerc, options = list(pageLength = 10))%>% formatRound(4:11, 3)
 ```
 
-#### Overview
+#### Plots and Linear Models by Lab
 
-Correlations among labs were higher and less variable for the more posterior parts of the abdomen compared to the more anterior parts of the abdomen (ranging from -0.13 to 0.69 for tergite 4, 0.33 to 0.62 for tergite 5, and 0.44 to 0.62 for tergite 6). Correlations among labs were also generally higher for total pigmentation area compared to the individual tergites (ranging from 0.41 to 0.72).
-
-There was very limited evidence for any correlation between pigmentation and the spatial variables altitude, latitude, and longitude. There was a weak but significant positive relationship between black area on tergite 5 and altitude in the Gibert dataset (F1, 6.310 = 9.054, p = 0.0223), as well as a weak but significant positive relationship between black area on tergite 4 and longitude in the Gibert data (F1, 7.923 = 8.5328, p = 0.01946). However given the weak nature of these relationships and the fact that they were only present in one dataset, they do not seem to represent a robust pattern.
-
-There was somewhat better evidence of significant differences among populations in pigmentation, although the magnitude and direction was not completely consistent between datasets (see table XX). When analysed using a meta-analysis approach, there was no evidence of any consistent significant differences between populations.
-
-Collectively, these results suggest that although pigmentation is moderately repeatable across datasets, there is considerable individual heterogeneity within isofemale lines which make possible differences between populations difficult to detect.
-
-
-### Plots and Linear Models by Lab
-
-#### Abbott Lab
+##### Abbott Lab
 
 _PercT4_
 
@@ -3989,7 +3733,7 @@ knitr::include_graphics("Pigmentation/p_Pgm_Abbott_TotalPerc.pdf")
 knitr::include_graphics("Pigmentation/p_Pgm_pop_Abbott_TotalPerc.pdf")
 ```
 
-#### Gibert Lab
+##### Gibert Lab
 
 _PercT4_
 
@@ -4051,7 +3795,7 @@ knitr::include_graphics("Pigmentation/p_Pgm_Gibert_TotalPerc.pdf")
 knitr::include_graphics("Pigmentation/p_Pgm_pop_Gibert_TotalPerc.pdf")
 ```
 
-#### Schmidt Lab
+##### Schmidt Lab
 
 _PercT4_
 
@@ -4111,9 +3855,9 @@ knitr::include_graphics("Pigmentation/p_Pgm_Schmidt_TotalPerc.pdf")
 knitr::include_graphics("Pigmentation/p_Pgm_pop_Schmidt_TotalPerc.pdf")
 ```
 
-### Linear Models / Residuals
+#### Linear Models / Residuals
 
-#### Abbott Lab
+##### Abbott Lab
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("LinearModelsPop/Pigmentation/by_lab_models_residuals/Pgm_T4_Abbott_lmer_pop_hist_residuals.png")
 
@@ -4138,7 +3882,7 @@ knitr::include_graphics("LinearModelsPop/Pigmentation/by_lab_models_residuals/Pg
 knitr::include_graphics("LinearModelsPop/Pigmentation/by_lab_models_residuals/Pgm_Total_Abbott_lmer_pop_qq_plot_residuals.png")
 ```
 
-#### Gibert Lab
+##### Gibert Lab
 
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("LinearModelsPop/Pigmentation/by_lab_models_residuals/Pgm_T4_Gibert_lmer_pop_hist_residuals.png")
@@ -4164,7 +3908,7 @@ knitr::include_graphics("LinearModelsPop/Pigmentation/by_lab_models_residuals/Pg
 knitr::include_graphics("LinearModelsPop/Pigmentation/by_lab_models_residuals/Pgm_Total_Gibert_lmer_pop_qq_plot_residuals.png")
 ```
 
-#### Schmidt Lab
+##### Schmidt Lab
 
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("LinearModelsPop/Pigmentation/by_lab_models_residuals/Pgm_T4_Schmidt_lmer_pop_hist_residuals.png")
@@ -4191,7 +3935,7 @@ knitr::include_graphics("LinearModelsPop/Pigmentation/by_lab_models_residuals/Pg
 ```
 
 
-## Parasitoid resistance
+### Parasitoid resistance
 
 ```{r include=FALSE}
 dir.create(file.path("ParasitoidResistance"), showWarnings = FALSE)
@@ -4199,245 +3943,22 @@ dir.create(file.path("ParasitoidResistance"), showWarnings = FALSE)
 
 _For a detailed description of tables, plots, linear models and outputs, please refer [here](#anchor) _
 
-### Contributors
+#### Contributors
 
 Hrcek Lab: Vincent Montbel, Somayeh Rasouli Dogaheh, Jan Hrcek
 
-# Results: Meta-Analyses
+#### Generalized Dissimilarity Model (GDM) _to_be_fixed_
 
-```{r echo=FALSE}
-# Full .pdf can be downloaded at /MetaAnalyses directory.
-knitr::include_graphics("MetaAnalyses/README_META.pdf")
-```
+We used the WorldClim database (www.worldclim.org) which includes 19 bioclimatic variables, monthly precipitation, minimum, maximum and average monthly temperature, wind, vapor and solar radiation. Those variables that are identified as important in the model are shown in table 1 (_Refer to Results V_).
 
+The generalized dissimilarity model here after GDM is a matrix regression technique (Ferrier et al., 2007) to analyze and predict primarily beta diversity patterns. However, it was shown that GDM could be used to explore relationship between morphological traits variation and environmental variation (Thomassen et al., 2010; Baldassarre et al., 2013).
 
-The aim of the meta analysis approach is to combine effects from different studies to identify an overall effect. Here, for a given trait, we consider each lab as being a study in which the effect of _Population_ has been assessed via a linear mixed-effect model. However, as we are not directly interested in finding overall effects and because _Population_ has 9 levels, we perform a subgroup meta analysis that allows to test for differences between populations (each population being considered as a subgroup). In a way, this is conceptually similar to performing a regression analysis to test for the effect of _Population_ on a given trait.
+In GDM we use matrix correlation among biotic and environmental dissimilarity plus geographic distance between sample sites to predict biotic dissimilarity across landscape. One of the advantages of GDM is that it can fit nonlinear relationship of variables by the help of I-spline function. GDM consists of two steps; in the first step using all pairwise combinations of sampling sites, it fits dissimilarities in predictor variables (environmental variables) to dissimilarities in response variables (phenotypic variables). In this step all environmental predictors with sum of I-spline coefficients of zero were removed then the remaining environmental data were permuted and introduced in the random order to the model. GDM were fitted with these permuted data, and the result of deviance explained by this model compared with deviance explained by GDM fitted to unpermuted data. Predictors importance is calculated based on the difference in deviance explained between permuted model and unpermuted model. In this step backward elimination could be used so that less important predictors were dropped from the model (Ferrier et al., 2007). In the final step, using the result of above procedures spatial prediction of response variables pattern across the entire range of study areas were made.
 
-The input data for the subgroup meta analysis consists of the estimates and standard errors obtained for _Population_ in the trait- and lab-specific linear mixed-effect models. Estimates are used as populations effects, and standard errors of those estimates are used as weights --- to give more or less weight to labs depending on sample size and replication level.
+For each response variable we ran four different models. Ful model that includes environmental and geographic distance as predictor variables. To examine possible correlation between geographic distance and environmental dissimilarity, we ran two additional models each selecting only one of them (geographic distance and environmental dissimilarity) as predator variables. We also ran a random model to compare with fitted models to make sure null hypothesis were not rejected randomly. To run random model, we produced random values of environmental variables for each location and as we have few locations, we produced 100000 random models. Then we used mean deviance explained by these random models and compared them with full, environment and geographic distance models. If the difference between deviance explained by random model were lower than any other three models, we consider the relationship of response variables with predictor variables not random (Thomassen et al., 2010; Baldassarre et al., 2013).
 
-This approach can be used to assess differences between populations and generate compound population estimates as input data for downstream analyses. Similarly, this approach can be applied to line random coefficents extracted from the mixed-effect models (in which _Line_ is a random-effect variable) to generate compound line estimates --- note that we are not interested in finding differences between lines here.
 
-## Population differentiation and compound estimates
-
-### Input data
-
-Linear models population estimates are located in the LinearModelsPop directory and trait sub directories. Files with identical names but different extensions contain the same data, they are just in different formats to simplify data handling and browsing.
-
-```{r echo=FALSE}
-dir("../..", recursive = T)[grep("pop_estimates", dir("../..", recursive = T))]
-```
-Population estimates are available as a list (File 1), in which each element contains estimates for a given trait, or as a table (collapsed list, File 2 and 3). These files contain the population estimates for all the traits.
-
-Alternatively, population estimates are available for each trait separately, for example for Viability:
-
-```{r echo=FALSE}
-f <- dir("../..", recursive = T)[grep("pop_model_estimates", dir("../..", recursive = T))]
-f[grep("LinearModelsPop/Viability/", f)]
-```
-
-
-
-```{r load data table}
-# read in models estimates for a specific trait, Viability, as a table
-estimates_via <- readRDS("LinearModelsPop/Viability/Via_lmers_pop_model_estimates.rds")
-print(estimates_via)
-```
-
-
-
-## Meta analyses model
-
-We run meta analyses trait- and sex-wise using a random-effect model since we assume that effects measured in each lab do not only deviate because of sampling error alone but also because of other sources of variance --- such as lab effect.
-
-```{r wa meta libs}
-# packages and function
-library(meta)
-library(metafor)
-source("Code/functions.R") # get makeEffects
-```
-
-```{r wa meta, echo=TRUE}
-# read in models estimates for all models as a list
-estimates_list <- readRDS("LinearModelsPop/all_models_pop_estimates_list.rds")
-
-# meta analysis
-meta_via <- metagen(data = makeEffects(estimates_list$via_lmer),
-                    TE = Y,
-                    seTE = SE,
-                    studlab = Study,
-                    fixed = FALSE,
-                    random = TRUE,
-                    method.tau = "REML")
-```
-
-```{r wa subgroup, eval=FALSE, include=FALSE}
-# subgroup meta analysis
-meta_via_sub <- update.meta(meta_via, subgroup = Population, tau.common = FALSE)
-```
-
-As discussed in early September 2022 at the "analyses task force" meeting, partial data (incomple data sets) from Posnien lab has been removed prior to running analyses for Wing Area and Thorax Length.
-
-Importantly meta analyses have been run for all the traits, including those that have been measured in single labs (Locomotor Activity and Egg-to-pupa Development Time) and thus for which there is no data to combine. Obviously, results from these analyses are not relevant but it allows us to keep those traits in the loop and to streamline the generation of compound estimates --- they will be equal to linear model estimates in the case of the aforementioned traits. The same applies to Thorax Length males, a trait for which some populations have been measured only in one lab. _Population_ subgroup meta analyses have been run for the following 33 traits / sub traits / sex combinations (only 26 of them are actually relevant):
-
-```{r echo=FALSE}
-ce <- readRDS("MetaAnalyses/all_models_pop_meta_compound_estimates_list.rds")
-print(gsub("MetaAnalyses/_pop_meta_compound_estimates", "", names(ce) ))
-```
-Also note that glmer estimates (not lmer) were used as input for the Diapause meta analysis.
-
-
-## Meta analyses output
-
-All meta analyses related outputs are saved in the MetaAnalyses directory and trait sub directories. For example all the _Population_ subgroup analysis files for Viability are listed below:
-
-```{r echo=FALSE}
-f <- dir("../..", recursive = T)[grep("pop_meta", dir("../..", recursive = T))]
-rev(f[grep("MetaAnalyses/Viability/", f)])
-#rev(dir("Viability/")[grep("pop_meta", dir("Viability/"))])
-```
-File naming is consistent between traits. The _trait_ or _sub trait_ abbrevation (Via for Viability, for other traits such as Wing Area Left it will be WA_L) is followed by _sex_ (NA because not available for Viability, otherwise F or M, and sometimes B when measurements were done on both sexes at the same time) and by the type of _models_ the input data comes from (lmers, can also be glmers). Files with identical names but with different extensions contain the same data but are saved in different formats to facilitate both data handling and browsing. Raw results of the subgroup analysis are stored in Files 1 and 2, which are then used to extract population summary effects (compound estimates) and analysis statistics (Files 5 and 6). Files 3 and 4 are graphic representations of the subgroup analysis results.
-
-
-### Model results
-
-Below are shown the raw results of the Viability meta analysis (files 1 and 2):
-```{r eval=FALSE, include=FALSE}
-# meta results for Viability
-meta_via <- readRDS("MetaAnalyses/Viability/Via_NA_lmers_pop_meta.rds")
-print(meta_via)
-```
-
-We are mainly interested in the second part of the meta analysis output, starting from the "Results for subgroups (random effects model)" table. For each population one can extract a summary effect (compound estimate) with its 95% confidence interval as well as the number of labs that have contributed to phenoytyping (k). Differences between populations can be assessed with the _Q_ statistic shown in the "Test for subgroup differences (random effects model)" part of the model output. In short, the _Q_ statistic quantifies the heterogeneity between the different subgroups, the higher the _Q_ value the greater the heterogeneity. Under the null hypothesis of no differences between subgroups, _Q_ follows a central $\chi^2$ distribution with degrees of freedom equal to k subgroups - 1, so one can report a _p_ value for any observed value of _Q_. In the case of Viability, _Q_ = 100.09 and is statistically significant (_p_ < 0.0001), meaning that _Population_ does have a significant effect on Viability.
-
-### Compound population estimates
-
-Compound population estimates (population summary effects) and their 95% confidence intervals were extracted from the meta analyses results and stored in Files 5 and 6. Below is an example for Viability:
-
-```{r load comp pop via}
-# read in population compound estimates
-comp_pop_via <- readRDS("MetaAnalyses/Viability/Via_NA_lmers_pop_meta_compound_estimates.rds")
-print(select(comp_pop_via, -c(Models, Sex, SE, N_lab_av))) # for clarity
-```
-
-
-### Visualisation of the meta analyses results
-
-Results can be represented with a simplified forest plot (Files 3 and 4) where population summary effects (compound estimates) and populations are represented on x and y axis, respectively (Figure \@ref(fig:meta-plot-example)).
-
-
-```{r meta-plot-example, echo=FALSE, out.width="50%", fig.cap="Subgroup meta analysis for Viability. N indicates the average number of labs that have phenotyped the different populations.", fig.align = "center"}
-knitr::include_graphics("MetaAnalyses/Viability/Via_NA_lmers_pop_meta_summary_effect.png")
-```
-
-
-### Compiled data for all traits
-
-Compiled population compound estimates, meta analyses statistics and composite figures for all traits are available in the MetaAnalyses directory:
-
-```{r echo=FALSE}
-dir("../..", recursive = T)[grep("all_models_pop_meta", dir("../..", recursive = T))]
-
-#dir()[grep("pop", dir())]
-```
-
-All meta analyses main statistics are compiled in a single table (Files 4 and 6). _P_ values were corrected for multiple testing using Bonferroni and Benjamini Hochberg procedures (For Bonferroni n= 26 which corresponds to the number of "relevant" meta analyses that have been performed, see above). As mentioned earlier in the document, statistics for Locomotor Activity, Egg-to-pupa Development Time and Thorax Length in males should not be considered and have been filtered out from this table, leaving results for only 26 traits.
-
-```{r}
-# meta compiled statistics
-meta_stats <- readRDS("MetaAnalyses/all_models_pop_meta_pvalues.rds")
-print(meta_stats %>% mutate_at(vars(contains(c("P", "Q"))), round, 3))
-```
-
-Statistics such as _Q_ and _p_ values for all traits can be visualised on a single graph (File 5 and Figure \@ref(fig:meta-plot-pvalues)).
-
-```{r meta-plot-pvalues, echo=FALSE, out.width="50%", fig.cap="All meta analyses Q statistics and p values.", fig.align = "center"}
-knitr::include_graphics("MetaAnalyses/all_models_pop_meta_pvalues.png")
-```
-
-
-Compiled compound population estimates for all traits are available both as a list (File 1) or a table (collapsed list, Files 2 and 3).
-```{r}
-# population compoud estimates as list
-comp_pop_list <- readRDS("MetaAnalyses/all_models_pop_meta_compound_estimates_list.rds")
-lapply(comp_pop_list, function(x) select(x, -c(Models, SE, N_lab_av))) %>% head(4)
-```
-
-
-Finally population summary effects for all traits can be visualized with a composite figure of all the meta analyses results (Files 7 and 8, Figure \@ref(fig:meta-fig-main)).
-
-
-```{r meta-fig-main, echo=FALSE, fig.cap="Meta analyses population summary effects for all 26 traits.", fig.align = "center"}
-knitr::include_graphics("MetaAnalyses/all_models_pop_meta_summary_effect.png")
-```
-
-## Compound line estimates
-
-The meta analysis approach described for _Population_ has also been used to generate line compound estimates.
-
-### Input data
-
-Compiled line random coefficients extracted from the linear models outputs:
-```{r echo=FALSE}
-dir("../..", recursive = T)[grep("all_models_line_random_coefs", dir("../..", recursive = T))]
-```
-
-Trait-specific line random coefficients extracted from the linear models outputs, for example for Viability:
-```{r echo=FALSE}
-f <- dir("../..", recursive = T)[grep("line_random_coefs", dir("../..", recursive = T))]
-f[grep("LinearModelsPop/Viability/", f)]
-```
-
-### Meta analyses model
-
-The only difference with the _Population_ subgroup meta analyses is that here subgroups are defined by the _Line_ variable.
-
-Importantly, as previously mentionned in the _Population_ meta analyses section, meta analyses for _Line_ have been run for all the traits, including those that have been measured in single labs (Locomotor Activity and Egg-to-pupa Development Time). In addition, even for traits involving several labs, some lines might have been measured only once. Again, results from these analyses are meaningless and should not be considered but it allows us to keep those traits in the loop and to streamline the generation of compound estimates. _Line_ subgroup meta analyses have been run for the following 32 traits to generate line compound estimates:
-
-```{r echo=FALSE}
-rc <- readRDS("MetaAnalyses/all_models_line_meta_compound_random_coefs_list.rds")
-print(gsub("MetaAnalyses/_line_meta_compound_random_coefs", "", names(rc) ))
-```
-
-Note that we could not run the analysis for Locomotor Activity AbsPhase since line random coefficients are not available for that particular trait --- _Line_ could not be included as a random-effect factor in the linear model. For Diapause, we ran the meta analysis using the glmer models estimates only.
-
-Finally partial data (incomple data sets) from Posnien lab has been removed prior to running analyses for Wing Area and Thorax Length, to match what has been done in the _Population_ meta analyses.
-
-### Meta analyses output
-
-We are not interested in testing for differences between lines, we just want to extract line summary effects (compound estimates), so there is not much to be shown here. However analyses raw results are still available for each trait, for example for Viability:
-
-```{r echo=FALSE}
-f <- dir("../..", recursive = T)[grep("line_meta", dir("../..", recursive = T))]
-f <- f[grep("MetaAnalyses/Viability/", f)]
-rev(f[grep("random_coefs", f, invert = T)])
-#rev(dir("Viability/")[grep("pop_meta", dir("Viability/"))])
-```
-
-#### Compound line estimates
-
-Compound line estimates (line summary effects) and their 95% confidence intervals were extracted from the meta analyses raw results for each trait. Below are listed the files for Viability:
-```{r echo=FALSE}
-f <- dir("../..", recursive = T)[grep("line_meta_compound", dir("../..", recursive = T))]
-rev(f[grep("MetaAnalyses/Viability/", f)])
-#rev(dir("Viability/")[grep("pop_meta", dir("Viability/"))])
-```
-
-#### Compiled data for all traits
-
-Line compound estimates for all traits have been exported as a list, table and wide table:
-
-```{r echo=FALSE}
-dir("../..", recursive = T)[grep("all_models_line_meta", dir("../..", recursive = T))]
-
-#dir()[grep("pop", dir())]
-```
-```{r}
-# wide table, showing the first 30 lines and first 6 traits
-lc_wide <- read.csv("MetaAnalyses/all_models_line_meta_compound_random_coefs_wide.csv")
-print(lc_wide[1:30, 1:8])
-```
-
-## Results overview
+# 2.2 - Meta-Analyses
 
 ```{r echo=FALSE}
 knitr::include_graphics("MetaAnalyses/all_models_pop_meta_summary_effect.png")
@@ -4457,25 +3978,17 @@ knitr::include_graphics("MetaAnalyses/Viability/Via_NA_lmers_pop_meta_summary_ef
 
 ### Development Time
 
-
-
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("MetaAnalyses/DevelopmentTime/DT_A_F_lmers_pop_meta_summary_effect.png")
 knitr::include_graphics("MetaAnalyses/DevelopmentTime/DT_A_M_lmers_pop_meta_summary_effect.png")
 ```
 
-
-
-
 ### Dry weight
-
 
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("MetaAnalyses/DryWeight/DW_F_lmers_pop_meta_summary_effect.png")
 knitr::include_graphics("MetaAnalyses/DryWeight/DW_M_lmers_pop_meta_summary_effect.png")
 ```
-
-
 
 ### Thorax length
 
@@ -4499,8 +4012,6 @@ knitr::include_graphics("MetaAnalyses/WingArea/WA_R_F_lmers_pop_meta_summary_eff
 knitr::include_graphics("MetaAnalyses/WingArea/WA_R_M_lmers_pop_meta_summary_effect.png")
 ```
 
-
-
 ### Fecundity
 
 ```{r echo=FALSE, out.width="49%"}
@@ -4509,45 +4020,31 @@ knitr::include_graphics("MetaAnalyses/Fecundity/Fec_F_lmers_pop_meta_summary_eff
 
 ### Lifespan
 
-
-
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("MetaAnalyses/Lifespan/LS_F_lmers_pop_meta_summary_effect.png")
 knitr::include_graphics("MetaAnalyses/Lifespan/LS_M_lmers_pop_meta_summary_effect.png")
 ```
 
-
 ### Cold-shock mortality
-
 
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("MetaAnalyses/ColdShock/CSM_F_lmers_pop_meta_summary_effect.png")
 knitr::include_graphics("MetaAnalyses/ColdShock/CSM_M_lmers_pop_meta_summary_effect.png")
 ```
 
-
-
 ### Chill-coma recovery time
-
-
 
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("MetaAnalyses/ChillComa/CCRT_F_lmers_pop_meta_summary_effect.png")
 knitr::include_graphics("MetaAnalyses/ChillComa/CCRT_M_lmers_pop_meta_summary_effect.png")
 ```
 
-
-
 ### Heat-shock mortality
-
-
 
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("MetaAnalyses/HeatShock/HSM_F_lmers_pop_meta_summary_effect.png")
 knitr::include_graphics("MetaAnalyses/HeatShock/HSM_M_lmers_pop_meta_summary_effect.png")
 ```
-
-
 
 ### Diapause
 
@@ -4559,14 +4056,11 @@ knitr::include_graphics("MetaAnalyses/Diapause/Dia_F_glmers_pop_meta_summary_eff
 
 ### Starvation resistance
 
-
-
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("MetaAnalyses/Starvation/SR_F_lmers_pop_meta_summary_effect.png")
 knitr::include_graphics("MetaAnalyses/Starvation/SR_M_lmers_pop_meta_summary_effect.png")
 
 ```
-
 
 ### Pigmentation
 
@@ -4575,11 +4069,7 @@ knitr::include_graphics("MetaAnalyses/Pigmentation/Pgm_Total_F_lmers_pop_meta_su
 ```
 
 
-
-
-# Results: Lab Correlations
-
-_**Please refer to /LabCorrelations folder for trait-specific plots**_
+# 2.3 - Lab Correlations
 
 Input data are populations estimates and lines random coefficients extracted from each single linear model. On the composite figures below, the red dashed lines represent the 0.05 significance threshold.
 
@@ -4604,14 +4094,7 @@ knitr::include_graphics("LabCorrelations/lab_correlation_line_pearson.png")
 knitr::include_graphics("LabCorrelations/lab_correlation_line_spearman.png")
 ```
 
-
-
-# Results: Heritability
-
-* Within lab H2: input data raw data, when lines are replicated (to be optimized)
-* Between labs H2: input data either line random coefs from linear models for each lab or raw data (to be optimized)
-* Intraclass correlations (David et al. 2005) (to be done)
-* Evolvability (to be done)
+# 2.4 - Heritability
 
 _Whitin lab H2_
 ```{r echo=FALSE, message=FALSE}
@@ -4632,10 +4115,7 @@ h2_data_btwlabs <- read.csv("Heritability/H2_line_raw_data_between_labs.csv")
 DT::datatable(h2_data_btwlabs, options = list(pageLength = 10)) %>% formatRound(4:6, 3)
 ```
 
-
-
-
-# Results: Linear Models with Geographical Variables
+# 2.5 - Linear Models with Geographical Variables
 
 ```{r eval=FALSE, echo=TRUE}
 # All model outputs can be found in:
@@ -4675,10 +4155,7 @@ pval_table_alt <- read.csv("LinearModelsAlt/all_models_alt_pvalues.csv")
 DT::datatable(pval_table_alt, options = list(pageLength = 10)) %>% formatRound(6, 4)
 ```
 
-
-# Results: Correlations with Geographical Variables
-
-
+# 2.6 - Correlations with Geographical Variables
 
 ## Latitude - Line level
 ```{r echo=FALSE}
@@ -4718,19 +4195,10 @@ knitr::include_graphics("GeoCorrelations/pop_lon_pearson_correlations.png")
 
 
 
-# Results: Trait Correlations
-
-* Input data: line compound estimates from meta analyses outputs and line random coefficients from linear models for P/C controlled correlations
-(i) Correlations between all pairs of traits using
-- Pearson’s
-- Spearman’s (to be done)
-- Distance correlations (to be done)
-(ii) MANOVA on line means (to be done)
-(iii) PCAs
+# 2.7 - Trait Correlations
 
 ## Pearson pairwise correlations
 
-The different trait subsets used for lab correlations are described in the next section about PCAs.
 
 ```{r echo=FALSE, fig.cap="Trait correlations in females for the nine traits that were measured on both sexes using line compound estimates from all labs", fig.align='center'}
 knitr::include_graphics("TraitCorrelations/trait_correlations_f9_line_random_coefs.png")
@@ -4740,7 +4208,6 @@ knitr::include_graphics("TraitCorrelations/trait_correlations_f9_line_random_coe
 knitr::include_graphics("TraitCorrelations/trait_correlations_f9_line_random_coefs_diet.png")
 ```
 
-
 ```{r echo=FALSE, fig.cap="Trait correlations for all 12 female traits using line compound estimates from all labs", fig.align='center'}
 knitr::include_graphics("TraitCorrelations/trait_correlations_fmax_line_random_coefs.png")
 ```
@@ -4748,7 +4215,6 @@ knitr::include_graphics("TraitCorrelations/trait_correlations_fmax_line_random_c
 ```{r echo=FALSE, fig.cap="Trait correlations for all 12 female traits using line estimates from labs with similar P/C ratios", fig.align='center'}
 knitr::include_graphics("TraitCorrelations/trait_correlations_fmax_line_random_coefs_diet.png")
 ```
-
 
 ```{r echo=FALSE, fig.cap="Trait correlations for all 12 female traits plus viability using line compound estimates from all labs", fig.align='center'}
 knitr::include_graphics("TraitCorrelations/trait_correlations_fmaxp_line_random_coefs.png")
@@ -4758,8 +4224,6 @@ knitr::include_graphics("TraitCorrelations/trait_correlations_fmaxp_line_random_
 knitr::include_graphics("TraitCorrelations/trait_correlations_fmaxp_line_random_coefs_diet.png")
 ```
 
-
-
 ```{r echo=FALSE, fig.cap="Trait correlations in males for the nine traits that were measured on both sexes using line compound estimates from all labs", fig.align='center'}
 knitr::include_graphics("TraitCorrelations/trait_correlations_m9_line_random_coefs_diet.png")
 ```
@@ -4767,11 +4231,6 @@ knitr::include_graphics("TraitCorrelations/trait_correlations_m9_line_random_coe
 ```{r echo=FALSE, fig.cap="Trait correlations in males for the nine traits that were measured on both sexes using line estimates from labs with similar P/C ratios", fig.align='center'}
 knitr::include_graphics("TraitCorrelations/trait_correlations_m9_line_random_coefs.png")
 ```
-
-
-## Spearman pairwise correlations (tba)
-
-
 
 
 ## PCA
@@ -5031,11 +4490,7 @@ knitr::include_graphics("TraitCorrelations/FromMR/MaleDis.png")
 ```
 
 
-# Results: Effect of Diet and Lab
-
-## Overview
-
-
+# 2.8 - Effect of Diet and Lab
 
 ```{r echo=FALSE, out.width="50%", fig.cap="Protein to carbohydrate (P/C) ratio variation among labs.", fig.align = "center"}
 knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_facets.png")
@@ -5056,7 +4511,6 @@ knitr::include_graphics("Diets/DrosEU_Diets_lab_traits_pop_facets.png")
 ```{r echo=FALSE, fig.cap="Effect of lab and P/C ratio on population estimates. Red dots and lines represent PC/ratios. P/C ratios are scaled within but not between traits.", fig.align = "center"}
 knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_lab_traits_pop_facets.png")
 ```
-
 
 ### Plots by trait
 
@@ -5276,7 +4730,7 @@ knitr::include_graphics("LinearModelsPop/PCA_ControlledDiet/PCAd_4_Rmd/PCAd_r_Rm
 - Development time has a stronger effect. Could withinpopulation DT_A variability be more influenced by diet than other traits? Perhaps not surprising, given nutritional/resource thresholds for metamorphosis?
 
 
-# Results: Climatic Variables
+# 2.9 - Climatic Variables
 
 ## From Venera
 
@@ -5438,7 +4892,7 @@ CSM is less clear: cold shock mortality in females is best predicted by the mini
 knitr::include_graphics("EnvironmentalAnalysis/FromAB/MailDoc1.jpg")
 ```
 
-# Results: GDM
+# 2.10 - GDM
 
 _**Please refer to /GDM folder for details.**_
 
@@ -5556,7 +5010,7 @@ knitr::include_graphics("GDM/GDM_Worldclim/WA_R_M/WA_R_M_wind08_i-spline.jpeg")
 knitr::include_graphics("GDM/GDM_Worldclim/WA_R_M/WA_R_M_vapr06_i-spline.jpeg")
 ```
 
-# Results: Wolbachia
+# 2.11 - Wolbachia
 
 ## Population
 
@@ -5601,7 +5055,6 @@ DT::datatable(pval_Wolb_lon, options = list(pageLength = 10)) %>% formatRound(6:
 knitr::include_graphics("LinearModelsLon_Wolb/all_models_lon_pvalues_Wolb.pdf")
 ```
 
-
 ## Altitude
 
 ```{r, echo=FALSE}
@@ -5617,8 +5070,9 @@ DT::datatable(pval_Wolb_alt, options = list(pageLength = 10)) %>% formatRound(6:
 knitr::include_graphics("LinearModelsAlt_Wolb/all_models_alt_pvalues_Wolb.pdf")
 ```
 
+# Additional analyses by consortium members 
 
-# Results: UPGMA trees
+## UPGMA trees
 
 Here are some example UPGMA trees from Jorge and Cristina -- please refer to /UPGMATrees folder for all of the trees.
 
@@ -5658,11 +5112,9 @@ _WA_R Female_
 knitr::include_graphics("UPGMATrees/WA_R_F_meta_summary.txt.StamenkovicRadak.png")
 ```
 
-# Results: Qst - Fst  _tbd_
+## Species Distribution Model
 
-# _Results: Species Distribution Model_
-
-## SDM_Maxent_WorldClim
+SDM_Maxent_WorldClim
 
 ```{r eval=FALSE, include=FALSE}
 htmltools::includeHTML("SDM_Maxent_worldclime/Results/Dmelanogaster.html")
@@ -5679,26 +5131,65 @@ knitr::include_graphics("SDM_Maxent_worldclime/SDM_4_Rmd/DrosEU_PhenotypingWG_Pa
 
 # References
 
-## Circadian eclosion timing
+- Balduzzi S, Rücker G, Schwarzer G. 2019. How to perform a meta-analysis with R: a practical tutorial. Evidence Based Mental Health 22:153-160.
 
-- BioDare2 (https://biodare2.ed.ac.uk) (Zielinski, T., Moore, A. M., Troup, E., Halliday, K. J., and Millar, A. J. (2014). Strengths and Limitations of Period Estimation Methods for Circadian Data. PLOS ONE 9, e96462. doi: 10.1371/journal.pone.0096462)
+- Bates D, Mächler M, Bolker B, Walker S. 2015. Fitting Linear Mixed-Effects Models Using lme4. Journal of Statistical Software 67:1-48.
 
-## GDM
+- Bookstein FL. 1996. Biometrics, biomathematics and the morphometric synthesis. Bulletin of Mathematical Biology 58:313-365.
 
-- Baldassarre, D. T., Thomassen, H. A., Karubian, J., & Webster, M. S. (2013). The role of ecological variation in driving divergence of sexual and non-sexual traits in the red-backed fairy-wren (Malurus melanocephalus). BMC Evolutionary Biology, 13(1), 75. doi:10.1186/1471-2148-13-75
+- Clark M. 2022. mixedup: Miscellaneous functions for mixed models. R package version 0.3.9, https://m-clark.github.io/mixedup.
 
-- Ferrier, S., Manion, G., Elith, J., & Richardson, K. (2007). Using generalized dissimilarity modelling to analyse and predict patterns of beta diversity in regional biodiversity assessment. Diversity and Distributions, 13(3), 252-264. doi:https://doi.org/10.1111/j.1472-4642.2007.00341.x
+- David JR, Gibert P, Legout H, Petavy G, Capy P, Moreteau B. 2005. Isofemale lines in Drosophila: an empirical approach to quantitative trait analysis in natural populations. Heredity 94:3-12.
 
-- Thomassen, H. A., Buermann, W., Milá, B., . . . Smith, T. B. (2010). Modeling environmentally associated morphological and genetic variation in a rainforest bird, and its application to conservation prioritization. Evolutionary Applications, 3(1), 1-16. doi:https://doi.org/10.1111/j.1752-4571.2009.00093.x
+- Falconer DS, Mackay TFC. 1996. Introduction to Quantitative Genetics. 4th Edition. Longman, London.
 
-## Heritability
+- Faria VG, Sucena E. 2017. From Nature to the Lab: Establishing Drosophila Resources for Evolutionary Genetics. Frontiers in Ecology and Evolution 5:61.
 
-- David, J., Gibert, P., Legout, H. et al. Isofemale lines in Drosophila: an empirical approach to quantitative trait analysis in natural populations. Heredity 94, 3–12 (2005). https://doi.org/10.1038/sj.hdy.6800562
+- Hoffmann AA, Parsons PA. 1988. The Analysis of Quantitative Variation in Natural Populations with Isofemale Strains. Genetics Selection Evolution 20:87-98.
 
-## SDM
+- Kapun M, Barrón MG, Staubach F, Obbard DJ, Wiberg RAW, Vieira J, Goubert C, Rota-Stabelli O, Kankare M, Bogaerts-Márquez M et al. 2020. Genomic analysis of European Drosophila melanogaster populations reveals longitudinal structure, continent-wide selection, and previously unknown DNA viruses. Molecular Biology and Evolution 37:2661-2678.
 
-- Mina Hojat Ansari, Steven J.B. Cooper, Michael P. Schwarz, Mehregan Ebrahimi, Gaynor Dolman, Leah Reinberger, Kathleen M. Saint, Stephen C. Donnellan, C. Michael Bull, Michael G. Gardner, Plio-Pleistocene diversification and biogeographic barriers in southern Australia reflected in the phylogeography of a widespread and common lizard species, Molecular Phylogenetics and Evolution, Volume 133, 2019, Pages 107-119, ISSN 1055-7903, https://doi.org/10.1016/j.ympev.2018.12.014.
+- Kapun M, Nunez JCB, Bogaerts-Márquez M, Murga-Moreno J, Paris M, Outten J, Coronado-Zamora M, Tern C, Rota-Stabelli O, Guerreiro MPG et al. 2021. Drosophila Evolution over Space and Time (DEST): A New Population Genomics Resource. Molecular Biology and Evolution 38:5782-5805.
 
-## Morphometrics
+- Kassambara A, Mundt F. 2020. factoextra: Extract and Visualize the Results of Multivariate Data Analyses. https://cran.r-project.org/package=factoextra.
 
-- Rohlf, F. J. (2006). tpsDig, Digitize Landmarks and Outlines, Version 2.05. Stony Brook, NY: Department of Ecology and Evolution, State University of New York
+- Klingenberg CP. 2011. MorphoJ: an integrated software package for geometric morphometrics. Molecular Ecology Resources 11:353-357.
+
+- Lê S, Josse J, Husson F. 2008. FactoMineR: an R package for multivariate analysis. Journal of Statistical Software 25:1–18.
+
+- Machado HE, Bergland AO, Taylor R, Tilk S, Behrman E, Dyer K, Fabian DK, Flatt T, González J, Karasov TL et al. 2021. Broad geographic sampling reveals the shared basis and environmental correlates of seasonal adaptation in Drosophila. eLife 10: e67577.
+
+- Miller SA, Dykes DD, Polesky HF. 1988. A simple salting out procedure for extracting DNA from human nucleated cells. Nucleic Acids Research 16:1215.
+
+- Nakagawa S, Schielzeth H. 2013. A general and simple method for obtaining R2 from generalised linear mixed-effects models. Methods in Ecology and Evolution 4:133-142.
+
+- Parsons PA. 1983. The Evolutionary Biology of Colonizing Species. Cambridge University Press, Cambridge.
+
+- Pegoraro M, Sayegh Rezek E, Fishman B, Tauber E. 2022. Nucleotide Variation in Drosophila cryptochrome Is Linked to Circadian Clock Function: An Association Analysis. Frontiers in Physiology 13:781380.
+
+- Pinheiro J, Bates D, R Core Team. 2023. nlme: Linear and Nonlinear Mixed Effects Models. R package version 3.1-164, https://CRAN.R-project.org/package=nlme.
+Revelle W. 2022. psych: Procedures for Psychological, Psychometric, and Personality Research. https://cran.r-project.org/package=psych.
+
+- Riegler M, Iturbe-Ormaetxe I, Woolfit M, Miller WJ, O'Neill SL. 2012. Tandem repeat markers as novel diagnostic tools for high resolution fingerprinting of Wolbachia. BMC Microbiology 12 (Suppl 1):S12,
+
+- Rohlf FJ. 2015. The tps series of software. Hystrix, the Italian Journal of Mammalogy 26:9-12.
+
+- Sambrook J, Fritsch EF, Maniatis T. 1989. Molecular Cloning: A Laboratory Manual. Cold Spring Harbor, NY: Cold Spring Harbor Laboratory.
+
+- Saunders DS, Henrich VC, Gilbert LI. Induction of Diapause in Drosophila melanogaster: Photoperiodic Regulation and the Impact of Arrhythmic Clock Mutations on Time Measurement. Proceedings of the National Academy of Sciences of the USA 1989;86(10):3748-52.
+
+- Simões PM, Mialdea G, Reiss D, Sagot MF, Charlat S. 2011. Wolbachia detection: an assessment of standard PCR protocols. Molecular Ecology Resources 11:567-572.
+
+- Sparks AH. 2018. nasapower: a NASA POWER global meteorology, surface solar energy and climatology data client for R. Journal of Open Source Software 3:1035.
+
+- Strunov A, Lerch S, Blanckenhorn WU, Miller WJ, Kapun M. 2022. Complex effects of environment and Wolbachia infections on the life history of Drosophila melanogaster hosts. Journal of Evolutionary Biology 35:788-802.
+
+- Symonenko AV, Roshina NV, Krementsova AV, Pasyukova EG. 2018. Reduced Neuronal Transcription of Escargot, the Drosophila Gene Encoding a Snail-Type Transcription Factor, Promotes Longevity. Frontiers in Genetics 9:151.
+
+- Tatar M, Chien SA, Priest NK. 2001. Negligible senescence during reproductive dormancy in Drosophila melanogaster. American Naturalist 158:248-258.
+
+- Werren JH, Windsor DM. 2000. Wolbachia infection frequencies in insects: evidence of a global equilibrium? Proceedings of the Royal Society of London B 267:1277-1285.
+
+- Zhou W, Rousset F, O'Neil S. 1998. Phylogeny and PCR-based classification of Wolbachia strains using wsp gene sequences. Proceedings of the Royal Society of London B 265:509-515.
+
+- Zielinski T, Moore AM, Troup E, Halliday KJ, Millar AJ. 2014. Strengths and limitations of period estimation methods for circadian data. PLoS ONE 9:e96462.
