@@ -1,0 +1,10 @@
+Country;Location;LocationAbbr;Latitude;Longitude;Altitude;Collector;LineID_month;CollectionDate;DEST2.0_Name;DEST2.0_locality_Code
+Portugal;Recarei;RE;41,15;-8,41;175;Jorge Vieira;10;05/10/2018;PT_Por_Rec_1_2018_10_05;PT_Por_Rec
+Spain;Gimenells (Lleida);GI;41,618;0,62;173;Josefa Gonzalez, Marta Pascual;8;25/08/2018;ES_Ler_Gim_1_2018_08_25;ES_Ler_Gim
+Denmark;Karensminde;KA;55,945;10,213;15;Mads Schou;10;05/10/2018;DK_Mid_Kar_1_2018_10_05;DK_Mid_Kar
+Germany;Munich;MU;48,18;11,61;520;John Parsch, Amanda Glaser-Schmitt;6;21-30/06/2018;DE_Bay_Mun_1_2018_06_25;DE_Bay_Mun
+Austria;Mauternbach;MA;48,375;15,56;572;Andrea Betancourt;9;08/09/2018;AT_Nie_Mau_1_2018_09_08;AT_Nie_Mau
+Finland;Akaa;AK;61,1;23,52;88;Maaria Kankare;7;20/07/2018;FI_Pir_Aka_1_2018_07_20;FI_Pir_Aka
+Ukraine;Uman;UM;48,753;30,206;214;Iryna Kozeretska;8;18/08/2018;UA_Che_Uma_1_2018_08_18;UA_Che_Uma
+Turkey;Yesiloz;YE;40,231;32,26;680;Banu Onder;9;27/09/2018;TR_Ank_Yes_1_2018_09_27;TR_Ank_Yes
+Russia;Valday;VA;57,979;33,244;217;Elena Pasyukova;8;20-30/08/2018;RU_Nov_Val_1_2018_08_25;RU_Nov_Val

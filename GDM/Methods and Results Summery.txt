@@ -1,0 +1,43 @@
+Methods
+Environmental variables
+We used the WorldClim database (www.worldclim.org), which includes 19 bioclimatic variables, monthly precipitation, and minimum, maximum, and average monthly temperature, 
+wind, vapor, and solar radiation. The variables identified as important in the model are shown in Table 1.
+
+Generalized dissimilarity model
+
+The generalized dissimilarity model (hereafter GDM) is a matrix regression technique (Ferrier et al., 2007) used to analyze and predict primarily beta diversity patterns. 
+However, it has been shown that GDM can also be used to explore the relationship between morphological traits variation and environmental variation 
+(Thomassen et al., 2010; Baldassarre et al., 2013).
+In GDM, we use matrix correlation among biotic and environmental dissimilarity, plus geographic distance between sample sites, to predict biotic dissimilarity across landscapes. 
+One of the advantages of GDM is that it can fit nonlinear relationships of variables with the help of the I-spline function. GDM consists of two steps:
+
+In the first step, using all pairwise combinations of sampling sites, it fits dissimilarities in predictor variables (environmental variables) to dissimilarities in response 
+variables (phenotypic variables). In this step, all environmental predictors with a sum of I-spline coefficients of zero were removed. The remaining environmental data were 
+permuted and introduced in random order to the model. GDM was fitted with these permuted data, and the result of deviance explained by this model was compared with the deviance 
+explained by GDM fitted to unpermuted data. Predictor importance was calculated based on the difference in deviance explained between the permuted model and the unpermuted model. 
+In this step, backward elimination could be used to drop less important predictors from the model (Ferrier et al., 2007).
+In the final step, using the results of the above procedures, a spatial prediction of response variable patterns across the entire range of study areas was made.
+
+For each response variable, we ran four different models:
+A full model that includes environmental and geographic distance as predictor variables.
+To examine possible correlation between geographic distance and environmental dissimilarity, we ran two additional models, each selecting only one of them (geographic distance and environmental dissimilarity) as predictor variables.
+We also ran a random model to compare with fitted models to ensure the null hypothesis was not rejected randomly. To run the random model, we produced random values of environmental variables for each location. As we have few locations, we produced 100,000 random models. Then, we used the mean deviance explained by these random models and compared them with the full, environment, and geographic distance models. If the difference between deviance explained by the random model was lower than any of the other three models, we considered the relationship of response variables with predictor variables to be non-random (Thomassen et al., 2010; Baldassarre et al., 2013).
+
+Results
+
+We ran the full model (environmental variables and geographic distance as predictor variables), the environmental model (only environmental variables as predictor variables), 
+and the geographic distance model (only geographic distance as predictor variables) for all phenotypic traits. As mentioned in the method, to verify the performance of the models, 
+we compared the deviance explained by each model to the deviance explained by the random model (t-test comparison of mean deviance explained by environmental models and random 
+models: t = 9.33, df = 8.97, p < 0.001, CI = 54.36). The environmental models explained most of the proportion of variation in all phenotypic traits compared to the full and 
+geographic distance models (Table 2). The geographic distance model did not explain the variation in any phenotypic traits (Table 3). 
+For all phenotypic variables, the environmental model (range = 43.69-78.52, mean = 60.53, SD = 12.39) explained most of the variation compared to the 
+associated random model (range = 11.18-24.08, mean = 16.78, SD = 4.70). Eight phenotypic variables showed relationships with some of the predictor variables. 
+There was a different combination of predictor variables for each phenotypic trait (Table 3). Two predictor variables that influenced fecundity (Fec), 
+solar radiation in January, and wind speed in July were identified; however, solar radiation in January had a response curve dramatically higher than wind 
+speed in July (Figure 1). The environmental model explained most of the variation in male dry weight (64.05%), derived from bio 02 (diurnal temperature range) 
+and water vapor pressure in July (Table 3). The life span in male and female and thorax length in females had more than two predictor variables that explained 
+their variation (Table 3). Solar radiation in May was the most important predictor of variation in the lifespan of males and females (Figure 1). Most of the 
+variation in thorax length was explained by solar radiation in June, followed by precipitation in May (Figure 1).
+
+
+You can see table and graph in word version of the report summery
