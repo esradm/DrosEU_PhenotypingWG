@@ -24,7 +24,7 @@ _Lay Summary_
 For over 100 years, the vinegar fly _Drosophila melanogaster_ has been a workhorse for studying the genetic and phenotypic basis of evolutionary change. Ancestrally of southern-central African origin, this insect expanded its range, migrated out of Africa and colonized new habitats and climate zones around the globe. Recent population genomic analyses suggest that Europe was colonized from the Middle East ~1,800 years ago, yet we still know surprisingly little about how this human commensal adapted to different locales on the European continent and elsewhere. Here, we assayed fly strains isolated from 9 European populations for 16 traits in an international consortium effort, involving >100 researchers from 26 research groups in 17 countries and using semi-standardized experimental protocols. Despite differences in experimental (environmental) conditions among labs, our trait measurements agreed well across research teams, suggesting that they are robust and generalizable. European populations of the vinegar fly are markedly differentiated for several phenotypic traits that are related to Darwinian fitness and which might be subject to natural selection. Notably, flies from locations with higher humidity and rainfall and lower temperature survive better to the adult stage, lay more eggs, are better at surviving famine and, as adults, live longer than flies from drier, warmer locations; yet, as compared to flies from warmer, drier locales, they are considerably less well adapted to surviving heat stress, suggesting a trade-off between these components of fitness. Our findings begin to illuminate how this subtropical/tropical insect has adapted to different climates and habitats on the European continent and showcase the value of collaborative multi-lab studies that perform experiments in parallel.
 
 
-*General overview of the phenotyping effort*
+_General overview of the phenotyping effort_
 
 We assayed 16 phenotypic traits, most of them representing fitness components (see Table 1 in main text for details): viability, developmental time, dry weight, thorax length, wing area, fertility, lifespan, cold-shock mortality, chill-coma recovery time, heat-shock mortality, diapause, locomotor activity, circadian eclosion timing, pigmentation, starvation resistance, and parasitoid resistance. Assay protocols for each trait are given below; detailed information about phenotyping batches, experimental blocks, replication, sample sizes, etc. can be found in Tables xx (i.e. CSM_pop). Phenotyping assays were carried out at 25ºC, 12 hours light:12 hours dark, and a minimum relative air humidity of 60%. Strains were maintained under density-controlled conditions for at least two generations prior to the assays. The fly food recipes used by the different labs are shown in Table X. Unless stated otherwise, mated females and males were phenotyped for a given trait. The following principal investigators and their research groups participated in the phenotyping effort (in alphabetical order): Jessica Abbott (JA); Alan Bergland (AB); Jean-Christophe Billeter (JCB); Hervé Colinet (HC); Claudia Fricke (CF); Thomas Flatt (TF); Patricia Gibert (PG); Josefa González (JG); Sonja Grath (SG); Katja Hoedjes (KH); Jan Hrcek (JH); Iryna Kozeretska (IK); Julian Mensch (JM); Banu Onder (BO); John Parsch (JP); Elena Pasyukova (EP); Nico Posnien (NP); Michael G. Ritchie (MR); Christian Schlötterer (CS); Paul Schmidt (PS); Marina Stamenkovic-Radak (MSR); Eran Tauber (ET); Jorge Vieira (JV); Christian Wegener (CW); Bas J. Zwaan (BZ).
 
@@ -43,6 +43,7 @@ library(ggrepel)
 library(DT)
 library(data.table)
 library(MetBrewer)
+library(psych)
 ```
 
 
@@ -4233,7 +4234,7 @@ knitr::include_graphics("TraitCorrelations/trait_correlations_m9_line_random_coe
 ```
 
 
-## PCA
+# 2.8 - PCA
 
 ```{r include=FALSE}
 colorize <- function(x, color) {
@@ -4247,250 +4248,146 @@ colorize <- function(x, color) {
 ```
 
 
-_Notes_
+Read in the various PCA objects
 
-- Using model estimates for line rather than raw data (scaled to unit variance).
+```{r read PCA objects 1}
+## Load PCA objects
+pca_F13 <- readRDS("PCA/PCA_SI/pca_F13.rds")
+pca_F9 <- readRDS("PCA/PCA_SI/pca_F9.rds")
+pca_M9 <- readRDS("PCA/PCA_SI/pca_M9.rds")
+```
 
-- Sexes dealt with seperately
+Principal Component Analysis (PCA) was carried out for each sex separately. Initially, a PCA containing all 12 female traits (CCRT, CSM, DT_A, DW, HSM, LS, SR, TL, WA_L, DIA, FEC and PGM_T) plus Viability was considered, termed F13 (Female - 13 traits). Separate female and male PCAs were then carried out for a set of nine traits which had been measured in both sexes (CCRT, CSM, DT_A, DW, HSM, LS, SR, TL, WA_L) termed F9 (Female - traits) and M9 (Male - 9 traits), allowing a direct comparison of the sexes.
 
-- PCA1 (M9) – male PCA with 9 traits
+Summary results are provided below. Figures show vector plots next to co-ordinate plots (with population confidence ellipses) for PC1 vs PC2 and PC3 vs PC4. Below these are the eigenvalues (the contribution of each principal component to the total variance) and the loadings (how each variable contributes to the first five principal component). Loadings with values > 0.6 or < -0.6 are considered important, while loadings with values > 0.4 or < -0.4 are considered to have moderate contributions.
 
-- PCA2 (F9) – female PCA with 9 traits equivalent to males
+Considering important and moderate loadings we can identify some general patterns across all three PCA, including:  
+  
+  * PC1: positive correlations between dry weight, wing area and starvation resistance  
+  * PC2: a negative correlation between lifespan and thorax length  
+  * PC3: a negative correlation between heat shock mortality and cold shock mortality  
 
-- PCA3 (Fmax) – female PCA with all 12 female traits
+### Female - all traits (F13)
 
-- PCA4 (FmaxPlus) – female PCA with 13 traits (12 female traits + viability)
-
-- Loadings of traits on to PCs are considered of interest if greater than > 0.4 (or < -0.4).
-
-  - Loadings `r colorize("__> 0.6__", "red")` are in `r colorize("bold red", "red")`
-
-  - Loadings from `r colorize("0.4 - 0.59", "darkred")`  are in `r colorize("dark red", "darkred")`
+F13 Vector plots (left hand side) and co-ordinate plots (right-hand side) for PC1 vs PC2 (top) and PC3 vs PC4 (bottom). Co-ordinate plots show populations surrounded by 95% confidence ellipses.
 
 ```{r echo=FALSE}
-knitr::include_graphics("EnvironmentalAnalysis/PCA_Results/PCA_4_Rmd/PCA_4_Rmd_Page_1.png")
+knitr::include_graphics("PCA/PCA_SI/plot_F13_1v2.svg")
+knitr::include_graphics("PCA/PCA_SI/plot_F13_3v4.svg")
 ```
 
-### PCA 1 results
-
-- PC1 accounts for 25.23% of the variance
-
-- PC1: high trait loading values (>0.5):
-
-  - WA, DW, SR = +ve PC1
-
-  - CCRT, CSM = –ve PC1.
-
-  - Por/Aus/Ukr/Rus = +ve PC1 (large, resistant to starvation & cold)
-
-  - Tur/Spa = –ve PC1 (small, susceptible to starvation & cold)
-
-- PC2: high trait loading values (>0.5):
-
-  - TL, WA +ve PC2,
-
-  - LS, HSM –ve PC2
-
-  - Por/Tur/Spa = +ve PC2 (large, short-lived, resistant to heat)
-
-  - Den/Fin. = -ve PC2 (small, long-lived, susceptible to heat)
-
-
-```{r, echo=FALSE}
-knitr::include_graphics("EnvironmentalAnalysis/PCA_Results/PCA_4_Rmd/PCA_4_Rmd_Page_2.png")
+```{r eigenvalues for F13}
+# F13 eigenvalues
+pca_F13$eig
 ```
 
-```{r, echo=FALSE}
-knitr::include_graphics("EnvironmentalAnalysis/PCA_Results/PCA_4_Rmd/PCA_4_Rmd_Page_3.png")
+```{r loadings for F13}
+# F13 loadings
+pca_F13$var$coord
 ```
 
-### PCA 2 results
+### Female - 9 traits (F9)
 
-- PC1 accounts for 23.61% of the variance
-
-- PC1: high trait loading values (>0.4):
-
-  - DW, WA, TL, SR = +ve PC1
-
-  - LS = –ve PC1.
-
-  - Por/Aus = +ve PC1 (large, resistant to starvation)
-
-  - Tur/Fin/Spa = –ve PC1 (small, susceptible to starvation)
-
-- PC2: high trait loading values (>0.4):
-
-  - LS, SR +ve PC2,
-
-  - TL –ve PC2
-
-  - Den/Rus/Fin = +ve PC2 (small, long-lived, resistant to starvation)
-
-  - Tur/Ukr/Por = -ve PC2 (large, short-lived, susceptible to starvation)
-
-- PC3: high trait loading values (>0.5):
-
-  - CCRT, HSM +ve PC3,
-
-  - CSM –ve PC3
-
-  - Ukr/Fin = +ve PC3 (resistance to cold, susceptible to heat)
-
-  - Tur/Spa/Den = -ve PC3 (susceptible to cold, resistant to heat)
-
-```{r, echo=FALSE}
-knitr::include_graphics("EnvironmentalAnalysis/PCA_Results/PCA_4_Rmd/PCA_4_Rmd_Page_4.png")
-```
-
-```{r, echo=FALSE}
-knitr::include_graphics("EnvironmentalAnalysis/PCA_Results/PCA_4_Rmd/PCA_4_Rmd_Page_5.png")
-```
-
-### PCA 3 results
-
-- PC1 accounts for 18.61% of the variance
-
-- PC1: high trait loading values (>0.4):
-
-  - DW, WA, TL, SR = +ve PC1
-
-  - LS = –ve PC1.
-
-  - Por/Aus/Ukr = +ve PC1 (large, resistant to starvation)
-
-  - Tur/Fin/Spa = –ve PC1 (small, susceptible to starvation)
-
-- PC2: high trait loading values (>0.4):
-
-  - Fec, SR, LS +ve PC2,
-
-  - TL –ve PC2
-
-  - Den/Rus/Fin = +ve PC2 (small, long-lived, resistant to starvation)
-
-  - Tur/Ukr/Por = -ve PC2 (large, short-lived, susceptible to starvation)
-
-- PC3: high trait loading values (>0.4):
-
-  - HSM, Pigm, dia, CCRT +ve PC3,
-
-  - CSM –ve PC3
-
-  - Ukr/Aus = +ve PC3 (resist cold, suscept heat, higher diap, more pigm)
-
-  - Spa/Den/Por = -ve PC3 (suscept cold, resist heat, lower diap, less pigm)
-
+F9 Vector plots (left hand side) and co-ordinate plots (right-hand side) for PC1 vs PC2 (top) and PC3 vs PC4 (bottom). Co-ordinate plots show populations surrounded by 95% confidence ellipses.
 
 ```{r echo=FALSE}
-knitr::include_graphics("EnvironmentalAnalysis/PCA_Results/PCA_4_Rmd/PCA_4_Rmd_Page_6.png")
+knitr::include_graphics("PCA/PCA_SI/plot_F9_1v2.svg")
+knitr::include_graphics("PCA/PCA_SI/plot_F9_3v4.svg")
 ```
 
+
+```{r eigenvalues for F9}
+# F9 eigenvalues
+pca_F9$eig
+```
+
+```{r loadings for F9}
+# F9 loadings
+pca_F9$var$coord
+```
+
+
+### Male - 9 traits (M9)
+
+M9 Vector plots (left hand side) and co-ordinate plots (right-hand side) for PC1 vs PC2 (top) and PC3 vs PC4 (bottom). Co-ordinate plots show populations surrounded by 95% confidence ellipses. PC2 
 
 ```{r echo=FALSE}
-knitr::include_graphics("EnvironmentalAnalysis/PCA_Results/PCA_4_Rmd/PCA_4_Rmd_Page_7.png")
+knitr::include_graphics("PCA/PCA_SI/plot_M9_1v2.svg")
+knitr::include_graphics("PCA/PCA_SI/plot_M9_3v4.svg")
+```
+
+```{r eigenvalues for M9}
+# M9 eigenvalues
+pca_M9$eig
+```
+
+```{r loadings for M9}
+# M9 loadings
+pca_M9$var$coord
 ```
 
 
-### PCA 4 results
+# 2.9 - Discriminant Function Analysis results
 
-- PC1 accounts for 16.73% of the variance
-
-- PC1: high trait loading values (>0.4):
-
-  - WA, DW, TL, SR = +ve PC1
-
-  - LS = –ve PC1.
-
-  - Por/Aus/Ukr = +ve PC1 (large, resistant to starvation)
-
-  - Fin/Spa/Tur = –ve PC1 (small, susceptible to starvation)
-
-- PC2: high trait loading values (>0.4):
-
-  - Via, Fec, SR, HSM, LS +ve PC2,
-
-  - 0 traits –ve PC2
-
-  - Fin/Den/Ger = +ve PC2 (High via & fec, long-lived, resist starve, suscept. heat)
-
-  - Tur/Spa/Por = -ve PC2 (Low via & fec, short-lived, suscept. starve, resist heat)
-
-- PC3: high trait loading values (>0.4):
-
-  - HSM, dia, Pigm, CCRT +ve PC3,
-
-  - CSM –ve PC3
-
-  - Ukr/Aus = +ve PC3 (resist cold, suscept heat, higher diapause, more pigm)
-
-  - Spa/Den/Rus = -ve PC3 (suscept cold, resist heat, lower diapause, less pigm)
-
-
-###Summary
-
-- PC1 always includes positive correlation of dry weight, wing area and starvation resistance as well as….
-
-  - … negative corr. with CSM in males
-
-  - … negative corr. with life span in females
-
-  - Por/Aus (+ Ukr/Rus) are positive
-
-  - Tur/Spa (+ Fin) are negative
-
-- PC2 differs somewhat between males and females (note ‘+’ and ‘–’ switch)
-
-  - In males:
-
-    - +ve correlation with thorax length and wing area
-
-    - -ve correlation with HSM and lifespan
-
-    - Por/Tur/Spa are positive
-
-    - Den/Fin are negative
-
-  - In females:
-
-    - -ve correlation with thorax length
-
-    - +ve correlation with lifespan and starvation resistance (+ fecundity and viability)
-
-    - Tur/Por (+ Ukr/Spa) are negative
-
-    - Den/Fin (+ Rus/Ger) are positive
-
-- PC3 potentially interesting in females…
-
-  - Positive correlation between HSM and CCRT (+ diapause and pigmentation)
-
-  - Negative correlation with CSM
-
-  - Ukr (+Aus/Fin) are positive
-
-  - Spa/Den (+Tur/Rus/Por) are negative
-
-  - Interestingly, in males HSM and CCRT negatively correlate with one another on PC3….
-
-## Trait Correlations & Discriminant Function Analyses
-
-### Females
-
-```{r out.width="50%", echo=FALSE}
-knitr::include_graphics("TraitCorrelations/FromMR/FemaleParCor.png")
-knitr::include_graphics("TraitCorrelations/FromMR/FemaleDis.png")
+```{r include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(psych)
+library(knitr)
 ```
 
-### Males
+```{r read PCA objects 2}
+## Load PCA objects
 
-```{r out.width="50%", echo=FALSE}
-knitr::include_graphics("TraitCorrelations/FromMR/MaleCor.png")
-knitr::include_graphics("TraitCorrelations/FromMR/MaleParCor.png")
-knitr::include_graphics("TraitCorrelations/FromMR/MaleDis.png")
+## Original F13 and F9 PCA objects
+fem_mahala <- read.table("TraitCorrelations/DFA_SI/MR_female_mahala.txt", header = TRUE)
+fem_reallo <- read.table("TraitCorrelations/DFA_SI/MR_female_realloc.txt", header = TRUE)
+mal_mahala <- read.table("TraitCorrelations/DFA_SI/MR_male_mahala.txt", header = TRUE)
+mal_reallo <- read.table("TraitCorrelations/DFA_SI/MR_male_realloc.txt", header = TRUE)
+```
+
+Discriminant Function Analysis (DFA) was carried out for females using the F13 set of traits, and for males using the M9 traits plus viability. Summary data including squared Mahalanobis distances, reclassification results and distance plots are provided below. Populations in tables are labelled with both country and location (e.g. Austria, Mauternbach is labelled as AT-MA), while plots only contain location data (e.g. MA for Mauternbach).
+
+## F13 DFA
+
+```{r female mahalanobis, echo=FALSE, message=FALSE}
+knitr::kable(fem_mahala, align = "lccccccccc",
+             caption = 'Squared Mahalanobis distance between populations following DFA of female lines (F13 traits)')
+```
+
+```{r female reallocation, echo=FALSE, message=FALSE}
+knitr::kable(fem_reallo, align = "lcccccccccr",
+             caption = 'Reclassification of female lines among populations following DFA of female lines (F13 traits)')
 ```
 
 
-# 2.8 - Effect of Diet and Lab
+DFA distance plot for female lines based on F13 traits plus viability  
+
+```{r female distance figure, echo=FALSE, message=FALSE}
+knitr::include_graphics("TraitCorrelations/DFA_SI/FemaleDis.png")
+```
+
+
+## M9+via DFA
+
+```{r male mahalanobis, echo=FALSE, message=FALSE}
+knitr::kable(mal_mahala, align = "lccccccccc",
+             caption = 'Squared Mahalanobis distance between populations following DFA of male lines (M9 traits plus via)')
+```
+
+```{r male reallocation, echo=FALSE, message=FALSE}
+knitr::kable(mal_reallo, align = "lcccccccccr",
+             caption = 'Reclassification of male lines among populations following DFA of male lines (M9 traits plus via)')
+```
+
+
+DFA distance plot for male lines based on M9 traits plus viability   
+```{r male distance figure, echo=FALSE, message=FALSE}
+knitr::include_graphics("TraitCorrelations/DFA_SI/MaleDis.png")
+```
+
+
+
+# 2.10 - Effect of Diet and Lab
 
 ```{r echo=FALSE, out.width="50%", fig.cap="Protein to carbohydrate (P/C) ratio variation among labs.", fig.align = "center"}
 knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_facets.png")
@@ -4607,292 +4504,411 @@ meta_reg_diet <- read.csv("MetaRegressionDiet/all_models_pop_meta_reg_diets_r2.c
 DT::datatable(meta_reg_diet, options = list(pageLength = 20)) %>% formatRound(4:5, c(2,4))
 ```
 
-## PCAs with ~similar P:C ratio datasets
+# 2.11 - Effect of Diet on PCA
 
 
 ```{r include=FALSE}
-colorize <- function(x, color) {
-  if (knitr::is_latex_output()) {
-    sprintf("\\textcolor{%s}{%s}", color, x)
-  } else if (knitr::is_html_output()) {
-    sprintf("<span style='color: %s;'>%s</span>", color,
-      x)
-  } else x
-}
+knitr::opts_chunk$set(echo = TRUE)
+library(psych)
+library(knitr)
 ```
 
-_Notes_
+Read in the various PCA objects
 
-- Using model estimates for line rather than raw data (scaled to
-unit variance).
+```{r read PCA objects 3}
+## Load PCA objects
 
-- Comparing `r colorize("all data", "blue")` (i.e. the previous analysis) with estimates from a single lab but with similar  `r colorize("P:C ratio", "green")` in diet.
+## Original F13 and F9 PCA objects
+pca_F13 <- readRDS("LinearModelsPop/PCA_ControlledDiet/PCA_CD_SI/pca_F13.rds")
+pca_F9 <- readRDS("LinearModelsPop/PCA_ControlledDiet/PCA_CD_SI/pca_F9.rds")
 
-- TL is missing from males
+## Additional PCA objects for testing effect of diet
+pca_M8 <- readRDS("LinearModelsPop/PCA_ControlledDiet/PCA_CD_SI/pca_M8.rds")
 
-- Lmer estimates (rather than glmer estimates used for dia)
-
-- Sexes dealt with separately
-
-  - PCA1 (M9) – male PCA with 9 traits
-
-  - PCA2 (F9) – female PCA with 9 traits equivalent to males
-
-  - PCA3 (Fmax) – female PCA with all 12 female traits
-
-  - PCA4 (FmaxPlus) – female PCA with 13 traits (12 female traits + via)
-
-- Loadings of traits on to PCs are considered of interest if greater than > 0.4 (or < -0.4).
-
-  - Loadings `r colorize("__> 0.6__", "red")` are in `r colorize("bold red", "red")`
-
-  - Loadings from `r colorize("0.4 - 0.59", "darkred")`  are in `r colorize("dark red", "darkred")`
-
-```{r echo=FALSE}
-knitr::include_graphics("LinearModelsPop/PCA_ControlledDiet/PCAd_4_Rmd/PCAd_r_Rmd1.png")
+pcactl_F13 <- readRDS("LinearModelsPop/PCA_ControlledDiet/PCA_CD_SI/pcactl_F13.rds")
+pcactl_F9 <- readRDS("LinearModelsPop/PCA_ControlledDiet/PCA_CD_SI/pcactl_F9.rds")
+pcactl_M8 <- readRDS("LinearModelsPop/PCA_ControlledDiet/PCA_CD_SI/pcactl_M8.rds")
 ```
 
-```{r echo=FALSE}
-knitr::include_graphics("LinearModelsPop/PCA_ControlledDiet/PCAd_4_Rmd/PCAd_r_Rmd2.png")
+For F13 and F9 PCAs with all data were compared to PCAs featuring a single estimate for each phenotypic trait value taken from labs in which dietary P:C ratio was similar.
+
+For males, thorax Length (TL) values were not available for the diet controlled PCA, so the PCA with all data was rerun with only the 8 other phenotypic traits.
+
+Key summary results appear below. Loadings for the first five principal components for the all data PCA and the controlled diet data PCA are provided, followed by Tucker's congruence coefficients for these PCs. These coefficients show how well principal componenets (PCs) from the different PCAs correlate with one another (values above 0.85 can be considered high, values above 0.95 very high). Co-ordinate plots (with population confidence ellipses) are then provided for PC1 vs PC2.
+
+### F13 effect of diet 
+
+```{r diet effect for F13 original loadings}
+# F13 loadings for all data
+pca_F13$var$coord
 ```
 
-### PCA 1 differences
+```{r diet effect for F13 diet control loadings}
+# F13 loadings for controlled diet data
+pcactl_F13$var$coord
+```
 
-- Whether using `r colorize("all data", "blue")` or `r colorize("P:C control", "green")` the result is similar
-
-- There is a slight difference in PC1: in the `r colorize("P:C control", "green")` analysis, WA no longer loads on to PC1, but HSM does
-
-- For PC2 the result is similar (negative correlation of LS and WA).
-
-- For PC3 the negative correlation between CCRT and HSM is less strong in `r colorize("P:C control", "green")` than `r colorize("all data", "blue")`, but the positive correlation between CCRT and SR is maintained
-
-```{r echo=FALSE}
-knitr::include_graphics("LinearModelsPop/PCA_ControlledDiet/PCAd_4_Rmd/PCAd_r_Rmd3.png")
+```{r diet effect for F13 tucker}
+# F13 Tucker's congruence values
+factor.congruence(pca_F13$var$coord, pcactl_F13$var$coord,2)
 ```
 
 ```{r echo=FALSE}
-knitr::include_graphics("LinearModelsPop/PCA_ControlledDiet/PCAd_4_Rmd/PCAd_r_Rmd4.png")
+knitr::include_graphics("LinearModelsPop/PCA_ControlledDiet/PCA_CD_SI/plot_diet_F13.svg")
 ```
 
-### PCA 2 results
-- The main axis of variation (PC1) is fairly similar
+Tucker's congruence coefficient for PC1 is high (0.91), and for PC2 the coefficient is moderate (0.75), with some key correlations between traits appearing in both PCAs (positively correlated loadings for DW, TL and WA in PC1, positively correlated HSM and Via in PC2). The populations thus occupy similar positions within the PC1 vs PC2 co-ordinate space. Although congruence coefficients for PC3, PC4 and PC5 are lower (0.56-0.77), some correlations are maintained (e.g. positively correlated CCRT and Dia in PC3)
 
-- In both `r colorize("all data", "blue")` and `r colorize("P:C control", "green")` size traits (DW, TL and WA) positively correlate. In `r colorize("all data", "blue")` they also negatively correlate to LS
 
-- The negative correlation between SR and TL moves from PC2 in `r colorize("all data", "blue")` to PC3 in `r colorize("P:C control", "green")`. In `r colorize("P:C control", "green")` the positive correlation of LS (with SR) is weaker, but there is now a positive correlation between DT_A, HSM and SR.
+### F9 effect of diet 
 
-- The negative correlation of CSM and HSM has moved from PC3 in `r colorize("all data", "blue")` to PC4 in `r colorize("P:C control", "green")` (and is weaker)
-
-- Some trait correlations along PC2 and PC3 are weaker or have broken down, e.g. positive correlation between CCRT and HSM in `r colorize("all data", "blue")` PC3 is now negative correlation in `r colorize("P:C control", "green")` PC2
-
-```{r echo=FALSE}
-knitr::include_graphics("LinearModelsPop/PCA_ControlledDiet/PCAd_4_Rmd/PCAd_r_Rmd5.png")
+```{r diet effect for F9 original loadings}
+# F9 loadings for all data
+pca_F9$var$coord
 ```
 
-```{r echo=FALSE}
-knitr::include_graphics("LinearModelsPop/PCA_ControlledDiet/PCAd_4_Rmd/PCAd_r_Rmd6.png")
+```{r diet effect for F9 diet control loadings}
+# F9 loadings for controlled diet data
+pcactl_F9$var$coord
 ```
 
-### PCA 3 results
-- Similar to PCA 2 results in some ways: the main axis of variation (PC1) is again a size correlation:
-  - In both `r colorize("all data", "blue")` and `r colorize("P:C control", "green")` size traits (DW, TL and WA) positively correlate. In `r colorize("all data", "blue")` they negatively correlate to LS, and in `r colorize("P:C control", "green")` they positively correlate with Pigm.
 
-- The positive correlation between CCRT and Dia moves from PC3 in `r colorize("all data", "blue")` to PC2 in `r colorize("P:C control", "green")`
-
-- The positive correlation between Fec and Pigm moves from PC2 in `r colorize("all data", "blue")` to PC3 in `r colorize("P:C control", "green")`
-
-- Loss of some other trait correlations (including LS correlations)
-
-```{r echo=FALSE}
-knitr::include_graphics("LinearModelsPop/PCA_ControlledDiet/PCAd_4_Rmd/PCAd_r_Rmd7.png")
+```{r diet effect for F9 Tucker}
+# F9 Tucker's congruence values
+factor.congruence(pca_F9$var$coord, pcactl_F9$var$coord,2)
 ```
 
 ```{r echo=FALSE}
-knitr::include_graphics("LinearModelsPop/PCA_ControlledDiet/PCAd_4_Rmd/PCAd_r_Rmd8.png")
+knitr::include_graphics("LinearModelsPop/PCA_ControlledDiet/PCA_CD_SI/plot_diet_F9.svg")
 ```
 
-### PCA 4 results
+Tucker's congruence coefficient for PC1 is very high, but coefficients for other traits are lower, with some reordering of PCs 2, 3 and 4), although the ordering of PCs is retained (PC1 best correlates with PC1, PC2 with PC2 etc). As with the F13, PC1 trait correlations are similar (positively correlated loadings for DW, TL and WA in PC1), but correlations are broken or moved (e.g. the negative correlation between SR and TL moves from PC2 in all data to PC3 in the diet controlled PCA). Thus the populations occupy similar positions along PC1 but with differences along PC2 (even accounting for the change in sign).
 
-- Similar results to PCA 2 and PCA 3.
+### M8 effect of diet 
 
-- Positive correlation between HSM and Via maintained for PC2
+```{r diet effect for M8 original loadings}
+# M8 loadings for all data
+pca_M8$var$coord
+```
 
-- Negative correlation between CCRT and Dia maintained in PC3
+```{r diet effect for M8 diet control loadings}
+# M8 loadings for controlled diet data
+pcactl_M8$var$coord
+```
 
-- Negative correlation between LS and SR moves from PC1 in `r colorize("all data", "blue")` to PC4 in `r colorize("P:C control", "green")`
-
-- Loss of some other trait correlations
-
-### Summary
-
-- Some important changes to trait correlations between `r colorize("all data", "blue")` and `r colorize("P:C control", "green")`led data. Some patterns remain similar, but the North/South divide (at least in females) is less clear.
-
-- Development time has a stronger effect. Could withinpopulation DT_A variability be more influenced by diet than other traits? Perhaps not surprising, given nutritional/resource thresholds for metamorphosis?
-
-
-# 2.9 - Climatic Variables
-
-## From Venera
-
-For the analyses of the climatic variables, two time periods were chosen: 30 years (to trace the long-lasting climatic effects) and 30 days (short weather effect, on average over a couple generations for different localities, to account for maternal/grand-maternal effects). 14 climatic variables data (see the list below) was downloaded from the NASA database using R package “nasapower” and PCA analysis was done with “FactoMineR” package.
+```{r diet effect for M8}
+# M8 Tucker's congruence values
+factor.congruence(pca_M8$var$coord, pcactl_M8$var$coord,2)
+```
 
 ```{r echo=FALSE}
-ClimVarPCA <- read.csv("EnvironmentalAnalysis/PCA_clim/TraitsCombined/ClimVar4PCA_4Rmd.csv")
-knitr::kable(ClimVarPCA, caption = 'Table X: List of the climatic variables used in PCA.')
+knitr::include_graphics("LinearModelsPop/PCA_ControlledDiet/PCA_CD_SI/plot_diet_M8.svg")
 ```
 
-__PCA for 30 days data__
+Tucker's congruence coefficient for PC1 is very high and for PC2 it is high, with many PC1 and PC2 trait correlations similar for the two PCAs, leading to the populations occupying similar positions within the PC1 vs PC2 co-ordinate space.  Congruence coefficients are lower for PC3, PC4 and PC5, although some trait correlations are maintained (e.g. the positive correlation of CCRT and SR along PC3).
 
-```{r echo=FALSE}
-knitr::include_graphics("EnvironmentalAnalysis/PCA_clim/TraitsCombined/graphs/30d_PCA.png")
+
+# 2.12 - Climatic Variables
+
+```{r include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(car)
 ```
 
-__PCA for 30 years data__
+For the analyses of the climatic variables, two time periods were chosen: 30 years (to trace the long-lasting climatic effects) and 30 days (short weather effect, on average over a couple generations for different localities). 14 climatic variables data (see the list below) was downloaded from the NASA database using R package “nasapower” and PCA analysis was done with “FactoMineR” package.  
 
-```{r echo=FALSE}
-knitr::include_graphics("EnvironmentalAnalysis/PCA_clim/TraitsCombined/graphs/30y_PCA.png")
+```{r climate variables, echo=FALSE, message=FALSE}
+ClimVarPCA <- read.csv("EnvironmentalAnalysis/PCA_Pheno_Clim_SI/ClimVar4PCA_4Rmd.csv")
+knitr::kable(ClimVarPCA, 
+             caption = 'List of the climatic variables used in PCA.')
 ```
 
-First two PCs in both datasets had eigen values >1 explaining 94.7% (30 days) and 89.8% (30 years) and were used in the further analyses.
+Below we show different outputs from the two different versions of the climate PCA (30 days above, 30 years below), summarising some key results.  
 
+## Vector and Coordinate Plots
 
-__PCA for 30 days data__
+In the coordinate plots, the populations separate along the two dimensions rather differently for the 30 day and 30 year data sets, possibly because the short-term climate data (30 days) does not include winter (cold season).  
 
-```{r echo=FALSE}
-knitr::include_graphics("EnvironmentalAnalysis/PCA_clim/TraitsCombined/graphs/30d_scree_plot.png")
+__PCA for 30 days data__  
+
+```{r 30d vector and coord plots, echo=FALSE, message=FALSE}
+knitr::include_graphics("EnvironmentalAnalysis/PCA_Pheno_Clim_SI/Climate_PCA_VecCoord_30d.svg")
 ```
 
-__PCA for 30 years data__
+__PCA for 30 years data__ 
 
-```{r echo=FALSE}
-knitr::include_graphics("EnvironmentalAnalysis/PCA_clim/TraitsCombined/graphs/30y_scree_plot.png")
+```{r 30y vector and coord plots, echo=FALSE, message=FALSE}
+knitr::include_graphics("EnvironmentalAnalysis/PCA_Pheno_Clim_SI/Climate_PCA_VecCoord_30y.svg")
 ```
 
-The populations are separated in two dimensions rather differently in two datasets - possibly because the short-term climate data (30 days) does not include winter (cold season).
+## Scree Plots (eigenvalues)
 
+The first two PCs in both data sets had eigenvalues >1 explaining 94.7% (30 days) and 89.8% (30 years) of the variation. Thus PC1 and PC2 were used in the further analyses.  
 
-__PCA for 30 days data__
+__Scree plot for 30 days data__  
 
-```{r echo=FALSE}
-knitr::include_graphics("EnvironmentalAnalysis/PCA_clim/TraitsCombined/graphs/30d_PCA_pops.png")
+```{r 30d scree plot, echo=FALSE, message=FALSE}
+knitr::include_graphics("EnvironmentalAnalysis/PCA_Pheno_Clim_SI/Climate_PCA_Scree_30d.svg")
 ```
 
-__PCA for 30 years data__
+__Scree plot for 30 years data__  
 
-```{r echo=FALSE}
-knitr::include_graphics("EnvironmentalAnalysis/PCA_clim/TraitsCombined/graphs/30y_PCA_pops.png")
+```{r 30y scree plot, echo=FALSE, message=FALSE}
+knitr::include_graphics("EnvironmentalAnalysis/PCA_Pheno_Clim_SI/Climate_PCA_Scree_30y.svg")
 ```
 
-Contribution of PCs
+## Loadings Plots  
 
-PC1 is mostly affected by the temperature values (but not only), while precipitation/humidity is among strongest contributors to PC2.
+There was much overlap in the contributions of different variable to PC1 and PC2. Average temperatures (TS, T2M and T2MWET) all strongly contributed to PC1, while precipitation (PRECTOTCORR) and humidity (RH2M) contributed to PC2. However, frost days was important for PC1 in the 30 year data but not the 30 day data, and while temperature range was important in both data sets, maximum temperatures (TS_MAX and T2M_MAX) were only important in the 30 year data set.
 
-__PCA for 30 days data__
+__Loadings for 30 days data__  
 
-```{r echo=FALSE}
-knitr::include_graphics("EnvironmentalAnalysis/PCA_clim/TraitsCombined/graphs/30d_PC1_contr.png")
-knitr::include_graphics("EnvironmentalAnalysis/PCA_clim/TraitsCombined/graphs/30d_PC2_contr.png")
+```{r 30d loadings, echo=FALSE, message=FALSE}
+knitr::include_graphics("EnvironmentalAnalysis/PCA_Pheno_Clim_SI/Climate_PCA_Loadings_30d.svg")
 ```
 
-__PCA for 30 years data__
+__Loadings for 30 years data__  
 
-```{r echo=FALSE}
-knitr::include_graphics("EnvironmentalAnalysis/PCA_clim/TraitsCombined/graphs/30y_PC1_contr.png")
-knitr::include_graphics("EnvironmentalAnalysis/PCA_clim/TraitsCombined/graphs/30y_PC2_contr.png")
+```{r 30y loadings, echo=FALSE, message=FALSE}
+knitr::include_graphics("EnvironmentalAnalysis/PCA_Pheno_Clim_SI/Climate_PCA_Loadings_30y.svg")
 ```
 
-Correlation with geographical coordinates
+## Correlations with Geographical Coordinates  
 
-__PCA for 30 days data__
+In the 30 year dataset PC1 showed strong (< -0.8) negative correlations with latitude and longitude, while in the 30 day dataset PC2 showed a strong (0.8) positive correlation with latitude.
 
-```{r echo=FALSE}
-knitr::include_graphics("EnvironmentalAnalysis/PCA_clim/TraitsCombined/graphs/30d_correlations.png")
+__Correlations for 30 days data__  
+
+```{r 30d correlation plot, echo=FALSE, message=FALSE}
+knitr::include_graphics("EnvironmentalAnalysis/PCA_Pheno_Clim_SI/Climate_PCA_corrplot_30d.svg")
 ```
 
-__PCA for 30 years data__
+__Correlations for 30 years data__  
 
-```{r echo=FALSE}
-knitr::include_graphics("EnvironmentalAnalysis/PCA_clim/TraitsCombined/graphs/30y_correlations.png")
-```
-
-Analysis of the trait PCA (Ewan) with the climate data PCA (above).
-
-```{r echo=FALSE}
-knitr::include_graphics("EnvironmentalAnalysis/PCA_clim/TraitsCombined/ClimVarTable_4Rmd.png")
-```
-
-There is a strong association of trait PC2 with climate PCs in both datasets. However, the association of the trait PC3 with climate PCs is clear in 30-years dataset (in 30-day dataset - only clim PC2 shows association in F9 set).
-
-
-## Summarize both environmental and phenotypic PCs for PC2 (strongest correlation
-
-```{r echo=FALSE}
-knitr::include_graphics("EnvironmentalAnalysis/DualPCA/DualPCA_Fmax_d30.png")
-knitr::include_graphics("EnvironmentalAnalysis/DualPCA/DualPCA_Fmax_y30.png")
-knitr::include_graphics("EnvironmentalAnalysis/DualPCA/DualPCA_M9_d30.png")
-knitr::include_graphics("EnvironmentalAnalysis/DualPCA/DualPCA_M9_y30.png")
-
+```{r 30y correlation plot, echo=FALSE, message=FALSE}
+knitr::include_graphics("EnvironmentalAnalysis/PCA_Pheno_Clim_SI/Climate_PCA_corrplot_30y.svg")
 ```
 
 
+# Associations between phenotype and climate principal components
 
-## From Alan (old)
-__Goal__:
+Glms were carried out to investigate associations between phenotype principal components (PCs) and climate PCs. For all three different trait combinations (F13, F9 and M9), and for both sets of climate data (30 days and 30 years), separate glms were run considering either phenotype PC 1, 2 or 3 as a response variable, and both climate PCs 1 and 2 as explanatory variables (18 glms total). The summary table below shows the significance of climate variables in explaining each phenotype PC. A permutation based approach was then used to test if correlations between phenotype and climate PCs were greater than expected at random (1000 permutations per phenotype PC:climate PC combination).
 
-Test whether phenotypic variation in isofemale lines collected at different locations is correlated with aspects of weather and climate prior to sampling. To perform this analysis, I propose that
-
-__Dataset__:
-
-- Phenotype data: metaanalysis estimates of phenotypes, individual phenotypes + PCA reduction of phenotype space
-
-- Environmental data: NASApower data
-    - Temperature, Rainfall, Humidity. What else?
-
-__Strategy__:
-
-- The goal is to build a large number of models for each phenotype. Each model will regress phenotype (or PCA projection) onto one of the environmental variables, or summarizations of the environmental variables.
-
-- For each phenotype and model, we can assess whether the environmental model is:
-  - “Significant” p<0.05
-  - “Significant after multiple testing correction” depends on how many environmental models
-  - Has normalized effect size with confidence intervals that do not overlap
-
-- We can also assess whether the direction of the environmental effect is consistent with a priori expectations. For instance we can predict that cold-shock-mortality will be lower in locations that more recently experienced a cold shock.
-
-__Data transformations__:
-
-- Normalize phenotype data & environmental data: `(Estimate-mean(Estimate, na.rm=T))/sd(Estimate, na.rm=T)`
-- Do we use the population means? Or do we use the line means?
-  - Line means give us more power, but population means is a more conservative model
-- How do we summarize environmental data?
-  - Windows of time:
-    - I suggest that we keep things relatively simple, e.g., 1 day prior to collection, 1 week prior, 1 month prior, 6 months prior, 12 months prior.
-- Summarization functions:
-  - The mean, min, max
-  - Number of days above or below a pre-defined threshold
-  - Other more sophisticated functions (e.g., those that Vera used)
-
-__Problems__:
-
-- Model selection and multiple testing
-
-Here is an analysis that highlights some of the ways I have been looking at the data. Some aspects are clear, some are less so. I’d be curious to hear your thoughts and also to work with you both to sort out any analyses.
-
-```{r echo=FALSE}
-knitr::include_graphics("EnvironmentalAnalysis/FromAB/DriveDoc1.jpg")
+## Summary of phenotype x climate principal components
+```{r summary of significant PC-PC associations, echo=FALSE, message=FALSE}
+knitr::include_graphics("EnvironmentalAnalysis/PCA_Pheno_Clim_SI/summary_updated_30y-30d_alt-arrange.svg")
+```
+```
+### Signif. codes: ‘***’ 0.001, ‘**’ 0.01, ‘*’ 0.05
 ```
 
-The color represents eta-squared, which is a standardized estimate of effect size. Like, R2. Orange boxes mean that this model is the best model by AIC. Green boxes mean that this model has delta-AIC < 2 from the best model. A dot means that the confidence intervals for eta2 do not overlap 0. A blue dot means that the slope of the relationship between the phenotype and the environment is positive. A red dot means that it is negative.
+Results for glms involving phenotype PC1 (all 3 phenotype PCAs and both 30d and 30y climate PCAs) were rather over-dispersed (>2).
 
-Heat shock mortality makes sense. The best model is the proportion of days in the 30 days prior to sampling when the maximum temp is about ~35°C. There is a negative relationship that means that the more days of high temp, the lower the HSM.
+## Permutation results for phenotype x climate PCs  
 
-CSM is less clear: cold shock mortality in females is best predicted by the minimum temperature in the 30 days prior to sampling. There is a negative relationship meaning that CSM is higher when the minimum temp is lower.
+The permutation derived threshold for significance is demarcated by the coloured lines. Purmuted data appear as grey points, and real data appear as a coloured point. Only points that have higher -log~10~ P values (i.e. lower P values) and higher R^2^ values pass this statistical test (P and R^2^ are perfectly correlated). Four correlations between phenotype PC2 and climate PC2 passed the permutation procedure (F13 - 30 day, F13 - 30 year, F9 - 30 day, and M9 - 30 day).  
 
-```{r echo=FALSE}
-knitr::include_graphics("EnvironmentalAnalysis/FromAB/MailDoc1.jpg")
+```{r permutations for PC-PC associations, echo=FALSE, message=FALSE}
+knitr::include_graphics("EnvironmentalAnalysis/PCA_Pheno_Clim_SI/all_permutation_results_v3.svg")
 ```
 
-# 2.10 - GDM
+## Associations between Phenotype PC2 and Climate PC2  
+
+Climatic and phenotypic variables with greater-than-average contributions (loadings) to a given principal component are shown in the accompanying x- and y-axis vector plots, respectively. For males (M9 plots on right hand side), the phenotype PC2 is inverted relative to females (loadings for Life span and Thorax Length differ in direction)
+
+```{r all PC2 versus PC2 plots, echo=FALSE, message=FALSE}
+knitr::include_graphics("EnvironmentalAnalysis/PCA_Pheno_Clim_SI/PhenoPC2_ClimPC2_All_Plots.svg")
+```
+
+## Summary statistics for glm and permutation results  
+
+```{r read csv files}
+## Load data tables for glms
+
+F13_30y_data <- read.csv("EnvironmentalAnalysis/PCA_Pheno_Clim_SI/F9maxP_30y_data.csv")
+F13_30d_data <- read.csv("EnvironmentalAnalysis/PCA_Pheno_Clim_SI/F9maxP_30d_data.csv")
+F9_30y_data <- read.csv("EnvironmentalAnalysis/PCA_Pheno_Clim_SI/F9_30y_data.csv")
+F9_30d_data <- read.csv("EnvironmentalAnalysis/PCA_Pheno_Clim_SI/F9_30d_data.csv")
+M9_30y_data <- read.csv("EnvironmentalAnalysis/PCA_Pheno_Clim_SI/M9_30y_data.csv")
+M9_30d_data <- read.csv("EnvironmentalAnalysis/PCA_Pheno_Clim_SI/M9_30d_data.csv")
+
+## Load permutation test objects
+
+emp_pr_F13_y <- readRDS("EnvironmentalAnalysis/PCA_Pheno_Clim_SI/emp_pr_F13_y.rds")
+emp_pr_F9_y <- readRDS("EnvironmentalAnalysis/PCA_Pheno_Clim_SI/emp_pr_F9_y.rds")
+emp_pr_M9_y <- readRDS("EnvironmentalAnalysis/PCA_Pheno_Clim_SI/emp_pr_M9_y.rds")
+emp_pr_F13_d <- readRDS("EnvironmentalAnalysis/PCA_Pheno_Clim_SI/emp_pr_F13_d.rds")
+emp_pr_F9_d <- readRDS("EnvironmentalAnalysis/PCA_Pheno_Clim_SI/emp_pr_F9_d.rds")
+emp_pr_M9_d <- readRDS("EnvironmentalAnalysis/PCA_Pheno_Clim_SI/emp_pr_M9_d.rds")
+```
+
+Below are:  
+  
+1. Summary ANOVA tables for each of the glms considering phenotype PC x climate PC associations, and  
+2. Ranked p values for these associations following the permutation procedure.  
+
+## 1. Summary ANOVA tables
+
+### F13: Climate 30 days
+
+```{r F13 30d PC1}
+# Phenotype: PC1
+F13_PC1_d <- glm(F13_30d_data$PC1_F9maxP ~ F13_30d_data$PC1_clim + F13_30d_data$PC2_clim,data = F13_30d_data)
+Anova(F13_PC1_d, test.statistic="F")
+```
+
+```{r F13 30d PC2}
+# Phenotype: PC2
+F13_PC2_d <- glm(F13_30d_data$PC2_F9maxP ~ F13_30d_data$PC1_clim + F13_30d_data$PC2_clim,data = F13_30d_data)
+Anova(F13_PC2_d, test.statistic="F")
+```
+
+```{r F13 30d PC3}
+# Phenotype: PC3
+F13_PC3_d <- glm(F13_30d_data$PC3_F9maxP ~ F13_30d_data$PC1_clim + F13_30d_data$PC2_clim,data = F13_30d_data)
+Anova(F13_PC3_d, test.statistic="F")
+```
+
+### F13: Climate 30 years
+
+```{r F13 30y PC1}
+# Phenotype: PC1
+F13_PC1_y <- glm(F13_30y_data$PC1_F9maxP ~ F13_30y_data$PC1_clim + F13_30y_data$PC2_clim,data = F13_30y_data)
+Anova(F13_PC1_y, test.statistic="F")
+```
+
+```{r F13 30y PC2}
+# Phenotype: PC2
+F13_PC2_y <- glm(F13_30y_data$PC2_F9maxP ~ F13_30y_data$PC1_clim + F13_30y_data$PC2_clim,data = F13_30y_data)
+Anova(F13_PC2_y, test.statistic="F")
+```
+
+```{r F13 30y PC3}
+# Phenotype: PC3
+F13_PC3_y <- glm(F13_30y_data$PC3_F9maxP ~ F13_30y_data$PC1_clim + F13_30y_data$PC2_clim,data = F13_30y_data)
+Anova(F13_PC3_y, test.statistic="F")
+```
+
+### F9: Climate 30 days
+
+```{r F9 30d PC1}
+# Phenotype: PC1
+F9_PC1_d <- glm(F9_30d_data$PC1_F9 ~ F9_30d_data$PC1_clim + F9_30d_data$PC2_clim,data = F9_30d_data)
+Anova(F9_PC1_d, test.statistic="F")
+```
+
+```{r F9 30d PC2}
+# Phenotype: PC2
+F9_PC2_d <- glm(F9_30d_data$PC2_F9 ~ F9_30d_data$PC1_clim + F9_30d_data$PC2_clim,data = F9_30d_data)
+Anova(F9_PC2_d, test.statistic="F")
+```
+
+```{r F9 30d PC3}
+# Phenotype: PC3
+F9_PC3_d <- glm(F9_30d_data$PC3_F9 ~ F9_30d_data$PC1_clim + F9_30d_data$PC2_clim,data = F9_30d_data)
+Anova(F9_PC3_d, test.statistic="F")
+```
+
+### F9: Climate 30 years
+
+```{r F9 30y PC1}
+# Phenotype: PC1
+F9_PC1_y <- glm(F9_30y_data$PC1_F9 ~ F9_30y_data$PC1_clim + F9_30y_data$PC2_clim,data = F9_30y_data)
+Anova(F9_PC1_y, test.statistic="F")
+```
+
+```{r F9 30y PC2}
+# Phenotype: PC2
+F9_PC2_y <- glm(F9_30y_data$PC2_F9 ~ F9_30y_data$PC1_clim + F9_30y_data$PC2_clim,data = F9_30y_data)
+Anova(F9_PC2_y, test.statistic="F")
+```
+
+```{r F9 30y PC3}
+# Phenotype: PC3
+F9_PC3_y <- glm(F9_30y_data$PC3_F9 ~ F9_30y_data$PC1_clim + F9_30y_data$PC2_clim,data = F9_30y_data)
+Anova(F9_PC3_y, test.statistic="F")
+```
+
+### M9: Climate 30 days
+
+```{r M9 30d PC1}
+# Phenotype: PC1
+M9_PC1_d <- glm(M9_30d_data$PC1_M9 ~ M9_30d_data$PC1_clim + M9_30d_data$PC2_clim,data = M9_30d_data)
+Anova(M9_PC1_d, test.statistic="F")
+```
+
+```{r M9 30d PC2}
+# Phenotype: PC2
+M9_PC2_d <- glm(M9_30d_data$PC2_M9 ~ M9_30d_data$PC1_clim + M9_30d_data$PC2_clim,data = M9_30d_data)
+Anova(M9_PC2_d, test.statistic="F")
+```
+
+```{r M9 30d PC3}
+# Phenotype: PC3
+M9_PC3_d <- glm(M9_30d_data$PC3_M9 ~ M9_30d_data$PC1_clim + M9_30d_data$PC2_clim,data = M9_30d_data)
+Anova(M9_PC3_d, test.statistic="F")
+```
+
+### M9: Climate 30 years
+
+```{r M9 30y PC1}
+# Phenotype: PC1
+M9_PC1_y <- glm(M9_30y_data$PC1_M9 ~ M9_30y_data$PC1_clim + M9_30y_data$PC2_clim,data = M9_30y_data)
+Anova(M9_PC1_y, test.statistic="F")
+```
+
+```{r M9 30y PC2}
+# Phenotype: PC2
+M9_PC2_y <- glm(M9_30y_data$PC2_M9 ~ M9_30y_data$PC1_clim + M9_30y_data$PC2_clim,data = M9_30y_data)
+Anova(M9_PC2_y, test.statistic="F")
+```
+
+```{r M9 30y PC3}
+# Phenotype: PC3
+M9_PC3_y <- glm(M9_30y_data$PC3_M9 ~ M9_30y_data$PC1_clim + M9_30y_data$PC2_clim,data = M9_30y_data)
+Anova(M9_PC3_y, test.statistic="F")
+```
+
+## 2. Ranked P values following permutation
+
+The following tables are ranked by pr_p: the probability that the p-value for the observed data is smaller than the permutations. Phenotype PC : climate PC combinations with a pr_p > 0.95 are considered significant.
+
+#### Climate 30 days  
+
+```{r F13 30 day}
+# F13: Climate 30 days
+emp_pr_F13_d[order(emp_pr_F13_d$pr_p),]
+```
+
+```{r F9 30 day}
+# F9: Climate 30 days
+emp_pr_F9_d[order(emp_pr_F9_d$pr_p),]
+```
+
+```{r M9 30 day}
+# M9: Climate 30 days
+emp_pr_M9_d[order(emp_pr_M9_d$pr_p),]
+```
+
+#### Climate 30 years  
+
+```{r F13 30 year}
+# F13: Climate 30 years
+emp_pr_F13_y[order(emp_pr_F13_y$pr_p),]
+```
+
+```{r F9 30 year}
+# F9: Climate 30 years
+emp_pr_F9_y[order(emp_pr_F9_y$pr_p),]
+```
+
+```{r M9 30 year}
+# M9: Climate 30 years
+emp_pr_M9_y[order(emp_pr_M9_y$pr_p),]
+```
+
+
+# 2.13 - GDM
 
 _**Please refer to /GDM folder for details.**_
 
@@ -5010,7 +5026,7 @@ knitr::include_graphics("GDM/GDM_Worldclim/WA_R_M/WA_R_M_wind08_i-spline.jpeg")
 knitr::include_graphics("GDM/GDM_Worldclim/WA_R_M/WA_R_M_vapr06_i-spline.jpeg")
 ```
 
-# 2.11 - Wolbachia
+# 2.14 - Wolbachia
 
 ## Population
 
