@@ -67,6 +67,17 @@
 
   o.ag <- o[,list(p_thr=quantile(p, .05), r2_thr=quantile(r2, .95)), list(traitPC, envPC, pheno, perm=as.factor(perm!=0))]
 
+  empirical_pr <- o[,list(pr_p=mean(p[perm==0]<p[perm!=0]), r2_p=mean(r2[perm==0]>r2[perm!=0])),
+                list(traitPC, envPC, pheno)]
+
+  empirical_pr[order(pr_p)
+  ggplot(data=o[perm!=0], aes(x=-log10(p), y=r2, color=pheno)) +
+  geom_hline(data=o.ag[perm==T], aes(yintercept=r2_thr,         color=pheno)) +
+  geom_vline(data=o.ag[perm==T], aes(xintercept=-log10(p_thr),  color=pheno)) +
+  geom_point() + facet_grid(traitPC~envPC) +
+  geom_point(data=o[perm==0], aes(x=-log10(p), y=r2, color=pheno), shape=21, fill="black") +
+  ylab("R^2") + xlab("-log10(p)")
+
   permPlot <- ggplot() +
   geom_point(data=o.ag[perm==F], aes(x=-log10(p_thr), y=r2_thr, color=pheno)) +
   geom_hline(data=o.ag[perm==T], aes(yintercept=r2_thr,         color=pheno)) +
