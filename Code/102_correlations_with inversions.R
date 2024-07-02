@@ -59,7 +59,7 @@ pop_2lt_pearson <- list()
 for (i in 1:length(pop_list)) {
   cortest <- cor.test(pop_list[[i]]$Estimate, pop_list[[i]]$In2Lt)
   pop_2lt_pearson[[i]] <- data.frame(
-    Trait = unique(pop_list[[i]]$Trait), 
+    Trait = unique(pop_list[[i]]$Trait),
     Sex = unique(pop_list[[i]]$Sex),
     R = cortest$estimate,
     P = cortest$p.value,
