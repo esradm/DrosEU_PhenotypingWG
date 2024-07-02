@@ -43,6 +43,12 @@ invs_pop <- invs %>%
   rename(Population = population)
 
 
+write.csv(invs_pop,
+  file = "Inversions/inversion_frequencies_pops.csv",
+  row.names = FALSE
+)
+
+
 
 ##### pop level
 
