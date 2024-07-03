@@ -5044,29 +5044,29 @@ knitr::kable(GDM_table2, caption = 'Table 2: Proportion of variation in phenotyp
 
 _Table 3: Result of generalized dissimilarity model for phenotypic variables, the most important predictor variables were shown in bold._
 
-```{r echo=FALSE}
+```{r include=FALSE}
 knitr::include_graphics("GDM/GDM_Table3_4Rmd.png")
 ```
 
-## Dry weight
+### Dry weight
 ```{r echo=FALSE, out.width="40%", out.height="40%"}
 knitr::include_graphics("GDM/GDM_Worldclim/DW_M/DW_M_vapr7_i-spline.jpeg")
 ```
 
-```{r echo=FALSE, out.width="40%", out.height="40%"}
+```{r include=FALSE, out.height="40%", out.width="40%"}
 knitr::include_graphics("GDM/GDM_Worldclim/DW_M/DW_M_bio2_i-spline.jpeg")
 ```
 
-## Fecundity
+### Fecundity
 ```{r echo=FALSE, out.width="40%", out.height="40%"}
 knitr::include_graphics("GDM/GDM_Worldclim/Fec/Fec_srad01_i-spline.jpeg")
 ```
 
-```{r echo=FALSE, out.width="40%", out.height="40%"}
+```{r include=FALSE, out.height="40%", out.width="40%"}
 knitr::include_graphics("GDM/GDM_Worldclim/Fec/Fec_wind07_i-spline.jpeg")
 ```
 
-## Lifespan
+### Lifespan
 ```{r echo=FALSE, out.width="40%", out.height="40%"}
 knitr::include_graphics("GDM/GDM_Worldclim/LS_F/LS_F_srad05_i-spline.jpeg")
 ```
@@ -5099,7 +5099,7 @@ knitr::include_graphics("GDM/GDM_Worldclim/LS_M/LS_M_GDM_prec10_i-spline.jpeg")
 knitr::include_graphics("GDM/GDM_Worldclim/LS_M/LS_M_GDM_wind12_i-spline.jpeg")
 ```
 
-## Thorax length
+### Thorax length
 ```{r echo=FALSE, out.width="40%", out.height="40%"}
 knitr::include_graphics("GDM/GDM_Worldclim/TL_F/TL_F_perc05_i-spline.jpeg")
 ```
@@ -5112,7 +5112,7 @@ knitr::include_graphics("GDM/GDM_Worldclim/TL_F/TL_F_srad06_i-spline.jpeg")
 knitr::include_graphics("GDM/GDM_Worldclim/TL_F/TL_F_wind12_i-spline.jpeg")
 ```
 
-## Wing area
+### Wing area
 ```{r echo=FALSE, out.width="40%", out.height="40%"}
 knitr::include_graphics("GDM/GDM_Worldclim/WA_L_M/WA_L_M_wind08_i-spline.jpeg")
 ```
