@@ -1,5 +1,5 @@
 ---
-title: "**Continent-wide differentiation of fitness traits and patterns of climate adaptation among European populations of _Drosophila melanogaster_ ** "
+title: "**Online Supplemantary Material for manuscript titled 'Continent-wide differentiation of fitness traits and patterns of climate adaptation among European populations of _Drosophila melanogaster_ **' " 
 author: "Esra Durmaz Mitchell, Envel Kerdaffrec, _et al._, and Thomas Flatt"
 date: "Last updated: `r format(Sys.Date())` by Esra Durmaz Mitchell, Envel Kerdaffrec and Ewan Harney"
 output:
