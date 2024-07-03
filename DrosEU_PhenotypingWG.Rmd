@@ -157,19 +157,21 @@ Flies used for measurements of thorax length were reared in 2 batches by the IK 
 
 Flies used for wing area measurements were reared in 7, 1, 15 and 5 batches by the BO, NP, MR and MSR labs, respectively. Both the left and right wings of 5- to 10-day-old flies (per isofemale line and sex, on average 30 individuals were measured in the BO, MR and MSR labs, and 10 individuals in the NP lab) were removed and mounted in Entellan (Merck) (BO) or Hoyer’s mounting medium (NP) or placed directly onto double-sided sticky tape (MR, MSR). NP and MSR kept the flies at -20°C for 5 - 14 days prior to wing dissections. Photographs of wings were taken using a digital camera connected to a dissecting microscope (NP: QImaging MicroPublisher 5.0 digital camera mounted to a Leica M205 FA stereo microscope; MSR: Bresser MikroCam 5.0 MP digital camera mounted to Nikon SMZ 745T stereo microscope; MR: Leica DFC295 camera attached to Leica M60 stereo microscope; BO: Leica S9i with integrated 10 MP CMOS-camera). Within each lab the same magnification and resolution was used (NP: 50X; MSR: 50X; MR: 50X; BO: 48X). A photograph of a scale bar (ruler) was taken with the same settings as for the rest of the images during every measurement session, thereby allowing the conversion of (square) pixels to (square) µm. 
 
-```{r}
+```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("ThoraxLength/Figure_PosnienLab.png")
+knitr::include_graphics("Figures/wing_landmarks.png")
 ```
 
 
-```{r}
-knitr::include_graphics("WingArea//WCS_WAman.png")
-```
 
 
 _Figure X_. Thorax and wing measurements. (A) Thorax length was measured from the anterior margin of the thorax to the posterior tip of the scutellum. (B) Measurement area of the wing. (B’) Landmarks used to exclude the posterior part of the wing for area measurements. (C) Position of 15 landmarks used for wing centroid size (WCS) assessment. 
 
 Wing area was estimated by quantifying wing centroid size (WCS; Bookstein, 1996). Fifteen landmarks (Figure X) were placed on wing images using tpsUtil and tpsDig2 (Rohlf, 2015) to obtain raw x and y landmark coordinates. WCS was calculated as the square root of the sum of squared deviations of landmarks around their centroid as implemented in MorphoJ (Klingenberg, 2011) or tpsRelw (Rohlf, 2015). To confirm that WCS represents wing area, the NP lab also manually measured wing area by outlining wings (Figure XB) with the "Polygon Selection" tool in Fiji (https://ﬁji.sc/). The most proximal part of the wing was excluded from measurements, using two distinct landmarks, since it was more susceptible to damage during dissection (Figure XB’). Linear regression of WCS against manually measured wing area showed a high positive correlation (adjusted R2 = 0.83, F1, 538 = 2605, p < 2.2 x 10-16) (Figure ??). 
+
+```{r}
+knitr::include_graphics("WingArea//WCS_WAman.png")
+```
 
 
 ### Fertility
