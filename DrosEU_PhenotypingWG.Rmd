@@ -11,9 +11,7 @@ output:
     theme: yeti
 ---
 
-Author contributions can be found here 
-
-https://docs.google.com/spreadsheets/d/1SkiqZlpZlEs1nf6JJUakREYS4mpghSmgb_0QlL8o3ek/edit#gid=1616763697
+Author contributions can be found [here](https://docs.google.com/spreadsheets/d/1SkiqZlpZlEs1nf6JJUakREYS4mpghSmgb_0QlL8o3ek/edit#gid=1616763697)
 
 Correspondence: esra@bmb.sdu.dk; thomas.flatt@unifr.ch 
 
@@ -88,9 +86,8 @@ knitr::include_graphics("Figures/figure1_v4.png")
 
 ## Contributors
 
-Author contributions can be found here
+Author contributions can be found [here](https://docs.google.com/spreadsheets/d/1SkiqZlpZlEs1nf6JJUakREYS4mpghSmgb_0QlL8o3ek/edit#gid=1616763697)
 
-https://docs.google.com/spreadsheets/d/1SkiqZlpZlEs1nf6JJUakREYS4mpghSmgb_0QlL8o3ek/edit#gid=1616763697
 
 Contributed labs are `r unique(droseu_labs$PI)` and detailed list below:
 
