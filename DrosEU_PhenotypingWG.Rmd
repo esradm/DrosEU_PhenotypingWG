@@ -4966,42 +4966,10 @@ knitr::include_graphics("LinearModelsAlt_Wolb/all_models_alt_pvalues_Wolb.pdf")
 
 ## UPGMA trees
 
-Here are some example UPGMA trees from Jorge and Cristina -- please refer to /UPGMATrees folder for all of the trees.
+Model estimates for each population, sex and trait, as well as the results of the Tukey tests, were extracted from the linear model estimate files. In order to obtain the UPGMA trees, a Bash script was written that allows the calculation of a distance matrix based on the model estimates for each population, sex and trait, then uses the command line version of MEGAX (Kumar S, Stecher G, Li M, Knyaz C, Tamura K. MEGA X: Molecular Evolutionary Genetics Analysis across Computing Platforms. Mol Biol Evol. 2018 Jun 1;35(6):1547-1549. doi: 10.1093/molbev/msy096. PMID: 29722887; PMCID: PMC5967553), to obtain an UPGMA tree that is saved as a Newick file, and then plots the tree using the plottree software application (https://github.com/iBiology/plottree). For facility of use, this pipeline is available as a Docker image, called  values2tree, at the pegi3s Bioinformatics Docker Images Project (https://pegi3s.github.io/dockerfiles/; H. López-Fernández; P. Ferreira; M. Reboiro-Jato; C.P. Vieira; J. Vieira (2021) The pegi3s Bioinformatics Docker Images Project. 15th International Conference on Practical Applications of Computational Biology & Bioinformatics: PACBB 2021. Salamanca, Spain. 6 - October DOI), and uses the pegi3s Docker images for megax_cc and plottree. The values2tree Bash script code is available on github at https://github.com/pegi3s/dockerfiles/tree/master/values2tree
 
-_CCRT Female_
-
-```{r echo=FALSE, out.width="50%"}
-knitr::include_graphics("UPGMATrees/CCRT_F_meta_summary.txt.Mensch.png")
-```
-
-_CSM Female_
-
-```{r echo=FALSE, out.width="50%"}
-knitr::include_graphics("UPGMATrees/CSM_F_meta_summary.txt.Gonzalez.png")
-```
-
-_DT_A Female_
-
-```{r echo=FALSE, out.width="50%"}
-knitr::include_graphics("UPGMATrees/DT_A_F_meta_summary.txt.Hoedjes.png")
-```
-
-_DW Male_
-
-```{r echo=FALSE, out.width="50%"}
-knitr::include_graphics("UPGMATrees/DW_M_meta_summary.txt.Colinet.png")
-```
-
-_SR Female_
-
-```{r echo=FALSE, out.width="50%"}
-knitr::include_graphics("UPGMATrees/SR_F_meta_summary.txt.Pasyukova.png")
-```
-
-_WA_R Female_
-
-```{r echo=FALSE, out.width="50%"}
-knitr::include_graphics("UPGMATrees/WA_R_F_meta_summary.txt.StamenkovicRadak.png")
+```{r echo=FALSE}
+knitr::include_graphics("UPGMATrees/UPGMA_04072024.pdf")
 ```
 
 ## Species Distribution Model
