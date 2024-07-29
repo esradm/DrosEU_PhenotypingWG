@@ -65,7 +65,7 @@ labs_plot <- ggplot(data = world) +
     theme_classic(8) +
     xlab("Longitude") +
     ylab("Latitude") +
-    ggtitle("Contributed labs", subtitle = "17 countries, 26 research groups") +
+    ggtitle("Contributing labs", subtitle = "17 countries, 26 research groups") +
     theme(
         legend.position = "none",
         axis.text = element_text(size = 8),
