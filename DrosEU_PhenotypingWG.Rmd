@@ -1,5 +1,5 @@
 ---
-title: "**Online Supplemantary Material for manuscript titled 'Continent-wide differentiation of fitness traits and patterns of climate adaptation among European populations of _Drosophila melanogaster_ **' " 
+title: "**Online Supplementary Material for manuscript entitled 'Continent-wide differentiation of fitness traits and patterns of climate adaptation among European populations of _Drosophila melanogaster_'** " 
 author: "Esra Durmaz Mitchell, Envel Kerdaffrec, _et al._, and Thomas Flatt"
 date: "Last updated: `r format(Sys.Date())` by Esra Durmaz Mitchell, Envel Kerdaffrec and Ewan Harney"
 output:
@@ -47,14 +47,16 @@ library(psych)
 
 Nine sampling locations were chosen based on genomic data and these locations covered a wide range of latitude (~20°) and longitude (~40°) across the continent (see table below). From each location, 15 to 20 isofemale lines were established in corresponding labs at the sampling location and the isofemale lines were centrally maintained by Élio Sucena  at Instituto Gulbenkian de Ciência (IGC), Lisbon, Portugal. A total of 173 isofemale lines were used in this study.
 
+
+
 ```{r droseu_coord, echo=FALSE, message=FALSE}
-droseu_coord <- read.csv("InfoTables/DrosEU_Coordinates.csv")
-droseu_coord <- data.frame(droseu_coord %>%
-  add_column(Collector = c("Jorge Vieira", "Josefa Gonzalez", "Mads Schou", "John Parsch & Amanda Glaser-Schmitt","Andrea Betancourt","Maaria Kankare","Iryna Kozeretska","Banu Onder","Elena Pasyukova")))
+droseu_coord <- read.csv("InfoTables/DrosEU_Coordinates_wDEST.csv", sep = ";") %>%
+  select(!LineID_month)
 ```
 
+
 ```{r echo=FALSE, message=FALSE}
-knitr::kable(droseu_coord, align = "llcccl", caption = 'Table X. Sampling locations, coordinates and collectors, sorted by increasing latitude')
+knitr::kable(droseu_coord, align = "lllccclllll", caption = 'Table X. Sampling locations, coordinates and collectors, sorted by increasing latitude. Altitude is expressed in meters.')
 ```
 
 ```{css, echo = FALSE}
@@ -89,10 +91,10 @@ knitr::include_graphics("Figures/figure1_v4.png")
 Author contributions can be found [here](https://docs.google.com/spreadsheets/d/1SkiqZlpZlEs1nf6JJUakREYS4mpghSmgb_0QlL8o3ek/edit#gid=1616763697)
 
 
-Contributed labs are `r unique(droseu_labs$PI)` and detailed list below:
+Contributing labs are `r unique(droseu_labs$PI)` and detailed list below:
 
 ```{r echo=FALSE}
-knitr::kable(droseu_labs, allign = "llll", caption = "Table X. Contributed labs and traits, sorted by trait")
+knitr::kable(droseu_labs, allign = "llll", caption = "Table X. Contributing labs and traits, sorted by trait")
 ```
 
 ```{r echo=FALSE, message=FALSE}
@@ -119,7 +121,8 @@ DT::datatable(droseu_diets, options = list(pageLength = 10))
 
 ## 1.3 - Chromosomal inversion frequencies
 
-For each isofemale line, the presence or absence of 5 cosmopolitan inversions (In(3R)P, In(2L)t, In(3L)P, In(2R)Ns and In(3R)mo) was diagnosed by PCR using previously published primers (Corbett-Detig et al, 2012) on DNA extracted from pools of 10-15 mixed-sex flies using the Qiagen DNeasy Blood & Tissue Kit. Supplementary table xx summarizes primer sequences and assay conditions. Average inversion frequencies were derived for each population.
+For each isofemale line, the presence or absence of 5 cosmopolitan inversions (_In(3R)P_, _In(2L)t_, _In(3L)P_, _In(2R)Ns_ and _In(3R)mo_) was diagnosed by PCR using previously published inverted-specific primers and conditions (Corbett-Detig et al, 2012) on DNA extracted from pools of 10-15 mixed-sex flies per line using the Qiagen DNeasy Blood & Tissue Kit. Average inversion frequencies were derived for each population.
+
 
 ## 1.4 - Trait-specific assay conditions and measurements
 
@@ -265,21 +268,20 @@ Eclosion events were processed into 1 hour bins. Phase and period were calculate
 ### Effects of Wolbachia infection status on phenotypic variation
 Based on the Wolbachia infection status of the isofemale lines as determined by the methods described above, we tested for phenotypic effects of Wolbachia presence in all investigated populations. To do so, we focused on isofemale lines that were unambiguously identified as being Wolbachia-infected (wol+) or uninfected (wol-) with both PCR approaches described above. The populations from Finland and Russia were excluded as all lines from these locations were Wolbachia-infected. Moreover, we only included lines that were assayed in all labs investigating a given phenotype. Finally, we only considered populations with at least three isofemale lines of each infection type (wol+, wol-). For each trait, we fitted linear mixed-effects models using the lme4 package in R (Bates et al., 2015) to test for the fixed effects of Population and of Wolbachia infection status on phenotypic variation. Whenever possible, we also included the factors Sex and Protein to carbohydrate ratio (P:C-ratio) of the laboratory fly food. To account for the fact that the latter factor is confounded by lab identity, we additionally included the random factor Lab in our models. Moreover, we fitted the random factors Line (nested within population) and Experimental batch (nested within lab) to account for biological and technical replication. To test for significance of the fixed factors and all possible interactions, we employed Type-III analysis of deviance using the R package car.
 
-'### Heritability estimates; genotypic, environmental and phenotypic variances
+### Heritability estimates; genotypic, environmental and phenotypic variances
 For each trait and lab, we estimated broad-sense heritability (H2, i.e., the total genotypic variance divided by the phenotypic variance) as “isofemale heritability” (intraclass correlation) by assuming that isofemale lines faithfully represent distinct genotypes (see Parsons, 1983; Hoffmann & Parsons, 1988; Falconer & Mackay, 1996; David et al., 2005). To do so, we estimated phenotypic and genotypic (as well as environmental) variances using linear mixed-effects models with the lmer function in the lme4 package in R (Bates et al., 2015); the models had the following form: Y = L + e, where Y is the phenotypic trait, L represents the random effect of genotype (i.e., the Line IDs), and e is the error. 
 
 ### Correlations between trait values measured by different labs
 To assess the extent of reproducibility (repeatability) of trait estimates across labs, we estimated pairwise Pearson’s correlations between trait values estimated by different labs that had measured the same trait. Input trait values for these analyses consisted of Line random coefficients extracted from linear mixed-effect models (see above); correlations were calculated only for traits that had been measured in more than two labs.
 
 ### Meta-analyses of population differences
-
 For each trait and sex, we used meta-analysis to compute Population summary effects. Each lab/assay in which the effect of Population on a trait was assessed with a linear mixed-effect model was considered to represent a separate “study”. Because Population has 9 levels, we carried out subgroup meta-analysis by considering each population as a subgroup, thus enabling us to test for phenotypic differences between populations which were unlikely to be caused by differences in environmental/assay conditions among labs. Input data for this analysis consisted of estimates and associated standard errors for the factor Population obtained from trait- and lab-specific linear mixed-effect models. Estimates were used as Population effects and standard errors were used as weights, i.e., to give more or less weight to “studies” (labs) depending on sample sizes and replication levels. Data from the NP lab (wing area, thorax length) were excluded as our threshold for analysis was a minimum of 5 lines per population but as only 3 lines per population had been phenotyped. The exclusion of these data, and the fact that the MR lab could only assay 5 out of 9 populations, left us with data from only a single single lab (IK), preventing us from analyzing male thorax length. Subgroup meta-analyses were performed in R (v.4.1.1) using a random-effects model implemented in the metagen (random = TRUE, method.tau = "REML") and update.meta (subgroup = Population, tau.common = FALSE) functions of the meta package (version 5.1-1) (Balduzzi et al, 2019). Cochran’s Q was used to assess heterogeneity (i.e., differences in effect sizes) between subgroups (=populations) which were unlikely due to differences in conditions among labs. Resulting p-values were corrected for multiple testing with the Bonferroni procedure (𝛼’ = 𝛼/n = 0.05/26 = 0.0019; n = 26 meta-analyses in total). Population summary effects were extracted from meta-analysis outputs and used as Population compound estimates for downstream analyses. A similar meta-analysis approach (without heterogeneity tests) was employed to generate Line compound estimates using the Line random coefficients and associated standard errors, which were both extracted from the mixed-effect models in which Line could be included as a random effect (see previous section). 
 
-### Multivariate analyses I: Discriminant Function Analysis (DFA)
-Broad differences in population phenotypes were assessed for each sex using discriminant function analysis (DFA). Some traits without specified sex (e.g., egg-to-pupa developmental time), and/or with missing data on many lines (e.g. locomotor activity) were not included; however, viability was included in both male and female analyses. In total, we estimated multivariate phenotypes for 134 male lines and 165 female lines (males: 10-17 lines per population, mean = 14.8; females: 14-20 lines per population, mean 18.33), incorporating 10 and 13 phenotypes in males and females, respectively, by using trait values based on model estimates. For both males and females these traits included: chill-coma recovery time, cold-shock mortality, egg-to-adult developmental time, dry weight, heat-shock mortality, lifespan, starvation resistance, thorax length, wing area (left), plus viability. In addition, for females but not for males, we also included reproductive diapause, fecundity, and total pigmentation. For each sex, Mahalanobis distance (D2) was calculated, and the observations (134 and 165 lines in males and females, respectively) were reallocated to determine how distinct the populations were. All analyses were run in Genstat v22.1 with Genstat Procedure Library v30.1 loaded using the discriminate function.
-
-### Multivariate analyses II: Principal Component Analysis (PCA)
-To analyze multivariate phenotypic correlations in more detail, trait values from model estimates were transformed using principal component (PC) analysis (PCA) for the same 134 male lines and 165 female lines described above. Separate PCAs were carried out for males and females. For males, nine phenotypes were used (chill-coma recovery time, cold-shock mortality, egg-to-adult developmental time, dry weight, heat-shock mortality, lifespan, starvation resistance, thorax length, and wing area (left)). For females a greater number of phenotypic traits was analyzed, therefore, to get a more complete picture of multivariate phenotypic correlations, three different PCAs with different combinations of phenotypes were carried out: (i) nine phenotypes corresponding to those used in males ‒ see above (i.e., to allow a direct comparison with the male PCA); (ii) all 12 phenotypes measured for females (the nine traits measured in males reproductive diapause, fecundity, and total pigmentation); and (iii) the 12 female phenotypes plus viability (although sex was not specified for viability, it showed strong variation between populations, suggesting that it could be a key phenotype). The 3 versions of the female PCA are termed F9, FMax and FMaxPlus. In the results section (see main text of the paper) we focus on the female results from F9, as this provides the most intuitive comparison with males. Phenotypic traits were scaled to unit variance and transformed using the PCA function from R package FactoMineR (Lê et al 2008). Traits with greater-than-average contributions to a given PC were considered key correlates of PCs, and phenotypic trait loadings are reported for the first 3 PCs. PCA plots with confidence ellipses were visualized with factoextra (Kassambara and Mundt, 2020). To check for effects of diet, all PCAs were also run with trait values derived from a single lab and chosen such that variation in diet (protein:carbohydrate) P:C ratio was controlled (P:C ratio between X and Y, compared with A and Z when considering data from all labs). Trait loadings for P:C controlled PCAs were compared to trait loadings for the PCAs containing data for all labs using Tucker’s Congruence Coefficients, implemented using the factor.congruence function in the psych package (Revelle, 2022).
+### Multivariate analyses I: Principal Component Analysis (PCA)
+To analyze multivariate phenotypic correlations in more detail, trait values from model estimates were transformed using principal component analysis (PCA) for each sex separately using 134 male lines and 165 female lines (males: 10-17 lines per population, mean = 14.8; females: 14-20 lines per population, mean 18.33). Separate PCAs were carried out for males and females. For males, nine phenotypes were used (chill-coma recovery time, cold-shock mortality, egg-to-adult developmental time, dry weight, heat-shock mortality, lifespan, starvation resistance, thorax length, and wing area (left)). For females a greater number of phenotypic traits were available. To get a more complete picture of multivariate phenotypic correlations, two PCAs with different combinations of phenotypes were carried out: (i) nine phenotypes corresponding to those used in males ‒ see above (i.e., to allow a direct comparison with the male PCA); and (ii) 13 traits including the nine previously mentioned plus three measured only in females (reproductive diapause, fecundity, and total pigmentation) and viability (although sex was not specified for viability, it showed strong variation between populations, suggesting that it could be a key phenotype). The male PCA was termed M9 and the two female PCAs were termed F9 and F13. Phenotypic traits were scaled to unit variance and transformed using the PCA function from R package FactoMineR (Lê et al 2008). Traits with greater-than-average contributions to a given PC were considered key correlates of PCs, and phenotypic trait loadings are reported for the first 3 PCs. PCA plots with confidence ellipses were visualized with factoextra (Kassambara and Mundt, 2020). To check for effects of diet, all PCAs were also run with trait values derived from a single lab and chosen such that variation in diet  P:C (protein:carbohydrate) ratio was controlled (P:C ratio between 0.066 and 0.283). For males, thorax Length (TL) values were not available at the target P:C ratio, so a complete data PCA and a controlled P:C ratio PCA were run using data from the eight remaining phenotypic traits. Trait loadings for P:C controlled PCAs were compared to trait loadings for the PCAs containing data for all labs using Tucker’s Congruence Coefficients, implemented using the factor.congruence function in the psych package (Revelle, 2022).
+ 
+### Multivariate analyses II: Discriminant Function Analysis (DFA)
+Broad differences in population phenotypes were then quantified for each sex using discriminant function analysis (DFA). and the same 134 male lines and 165 female lines described above. DFA incorporated the model estimate trait values for 10 phenotypes in males (the nine that were measured plus viability) and 13 in females (the same as the F13 PCA). For each sex, Mahalanobis distance (D2) between populations was calculated, and the observations (134 and 165 lines in males and females, respectively) were reallocated to determine how distinct the populations were. All analyses were run in Genstat v22.1 with Genstat Procedure Library v30.1 loaded using the discriminate function.
 
 ### Multivariate analyses III: Correlations between environment and phenotype
 To analyze effects of environmental factors on phenotypic traits, we downloaded for each population climatic data from the NASA database (https://data.nasa.gov) using geographical coordinates (latitude, longitude) of our sampling locations with help of nasapower R package (Sparks, 2018). Climate data for two different time periods were used: 30 years, in order to test for potential long-term effects on traits, and 30 days prior to the collection (sampling) date in order to test for effects of variation in weather conditions that might have impacted the grandparental or parental populations of field-collected flies. In total, 14 environmental variables (Table SXX) were used for each time period and transformed with PCA in the FactoMineR package (Lê et al., 2008). Environmental PCs with eigenvalues > 1 were then used as predictors in linear models of multivariate phenotypes. Separate models were run for males and females for all phenotypic PCs of interest. We also tested whether correlations between phenotype PCs and environmental PCs were greater than expected by random chance by using a permutation-based approach. In this analysis, we permuted environmental PC values for PC1 and PC2 among population labels and then re-ran correlations between environmental PCs and phenotypic PCs. In addition, in order to assess the clinality of traits, we estimated Pearson’s correlations between traits and latitude, longitude, and altitude; input trait values consisted of Line compound estimates from meta-analyses (see above).
@@ -4282,7 +4284,7 @@ pca_F13$eig
 pca_F13$var$coord
 ```
 
-#### Female - 9 traits (F9)
+### Female - 9 traits (F9)
 
 F9 Vector plots (left hand side) and co-ordinate plots (right-hand side) for PC1 vs PC2 (top) and PC3 vs PC4 (bottom). Co-ordinate plots show populations surrounded by 95% confidence ellipses.
 
@@ -4302,7 +4304,7 @@ pca_F9$var$coord
 ```
 
 
-#### Male - 9 traits (M9)
+### Male - 9 traits (M9)
 
 M9 Vector plots (left hand side) and co-ordinate plots (right-hand side) for PC1 vs PC2 (top) and PC3 vs PC4 (bottom). Co-ordinate plots show populations surrounded by 95% confidence ellipses. PC2 
 
@@ -4330,10 +4332,10 @@ library(psych)
 library(knitr)
 ```
 
-```{r read PCA objects 2}
-## Load PCA objects
+```{r read DFA objects 2}
+## Load DFA objects
 
-## Original F13 and F9 PCA objects
+## Original F13 and M10 DFA objects
 fem_mahala <- read.table("TraitCorrelations/DFA_SI/MR_female_mahala.txt", header = TRUE)
 fem_reallo <- read.table("TraitCorrelations/DFA_SI/MR_female_realloc.txt", header = TRUE)
 mal_mahala <- read.table("TraitCorrelations/DFA_SI/MR_male_mahala.txt", header = TRUE)
@@ -4403,61 +4405,61 @@ knitr::include_graphics("Diets/DrosEU_Diets_lab_traits_pop_facets.png")
 knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_lab_traits_pop_facets.png")
 ```
 
-#### Plots by trait
+### Plots by trait
 
 Lab P/C ratios are indicated at the bottom of the y axis.
 
-##### Viability
+#### Viability
 ```{r echo=FALSE, out.width="50%"}
 knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_Via_pop_facets.png")
 ```
 
-##### Development time
+#### Development time
 ```{r echo=FALSE, out.width="50%"}
 knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_DT_A_pop_facets.png")
 ```
 
-##### Dry weight
+#### Dry weight
 ```{r echo=FALSE, out.width="50%"}
 knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_DW_pop_facets.png")
 ```
 
-##### Thorax length
+#### Thorax length
 ```{r echo=FALSE, out.width="50%"}
 knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_TL_pop_facets.png")
 ```
 
-##### Wing area
+#### Wing area
 ```{r echo=FALSE, out.width="50%"}
 knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_WA_L_pop_facets.png")
 ```
 
-##### Fecundity
+#### Fecundity
 ```{r echo=FALSE, out.width="50%"}
 knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_Fec_pop_facets.png")
 ```
 
-##### Lifespan
+#### Lifespan
 ```{r echo=FALSE, out.width="50%"}
 knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_LS_pop_facets.png")
 ```
 
-##### Cold-shock mortality
+#### Cold-shock mortality
 ```{r echo=FALSE, out.width="50%"}
 knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_CSM_pop_facets.png")
 ```
 
-##### Heat-shock mortality
+#### Heat-shock mortality
 ```{r echo=FALSE, out.width="50%"}
 knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_HSM_pop_facets.png")
 ```
 
-##### Diapause
+#### Diapause
 ```{r echo=FALSE, out.width="50%"}
 knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_Dia_pop_facets.png")
 ```
 
-##### Starvation resistance
+#### Starvation resistance
 ```{r echo=FALSE, out.width="50%"}
 knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_SR_pop_facets.png")
 ```
@@ -4466,7 +4468,7 @@ knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_SR_pop_facets.png")
 knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_WA_R_pop_facets.png")
 ```
 
-##### Pigmentation
+#### Pigmentation
 ```{r echo=FALSE, out.width="50%"}
 knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_Pgm_T4_pop_facets.png")
 ```
@@ -4576,7 +4578,8 @@ factor.congruence(pca_F9$var$coord, pcactl_F9$var$coord,2)
 knitr::include_graphics("LinearModelsPop/PCA_ControlledDiet/PCA_CD_SI/plot_diet_F9.svg")
 ```
 
-Tucker's congruence coefficient for PC1 is very high, but coefficients for other traits are lower, with some reordering of PCs 2, 3 and 4), although the ordering of PCs is retained (PC1 best correlates with PC1, PC2 with PC2 etc). As with the F13, PC1 trait correlations are similar (positively correlated loadings for DW, TL and WA in PC1), but correlations are broken or moved (e.g. the negative correlation between SR and TL moves from PC2 in all data to PC3 in the diet controlled PCA). Thus the populations occupy similar positions along PC1 but with differences along PC2 (even accounting for the change in sign).
+Tucker's congruence coefficient for PC1 is very high, but coefficients for other PCs are lower and show reordering. As with the F13, PC1 trait correlations are similar (positively correlated loadings for DW, TL and WA), but for other PCs correlations either move between PCs(e.g. the negative correlation between SR and TL moves from PC2 in all data to PC3 in the diet controlled PCA) or appear much weaker. Thus the populations occupy similar positions along PC1 but with differences along PC2 (even accounting for the change in sign).
+
 
 #### M8 effect of diet 
 
@@ -4684,11 +4687,11 @@ knitr::include_graphics("EnvironmentalAnalysis/PCA_Pheno_Clim_SI/Climate_PCA_cor
 ```
 
 
-### Associations between phenotype and climate principal components
+### Phenotype-Climate associations
 
 Glms were carried out to investigate associations between phenotype principal components (PCs) and climate PCs. For all three different trait combinations (F13, F9 and M9), and for both sets of climate data (30 days and 30 years), separate glms were run considering either phenotype PC 1, 2 or 3 as a response variable, and both climate PCs 1 and 2 as explanatory variables (18 glms total). The summary table below shows the significance of climate variables in explaining each phenotype PC. A permutation based approach was then used to test if correlations between phenotype and climate PCs were greater than expected at random (1000 permutations per phenotype PC:climate PC combination).
 
-### Summary of phenotype x climate principal components
+#### Phenotype-Climate assoc. summary
 ```{r summary of significant PC-PC associations, echo=FALSE, message=FALSE}
 knitr::include_graphics("EnvironmentalAnalysis/PCA_Pheno_Clim_SI/summary_updated_30y-30d_alt-arrange.svg")
 ```
@@ -4698,7 +4701,7 @@ knitr::include_graphics("EnvironmentalAnalysis/PCA_Pheno_Clim_SI/summary_updated
 
 Results for glms involving phenotype PC1 (all 3 phenotype PCAs and both 30d and 30y climate PCAs) were rather over-dispersed (>2).
 
-### Permutation results for phenotype x climate PCs  
+#### Phenotype-Climate permutation  
 
 The permutation derived threshold for significance is demarcated by the coloured lines. Purmuted data appear as grey points, and real data appear as a coloured point. Only points that have higher -log~10~ P values (i.e. lower P values) and higher R^2^ values pass this statistical test (P and R^2^ are perfectly correlated). Four correlations between phenotype PC2 and climate PC2 passed the permutation procedure (F13 - 30 day, F13 - 30 year, F9 - 30 day, and M9 - 30 day).  
 
@@ -4706,15 +4709,15 @@ The permutation derived threshold for significance is demarcated by the coloured
 knitr::include_graphics("EnvironmentalAnalysis/PCA_Pheno_Clim_SI/all_permutation_results_v3.svg")
 ```
 
-### Associations between Phenotype PC2 and Climate PC2  
+#### Phenotype PC2-Climate PC2 correl. 
 
 Climatic and phenotypic variables with greater-than-average contributions (loadings) to a given principal component are shown in the accompanying x- and y-axis vector plots, respectively. For males (M9 plots on right hand side), the phenotype PC2 is inverted relative to females (loadings for Life span and Thorax Length differ in direction)
 
-```{r all PC2 versus PC2 plots, echo=FALSE, message=FALSE}
+```{r all PC2 versus PC2 plots, echo=FALSE, message=FALSE, out.width="40%"}
 knitr::include_graphics("EnvironmentalAnalysis/PCA_Pheno_Clim_SI/PhenoPC2_ClimPC2_All_Plots.svg")
 ```
 
-### Summary statistics for glm and permutation results  
+#### Glm and permutation summary stats 
 
 ```{r read csv files}
 ## Load data tables for glms
@@ -4741,9 +4744,9 @@ Below are:
 1. Summary ANOVA tables for each of the glms considering phenotype PC x climate PC associations, and  
 2. Ranked p values for these associations following the permutation procedure.  
 
-### 1. Summary ANOVA tables
+##### 1. Summary ANOVA tables
 
-#### F13: Climate 30 days
+**F13: Climate 30 days**
 
 ```{r F13 30d PC1}
 # Phenotype: PC1
@@ -4763,7 +4766,7 @@ F13_PC3_d <- glm(F13_30d_data$PC3_F9maxP ~ F13_30d_data$PC1_clim + F13_30d_data$
 Anova(F13_PC3_d, test.statistic="F")
 ```
 
-#### F13: Climate 30 years
+**F13: Climate 30 years**
 
 ```{r F13 30y PC1}
 # Phenotype: PC1
@@ -4783,7 +4786,7 @@ F13_PC3_y <- glm(F13_30y_data$PC3_F9maxP ~ F13_30y_data$PC1_clim + F13_30y_data$
 Anova(F13_PC3_y, test.statistic="F")
 ```
 
-#### F9: Climate 30 days
+**F9: Climate 30 days**
 
 ```{r F9 30d PC1}
 # Phenotype: PC1
@@ -4803,7 +4806,7 @@ F9_PC3_d <- glm(F9_30d_data$PC3_F9 ~ F9_30d_data$PC1_clim + F9_30d_data$PC2_clim
 Anova(F9_PC3_d, test.statistic="F")
 ```
 
-#### F9: Climate 30 years
+**F9: Climate 30 years**
 
 ```{r F9 30y PC1}
 # Phenotype: PC1
@@ -4823,7 +4826,7 @@ F9_PC3_y <- glm(F9_30y_data$PC3_F9 ~ F9_30y_data$PC1_clim + F9_30y_data$PC2_clim
 Anova(F9_PC3_y, test.statistic="F")
 ```
 
-#### M9: Climate 30 days
+**M9: Climate 30 days**
 
 ```{r M9 30d PC1}
 # Phenotype: PC1
@@ -4843,7 +4846,7 @@ M9_PC3_d <- glm(M9_30d_data$PC3_M9 ~ M9_30d_data$PC1_clim + M9_30d_data$PC2_clim
 Anova(M9_PC3_d, test.statistic="F")
 ```
 
-#### M9: Climate 30 years
+**M9: Climate 30 years**
 
 ```{r M9 30y PC1}
 # Phenotype: PC1
@@ -4863,11 +4866,11 @@ M9_PC3_y <- glm(M9_30y_data$PC3_M9 ~ M9_30y_data$PC1_clim + M9_30y_data$PC2_clim
 Anova(M9_PC3_y, test.statistic="F")
 ```
 
-### 2. Ranked P values following permutation
+##### 2. Ranked permutation P values
 
 The following tables are ranked by pr_p: the probability that the p-value for the observed data is smaller than the permutations. Phenotype PC : climate PC combinations with a pr_p > 0.95 are considered significant.
 
-#### Climate 30 days  
+**Climate 30 days**
 
 ```{r F13 30 day}
 # F13: Climate 30 days
@@ -4884,7 +4887,7 @@ emp_pr_F9_d[order(emp_pr_F9_d$pr_p),]
 emp_pr_M9_d[order(emp_pr_M9_d$pr_p),]
 ```
 
-##### Climate 30 years  
+**Climate 30 years**
 
 ```{r F13 30 year}
 # F13: Climate 30 years
@@ -4961,6 +4964,76 @@ DT::datatable(pval_Wolb_alt, options = list(pageLength = 10)) %>% formatRound(6:
 ```{r echo=FALSE}
 knitr::include_graphics("LinearModelsAlt_Wolb/all_models_alt_pvalues_Wolb.pdf")
 ```
+
+## 2.14 - Inversion frequencies
+
+```{r inv_freqs, echo=FALSE, message=FALSE}
+inv_freqs <- read.csv("Inversions/inversion_frequencies_pops.csv") %>%
+  rename(LocationAbbr = Population) %>%
+  inner_join(select(droseu_coord, Country, LocationAbbr, Latitude, Longitude, Altitude)) %>%
+  relocate(Country, LocationAbbr, Latitude, Longitude, Altitude) %>%
+  mutate_if(is.numeric, ~round(., 2))
+```
+
+```{r, echo=FALSE}
+DT::datatable(inv_freqs, options = list(pageLength = 9))
+```
+
+
+**_In(2L)t_**
+
+```{r, echo=FALSE}
+DT::datatable(read.csv("Inversions/pop_2lt_pearson_correlations.csv"), options = list(pageLength = 10))
+```
+```{r echo=FALSE}
+knitr::include_graphics("Inversions/pop_2lt_pearson_correlations_facets.png")
+```
+
+**_In(3R)P_**
+
+```{r, echo=FALSE}
+DT::datatable(read.csv("Inversions/pop_3RP_pearson_correlations.csv"), options = list(pageLength = 10))
+```
+
+```{r echo=FALSE}
+knitr::include_graphics("Inversions/pop_3RP_pearson_correlations_facets.png")
+```
+
+
+**_In(3L)P_**
+
+```{r, echo=FALSE}
+DT::datatable(read.csv("Inversions/pop_3LP_pearson_correlations.csv"), options = list(pageLength = 10))
+```
+
+```{r echo=FALSE}
+knitr::include_graphics("Inversions/pop_3LP_pearson_correlations_facets.png")
+```
+
+
+**_In(3R)mo_**
+
+```{r, echo=FALSE}
+DT::datatable(read.csv("Inversions/pop_3Rmo_pearson_correlations.csv"), options = list(pageLength = 10))
+```
+
+```{r echo=FALSE}
+knitr::include_graphics("Inversions/pop_3Rmo_pearson_correlations_facets.png")
+```
+
+
+
+**_In(2R)Ns_**
+
+```{r, echo=FALSE}
+DT::datatable(read.csv("Inversions/pop_2RNs_pearson_correlations.csv"), options = list(pageLength = 10))
+```
+
+```{r echo=FALSE}
+knitr::include_graphics("Inversions/pop_2RNs_pearson_correlations_facets.png")
+```
+
+
 
 # 3 - Additional analyses by consortium members 
 
@@ -5148,7 +5221,8 @@ knitr::include_graphics("GDM/GDM_Worldclim/WA_R_M/WA_R_M_vapr06_i-spline.jpeg")
 - Pegoraro M, Sayegh Rezek E, Fishman B, Tauber E. 2022. Nucleotide Variation in Drosophila cryptochrome Is Linked to Circadian Clock Function: An Association Analysis. Frontiers in Physiology 13:781380.
 
 - Pinheiro J, Bates D, R Core Team. 2023. nlme: Linear and Nonlinear Mixed Effects Models. R package version 3.1-164, https://CRAN.R-project.org/package=nlme.
-Revelle W. 2022. psych: Procedures for Psychological, Psychometric, and Personality Research. https://cran.r-project.org/package=psych.
+
+- Revelle W. 2022. psych: Procedures for Psychological, Psychometric, and Personality Research. https://cran.r-project.org/package=psych.
 
 - Riegler M, Iturbe-Ormaetxe I, Woolfit M, Miller WJ, O'Neill SL. 2012. Tandem repeat markers as novel diagnostic tools for high resolution fingerprinting of Wolbachia. BMC Microbiology 12 (Suppl 1):S12,
 
