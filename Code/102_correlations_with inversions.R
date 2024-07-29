@@ -60,6 +60,8 @@ pop_list <- filter(pop_comp, Trait != "Dia_lmer") %>%
 
 
 
+### 2Lt
+
 
 pop_2lt_pearson <- list()
 for (i in 1:length(pop_list)) {
@@ -69,11 +71,14 @@ for (i in 1:length(pop_list)) {
     Sex = unique(pop_list[[i]]$Sex),
     R = cortest$estimate,
     P = cortest$p.value,
-    Method = "pearson")
+    P_bonf = cortest$p.value * length(pop_list)
+  )
 }
 
 pop_2lt_pearson <- bind_rows(pop_2lt_pearson) %>%
   mutate(
+    P_bonf = ifelse(P_bonf > 1, 1, P_bonf),
+    Method = "pearson",
     Sex = factor(Sex, levels = c("F", "M", "B", "NA")),
     Label = paste(Trait, Sex, sep = "_")
   )
@@ -99,5 +104,218 @@ pop_lat_pearson_facet <- bind_rows(pop_list) %>%
 ggsave(
   pop_lat_pearson_facet,
   filename = "Inversions/pop_2lt_pearson_correlations_facets.png",
+  height = 10, width = 14, dpi = 120
+)
+
+
+
+
+
+
+### 3RP
+
+
+
+pop_3rp_pearson <- list()
+for (i in 1:length(pop_list)) {
+  cortest <- cor.test(pop_list[[i]]$Estimate, pop_list[[i]]$In3RP)
+  pop_3rp_pearson[[i]] <- data.frame(
+    Trait = unique(pop_list[[i]]$Trait),
+    Sex = unique(pop_list[[i]]$Sex),
+    R = cortest$estimate,
+    P = cortest$p.value,
+    P_bonf = cortest$p.value * length(pop_list)
+  )
+}
+
+pop_3rp_pearson <- bind_rows(pop_3rp_pearson) %>%
+  mutate(
+    P_bonf = ifelse(P_bonf > 1, 1, P_bonf),
+    Method = "pearson",
+    Sex = factor(Sex, levels = c("F", "M", "B", "NA")),
+    Label = paste(Trait, Sex, sep = "_")
+  )
+
+
+write.csv(pop_3rp_pearson, "Inversions/pop_3RP_pearson_correlations.csv", row.names = F)
+
+
+pop_lat_pearson_facet <- bind_rows(pop_list) %>%
+  mutate(Label = paste(Trait, Sex, sep = "_")) %>%
+  ggplot(aes(x = In3RP, y = Estimate)) +
+  geom_point(aes(color = Population), size = 2) +
+  colScale +
+  facet_wrap(Label ~., scales = "free", ncol = 7) +
+  geom_smooth(method = "lm", se = F, color = "black", size = 0.5) +
+  stat_cor(method = "pearson", label.x.npc = 0, label.y.npc = 0.05, size = 3) +
+  labs(
+    title = "Pearson correlations with In(3R)P frequencies - Population level",
+    x = "In(3R)P frequency",
+    y = "Population estimates"
+  ) +
+  theme_bw(14)
+
+ggsave(
+  pop_lat_pearson_facet,
+  filename = "Inversions/pop_3RP_pearson_correlations_facets.png",
+  height = 10, width = 14, dpi = 120
+)
+
+
+
+
+
+
+### 3LP
+
+
+
+pop_3lp_pearson <- list()
+for (i in 1:length(pop_list)) {
+  cortest <- cor.test(pop_list[[i]]$Estimate, pop_list[[i]]$In3LP)
+  pop_3lp_pearson[[i]] <- data.frame(
+    Trait = unique(pop_list[[i]]$Trait),
+    Sex = unique(pop_list[[i]]$Sex),
+    R = cortest$estimate,
+    P = cortest$p.value,
+    P_bonf = cortest$p.value * length(pop_list)
+  )
+}
+
+pop_3lp_pearson <- bind_rows(pop_3lp_pearson) %>%
+  mutate(
+    P_bonf = ifelse(P_bonf > 1, 1, P_bonf),
+    Method = "pearson",
+    Sex = factor(Sex, levels = c("F", "M", "B", "NA")),
+    Label = paste(Trait, Sex, sep = "_")
+  )
+
+
+write.csv(pop_3lp_pearson, "Inversions/pop_3LP_pearson_correlations.csv", row.names = F)
+
+
+pop_lat_pearson_facet <- bind_rows(pop_list) %>%
+  mutate(Label = paste(Trait, Sex, sep = "_")) %>%
+  ggplot(aes(x = In3LP, y = Estimate)) +
+  geom_point(aes(color = Population), size = 2) +
+  colScale +
+  facet_wrap(Label ~., scales = "free", ncol = 7) +
+  geom_smooth(method = "lm", se = F, color = "black", size = 0.5) +
+  stat_cor(method = "pearson", label.x.npc = 0, label.y.npc = 0.05, size = 3) +
+  labs(
+    title = "Pearson correlations with In(3L)P frequencies - Population level",
+    x = "In(3L)P frequency",
+    y = "Population estimates"
+  ) +
+  theme_bw(14)
+
+ggsave(
+  pop_lat_pearson_facet,
+  filename = "Inversions/pop_3LP_pearson_correlations_facets.png",
+  height = 10, width = 14, dpi = 120
+)
+
+
+
+
+
+### 2RNs
+
+
+
+pop_2rns_pearson <- list()
+for (i in 1:length(pop_list)) {
+  cortest <- cor.test(pop_list[[i]]$Estimate, pop_list[[i]]$In2RNs)
+  pop_2rns_pearson[[i]] <- data.frame(
+    Trait = unique(pop_list[[i]]$Trait),
+    Sex = unique(pop_list[[i]]$Sex),
+    R = cortest$estimate,
+    P = cortest$p.value,
+    P_bonf = cortest$p.value * length(pop_list)
+  )
+}
+
+pop_2rns_pearson <- bind_rows(pop_2rns_pearson) %>%
+  mutate(
+    P_bonf = ifelse(P_bonf > 1, 1, P_bonf),
+    Method = "pearson",
+    Sex = factor(Sex, levels = c("F", "M", "B", "NA")),
+    Label = paste(Trait, Sex, sep = "_")
+  )
+
+
+write.csv(pop_2rns_pearson, "Inversions/pop_2RNs_pearson_correlations.csv", row.names = F)
+
+
+pop_lat_pearson_facet <- bind_rows(pop_list) %>%
+  mutate(Label = paste(Trait, Sex, sep = "_")) %>%
+  ggplot(aes(x = In2RNs, y = Estimate)) +
+  geom_point(aes(color = Population), size = 2) +
+  colScale +
+  facet_wrap(Label ~., scales = "free", ncol = 7) +
+  geom_smooth(method = "lm", se = F, color = "black", size = 0.5) +
+  stat_cor(method = "pearson", label.x.npc = 0, label.y.npc = 0.05, size = 3) +
+  labs(
+    title = "Pearson correlations with In(2R)Ns frequencies - Population level",
+    x = "In(2R)Ns frequency",
+    y = "Population estimates"
+  ) +
+  theme_bw(14)
+
+ggsave(
+  pop_lat_pearson_facet,
+  filename = "Inversions/pop_2RNs_pearson_correlations_facets.png",
+  height = 10, width = 14, dpi = 120
+)
+
+
+
+
+### 3Rmo
+
+
+
+pop_3rmo_pearson <- list()
+for (i in 1:length(pop_list)) {
+  cortest <- cor.test(pop_list[[i]]$Estimate, pop_list[[i]]$In3Rmo)
+  pop_3rmo_pearson[[i]] <- data.frame(
+    Trait = unique(pop_list[[i]]$Trait),
+    Sex = unique(pop_list[[i]]$Sex),
+    R = cortest$estimate,
+    P = cortest$p.value,
+    P_bonf = cortest$p.value * length(pop_list)
+  )
+}
+
+pop_3rmo_pearson <- bind_rows(pop_3rmo_pearson) %>%
+  mutate(
+    P_bonf = ifelse(P_bonf > 1, 1, P_bonf),
+    Method = "pearson",
+    Sex = factor(Sex, levels = c("F", "M", "B", "NA")),
+    Label = paste(Trait, Sex, sep = "_")
+  )
+
+
+write.csv(pop_3rmo_pearson, "Inversions/pop_3Rmo_pearson_correlations.csv", row.names = F)
+
+
+pop_lat_pearson_facet <- bind_rows(pop_list) %>%
+  mutate(Label = paste(Trait, Sex, sep = "_")) %>%
+  ggplot(aes(x = In3Rmo, y = Estimate)) +
+  geom_point(aes(color = Population), size = 2) +
+  colScale +
+  facet_wrap(Label ~., scales = "free", ncol = 7) +
+  geom_smooth(method = "lm", se = F, color = "black", size = 0.5) +
+  stat_cor(method = "pearson", label.x.npc = 0, label.y.npc = 0.05, size = 3) +
+  labs(
+    title = "Pearson correlations with In(3R)mo frequencies - Population level",
+    x = "In(3R)mo frequency",
+    y = "Population estimates"
+  ) +
+  theme_bw(14)
+
+ggsave(
+  pop_lat_pearson_facet,
+  filename = "Inversions/pop_3Rmo_pearson_correlations_facets.png",
   height = 10, width = 14, dpi = 120
 )
