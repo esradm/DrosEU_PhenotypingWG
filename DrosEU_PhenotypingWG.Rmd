@@ -121,7 +121,7 @@ DT::datatable(droseu_diets, options = list(pageLength = 10))
 
 ## 1.3 - Chromosomal inversion frequencies
 
-For each isofemale line, the presence or absence of 5 cosmopolitan inversions (_In(3R)P_, _In(2L)t_, _In(3L)P_, _In(2R)Ns_ and _In(3R)mo_) was diagnosed by PCR using previously published inverted-specific primers and conditions (Corbett-Detig et al, 2012) on DNA extracted from pools of 10-15 mixed-sex flies per line using the Qiagen DNeasy Blood & Tissue Kit. Average inversion frequencies were derived for each population.
+For each isofemale line, the presence or absence of 5 cosmopolitan inversions (_In(2L)t_, _In(2R)Ns_, _In(3L)P_,_In(3R)P_ and _In(3R)mo_) was diagnosed by PCR using previously published inverted-specific primers and conditions (Corbett-Detig et al, 2012) on DNA extracted from pools of 10-15 mixed-sex flies per line using the Qiagen DNeasy Blood & Tissue Kit. This data was used to investigate the effect of inversions on trait variation (linear model with inversion presence (1) or absence (0) used as explanatory variable). In addition, average inversion frequencies were derived for each population.
 
 
 ## 1.4 - Trait-specific assay conditions and measurements
@@ -4967,6 +4967,7 @@ knitr::include_graphics("LinearModelsAlt_Wolb/all_models_alt_pvalues_Wolb.pdf")
 
 ## 2.14 - Inversion frequencies
 
+
 ```{r inv_freqs, echo=FALSE, message=FALSE}
 inv_freqs <- read.csv("Inversions/inversion_frequencies_pops.csv") %>%
   rename(LocationAbbr = Population) %>%
@@ -4975,10 +4976,13 @@ inv_freqs <- read.csv("Inversions/inversion_frequencies_pops.csv") %>%
   mutate_if(is.numeric, ~round(., 2))
 ```
 
+The table below recapitulates the average inversion frequencies among the 9 nine populations
+
 ```{r, echo=FALSE}
 DT::datatable(inv_freqs, options = list(pageLength = 9))
 ```
 
+### Correlation between population estimates and inversion frequencies
 
 **_In(2L)t_**
 
@@ -4989,16 +4993,15 @@ DT::datatable(read.csv("Inversions/pop_2lt_pearson_correlations.csv"), options =
 knitr::include_graphics("Inversions/pop_2lt_pearson_correlations_facets.png")
 ```
 
-**_In(3R)P_**
+**_In(2R)Ns_**
 
 ```{r, echo=FALSE}
-DT::datatable(read.csv("Inversions/pop_3RP_pearson_correlations.csv"), options = list(pageLength = 10))
+DT::datatable(read.csv("Inversions/pop_2RNs_pearson_correlations.csv"), options = list(pageLength = 10))
 ```
 
 ```{r echo=FALSE}
-knitr::include_graphics("Inversions/pop_3RP_pearson_correlations_facets.png")
+knitr::include_graphics("Inversions/pop_2RNs_pearson_correlations_facets.png")
 ```
-
 
 **_In(3L)P_**
 
@@ -5010,6 +5013,15 @@ DT::datatable(read.csv("Inversions/pop_3LP_pearson_correlations.csv"), options =
 knitr::include_graphics("Inversions/pop_3LP_pearson_correlations_facets.png")
 ```
 
+**_In(3R)P_**
+
+```{r, echo=FALSE}
+DT::datatable(read.csv("Inversions/pop_3RP_pearson_correlations.csv"), options = list(pageLength = 10))
+```
+
+```{r echo=FALSE}
+knitr::include_graphics("Inversions/pop_3RP_pearson_correlations_facets.png")
+```
 
 **_In(3R)mo_**
 
@@ -5023,15 +5035,81 @@ knitr::include_graphics("Inversions/pop_3Rmo_pearson_correlations_facets.png")
 
 
 
-**_In(2R)Ns_**
+
+
+### Effect of inversions on trait variation
+
+The table below recapitulates the inversion status (presence or absence, 1 or 0, respectively) of all the lines that have been phenotyped in this study. 
+
+```{r, echo=FALSE, message=FALSE}
+inv_freqs <- read.csv("Data/DrosEU_lines_inversions_typing.csv") %>%
+  mutate(
+    In2Lt = ifelse(In2Lt == 0.5 | In2Lt == 1, 1, 0),
+    LocationAbbr = str_extract(line_id, "^.{2}")
+  ) %>%
+  rename(Line = line_id) %>%
+  select(LocationAbbr, contains("In")) %>%
+  inner_join(select(droseu_coord, Country, LocationAbbr, Latitude, Longitude, Altitude)) %>%
+  relocate(Country, LocationAbbr, Latitude, Longitude, Altitude)
+```
+
+
 
 ```{r, echo=FALSE}
-DT::datatable(read.csv("Inversions/pop_2RNs_pearson_correlations.csv"), options = list(pageLength = 10))
+DT::datatable(inv_freqs, options = list(pageLength = 10))
+```
+
+**_In(2L)t_**
+
+```{r, echo=FALSE}
+DT::datatable(read.csv("Inversions/line_2Lt_lms.csv"), options = list(pageLength = 10))
 ```
 
 ```{r echo=FALSE}
-knitr::include_graphics("Inversions/pop_2RNs_pearson_correlations_facets.png")
+knitr::include_graphics("Inversions/line_2Lt_lm_facets.png")
 ```
+
+**_In(2R)Ns_**
+
+```{r, echo=FALSE}
+DT::datatable(read.csv("Inversions/line_2RNs_lms.csv"), options = list(pageLength = 10))
+```
+
+```{r echo=FALSE}
+knitr::include_graphics("Inversions/line_2RNs_lm_facets.png")
+```
+
+**_In(3L)P_**
+
+```{r, echo=FALSE}
+DT::datatable(read.csv("Inversions/line_3LP_lms.csv"), options = list(pageLength = 10))
+```
+
+```{r echo=FALSE}
+knitr::include_graphics("Inversions/line_3LP_lm_facets.png")
+```
+
+**_In(3R)P_**
+
+```{r, echo=FALSE}
+DT::datatable(read.csv("Inversions/line_3RP_lms.csv"), options = list(pageLength = 10))
+```
+
+```{r echo=FALSE}
+knitr::include_graphics("Inversions/line_3RP_lm_facets.png")
+```
+
+**_In(3R)mo_**
+
+```{r, echo=FALSE}
+DT::datatable(read.csv("Inversions/line_3Rmo_lms.csv"), options = list(pageLength = 10))
+```
+
+```{r echo=FALSE}
+knitr::include_graphics("Inversions/line_3Rmo_lm_facets.png")
+```
+
+
 
 
 
