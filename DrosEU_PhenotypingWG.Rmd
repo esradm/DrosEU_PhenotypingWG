@@ -56,7 +56,7 @@ droseu_coord <- read.csv("InfoTables/DrosEU_Coordinates_wDEST.csv", sep = ";") %
 
 
 ```{r echo=FALSE, message=FALSE}
-knitr::kable(droseu_coord, align = "lllccclllll", caption = 'Table X. Sampling locations, coordinates and collectors, sorted by increasing latitude. Altitude is expressed in meters.')
+knitr::kable(droseu_coord, align = "llcccclllll", caption = 'Sampling locations, coordinates and collectors, sorted by increasing latitude. Altitude is expressed in meters.')
 ```
 
 ```{css, echo = FALSE}
@@ -121,7 +121,7 @@ DT::datatable(droseu_diets, options = list(pageLength = 10))
 
 ## 1.3 - Chromosomal inversion frequencies
 
-For each isofemale line, the presence or absence of 5 cosmopolitan inversions (_In(2L)t_, _In(2R)Ns_, _In(3L)P_,_In(3R)P_ and _In(3R)mo_) was diagnosed by PCR using previously published inverted-specific primers and conditions (Corbett-Detig et al, 2012) on DNA extracted from pools of 10-15 mixed-sex flies per line using the Qiagen DNeasy Blood & Tissue Kit. This data was used to investigate the effect of inversions on trait variation (linear model with inversion presence (1) or absence (0) used as explanatory variable). In addition, average inversion frequencies were derived for each population.
+For each isofemale line, the presence or absence of 5 cosmopolitan inversions (_In(2L)t_, _In(2R)NS_, _In(3L)P_,_In(3R)P_ and _In(3R)mo_) was diagnosed by PCR using previously published inverted-specific primers and conditions (Corbett-Detig et al, 2012) on DNA extracted from pools of 10-15 mixed-sex flies per line using the Qiagen DNeasy Blood & Tissue Kit. These data were used to investigate the effect of inversions on trait variation (linear model with inversion presence (1) or absence (0) used as explanatory variable). In addition, average inversion frequencies were derived for each population.
 
 
 ## 1.4 - Trait-specific assay conditions and measurements
@@ -169,7 +169,7 @@ _Figure X_. Thorax and wing measurements. (A) Thorax length was measured from th
 
 Wing area was estimated by quantifying wing centroid size (WCS; Bookstein, 1996). Fifteen landmarks (Figure X) were placed on wing images using tpsUtil and tpsDig2 (Rohlf, 2015) to obtain raw x and y landmark coordinates. WCS was calculated as the square root of the sum of squared deviations of landmarks around their centroid as implemented in MorphoJ (Klingenberg, 2011) or tpsRelw (Rohlf, 2015). To confirm that WCS represents wing area, the NP lab also manually measured wing area by outlining wings (Figure XB) with the "Polygon Selection" tool in Fiji (https://ﬁji.sc/). The most proximal part of the wing was excluded from measurements, using two distinct landmarks, since it was more susceptible to damage during dissection (Figure XB’). Linear regression of WCS against manually measured wing area showed a high positive correlation (adjusted R2 = 0.83, F1, 538 = 2605, p < 2.2 x 10-16) (Figure ??). 
 
-```{r}
+```{r echo=FALSE}
 knitr::include_graphics("WingArea//WCS_WAman.png")
 ```
 
@@ -289,7 +289,6 @@ To analyze effects of environmental factors on phenotypic traits, we downloaded 
 
 # 2 - Results
 
-**Reading the data, tables and model outputs in R**
 ```{r load_Rdas, include=FALSE}
 droseu <- readRDS("Data/droseu_master_list_2022-05-02.rds")
 lmers_anova <- readRDS("LinearModelsPop/all_lmers_pop_anova_list.rds")
@@ -324,8 +323,6 @@ DT::datatable(pval_table, options = list(pageLength = 25)) %>% formatRound(5:9, 
 ```{r include=FALSE}
 dir.create(file.path("Viability"), showWarnings = FALSE)
 ```
-
-_For a detailed description of tables, plots, linear models and outputs, please refer [here](#anchor) _
 
 #### Contributors
 
@@ -527,8 +524,6 @@ dir.create(file.path("DevelopmentTime"), showWarnings = FALSE)
 
 #### Egg-to-pupa developmental time
 
-_For a detailed description of tables, plots, linear models and outputs, please refer [here](#anchor) _
-
 ##### Contributors
 
 Schmidt Lab: Paul Schmidt
@@ -578,8 +573,6 @@ knitr::include_graphics("DevelopmentTime/p_DT_P_Schmidt.pdf")
 ```
 
 #### Egg-to-adult developmental time
-
-_For a detailed description of tables, plots, linear models and outputs, please refer [here](#anchor) _
 
 ##### Contributors
 
@@ -920,8 +913,6 @@ knitr::include_graphics("LinearModelsPop/DevelopmentTime/by_lab_models_residuals
 dir.create(file.path("DryWeight"), showWarnings = FALSE)
 ```
 
-_For a detailed description of tables, plots, linear models and outputs, please refer [here](#anchor) _
-
 #### Contributors
 
 Colinet Lab: Sapho-Lou Marti , Hervé Colinet
@@ -1112,14 +1103,11 @@ knitr::include_graphics("LinearModelsPop/DryWeight/by_lab_models_residuals/DW_M_
 knitr::include_graphics("LinearModelsPop/DryWeight/by_lab_models_residuals/DW_M_Onder_lmer_pop_qq_plot_residuals.png")
 ```
 
-
 ### Thorax length
 
 ```{r include=FALSE}
 dir.create(file.path("ThoraxLength"), showWarnings = FALSE)
 ```
-
-_For a detailed description of tables, plots, linear models and outputs, please refer [here](#anchor) _
 
 #### Contributors
 
@@ -1351,7 +1339,7 @@ for (i in dev.list()[1]:dev.list()[length(dev.list())]) {
 dir.create(file.path("WingArea"), showWarnings = FALSE)
 ```
 
-_For a detailed description of tables, plots, linear models and outputs, please refer [here](#anchor) _
+
 
 #### Contributors
 
@@ -1851,7 +1839,7 @@ for (i in dev.list()[1]:dev.list()[length(dev.list())]) {
 dir.create(file.path("Fecundity"), showWarnings = FALSE)
 ```
 
-_For a detailed description of tables, plots, linear models and outputs, please refer [here](#anchor) _
+
 
 ```{r}
 #Note that the trait has been phenotyped only in females.
@@ -1960,7 +1948,7 @@ knitr::include_graphics("LinearModelsPop/Fecundity/by_lab_models_residuals/Fec_F
 dir.create(file.path("Lifespan"), showWarnings = FALSE)
 ```
 
-_For a detailed description of tables, plots, linear models and outputs, please refer [here](#anchor) _
+
 
 ```{r echo=FALSE}
 for (i in dev.list()[1]:dev.list()[length(dev.list())]) {
@@ -2233,7 +2221,7 @@ knitr::include_graphics("LinearModelsPop/Lifespan/by_lab_models_residuals/LS_M_P
 dir.create(file.path("ColdShock"), showWarnings = FALSE)
 ```
 
-_For a detailed description of tables, plots, linear models and outputs, please refer [here](#anchor) _
+
 
 #### Contributors
 
@@ -2440,7 +2428,7 @@ for (i in dev.list()[1]:dev.list()[length(dev.list())]) {
 dir.create(file.path("ChillComa"), showWarnings = FALSE)
 ```
 
-_For a detailed description of tables, plots, linear models and outputs, please refer [here](#anchor) _
+
 
 #### Contributors
 
@@ -2628,7 +2616,7 @@ knitr::include_graphics("LinearModelsPop/ChillComa/by_lab_models_residuals/CCRT_
 dir.create(file.path("HeatShock"), showWarnings = FALSE)
 ```
 
-_For a detailed description of tables, plots, linear models and outputs, please refer [here](#anchor) _
+
 
 #### Contributors
 
@@ -2821,7 +2809,7 @@ knitr::include_graphics("LinearModelsPop/HeatShock/by_lab_models_residuals/HSM_M
 dir.create(file.path("Diapause"), showWarnings = FALSE)
 ```
 
-_For a detailed description of tables, plots, linear models and outputs, please refer [here](#anchor) _
+
 
 #### Contributors
 
@@ -2937,7 +2925,7 @@ knitr::include_graphics("LinearModelsPop/Diapause/by_lab_models_residuals/Dia_Sc
 dir.create(file.path("CircadianEclosion"), showWarnings = FALSE)
 ```
 
-_For a detailed description of tables, plots, linear models and outputs, please refer [here](#anchor) _
+
 
 ```{r}
 #Note that the trait has been phenotyped as mixed sex.
@@ -3121,7 +3109,7 @@ knitr::include_graphics("CircadianEclosion/FromEran/eclosion_data_Christian_Page
 dir.create(file.path("Locomotor"), showWarnings = FALSE)
 ```
 
-_For a detailed description of tables, plots, linear models and outputs, please refer [here](#anchor) _
+
 
 ```{r}
 #Note that the trait has been phenotyped only in males.
@@ -3302,7 +3290,7 @@ knitr::include_graphics("LinearModelsPop/Locomotor/by_lab_models_residuals/LA_Ci
 dir.create(file.path("Starvation"), showWarnings = FALSE)
 ```
 
-_For a detailed description of tables, plots, linear models and outputs, please refer [here](#anchor) _
+
 
 #### Contributors
 
@@ -3564,7 +3552,7 @@ knitr::include_graphics("LinearModelsPop/Starvation/by_lab_models_residuals/SR_M
 dir.create(file.path("Pigmentation"), showWarnings = FALSE)
 ```
 
-_For a detailed description of tables, plots, linear models and outputs, please refer [here](#anchor) _
+
 
 #### Contributors
 
@@ -3942,7 +3930,7 @@ knitr::include_graphics("LinearModelsPop/Pigmentation/by_lab_models_residuals/Pg
 dir.create(file.path("ParasitoidResistance"), showWarnings = FALSE)
 ```
 
-_For a detailed description of tables, plots, linear models and outputs, please refer [here](#anchor) _
+
 
 #### Contributors
 
@@ -4097,20 +4085,20 @@ knitr::include_graphics("LabCorrelations/lab_correlation_line_spearman.png")
 
 ## 2.4 - Heritability
 
-_Whitin lab H2_
+_Within lab H2_
 ```{r echo=FALSE, message=FALSE}
 h2_data_withinlabs <- read.csv("Heritability/H2_line_raw_data_within_labs.csv")
 DT::datatable(h2_data_withinlabs, options = list(pageLength = 10)) %>% formatRound(4:7, 3)
 ```
 
-_Bwtween lab H2 with random coefs_
+_Between lab H2 with random coefs_
 ```{r echo=FALSE, message=FALSE}
 h2_rc_btwlabs <- read.csv("Heritability/H2_line_random_coefs_between_labs.csv")
 DT::datatable(h2_rc_btwlabs, options = list(pageLength = 10)) %>% formatRound(4:6, 3)
 
 ```
 
-_Bwtween lab H2 with raw data_
+_Between lab H2 with raw data_
 ```{r echo=FALSE, message=FALSE}
 h2_data_btwlabs <- read.csv("Heritability/H2_line_raw_data_between_labs.csv")
 DT::datatable(h2_data_btwlabs, options = list(pageLength = 10)) %>% formatRound(4:6, 3)
@@ -4993,7 +4981,7 @@ DT::datatable(read.csv("Inversions/pop_2lt_pearson_correlations.csv"), options =
 knitr::include_graphics("Inversions/pop_2lt_pearson_correlations_facets.png")
 ```
 
-**_In(2R)Ns_**
+**_In(2R)NS_**
 
 ```{r, echo=FALSE}
 DT::datatable(read.csv("Inversions/pop_2RNs_pearson_correlations.csv"), options = list(pageLength = 10))
@@ -5069,7 +5057,7 @@ DT::datatable(read.csv("Inversions/line_2Lt_lms.csv"), options = list(pageLength
 knitr::include_graphics("Inversions/line_2Lt_lm_facets.png")
 ```
 
-**_In(2R)Ns_**
+**_In(2R)NS_**
 
 ```{r, echo=FALSE}
 DT::datatable(read.csv("Inversions/line_2RNs_lms.csv"), options = list(pageLength = 10))
