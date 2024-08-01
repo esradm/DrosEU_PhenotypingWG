@@ -24,7 +24,7 @@ For over 100 years, the vinegar fly _Drosophila melanogaster_ has been a workhor
 
 # General overview of the phenotyping effort
 
-We assayed 16 phenotypic traits, most of them representing fitness components (see Table 1 in main text for details): viability, developmental time, dry weight, thorax length, wing area, fertility, lifespan, cold-shock mortality, chill-coma recovery time, heat-shock mortality, diapause, locomotor activity, circadian eclosion timing, pigmentation, starvation resistance, and parasitoid resistance. Assay protocols for each trait are given below; detailed information about phenotyping batches, experimental blocks, replication, sample sizes, etc. can be found in Tables xx (i.e. CSM_pop). Phenotyping assays were carried out at 25ºC, 12 hours light:12 hours dark, and a minimum relative air humidity of 60%. Strains were maintained under density-controlled conditions for at least two generations prior to the assays. The fly food recipes used by the different labs are shown in Table X. Unless stated otherwise, mated females and males were phenotyped for a given trait. The following principal investigators and their research groups participated in the phenotyping effort (in alphabetical order): Jessica Abbott (JA); Alan Bergland (AB); Jean-Christophe Billeter (JCB); Hervé Colinet (HC); Claudia Fricke (CF); Thomas Flatt (TF); Patricia Gibert (PG); Josefa González (JG); Sonja Grath (SG); Katja Hoedjes (KH); Jan Hrcek (JH); Iryna Kozeretska (IK); Julian Mensch (JM); Banu Onder (BO); John Parsch (JP); Elena Pasyukova (EP); Nico Posnien (NP); Michael G. Ritchie (MR); Christian Schlötterer (CS); Paul Schmidt (PS); Marina Stamenkovic-Radak (MSR); Eran Tauber (ET); Jorge Vieira (JV); Christian Wegener (CW); Bas J. Zwaan (BZ).
+We assayed 16 phenotypic traits, most of them representing fitness components (see Table 1 in main text for details): viability, developmental time, dry weight, thorax length, wing area, fertility, lifespan, cold-shock mortality, chill-coma recovery time, heat-shock mortality, diapause, locomotor activity, circadian eclosion timing, pigmentation, starvation resistance, and parasitoid resistance. Assay protocols for each trait are given below; detailed information about phenotyping batches, experimental blocks, replication, sample sizes, etc. can be found here https://github.com/esradm/DrosEU_PhenotypingWG/tree/main/SummaryTables. Phenotyping assays were carried out at 25ºC, 12 hours light:12 hours dark, and a minimum relative air humidity of 60%. Strains were maintained under density-controlled conditions for at least two generations prior to the assays. The fly food recipes used by the different labs are shown in section 1.2. Unless stated otherwise, mated females and males were phenotyped for a given trait. The following principal investigators and their research groups participated in the phenotyping effort (in alphabetical order): Jessica Abbott (JA); Alan Bergland (AB); Jean-Christophe Billeter (JCB); Hervé Colinet (HC); Claudia Fricke (CF); Thomas Flatt (TF); Patricia Gibert (PG); Josefa González (JG); Sonja Grath (SG); Katja Hoedjes (KH); Jan Hrcek (JH); Iryna Kozeretska (IK); Julian Mensch (JM); Banu Onder (BO); John Parsch (JP); Elena Pasyukova (EP); Nico Posnien (NP); Michael G. Ritchie (MR); Christian Schlötterer (CS); Paul Schmidt (PS); Marina Stamenkovic-Radak (MSR); Eran Tauber (ET); Jorge Vieira (JV); Christian Wegener (CW); Bas J. Zwaan (BZ).
 
 
 ```{r libraries, echo=FALSE, message=FALSE, warning=FALSE}
@@ -45,7 +45,7 @@ library(psych)
 ```
 
 
-Nine sampling locations were chosen based on genomic data and these locations covered a wide range of latitude (~20°) and longitude (~40°) across the continent (see table below). From each location, 15 to 20 isofemale lines were established in corresponding labs at the sampling location and the isofemale lines were centrally maintained by Élio Sucena  at Instituto Gulbenkian de Ciência (IGC), Lisbon, Portugal. A total of 173 isofemale lines were used in this study.
+Nine sampling locations were chosen based on genomic data and these locations covered a wide range of latitude (~20°) and longitude (~40°) across the continent (see Table S1 below). From each location, 15 to 20 isofemale lines were established in corresponding labs at the sampling location and the isofemale lines were centrally maintained by Élio Sucena  at Instituto Gulbenkian de Ciência (IGC), Lisbon, Portugal. A total of 173 isofemale lines were used in this study.
 
 
 
@@ -56,7 +56,7 @@ droseu_coord <- read.csv("InfoTables/DrosEU_Coordinates_wDEST.csv", sep = ";") %
 
 
 ```{r echo=FALSE, message=FALSE}
-knitr::kable(droseu_coord, align = "llcccclllll", caption = 'Sampling locations, coordinates and collectors, sorted by increasing latitude. Altitude is expressed in meters.')
+knitr::kable(droseu_coord, align = "llcccclllll", caption = 'Table S1: Sampling locations, coordinates and collectors, sorted by increasing latitude. Altitude is expressed in meters.')
 ```
 
 ```{css, echo = FALSE}
@@ -94,7 +94,7 @@ Author contributions can be found [here](https://docs.google.com/spreadsheets/d/
 Contributing labs are `r unique(droseu_labs$PI)` and detailed list below:
 
 ```{r echo=FALSE}
-knitr::kable(droseu_labs, allign = "llll", caption = "Table X. Contributing labs and traits, sorted by trait")
+knitr::kable(droseu_labs, allign = "llll", caption = "Table S2. Contributing labs and traits, sorted by trait")
 ```
 
 ```{r echo=FALSE, message=FALSE}
@@ -105,7 +105,7 @@ cities <- read.csv("InfoTables/DrosEU_cities.csv")
 
 ## 1.1 - Drosophila population samples, isofemale lines, and stock maintenance
 
-In summer and fall 2018 we collected inseminated D. melanogaster females at 9 European locations, which had already previously been characterized at the population genomic level by the DrosEU consortium (see Figure 1 in the main text; see Kapun et al., 2020, 2021; also see Machado et al. 2021): PT, Portugal (Recarei = RE); ES, Spain (Gimenells = GI [Lleida]); TR, Turkey (Yesiloz = YE); DE, Germany (Munich = MU); AT, Austria (Mauternbach = MA); UA, Ukraine (Uman = UM); DK, Denmark (Karensminde = KA); FI, Finland (Akaa = AK); RU, Russia (Valday = VA). From these females we established 173 isofemale lines, with each population being represented by at least 15 lines (Table SI.X) – we call this collection of lines the DrosEU population panel (DPP). Lines were centralized and maintained in the lab of Élio Sucena (ES) where species status (D. melanogaster vs. D. simulans) was verified using the protocol of Faria & Sucena (2017) and where  lines were tested for Wolbachia infection (see below for methodological details). Subsequently, lines were sent to participating laboratories for phenotyping (Figure 1 in the main text; see Table X). To comply with the Nagoya protocol, material transfer agreements (MTAs) were prepared and exchanged between researchers to transport fly samples across borders.
+In summer and fall 2018 we collected inseminated D. melanogaster females at 9 European locations, which had already previously been characterized at the population genomic level by the DrosEU consortium (see Figure 1 in the main text; see Kapun et al., 2020, 2021; also see Machado et al. 2021): PT, Portugal (Recarei = RE); ES, Spain (Gimenells = GI [Lleida]); TR, Turkey (Yesiloz = YE); DE, Germany (Munich = MU); AT, Austria (Mauternbach = MA); UA, Ukraine (Uman = UM); DK, Denmark (Karensminde = KA); FI, Finland (Akaa = AK); RU, Russia (Valday = VA). From these females we established 173 isofemale lines, with each population being represented by at least 15 lines (Table SI.X) – we call this collection of lines the DrosEU population panel (DPP). Lines were centralized and maintained in the lab of Élio Sucena (ES) where species status (D. melanogaster vs. D. simulans) was verified using the protocol of Faria & Sucena (2017) and where  lines were tested for Wolbachia infection (see below for methodological details). Subsequently, lines were sent to participating laboratories for phenotyping (Figure 1 in the main text; see Table S2). To comply with the Nagoya protocol, material transfer agreements (MTAs) were prepared and exchanged between researchers to transport fly samples across borders.
 
 
 ## 1.2 - Diets
@@ -113,6 +113,7 @@ In summer and fall 2018 we collected inseminated D. melanogaster females at 9 Eu
 ```{r droseu_diets, echo=FALSE, message=FALSE}
 droseu_diets <- data.frame(read.csv("InfoTables/DrosEU_Diets_Feb22.csv"))
 ```
+
 
 ```{r, echo=FALSE}
 DT::datatable(droseu_diets, options = list(pageLength = 10))
@@ -140,7 +141,7 @@ Egg-to-pupa developmental time (in hrs) was scored twice per day, when the chamb
 #### Egg-to-adult developmental time
 ##### Gibert, Grath, Hoedjes, Schmidt, Stamenkovic-Radak and Zwaan Labs
 
-Egg-to-adult developmental time (in hrs) was scored twice per day, similar to egg-to-pupa developmental time (see below); all adults that had emerged from each vial were collected for counting and sexing.
+Egg-to-adult developmental time (in hrs) was scored twice per day, similar to egg-to-pupa developmental time (see above); all adults that had emerged from each vial were collected for counting and sexing.
 
 ### Dry weight
 ##### Colinet, Hoedjes and Onder Labs
@@ -165,13 +166,14 @@ knitr::include_graphics("Figures/wing_landmarks.png")
 
 
 
-_Figure X_. Thorax and wing measurements. (A) Thorax length was measured from the anterior margin of the thorax to the posterior tip of the scutellum. (B) Measurement area of the wing. (B’) Landmarks used to exclude the posterior part of the wing for area measurements. (C) Position of 15 landmarks used for wing centroid size (WCS) assessment. 
+_Figure S1_. Thorax and wing measurements. (A) Thorax length was measured from the anterior margin of the thorax to the posterior tip of the scutellum. (B) Measurement area of the wing. (B’) Landmarks used to exclude the posterior part of the wing for area measurements. (C) Position of 15 landmarks used for wing centroid size (WCS) assessment. 
 
-Wing area was estimated by quantifying wing centroid size (WCS; Bookstein, 1996). Fifteen landmarks (Figure X) were placed on wing images using tpsUtil and tpsDig2 (Rohlf, 2015) to obtain raw x and y landmark coordinates. WCS was calculated as the square root of the sum of squared deviations of landmarks around their centroid as implemented in MorphoJ (Klingenberg, 2011) or tpsRelw (Rohlf, 2015). To confirm that WCS represents wing area, the NP lab also manually measured wing area by outlining wings (Figure XB) with the "Polygon Selection" tool in Fiji (https://ﬁji.sc/). The most proximal part of the wing was excluded from measurements, using two distinct landmarks, since it was more susceptible to damage during dissection (Figure XB’). Linear regression of WCS against manually measured wing area showed a high positive correlation (adjusted R2 = 0.83, F1, 538 = 2605, p < 2.2 x 10-16) (Figure ??). 
+Wing area was estimated by quantifying wing centroid size (WCS; Bookstein, 1996). Fifteen landmarks (Figure S1C) were placed on wing images using tpsUtil and tpsDig2 (Rohlf, 2015) to obtain raw x and y landmark coordinates. WCS was calculated as the square root of the sum of squared deviations of landmarks around their centroid as implemented in MorphoJ (Klingenberg, 2011) or tpsRelw (Rohlf, 2015). To confirm that WCS represents wing area, the NP lab also manually measured wing area by outlining wings (Figure S1B) with the "Polygon Selection" tool in Fiji (https://ﬁji.sc/). The most proximal part of the wing was excluded from measurements, using two distinct landmarks, since it was more susceptible to damage during dissection (Figure S1B’). Linear regression of WCS against manually measured wing area showed a high positive correlation (adjusted R2 = 0.83, F1, 538 = 2605, p < 2.2 x 10-16) (Figure S2). 
 
 ```{r echo=FALSE}
 knitr::include_graphics("WingArea//WCS_WAman.png")
 ```
+_Figure S2_. Linear regression of WCS against manually measured wing area.
 
 
 ### Fertility
