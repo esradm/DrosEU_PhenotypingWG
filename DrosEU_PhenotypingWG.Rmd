@@ -21,10 +21,13 @@ Short Running Title: Phenomic Analysis of European _D. melanogaster_
 
 For over 100 years, the vinegar fly _Drosophila melanogaster_ has been a workhorse for studying the genetic and phenotypic basis of evolutionary change. Ancestrally of southern-central African origin, this insect expanded its range, migrated out of Africa and colonized new habitats and climate zones around the globe. Recent population genomic analyses suggest that Europe was colonized from the Middle East ~1,800 years ago, yet we still know surprisingly little about how this human commensal adapted to different locales on the European continent and elsewhere. Here, we assayed fly strains isolated from 9 European populations for 16 traits in an international consortium effort, involving >100 researchers from 26 research groups in 17 countries and using semi-standardized experimental protocols. Despite differences in experimental (environmental) conditions among labs, our trait measurements agreed well across research teams, suggesting that they are robust and generalizable. European populations of the vinegar fly are markedly differentiated for several phenotypic traits that are related to Darwinian fitness and which might be subject to natural selection. Notably, flies from locations with higher humidity and rainfall and lower temperature survive better to the adult stage, lay more eggs, are better at surviving famine and, as adults, live longer than flies from drier, warmer locations; yet, as compared to flies from warmer, drier locales, they are considerably less well adapted to surviving heat stress, suggesting a trade-off between these components of fitness. Our findings begin to illuminate how this subtropical/tropical insect has adapted to different climates and habitats on the European continent and showcase the value of collaborative multi-lab studies that perform experiments in parallel.
 
+# 1 - Materials and Methods 
 
-# General overview of the phenotyping effort
+## 1.1 General overview of the phenotyping effort
 
-We assayed 16 phenotypic traits, most of them representing fitness components (see Table 1 in main text for details): viability, developmental time, dry weight, thorax length, wing area, fertility, lifespan, cold-shock mortality, chill-coma recovery time, heat-shock mortality, diapause, locomotor activity, circadian eclosion timing, pigmentation, starvation resistance, and parasitoid resistance. Assay protocols for each trait are given below; detailed information about phenotyping batches, experimental blocks, replication, sample sizes, etc. can be found here https://github.com/esradm/DrosEU_PhenotypingWG/tree/main/SummaryTables. Phenotyping assays were carried out at 25ºC, 12 hours light:12 hours dark, and a minimum relative air humidity of 60%. Strains were maintained under density-controlled conditions for at least two generations prior to the assays. The fly food recipes used by the different labs are shown in section 1.2. Unless stated otherwise, mated females and males were phenotyped for a given trait. The following principal investigators and their research groups participated in the phenotyping effort (in alphabetical order): Jessica Abbott (JA); Alan Bergland (AB); Jean-Christophe Billeter (JCB); Hervé Colinet (HC); Claudia Fricke (CF); Thomas Flatt (TF); Patricia Gibert (PG); Josefa González (JG); Sonja Grath (SG); Katja Hoedjes (KH); Jan Hrcek (JH); Iryna Kozeretska (IK); Julian Mensch (JM); Banu Onder (BO); John Parsch (JP); Elena Pasyukova (EP); Nico Posnien (NP); Michael G. Ritchie (MR); Christian Schlötterer (CS); Paul Schmidt (PS); Marina Stamenkovic-Radak (MSR); Eran Tauber (ET); Jorge Vieira (JV); Christian Wegener (CW); Bas J. Zwaan (BZ).
+We assayed 16 phenotypic traits, most of them representing fitness components (see Table 1 in main text for details): viability, developmental time, dry weight, thorax length, wing area, fertility, lifespan, cold-shock mortality, chill-coma recovery time, heat-shock mortality, diapause, locomotor activity, circadian eclosion timing, pigmentation, starvation resistance, and parasitoid resistance. Assay protocols for each trait are given below; detailed information about phenotyping batches, experimental blocks, replication, sample sizes, etc. can be found here https://github.com/esradm/DrosEU_PhenotypingWG/tree/main/SummaryTables. Phenotyping assays were carried out at 25ºC, 12 hours light:12 hours dark, and a minimum relative air humidity of 60%. Strains were maintained under density-controlled conditions for at least two generations prior to the assays. The fly food recipes used by the different labs are shown in section 1.3. Unless stated otherwise, mated females and males were phenotyped for a given trait. The following principal investigators and their research groups participated in the phenotyping effort (in alphabetical order): Jessica Abbott (JA); Alan Bergland (AB); Jean-Christophe Billeter (JCB); Hervé Colinet (HC); Claudia Fricke (CF); Thomas Flatt (TF); Patricia Gibert (PG); Josefa González (JG); Sonja Grath (SG); Katja Hoedjes (KH); Jan Hrcek (JH); Iryna Kozeretska (IK); Julian Mensch (JM); Banu Onder (BO); John Parsch (JP); Elena Pasyukova (EP); Nico Posnien (NP); Michael G. Ritchie (MR); Christian Schlötterer (CS); Paul Schmidt (PS); Marina Stamenkovic-Radak (MSR); Eran Tauber (ET); Jorge Vieira (JV); Christian Wegener (CW); Bas J. Zwaan (BZ).
+
+Nine sampling locations were chosen based on genomic data and these locations covered a wide range of latitude (~20°) and longitude (~40°) across the continent (see Table S1 below). From each location, 15 to 20 isofemale lines were established in corresponding labs at the sampling location and the isofemale lines were centrally maintained by Élio Sucena  at Instituto Gulbenkian de Ciência (IGC), Lisbon, Portugal. A total of 173 isofemale lines were used in this study.
 
 
 ```{r libraries, echo=FALSE, message=FALSE, warning=FALSE}
@@ -44,16 +47,10 @@ library(MetBrewer)
 library(psych)
 ```
 
-
-Nine sampling locations were chosen based on genomic data and these locations covered a wide range of latitude (~20°) and longitude (~40°) across the continent (see Table S1 below). From each location, 15 to 20 isofemale lines were established in corresponding labs at the sampling location and the isofemale lines were centrally maintained by Élio Sucena  at Instituto Gulbenkian de Ciência (IGC), Lisbon, Portugal. A total of 173 isofemale lines were used in this study.
-
-
-
 ```{r droseu_coord, echo=FALSE, message=FALSE}
 droseu_coord <- read.csv("InfoTables/DrosEU_Coordinates_wDEST.csv", sep = ";") %>%
   select(!LineID_month)
 ```
-
 
 ```{r echo=FALSE, message=FALSE}
 knitr::kable(droseu_coord, align = "llcccclllll", caption = 'Table S1: Sampling locations, coordinates and collectors, sorted by increasing latitude. Altitude is expressed in meters.')
@@ -83,32 +80,20 @@ droseu_labs <- data.frame(read.csv("InfoTables/DrosEU_Labs.csv"))
 ```
 
 ```{r echo=FALSE}
+knitr::kable(droseu_labs, allign = "llll", caption = "Table S2. Contributing labs and traits, sorted by trait. Author contributions can be found [here](https://docs.google.com/spreadsheets/d/1SkiqZlpZlEs1nf6JJUakREYS4mpghSmgb_0QlL8o3ek/edit#gid=1616763697)")
+```
+
+```{r eval=FALSE, include=FALSE}
 knitr::include_graphics("Figures/figure1_v4.png")
 ```
 
-## Contributors
 
-Author contributions can be found [here](https://docs.google.com/spreadsheets/d/1SkiqZlpZlEs1nf6JJUakREYS4mpghSmgb_0QlL8o3ek/edit#gid=1616763697)
+## 1.2 - Drosophila population samples, isofemale lines, and stock maintenance
 
-
-Contributing labs are `r unique(droseu_labs$PI)` and detailed list below:
-
-```{r echo=FALSE}
-knitr::kable(droseu_labs, allign = "llll", caption = "Table S2. Contributing labs and traits, sorted by trait")
-```
-
-```{r echo=FALSE, message=FALSE}
-cities <- read.csv("InfoTables/DrosEU_cities.csv")
-```
-
-# 1 - Materials and Methods 
-
-## 1.1 - Drosophila population samples, isofemale lines, and stock maintenance
-
-In summer and fall 2018 we collected inseminated D. melanogaster females at 9 European locations, which had already previously been characterized at the population genomic level by the DrosEU consortium (see Figure 1 in the main text; see Kapun et al., 2020, 2021; also see Machado et al. 2021): PT, Portugal (Recarei = RE); ES, Spain (Gimenells = GI [Lleida]); TR, Turkey (Yesiloz = YE); DE, Germany (Munich = MU); AT, Austria (Mauternbach = MA); UA, Ukraine (Uman = UM); DK, Denmark (Karensminde = KA); FI, Finland (Akaa = AK); RU, Russia (Valday = VA). From these females we established 173 isofemale lines, with each population being represented by at least 15 lines (Table SI.X) – we call this collection of lines the DrosEU population panel (DPP). Lines were centralized and maintained in the lab of Élio Sucena (ES) where species status (D. melanogaster vs. D. simulans) was verified using the protocol of Faria & Sucena (2017) and where  lines were tested for Wolbachia infection (see below for methodological details). Subsequently, lines were sent to participating laboratories for phenotyping (Figure 1 in the main text; see Table S2). To comply with the Nagoya protocol, material transfer agreements (MTAs) were prepared and exchanged between researchers to transport fly samples across borders.
+In summer and fall 2018 we collected inseminated D. melanogaster females at 9 European locations, which had already previously been characterized at the population genomic level by the DrosEU consortium (see Figure 1 in the main text; see Kapun et al., 2020, 2021; also see Machado et al. 2021): PT, Portugal (Recarei = RE); ES, Spain (Gimenells = GI [Lleida]); TR, Turkey (Yesiloz = YE); DE, Germany (Munich = MU); AT, Austria (Mauternbach = MA); UA, Ukraine (Uman = UM); DK, Denmark (Karensminde = KA); FI, Finland (Akaa = AK); RU, Russia (Valday = VA). From these females we established 173 isofemale lines, with each population being represented by at least 15 lines – we call this collection of lines the DrosEU population panel (DPP). Lines were centralized and maintained in the lab of Élio Sucena (ES) where species status (D. melanogaster vs. D. simulans) was verified using the protocol of Faria & Sucena (2017) and where  lines were tested for Wolbachia infection (see below for methodological details). Subsequently, lines were sent to participating laboratories for phenotyping (Figure 1 in the main text and Table S2). To comply with the Nagoya protocol, material transfer agreements (MTAs) were prepared and exchanged between researchers to transport fly samples across borders.
 
 
-## 1.2 - Diets
+## 1.3 - Diets
 
 ```{r droseu_diets, echo=FALSE, message=FALSE}
 droseu_diets <- data.frame(read.csv("InfoTables/DrosEU_Diets_Feb22.csv"))
@@ -120,12 +105,12 @@ DT::datatable(droseu_diets, options = list(pageLength = 10))
 ```
 
 
-## 1.3 - Chromosomal inversion frequencies
+## 1.4 - Chromosomal inversion frequencies
 
 For each isofemale line, the presence or absence of 5 cosmopolitan inversions (_In(2L)t_, _In(2R)NS_, _In(3L)P_,_In(3R)P_ and _In(3R)mo_) was diagnosed by PCR using previously published inverted-specific primers and conditions (Corbett-Detig et al, 2012) on DNA extracted from pools of 10-15 mixed-sex flies per line using the Qiagen DNeasy Blood & Tissue Kit. These data were used to investigate the effect of inversions on trait variation (linear model with inversion presence (1) or absence (0) used as explanatory variable). In addition, average inversion frequencies were derived for each population.
 
 
-## 1.4 - Trait-specific assay conditions and measurements
+## 1.5 - Trait-specific assay conditions and measurements
 
 ### Viability
 ##### Gibert, Grath, Hoedjes, Schmidt, Stamenkovic-Radak and Zwaan Labs
@@ -251,7 +236,7 @@ Parasitoid resistance was measured using 5-8 isofemale lines per population in 3
 Isofemale lines were screened for the presence of Wolbachia using three complementary approaches: (1) regular PCR-based screening using protocols described in Miller et al. (1988) and Faria & Sucena (2017) (ES lab); (2) this first screen was independently repeated using regular PCR following Strunov et al. (2022) (MK lab); and (3) quantitative real-time PCR (qPCR)-based screening following a modified protocol from Sambrook et al. (1989) (EP lab). For approach (1), whole-genome DNA was extracted from 3-5 flies per line following the protocol of Miller et al. (1988). A multiplex PCR reaction was carried out in 96-well plates using 1μL of diluted DNA with the GoTaq G2 Flexi DNA polymerase (Promega) in a 10μL total reaction volume per well using the following diagnostic primer pairs: Slif (Fwd: 5’ GTTAGCGCCTATTAGCACAT 3’; Rev: 5’ CGGGACAACTCAGTCTGTAA 3’); wsp (81Fwd: 5’ TGGTCCAATAAGTGATGAAGAAAC 3’; 691Rev: 5’ AAAAATTAAACGCTACTCCA 3’). The latter pair of primers serves to diagnose the presence or absence of Wolbachia (Zhou et al., 1998). The following PCR protocol was used: 95 ºC for 10 min; 30 cycles at 95 ºC for 30s, 60 ºC for 1 min, 72 ºC for 1 min; and a final extension step at 72 ºC for 10 min. PCR products were visualized by gel electrophoresis (1.5% agarose in TAE supplied with 1% RedSafe). For approach (2), we performed PCRs using VNTR-141 primers (Riegler et al., 2012) following the PCR conditions described in Strunov et al. (2022). This allowed us to distinguish between the two most common Wolbachia variants, wMel and wMelCS, based on a diagnostic length polymorphism in the VNTR region. For qPCR, whole-genomie DNA was extracted from pools of 20 flies per line following Sambrook et al. (1989). For approach (3), qPCR was performed on a MiniOpticon real-time PCR system (Bio-Rad). The total reaction volume was 20 µl per well, with 1 µl of diluted DNA, HotStart Taq (Sibenzyme), and SYBR Green I and W-Spec primers (Fwd: 5’ CATACCTATTCGAAGGGATAG 3’; Rev 5’ AGCTTCGAGTGAAACCAATTC 3’; Werren & Windsor, 2000). The W-Spec primer set is thought to give a stronger and more specific signal than a number of other primers (Simoes et al., 2011). The following PCR protocol was used: 94 ºC for 2.5 min; 50 cycles at 94 ºC for 20 s, 64 ºC for 20 s, 72 ºC for 30 s. The specificity of the PCR products detected was determined by melting curve analysis.
 
 
-## 1.5 -Statistical analyses
+## 1.6 -Statistical analyses
 ### Linear models
 
 Because of (for practical reasons inevitable) differences in data collection and structure among labs, it was typically not feasible for us to fit a single global trait-specific model that would incorporate all data from several labs that had measured the same phenotypic trait. Instead, we had to fit lab-specific models. In total, we ran 97 individual linear models (see XX for the separate analyses of circular data, i.e., circadian eclosion timing and locomotor activity). Modeling was performed in R (v.4.1.1) with the lmer function from the afex package (v.1.0-1). In all models, Population (i.e., population ID) was included as a fixed factor and, whenever applicable, Line (isofemale line ID), Replicate (e.g., replicate vial) and Batch (block) were included as random factors with appropriate nesting as in the following example:  
