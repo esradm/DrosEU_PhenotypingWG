@@ -18,7 +18,7 @@ library(ggpubr)
 
 
 ##### set working directory
-setwd("~/Work/UNIFR/GitHub/DrosEU_PhenotypingWG/")
+setwd("~/Work/UNIFR/GitHub/DrosEU_PhenotypingWG_new/")
 
 source("Code/functions.R")
 
@@ -46,7 +46,7 @@ pops_plot <- ggplot(data = world) +
     ) +
     xlab("Longitude") +
     ylab("Latitude") +
-    ggtitle("Sampling locations", subtitle = "9 populations") +
+    #ggtitle("Sampling locations", subtitle = "9 populations") +
     theme(
         legend.position = "none",
         axis.text = element_text(size = 8),
@@ -65,7 +65,7 @@ labs_plot <- ggplot(data = world) +
     theme_classic(8) +
     xlab("Longitude") +
     ylab("Latitude") +
-    ggtitle("Contributing labs", subtitle = "17 countries, 26 research groups") +
+    #ggtitle("Contributing labs", subtitle = "17 countries, 26 research groups") +
     theme(
         legend.position = "none",
         axis.text = element_text(size = 8),
@@ -82,7 +82,7 @@ plots <- plot_grid(
 )
 
 ggsave(plots,
-  filename = "Figures/figure1_v4.png",
+  filename = "Figures/figure1_v5.png",
   width = 6.3, height = 3.6
 )
 
