@@ -1,7 +1,7 @@
 PI/Lab head,Phenotype,Diet,P:C
 Gonzalez,Cold-shock mortality,S,0.066
 Gonzalez,Starvation resistance,S,0.066
-Fricke,Fecundity,S,0.073
+Fricke,Fertility,S,0.073
 Gibert,Egg-to-adult development time,NS,0.076
 Gibert,Pigmentation,NS,0.076
 Gibert,Viability,NS,0.076
@@ -41,7 +41,7 @@ Hoedjes,Dry weight,NS,0.283
 Hoedjes,Viability,NS,0.283
 Zwaan,Development time,NS,0.291
 Zwaan,Viability,NS,0.291
-Billeter,Fecundity,NS,0.313
+Billeter,Fertility,NS,0.313
 Kozeretska,Cold-shock mortality,NS,0.368
 Kozeretska,Thorax length,NS,0.368
 Colinet,Dry weight,NS,1.280

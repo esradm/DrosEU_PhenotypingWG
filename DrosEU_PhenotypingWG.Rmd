@@ -265,7 +265,7 @@ To assess the extent of reproducibility (repeatability) of trait estimates acros
 For each trait and sex, we used meta-analysis to compute Population summary effects. Each lab/assay in which the effect of Population on a trait was assessed with a linear mixed-effect model was considered to represent a separate “study”. Because Population has 9 levels, we carried out subgroup meta-analysis by considering each population as a subgroup, thus enabling us to test for phenotypic differences between populations which were unlikely to be caused by differences in environmental/assay conditions among labs. Input data for this analysis consisted of estimates and associated standard errors for the factor Population obtained from trait- and lab-specific linear mixed-effect models. Estimates were used as Population effects and standard errors were used as weights, i.e., to give more or less weight to “studies” (labs) depending on sample sizes and replication levels. Data from the NP lab (wing area, thorax length) were excluded as our threshold for analysis was a minimum of 5 lines per population but as only 3 lines per population had been phenotyped. The exclusion of these data, and the fact that the MR lab could only assay 5 out of 9 populations, left us with data from only a single single lab (IK), preventing us from analyzing male thorax length. Subgroup meta-analyses were performed in R (v.4.1.1) using a random-effects model implemented in the metagen (random = TRUE, method.tau = "REML") and update.meta (subgroup = Population, tau.common = FALSE) functions of the meta package (version 5.1-1) (Balduzzi et al, 2019). Cochran’s Q was used to assess heterogeneity (i.e., differences in effect sizes) between subgroups (=populations) which were unlikely due to differences in conditions among labs. Resulting p-values were corrected for multiple testing with the Bonferroni procedure (𝛼’ = 𝛼/n = 0.05/26 = 0.0019; n = 26 meta-analyses in total). Population summary effects were extracted from meta-analysis outputs and used as Population compound estimates for downstream analyses. A similar meta-analysis approach (without heterogeneity tests) was employed to generate Line compound estimates using the Line random coefficients and associated standard errors, which were both extracted from the mixed-effect models in which Line could be included as a random effect (see previous section). 
 
 ### Multivariate analyses I: Principal Component Analysis (PCA)
-To analyze multivariate phenotypic correlations in more detail, trait values from model estimates were transformed using principal component analysis (PCA) for each sex separately using 134 male lines and 165 female lines (males: 10-17 lines per population, mean = 14.8; females: 14-20 lines per population, mean 18.33). Separate PCAs were carried out for males and females. For males, nine phenotypes were used (chill-coma recovery time, cold-shock mortality, egg-to-adult developmental time, dry weight, heat-shock mortality, lifespan, starvation resistance, thorax length, and wing area (left)). For females a greater number of phenotypic traits were available. To get a more complete picture of multivariate phenotypic correlations, two PCAs with different combinations of phenotypes were carried out: (i) nine phenotypes corresponding to those used in males ‒ see above (i.e., to allow a direct comparison with the male PCA); and (ii) 13 traits including the nine previously mentioned plus three measured only in females (reproductive diapause, fecundity, and total pigmentation) and viability (although sex was not specified for viability, it showed strong variation between populations, suggesting that it could be a key phenotype). The male PCA was termed M9 and the two female PCAs were termed F9 and F13. Phenotypic traits were scaled to unit variance and transformed using the PCA function from R package FactoMineR (Lê et al 2008). Traits with greater-than-average contributions to a given PC were considered key correlates of PCs, and phenotypic trait loadings are reported for the first 3 PCs. PCA plots with confidence ellipses were visualized with factoextra (Kassambara and Mundt, 2020). To check for effects of diet, all PCAs were also run with trait values derived from a single lab and chosen such that variation in diet  P:C (protein:carbohydrate) ratio was controlled (P:C ratio between 0.066 and 0.283). For males, thorax Length (TL) values were not available at the target P:C ratio, so a complete data PCA and a controlled P:C ratio PCA were run using data from the eight remaining phenotypic traits. Trait loadings for P:C controlled PCAs were compared to trait loadings for the PCAs containing data for all labs using Tucker’s Congruence Coefficients, implemented using the factor.congruence function in the psych package (Revelle, 2022).
+To analyze multivariate phenotypic correlations in more detail, trait values from model estimates were transformed using principal component analysis (PCA) for each sex separately using 134 male lines and 165 female lines (males: 10-17 lines per population, mean = 14.8; females: 14-20 lines per population, mean 18.33). Separate PCAs were carried out for males and females. For males, nine phenotypes were used (chill-coma recovery time, cold-shock mortality, egg-to-adult developmental time, dry weight, heat-shock mortality, lifespan, starvation resistance, thorax length, and wing area (left)). For females a greater number of phenotypic traits were available. To get a more complete picture of multivariate phenotypic correlations, two PCAs with different combinations of phenotypes were carried out: (i) nine phenotypes corresponding to those used in males ‒ see above (i.e., to allow a direct comparison with the male PCA); and (ii) 13 traits including the nine previously mentioned plus three measured only in females (reproductive diapause, fertility, and total pigmentation) and viability (although sex was not specified for viability, it showed strong variation between populations, suggesting that it could be a key phenotype). The male PCA was termed M9 and the two female PCAs were termed F9 and F13. Phenotypic traits were scaled to unit variance and transformed using the PCA function from R package FactoMineR (Lê et al 2008). Traits with greater-than-average contributions to a given PC were considered key correlates of PCs, and phenotypic trait loadings are reported for the first 3 PCs. PCA plots with confidence ellipses were visualized with factoextra (Kassambara and Mundt, 2020). To check for effects of diet, all PCAs were also run with trait values derived from a single lab and chosen such that variation in diet  P:C (protein:carbohydrate) ratio was controlled (P:C ratio between 0.066 and 0.283). For males, thorax Length (TL) values were not available at the target P:C ratio, so a complete data PCA and a controlled P:C ratio PCA were run using data from the eight remaining phenotypic traits. Trait loadings for P:C controlled PCAs were compared to trait loadings for the PCAs containing data for all labs using Tucker’s Congruence Coefficients, implemented using the factor.congruence function in the psych package (Revelle, 2022).
  
 ### Multivariate analyses II: Discriminant Function Analysis (DFA)
 Broad differences in population phenotypes were then quantified for each sex using discriminant function analysis (DFA). and the same 134 male lines and 165 female lines described above. DFA incorporated the model estimate trait values for 10 phenotypes in males (the nine that were measured plus viability) and 13 in females (the same as the F13 PCA). For each sex, Mahalanobis distance (D2) between populations was calculated, and the observations (134 and 165 lines in males and females, respectively) were reallocated to determine how distinct the populations were. All analyses were run in Genstat v22.1 with Genstat Procedure Library v30.1 loaded using the discriminate function.
@@ -1820,7 +1820,7 @@ for (i in dev.list()[1]:dev.list()[length(dev.list())]) {
 # crashed bc tries to save lots -- need to remove some sometimes
 ```
 
-### Fecundity
+### Fertility
 
 ```{r include=FALSE}
 dir.create(file.path("Fecundity"), showWarnings = FALSE)
@@ -1851,7 +1851,7 @@ Descriptive statistics at the line level, with batch information:
 DT::datatable(table_line_wbatch$Fec, options = list(pageLength = 10)) %>% formatRound(6:13, 3)
 ```
 
-Descriptive statistics for fecundity at the line level, without batch information:
+Descriptive statistics for Fertility at the line level, without batch information:
 ```{r, echo=FALSE}
 DT::datatable(table_line_wobatch$Fec, options = list(pageLength = 10)) %>% formatRound(5:12, 3)
 ```
@@ -3988,7 +3988,7 @@ knitr::include_graphics("MetaAnalyses/WingArea/WA_R_F_lmers_pop_meta_summary_eff
 knitr::include_graphics("MetaAnalyses/WingArea/WA_R_M_lmers_pop_meta_summary_effect.png")
 ```
 
-#### Fecundity
+#### Fertility
 
 ```{r echo=FALSE, out.width="49%"}
 knitr::include_graphics("MetaAnalyses/Fecundity/Fec_F_lmers_pop_meta_summary_effect.png")
@@ -4409,7 +4409,7 @@ knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_TL_pop_facets.png")
 knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_WA_L_pop_facets.png")
 ```
 
-#### Fecundity
+#### Fertility
 ```{r echo=FALSE, out.width="50%"}
 knitr::include_graphics("Diets/DrosEU_Diets_PC_ratios_Fec_pop_facets.png")
 ```
@@ -5150,7 +5150,7 @@ knitr::include_graphics("GDM/GDM_Worldclim/DW_M/DW_M_vapr7_i-spline.jpeg")
 knitr::include_graphics("GDM/GDM_Worldclim/DW_M/DW_M_bio2_i-spline.jpeg")
 ```
 
-### Fecundity
+### Fertility
 ```{r echo=FALSE, out.width="40%", out.height="40%"}
 knitr::include_graphics("GDM/GDM_Worldclim/Fec/Fec_srad01_i-spline.jpeg")
 ```
