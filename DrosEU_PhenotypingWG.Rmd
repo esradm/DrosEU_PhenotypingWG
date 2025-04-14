@@ -161,6 +161,8 @@ Wing area was estimated by quantifying wing centroid size (WCS; Bookstein, 1996)
 ```{r echo=FALSE}
 knitr::include_graphics("WingArea//WCS_WAman.png")
 ```
+
+
 _Figure S2_. Linear regression of WCS against manually measured wing area.
 
 
@@ -234,7 +236,7 @@ Parasitoid resistance was measured using 5-8 isofemale lines per population in 3
 
 ### Wolbachia infections
 
-Isofemale lines were screened for the presence of Wolbachia using three complementary approaches: (1) regular PCR-based screening using protocols described in Miller et al. (1988) and Faria & Sucena (2017) (ES lab); (2) this first screen was independently repeated using regular PCR following Strunov et al. (2022) (MK lab); and (3) quantitative real-time PCR (qPCR)-based screening following a modified protocol from Sambrook et al. (1989) (EP lab). For approach (1), whole-genome DNA was extracted from 3-5 flies per line following the protocol of Miller et al. (1988). A multiplex PCR reaction was carried out in 96-well plates using 1μL of diluted DNA with the GoTaq G2 Flexi DNA polymerase (Promega) in a 10μL total reaction volume per well using the following diagnostic primer pairs: Slif (Fwd: 5’ GTTAGCGCCTATTAGCACAT 3’; Rev: 5’ CGGGACAACTCAGTCTGTAA 3’); wsp (81Fwd: 5’ TGGTCCAATAAGTGATGAAGAAAC 3’; 691Rev: 5’ AAAAATTAAACGCTACTCCA 3’). The latter pair of primers serves to diagnose the presence or absence of Wolbachia (Zhou et al., 1998). The following PCR protocol was used: 95 ºC for 10 min; 30 cycles at 95 ºC for 30s, 60 ºC for 1 min, 72 ºC for 1 min; and a final extension step at 72 ºC for 10 min. PCR products were visualized by gel electrophoresis (1.5% agarose in TAE supplied with 1% RedSafe). For approach (2), we performed PCRs using VNTR-141 primers (Riegler et al., 2012) following the PCR conditions described in Strunov et al. (2022). This allowed us to distinguish between the two most common Wolbachia variants, wMel and wMelCS, based on a diagnostic length polymorphism in the VNTR region. For qPCR, whole-genomie DNA was extracted from pools of 20 flies per line following Sambrook et al. (1989). For approach (3), qPCR was performed on a MiniOpticon real-time PCR system (Bio-Rad). The total reaction volume was 20 µl per well, with 1 µl of diluted DNA, HotStart Taq (Sibenzyme), and SYBR Green I and W-Spec primers (Fwd: 5’ CATACCTATTCGAAGGGATAG 3’; Rev 5’ AGCTTCGAGTGAAACCAATTC 3’; Werren & Windsor, 2000). The W-Spec primer set is thought to give a stronger and more specific signal than a number of other primers (Simoes et al., 2011). The following PCR protocol was used: 94 ºC for 2.5 min; 50 cycles at 94 ºC for 20 s, 64 ºC for 20 s, 72 ºC for 30 s. The specificity of the PCR products detected was determined by melting curve analysis.
+Isofemale lines were screened for the presence of Wolbachia using three complementary approaches: (1) regular PCR-based screening using protocols described in Miller et al. (1988) and Faria & Sucena (2017) (ES lab); (2) this first screen was independently repeated using regular PCR following Strunov et al. (2022) (MK lab); and (3) quantitative real-time PCR (qPCR)-based screening following a modified protocol from Sambrook et al. (1989) (EP lab). For approach (1), whole-genome DNA was extracted from 3-5 flies per line following the protocol of Miller et al. (1988). A multiplex PCR reaction was carried out in 96-well plates using 1μL of diluted DNA with the GoTaq G2 Flexi DNA polymerase (Promega) in a 10μL total reaction volume per well using the following diagnostic primer pairs: Slif (Fwd: 5’ GTTAGCGCCTATTAGCACAT 3’; Rev: 5’ CGGGACAACTCAGTCTGTAA 3’); wsp (81Fwd: 5’ TGGTCCAATAAGTGATGAAGAAAC 3’; 691Rev: 5’ AAAAATTAAACGCTACTCCA 3’). The latter pair of primers serves to diagnose the presence or absence of Wolbachia (Zhou et al., 1998). The following PCR protocol was used: 95 ºC for 10 min; 30 cycles at 95 ºC for 30s, 60 ºC for 1 min, 72 ºC for 1 min; and a final extension step at 72 ºC for 10 min. PCR products were visualized by gel electrophoresis (1.5% agarose in TAE supplied with 1% RedSafe). For approach (2), we performed PCRs using VNTR-141 primers (Riegler et al., 2012) following the PCR conditions described in Strunov et al. (2022). This allowed us to distinguish between the two most common Wolbachia variants, wMel and wMelCS, based on a diagnostic length polymorphism in the VNTR region. For qPCR, whole-genomic DNA was extracted from pools of 20 flies per line following Sambrook et al. (1989). For approach (3), qPCR was performed on a MiniOpticon real-time PCR system (Bio-Rad). The total reaction volume was 20 µl per well, with 1 µl of diluted DNA, HotStart Taq (Sibenzyme), and SYBR Green I and W-Spec primers (Fwd: 5’ CATACCTATTCGAAGGGATAG 3’; Rev 5’ AGCTTCGAGTGAAACCAATTC 3’; Werren & Windsor, 2000). The W-Spec primer set is thought to give a stronger and more specific signal than a number of other primers (Simoes et al., 2011). The following PCR protocol was used: 94 ºC for 2.5 min; 50 cycles at 94 ºC for 20 s, 64 ºC for 20 s, 72 ºC for 30 s. The specificity of the PCR products detected was determined by melting curve analysis.
 
 
 ## 1.6 -Statistical analyses
@@ -271,7 +273,7 @@ For each trait and sex, we used meta-analysis to compute Population summary effe
 To analyze multivariate phenotypic correlations in more detail, trait values from model estimates were transformed using principal component analysis (PCA) for each sex separately using 134 male lines and 165 female lines (males: 10-17 lines per population, mean = 14.8; females: 14-20 lines per population, mean 18.33). Separate PCAs were carried out for males and females. For males, nine phenotypes were used (chill-coma recovery time, cold-shock mortality, egg-to-adult developmental time, dry weight, heat-shock mortality, lifespan, starvation resistance, thorax length, and wing area (left)). For females a greater number of phenotypic traits were available. To get a more complete picture of multivariate phenotypic correlations, two PCAs with different combinations of phenotypes were carried out: (i) nine phenotypes corresponding to those used in males ‒ see above (i.e., to allow a direct comparison with the male PCA); and (ii) 13 traits including the nine previously mentioned plus three measured only in females (reproductive diapause, fertility, and total pigmentation) and viability (although sex was not specified for viability, it showed strong variation between populations, suggesting that it could be a key phenotype). The male PCA was termed M9 and the two female PCAs were termed F9 and F13. Phenotypic traits were scaled to unit variance and transformed using the PCA function from R package FactoMineR (Lê et al 2008). Traits with greater-than-average contributions to a given PC were considered key correlates of PCs, and phenotypic trait loadings are reported for the first 3 PCs. PCA plots with confidence ellipses were visualized with factoextra (Kassambara and Mundt, 2020). To check for effects of diet, all PCAs were also run with trait values derived from a single lab and chosen such that variation in diet  P:C (protein:carbohydrate) ratio was controlled (P:C ratio between 0.066 and 0.283). For males, thorax Length (TL) values were not available at the target P:C ratio, so a complete data PCA and a controlled P:C ratio PCA were run using data from the eight remaining phenotypic traits. Trait loadings for P:C controlled PCAs were compared to trait loadings for the PCAs containing data for all labs using Tucker’s Congruence Coefficients, implemented using the factor.congruence function in the psych package (Revelle, 2022).
  
 ### Multivariate analyses II: Discriminant Function Analysis (DFA)
-Broad differences in population phenotypes were then quantified for each sex using discriminant function analysis (DFA). and the same 134 male lines and 165 female lines described above. DFA incorporated the model estimate trait values for 10 phenotypes in males (the nine that were measured plus viability) and 13 in females (the same as the F13 PCA). For each sex, Mahalanobis distance (D2) between populations was calculated, and the observations (134 and 165 lines in males and females, respectively) were reallocated to determine how distinct the populations were. All analyses were run in Genstat v22.1 with Genstat Procedure Library v30.1 loaded using the discriminate function.
+Broad differences in population phenotypes were then quantified for each sex, using discriminant function analysis (DFA) and the same 134 male lines and 165 female lines as described above. DFA incorporated the model estimate trait values for 10 phenotypes in males (the nine that were measured plus viability) and 13 in females (the same as the F13 PCA). For each sex, Mahalanobis distance (D2) between populations was calculated, and the observations (134 and 165 lines in males and females, respectively) were reallocated to determine how distinct the populations were. All analyses were run in Genstat v22.1 with Genstat Procedure Library v30.1 loaded using the discriminate function.
 
 ### Multivariate analyses III: Correlations between environment and phenotype
 To analyze effects of environmental factors on phenotypic traits, we downloaded for each population climatic data from the NASA database (https://data.nasa.gov) using geographical coordinates (latitude, longitude) of our sampling locations with help of nasapower R package (Sparks, 2018). Climate data for two different time periods were used: 30 years, in order to test for potential long-term effects on traits, and 30 days prior to the collection (sampling) date in order to test for effects of variation in weather conditions that might have impacted the grandparental or parental populations of field-collected flies. In total, 14 environmental variables (Table SXX) were used for each time period and transformed with PCA in the FactoMineR package (Lê et al., 2008). Environmental PCs with eigenvalues > 1 were then used as predictors in linear models of multivariate phenotypes. Separate models were run for males and females for all phenotypic PCs of interest. We also tested whether correlations between phenotype PCs and environmental PCs were greater than expected by random chance by using a permutation-based approach. In this analysis, we permuted environmental PC values for PC1 and PC2 among population labels and then re-ran correlations between environmental PCs and phenotypic PCs. In addition, in order to assess the clinality of traits, we estimated Pearson’s correlations between traits and latitude, longitude, and altitude; input trait values consisted of Line compound estimates from meta-analyses (see above).
@@ -4018,8 +4020,6 @@ knitr::include_graphics("LinearModelsPop/ParasitoidResistance/by_lab_models_resi
 
 
 
-
-
 ## 2.2 - Meta-Analyses
 
 ```{r echo=FALSE}
@@ -4038,12 +4038,16 @@ knitr::include_graphics("MetaAnalyses/all_models_pop_meta_pvalues.png")
 knitr::include_graphics("MetaAnalyses/Viability/Via_NA_lmers_pop_meta_summary_effect.png")
 ```
 
+$$\\[1cm]$$
+
 #### Development Time
 
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("MetaAnalyses/DevelopmentTime/DT_A_F_lmers_pop_meta_summary_effect.png")
 knitr::include_graphics("MetaAnalyses/DevelopmentTime/DT_A_M_lmers_pop_meta_summary_effect.png")
 ```
+
+$$\\[1cm]$$
 
 #### Dry weight
 
@@ -4052,11 +4056,20 @@ knitr::include_graphics("MetaAnalyses/DryWeight/DW_F_lmers_pop_meta_summary_effe
 knitr::include_graphics("MetaAnalyses/DryWeight/DW_M_lmers_pop_meta_summary_effect.png")
 ```
 
+
+$$\\[1cm]$$
+
+
 #### Thorax length
 
 ```{r echo=FALSE, out.width="49%"}
 knitr::include_graphics("MetaAnalyses/ThoraxLength/TL_F_lmers_pop_meta_summary_effect.png")
 ```
+
+
+$$\\[1cm]$$
+
+
 
 #### Wing area
 
@@ -4074,11 +4087,20 @@ knitr::include_graphics("MetaAnalyses/WingArea/WA_R_F_lmers_pop_meta_summary_eff
 knitr::include_graphics("MetaAnalyses/WingArea/WA_R_M_lmers_pop_meta_summary_effect.png")
 ```
 
+
+$$\\[1cm]$$
+
+
+
 #### Fertility
 
 ```{r echo=FALSE, out.width="49%"}
 knitr::include_graphics("MetaAnalyses/Fecundity/Fec_F_lmers_pop_meta_summary_effect.png")
 ```
+
+
+$$\\[1cm]$$
+
 
 #### Lifespan
 
@@ -4087,12 +4109,17 @@ knitr::include_graphics("MetaAnalyses/Lifespan/LS_F_lmers_pop_meta_summary_effec
 knitr::include_graphics("MetaAnalyses/Lifespan/LS_M_lmers_pop_meta_summary_effect.png")
 ```
 
+$$\\[1cm]$$
+
 #### Cold-shock mortality
 
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("MetaAnalyses/ColdShock/CSM_F_lmers_pop_meta_summary_effect.png")
 knitr::include_graphics("MetaAnalyses/ColdShock/CSM_M_lmers_pop_meta_summary_effect.png")
 ```
+
+$$\\[1cm]$$
+
 
 #### Chill-coma recovery time
 
@@ -4101,12 +4128,19 @@ knitr::include_graphics("MetaAnalyses/ChillComa/CCRT_F_lmers_pop_meta_summary_ef
 knitr::include_graphics("MetaAnalyses/ChillComa/CCRT_M_lmers_pop_meta_summary_effect.png")
 ```
 
+
+$$\\[1cm]$$
+
+
 #### Heat-shock mortality
 
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
 knitr::include_graphics("MetaAnalyses/HeatShock/HSM_F_lmers_pop_meta_summary_effect.png")
 knitr::include_graphics("MetaAnalyses/HeatShock/HSM_M_lmers_pop_meta_summary_effect.png")
 ```
+
+$$\\[1cm]$$
+
 
 #### Diapause
 
@@ -4116,6 +4150,10 @@ Using GLMER estimates
 knitr::include_graphics("MetaAnalyses/Diapause/Dia_F_glmers_pop_meta_summary_effect.png")
 ```
 
+
+$$\\[1cm]$$
+
+
 #### Starvation resistance
 
 ```{r fig.show = "hold", out.width = "49%", fig.align = "default", echo = FALSE}
@@ -4123,6 +4161,9 @@ knitr::include_graphics("MetaAnalyses/Starvation/SR_F_lmers_pop_meta_summary_eff
 knitr::include_graphics("MetaAnalyses/Starvation/SR_M_lmers_pop_meta_summary_effect.png")
 
 ```
+
+$$\\[1cm]$$
+
 
 #### Pigmentation
 
@@ -4770,7 +4811,7 @@ The permutation derived threshold for significance is demarcated by the coloured
 knitr::include_graphics("EnvironmentalAnalysis/PCA_Pheno_Clim_SI/all_permutation_results_v3.svg")
 ```
 
-#### Phenotype PC2-Climate PC2 correl. 
+#### Phenotype PC2-Climate PC2 correlation 
 
 Climatic and phenotypic variables with greater-than-average contributions (loadings) to a given principal component are shown in the accompanying x- and y-axis vector plots, respectively. For males (M9 plots on right hand side), the phenotype PC2 is inverted relative to females (loadings for Life span and Thorax Length differ in direction)
 
