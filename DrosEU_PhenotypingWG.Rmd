@@ -2731,7 +2731,7 @@ knitr::include_graphics("HeatShock/p_HSM_M_pop_lm_Vieira.png")
 
 _Females_
 ```{r}
-coxme_anova$HSM_F_coxme_Parsch
+coxme_anova$HSM_F_Parsch_coxme_pop
 ```
 
 ```{r, echo=FALSE}
@@ -2740,7 +2740,7 @@ knitr::include_graphics("SurvivalAnalyses/HeatShock/p_HSM_F_Parsch_survival_curv
 
 _Males_
 ```{r}
-coxme_anova$HSM_M_coxme_Parsch
+coxme_anova$HSM_M_Parsch_coxme_pop
 ```
 
 ```{r, echo=FALSE}
@@ -2751,7 +2751,7 @@ knitr::include_graphics("SurvivalAnalyses/HeatShock/p_HSM_M_Parsch_survival_curv
 
 _Females_
 ```{r}
-coxme_anova$HSM_F_coxme_Vieira
+coxme_anova$HSM_F_Vieira_coxme_pop
 ```
 
 ```{r, echo=FALSE}
@@ -2760,7 +2760,7 @@ knitr::include_graphics("SurvivalAnalyses/HeatShock/p_HSM_F_Vieira_survival_curv
 
 _Males_
 ```{r}
-coxme_anova$HSM_M_coxme_Vieira
+coxme_anova$HSM_F_Vieira_coxme_pop
 ```
 
 ```{r, echo=FALSE}
@@ -3077,33 +3077,52 @@ DT::datatable(table_pop_wbatch$CETS_29_LD_LD_Rhythmicity_JTK_p_BH_corrected, opt
 
 ##### Wegener Lab
 
-From Chris:
+The four phenotypes associated with circadian behavior / locomotor activity are shown in __Fig_CET_1__. The diurnal/nocturnal (ND) ratio did not differ significantly between the populations ( _F_ ~8,83~ = 1.57, p = 0.14). However, the populations differed in their circadian period ( _F_~8,95~ = 2.13, _p_ = 0.04) and their daily level of activity ( _F_~8,83~ = 4.59). The differences in acrophase between the populations were marginally significant (Watson-Williams  _F_-test,  _F_~8,95~ = 2.83, _p_ = 0.07). There was no evidence for a correlation between the circadian phenotypes of the different populations, as tested by Spearman rank correlation, except for the ND ratio and the acrophase ( _t_ = -3.7, _df_ = 7, _p_ = 0.007). This is expected, as both traits represent the preferred diel time of activity of the flies.
+
+
+Eclosion was rhythmic for all populations under LD14:10 and DD conditions at 18° or 29°C ( __Fig_CET_2__ ), with population differences in the eclosion period τ~E~ (MESA), rhythmicity power (JTK_CYCLE and Lomb-Scargle periodogram analysis), eclosion phase Ψ~E~ (MESA) or mean eclosion time (M~E~) ( __Fig_CET_3, Table_CET_1__ ). 
+
+
+Given the role of the circadian system in timing seasonal events, such as diapause or developmental events like adult eclosion, it is not surprising that various determinants of the circadian clock, such as the circadian free-running period, have been shown to follow geographical clines (reviewed by Hut et al., 2013). For example, earlier studies found clines in eclosion rhythms in northern _Drosophila species_ (Lankinen, 1993, 1986). On the other hand, several studies reported a lack of any geographic cline associated with the period, including the eclosion rhythm of _D. auraria_ (Pittendrigh and Takamura, 1989) and the locomotor activity of the red flour beetle _Tribolium castaneum_ (Abe et al., 2021).
+
+
+While diapause showed a longitudinal cline in the current study, neither the free-run period nor the acrophase of locomotor activity correlated with latitude or longitude. In parallel, for eclosion, the  population-specific differences in τ, Ψ~E~ and M~E~  as well as the temperature-dependent shift in Ψ~E~ did not significantly correlate with either longitude nor latitude under all conditions (Spearman rank  correlation analysis); overt geographical patterns in τ and Ψ~E~ or rhythmicity or rhythmicity strength were not found.
+
+
+Various explanations might underlie the lack of geographical clines in the current study. Evidence suggests that the different peripheral oscillators that drive rhythms such as eclosion and locomotor activity are independent (Engelmann and Mack, 1978; Sheeba et al., 2001). Indeed, testing the correlation of eclosion and locomotor rhythm phase of the populations in the current study reveals no significant correlation, although the assays were carried out at different temperatures (Spearman rank correlation, _t_ = 2.2, _df_ = 7, _p_ = 0.07, and _t_ = 0.54, _p_ = 0.6, for eclosion tested at 18°C and 29°C, respectively). The lack of a geographical cline may also be due to a complex climatic pattern that results in bioclimatic conditions that do not change systematically across the populations' habitats along latitude or longitude. As a human commensal (Lachaise and Silvain, 2004), _D. melanogaster_ may encounter such conditions more often than “wild species”. Alternatively, different selective forces may be acting on the different populations in a way that erodes any spatial cline. For example, at high latitudes, some populations may evolve by delaying activity to warmer parts of the day, while others may evolve cold adaptations that allow them to be active during colder parts of the day. Finally, the lack of a clinal pattern in the data may represent limited statistical power. Further research is required to understand the mechanisms that drive the circadian system in wild populations.
+
+$$\\[1cm]$$
+
+__Table_CET_1:__ Eclosion phase ( Ψ~E~, MESA ), mean eclosion time ( M~E~ ), period (τ, MESA) and rhythmicity ( JTK_CYCLE adjusted p with Benjamini-Hochberg correction) for the outcrossed populations ( N = ( 1 ) 2-3 ( 4 ), n=378-3506 eclosed flies, total 39.733 flies)
 
 ```{r echo=FALSE}
-knitr::include_graphics("CircadianEclosion/FromChris/Graphs_plate_MESA.png")
+knitr::include_graphics("CircadianEclosion/FromChris/Table_CET_1.png")
 ```
+
 
 ```{r echo=FALSE}
-knitr::include_graphics("CircadianEclosion/FromChris/Graphs_DrosEU_eclosion/Slide1.png")
+knitr::include_graphics("CircadianEclosion/FromChris/Fig_CET_1.png")
 ```
+
+__Fig_CET_1.__ Locomotor activity phenotypes of wild European D. melanogaster populations. Box plots indicating the median and the interquartile range ( IQR ) of ( __A__ ) ND ratio,( __B__ ) the circadian period, and ( __C__ ) daily time spent in activity. Whiskers signify 1.5 x IQR.  ( __D__ ) The acrophase (phase in DD) is depicted by a circular plot where 0° and 180° correspond to subjective light on (CT0) and light off (CT12), respectively (15°= 1 h). The mean vector and the 95% confidence limits are also depicted. 
+
+$$\\[1cm]$$
 
 ```{r echo=FALSE}
-knitr::include_graphics("CircadianEclosion/FromChris/Graphs_DrosEU_eclosion/Slide2.png")
+knitr::include_graphics("CircadianEclosion/FromChris/Fig_CET_2.png")
 ```
+
+__Fig_CET_2.__ Averaged eclosion profiles in LD14:10 and DD at 18° and 29°C for the different populations. Arrow bars indicate SE, ( N= ( 1 ) 2-3 ( 4 ), n=378-3506 eclosed flies, total 39.733 flies)
+
+$$\\[1cm]$$
 
 ```{r echo=FALSE}
-knitr::include_graphics("CircadianEclosion/FromChris/Graphs_DrosEU_eclosion/Slide3.png")
+knitr::include_graphics("CircadianEclosion/FromChris/Fig_CET_3.png")
 ```
 
-From Eran:
+__Fig_CET_3.__ Period τ and phase Ψ~E~ in LD14:10 and DD at 18° and 29°C for the different populations. 
 
-```{r}
-knitr::include_graphics("CircadianEclosion/FromEran/eclosion_data_Christian_Page_1.png")
-```
 
-```{r}
-knitr::include_graphics("CircadianEclosion/FromEran/eclosion_data_Christian_Page_2.png")
-```
 
 ### Locomotor activity
 
@@ -5310,6 +5329,8 @@ knitr::include_graphics("GDM/GDM_Worldclim/WA_R_M/WA_R_M_vapr06_i-spline.jpeg")
 
 # References
 
+- Abe, M.S., Matsumura, K., Yoshii, T., Miyatake, T., 2021. Amplitude of circadian rhythms becomes weaken in the north, but there is no cline in the period of rhythm in a beetle. PLoS ONE 16: e0245115. 
+
 - Balduzzi S, Rücker G, Schwarzer G. 2019. How to perform a meta-analysis with R: a practical tutorial. Evidence Based Mental Health 22:153-160.
 
 - Bates D, Mächler M, Bolker B, Walker S. 2015. Fitting Linear Mixed-Effects Models Using lme4. Journal of Statistical Software 67:1-48.
@@ -5322,11 +5343,15 @@ knitr::include_graphics("GDM/GDM_Worldclim/WA_R_M/WA_R_M_vapr06_i-spline.jpeg")
 
 - David JR, Gibert P, Legout H, Petavy G, Capy P, Moreteau B. 2005. Isofemale lines in Drosophila: an empirical approach to quantitative trait analysis in natural populations. Heredity 94:3-12.
 
+- Engelmann, W., Mack, J., 1978. Different oscillators control the circadian rhythm of eclosion and activity in Drosophila. Journal of Comparative Physiology A 127:229–237. 
+
 - Falconer DS, Mackay TFC. 1996. Introduction to Quantitative Genetics. 4th Edition. Longman, London.
 
 - Faria VG, Sucena E. 2017. From Nature to the Lab: Establishing Drosophila Resources for Evolutionary Genetics. Frontiers in Ecology and Evolution 5:61.
 
 - Hoffmann AA, Parsons PA. 1988. The Analysis of Quantitative Variation in Natural Populations with Isofemale Strains. Genetics Selection Evolution 20:87-98.
+
+- Hut, R.A., Paolucci, S., Dor, R., Kyriacou, C.P., Daan, S., 2013. Latitudinal clines: An evolutionary view on biological rhythms. Proceedings of the Royal Society B 280:20130433. 
 
 - Kapun M, Barrón MG, Staubach F, Obbard DJ, Wiberg RAW, Vieira J, Goubert C, Rota-Stabelli O, Kankare M, Bogaerts-Márquez M et al. 2020. Genomic analysis of European Drosophila melanogaster populations reveals longitudinal structure, continent-wide selection, and previously unknown DNA viruses. Molecular Biology and Evolution 37:2661-2678.
 
@@ -5335,6 +5360,12 @@ knitr::include_graphics("GDM/GDM_Worldclim/WA_R_M/WA_R_M_vapr06_i-spline.jpeg")
 - Kassambara A, Mundt F. 2020. factoextra: Extract and Visualize the Results of Multivariate Data Analyses. https://cran.r-project.org/package=factoextra.
 
 - Klingenberg CP. 2011. MorphoJ: an integrated software package for geometric morphometrics. Molecular Ecology Resources 11:353-357.
+
+- Lachaise, D., Silvain, J.-F., 2004. How two Afrotropical endemics made two cosmopolitan human commensals: the Drosophila melanogaster - D. simulans palaeogeographic riddle. Genetica 120:17–39. 
+
+- Lankinen, P., 1993. North–south differences in circadian eclosion rhythm in European populations of Drosophila subobscura. Heredity 71:210–218. 
+
+- Lankinen, P., 1986. Geographical variation in circadian eclosion rhythm and photoperiodic adult diapause in Drosophila littoralis. Journal of Comparative Physiology A 159:123–142. 
 
 - Lê S, Josse J, Husson F. 2008. FactoMineR: an R package for multivariate analysis. Journal of Statistical Software 25:1–18.
 
@@ -5347,6 +5378,8 @@ knitr::include_graphics("GDM/GDM_Worldclim/WA_R_M/WA_R_M_vapr06_i-spline.jpeg")
 - Nakagawa S, Schielzeth H. 2013. A general and simple method for obtaining R2 from generalised linear mixed-effects models. Methods in Ecology and Evolution 4:133-142.
 
 - Parsons PA. 1983. The Evolutionary Biology of Colonizing Species. Cambridge University Press, Cambridge.
+
+- Pittendrigh, C.S., Takamura, T., 1989. Latitudinal Clines in the Properties of a Circadian Pacemaker. Journal of Biological Rhythms 4:105–123.
 
 - Pegoraro M, Sayegh Rezek E, Fishman B, Tauber E. 2022. Nucleotide Variation in Drosophila cryptochrome Is Linked to Circadian Clock Function: An Association Analysis. Frontiers in Physiology 13:781380.
 
@@ -5361,6 +5394,8 @@ knitr::include_graphics("GDM/GDM_Worldclim/WA_R_M/WA_R_M_vapr06_i-spline.jpeg")
 - Sambrook J, Fritsch EF, Maniatis T. 1989. Molecular Cloning: A Laboratory Manual. Cold Spring Harbor, NY: Cold Spring Harbor Laboratory.
 
 - Saunders DS, Henrich VC, Gilbert LI. Induction of Diapause in Drosophila melanogaster: Photoperiodic Regulation and the Impact of Arrhythmic Clock Mutations on Time Measurement. Proceedings of the National Academy of Sciences of the USA 1989;86(10):3748-52.
+
+- Sheeba, V., Chandrashekaran, M.K., Joshi, A., Kumar Sharma, V., 2001. A case for multiple oscillators controlling different circadian rhythms in Drosophila melanogaster. Journal of Insect Physiology 47:1217–1225. 
 
 - Simões PM, Mialdea G, Reiss D, Sagot MF, Charlat S. 2011. Wolbachia detection: an assessment of standard PCR protocols. Molecular Ecology Resources 11:567-572.
 
