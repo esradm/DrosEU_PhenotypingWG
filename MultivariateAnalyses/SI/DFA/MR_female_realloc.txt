@@ -1,0 +1,14 @@
+Population	AT-MA	DE-MU	DK-KA	ES-GI	FI-AK	PT-RE	RU-VA	TR-YE	UA-UM	Total
+AT-MA	15	1	1	.	.	1	2	.	1	21
+DE-MU	.	13	2	.	2	1	4	.	.	22
+DK-KA	.	1	14	1	3	.	3	.	.	22
+ES-GI	.	.	3	12	.	1	.	.	.	16
+FI-AK	1	1	.	.	15	.	1	.	.	18
+PT-RE	2	2	.	.	.	11	2	.	1	18
+RU-VA	1	1	.	.	.	.	7	1	.	10
+TR-YE	.	.	.	2	.	.	1	19	.	22
+UA-UM	1	1	.	.	.	.	.	.	14	16
+Total	20	20	20	15	20	14	20	20	16	165
+										
+										
+										
