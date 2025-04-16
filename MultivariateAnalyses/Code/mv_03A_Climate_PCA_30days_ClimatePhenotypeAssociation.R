@@ -536,12 +536,11 @@ d30_df$FROST_DAYS[9] <- sum(Valday_ag$FROST_DAYS)
 d30_df$PRECTOTCORR[9] <- mean(Valday_ag$PRECTOTCORR)
 d30_df$ALLSKY_SFC_LW_DWN[9] <- mean(Valday_ag$ALLSKY_SFC_LW_DWN)
 
-write.csv(d30_df,"all_30d.csv", row.names =F)
-
+#write.csv(d30_df,"all_30d.csv", row.names =F)
 
 #PCA
 # setwd("")
-d30_df <- read.csv("all_30d.csv")
+#d30_df <- read.csv("all_30d.csv")
 rownames(d30_df) <- c("Recarei", "Gimenells", "Karensminde", "Munich", "Mauternbach", "Akaa", "Uman", "Yesiloz", "Valday")
 
 library("FactoMineR")
@@ -583,13 +582,13 @@ fviz_contrib(d30_pca, choice = "var", axes = 1, top = 14, title="Contribution of
 fviz_contrib(d30_pca, choice = "var", axes = 2, top = 14, title="Contribution of variables to PC2")
 
 #pca result dataframe
-d30_df <- read.csv("all_30d.csv")
+#d30_df <- read.csv("all_30d.csv")
 pops_data <- d30_df[,1:5]
 PC1_2 <- d30_pca$ind$coord[1:9, 1:2] #there are 2 PCs with eigvalues >1
 d30_pca_results <- cbind(pops_data, PC1_2)
 colnames(d30_pca_results) <- c("Longitude", "Latitude", "Altitude", "Population",
                                "Country", "PC1_clim", "PC2_clim")
-write.csv(d30_pca_results,"all_30d_PCA.csv", row.names =F)
+#write.csv(d30_pca_results,"all_30d_PCA.csv", row.names =F)
 
 library(corrplot)
 cor_df <- d30_pca_results[ -c(4:5) ]
